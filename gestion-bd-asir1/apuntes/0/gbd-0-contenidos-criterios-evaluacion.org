@@ -1,0 +1,270 @@
+#+INCLUDE: "../common/header.org"
+#+TITLE:  GESTIÓN DE BASES DE DATOS 
+#+SUBTITLE: (CÓDIGO: 0372)
+#+KEYWORDS: 0372
+#+REVEAL_THEME: serif
+
+* Cómo serán las clases
++ Teoría
+  - Basada en apuntes
+  - Con un libro de texto  
++ Ejercicios
+  - Se realizan en clase o en casa
+  - Se ponen en común al día siguiente
++ Práctica
+  - Máquinas virtuales
++ Trabajos
+
+* Materiales 
++ Memoria USB
++ Correo electrónico
++ Acceso a Internet fuera del aula
++ Portátil propio (opcional)
+  - No se puede usar la red del centro 
+  - Se pued usar la wifi
+** Libro de texto
++ Administración de Sistemas Gestores de Bases de Datos
++ Editorial: Garceta
++ Autor: Iván López Montalbán; John Ospino Rivas; Mª Jesús Castellano Pérez
++ ISBN: 978-84-1622-829-4
+[[file:portada-libro.gif]]
+
+* Entrega de Trabajos
+- Via *Moodle*
+  + Nuestro curso es http://aulavirtual2.educa.madrid.org/course/view.php?id=16620
+  + El curso es accesible incluso sin usuario
+- Se utilizará Microsoft Office (*DOC*, *DOCX*)
+  + Opcionalmente, *PDF* o LibreOffice (*ODT*)
+- Se tendrá en cuenta
+  + La corrección técnica de los trabajos
+  + La fecha de entrega
+  + Expresión, sintaxis, ortografía
+  + La apariencia profesional
+
+
+* Normas
+- Retrasos y faltas
+- Uso de los ordenadores
+  - No pueden utilizarse para tareas distintas de las encargadas por el profesor
+  - Se respetará a otros alumnos
+- Móviles
+  - No.
+  - Un /smartwatch/ se considera un móvil.
+
+
+** Averías de los ordenadores
+- Los problemas se comunican al profesor en cuanto se detectan
+- Se deben hacer copias de seguridad para no perder los datos de los discos
+  - Pen Drive
+  - Disco Externo
+  - Correos enviados a uno mismo
+  - Copias en los ordenadores de otros compañeros
+- Norma fundamental: 
+*Si se pierde porque no hay copia, es que no era importante*
+
+* Cómo será la evaluación
+- Trabajos
+- Actitud
+  - Puntualidad, interés, preguntas al profesor, puesta en común de resultados, comportamiento...
+- Exámenes
+  - Dos parciales y un final por evaluación
+  - Se necesita un mínimo de *3,5* en cada parcial para hacer media
+- Entrega de trabajos
+  - Individuales
+  - Un trabajo entregado tarde puntua como máximo *6*
+
+** Cálculo de la nota
+- Nota de la evaluación
+#+begin_src notas
+trabajos*0.30 + actitud*0.05 + exámenes*0.65
+#+END_SRC
+
+- Nota de exámenes
+#+begin_src notas
+La mayor de:
+  * Media de la nota de los parciales
+  * Examen final
+#+end_src
+
+- Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]
+
+
+
+* Temas del libro de referencia
+
+* Contenidos
+
+- Decreto 12/2010, de 18 de marzo
+
+** Sistemas de almacenamiento de la información:
+- Ficheros (planos, indexados y acceso rápido, de marcas, entre otros).
+- Bases de Datos (BD). Conceptos, usos y tipos según el modelo de datos, la ubicación de la información.
+- Sistemas gestores de bases de datos (SGBD): funciones, componentes y tipos.
+** Diseño conceptual y lógico de bases de datos:
+- Modelos de datos: relacional y orientado a objetos.
+- La representación del problema. El modelo conceptual: los diagramas E/R (Entidad/Relación).
+  - Entidades y atributos. Identificadores principales.
+  - Relaciones: cardinalidad y correspondencia.
+  - Relaciones de dependencia en existencia y en identificación.
+- El modelo E/R ampliado:
+  - Atributos multivaluados y compuestos.
+  - Jerarquías y generalizaciones.
+  - Asociaciones.
+- El modelo relacional: Terminología del modelo relacional. Características de una relación.
+Claves primarias y claves ajenas.
+- Paso del diagrama E/R al modelo relacional.
+- Normalización. Dependencias funcionales. Formas normales. Conveniencia de la desnormalización.
+- El modelo orientado a objetos. Conceptos generales.
+    - Diagramas de clases y de objetos.
+** Diseño físico de bases de datos:
+- Herramientas gráficas proporcionadas por el sistema gestor para la implementación de la base de datos.
+- Lenguaje estándar de consulta SQL (Standard Query Language).
+  - Lenguaje de definición de datos DDL (Data Definition Language): Creación, modificación y eliminación de objetos de la base de datos.
+  - Lenguaje de manipulación de datos DML (Data Manipulation Language): Selección, inserción, modificación y eliminación de registros.
+  - Lenguaje de control de datos DCL (Data Control Language): Confirmación/anulación de transacciones.
+- Creación, modificación y eliminación de bases de datos.
+- Creación, modificación y eliminación de tablas. Tipos de datos.
+- Implementación de restricciones sobre tablas: clave primaria, clave ajena, unicidad, chequeo, valores por defecto.
+- Truncado de tablas.
+** Realización de consultas:
+- Herramientas gráficas, proporcionadas por el sistema gestor o externas, para la realización de consultas.
+- Selección de registros:
+  - Elección de origen de datos: tablas, vistas, selecciones.
+  - Filtrado de registros.
+  - Orden de los resultados devueltos.
+- Tratamiento de valores nulos.
+- Consultas de resumen. Agrupamiento de registros. Filtrado sobre agrupaciones.
+- Operaciones de conjuntos sobre consultas: unión, intersección y diferencia.
+- Vinculación de tablas: claves primarias y ajenas. Composiciones internas y externas.
+- Subconsultas:
+  - Devolución de valores individuales.
+  - Devolución de listas de valores.
+  - Devolución de tuplas de valores.
+  - Correlacionadas.
+- Consultas jerárquicas.
+** Edición de los datos:
+- Herramientas gráficas, proporcionadas por el sistema gestor o externas, para la edición de la información.
+- Sentencias de inserción, eliminación y actualización de registros:
+  - A partir de datos proporcionados por el usuario.
+  - A partir de datos recuperados mediante subconsultas.
+- Subconsultas y combinación de órdenes de edición.
+- Transacciones. Estados temporales intermedios de la base de datos. Sentencias de procesamiento de transacciones.
+- Acceso simultáneo a los datos: políticas de bloqueo. Niveles de bloqueo (fila, tabla).
+** Creación de otros objetos de la base de datos:
+- Vistas. Vistas montadas sobre múltiples tablas. Operaciones sobre vistas.
+- Sinónimos de objetos.
+- Enlaces a otras bases de datos.
+** Optimización de consultas:
+- Creación de índices. Monocampo vs. multicampo.
+- Índices únicos y con duplicados.
+- Índices basados en funciones.
+- Criterios para la creación de índices.
+- Plan de ejecución de sentencias. Análisis comparativo.
+- Métodos de vinculación de tablas.
+- Optimización basada en costes vs. basada en reglas.
+- Sugerencias (hints) de ejecución.
+** Construcción de guiones:
+- Introducción. Conceptos generales del lenguaje de programación integrado en el SGBD.
+- Tipos de datos, identificadores, variables.
+- Operadores. Estructuras de control.
+- Cursores.
+- Procedimientos y funciones almacenados.
+- Excepciones.
+** Gestión de seguridad de los datos:
+- Tipos de fallos.
+- Recuperación de fallos.
+- Copias de seguridad.
+- Herramientas gráficas y utilidades proporcionadas por el sistema gestor para la realización de copias de seguridad.
+- Sentencias para la realización y recuperación de copias de seguridad.
+- Herramientas gráficas y utilidades para importación y exportación de datos.
+- Transferencia de datos entre sistemas gestores.
+** Bases de datos distribuidas:
+- Conceptos y diseño.
+- Casos de idoneidad.
+- Técnicas de fragmentación: vertical, horizontal, mixta.
+- Técnicas de distribución de datos.
+- Esquemas de asignación y replicación de datos.
+
+
+* Criterios de evaluación
+
+
+
+
+* Contenidos básicos
+- Incluídos solo como referencia
+- No son aplicables en la Comunidad de Madrid
+
+** Caracterización de redes:
+−  Terminología: redes LAN, MAN y WAN, topologías, arquitecturas, protocolos.
+−  Sistemas de numeración decimal, binario y hexadecimal. Conversión entre sistemas.
+−  Arquitectura de redes.
+−  Encapsulamiento de la información.
+−  El modelo OSI.
+−  El modelo TCP/IP.
+−  Las tecnologías /Ethernet/.
+−  El modelo OSI y /Ethernet/.
+−  Tipos de cableado /Ethernet/.
+** Integración de elementos en una red:
+−  Los medios físicos.
+−  Ancho de banda y tasa de transferencia.
+−  Los cables metálicos (coaxial, STP y UTP).
+−  Factores físicos que afectan a la transmisión.
+−  La conexión inalámbrica. Los espectros de onda de microondas y radio. Topologías.
+** Asociación y autenticación en la WLAN.
+−  Direccionamiento.
+−  Dominios de colisión y de /broadcast/.
+−  Direcciones IPv4 y máscaras de red.
+−  Direccionamiento dinámico (DHCP).
+−  Adaptadores.
+−  Adaptadores alámbricos: instalación y configuración.
+−  Adaptadores inalámbricos: instalación y configuración.
+** Configuración y administración de conmutadores:
+−  Segmentación de la red. Ventajas que presenta.
+−  Conmutadores y dominios de colisión y /broadcast/.
+−  Segmentación de redes.
+−  Formas de conexión al conmutador para su configuración.
+−  Configuración del conmutador.
+−  Configuración estática y dinámica de la tabla de direcciones MAC.
+** Configuración y administración básica de /routers/:
+−  Los /routers/ en las LAN y en las WAN.
+−  Componentes del /router/.
+−  Formas de conexión al /router/ para su configuración inicial.
+−  Comandos para configuración del /router/.
+−  Comandos para administración del /router/.
+−  Configuración del enrutamiento estático.
+−  Definición y ubicación de listas de control de acceso (ACLs).
+** Configuración de redes virtuales:
+−  El diseño de redes locales a tres capas (núcleo, distribución y acceso).
+−  Implantación y configuración de redes virtuales.
+−  Definición de enlaces troncales en los conmutadores y /routers/. El protocolo IEEE802.1Q.
+** Configuración y administración de protocolos dinámicos:
+−  Protocolos enrutables y protocolos de enrutamiento.
+−  Protocolos de enrutamiento interior y exterior.
+−  El enrutamiento sin clase.
+−  La subdivisión de redes y el uso de máscaras de longitud variable (VLMs).
+−  El protocolo RIPv2; comparación con RIPv1.
+−  Configuración y administración de RIPv1.
+−  Configuración y administración de RIPv2.
+** Configuración del acceso a Internet desde una LAN:
+−  Direccionamiento interno y direccionamiento externo.
+−  NAT origen y NAT destino.
+−  NAT estático, dinámico, de sobrecarga (PAT) e inverso.
+−  Configuración de NAT.
+−  Diagnóstico de incidencias de NAT.
+−  Configuración de PAT.
+
+
+
+* Orientaciones pedagógicas.                   :noexport:
+
+
+Este módulo profesional contiene la formación necesaria para desempeñar la función de conectar ordenadores, dispositivos y electrónica de red en una red de área local. La definición de estas funciones incluye aspectos como:
+−  El diseño de la estructura de una red local, identificando los elementos que deben integrarla.
+−  El conexionado y configuración de los elementos de la red local.
+−  La monitorización de la red local.
+−  La resolución de incidencias físicas y lógicas de la red local.
+−  La creación de redes virtuales.
+−  La conexión de la red local a una red de área extensa.
+
+
