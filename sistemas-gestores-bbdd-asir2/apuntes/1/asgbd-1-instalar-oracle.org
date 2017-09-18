@@ -1,0 +1,281 @@
+#+INCLUDE: "../common/header.org"
+#+TITLE:  Instalación de Oracle
+#+REVEAL_THEME: serif
+
+
+
+
+
+
+* Instalación del software de base de datos
+
+** Prerequisitos
+- Será una máquina virtual de VirtualBox
+- El fichero =OVA= del profesor ya tiene:
+  - *Fedora 26* instalado (inglés)
+  - *Oracle 11gR2* descargado
+    - Hay versiones más actuales, pero tienen un problema con Virtual Box y la paravirtualización
+
+
+** Resolver el propio nombre
+- Cambiar el nombre de la máquina 
+  - Por ejemplo =nombrealumnoASGBD=
+- Fichero =/etc/hosts=
+- Hay que añadir el nombre de la máquina en 
+  - =127.0.0.1=
+  - =::1=
+- Reiniciar la máquina
+
+** Antes de empezar ::no_export::
+- Para Fedora y 11g
+- Necesitamos varios componentes de Linux.
+  - Su firma ([[https://docs.oracle.com/cd/E52668_01/E39381/html/ol_import_gpg.html]])
+
+#+begin_src
+wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol7
+rpm --import ./RPM-GPG-KEY-oracle-ol7
+#+end_src
+
+  - Instalación
+
+#+begin_src
+cd /etc/yum.repos.d/
+wget http://public-yum.oracle.com/public-yum-ol7.repo
+yum install oracle-rdbms-server-11gR2-preinstall
+yum update --skip-broken
+#+end_src
+
+(referencia em https://oracle-base.com/blog/2015/03/26/oracle-linux-7-1-preinstall-packages-available-for-11gr2-and-12cr1/)
+
+** Antes de empezar
+- Actualizar los repositorios Centos
+
+#+begin_src sh
+sudo yum clean all # Reinicia los repositorios
+wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-10.noarch.rpm # nos bajamos un repositorio extra
+rpm -ihv epel-release-7-10.noarch.rpm # instalamos ese repositorio
+sudo yum update #opcional, puede necesitar mucho tiempo
+#+end_src
+
+
+** Descomprimir el instalador
+- Descomprimiremos sus ficheros y borraremos los =zip= originales
+  - Directorio =$HOME/Donwloads/oracle=
+
+** Arrancar el instalador
+1. Se arranca con =./runInstaller=
+2. Ignorar la dirección de /email/ 
+3. Instalar sólo el /software/ de la base de DATOS
+4. Elegir /Single instance database/
+5. Idiomas:
+   - Podemos dejar el inglés, o añadir el español
+6. Edición Enterprise
+
+** Directorios de Oracle
+Dejamos los directorios por defecto:
+- Oracle Base: =/home/alumno/app/alumno=
+- /Software/ en =/home/alumno/app/alumno/product/11.2.0/dbhome_1=
+- /Inventory/ en =/home/alumno/app/oraInventory=
+
+** Grupos de /Linux/
+
+- Elegir =wheel= 
+  - Es un grupo administrador en *Fedora* 
+
+** Comprobaciones
+- Ignoraremos el poco espacio en la partición de /swap/ y en /tmp/
+- El instalador detectará algunos errores, pero genera un /script/ de /fix/
+  - Se ejecuta como administrador
+- Ignoraremos los parámetros del kernel
+- Se necesita instalar varios paquetes de software
+  - =sudo yum install= /=paquete=/
+  - Es necesario que la máquina virtual tenga acceso a internet (por ejemplo, /NAT/)
+
+#+begin_notes
+sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-0.3.109
+#+end_notes
+
+** Resumen
+- Se debe grabar la información de la hoja de resumen
+
+[[file:resumen-instalacion.png]]
+
+** Finalización
+- El instalador pedirá ejecutar varios /scripts/ como =root=
+- Necesitamos definir algunas variables de entorno (fichero =~/.profile= o =~/.bash_profile=)
+  - =ORACLE_HOME=: =/home/alumno/app/alumno/product/12.1.0/asir_bbdd=
+  - =ORACLE_SID=: =asir= (es el nombre que le pondremos a la base de datos)
+  - Es aconsejable incluir =$ORACLE_HOME/bin= en el =PATH=
+
+** Reiniciar
+- En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
+- Después, podemos ver que los programas están, *pero no hacen nada*
+#+BEGIN_SRC sh
+[alumno@fedora-64-26 ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 12.1.0.2.0 Production on Thu Sep 14 11:58:09 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+ERROR:
+ORA-12162: TNS:net service name is incorrectly specified
+
+
+Enter user-name: 
+#+END_SRC
+
+
+* Instancia / /listener/ / base de datos
+- Instancia: 
+  - Varios procesos funcionando
+  - Permite manipular *una* o *varias* base de datos (En /Oracle/ solo una)
+
+- Base de datos 
+  - Varios *ficheros*
+  - Contienen datos, índices, esquema,...
+
+- Listener
+  - Proceso que admite *conexiones* de clientes
+  - En otros SGBD (/MySQL/) la instancia es su propio /listener/
+  - Conecta los clientes con la instancia pedida
+
+** Instancias y bases de DATOS
+
+[[file:diagrama-instancias-bbdd.png]]
+
+** Ejemplo (I) de listener
+
+[[file:cliente-listener-instancia.png]]
+
+
+** Ejemplo (II) de listener
+
+[[file:cliente-listener-instancia-complejo.png]]
+
+
+
+
+
+* Creación de una instancia de base de datos
+
+- Comando =dbca=
+- No está en el =PATH=
+  - Se puede buscar con =locate=
+  - Para que funcione =locate=, hay que ejecutar previamente =updatedb=
+- Utilizad la configuración típica
+  - Nombre: =asir=
+  - Que no sea una /container database/
+- Guardad la información de la página de resumen (por si acaso)
+  - =ORACLE_SI
+
+** Paravirtualización
+- =dbca= se puede colgar si la paravirtualización está a algún valor que no sea =none=
+
+    
+
+* Creación de un /listener/ 
+- Permiten las conexiones de clientes remotos
+- Comando =netca=
+  - Nombre del listener: =LISTENER=
+  - Protocolo /TCP/
+  - Puerto =1521=
+- Comprobar la configuración creada en el fichero =listener.ora=
+  - Si luego falla, revisar =ADR_BASE_LISTENER=
+
+
+* Conexión en local
+
+#+BEGIN_SRC sh
+sqlplus / as sysdba  
+#+END_SRC
+    
+
+
+
+* Conexión remota
+- Es necesario conocer la IP de nuestro servidor
+  - =ifconfig=
+  - =hostname -I=
+- Es necesario que el ordenador cliente pueda acceder al servidor
+  - Tipo de conexión de la máquina virtual: mejor /bridged/
+  - =ping=
+  - /Firewall/: =systemctl disable firewalld=
+- Para que funcione correctamente *avahi*, hay que instalar =nss_mdns=
+
+
+** Configuración de las conexiones (*sqlplus*) :noexport:
+- El cliente =sqlplus= utiliza las conexiones definidas en el
+ fichero =tnsnames.ora=
+- Con el comando =netca=
+  - Elegir los nombres locales (/Local net service name configuration/)
+
+
+** Acceso via Web
+- Al crear la base de datos con =dbca= se configura el acceso *Enterprise Manager*
+  - URL =https://= *=nombre-o-ip=* =:5500/em/=
+- Tenemos *IP* dinámica, por lo que debemos configurar una resolución por nombre 
+  - *DNS* es complicado
+  - Usaremos *avahi* entre linux, y *samba* entre linux y windows
+
+
+** Instalación de *SQLDeveloper*
+- Se necesita *JDK 1.8*
+- Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
+  - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
+- Arracar =sqldeveloper= desde la consola
+  - Preguntará por el directorio de instalación del JDK
+
+*** Conexión remota
+- Es necesario conocer la IP o el nombre del ordenador remoto
+- Si nos fiamos de =DHCP=, cada día puede ser una IP distinta
+- Es mejor usar un *nombre*
+  - DNS: muy difícil
+  - Nombres netbios de Windows
+  - Nombres zeroconf/avahi de Linux/Mac (*preferido*)
+
+*** avahi 
+- Instalar =avahi= y =avahi-tools=
+- Activar opciones =publish-hinfo= y =publish-workstation=
+- Desactivar el firewal
+- Importante: el nombre afecta al fichero =listener.ora=
+- El nombre de red será el que tengamos más =.local=
+  - Por ejemplo, =profebd.local=
+- Con esto un windows puede econtrar a un linux
+  - Para que Linux encuentre a otro linux, hay que cambiar =/etc/nsswitch.conf=
+
+*** Samba 
+- [[https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7]]
+  - =sudo yum install samba samba-client samba-common=
+  - =systemctl enable smb.service=
+  - =systemctl enable nmb.service=
+  - Cambiar el fichero =smb.conf=, el =netbios name=
+    - *Ojo*: máximo 15 caracteres, sin guiones
+- Importante: el nombre afecta al fichero =listener.ora=
+
+
+
+* Arrancar y parar la base de datos
+
+- Arrancar la base de datos
+#+begin_src sh
+dbstart $ORACLE_HOME
+#+end_src
+
+- Parar la base de datos
+#+begin_src sh
+dbshut $ORACLE_HOME
+#+end_src
+
+- Comprobar que se admiten conexiones
+#+begin_src sh
+lsnrctl status
+#+end_src
+
+
+** Reinicio del servidor
+- Comprobar =/etc/oratab=
+  - Deberá estar configurada para iniciarse con el sistema
+- Comprobar que la interfaz de red se inicia en el arranque
+  - =/etc/sysconfig/network-scripts=
+  - =ONBOOT= debe ser =YES=

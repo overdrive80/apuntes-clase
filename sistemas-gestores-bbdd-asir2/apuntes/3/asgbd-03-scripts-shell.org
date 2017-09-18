@@ -1,0 +1,233 @@
+#+include: "../common/header.org"
+#+Title: Scripts de shell para Oracle
+#+REVEAL_THEME: simple
+#+EXCLUDE_TAGS: no_export
+
+
+* Introducción
+- Muchas tareas del mantenimiento de una base de datos *Oracle* se llevan a cabo desde la línea de comandos
+- Por tanto, pueden automatizarse
+  - Arranque y parada
+  - Extracción de datos
+  - Copia de seguridad de datos
+  - Restauración de datos
+- Para ello, se utilizan las facilidades de ejecución del sistema operativo aprendidas en otros módulos
+
+
+* Prerrequisitos
+
+- Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia
+- Para ello, necesitan las variables de entorno =ORACLE_HOME= y =ORACLE_SID=.
+- También es conveniente añadir los comandos de *Oracle* al /path/
+- El siguiente /script/ puede utilizarse para tener estas variables (ejecutándolo con =source=)
+
+#+begin_src shell
+#!/bin/sh 
+ORACLE_HOME=/var/oracle/product/12.1.0/asir_bbdd
+ORACLE_SID=asir
+PATH=$ORACLE_HOME/bin:$PATH
+export ORACLE_HOME
+export PATH
+export ORACLE_SID
+#+end_src
+
+** Autenticación de *SQLPlus*
+- *SQLPlus* se autentica/autentifica de varias formas
+  - Mediante *Oracle*: usuarios creados con =create user..=
+  - Mediante el *sistema operativo*: Al instalar, se indica un grupo de usarios que *Oracle* considera autenticados (grupo =wheel=)
+
+#+reveal: split
+*SQLPlus* con autenticación de sistema operativo
+#+begin_src shell
+sqlplus / as sysdba
+#+end_src
+
+*SQLPlus* con autenticación de *Oracle*
+#+begin_src shell
+sqlplus sys/alumno as sysdba
+#+end_src
+
+** Conexiones de *SQLPlus*
+- Hasta ahora
+  - todas las conexiones de *SQLPlus* son locales, sin utilizar la red
+  - todas las conexiones de *SQLDeveloper* son por red
+- Para conectar por red con *SQLPlus* se utiliza un descriptor de conexión
+  - Los descriptores están en el fichero =tnsnames.ora=
+
+#+begin_src shell
+sqlplus sys/alumno@CONEXION as sysdba
+#+end_src
+
+** =tnsnames.ora=
+
+
+
+
+* Ejecución de *SQL* desde la /shell/
+- El comando =sqlplus=  puede ejecutarse desde la shell
+- Lee las órdenes SQL desde la entrada estándar.
+  - Se puede redirigir de un fichero
+  - Se puede usar un /heredoc/
+
+** Ejemplo /heredoc/
+#+begin_src shell
+sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+set  autocommit off
+create table prueba(un_atributo int);
+insert into prueba values(1);
+insert into prueba values(2);
+select * from prueba;
+rollback;
+HEREDOC
+#+end_src
+
+** Consultas a fichero 
+
+- Puede enviarse la salida a un fichero
+
+#+begin_src shell
+sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+set  autocommit off
+insert into prueba values(1);
+insert into prueba values(2);
+spool prueba.txt
+select * from prueba;
+spool off
+rollback;
+HEREDOC
+
+less prueba.txt
+#+end_src
+
+** Formateo básico de la salida 
+
+- Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
+#+begin_src shell
+sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
+set colsep ','    -- separate columns with a comma
+set pagesize 0    -- No header rows
+set trimspool on  -- remove trailing blanks
+set headsep off   -- this may or may not be useful...depends on your headings.
+set linesize 1000 -- X should be the sum of the column widths
+
+
+spool tablas.csv
+
+select table_name, tablespace_name 
+  from all_tables
+ where owner = 'SYS'
+   and tablespace_name is not null;
+
+spool off
+HEREDOC
+#+end_src
+
+** /Scripts/ *SQL* para =sqlplus=                                
+
+- =sqlplus= también puede leer scripts de =SQL= con *=@=*
+
+#+begin_src shell
+sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
+@/camino/al/fichero.sql
+HEREDOC
+#+end_src
+
+
+* Arranque y parada 
+
+
+** =dbstart= y =/etc/oratab=
+- *Oracle* proporciona el /script/ =dbstart= para arrancar instancias de base de datos
+- Se guía por el contenido de =/etc/oratab=
+- Por alguna razón, 
+  - no levanta el /listener/ :(
+  - no hace =startup open=, así que no se registra en el /listener/ :( 
+  - Se puede modificar el /script/ para que lo haga
+
+#+begin_src shell
+# This file is used by ORACLE utilities.  It is created by root.sh
+# and updated by either Database Configuration Assistant while creating
+# a database or ASM Configuration Assistant while creating ASM instance.
+
+# A colon, ':', is used as the field terminator.  A new line terminates
+# the entry.  Lines beginning with a pound sign, '#', are comments.
+#
+# Entries are of the form:
+#   $ORACLE_SID:$ORACLE_HOME:<N|Y>:
+#
+# The first and second fields are the system identifier and home
+# directory of the database respectively.  The third field indicates
+# to the dbstart utility that the database should , "Y", or should not,
+# "N", be brought up at system boot time.
+#
+# Multiple entries with the same $ORACLE_SID are not allowed.
+#
+#
+asir:/var/oracle/product/12.1.0/asir_bbdd:Y
+#+end_src
+
+
+
+** Ejecutar *Oracle* al iniciar el sistema
+- Cada sitema operativo tiene sus formas de arrancar servicios/demonios al inicio
+  - *Windows*: Servicios
+  - *Linux*:
+    - *systemd*: Ficheros en el directorio =/etc/systemd/system=. Se controla con la orden =systemctl=
+    - *rc init*: Se basaba en /scripts/ en los directorios =/etc/rc.*=. Se está reemplazando por *systemd*
+
+** *systemd*
+- Los servicios se crean con ficheros en =/etc/systemd/system=
+  - Dependen de otros servicios (=After=)
+  - Otros servicios dependen de ellos (=WantedBy=)
+  - Se puede elegir el usuario que lo lanza (=User=)
+
+#+begin_src shell
+[Unit]
+Description=Oracle
+After=network.target
+
+[Service]
+Type=forking
+User=alumno
+ExecStart=/home/alumno/oracle-al-inicio.sh
+ExecStop=/home/alumno/oracle-al-final.sh
+
+
+[Install]
+WantedBy=multi-user.target
+#+end_src
+
+Más información con =man systemd.service=
+
+#+reveal: split
+
+- Habilitar/Deshabilitar un servicio al inicio del sistema
+#+begin_src shell
+systemctl enable SERVICIO
+systemctl disable SERVICIO
+#+end_src
+
+- Arrancar o parar un servicio
+#+begin_src shell
+systemctl start SERVICIO
+systemctl stop SERVICIO
+#+end_src
+
+
+* Operaciones periódicas
+
+- Los sistemas operativos aportan formas para ejecutar tareas periódicamente
+  - *Windows* tiene las *tareas programadas*
+  - *Linux* tiene el sistema =cron=
+
+** =cron=
+- Es un servicio que 
+  - Lee el fichero =/etc/crontab=
+  - Ejecuta las órdenes descritas en ese fichero
+  - Más información [[https://es.wikipedia.org/wiki/Cron_(Unix)#Formato_del_fichero_crontab][en la Wikipedia]]
+- Suele utilizar el comando =run-parts=
+  - Este comando ejecuta todos los comandos de un directorio
+  - Más información con =man run-parts=
+
+
+
