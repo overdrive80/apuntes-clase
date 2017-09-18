@@ -1,0 +1,503 @@
+#+INCLUDE: "../common/header.org"
+#+TITLE:  PLANIFICACIÓN Y ADMINISTRACIÓN DE REDES 
+#+SUBTITLE: (CÓDIGO: 0370)
+#+KEYWORDS: 0370
+#+REVEAL_THEME: serif
+
+* Cómo serán las clases
++ Teoría
+  - Basada en apuntes
+  - Con un libro de texto  
++ Ejercicios
+  - Se realizan en clase o en casa
+  - Se ponen en común al día siguiente
++ Práctica
+  - Máquinas virtuales
+  - Packet Tracer
++ Trabajos
+
+* Materiales 
++ Memoria USB
++ Correo electrónico
++ Acceso a Internet fuera del aula
++ Portátil propio (opcional)
+  - No se puede usar la red cableada del centro 
+  - Se usará la Wifi
+** Libro de texto
++ *Planificación y Administración de Redes*
++ Editorial: Garceta
++ Autor: Juan Manuel Castro Ramos, José Ramón Rodríguez Sánchez
++ ISBN: 978-84-1545-296-6
+[[file:portada-libro.gif]]
+
+* Entrega de Trabajos
+- Via *Moodle*
+  + Nuestro curso es
+  + El curso es accesible incluso sin usuario
+- Se utilizará Microsoft Office (*DOC*, *DOCX*)
+  + Opcionalmente, *PDF* o LibreOffice (*ODT*)
+- Se tendrá en cuenta
+  + La corrección técnica de los trabajos
+  + La fecha de entrega
+  + Expresión, sintaxis, ortografía
+  + La apariencia profesional
+
+
+* Normas
+- Retrasos y faltas
+- Uso de los ordenadores
+  - No pueden utilizarse para tareas distintas de las encargadas por el profesor
+  - Se respetará a otros alumnos
+- Móviles
+  - No.
+  - Un /smartwatch/ se considera un móvil.
+
+
+** Averías de los ordenadores
+- Los problemas se comunican al profesor en cuanto se detectan
+- Se deben hacer copias de seguridad para no perder los datos de los discos
+  - Pen Drive
+  - Disco Externo
+  - Correos enviados a uno mismo
+  - Copias en los ordenadores de otros compañeros
+- Norma fundamental: 
+*Si se pierde porque no hay copia, es que no era importante*
+
+* Cómo será la evaluación
+- Trabajos
+- Actitud
+  - Puntualidad, interés, preguntas al profesor, puesta en común de resultados, comportamiento...
+- Exámenes
+  - Dos parciales y un final por evaluación
+  - Se necesita un mínimo de /3,5/ en cada parcial para hacer media
+- Entrega de trabajos
+  - Individuales
+  - Un trabajo entregado fuera de plazo tiene una nota máxima de /6/
+
+** Cálculo de la nota
+- Nota de la evaluación
+#+begin_src notas
+trabajos*0.30 + actitud*0.05 + exámenes*0.65
+#+END_SRC
+
+- Nota de exámenes
+#+begin_src notas
+La mayor de:
+  * Media de la nota de los parciales
+  * Examen final
+#+end_src
+
+- Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]
+
+  
+
+* Temas del libro de referencia
+
+** Capítulo 1. Caracterización de redes
+1.1. La comunicación
+1.2. Concepto de red. Ventajas
+1.3. Topología de red
+1.4. Clasificación general de redes
+1.5. Evolución del trabajo en red (networking)
+1.6. Sistemas de numeración
+
+** Capítulo 2. Arquitecturas de red
+2.1. Organizaciones de estándares
+2.2. Arquitectura de red
+2.3. Arquitectura TCP/IP
+2.4. Modelo de referencia OSI
+2.5. Comparativa del modelo OSI con la arquitectura TCP/IP
+2.6. Captura de tráfico con Wireshark
+2.7. Captura de tráfico http con Packet Tracer
+
+** Capítulo 3. Redes de área Local
+3.1. Introducción a las LAN
+3.2. Proyecto IEEE 802
+3.3. La familia Ethernet
+3.4. Token Bus
+3.5. Token Ring
+3.6. FDDI
+3.7. WLAN. Wireless LAN
+
+** Capítulo 4. Nivel Físico
+4.1. Introducción a las señales
+4.2. Tipos de transmisión
+4.3. Técnicas de transmisión
+4.4. Medios de transmisión
+4.5. Limitaciones de los medios de transmisión
+
+** Capítulo 5. Cableado estructurado
+5.1. Introducción
+5.2. Espacios y recorridos para telecomunicaciones en edificios comerciales
+5.3. Cableado de telecomunicaciones en edificios comerciales
+
+** Capítulo 6. Nivel de Enlace
+6.1. Funciones del nivel de enlace
+6.2. Tramado
+6.2.1. Formato de trama PPP para redes WAN
+6.2.2. Formato de trama Ethernet
+6.2.3. Formato de trama 802.11 (Wi-Fi)
+6.3. Control de acceso al medio
+6.3.1. Multiplexación FDM y TDM
+6.3.2. Paso de testigo
+6.3.3. CSMA/CD
+6.3.4. CSMA/CA
+6.4. Control de flujo
+6.5. Control de errores
+6.6. Direccionamiento físico
+
+** Capítulo 7. El switch. STP. VLAN. Diseño de una red
+7.1. El switch
+7.1.1. Evolución histórica
+7.1.2. Funcionamiento
+7.1.3. Características del switch
+7.1.4. Técnicas de reenvío
+7.1.5. Tipos de switches
+7.1.6. Configuración básica de un switch gestionable CISCO
+7.2. VLAN. Red LAN virtual
+7.2.1. Concepto de VLAN
+7.2.2. Tipos de VLAN según membresía
+7.2.3. Tipos de enlaces
+7.2.4. Tipos de VLAN según su función
+7.2.5. Protocolo VTP. Configuración dinámica de VLANs
+7.3. Diseño de una red jerárquica
+7.3.1. Capas de una red jerárquica
+7.3.2. Ventajas del diseño de una red jerárquica
+7.3.3. Principios de diseño de redes jerárquicas
+7.3.4. Características de los switeches de cada capa
+7.3.5. Protocolo SNMP. Monitores de red
+
+** Capítulo 8. Nivel de red. Direccionamiento IPv4 e IPv6. Adaptadores de red
+8.1. Nivel de red. Objetivo, funciones y protocolos
+8.2. Protocolo IP
+8.2.1. Características
+8.2.2. Formato del datagrama IPv4
+8.2.3. Formato del datagrama IPv6
+8.3. Direccionamiento IPv4
+8.3.1. Direcciones IPv4
+8.3.2. Clases
+8.3.3. Direcciones reservadas
+8.3.4. Direcciones especiales
+8.3.5. Direcciones públicas
+8.3.6. Direcciones privadas
+8.5.7. Máscaras de subred
+8.4. Subredes
+8.4.1. Necesidad de las subredes
+8.4.2. Método para la creación de subredes (subnetting)
+8.4.3. Herramientas para subnetting
+8.5. Configuración del adaptador de red
+8.5.1. Configuración en Windows
+8.5.2. Configuración en Linux
+8.6. Asignación dinámica de direcciones (DHCP)
+8.7. Protocolo ARP
+8.8. Protocolo ICMP. Diagnóstico de redes
+8.8.1. Mensajes de solicitud y respuesta de eco (Echo y Echo Reply)
+8.8.2. Mensajes de tiempo excedido (Time exceeded)
+8.9. Direccionamiento IPv6
+8.9.1. Formatos de direcciones IPv6
+8.9.2. Tipos de direcciones IPv6
+8.9.3. Índice de zona
+8.9.4. Mecanismos de transición IPv4 a IPv6
+
+** Capítulo 9. El router. Configuración
+9.1. El router
+9.1.1. Introducción
+9.1.2. Arquitectura del router
+9.1.3. Nivel de operación
+9.1.4. Funcionamiento
+9.1.5. Tipos de router según su función
+9.2. Configuración de routers CISCO
+9.2.1. Modos de operación
+9.2.2. Modo usuario EXEC
+9.2.3. Modo privilegiado EXEC
+9.2.4. Modo configuración global
+9.2.5. Modo configuración de una interfaz
+9.2.6. Modo configuración de una línea
+9.2.7. Configuración de una conexión SSH
+9.2.8. Configuración del servicio DHCP
+9.3. Router Linksys
+
+** Capítulo 10. Protocolos de enrutamiento
+10.1. Concepto de enrutamiento
+10.2. Tipos de enrutamiento
+10.2.1. Enrutamiento estático
+10.2.2. Enrutamiento dinámico
+10.2.3. Características de un protocolo de enrutamiento
+10.3. Mejoras en el diseño de redes y en el enrutamiento
+10.3.1. VLSM (Variable Length Subnetting Mask)
+10.3.2. CIDR (Clasless InterDomain Routing)
+10.4. Clasificación de los protocolos de enrutamiento
+10.4.1. Protocolos interiores y exteriores
+10.4.2. Protocolos basados en vector-distancia
+10.4.3. Protocolos basados en estado del enlace
+10.4.4. Protocolos híbridos
+10.5. RIPv1
+10.6. RIPv2
+10.6.1. RIPng
+10.7. OSPF
+10.8. BGP
+10.9. Enrutamiento entre VLANs
+
+** Capítulo 11. Seguridad: ACL, Firewall y DMZ
+11.1. ACL. Listas de control de acceso
+11.1.1. Definición y características
+11.1.2. Funcionamiento de las ACL
+11.1.3. ACL estándar
+11.1.4. ACL extendida
+11.2. Firewall y DMZ
+11.2.1. Definición
+11.2.2. Arquitectura de Firewalls
+
+** Capítulo 12. Acceso a Internet. NAPT
+12.1. Técnicas de conmutación
+12.1.1. Conmutación de circuitos
+12.1.2. Conmutación de paquetes
+12.2. Tecnologías de acceso a Internet
+12.2.1. La red telefónica conmutada (RTC)
+12.2.2. La red digital de servicios integrados (RDSI)
+12.2.3. La línea de abonado digital (DSL)
+12.2.4. FTTx. Accesos mediante fibra
+12.2.5. La red híbrida de fibra y cobre (HFC)
+12.2.6. La red inalámbrica (WiMAX)
+12.2.7. El Sistema Universal de Telecomunicaciones Móviles (UTMS)
+12.3. Traducción de direcciones NAT/NAPT
+12.3.1. Funcionamiento de NAPT
+12.3.2. Configuración de NAPT en routers CISCO
+
+
+* Contenidos
+
+- Decreto 12/2010, de 18 de marzo
+
+** Caracterización de redes:
+- Sistemas de numeración decimal, binario y hexadecimal. Conversión entre sistemas.
+- Sistemas de comunicación. Características y componentes.
+- Componentes de una red. Dispositivos hardware (finales e intermedios), software, unidades de información y medios de transmisión.
+- Terminología: redes LAN (Local Area Network), MAN (Metropolitan Area Network) y WAN (Wide Area Network), topologías, arquitecturas, tecnologías de transmisión (difusión y conmutación), protocolos e interredes.
+- Arquitectura de redes. Niveles, protocolos, unidades de datos, funcionamiento y evolución. Encapsulamiento de la información.
+- El modelo OSI (Open System Interconnection). Estructura de niveles y unidades de información.
+- El modelo TCP/IP (Transmission Control Protocol/Internet Protocol). Características y niveles.
+- Arquitectura en las redes de área local. Descripción básica de los principales estándares. Introducción a las tecnologías «Ethernet».
+- Comparativa entre el modelo OSI, el modelo TCP/IP y la arquitectura de redes de área local.
+- Generalidades sobre estándares y organismos de normalización.
+
+** Integración de elementos en una red: Fundamentos de redes.
+- Nivel físico. Aspectos físicos básicos en la transmisión de datos:
+  - Objetivos y funciones.
+  - Tipos de transmisión.
+  - Los medios físicos. Los cables metálicos: cable coaxial, cables de pares STP (Shielded Twisted Pair), FTP (Foiled Twisted Pair), UTP (Unshielded Twisted Pair) y fibra óptica.
+  - Medios inalámbricos.
+  - Conectores.
+  - Factores físicos que afectan a la transmisión (atenuación, ruido…).
+  - Ancho de banda y tasa de transferencia. Capacidad de transferencia útil.
+- Nivel de enlace
+  - Objetivos y funciones
+  - Tramas. Formatos, tipos y direccionamiento (unicast, multicast y broadcast).
+  - Estándares y protocolos de nivel de enlace.
+- Nivel de red (TCP/IP)
+  - Objetivos y funciones
+  - Direccionamiento.
+  - Direcciones IPv4 y máscaras de red. Direcciones IP especiales (red, broadcast, loopback…). Direcciones IP públicas y privadas.
+  - Direccionamiento dinámico DHCP (Dynamic Host Configuration Protocol).
+  - Protocolo IP. Características y formato del datagrama IP.
+  - Protocolos de resolución de direcciones. ARP (Address Resolution Protocol).Características y funcionamiento.
+  - Protocolo ICMP (Internet Control Message Protocol). Características y mensajes ICMP.
+  - Encaminamiento IP. Proceso de reenvió/encaminamiento. Tablas de encaminamiento. Introducción a los protocolos de encaminamiento.
+  - Clases de direcciones IP.
+  - La subdivisión de redes y el uso de máscaras de longitud variable VLMs (Variable Length Subnet Mask).
+  - Superredes y CIRD (Classless Inter-Domain Routing).
+  - Fragmentación IP.
+  - IPv6. Características básicas.
+- Nivel de transporte (TCP/IP)
+  - Objetivos y funciones.
+  - Puertos. Multiplexación de conexiones.
+  - Protocolo UDP (User Datagram Protocol). Características y funciones.
+  - Protocolo TCP. Características y funciones. Establecimiento y liberación de conexiones.
+- Nivel de aplicación (TCP/IP)
+  - Aplicaciones, protocolos y servicios.
+  - Modelo cliente/servidor, modelos P2P (Peer-to-Peer), modelos híbridos.
+  - Descripción general y utilidad de los protocolos de nivel de aplicación. DNS (Domain Name Service), HTTP (Hypertext Transfer Protocol), FTP (File Transfer Protocol), SMTP (Simple Mail Transfer Protocol), POP (Post Office Protocol), IMAP (Internet Message Access Protocol), Tenet, SSH (Secure Shell), SNMP (Simple Network Management Protocol), DHCP.
+  - Uso y configuración básica de aplicaciones clientes.
+** Integración de elementos en una red: Redes de área local.
+- Características.
+- Estándares.
+- Nivel de enlace en las redes de área local. MAC (Media Access Control). LLC (Logical Link Control). Direcciones MAC.
+- Redes de área local Ethernet (IEEE 802.3)
+  - Topologías
+  - Medios de transmisión. Tipos de cableado «Ethernet».
+  - Formato de trama.
+  - Dispositivos de interconexión: Concentradores, Puentes, Switchs…
+  - Dominios de colisión y de «broadcast».
+  - Modos de funcionamiento (half-duplex/full-duplex). Autonegociación.
+  - Normas Ethernet (IEEE 802.3).
+  - Agregación de enlaces (Etherchanel).
+  - Adaptadores alámbricos: instalación y configuración.
+- Redes de área local inalámbricas (IEEE 802.11)
+  - Los espectros de onda de microondas y radio.
+  - Formato de trama.
+  - La conexión inalámbrica. . Asociación y autenticación en la WLAN (Wireless Local Area Network).
+  - Topologías. Arquitectura celular BSS (Basic Service Set). Ad-hoc (Peer-to-Perr). Modo infraestructura. SSID. Canales. Interconexión de BSSs ESS (Extended Service).
+  - Dispositivos de interconexión: Repetidores, Puentes inalámbricos, Puntos de acceso, Routers inalámbricos
+  - Normas IEEE 802.11.
+  - Amenazas de seguridad y mecanismos de seguridad básicos (filtrado de MAC, WEP, WPA…).
+  - Adaptadores inalámbricos: instalación y configuración.
+  - Instalación y configuración de puntos de acceso.
+- Implantación de redes de área local.
+  - Cableado estructurado. Tomas de red. Espacios. Cuartos de comunicaciones. Armarios de comunicaciones. Paneles de parcheo. Canalizaciones. Recomendaciones en la instalación del cableado.
+  - Herramientas.
+  - El diseño de redes locales a tres capas (núcleo, distribución y acceso). Latencia, congestión de red, ancho de banda. Mapa físico y lógico de la red.
+  - Creación de cables (Estándar EIA/TIA 568B).
+
+** Configuración y administración de conmutadores:
+- Tipos de conmutadores: Velocidad, gestionables/no gestionables, ubicación,…
+- Conmutadores y dominios de colisión y «broadcast».
+- Segmentación de redes. Segmentación de la red. Ventajas que presenta.
+- Direcciones y tablas MAC.
+- Métodos de reenvío de los conmutadores.
+- Proceso de arranque.
+- Formas de conexión al conmutador para su configuración. Puertos y acceso remoto (http, telnet, ssh…).
+- Configuración del conmutador. Modos de configuración. Estado del conmutador. Configuración TCP/IP del interfaz de administración. Habilitar acceso remoto (http, telnet, ssh…). Administración gráfica. Contraseñas de acceso. Seguridad de puertos, Archivos de configuración.
+- Configuración estática y dinámica de la tabla de direcciones MAC.
+- Redundancia y bucles. Protocolo STP (Spanning Tree Protocol) y sus evoluciones.
+- Conmutadores de nivel 3. 
+
+** Configuración y administración básica de «routers»:
+- Los «routers» en las LAN y en las WAN.
+- Componentes del «router».
+- Proceso de arranque.
+- Formas de conexión al «router» para su configuración inicial. Puertos y acceso remoto (http, telnet, ssh).
+- Comandos para configuración del «router». Comandos para administración del «router». Modos de configuración. Archivos de configuración. Contraseñas de acceso. Configuración de interfaces.
+- Configuración del enrutamiento estático. Mostrar la tabla de rutas. Añadir/eliminar rutas estáticas.
+- Listas de control de acceso ACLs (Access Control List). Definición y ubicación de ACLs.
+- Tipos de ACLs.
+** Configuración de redes virtuales VLANs (Virtual Local Area Network):
+- Características de las VLANs
+- Ventajas.
+- Tipos de VLANs.
+- Tipos de enlaces. Enlaces de acceso y enlaces troncales y etiquetado de tramas.
+- Implantación y configuración de redes virtuales.
+- Definición de enlaces troncales en los conmutadores y «routers». El protocolo IEEE802.1Q.
+- Interconexión (enrutamiento) entre VLANs.
+- Protocolos de administración centralizada de VLANs.
+
+** Configuración y administración de protocolos dinámicos:
+- Protocolos enrutables y protocolos de enrutamiento.
+- Encaminamiento estático vs. encaminamiento dinámico.
+- Algoritmos de encaminamiento.
+- Encaminamiento en Internet. Sistemas autónomos. Protocolos de enrutamiento interior y exterior.
+- El enrutamiento sin clase vs. el encaminamiento con clase.
+- El protocolo RIPv2 (Routing Information Protocol); comparación con RIPv1.
+- Configuración y administración de RIPv1.
+- Configuración y administración de RIPv2.
+
+** Configuración del acceso a Internet desde una LAN:
+- Arquitectura de acceso a Internet.
+- Tecnologías de acceso a Internet.
+  - RTC (Red Telefónica Conmutada), RDSI (Red Digital de Servicios Integrados), xDSL (Digital Subscriber Line), redes de cable, líneas dedicadas, UMTS (Universal Mobile Telecommunications System), HSDPA (High Speed Downlink Packet Access) y otras tecnologías vigentes en el momento actual.
+  - Dispositivos de acceso a Internet.
+- Direccionamiento interno y direccionamiento externo.
+- NAT (Network Address Translation) origen y NAT destino.
+- Tipos de NAT. NAT estático, dinámico, de sobrecarga PAT (Port Address Translation) e inverso.
+- Configuración de NAT.
+- Configuración de PAT.
+- Diagnóstico de incidencias de NAT/PAT.
+- Redirección de puertos.
+
+* Criterios de evaluación
+Cada resultado de aprendizaje tiene sus criterios de evaluación correspondiente.
+La nota del módulo depende del logro de los criterios de evaluación.
+
+** Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.
+a) Se han identificado los factores que impulsan la continua expansión y evolución de las redes de datos.
+b) Se han diferenciado los distintos medios de transmisión utilizados en las redes.
+c) Se han reconocido los distintos tipos de red y sus topologías.
+d) Se han descrito las arquitecturas de red y los niveles que las componen.
+e) Se ha descrito el concepto de protocolo de comunicación.
+f) Se ha descrito el funcionamiento de las pilas de protocolos en las distintas arquitecturas de red.
+g) Se han presentado y descrito los elementos funcionales, físicos y lógicos, de las redes de datos.
+h) Se han diferenciado los dispositivos de interconexión de redes atendiendo al nivel funcional en el que se encuadran.
+** Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su funcionamiento y prestaciones.
+a) Se han identificado los estándares para redes cableadas e inalámbricas.
+b) Se han montado cables directos, cruzados y de consola.
+c) Se han utilizado comprobadores para verificar la conectividad de distintos tipos de cables.
+d) Se ha utilizado el sistema de direccionamiento lógico IP para asignar direcciones de red y máscaras de subred.
+e) Se han configurado adaptadores de red cableados e inalámbricos bajo distintos sistemas operativos.
+f) Se han integrado dispositivos en redes cableadas e inalámbricas.
+g) Se ha comprobado la conectividad entre diversos dispositivos y adaptadores inalámbricos sobre distintas configuraciones.
+h) Se han utilizado aplicaciones para representar el mapa físico y lógico de una red.
+i) Se ha monitorizado la red mediante aplicaciones basadas en el protocolo SNMP.
+** Administra conmutadores estableciendo opciones de configuración para su integración en la red.
+a) Se han conectado conmutadores entre sí y con las estaciones de trabajo.
+b) Se ha interpretado la información que proporcionan los «leds» del conmutador.
+c) Se han utilizado distintos métodos para acceder al modo de configuración del conmutador.
+d) Se han identificado los archivos que guardan la configuración del conmutador.
+e) Se ha administrado la tabla de direcciones MAC del conmutador.
+f) Se ha configurado la seguridad del puerto.
+g) Se ha actualizado el sistema operativo del conmutador.
+h) Se  han utilizado  los comandos proporcionados por el sistema operativo del conmutador que permiten hacer el seguimiento de posibles incidencias.
+i) Se ha verificado el funcionamiento del Spanning Tree Protocol en un conmutador.
+j) Se han modificado los parámetros que determinan el proceso de selección del puente raíz.
+** Administra las funciones básicas de un «router» estableciendo opciones de configuración para su integración en la red.
+a) Se ha interpretado la información que proporcionan los «leds» del «router».
+b) Se han utilizado distintos métodos para acceder al modo de configuración del «router».
+c) Se han identificado las etapas de la secuencia de arranque del «router».
+d) Se han utilizado los comandos para la configuración y administración básica del «router».
+e) Se han identificado los archivos que guardan la configuración del «router» y se han gestionado mediante los comandos correspondientes.
+f) Se han configurado rutas estáticas.
+g) Se han utilizado los comandos proporcionados por el sistema operativo del «router» que permiten hacer el seguimiento de posibles incidencias.
+h) Se ha configurado el «router» como servidor de direcciones IP dinámicas.
+i) Se han descrito las capacidades de filtrado de tráfico del «router».
+j) Se han utilizado comandos para gestionar listas de control de acceso.
+** Configura redes locales virtuales identificando su campo de aplicación.
+a) Se han descrito las ventajas que presenta la utilización de redes locales virtuales (VLANs).
+b) Se han implementado VLANs.
+c) Se ha realizado el diagnóstico de incidencias en VLANs.
+d) Se han configurado enlaces troncales.
+e) Se ha utilizado un router para interconectar diversas VLANs.
+f) Se  han descrito  las ventajas que aporta el uso de protocolos de administración centralizada de VLANs.
+g) Se han configurado los conmutadores para trabajar de acuerdo con los protocolos de administración centralizada.
+** Realiza tareas avanzadas de administración de red analizando y utilizando protocolos dinámicos de encaminamiento.
+Criterios de evaluación:
+a) Se ha configurado el protocolo de enrutamiento RIPv1.
+b) Se han configurado redes con el protocolo RIPv2.
+c) Se ha realizado el diagnóstico de fallos en una red que utiliza RIP.
+d) Se ha valorado la necesidad de utilizar máscaras de longitud variable en IPv4.
+e) Se ha dividido una red principal en subredes de distintos tamaños con VLSM.
+f) Se han realizado agrupaciones de redes con CIDR.
+g) Se ha habilitado y configurado OSPF en un «router».
+h) Se ha establecido y propagado una ruta por defecto usando OSPF.
+
+** Conecta redes privadas a redes públicas identificando y aplicando diferentes tecnologías.
+a) Se han descrito las ventajas e inconvenientes del uso de la traducción de direcciones de red (NAT).
+b) Se ha utilizado NAT para realizar la traducción estática de direcciones de red.
+c) Se ha utilizado NAT para realizar la traducción dinámica de direcciones de red.
+d) Se han descrito las características de las tecnologías «Frame Relay», RDSI y ADSL.
+e) Se han descrito las analogías y diferencias entre las tecnologías «Wifi» y «Wimax».
+f) Se han descrito las características de las tecnologías UMTS y HSDPA.
+
+* Contenidos básicos
+- Incluídos solo como referencia
+- No son aplicables en la Comunidad de Madrid
+
+
+
+* Orientaciones pedagógicas.                   :noexport:
+Este módulo profesional contiene la formación necesaria para desempeñar la función de administrar sistemas gestores de bases de datos.
+La administración de sistemas gestores de base de datos incluye aspectos como:
+- La implantación de sistemas gestores de bases de datos.
+- La manipulación de bases de datos.
+- La aplicación de medidas de seguridad.
+- La planificación y realización de tareas administrativas.
+- La monitorización y optimización de la base de datos y del sistema gestor de base de datos.
+#+REVEAL: split
+Las actividades profesionales asociadas a esta función se aplican en:
+- La implantación y administración de sistemas gestores de base de datos.
+- La implantación y administración de bases de datos.
+#+REVEAL: split
+Las líneas de actuación en el proceso de enseñanza-aprendizaje que permiten alcanzar
+los objetivos del módulo versarán sobre:
+- La instalación y configuración de sistemas gestores de base de datos.
+- La manipulación de base de datos.
+- La realización de operaciones con bases de datos.
+- La administración de bases de datos.
+- La planificación y automatización de tareas en un sistema gestor.
