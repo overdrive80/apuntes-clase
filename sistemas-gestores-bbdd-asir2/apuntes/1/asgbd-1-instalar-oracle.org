@@ -104,7 +104,6 @@ sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-
 - El instalador pedirá ejecutar varios /scripts/ como =root=
 - Necesitamos definir algunas variables de entorno (fichero =~/.profile= o =~/.bash_profile=)
   - =ORACLE_HOME=: =/home/alumno/app/alumno/product/12.1.0/asir_bbdd=
-  - =ORACLE_SID=: =asir= (es el nombre que le pondremos a la base de datos)
   - Es aconsejable incluir =$ORACLE_HOME/bin= en el =PATH=
 
 ** Reiniciar
@@ -183,7 +182,64 @@ Enter user-name:
   - Si luego falla, revisar =ADR_BASE_LISTENER=
 
 
+
+* Arrancar y parar la base de datos
+
+- Se necesitan las variables =ORACLE_HOME=, =ORACLE_SID=, =PATH=, =ORACLE_BASE=.
+- se definen con ayuda del script =oraenv=:
+#+begin_src sh
+source oraenv
+#+end_src
+
+- Arrancar la base de datos
+#+begin_src sh
+dbstart $ORACLE_HOME
+#+end_src
+
+- Parar la base de datos
+#+begin_src sh
+dbshut $ORACLE_HOME
+#+end_src
+
+- Comprobar que se admiten conexiones
+#+begin_src sh
+lsnrctl status
+#+end_src
+
+** A mí *dbstart* y *dbshut* no me funcionan
+
+Se puede hacer /a mano/. Lo veremos en el próximo tema.
+
+#+begin_src sh
+[alumno@centos7 ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Sep 19 10:40:54 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Connected to an idle instance.
+
+SQL> startup open
+ORACLE instance started.
+
+Total System Global Area 1207959552 bytes
+Fixed Size                  2923776 bytes
+Variable Size             822084352 bytes
+Database Buffers          369098752 bytes
+Redo Buffers               13852672 bytes
+Database mounted.
+Database opened.
+SQL> 
+#+end_src
+
+
+
 * Conexión en local
+- Debemos tener configuradas las variabales de entorno
+  - =ORACLE_SID= : el nombre que de la base de datos (=asir=)
+  - =PATH= : debe incluir =$ORACLE_HOME/bin=
+  - Se pueden poner también con =oraenv=
+
 
 #+BEGIN_SRC sh
 sqlplus / as sysdba  
@@ -193,6 +249,8 @@ sqlplus / as sysdba
 
 
 * Conexión remota
+
+** Accdeso por redes
 - Es necesario conocer la IP de nuestro servidor
   - =ifconfig=
   - =hostname -I=
@@ -202,31 +260,6 @@ sqlplus / as sysdba
   - /Firewall/: =systemctl disable firewalld=
 - Para que funcione correctamente *avahi*, hay que instalar =nss_mdns=
 
-
-** Configuración de las conexiones (*sqlplus*) :noexport:
-- El cliente =sqlplus= utiliza las conexiones definidas en el
- fichero =tnsnames.ora=
-- Con el comando =netca=
-  - Elegir los nombres locales (/Local net service name configuration/)
-
-
-** Acceso via Web
-- Al crear la base de datos con =dbca= se configura el acceso *Enterprise Manager*
-  - URL =https://= *=nombre-o-ip=* =:5500/em/=
-- Tenemos *IP* dinámica, por lo que debemos configurar una resolución por nombre 
-  - *DNS* es complicado
-  - Usaremos *avahi* entre linux, y *samba* entre linux y windows
-
-
-** Instalación de *SQLDeveloper* en Centos
-- Se necesita *JDK 1.8*
-- Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
-  - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
-- Arracar =sqldeveloper= desde la consola
-  - Preguntará por el directorio de instalación del JDK
-
-** Instalación de *SQLDeveloper* en Ubuntu
 
 *** Conexión remota
 - Es necesario conocer la IP o el nombre del ordenador remoto
@@ -256,47 +289,33 @@ sqlplus / as sysdba
 - Importante: el nombre afecta al fichero =listener.ora=
 
 
+** Configuración de las conexiones (*sqlplus*) :noexport:
+- El cliente =sqlplus= utiliza las conexiones definidas en el
+ fichero =tnsnames.ora=
+- Con el comando =netca=
+  - Elegir los nombres locales (/Local net service name configuration/)
 
-* Arrancar y parar la base de datos
 
-- Arrancar la base de datos
-#+begin_src sh
-dbstart $ORACLE_HOME
-#+end_src
+** Acceso via Web
+- Al crear la base de datos con =dbca= se configura el acceso *Enterprise Manager*
+  - URL =https://= *=nombre-o-ip=* =:5500/em/=
+- Tenemos *IP* dinámica, por lo que debemos configurar una resolución por nombre 
+  - *DNS* es complicado
+  - Usaremos *avahi* entre linux, y *samba* entre linux y windows
 
-- Parar la base de datos
-#+begin_src sh
-dbshut $ORACLE_HOME
-#+end_src
 
-- Comprobar que se admiten conexiones
-#+begin_src sh
-lsnrctl status
-#+end_src
+** Instalación de *SQLDeveloper* en Centos
+- Se necesita *JDK 1.8*
+- Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
+  - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
+  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
+- Arracar =sqldeveloper= desde la consola
+  - Preguntará por el directorio de instalación del JDK
 
-** A mí *dbstart* y *dbshut* no me funcionan
-
-#+begin_src sh
-[alumno@centos7 ~]$ sqlplus / as sysdba
-
-SQL*Plus: Release 12.1.0.2.0 Production on Tue Sep 19 10:40:54 2017
-
-Copyright (c) 1982, 2014, Oracle.  All rights reserved.
-
-Connected to an idle instance.
-
-SQL> startup open
-ORACLE instance started.
-
-Total System Global Area 1207959552 bytes
-Fixed Size                  2923776 bytes
-Variable Size             822084352 bytes
-Database Buffers          369098752 bytes
-Redo Buffers               13852672 bytes
-Database mounted.
-Database opened.
-SQL> 
-#+end_src
+** Instalación de *SQLDeveloper* en Ubuntu
+- Se necesita *JDK 1.8*
+- Se descarga el fichero  =sqldeveloper-xxxxx-no-jre.zip=
+- Se descomprime y se ejecuta =sqldeveloper.sh=
 
 
 ** Reinicio del servidor :noexport:
