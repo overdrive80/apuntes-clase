@@ -274,8 +274,32 @@ dbshut $ORACLE_HOME
 lsnrctl status
 #+end_src
 
+** A mí *dbstart* y *dbshut* no me funcionan
 
-** Reinicio del servidor
+#+begin_src sh
+[alumno@centos7 ~]$ sqlplus / as sysdba
+
+SQL*Plus: Release 12.1.0.2.0 Production on Tue Sep 19 10:40:54 2017
+
+Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+Connected to an idle instance.
+
+SQL> startup open
+ORACLE instance started.
+
+Total System Global Area 1207959552 bytes
+Fixed Size                  2923776 bytes
+Variable Size             822084352 bytes
+Database Buffers          369098752 bytes
+Redo Buffers               13852672 bytes
+Database mounted.
+Database opened.
+SQL> 
+#+end_src
+
+
+** Reinicio del servidor :noexport:
 - Comprobar =/etc/oratab=
   - Deberá estar configurada para iniciarse con el sistema
 - Comprobar que la interfaz de red se inicia en el arranque
