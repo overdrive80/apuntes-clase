@@ -26,7 +26,7 @@
   - =::1=
 - Reiniciar la máquina
 
-** Antes de empezar ::no_export::
+** Antes de empezar :noexport:
 - Para Fedora y 11g
 - Necesitamos varios componentes de Linux.
   - Su firma ([[https://docs.oracle.com/cd/E52668_01/E39381/html/ol_import_gpg.html]])
@@ -47,7 +47,7 @@ yum update --skip-broken
 
 (referencia em https://oracle-base.com/blog/2015/03/26/oracle-linux-7-1-preinstall-packages-available-for-11gr2-and-12cr1/)
 
-** Antes de empezar
+** Antes de empezar :noexport:
 - Actualizar los repositorios Centos
 
 #+begin_src sh
@@ -80,7 +80,7 @@ Dejamos los directorios por defecto:
 ** Grupos de /Linux/
 
 - Elegir =wheel= 
-  - Es un grupo administrador en *Fedora* 
+  - Es un grupo administrador en *Centos* 
 
 ** Comprobaciones
 - Ignoraremos el poco espacio en la partición de /swap/ y en /tmp/
@@ -91,9 +91,9 @@ Dejamos los directorios por defecto:
   - =sudo yum install= /=paquete=/
   - Es necesario que la máquina virtual tenga acceso a internet (por ejemplo, /NAT/)
 
-#+begin_notes
+#+BEGIN_NOTES
 sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-0.3.109
-#+end_notes
+#+END_NOTES
 
 ** Resumen
 - Se debe grabar la información de la hoja de resumen
@@ -166,7 +166,7 @@ Enter user-name:
   - Nombre: =asir=
   - Que no sea una /container database/
 - Guardad la información de la página de resumen (por si acaso)
-  - =ORACLE_SI
+
 
 ** Paravirtualización
 - =dbca= se puede colgar si la paravirtualización está a algún valor que no sea =none=
@@ -218,13 +218,15 @@ sqlplus / as sysdba
   - Usaremos *avahi* entre linux, y *samba* entre linux y windows
 
 
-** Instalación de *SQLDeveloper*
+** Instalación de *SQLDeveloper* en Centos
 - Se necesita *JDK 1.8*
 - Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
   - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
   - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
 - Arracar =sqldeveloper= desde la consola
   - Preguntará por el directorio de instalación del JDK
+
+** Instalación de *SQLDeveloper* en Ubuntu
 
 *** Conexión remota
 - Es necesario conocer la IP o el nombre del ordenador remoto
