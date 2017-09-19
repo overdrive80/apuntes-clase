@@ -250,7 +250,7 @@ sqlplus / as sysdba
 
 * Conexión remota
 
-** Accdeso por redes
+** Acceso por redes
 - Es necesario conocer la IP de nuestro servidor
   - =ifconfig=
   - =hostname -I=
@@ -258,7 +258,6 @@ sqlplus / as sysdba
   - Tipo de conexión de la máquina virtual: mejor /bridged/
   - =ping=
   - /Firewall/: =systemctl disable firewalld=
-- Para que funcione correctamente *avahi*, hay que instalar =nss_mdns=
 
 
 *** Conexión remota
@@ -276,8 +275,9 @@ sqlplus / as sysdba
 - Importante: el nombre afecta al fichero =listener.ora=
 - El nombre de red será el que tengamos más =.local=
   - Por ejemplo, =profebd.local=
-- Con esto un windows puede econtrar a un linux
+- Con esto un windows puede encontrar a un linux
   - Para que Linux encuentre a otro linux, hay que cambiar =/etc/nsswitch.conf=
+  - En *Centos*, hay que instalar =nss_mdns=
 
 *** Samba 
 - [[https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7]]
