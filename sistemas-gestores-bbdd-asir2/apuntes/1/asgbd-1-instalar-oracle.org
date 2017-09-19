@@ -12,9 +12,9 @@
 ** Prerequisitos
 - Será una máquina virtual de VirtualBox
 - El fichero =OVA= del profesor ya tiene:
-  - *Fedora 26* instalado (inglés)
-  - *Oracle 11gR2* descargado
-    - Hay versiones más actuales, pero tienen un problema con Virtual Box y la paravirtualización
+  - *Centos 7* instalado (inglés)
+  - *Oracle 12c* descargado
+- En otros sistemas operativos (*Fedora*) hay un [[https://patrickhurley.wordpress.com/2015/11/30/freeze-of-oracle-dbca-and-startup-nomount-running-on-linux-on-virtualbox-5/][problema con Virtual Box y la paravirtualización]]
 
 
 ** Resolver el propio nombre
