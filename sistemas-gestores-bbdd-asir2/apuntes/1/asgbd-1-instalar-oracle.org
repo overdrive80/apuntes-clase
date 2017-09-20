@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
 #+REVEAL_THEME: serif
 
