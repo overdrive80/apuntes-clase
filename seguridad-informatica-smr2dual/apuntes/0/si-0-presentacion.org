@@ -1,4 +1,4 @@
-#+include: "../common/header.org"
+#+include: "../../../common/header.org"
 #+Title: SEGURIDAD INFORMÁTICA (SMR fct ampliada)
 #+SUBTITLE: CÓDIGO: 0226
 #+KEYWORDS: 

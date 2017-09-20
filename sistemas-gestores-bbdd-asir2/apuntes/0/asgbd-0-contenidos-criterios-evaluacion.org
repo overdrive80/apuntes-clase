@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  ADMINISTRACIÓN DE SISTEMAS GESTORES DE BASES DE DATOS 
 #+SUBTITLE: (CÓDIGO: 0377)
 #+KEYWORDS: 0377
