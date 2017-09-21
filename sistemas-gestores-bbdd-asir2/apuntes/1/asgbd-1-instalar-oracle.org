@@ -324,3 +324,19 @@ sqlplus / as sysdba
 - Comprobar que la interfaz de red se inicia en el arranque
   - =/etc/sysconfig/network-scripts=
   - =ONBOOT= debe ser =YES=
+
+* Cosas que hemos aprendido /de pasada/
+- Variables de entorno
+  - Variable =PATH=
+- Conexiones por *ssh*
+  - Con redirección del *Xserver*
+- Edición de ficheros de texto
+- Instalación de paquetes en *Centos*
+- Conexiones de red (/bridged/, /NAT/)
+- Elevación de permisos con =sudo=
+- Descompresión de ficheros *zip*
+
+-----
+Nada de esto es /directamente/ bases de datos...
+
+... pero ha sido necesario para instalar *Oracle*
