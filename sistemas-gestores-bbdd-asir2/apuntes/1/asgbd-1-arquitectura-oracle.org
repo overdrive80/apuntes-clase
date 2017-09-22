@@ -29,17 +29,17 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
   - Es la zona de memoria dedicada a un proceso
   - Global: si admite más de una conexión, se comparte entre conexiones
 - *SGA*: /System Global Area/
-  - Memoria compartida entre todos los procesos de Oracle
+  - Memoria compartida entre todos los procesos de *Oracle*
 
 [[file:pga-sga-muchos-procesos.png]]
 
 ** Procesos de usuario y procesos de sistema
 - Los procesos de usuario no se conectan directamente a la SGA
-- Oracle crea procesos /intermedios/ para aislarlos
+- *Oracle* crea procesos /intermedios/ para aislarlos
 
 [[file:procesos-usuario-sistema.gif]]
 
-* Archivos
+** Archivos
 - Los datos de las tablas al final se almacenan en archivos
 
 | Archivos de datos, de usuario y del sistema    | En /tablespaces/ (=dbf=) |
@@ -48,6 +48,27 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 
 -----
 ¿Dónde están los archivos de datos de nuestra instalación?
+
+* Arranque y parada
+
+- *Oracle* tiene varios estados 
+  - *Shutdown*: Todo parado
+  - *Nomount*: Memoria compartida reservada
+  - *Mount*: Fichero de control abierto
+  - *Open*: Ficheros de datos abiertos. Los clientes pueden conectarse.
+
+#+reveal: split
+
+[[file:arranque-parada-oracle.svg]]
+
+** ¿Por qué tantos modos?
+- *Shutdown* y *open* son los modos habituales
+- *Nomount*:
+  - Para recuperar la base de datos de errores (si falta algún fichero)
+- *Mount*: 
+  - Para habilitar y deshabilitar el /redo log/.
+  - Para recuperar la base de datos de errores (sin usuarios)
+- Conclusión: con suerte, solo *Shutdown* y *open*
 
 
 * Vistas
