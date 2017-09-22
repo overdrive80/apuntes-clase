@@ -315,6 +315,7 @@ sqlplus / as sysdba
 ** Instalación de *SQLDeveloper* en Ubuntu
 - Se necesita *JDK 1.8*
 - Se descarga el fichero  =sqldeveloper-xxxxx-no-jre.zip=
+  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
 - Se descomprime y se ejecuta =sqldeveloper.sh=
 
 
