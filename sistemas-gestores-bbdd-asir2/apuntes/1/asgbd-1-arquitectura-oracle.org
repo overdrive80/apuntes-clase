@@ -18,7 +18,7 @@
 | ~SMON~ (System MONitor process)  | Recupera transacciones. Realiza tareas de limpieza: recuperar segmentos temporales, combinar extensiones contiguas y disponibles,... |
 | ~DBWn~ (Database Writer Process) | Escribe el contenido de los buffers en los datafiles. ~n~ puede ser 0,1,...,9,a,...,j                                                |
 | ~LGWR~ (Log Writer Process)      | Gestión del buffer de *redo*, escribiendo su contenido en los archivos log.                                                          |
-| ~CKPT~ (ChecKPoinT Process)      | Actualiza  los datafiles y el fichero de control cuando se establece un punto de control (checkpoint).                               |
+| ~CKPT~ (ChecKPoinT Process)      | Actualiza  los datafiles y el fichero de control cuando se establece un punto de control (/checkpoint/).                             |
 | ~RECO~ (RECOverer Process)       | Necesario ante fallos en transacciones distribuidas.                                                                                 |
 
 -----
