@@ -1,25 +1,88 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE: Usuarios, privilegios y roles de *Oracle*
+# #+OPTIONS: reveal_single_file:nil
 
+
+* Introducción
+- Oracle puede utilizarse simultáneamente por varios procesos y clientes
+- Cada uno puede tener distintos permisos y capacidades
+  - Espacio de disco disponible
+  - Gasto en CPU, red
+  - Acceso a diferentes tablas de datos
 
 * /Tablespaces/
 - *Oracle* almacena datos en los /tablespaces/
   - Conjuntos de ficheros
   - Normas para su tamaño: inicial, máximo, crecimiento
+- Cada tablespace puede usarse para diferentes funciones
+  - Datos de usuario
+  - Datos de recuperación
+  - Datos del sistema
+  - Datos temporales
+
+** /Tablespaces/ por defecto
 - Por defecto, *Oracle* crea en una nueva base de datos
-  - Users
-  - System
-  - Sysaux
-  - Undo
-  - Temp
+  - =users=: Tablespace asignado por defecto para los datos de todos los usuarios
+  - =system=: Datos acerca de la instancia y del diccionario de datos
+  - =sysaux=: Operaciones temporales del administrador que no caben en memoria
+  - =undo= (=undotbs1=): Datos para deshacer las transacciones (=roolback=)
+  - =temp=: Operaciones temporales de usuarios que no caben en memoria
 
+-----
+Mas información en:
+- https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm
+- https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm
 
-https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm
-
-https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm
-
+** ¿Por qué es tan complicado?
+- Esta flexibilidad permite:
+  - Que cada usuario tenga sus /tablespaces/
+  - Que cada /tablespace/ esté en discos distintos (rapidez)
+  - Que un /tablespace/ se localice en varios discos (rapidez, tamaño)
+  - Mover /tablespaces/ una vez creados
 
 * Usuarios
+¿Qué usuario hemos utilizado con =sqlplus= hasta ahora?
+
+#+reveal: split
+- *Oracle* tiene dos modos de autentificar usuarios
+  - Autentificación de sistema operativo
+  - Autentificación con seguridad nativa de *oracle*
+- Al instalarlo, elegimos que el grupo =wheel= era administrador
+
+** Creación de usuarios
+#+begin_src sql
+CREATE USER usuario IDENTIFIED BY contraseña
+  DEFAULT TABLESPACE tablespace
+  TEMPORARY TABLESPACE tablespace
+  QUOTA UNLIMITED ON tablespace
+  QUOTA tamaño ON tablespace
+  ACCOUNT LOCK
+  ACCOUNT UNLOCK
+#+end_src
+
+** Modificación de usuario
+- Modificación de un usuario ya creado
+#+begin_src sql
+ALTER USER usuario
+  cualquier opción válida al crear usuario
+#+end_src
+
+- Borrado de usuario
+#+begin_src sql
+DROP USER usuario
+#+end_src
+
 
 * Privilegios
+- Cada usuario puede tener unos permisos distintos
+- Ya hemos visto dos permisos
+  - En qué /tablespaces/ se puede escribir 
+  - Cuántos datos se pueden escribir en esos /tablespaces/
+  - Si una cuenta está bloqueada
+- Pero hay más permisos
+  - Veremos los /privilegios/ de *oracle*
+
+
 
 * Roles
 
