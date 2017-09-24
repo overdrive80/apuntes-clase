@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  Clasificación de redes
 #+SUBTITLE: 
 #+KEYWORDS: 

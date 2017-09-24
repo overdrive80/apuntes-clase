@@ -1,0 +1,29 @@
+
+
+* /Tablespaces/
+- *Oracle* almacena datos en los /tablespaces/
+  - Conjuntos de ficheros
+  - Normas para su tamaño: inicial, máximo, crecimiento
+- Por defecto, *Oracle* crea en una nueva base de datos
+  - Users
+  - System
+  - Sysaux
+  - Undo
+  - Temp
+
+
+https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm
+
+https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm
+
+
+* Usuarios
+
+* Privilegios
+
+* Roles
+
+* Perfiles
+
+
+

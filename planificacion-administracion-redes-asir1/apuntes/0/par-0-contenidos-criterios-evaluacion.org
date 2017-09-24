@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  PLANIFICACIÓN Y ADMINISTRACIÓN DE REDES 
 #+SUBTITLE: (CÓDIGO: 0370)
 #+KEYWORDS: 0370

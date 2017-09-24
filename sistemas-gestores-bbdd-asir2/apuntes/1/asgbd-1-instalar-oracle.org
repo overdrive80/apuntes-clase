@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
 #+REVEAL_THEME: serif
 
@@ -20,10 +20,10 @@
 ** Resolver el propio nombre
 - Cambiar el nombre de la máquina 
   - Por ejemplo =nombrealumnoASGBD=
-- Fichero =/etc/hosts=
-- Hay que añadir el nombre de la máquina en 
-  - =127.0.0.1=
-  - =::1=
+  - Fichero =/etc/hostname=
+  - Fichero =/etc/hosts=: Hay que añadir el nombre de la máquina en 
+    - =127.0.0.1=
+    - =::1=
 - Reiniciar la máquina
 
 ** Antes de empezar :noexport:
@@ -60,7 +60,7 @@ sudo yum update #opcional, puede necesitar mucho tiempo
 
 ** Descomprimir el instalador
 - Descomprimiremos sus ficheros y borraremos los =zip= originales
-  - Directorio =$HOME/Donwloads/oracle=
+  - Directorio =$HOME/Donwloads/=
 
 ** Arrancar el instalador
 1. Se arranca con =./runInstaller=
@@ -74,7 +74,7 @@ sudo yum update #opcional, puede necesitar mucho tiempo
 ** Directorios de Oracle
 Dejamos los directorios por defecto:
 - Oracle Base: =/home/alumno/app/alumno=
-- /Software/ en =/home/alumno/app/alumno/product/11.2.0/dbhome_1=
+- /Software/ en =/home/alumno/app/alumno/product/12.1.0/dbhome_1=
 - /Inventory/ en =/home/alumno/app/oraInventory=
 
 ** Grupos de /Linux/
@@ -84,12 +84,14 @@ Dejamos los directorios por defecto:
 
 ** Comprobaciones
 - Ignoraremos el poco espacio en la partición de /swap/ y en /tmp/
-- El instalador detectará algunos errores, pero genera un /script/ de /fix/
-  - Se ejecuta como administrador
-- Ignoraremos los parámetros del kernel
-- Se necesita instalar varios paquetes de software
+  - Solo se necesita para servidores con mucha carga
+- El instalador detectará algunos errores, pero genera unos /scripts/ de /fix/
+  - Son parámetros del /kernel/ de Linux
+  - Los /scripts/ se ejecutan como administrador
+
+- Se necesitan instalar varios paquetes de software
   - =sudo yum install= /=paquete=/
-  - Es necesario que la máquina virtual tenga acceso a internet (por ejemplo, /NAT/)
+  - Es necesario que la máquina virtual tenga acceso a internet (debería estar en /Bridged/, pero también funciona /NAT/)
 
 #+BEGIN_NOTES
 sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-0.3.109
@@ -101,10 +103,10 @@ sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-
 [[file:resumen-instalacion.png]]
 
 ** Finalización
-- El instalador pedirá ejecutar varios /scripts/ como =root=
-- Necesitamos definir algunas variables de entorno (fichero =~/.profile= o =~/.bash_profile=)
-  - =ORACLE_HOME=: =/home/alumno/app/alumno/product/12.1.0/asir_bbdd=
-  - Es aconsejable incluir =$ORACLE_HOME/bin= en el =PATH=
+- Necesitamos definir algunas variables de entorno (ficheros =~/.profile=, =~/.bash_profile=, =~/.bashrc=)
+  - =ORACLE_HOME=: =/home/alumno/app/alumno/product/12.1.0/dbhome_1=
+  - Incluir =$ORACLE_HOME/bin= en el =PATH=
+- También se puede usar [[http://www.orafaq.com/wiki/Oraenv][el comando =oraenv=]] para definir estas variables
 
 ** Reiniciar
 - En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
@@ -158,9 +160,7 @@ Enter user-name:
 * Creación de una instancia de base de datos
 
 - Comando =dbca=
-- No está en el =PATH=
-  - Se puede buscar con =locate=
-  - Para que funcione =locate=, hay que ejecutar previamente =updatedb=
+- No estará en el =PATH= si no se ha incluido (por ejemplo, con =oraenv=)
 - Utilizad la configuración típica
   - Nombre: =asir=
   - Que no sea una /container database/
@@ -235,11 +235,11 @@ SQL>
 
 
 * Conexión en local
-- Debemos tener configuradas las variabales de entorno
+- Después de la creación de un /listener/ y una instancia, ya podemos conectarnos a la base de datos
+- Recordatorio: Debemos tener configuradas las variabales de entorno
   - =ORACLE_SID= : el nombre que de la base de datos (=asir=)
   - =PATH= : debe incluir =$ORACLE_HOME/bin=
   - Se pueden poner también con =oraenv=
-
 
 #+BEGIN_SRC sh
 sqlplus / as sysdba  
@@ -315,6 +315,7 @@ sqlplus / as sysdba
 ** Instalación de *SQLDeveloper* en Ubuntu
 - Se necesita *JDK 1.8*
 - Se descarga el fichero  =sqldeveloper-xxxxx-no-jre.zip=
+  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
 - Se descomprime y se ejecuta =sqldeveloper.sh=
 
 
@@ -324,3 +325,19 @@ sqlplus / as sysdba
 - Comprobar que la interfaz de red se inicia en el arranque
   - =/etc/sysconfig/network-scripts=
   - =ONBOOT= debe ser =YES=
+
+* Cosas que hemos aprendido /de pasada/
+- Variables de entorno
+  - Variable =PATH=
+- Conexiones por *ssh*
+  - Con redirección del *Xserver*
+- Edición de ficheros de texto
+- Instalación de paquetes en *Centos*
+- Conexiones de red (/bridged/, /NAT/)
+- Elevación de permisos con =sudo=
+- Descompresión de ficheros *zip*
+
+-----
+Nada de esto es /directamente/ bases de datos...
+
+... pero ha sido necesario para instalar *Oracle*

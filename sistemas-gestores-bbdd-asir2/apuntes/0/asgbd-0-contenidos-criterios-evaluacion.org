@@ -1,4 +1,4 @@
-#+INCLUDE: "../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  ADMINISTRACIÓN DE SISTEMAS GESTORES DE BASES DE DATOS 
 #+SUBTITLE: (CÓDIGO: 0377)
 #+KEYWORDS: 0377
@@ -30,7 +30,7 @@
 
 * Entrega de Trabajos
 - Via *Moodle*
-  + Nuestro curso es http://aulavirtual2.educa.madrid.org/course/view.php?id=16620
+  + Nuestro curso es https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=65
   + El curso es accesible incluso sin usuario
 - Se utilizará Microsoft Office (*DOC*, *DOCX*)
   + Opcionalmente, *PDF* o LibreOffice (*ODT*)
