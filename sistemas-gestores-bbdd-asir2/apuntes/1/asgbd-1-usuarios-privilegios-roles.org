@@ -33,6 +33,15 @@ Mas información en:
 - https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm
 - https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm
 
+** Crear un /tablespace/
+#+begin_src sql
+CREATE TABLESPACE nombre 
+  DATAFILE '/camino/al/fichero.dbf'
+  SIZE tamañoinicial
+  AUTOEXTEND ON NEXT 200k MAXSIZE 1400K
+  DEFAULT STORAGE (INITIAL 16k NEXT 16k MINEXTENTS 1 MAXEXTENTS 3);
+#+end_src
+
 ** ¿Por qué es tan complicado?
 - Esta flexibilidad permite:
   - Que cada usuario tenga sus /tablespaces/
