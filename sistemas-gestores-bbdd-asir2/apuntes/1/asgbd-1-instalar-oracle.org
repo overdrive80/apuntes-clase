@@ -353,7 +353,7 @@ See the Instant Client Home Page for more information.
 
 #+END_NOTES
 
-* * Instalación de *SQLDeveloper* en Centos
+** Instalación de *SQLDeveloper* en Centos
 - Se necesita *JDK 1.8*
 - Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
   - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
