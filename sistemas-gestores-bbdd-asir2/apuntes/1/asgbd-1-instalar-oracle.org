@@ -357,14 +357,14 @@ See the Instant Client Home Page for more information.
 - Se necesita *JDK 1.8*
 - Se instalan los ficheros =sqldeveloper-4.1.5.21.78-1.noarch.rpm= y =jdk-8u111-linux-x64.rpm=
   - http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
+  - http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html
 - Arracar =sqldeveloper= desde la consola
   - Preguntará por el directorio de instalación del JDK
 
 ** Instalación de *SQLDeveloper* en Ubuntu
 - Se necesita *JDK 1.8*
 - Se descarga el fichero  =sqldeveloper-xxxxx-no-jre.zip=
-  - http://www.oracle.com/technetwork/es/developer-tools/sql-developer/downloads/index.html
+  - http://www.oracle.com/technetwork/developer-tools/sql-developer/downloads/index.html
 - Se descomprime y se ejecuta =sqldeveloper.sh=
 
 
