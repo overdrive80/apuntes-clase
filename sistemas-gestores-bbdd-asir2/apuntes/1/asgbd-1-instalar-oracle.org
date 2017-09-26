@@ -390,3 +390,24 @@ See the Instant Client Home Page for more information.
 Nada de esto es /directamente/ bases de datos...
 
 ... pero ha sido necesario para instalar *Oracle*
+
+** Comandos
+| ~cd~       | Cambia el directorio actual              |
+| ~echo~     | Escribe los parámetros pasados           |
+| ~df~       | Espacio de disco usado                   |
+| ~unzip~    | Descomprime un *zip*                     |
+| ~updatedb~ | Actualiza la lista de ficheros del disco |
+| ~locate~   | Busca un fichero la lista de =updatedb=  |
+| ~ssh~      | Conexión remota                          |
+| ~grep~     | Busca líneas con un texto                |
+| ~nano~     | Editor de ficheros                       |
+  
+** Comandos, /shell/ y variables 
+| ~$variable~    | Valor de una variable (de =export= y =env= )        |
+| \vert          | Manda la salida de un programa a la entrada de otro |
+| ~$HOME/bashrc~ | /script/ de inicio del usuario                      |
+| ~source~       | Ejecuta un /script/ dentro de la /shell/ actual     |
+| ~export~       | Define una variable                                 |
+| ~env~          | Lista de variables                                  |
+| ~PATH~         | Lista de directorios donde se buscan comandos       |
+

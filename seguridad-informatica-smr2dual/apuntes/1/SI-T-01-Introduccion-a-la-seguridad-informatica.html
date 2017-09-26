@@ -1,0 +1,940 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-09-20 mié 19:04 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Introducción a la seguridad informática</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="alvaro" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2017 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Introducción a la seguridad informática</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org8366b79">1. Presentación del tema</a>
+<ul>
+<li><a href="#org8760bc5">1.1. Sistemas de información y sistemas informáticos.</a>
+<ul>
+<li><a href="#org4d9e0b4">1.1.1. Sistema de información:</a></li>
+<li><a href="#orgee76113">1.1.2. Sistema informático:</a></li>
+</ul>
+</li>
+<li><a href="#org3fccf9f">1.2. Seguridad</a></li>
+<li><a href="#org207d9c7">1.3. </a></li>
+<li><a href="#orgacda893">1.4. Medidas de seguridad. Clasificaciones.</a>
+<ul>
+<li><a href="#org0f74e8f">1.4.1. SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</a></li>
+<li><a href="#orgfa2571b">1.4.2. SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</a></li>
+</ul>
+</li>
+<li><a href="#orgdf2b685">1.5. PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</a>
+<ul>
+<li><a href="#org930189a">1.5.1. INTEGRIDAD:</a></li>
+<li><a href="#org030684f">1.5.2. CONFIDENCIALIDAD:</a></li>
+<li><a href="#orgde7bf22">1.5.3. DISPONIBILIDAD:</a></li>
+<li><a href="#orge12963c">1.5.4. NO REPUDIO:</a></li>
+<li><a href="#org7362fd7">1.5.5. Otras propiedades de seguridad.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4addaff">2. Análisis de riesgos</a>
+<ul>
+<li><a href="#org7e2df6c">2.1. Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</a>
+<ul>
+<li><a href="#org8b75efb">2.1.1. </a></li>
+</ul>
+</li>
+<li><a href="#orgdadd804">2.2. El proceso del análisis de riesgos:</a></li>
+</ul>
+</li>
+<li><a href="#orgae94184">3. Políticas de seguridad</a>
+<ul>
+<li><a href="#orgc55e57b">3.1. Plan de contingencias</a></li>
+<li><a href="#org6eb3f96">3.2. Auditorías de seguridad</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org8366b79" class="outline-2">
+<h2 id="org8366b79"><span class="section-number-2">1</span> Presentación del tema</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En este tema hablaremos de los conceptos básicos de la Seguridad Informática.
+</p>
+
+<p>
+No son conceptos nuevos ni creados a propósito para ésta disciplina.
+</p>
+
+<p>
+La mayor parte de ésta terminología ha sido adoptada de terminología ya existente en el ámbito empresarial, referida a la seguridad en un concepto amplio.
+</p>
+
+<p>
+La Seguridad Informática se encarga de los aspectos relacionados con la seguridad de los equipos informáticos, pero también de todo lo que le rodea de manera más o menos directa: personas, datos, software, instalaciones&#x2026;
+</p>
+</div>
+
+<div id="outline-container-org8760bc5" class="outline-3">
+<h3 id="org8760bc5"><span class="section-number-3">1.1</span> Sistemas de información y sistemas informáticos.</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-org4d9e0b4" class="outline-4">
+<h4 id="org4d9e0b4"><span class="section-number-4">1.1.1</span> Sistema de información:</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Un sistema de información es un conjunto de elementos organizados, relacionados y coordinados entre sí, encargados de facilitar el funcionamiento global de una empresa o de cualquier otra actividad humana para conseguir sus objetivos.
+</p>
+
+<p>
+Esos elementos son:
+</p>
+
+<ul class="org-ul">
+<li>Recursos, como ordenadores, componentes, periféricos, conexiones, aplicaciones, sistemas operativos, y otros recursos no necesariamente informáticos, desde un teléfono a una grapadora.</li>
+
+<li>Equipo humano</li>
+
+<li>Información: datos organizados que tienen un significado. Pueden estar en un soporte informático o no.</li>
+
+<li>Actividades: muy importante&#x2026; toda organización realiza varias actividades en su negocio. (Ej.: una pequeña tienda tiene varias actividades: vender productos a los clientes, hacer pedidos a los proveedores, controlar la cantidad de productos almacenados, gestionar los gastos, ingresos, impuestos, etc&#x2026;)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgee76113" class="outline-4">
+<h4 id="orgee76113"><span class="section-number-4">1.1.2</span> Sistema informático:</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+Un Sistema informático está formado por un conjunto de elementos físicos (hardware, conexiones, cables&#x2026;) lógicos (Software de aplicación, de base, protocolos) y también podemos considerar con frecuencia al componente humano.
+</p>
+
+<p>
+Un sistema informático <b>da soporte a las actividades de los sistemas de información</b>. Las empresas diseñan sus actividades conforme a la información que manejan&#x2026; Nunca pensando en el sistema informático que les va a dar soporte. Lo importante para ellas, lógicamente, es que esas actividades se desarrollen de manera ordenada, eficaz y eficiente. Los sistemas informáticos, cuando están bien diseñados y utilizados, contribuyen en esos aspectos. (INFORMÁTICA=Tratamiento autoMÁTICO de la INFORmación).
+</p>
+
+<p>
+No necesariamente todas las actividades de la empresa requieren de sistemas informáticos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3fccf9f" class="outline-3">
+<h3 id="org3fccf9f"><span class="section-number-3">1.2</span> Seguridad</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+La seguridad es la disciplina que se ocupa de diseñar las <b>normas, procedimientos, métodos y técnicas</b> destinados a conseguir un sistema de información seguro y confiable.
+</p>
+
+<p>
+Todos los elementos que participan en un sistema de información pueden verse afectados por factores de diversa índole que pueden poner en peligro su estabilidad y normal funcionamiento.
+</p>
+
+<p>
+Con respecto a la Seguridad Informática, debemos tener en cuenta, que de todos esos elementos, debemos poner especial atención en la <b>información,</b> pues es el elemento más sensible de la empresa, y la que tiene un valor <i>incalculable</i> [1]&#x2026; pero siempre por detrás, por supuesto, de la seguridad de las personas.
+</p>
+
+<p>
+Reflexiona sobre ésto: ¿Tendría sentido anteponer la seguridad de la información o de cualquier otro elemento a la seguridad de las personas?
+</p>
+
+<p>
+Nuestro trabajo se centrará en la seguridad de los sistemas informáticos, pero siempre teniendo en mente que la protección va encaminada hacia las <b>actividades</b> de una empresa&#x2026; a intentar que no se vean vulneradas o afectadas por ninguna circunstancia, y por supuesto, tampoco la información que manejan. Es decir, a que los <i>sistemas de información</i> continúen su ritmo con la máxima normalidad posible. Para ello actuamos sobre los sistemas informáticos que les dan soporte.
+</p>
+
+<p>
+Nuestra disciplina se encarga poco de la seguridad de las personas, por eso no tendrá especial relevancia. Eso no significa que sea, sin duda, el aspecto clave de la seguridad&#x2026; simplemente, que ésta disciplina se enfoca principalmente hacia la seguridad de los sistemas de información.
+</p>
+
+<p>
+Para afrontar la seguridad de un sistema, deberemos conocer los elementos del sistema, los peligros que pueden acechar y las medidas que deberían adoptarse para lograr esa seguridad. No obstante, lo estudiaremos desde un punto de vista formal, utilizando terminología estándar del sector de la seguridad.
+</p>
+
+<p>
+Reflexiona sobre ésto: ¿Se puede lograr la seguridad total? Es decir&#x2026; estar totalmente protegido contra cualquier cosa.
+</p>
+
+<p>
+Hay un dicho en el sector de la seguridad:
+</p>
+
+<p>
+<i><b>La cadena siempre se rompe por el eslabón más débil.</b></i>
+</p>
+
+<p>
+A menudo se dice también que ese eslabón suele implicar al factor humano.
+</p>
+
+<p>
+Reflexiona sobre ésto:¿Crees que en efecto, el factor humano es el eslabón más débil?
+</p>
+</div>
+</div>
+
+<div id="outline-container-org207d9c7" class="outline-3">
+<h3 id="org207d9c7"><span class="section-number-3">1.3</span> </h3>
+</div>
+
+<div id="outline-container-orgacda893" class="outline-3">
+<h3 id="orgacda893"><span class="section-number-3">1.4</span> Medidas de seguridad. Clasificaciones.</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Para proteger la información, es necesario establecer una serie de medidas. Las medidas de seguridad pueden clasificarse de varias maneras. Nosotros vamos a mencionar dos:
+</p>
+</div>
+
+<div id="outline-container-org0f74e8f" class="outline-4">
+<h4 id="org0f74e8f"><span class="section-number-4">1.4.1</span> SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</h4>
+<div class="outline-text-4" id="text-1-4-1">
+<p>
+Atendiendo al carácter que tenga, hablamos de medidas de seguridad
+</p>
+
+<ul class="org-ul">
+<li><b>Activas</b>: aquellas cuyo objetivo es evitar o reducir los riesgos que amenazan al sistema. Podemos decir que tienen un carácter <b>preventivo.</b> es decir, intentan <i>impedir</i> que ocurra un incidente.<br />
+Por ejemplo, en un coche, el ABS es una medida de seguridad activa, ya que es un mecanismo electrónico que ayuda al conductor a frenar el coche&#x2026; intenta evitar, prevenir un incidente.</li>
+
+<li><b>Pasivas</b>: aquellas cuyo objetivo es minimizar la repercusión de un incidente de seguridad una vez producido. Podemos decir que tienen un carácter *correctivo.<br />
+*Es decir, no intentan evitar un incidente, sino reducir sus posibles efectos adversos. Por ejemplo, en un coche, un cinturón de seguridad es una medida de seguridad pasiva: no intenta evitar un accidente, sino que, de producirse, los daños para el ocupante del vehículo sean menores.</li>
+</ul>
+
+<p>
+Una determinada medida de seguridad casi siempre cae en uno de los dos grupos. Es poco frecuente encontrar medidas de seguridad que simultáneamente puedan considerarse activas y pasivas&#x2026; no obstante, como haberlas, haylas. Por ejemplo, cualquiera de los antivirus modernos, por un lado intenta <i>impedir</i> la entrada de virus y malwares, y por otro lado, si entran y el antivirus los detecta intentará minimizar su impacto.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfa2571b" class="outline-4">
+<h4 id="orgfa2571b"><span class="section-number-4">1.4.2</span> SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+Referido ya al ámbito exclusivo de la seguridad informática, podemos hablar de
+</p>
+
+<ul class="org-ul">
+<li><b>Seguridad lógica</b>: cuando la medida va destinada a la protección de la información o del software.</li>
+
+<li><b>Seguridad física</b>: cuando la medida va destinada a la protección del hardware.</li>
+</ul>
+
+<p>
+Quizá estés pensando en el hecho de que el hardware, a veces es soporte del software y los datos&#x2026; Por ejemplo&#x2026; Si protejo un ordenador servidor con un SAI (el ordenador es hardware), pero el servidor en su interior contiene datos&#x2026; entonces ¿el SAI es una medida de seguridad física o lógica? Es física&#x2026; protege de manera directa al hardware&#x2026; y los datos del servidor también, pero de manera indirecta.
+</p>
+
+<p>
+En general, el hardware en sí no es un recurso demasiado valioso. Hay medidas de seguridad física dirigidas a él porque prácticamente siempre es el soporte de los datos.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdf2b685" class="outline-3">
+<h3 id="orgdf2b685"><span class="section-number-3">1.5</span> PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelque? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?&#x2026;. Si&#x2026; por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres <i>propiedades</i> básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
+</p>
+</div>
+
+<div id="outline-container-org930189a" class="outline-4">
+<h4 id="org930189a"><span class="section-number-4">1.5.1</span> INTEGRIDAD:</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+Garantizar la autenticidad y precisión de la información, sin importar el momento en que se solicita.
+</p>
+
+<p>
+Dicho de otra forma, que los datos no son alterados ni destruidos de modo no autorizado, ni accidentalmente. Si los datos se pierden, se borran, se modifican, se corrompen, o se añaden datos nuevos fraudulentos o erróneos consideramos que se ha perdido la integridad de un sistema de información. Esto puede ocurrir con datos que están almacenados (“quietos”, en un fichero, o base de datos, o manejados por una aplicación&#x2026;) o con datos que se está en un sistema de comunicaciones (se están “moviendo”&#x2026; y llegan a su destino en un estado diferente al que fueron emitidos.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org030684f" class="outline-4">
+<h4 id="org030684f"><span class="section-number-4">1.5.2</span> CONFIDENCIALIDAD:</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+Garantizar que los datos almacenados estén únicamente al alcance de las personas, entidades o mecanismos autorizados, en los momentos autorizados y de una manera autorizada.
+</p>
+
+<p>
+Es decir, no sólo que se pueda acceder a información si se está autorizado, sino que se además, debe hacerse dentro de la actividad correspondiente.
+</p>
+
+<p>
+Si un sistema de información permite que un dato cualquiera llegue a ser visto por alguien que no está autorizado supone una pérdida de la confidencialidad. El concepto va todavía más lejos&#x2026; Si el dato llega a una persona que sí es un destinatario legítimo de la información, pero llega por un mecanismo no autorizado, o un momento no autorizado, o utilizando algún procedimiento no autorizado, también consideramos que se ha producido una pérdida de la confidencialidad.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgde7bf22" class="outline-4">
+<h4 id="orgde7bf22"><span class="section-number-4">1.5.3</span> DISPONIBILIDAD:</h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+El grado en que un dato está en el lugar, momento y forma en que es requerido por un usuario autorizado.
+</p>
+
+<p>
+Dicho de otro modo, que la información que se solicite esté disponible en un periodo de tiempo "razonable" desde que se solicita por un usuario autorizado.
+</p>
+
+<p>
+La pérdida de la disponibilidad sólo implica en sí misma que en un momento dado, una información que se solicita no es devuelta por un sistema. Esto no implica que la información haya perdido la integridad&#x2026; sólo que no se puede proporcionar en ese momento.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge12963c" class="outline-4">
+<h4 id="orge12963c"><span class="section-number-4">1.5.4</span> NO REPUDIO:</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<p>
+La capacidad de determinar quién creó, modificó o accedió a cierta información, de forma que ni el emisor/creador pueda negar su participación, ni el receptor pueda negar que tuvo dicha información disponible.
+</p>
+
+<p>
+Esta característica de la seguridad cobra importancia a la hora de realizar transacciones seguras en un sistema informático, con aplicaciones variadas. Por ejemplo, en la administración electrónica, es vital que el ciudadano pueda probar que ha tramitado en plazo sus obligaciones tributarias, y que el estado no pueda alegar que no recibió la documentación.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7362fd7" class="outline-4">
+<h4 id="org7362fd7"><span class="section-number-4">1.5.5</span> Otras propiedades de seguridad.</h4>
+<div class="outline-text-4" id="text-1-5-5">
+<p>
+Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y del la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
+</p>
+
+<ul class="org-ul">
+<li><b>Autenticación</b>: Más allá de la confidencialidad, las medidas o servicios de autenticación intentan garantizar la identidad de las personas o entidades que intentan acceder a la información. Se puede exigir la autenticación en el origen de los datos, en el destino o en ambas. Está ligada a la <b>confidencialidad</b>, ya que el sistema informático necesita saber quién accede al sistema para garantizar esta última. Se necesita para el <b>no-repudio</b>.</li>
+
+<li><b>Control de acceso</b>: Son las medidas o servicios que no sólo permiten o impiden el acceso de personas o entidades a la información, sino que además, suelen registrar constancia del hecho del acceso o el intento de acceso. Relacionado con la <b>confidencialidad</b> y el <b>no-repudio</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4addaff" class="outline-2">
+<h2 id="org4addaff"><span class="section-number-2">2</span> Análisis de riesgos</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Hasta ahora, hemos planteado algunos conceptos básicos de la seguridad&#x2026;. utilizando una terminología informal.
+</p>
+
+<p>
+En el ámbito de la seguridad, se utiliza sin embargo, una terminología formal y común para todas las disciplinas de seguridad (la seguridad informática incluida, por supuesto).
+</p>
+
+<p>
+El <b>Análisis de riesgos</b> es una acción extremadamente común en el estudio de la seguridad de un sistema. Consiste en estudiar, analizar, reflexionar y proponer medidas de seguridad fijándose en algunos aspectos de un sistema de información. Es decir, es un estudio dirigido, acotado&#x2026; destinado a reflexionar sobre una parte o unos aspectos concretos de la seguridad.
+</p>
+
+<p>
+Podría hacerse referido a la seguridad de un sistema informático al completo, pero esa es una tarea titánica&#x2026; mejor enfocarse. Si es necesario hacer un análisis de riegos de todo un sistema es mejor descomponerlo en partes o aspectos y hacer análisis de cada uno de ellos.
+</p>
+
+<p>
+Este análisis suele dar como resultado <b>documentación escrita</b>. Es decir, el análisis tiene valor en sí mismo, pero es necesario darlo a conocer.
+</p>
+
+<p>
+Aunque tiene un carácter ciertamente esquemático y técnico, debe estar lo suficientemente redactado y razonado como para que cualquier persona entienda su contenido&#x2026; de qué va, qué es lo que se está estudiando, qué elementos se ven afectados, por qué se está realizando el estudio, por qué se proponen según qué medidas, etc.
+</p>
+
+<p>
+Existen modelos formales que nos ayudan a saber qué pasos realizar para hacer un análisis de riesgos de calidad y exhaustivo (ej MAGERIT). Nosotros, en la asignatura, lo haremos algo más informalmente, adecuado para análisis de sistemas o subsistemas en la pequeña o mediana empresa&#x2026; pero eso no es excusa para descuidar su aspecto, profundidad e incidencia.
+</p>
+</div>
+
+<div id="outline-container-org7e2df6c" class="outline-3">
+<h3 id="org7e2df6c"><span class="section-number-3">2.1</span> Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Ya hemos comentado que un <b>análisis de riesgos</b> suele ir dirigido, es decir&#x2026; se motiva por la presenta de supuestos peligros que queremos estudiar, o bien&#x2026; porque directamente se ha producido un incidente y queremos evitar que se repita uno igual o similar.
+</p>
+
+<p>
+Nos fijaremos en éstos elementos:
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgdf27477"></a>ACTIVOS:<br /><div class="outline-text-5" id="text-2-1-0-1">
+<p>
+En lenguaje informal (y en contabilidad), un activo es cualquier cosa que tenga valor para la empresa.
+</p>
+
+<p>
+En el ámbito del análisis de riesgos, se denomina así a cualquier recurso de la empresa que sea necesario para que el sistema de información funcione de forma adecuada. Son activos elementos de los datos, el software, el hardware, el personal, las redes, las instalaciones e incluso los servicios y actividades de la empresa. En un análisis de riesgos los enumeraremos y explicaremos lo que son.
+</p>
+</div></li>
+
+<li><a id="org5d3a177"></a>AMENAZAS:<br /><div class="outline-text-5" id="text-2-1-0-2">
+<p>
+Se entiende por amenaza la presencia de uno o más factores de diversa índole que -de tener la oportunidad- afectarían al sistema objeto de estudio produciéndole daños.
+</p>
+
+<p>
+Hay muchos tipos de amenazas&#x2026; cortes eléctricos, fallos en hardware, riesgos ambientales, acciones intencionadas, software malicioso, robo, destrucción de información, modificación de información&#x2026; seguro que se te ocurren un montón.
+</p>
+
+<p>
+Pero en función del daño o manipulación que puedan hacer sobre la información, suelen caer en uno de éstos grupos:
+</p>
+
+<ul class="org-ul">
+<li>De <b>interrupción</b>: se deshabilita el acceso a la información, se cortan comunicaciones o accesos.</li>
+
+<li>De <b>interceptación</b>: se capta la información por personas o elementos no autorizados</li>
+
+<li>De <b>modificación</b>: La información se altera, bien definitiva o bien circunstancialmente</li>
+
+<li>De <b>fabricación</b>: se genera información nueva y fraudulenta o errónea.</li>
+</ul>
+
+<p>
+Como ya comentamos, según su origen pueden ser:
+</p>
+
+<ul class="org-ul">
+<li>Fortuitas (o accidentales)</li>
+
+<li>Fraudulentas (o intencionadas)</li>
+</ul>
+</div></li>
+
+<li><a id="org2c9a7a9"></a>VULNERABILIDADES:<br /><div class="outline-text-5" id="text-2-1-0-3">
+<p>
+Cada activo es vulnerable en cierto grado a algunas amenazas. Las amenazas sólo afectan a los activos vulnerables. Es necesario estudiar qué activos son vulnerables a qué amenazas.
+</p>
+
+<p>
+Ej: (Un tanto exagerado). Imaginemos la siguiente amenaza: "Lluvia de meteoritos desde el espacio exterior que caen sobre nuestra población".
+</p>
+
+<p>
+Si los activos que pueden verse afectados son "Yo mismo" y "Superman"&#x2026; El primer activo es totalmente vulnerable a la amenaza&#x2026; El segundo activo es prácticamente invulnerable.
+</p>
+
+<p>
+Otro ejemplo: (Menos exagerado). El famoso virus "Sasser" estaba programado para aprovecharse de algunas vulnerabilidades de algunos sistemas operativos de la serie Windows. Algunos sistemas Windows eran totalmente vulnerables&#x2026; otros sólo parcialmente o eran completamente invulnerables. Todos los sistemas tipo unix eran invulnerables.
+</p>
+</div></li>
+
+<li><a id="org908aff3"></a>RIESGOS<br /><div class="outline-text-5" id="text-2-1-0-4">
+<p>
+Riesgo es la probabilidad de que se materialice una amenaza y produzca un daño sobre un activo aprovechando su vulnerabilidad ante dicha amenaza. Es decir&#x2026; la definición de <b>riesgo</b> está íntimamente ligada por un lado a los activos y sus vulnerabilidadades, y por otro a las amenazas.
+</p>
+
+<p>
+Ej.: Siguiendo con el ejemplo anterior&#x2026; el <b>riesgo</b> de que se produzca una lluvia de meteoritos sobre ésta población y me afecte a mí (el activo) es muy bajo. (No se conocen lluvias de meteoritos en los últimos siglos sobre ésta población).
+</p>
+
+<p>
+El el riesgo de que se produzca una lluvia de meteoritos sobre ésta población y afecte a Superman (el activo) es practicamente inexistente. (Además de que no se conocen lluvias de meteoritos en los últimos siglos sobre ésta población, tampoco Superman suele estar por aquí, con lo cual, si se produjera una lluvia de meteoritos es poco probable que le pillara, y en caso de que le pillara, es invulnerable a los meteoritos).
+</p>
+
+<p>
+El riesgo de un virus tipo "I loveyou" afecte a un sistema Windows es muy alto, ya que están diseñados específicamente para propagarse y aprovechar vulnerabilidades de éstos.
+</p>
+
+<p>
+Lo importante de los riesgos es <b>estimarlos&#x2026;</b> hacer una estimación de la probabilidad de que aparezca la amenaza y afecte a un determinado activo.
+</p>
+
+<p>
+La estimación no es más que eso: una forma de intentar "adivinar" en qué grado de probabilidad una amenaza afectaría a un activo.
+</p>
+
+<p>
+A menudo, se diseñan herramientas (estadísticas, matemáticas, probabilísticas&#x2026;) para intentar evaluar los riesgos de la manera más cuantificada posible (es decir, con números)&#x2026; Si utilizamos alguna de éstas herramientas para evaluar un riesgo, es necesario citarla <i>siempre</i>.
+</p>
+
+<p>
+Ante la detección de un riesgo, se puede optar por tres alternativas:
+</p>
+
+<ul class="org-ul">
+<li><b>Asumirlo, y no prevenirlo</b>. Ésto resulta lógico cuando el perjuicio esperado tiene poco valor o cuando el coste de la aplicación de medidas preventivas supera el de la reparación del daño. (Véase "<b>Plan de contingencias</b>". En éste caso, es útil. Si no prevengo un riesgo, al menos, saber cómo afrontarlo).</li>
+
+<li><b>Prevenirlo</b>: Aplicar medidas de seguridad activa para disminuirlo o anularlo.</li>
+
+<li><b>Transferirlo</b>. Traspasar a un tercero la gestión de ese riesgo: típicamente, <b>contratar un seguro</b> para ese riesgo. Tiene sentido cuando el coste de la prevención es elevado, también el de la reparación&#x2026; pero el riesgo de que ocurra es bajo.</li>
+</ul>
+</div></li>
+
+<li><a id="orgecb4062"></a>ATAQUE:<br /><div class="outline-text-5" id="text-2-1-0-5">
+<p>
+Llamamos <b>ataque</b> a la materialización de una amenaza, independientemente de que su origen sea fortuito o intencionado.
+</p>
+
+<p>
+En función del impacto causado y la propiedad del sistema vulnerada, los ataques se clasifican en:
+</p>
+
+<ul class="org-ul">
+<li><b>ataques activos</b>: Si se modifica, daña o suprime información o si se bloquean los canales de comunicación (Es decir, se compromete la <i>integridad</i> o la <i>disponibilidad</i> del sistema</li>
+
+<li><b>ataque pasivo</b>: Si solamente se accede a información de manera no autorizada o por canales no autorizados (Es decir, se compromete la <i>confidencialidad</i> del sistema).</li>
+</ul>
+
+<p>
+Un ataque también puede ser <b>directo</b> si se produce directamente desde el atacante hasta el activo, o <b>indirecto</b> si se hace a través de recursos o personas intermediarias.
+</p>
+</div></li>
+
+<li><a id="org7d91951"></a>IMPACTO:<br /><div class="outline-text-5" id="text-2-1-0-6">
+<p>
+El impacto es la consecuencia de un ataque (producido ya o supuesto). Dicho de otra forma, son los daños causados por un ataque, existente o no.
+</p>
+
+<p>
+Los impactos se puede estimar:
+</p>
+
+<ul class="org-ul">
+<li>De forma <b>cuantitativa</b>, cuando se puede expresar en términos económicos.</li>
+
+<li>De forma <b>cualitativa</b>, cuando esos daños no se pueden cuantificar (ej: pérdida de derechos fundamentales, pérdida de vidas, daños morales, de imagen&#x2026;)</li>
+</ul>
+</div></li>
+
+<div id="outline-container-org8b75efb" class="outline-4">
+<h4 id="org8b75efb"><span class="section-number-4">2.1.1</span> </h4>
+</div>
+</div>
+
+<div id="outline-container-orgdadd804" class="outline-3">
+<h3 id="orgdadd804"><span class="section-number-3">2.2</span> El proceso del análisis de riesgos:</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Para realizar un análisis de riesgos, en primer lugar estudiaremos el caso que tengamos entre manos, tratando de encontrar sus elementos.
+</p>
+
+<p>
+Después, deberíamos seguir un cierto esquema, que, sin duda pasa por estos puntos:
+</p>
+
+<ul class="org-ul">
+<li><b>Enumerar y valorar los activos</b>: decir cuáles son los implicados en el caso, cuál es su función, qué contienen, en qué actividades se ven involucrados, quién los utiliza&#x2026; etc.</li>
+
+<li>*Identificar y valorar las vulnerabilidades*de cada activo ante cada amenaza: dadas las amenazas a estudiar, algunos activos presentarán vulnerabilidades, otros no, y otros sólo en cierto grado o aspecto: reflexionar sobre ello y plasmarlo.</li>
+
+<li><b>Identificar y valorar las amenazas que pueden afectar a los activos</b>: definir qué amenazas pueden tener impacto sobre los activos enumerados&#x2026; en qué consisten, en qué circunstancias se producirían</li>
+
+<li><b>Determinar la medida de los riesgos:</b> Cada amenaza tendrá una cierta probabilidad de aparición, y, según las vulnerabilidades de cada activo a cada amenaza, supondrá un cierto nivel de riesgo. Es necesario <i>estimarlo,</i> si es posible, con datos o herramientas que lo refrenden, y plasmarlo convenientemente.</li>
+
+<li><b>Identificar y evaluar las medidas de seguridad existentes</b>: qué medidas hay ya tomadas en el sistema. Cómo afectan a las amenazas, activos y vulnerabilidades descritas.</li>
+
+<li><b>Identificar los objetivos de seguridad de la organización</b>. ¿Qué es lo que queremos lograr? ¿Para qué estamos haciendo éste análisis?</li>
+
+<li><b>Determinar el impacto de un ataque:</b> Si el ataque se ha producido, describirlo y evaluar su impacto. De las posibles amenazas no materializadas, intentar <i>estimar</i> su supuesto impacto.</li>
+
+<li><b>Identificar y seleccionar las medidas de seguridad propuestas</b>: proponer medidas de seguridad, tanto activas como pasivas para reducir los riesgos. Es conveniente estimar sus costes, tanto de implantación como de mantenimiento.
+
+<ul class="org-ul">
+<li>Es necesario establecer un orden en las medidas propuestas. Dar alternativas&#x2026; Un análisis de riesgos debe concluir con varias aportaciones de seguridad activa o pasiva, que deben quedar perfectamente definidas.</li>
+
+<li>Si algunas de las aportaciones son excluyentes (ej&#x2026;. optar por una o por otra), debe quedar perfectamente claro para el que lo lee, y cuál es la prioritaria y por qué.</li>
+
+<li>Las medidas de seguridad no siempre se proponen "sueltas"&#x2026; normalmente se combinan de forma ordenada y lógica&#x2026; en ese caso, forman un <b>mecanismo de seguridad</b>. Seguro que muchas de las mejores propuestas se expresan normalmente en forma de mecanismos, y no de medidas sueltas.</li>
+</ul></li>
+</ul>
+
+<p>
+Es importante resaltar que las medidas de seguridad activas intentan eliminar una <b>vulnerabilidad</b>, mientras que las medidas de seguridad pasivas mitigan los impactos de un daño producido por una <b>amenaza</b>
+</p>
+
+<p>
+En conclusión&#x2026;. el <b>análisis de riesgos</b> es mucho más que un documento&#x2026; ES UN <b>ANÁLISIS</b>: un estudio y reflexión del profesional que lo realiza, y se refiere la seguridad de algún aspecto de un sistema informático, con aporte de soluciones para reducir los riegos, y estudio y evaluación de todos los elementos implicados, desde los puntos de vista más amplios posible.
+</p>
+
+<p>
+Es la herramienta clave de la SEGURIDAD, tanto informática como de cualquier otro aspecto, y es el punto de partida hacia el aporte de soluciones. Lo emplearemos intensiva y extensivamente en los casos que veamos a lo largo del curso.
+</p>
+
+<p>
+[más<a href="http://es.wikipedia.org/wiki/An%C3%A1lisis_de_riesgo"><i>Análisis de riesgos</i></a> en Wikipedia]
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgae94184" class="outline-2">
+<h2 id="orgae94184"><span class="section-number-2">3</span> Políticas de seguridad</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Llamamos así a las directrices u objetivos de una organización con respecto a la seguridad.
+</p>
+
+<p>
+Toda organización debe tener recogidas esas directrices, que todas las personas involucradas de alguna manera con la empresa deben conocer y cumplir.
+</p>
+
+<p>
+Las políticas de seguridad se refieren a todos los aspectos de seguridad de la empresa, pero por supuesto, habrá medidas referidas a los sistemas informáticos. Las medidas en ese sentido deben proponerse a partir de los análisis de riesgos.
+</p>
+
+<p>
+Un análisis de riesgos es un documento técnico y exhaustivo. Si a partir de uno o varios análisis de riesgos se llega a una medida o mecanismo de seguridad que deba ser conocido y respetado por todos, debe estar plasmado en las <b>políticas de seguridad</b> de la empresa.
+</p>
+
+<p>
+Las políticas de seguridad no son un documento técnico ni exhaustivo. Es un documento generalista y es para que todas las personas de la empresa lo conozcan y velen por el cumplimiento de las normas que exhibe.
+</p>
+
+<p>
+Es un documento que debe ser aprobado por la dirección de la empresa y conocido por todos.
+</p>
+
+<p>
+La parte referida a los sistemas informáticos será propuesta sin duda por personal técnico a partir de uno o más análisis de riesgos.
+</p>
+
+<p>
+Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International OrganizationforStandarization) define uno. MAGERIT también.
+</p>
+
+<p>
+Entre los puntos que debe cubrir la política de seguridad podemos destacar:
+</p>
+
+<ul class="org-ul">
+<li>Identificar las necesidades de seguridad y riesgos</li>
+
+<li>Relación de todas las medidas de seguridad</li>
+
+<li>Reglas y procedimientos que deben aplicarse en los diferentes departamentos de la organización, y los que deben aplicarse con carácter general.</li>
+
+<li>Mecanismos de detección de vulnerabilidades y fallos</li>
+
+<li>Definir planes de contingencias para amenazas posibles.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc55e57b" class="outline-3">
+<h3 id="orgc55e57b"><span class="section-number-3">3.1</span> Plan de contingencias</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Un plan de contingencias intenta describir los pasos a seguir ante la materialización de un amenaza.
+</p>
+
+<p>
+Ante muchas amenazas, se pueden poner medidas preventivas (seguridad activa) que impidan que se materialicen en un ataque.
+</p>
+
+<p>
+A menudo, esas medidas no se pueden poner (porque su coste es caro con respecto al riesgo que supone la amenaza) o a veces, a pesar de las medidas de seguridad activa, el ataque se produce.
+</p>
+
+<p>
+Ante un ataque, algunas actividades de la empresa se verán afectadas, impidiendo su normal desarrollo.
+</p>
+
+<p>
+Un plan de contingencias intenta organizar la manera de actuar ante la presencia de un ataque, de manera que el desarrollo de la actividad empresarial afectada pueda continuar.
+</p>
+
+<p>
+Es decir, está enfocado a continuar con la actividad de la empresa aunque se produzca un ataque&#x2026; NO a la continuidad del funcionamiento del sistema informático.
+</p>
+
+<p>
+En ese sentido, para cada contingencia previsible (cada posible amenaza), debería existir un plan de contingencias (que se anexa a las políticas de seguridad), y que contenga cada uno al menos tres planes independientes:
+</p>
+
+<ul class="org-ul">
+<li><b>El plan de emergencia:</b> el que contempla qué hacer <b>cuando se está produciendo</b> un ataque o acaba de producirse: qué se debe hacer para continuar con las actividades empresariales afectadas. Debe ser una descripción clara y sencilla: debemos intentar que cada persona actúe de acuerdo al plan (sea bueno o menos bueno), de esa manera se intenta evitar la desorganización y el caos.</li>
+
+<li><b>Plan de respaldo</b>: Contempla las contramedidas preventivas *antes*de que se materialice una amenaza. Su finalidad es evitar dicha materialización.</li>
+
+<li><b>Plan de recuperación</b>: Contempla las medidas necesarias <b>después*de materializada y controlada la amenaza. Su finalidad es *restaurar</b> el estado de las cosas tal y como se encontraban antes de la materialización de la amenaza.</li>
+</ul>
+
+<p>
+Los planes de contingencia forman parte de las políticas de seguridad de una empresa.
+</p>
+
+<p>
+[más: <a href="http://es.wikipedia.org/wiki/Plan_de_Contingencias"><i>Planes de contingencia</i></a> en wikipedia]
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6eb3f96" class="outline-3">
+<h3 id="org6eb3f96"><span class="section-number-3">3.2</span> Auditorías de seguridad</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+En nuestro ámbito, una auditoría es un análisis pormenorizado de un sistema de información que permite descubrir, identificar y corregir vulnerabilidades en los activos que lo componen y en los procesos que se realizan.
+</p>
+
+<p>
+Su finalidad es <b>verificar</b> que se cumplen los objetivos de la <b>política de seguridad</b> de la empresa.
+</p>
+
+<p>
+Proporciona una idea actual del estado de seguridad e un sistema de información.
+</p>
+
+<p>
+No obstante, la auditoría en sí misma se ha convertido en una parte importante de la seguridad.
+</p>
+
+<p>
+Hablando en concreto de la Seguridad Informática, la auditoría tiene su propia dinámica.
+</p>
+
+<p>
+[más<a href="http://es.wikipedia.org/wiki/Auditoria_inform%C3%A1tica"><i>Auditoría informática</i></a> en wikipedia]
+</p>
+
+<p>
+[1] Valor incalculable puede significar dos cosas:
+</p>
+
+<p>
+que es muy valioso
+</p>
+
+<p>
+que no se puede calcular.
+</p>
+
+<p>
+En nuestro contexto, nos referimos a la segunda acepción.
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: alvaro</p>
+<p class="date">Created: 2017-09-20 mié 19:04</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
