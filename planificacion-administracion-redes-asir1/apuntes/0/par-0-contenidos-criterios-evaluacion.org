@@ -32,7 +32,7 @@
 
 * Entrega de Trabajos
 - Via *Moodle*
-  + Nuestro curso es
+  + Nuestro curso es [[https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=72]]
   + El curso es accesible incluso sin usuario
 - Se utilizará Microsoft Office (*DOC*, *DOCX*)
   + Opcionalmente, *PDF* o LibreOffice (*ODT*)

@@ -1,5 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Arquitectura de *Oracle*
+# #+OPTIONS: reveal_single_file:nil
 
 
 
@@ -39,15 +40,6 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 
 [[file:procesos-usuario-sistema.gif]]
 
-** Archivos
-- Los datos de las tablas al final se almacenan en archivos
-
-| Archivos de datos, de usuario y del sistema    | En /tablespaces/ (=dbf=) |
-| Redo Log (registro de todas las transacciones) | =log=                    |
-| Archivos de control                            | =ctl=                    |
-
------
-¿Dónde están los archivos de datos de nuestra instalación?
 
 * Arranque y parada
 
@@ -110,16 +102,40 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 - Vista /comodín/:
   - =SELECT * FROM DICT=
 
+#+BEGIN_NOTES
+Para cambiar tamaños de columnas en =sqlplus=:
+
+#+begin_src sql
+set linesize 2000;
+set pagesize 2000;
+column table_name format a30
+column comments format a150 
+#+end_src
+
+#+END_NOTES
 
 
 ** Ejemplo de vistas: ficheros
 | Tipos de archivos                      | Vista         |
+|----------------------------------------+---------------|
 | De Datos (dbf) undo, system y users    | v$datafile    |
 | Temporales (tmp)                       | v$tempfile    |
 | Rehacer o Redo Log (log) v$logfile,    | v$log         |
 | De control. Estructura física de la BD | v$controlfile |
 | De Log                                 | v$diag_info   |
 | Información de la BD                   | v$database    |
+
+** Archivos
+- Los datos de las tablas al final se almacenan en archivos
+
+| Archivos de datos, de usuario y del sistema    | En /tablespaces/ (=dbf=) |
+| Redo Log (registro de todas las transacciones) | =log=                    |
+| Archivos de control                            | =ctl=                    |
+
+-----
+¿Dónde están los archivos de datos de nuestra instalación?
+¿Cómo encontrarlos?
+
 
 * Bibliografía
 - https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit
