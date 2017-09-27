@@ -91,6 +91,13 @@ Ejemplo de redes de difusión:
 
 [[file:punto-a-punto.svg]]
 
+*** Caracteristicas
+- Privacidad
+- Coste:
+  - El medio no esta compartido
+  - Hardware por cada conexion
+- Sin colision 
+
 *** Conmutación de circuitos: 
 - Se crea un circuito dedicado (real o virtual) por el que pasa la información. 
   - Necesita establecer la conexión y liberarla. 
