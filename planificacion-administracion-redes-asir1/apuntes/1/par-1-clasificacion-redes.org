@@ -91,12 +91,12 @@ Ejemplo de redes de difusión:
 
 [[file:punto-a-punto.svg]]
 
-*** Caracteristicas
+*** Características
 - Privacidad
 - Coste:
-  - El medio no esta compartido
-  - Hardware por cada conexion
-- Sin colision 
+  - El medio no está compartido
+  - Hardware por cada conexión
+- Sin colisión 
 
 *** Conmutación de circuitos: 
 - Se crea un circuito dedicado (real o virtual) por el que pasa la información. 
