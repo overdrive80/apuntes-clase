@@ -186,25 +186,21 @@ Enter user-name:
 * Arrancar y parar la base de datos
 
 - Se necesitan las variables =ORACLE_HOME=, =ORACLE_SID=, =PATH=, =ORACLE_BASE=.
-- se definen con ayuda del script =oraenv=:
-#+begin_src sh
-source oraenv
-#+end_src
-
-- Arrancar la base de datos
-#+begin_src sh
-dbstart $ORACLE_HOME
-#+end_src
-
-- Parar la base de datos
-#+begin_src sh
-dbshut $ORACLE_HOME
-#+end_src
-
-- Comprobar que se admiten conexiones
-#+begin_src sh
-lsnrctl status
-#+end_src
+  - Se definen *manualmente* con ayuda del script =oraenv=:
+  #+begin_src sh
+  source oraenv
+  #+end_src
+- Arrancar y parar la base de datos
+  #+begin_src sh
+  dbstart $ORACLE_HOME
+  dbshut $ORACLE_HOME
+  #+end_src
+- Arrancar y parar el /listener/. Comprobar que se admiten conexiones
+  #+begin_src sh
+  lsnrctl start
+  lsnrctl stop
+  lsnrctl status
+  #+end_src
 
 ** A mí *dbstart* y *dbshut* no me funcionan
 
@@ -410,4 +406,6 @@ Nada de esto es /directamente/ bases de datos...
 | ~export~       | Define una variable                                 |
 | ~env~          | Lista de variables                                  |
 | ~PATH~         | Lista de directorios donde se buscan comandos       |
+| ~history~      | Lista de comandos introducidos en la /shell/        |
+
 
