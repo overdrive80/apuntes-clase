@@ -293,8 +293,8 @@ http://www.chrisharrison.net/index.php/Visualizations/InternetMap
 - Una estrella física, en la que el equipo central envía todos los datos al resto. 
 - Cada equipo mira si es destinatario de dichos datos para procesarlos.
 
-*** Estrella lógica
-- Un bus físico con uso de testigo.
+*** Anillo lógico
+- Un bus con uso de testigo.
 - El equipo que tiene el testigo, es el poseedor de los permisos para transmitir en el medio.
 - Cuando termina, transmite el testigo a otro equipo
 
