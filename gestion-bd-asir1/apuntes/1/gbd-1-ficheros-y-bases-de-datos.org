@@ -1,7 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  GESTIÓN DE BASES DE DATOS 
-#+SUBTITLE: (CÓDIGO: 0372)
-#+KEYWORDS: 0372
+#+TITLE:  Ficheros y bases de datos
 
 
 * Introducción
