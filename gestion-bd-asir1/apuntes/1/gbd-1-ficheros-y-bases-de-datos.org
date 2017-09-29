@@ -1,7 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  GESTIÓN DE BASES DE DATOS 
-#+SUBTITLE: (CÓDIGO: 0372)
-#+KEYWORDS: 0372
+#+TITLE:  Ficheros y bases de datos
 
 
 * Introducción
@@ -142,9 +140,9 @@
   - Los programas o personas /interpretan/ los números
 - Un fichero de texto es en el fondo un fichero binario
 - La traducción a “humano” es el estándar ASCII (o UNICODE), que asigna a cada byte una letra
-[[file:tabla-ascii.png]]
+[[file:tabla-ascii-hexadecimal.jpg]]
 
-** Ejercicio
+** Ejercicio                                                  :noexport:
 - *Inventa* los siguientes datos
 - Crea un fichero con nombres, apellidos, e instituto anterior de 10 alumnos
 - Crea un fichero con datos de 5 institutos (pueden ser inventados)
@@ -154,14 +152,14 @@
   - Número de alumnos
 - El formato es /libre/
 
-** Ejercicio
+** Ejercicio :noexport:
 - Ordena los alumnos por apellidos
 - Busca institutos de los que no tengas alumnos
 - Busca alumnos que estén en un instituto del que no tienes teléfono
 - Cierra el instituto con más alumnos y recoloca los alumnos en otros institutos
 - ...
 
-** Ejercicio
+** Ejercicio :noexport:
 - Ahora imagina tener los alumnos en institutos de toda España
   - Cientos de miles de registros
 - Incluso un ordenador puede tardar /demasiado/ en
