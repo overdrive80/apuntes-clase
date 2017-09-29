@@ -26,6 +26,7 @@
     border-bottom: 1px solid black;
 }
 
-div.backgrounds{
+body{
+    background: white;
     background-color: white;
 }
