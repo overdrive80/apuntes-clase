@@ -60,7 +60,7 @@ A menudo se dice también que ese eslabón suele implicar al factor humano.
 
 Reflexiona sobre ésto:¿Crees que en efecto, el factor humano es el eslabón más débil?
 
-** 
+
 
 ** Medidas de seguridad. Clasificaciones.
 
@@ -92,7 +92,7 @@ En general, el hardware en sí no es un recurso demasiado valioso. Hay medidas d
 
 ** PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.
 
-¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelque? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?.... Si... por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres /propiedades/ básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
+¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelgue? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?.... Si... por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres /propiedades/ básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
 
 *** INTEGRIDAD:
 
@@ -116,19 +116,33 @@ Dicho de otro modo, que la información que se solicite esté disponible en un p
 
 La pérdida de la disponibilidad sólo implica en sí misma que en un momento dado, una información que se solicita no es devuelta por un sistema. Esto no implica que la información haya perdido la integridad... sólo que no se puede proporcionar en ese momento.
 
-*** NO REPUDIO:
-
-La capacidad de determinar quién creó, modificó o accedió a cierta información, de forma que ni el emisor/creador pueda negar su participación, ni el receptor pueda negar que tuvo dicha información disponible.
-
-Esta característica de la seguridad cobra importancia a la hora de realizar transacciones seguras en un sistema informático, con aplicaciones variadas. Por ejemplo, en la administración electrónica, es vital que el ciudadano pueda probar que ha tramitado en plazo sus obligaciones tributarias, y que el estado no pueda alegar que no recibió la documentación.
 
 *** Otras propiedades de seguridad.
 
-Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y del la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
+Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y de la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
+
+-  *No repudio*: La capacidad de determinar quién creó, modificó o accedió a cierta información, de forma que ni el emisor/creador pueda negar su participación, ni el receptor pueda negar que tuvo dicha información disponible.
+  Esta característica de la seguridad cobra importancia a la hora de realizar transacciones seguras en un sistema informático, con aplicaciones variadas. Por ejemplo, en la administración electrónica, es vital que el ciudadano pueda probar que ha tramitado en plazo sus obligaciones tributarias, y que el estado no pueda alegar que no recibió la documentación.
+
 
 -  *Autenticación*: Más allá de la confidencialidad, las medidas o servicios de autenticación intentan garantizar la identidad de las personas o entidades que intentan acceder a la información. Se puede exigir la autenticación en el origen de los datos, en el destino o en ambas. Está ligada a la *confidencialidad*, ya que el sistema informático necesita saber quién accede al sistema para garantizar esta última. Se necesita para el *no-repudio*.
 
 -  *Control de acceso*: Son las medidas o servicios que no sólo permiten o impiden el acceso de personas o entidades a la información, sino que además, suelen registrar constancia del hecho del acceso o el intento de acceso. Relacionado con la *confidencialidad* y el *no-repudio*.
+
+
+
+* SPOF (/Single Point of Failure/)
+
+En seguridad, un *single point of failure* o SPOF ("punto único de fallo") es un componente de un sistema que tras un fallo en su funcionamiento ocasiona un fallo global en el sistema completo, dejándolo inoperante. Un SPOF puede ser un componente de hardware, software o eléctrico.
+
+Es conveniente tener identificados los posibles SPOFs de un sistema informático, ya que si no estamos dispuestos a asumir el riesgo de un fallo, habrá que tratarlos con especial dedicación.
+
+En sistemas en los que se quiere lograr alta disponibilidad, los componentes del SPOF suelen ser redundados.
+
+#+caption: En una red de ordenadores, un único enrutador probablemente es un SPOF.
+[[file:ejemplo-spof.png]]
+
+
 
 * Análisis de riesgos
 
@@ -198,7 +212,7 @@ Ej.: Siguiendo con el ejemplo anterior... el *riesgo* de que se produzca una llu
 
 El el riesgo de que se produzca una lluvia de meteoritos sobre ésta población y afecte a Superman (el activo) es practicamente inexistente. (Además de que no se conocen lluvias de meteoritos en los últimos siglos sobre ésta población, tampoco Superman suele estar por aquí, con lo cual, si se produjera una lluvia de meteoritos es poco probable que le pillara, y en caso de que le pillara, es invulnerable a los meteoritos).
 
-El riesgo de un virus tipo "I loveyou" afecte a un sistema Windows es muy alto, ya que están diseñados específicamente para propagarse y aprovechar vulnerabilidades de éstos.
+El riesgo de un virus tipo "Iloveyou" o "wannacry" afecte a un sistema Windows fue muy alto, ya que están diseñados específicamente para propagarse y aprovechar vulnerabilidades de éstos.
 
 Lo importante de los riesgos es *estimarlos...* hacer una estimación de la probabilidad de que aparezca la amenaza y afecte a un determinado activo.
 
@@ -208,9 +222,9 @@ A menudo, se diseñan herramientas (estadísticas, matemáticas, probabilística
 
 Ante la detección de un riesgo, se puede optar por tres alternativas:
 
--  *Asumirlo, y no prevenirlo*. Ésto resulta lógico cuando el perjuicio esperado tiene poco valor o cuando el coste de la aplicación de medidas preventivas supera el de la reparación del daño. (Véase "*Plan de contingencias*". En éste caso, es útil. Si no prevengo un riesgo, al menos, saber cómo afrontarlo).
+- *Asumirlo, y no prevenirlo*. Ésto resulta lógico cuando el perjuicio esperado tiene poco valor o cuando el coste de la aplicación de medidas preventivas supera el de la reparación del daño. (Véase "*Plan de contingencias*". En éste caso, es útil. Si no prevengo un riesgo, al menos, saber cómo afrontarlo) Se pueden poner medidas de seguridad pasivas.
 
--  *Prevenirlo*: Aplicar medidas de seguridad activa para disminuirlo o anularlo.
+- *Prevenirlo*: Aplicar medidas de seguridad activa para disminuirlo o anularlo.
 
 -  *Transferirlo*. Traspasar a un tercero la gestión de ese riesgo: típicamente, *contratar un seguro* para ese riesgo. Tiene sentido cuando el coste de la prevención es elevado, también el de la reparación... pero el riesgo de que ocurra es bajo.
 
@@ -236,9 +250,10 @@ Los impactos se puede estimar:
 
 -  De forma *cualitativa*, cuando esos daños no se pueden cuantificar (ej: pérdida de derechos fundamentales, pérdida de vidas, daños morales, de imagen...)
 
-# [[media/media/image1.emf]]
 
-*** 
+
+
+
 
 ** El proceso del análisis de riesgos:
 
@@ -270,7 +285,8 @@ Después, deberíamos seguir un cierto esquema, que, sin duda pasa por estos pun
 
 Es importante resaltar que las medidas de seguridad activas intentan eliminar una *vulnerabilidad*, mientras que las medidas de seguridad pasivas mitigan los impactos de un daño producido por una *amenaza*
 
-# [[media/media/image2.emf]]
+#+caption: Resumen de medidas activas y pasivas
+[[file:diagrama-seguridad-y-medidas.svg]]
 
 En conclusión.... el *análisis de riesgos* es mucho más que un documento... ES UN *ANÁLISIS*: un estudio y reflexión del profesional que lo realiza, y se refiere la seguridad de algún aspecto de un sistema informático, con aporte de soluciones para reducir los riegos, y estudio y evaluación de todos los elementos implicados, desde los puntos de vista más amplios posible.
 
@@ -294,7 +310,7 @@ Es un documento que debe ser aprobado por la dirección de la empresa y conocido
 
 La parte referida a los sistemas informáticos será propuesta sin duda por personal técnico a partir de uno o más análisis de riesgos.
 
-Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International OrganizationforStandarization) define uno. MAGERIT también.
+Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International Organization for Standarization) define uno. MAGERIT también.
 
 Entre los puntos que debe cubrir la política de seguridad podemos destacar:
 
@@ -346,14 +362,15 @@ No obstante, la auditoría en sí misma se ha convertido en una parte importante
 
 Hablando en concreto de la Seguridad Informática, la auditoría tiene su propia dinámica.
 
-[más[[http://es.wikipedia.org/wiki/Auditoria_inform%C3%A1tica][/Auditoría informática/]] en wikipedia]
+*** Pentesting (pruebas de penetración)
 
-# [[media/media/image3.emf]]
+Es una prueba en la que se realizan ataques intencionados hacia uno o más sistemas de información por parte de especialistas en seguridad, y por encargo de la dirección de la empresa cliente, con el objetivo de debilitar alguna de las propiedades seguras encontrando vulnerabilidades
 
-[1] Valor incalculable puede significar dos cosas:
+Un *pentesting* no es una *auditoría de seguridad*, aunque en el contexto de una auditoría puede solicitarse uno o más pentestings.
 
-    que es muy valioso
-
-    que no se puede calcular.
-
-    En nuestro contexto, nos referimos a la segunda acepción.
+más:
+-  /[[http://es.wikipedia.org/wiki/Auditoria_inform%C3%A1tica][Auditoría informática]]/ en wikipedia
+-  /[[https://es.wikipedia.org/wiki/Examen_de_penetraci%C3%B3n][pentesting]]/ en wikipedia
+   
+#+caption: Diagrama de documentos del análisis de riesgos
+[[file:diagrama-analisis-riesgos.svg]]

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2017-09-20 mié 19:04 -->
+<!-- 2017-10-01 dom 16:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Introducción a la seguridad informática</title>
@@ -68,6 +68,7 @@
   pre.src-fortran:before { content: 'Fortran'; }
   pre.src-gnuplot:before { content: 'gnuplot'; }
   pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
   pre.src-java:before { content: 'Java'; }
   pre.src-js:before { content: 'Javascript'; }
   pre.src-latex:before { content: 'LaTeX'; }
@@ -233,55 +234,54 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8366b79">1. Presentación del tema</a>
+<li><a href="#org1771793">1. Presentación del tema</a>
 <ul>
-<li><a href="#org8760bc5">1.1. Sistemas de información y sistemas informáticos.</a>
+<li><a href="#org7935364">1.1. Sistemas de información y sistemas informáticos.</a>
 <ul>
-<li><a href="#org4d9e0b4">1.1.1. Sistema de información:</a></li>
-<li><a href="#orgee76113">1.1.2. Sistema informático:</a></li>
+<li><a href="#orgc59bd7a">1.1.1. Sistema de información:</a></li>
+<li><a href="#org486bc9a">1.1.2. Sistema informático:</a></li>
 </ul>
 </li>
-<li><a href="#org3fccf9f">1.2. Seguridad</a></li>
-<li><a href="#org207d9c7">1.3. </a></li>
-<li><a href="#orgacda893">1.4. Medidas de seguridad. Clasificaciones.</a>
+<li><a href="#orge29c413">1.2. Seguridad</a></li>
+<li><a href="#org389b22f">1.3. Medidas de seguridad. Clasificaciones.</a>
 <ul>
-<li><a href="#org0f74e8f">1.4.1. SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</a></li>
-<li><a href="#orgfa2571b">1.4.2. SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</a></li>
+<li><a href="#org41a3d9c">1.3.1. SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</a></li>
+<li><a href="#org9b870e3">1.3.2. SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</a></li>
 </ul>
 </li>
-<li><a href="#orgdf2b685">1.5. PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</a>
+<li><a href="#org7b3a050">1.4. PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</a>
 <ul>
-<li><a href="#org930189a">1.5.1. INTEGRIDAD:</a></li>
-<li><a href="#org030684f">1.5.2. CONFIDENCIALIDAD:</a></li>
-<li><a href="#orgde7bf22">1.5.3. DISPONIBILIDAD:</a></li>
-<li><a href="#orge12963c">1.5.4. NO REPUDIO:</a></li>
-<li><a href="#org7362fd7">1.5.5. Otras propiedades de seguridad.</a></li>
+<li><a href="#org20a633d">1.4.1. INTEGRIDAD:</a></li>
+<li><a href="#orgfee7052">1.4.2. CONFIDENCIALIDAD:</a></li>
+<li><a href="#orge9d9842">1.4.3. DISPONIBILIDAD:</a></li>
+<li><a href="#org0221026">1.4.4. Otras propiedades de seguridad.</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4addaff">2. Análisis de riesgos</a>
+<li><a href="#org8478007">2. SPOF (<i>Single Point of Failure</i>)</a></li>
+<li><a href="#org8f66fde">3. Análisis de riesgos</a>
 <ul>
-<li><a href="#org7e2df6c">2.1. Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</a>
-<ul>
-<li><a href="#org8b75efb">2.1.1. </a></li>
+<li><a href="#org66eee63">3.1. Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</a></li>
+<li><a href="#org671ff29">3.2. El proceso del análisis de riesgos:</a></li>
 </ul>
 </li>
-<li><a href="#orgdadd804">2.2. El proceso del análisis de riesgos:</a></li>
+<li><a href="#orge03fe5a">4. Políticas de seguridad</a>
+<ul>
+<li><a href="#org4190518">4.1. Plan de contingencias</a></li>
+<li><a href="#org92d9dca">4.2. Auditorías de seguridad</a>
+<ul>
+<li><a href="#orgecb80d8">4.2.1. Pentesting (pruebas de penetración)</a></li>
 </ul>
 </li>
-<li><a href="#orgae94184">3. Políticas de seguridad</a>
-<ul>
-<li><a href="#orgc55e57b">3.1. Plan de contingencias</a></li>
-<li><a href="#org6eb3f96">3.2. Auditorías de seguridad</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8366b79" class="outline-2">
-<h2 id="org8366b79"><span class="section-number-2">1</span> Presentación del tema</h2>
+<div id="outline-container-org1771793" class="outline-2">
+<h2 id="org1771793"><span class="section-number-2">1</span> Presentación del tema</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 En este tema hablaremos de los conceptos básicos de la Seguridad Informática.
@@ -300,11 +300,12 @@ La Seguridad Informática se encarga de los aspectos relacionados con la segurid
 </p>
 </div>
 
-<div id="outline-container-org8760bc5" class="outline-3">
-<h3 id="org8760bc5"><span class="section-number-3">1.1</span> Sistemas de información y sistemas informáticos.</h3>
+<div id="outline-container-org7935364" class="outline-3">
+<h3 id="org7935364"><span class="section-number-3">1.1</span> Sistemas de información y sistemas informáticos.</h3>
 <div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-org4d9e0b4" class="outline-4">
-<h4 id="org4d9e0b4"><span class="section-number-4">1.1.1</span> Sistema de información:</h4>
+</div>
+<div id="outline-container-orgc59bd7a" class="outline-4">
+<h4 id="orgc59bd7a"><span class="section-number-4">1.1.1</span> Sistema de información:</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Un sistema de información es un conjunto de elementos organizados, relacionados y coordinados entre sí, encargados de facilitar el funcionamiento global de una empresa o de cualquier otra actividad humana para conseguir sus objetivos.
@@ -326,8 +327,8 @@ Esos elementos son:
 </div>
 </div>
 
-<div id="outline-container-orgee76113" class="outline-4">
-<h4 id="orgee76113"><span class="section-number-4">1.1.2</span> Sistema informático:</h4>
+<div id="outline-container-org486bc9a" class="outline-4">
+<h4 id="org486bc9a"><span class="section-number-4">1.1.2</span> Sistema informático:</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
 Un Sistema informático está formado por un conjunto de elementos físicos (hardware, conexiones, cables&#x2026;) lógicos (Software de aplicación, de base, protocolos) y también podemos considerar con frecuencia al componente humano.
@@ -344,8 +345,8 @@ No necesariamente todas las actividades de la empresa requieren de sistemas info
 </div>
 </div>
 
-<div id="outline-container-org3fccf9f" class="outline-3">
-<h3 id="org3fccf9f"><span class="section-number-3">1.2</span> Seguridad</h3>
+<div id="outline-container-orge29c413" class="outline-3">
+<h3 id="orge29c413"><span class="section-number-3">1.2</span> Seguridad</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 La seguridad es la disciplina que se ocupa de diseñar las <b>normas, procedimientos, métodos y técnicas</b> destinados a conseguir un sistema de información seguro y confiable.
@@ -397,21 +398,19 @@ Reflexiona sobre ésto:¿Crees que en efecto, el factor humano es el eslabón m�
 </div>
 </div>
 
-<div id="outline-container-org207d9c7" class="outline-3">
-<h3 id="org207d9c7"><span class="section-number-3">1.3</span> </h3>
-</div>
 
-<div id="outline-container-orgacda893" class="outline-3">
-<h3 id="orgacda893"><span class="section-number-3">1.4</span> Medidas de seguridad. Clasificaciones.</h3>
-<div class="outline-text-3" id="text-1-4">
+
+<div id="outline-container-org389b22f" class="outline-3">
+<h3 id="org389b22f"><span class="section-number-3">1.3</span> Medidas de seguridad. Clasificaciones.</h3>
+<div class="outline-text-3" id="text-1-3">
 <p>
 Para proteger la información, es necesario establecer una serie de medidas. Las medidas de seguridad pueden clasificarse de varias maneras. Nosotros vamos a mencionar dos:
 </p>
 </div>
 
-<div id="outline-container-org0f74e8f" class="outline-4">
-<h4 id="org0f74e8f"><span class="section-number-4">1.4.1</span> SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</h4>
-<div class="outline-text-4" id="text-1-4-1">
+<div id="outline-container-org41a3d9c" class="outline-4">
+<h4 id="org41a3d9c"><span class="section-number-4">1.3.1</span> SEGURIDAD ACTIVA / SEGURIDAD PASIVA:</h4>
+<div class="outline-text-4" id="text-1-3-1">
 <p>
 Atendiendo al carácter que tenga, hablamos de medidas de seguridad
 </p>
@@ -430,9 +429,9 @@ Una determinada medida de seguridad casi siempre cae en uno de los dos grupos. E
 </div>
 </div>
 
-<div id="outline-container-orgfa2571b" class="outline-4">
-<h4 id="orgfa2571b"><span class="section-number-4">1.4.2</span> SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</h4>
-<div class="outline-text-4" id="text-1-4-2">
+<div id="outline-container-org9b870e3" class="outline-4">
+<h4 id="org9b870e3"><span class="section-number-4">1.3.2</span> SEGURIDAD FÍSICA / SEGURIDAD LÓGICA</h4>
+<div class="outline-text-4" id="text-1-3-2">
 <p>
 Referido ya al ámbito exclusivo de la seguridad informática, podemos hablar de
 </p>
@@ -454,17 +453,17 @@ En general, el hardware en sí no es un recurso demasiado valioso. Hay medidas d
 </div>
 </div>
 
-<div id="outline-container-orgdf2b685" class="outline-3">
-<h3 id="orgdf2b685"><span class="section-number-3">1.5</span> PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</h3>
-<div class="outline-text-3" id="text-1-5">
+<div id="outline-container-org7b3a050" class="outline-3">
+<h3 id="org7b3a050"><span class="section-number-3">1.4</span> PROPIEDADES DE UN SISTEMA DE INFORMACIÓN SEGURO.</h3>
+<div class="outline-text-3" id="text-1-4">
 <p>
-¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelque? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?&#x2026;. Si&#x2026; por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres <i>propiedades</i> básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
+¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelgue? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?&#x2026;. Si&#x2026; por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres <i>propiedades</i> básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
 </p>
 </div>
 
-<div id="outline-container-org930189a" class="outline-4">
-<h4 id="org930189a"><span class="section-number-4">1.5.1</span> INTEGRIDAD:</h4>
-<div class="outline-text-4" id="text-1-5-1">
+<div id="outline-container-org20a633d" class="outline-4">
+<h4 id="org20a633d"><span class="section-number-4">1.4.1</span> INTEGRIDAD:</h4>
+<div class="outline-text-4" id="text-1-4-1">
 <p>
 Garantizar la autenticidad y precisión de la información, sin importar el momento en que se solicita.
 </p>
@@ -475,9 +474,9 @@ Dicho de otra forma, que los datos no son alterados ni destruidos de modo no aut
 </div>
 </div>
 
-<div id="outline-container-org030684f" class="outline-4">
-<h4 id="org030684f"><span class="section-number-4">1.5.2</span> CONFIDENCIALIDAD:</h4>
-<div class="outline-text-4" id="text-1-5-2">
+<div id="outline-container-orgfee7052" class="outline-4">
+<h4 id="orgfee7052"><span class="section-number-4">1.4.2</span> CONFIDENCIALIDAD:</h4>
+<div class="outline-text-4" id="text-1-4-2">
 <p>
 Garantizar que los datos almacenados estén únicamente al alcance de las personas, entidades o mecanismos autorizados, en los momentos autorizados y de una manera autorizada.
 </p>
@@ -492,9 +491,9 @@ Si un sistema de información permite que un dato cualquiera llegue a ser visto 
 </div>
 </div>
 
-<div id="outline-container-orgde7bf22" class="outline-4">
-<h4 id="orgde7bf22"><span class="section-number-4">1.5.3</span> DISPONIBILIDAD:</h4>
-<div class="outline-text-4" id="text-1-5-3">
+<div id="outline-container-orge9d9842" class="outline-4">
+<h4 id="orge9d9842"><span class="section-number-4">1.4.3</span> DISPONIBILIDAD:</h4>
+<div class="outline-text-4" id="text-1-4-3">
 <p>
 El grado en que un dato está en el lugar, momento y forma en que es requerido por un usuario autorizado.
 </p>
@@ -509,25 +508,19 @@ La pérdida de la disponibilidad sólo implica en sí misma que en un momento da
 </div>
 </div>
 
-<div id="outline-container-orge12963c" class="outline-4">
-<h4 id="orge12963c"><span class="section-number-4">1.5.4</span> NO REPUDIO:</h4>
-<div class="outline-text-4" id="text-1-5-4">
+
+<div id="outline-container-org0221026" class="outline-4">
+<h4 id="org0221026"><span class="section-number-4">1.4.4</span> Otras propiedades de seguridad.</h4>
+<div class="outline-text-4" id="text-1-4-4">
 <p>
-La capacidad de determinar quién creó, modificó o accedió a cierta información, de forma que ni el emisor/creador pueda negar su participación, ni el receptor pueda negar que tuvo dicha información disponible.
+Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y de la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
 </p>
 
-<p>
-Esta característica de la seguridad cobra importancia a la hora de realizar transacciones seguras en un sistema informático, con aplicaciones variadas. Por ejemplo, en la administración electrónica, es vital que el ciudadano pueda probar que ha tramitado en plazo sus obligaciones tributarias, y que el estado no pueda alegar que no recibió la documentación.
-</p>
-</div>
-</div>
+<ul class="org-ul">
+<li><b>No repudio</b>: La capacidad de determinar quién creó, modificó o accedió a cierta información, de forma que ni el emisor/creador pueda negar su participación, ni el receptor pueda negar que tuvo dicha información disponible.
+Esta característica de la seguridad cobra importancia a la hora de realizar transacciones seguras en un sistema informático, con aplicaciones variadas. Por ejemplo, en la administración electrónica, es vital que el ciudadano pueda probar que ha tramitado en plazo sus obligaciones tributarias, y que el estado no pueda alegar que no recibió la documentación.</li>
+</ul>
 
-<div id="outline-container-org7362fd7" class="outline-4">
-<h4 id="org7362fd7"><span class="section-number-4">1.5.5</span> Otras propiedades de seguridad.</h4>
-<div class="outline-text-4" id="text-1-5-5">
-<p>
-Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y del la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
-</p>
 
 <ul class="org-ul">
 <li><b>Autenticación</b>: Más allá de la confidencialidad, las medidas o servicios de autenticación intentan garantizar la identidad de las personas o entidades que intentan acceder a la información. Se puede exigir la autenticación en el origen de los datos, en el destino o en ambas. Está ligada a la <b>confidencialidad</b>, ya que el sistema informático necesita saber quién accede al sistema para garantizar esta última. Se necesita para el <b>no-repudio</b>.</li>
@@ -539,9 +532,37 @@ Además de las tres propiedades fundamentales de un sistema de información segu
 </div>
 </div>
 
-<div id="outline-container-org4addaff" class="outline-2">
-<h2 id="org4addaff"><span class="section-number-2">2</span> Análisis de riesgos</h2>
+
+
+<div id="outline-container-org8478007" class="outline-2">
+<h2 id="org8478007"><span class="section-number-2">2</span> SPOF (<i>Single Point of Failure</i>)</h2>
 <div class="outline-text-2" id="text-2">
+<p>
+En seguridad, un <b>single point of failure</b> o SPOF ("punto único de fallo") es un componente de un sistema que tras un fallo en su funcionamiento ocasiona un fallo global en el sistema completo, dejándolo inoperante. Un SPOF puede ser un componente de hardware, software o eléctrico.
+</p>
+
+<p>
+Es conveniente tener identificados los posibles SPOFs de un sistema informático, ya que si no estamos dispuestos a asumir el riesgo de un fallo, habrá que tratarlos con especial dedicación.
+</p>
+
+<p>
+En sistemas en los que se quiere lograr alta disponibilidad, los componentes del SPOF suelen ser redundados.
+</p>
+
+
+<div class="figure">
+<p><img src="ejemplo-spof.png" alt="ejemplo-spof.png" />
+</p>
+<p><span class="figure-number">Figure 1: </span>En una red de ordenadores, un único enrutador probablemente es un SPOF.</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org8f66fde" class="outline-2">
+<h2 id="org8f66fde"><span class="section-number-2">3</span> Análisis de riesgos</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 Hasta ahora, hemos planteado algunos conceptos básicos de la seguridad&#x2026;. utilizando una terminología informal.
 </p>
@@ -571,9 +592,9 @@ Existen modelos formales que nos ayudan a saber qué pasos realizar para hacer u
 </p>
 </div>
 
-<div id="outline-container-org7e2df6c" class="outline-3">
-<h3 id="org7e2df6c"><span class="section-number-3">2.1</span> Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</h3>
-<div class="outline-text-3" id="text-2-1">
+<div id="outline-container-org66eee63" class="outline-3">
+<h3 id="org66eee63"><span class="section-number-3">3.1</span> Elementos de estudio&#x2026; ¿En qué tenemos que fijarnos?</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
 Ya hemos comentado que un <b>análisis de riesgos</b> suele ir dirigido, es decir&#x2026; se motiva por la presenta de supuestos peligros que queremos estudiar, o bien&#x2026; porque directamente se ha producido un incidente y queremos evitar que se repita uno igual o similar.
 </p>
@@ -583,7 +604,9 @@ Nos fijaremos en éstos elementos:
 </p>
 </div>
 
-<ol class="org-ol"><li><a id="orgdf27477"></a>ACTIVOS:<br /><div class="outline-text-5" id="text-2-1-0-1">
+<ol class="org-ol">
+<li><a id="orgee31d93"></a>ACTIVOS:<br />
+<div class="outline-text-5" id="text-3-1-0-1">
 <p>
 En lenguaje informal (y en contabilidad), un activo es cualquier cosa que tenga valor para la empresa.
 </p>
@@ -591,9 +614,11 @@ En lenguaje informal (y en contabilidad), un activo es cualquier cosa que tenga 
 <p>
 En el ámbito del análisis de riesgos, se denomina así a cualquier recurso de la empresa que sea necesario para que el sistema de información funcione de forma adecuada. Son activos elementos de los datos, el software, el hardware, el personal, las redes, las instalaciones e incluso los servicios y actividades de la empresa. En un análisis de riesgos los enumeraremos y explicaremos lo que son.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="org5d3a177"></a>AMENAZAS:<br /><div class="outline-text-5" id="text-2-1-0-2">
+<li><a id="orge0adb74"></a>AMENAZAS:<br />
+<div class="outline-text-5" id="text-3-1-0-2">
 <p>
 Se entiende por amenaza la presencia de uno o más factores de diversa índole que -de tener la oportunidad- afectarían al sistema objeto de estudio produciéndole daños.
 </p>
@@ -625,9 +650,11 @@ Como ya comentamos, según su origen pueden ser:
 
 <li>Fraudulentas (o intencionadas)</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="org2c9a7a9"></a>VULNERABILIDADES:<br /><div class="outline-text-5" id="text-2-1-0-3">
+<li><a id="org5429f6e"></a>VULNERABILIDADES:<br />
+<div class="outline-text-5" id="text-3-1-0-3">
 <p>
 Cada activo es vulnerable en cierto grado a algunas amenazas. Las amenazas sólo afectan a los activos vulnerables. Es necesario estudiar qué activos son vulnerables a qué amenazas.
 </p>
@@ -643,9 +670,11 @@ Si los activos que pueden verse afectados son "Yo mismo" y "Superman"&#x2026; El
 <p>
 Otro ejemplo: (Menos exagerado). El famoso virus "Sasser" estaba programado para aprovecharse de algunas vulnerabilidades de algunos sistemas operativos de la serie Windows. Algunos sistemas Windows eran totalmente vulnerables&#x2026; otros sólo parcialmente o eran completamente invulnerables. Todos los sistemas tipo unix eran invulnerables.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="org908aff3"></a>RIESGOS<br /><div class="outline-text-5" id="text-2-1-0-4">
+<li><a id="org0611991"></a>RIESGOS<br />
+<div class="outline-text-5" id="text-3-1-0-4">
 <p>
 Riesgo es la probabilidad de que se materialice una amenaza y produzca un daño sobre un activo aprovechando su vulnerabilidad ante dicha amenaza. Es decir&#x2026; la definición de <b>riesgo</b> está íntimamente ligada por un lado a los activos y sus vulnerabilidadades, y por otro a las amenazas.
 </p>
@@ -659,7 +688,7 @@ El el riesgo de que se produzca una lluvia de meteoritos sobre ésta población 
 </p>
 
 <p>
-El riesgo de un virus tipo "I loveyou" afecte a un sistema Windows es muy alto, ya que están diseñados específicamente para propagarse y aprovechar vulnerabilidades de éstos.
+El riesgo de un virus tipo "Iloveyou" o "wannacry" afecte a un sistema Windows fue muy alto, ya que están diseñados específicamente para propagarse y aprovechar vulnerabilidades de éstos.
 </p>
 
 <p>
@@ -679,15 +708,17 @@ Ante la detección de un riesgo, se puede optar por tres alternativas:
 </p>
 
 <ul class="org-ul">
-<li><b>Asumirlo, y no prevenirlo</b>. Ésto resulta lógico cuando el perjuicio esperado tiene poco valor o cuando el coste de la aplicación de medidas preventivas supera el de la reparación del daño. (Véase "<b>Plan de contingencias</b>". En éste caso, es útil. Si no prevengo un riesgo, al menos, saber cómo afrontarlo).</li>
+<li><b>Asumirlo, y no prevenirlo</b>. Ésto resulta lógico cuando el perjuicio esperado tiene poco valor o cuando el coste de la aplicación de medidas preventivas supera el de la reparación del daño. (Véase "<b>Plan de contingencias</b>". En éste caso, es útil. Si no prevengo un riesgo, al menos, saber cómo afrontarlo) Se pueden poner medidas de seguridad pasivas.</li>
 
 <li><b>Prevenirlo</b>: Aplicar medidas de seguridad activa para disminuirlo o anularlo.</li>
 
 <li><b>Transferirlo</b>. Traspasar a un tercero la gestión de ese riesgo: típicamente, <b>contratar un seguro</b> para ese riesgo. Tiene sentido cuando el coste de la prevención es elevado, también el de la reparación&#x2026; pero el riesgo de que ocurra es bajo.</li>
 </ul>
-</div></li>
+</div>
+</li>
 
-<li><a id="orgecb4062"></a>ATAQUE:<br /><div class="outline-text-5" id="text-2-1-0-5">
+<li><a id="orga8aa3f1"></a>ATAQUE:<br />
+<div class="outline-text-5" id="text-3-1-0-5">
 <p>
 Llamamos <b>ataque</b> a la materialización de una amenaza, independientemente de que su origen sea fortuito o intencionado.
 </p>
@@ -705,9 +736,11 @@ En función del impacto causado y la propiedad del sistema vulnerada, los ataque
 <p>
 Un ataque también puede ser <b>directo</b> si se produce directamente desde el atacante hasta el activo, o <b>indirecto</b> si se hace a través de recursos o personas intermediarias.
 </p>
-</div></li>
+</div>
+</li>
 
-<li><a id="org7d91951"></a>IMPACTO:<br /><div class="outline-text-5" id="text-2-1-0-6">
+<li><a id="org06511bd"></a>IMPACTO:<br />
+<div class="outline-text-5" id="text-3-1-0-6">
 <p>
 El impacto es la consecuencia de un ataque (producido ya o supuesto). Dicho de otra forma, son los daños causados por un ataque, existente o no.
 </p>
@@ -721,16 +754,19 @@ Los impactos se puede estimar:
 
 <li>De forma <b>cualitativa</b>, cuando esos daños no se pueden cuantificar (ej: pérdida de derechos fundamentales, pérdida de vidas, daños morales, de imagen&#x2026;)</li>
 </ul>
-</div></li>
-
-<div id="outline-container-org8b75efb" class="outline-4">
-<h4 id="org8b75efb"><span class="section-number-4">2.1.1</span> </h4>
 </div>
+</li>
+</ol>
 </div>
 
-<div id="outline-container-orgdadd804" class="outline-3">
-<h3 id="orgdadd804"><span class="section-number-3">2.2</span> El proceso del análisis de riesgos:</h3>
-<div class="outline-text-3" id="text-2-2">
+
+
+
+
+
+<div id="outline-container-org671ff29" class="outline-3">
+<h3 id="org671ff29"><span class="section-number-3">3.2</span> El proceso del análisis de riesgos:</h3>
+<div class="outline-text-3" id="text-3-2">
 <p>
 Para realizar un análisis de riesgos, en primer lugar estudiaremos el caso que tengamos entre manos, tratando de encontrar sus elementos.
 </p>
@@ -769,6 +805,14 @@ Después, deberíamos seguir un cierto esquema, que, sin duda pasa por estos pun
 Es importante resaltar que las medidas de seguridad activas intentan eliminar una <b>vulnerabilidad</b>, mientras que las medidas de seguridad pasivas mitigan los impactos de un daño producido por una <b>amenaza</b>
 </p>
 
+
+<div class="figure">
+<p><object type="image/svg+xml" data="diagrama-seguridad-y-medidas.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 2: </span>Resumen de medidas activas y pasivas</p>
+</div>
+
 <p>
 En conclusión&#x2026;. el <b>análisis de riesgos</b> es mucho más que un documento&#x2026; ES UN <b>ANÁLISIS</b>: un estudio y reflexión del profesional que lo realiza, y se refiere la seguridad de algún aspecto de un sistema informático, con aporte de soluciones para reducir los riegos, y estudio y evaluación de todos los elementos implicados, desde los puntos de vista más amplios posible.
 </p>
@@ -784,9 +828,9 @@ Es la herramienta clave de la SEGURIDAD, tanto informática como de cualquier ot
 </div>
 </div>
 
-<div id="outline-container-orgae94184" class="outline-2">
-<h2 id="orgae94184"><span class="section-number-2">3</span> Políticas de seguridad</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orge03fe5a" class="outline-2">
+<h2 id="orge03fe5a"><span class="section-number-2">4</span> Políticas de seguridad</h2>
+<div class="outline-text-2" id="text-4">
 <p>
 Llamamos así a las directrices u objetivos de una organización con respecto a la seguridad.
 </p>
@@ -816,7 +860,7 @@ La parte referida a los sistemas informáticos será propuesta sin duda por pers
 </p>
 
 <p>
-Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International OrganizationforStandarization) define uno. MAGERIT también.
+Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International Organization for Standarization) define uno. MAGERIT también.
 </p>
 
 <p>
@@ -836,9 +880,9 @@ Entre los puntos que debe cubrir la política de seguridad podemos destacar:
 </ul>
 </div>
 
-<div id="outline-container-orgc55e57b" class="outline-3">
-<h3 id="orgc55e57b"><span class="section-number-3">3.1</span> Plan de contingencias</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-org4190518" class="outline-3">
+<h3 id="org4190518"><span class="section-number-3">4.1</span> Plan de contingencias</h3>
+<div class="outline-text-3" id="text-4-1">
 <p>
 Un plan de contingencias intenta describir los pasos a seguir ante la materialización de un amenaza.
 </p>
@@ -885,9 +929,9 @@ Los planes de contingencia forman parte de las políticas de seguridad de una em
 </div>
 </div>
 
-<div id="outline-container-org6eb3f96" class="outline-3">
-<h3 id="org6eb3f96"><span class="section-number-3">3.2</span> Auditorías de seguridad</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org92d9dca" class="outline-3">
+<h3 id="org92d9dca"><span class="section-number-3">4.2</span> Auditorías de seguridad</h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
 En nuestro ámbito, una auditoría es un análisis pormenorizado de un sistema de información que permite descubrir, identificar y corregir vulnerabilidades en los activos que lo componen y en los procesos que se realizan.
 </p>
@@ -907,33 +951,42 @@ No obstante, la auditoría en sí misma se ha convertido en una parte importante
 <p>
 Hablando en concreto de la Seguridad Informática, la auditoría tiene su propia dinámica.
 </p>
+</div>
 
+<div id="outline-container-orgecb80d8" class="outline-4">
+<h4 id="orgecb80d8"><span class="section-number-4">4.2.1</span> Pentesting (pruebas de penetración)</h4>
+<div class="outline-text-4" id="text-4-2-1">
 <p>
-[más<a href="http://es.wikipedia.org/wiki/Auditoria_inform%C3%A1tica"><i>Auditoría informática</i></a> en wikipedia]
+Es una prueba en la que se realizan ataques intencionados hacia uno o más sistemas de información por parte de especialistas en seguridad, y por encargo de la dirección de la empresa cliente, con el objetivo de debilitar alguna de las propiedades seguras encontrando vulnerabilidades
 </p>
 
 <p>
-[1] Valor incalculable puede significar dos cosas:
+Un <b>pentesting</b> no es una <b>auditoría de seguridad</b>, aunque en el contexto de una auditoría puede solicitarse uno o más pentestings.
 </p>
 
 <p>
-que es muy valioso
+más:
 </p>
+<ul class="org-ul">
+<li><i><a href="http://es.wikipedia.org/wiki/Auditoria_inform%C3%A1tica">Auditoría informática</a></i> en wikipedia</li>
+<li><i><a href="https://es.wikipedia.org/wiki/Examen_de_penetraci%C3%B3n">pentesting</a></i> en wikipedia</li>
+</ul>
 
-<p>
-que no se puede calcular.
-</p>
 
-<p>
-En nuestro contexto, nos referimos a la segunda acepción.
+<div class="figure">
+<p><object type="image/svg+xml" data="diagrama-analisis-riesgos.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
 </p>
+<p><span class="figure-number">Figure 3: </span>Diagrama de documentos del análisis de riesgos</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: alvaro</p>
-<p class="date">Created: 2017-09-20 mié 19:04</p>
+<p class="date">Created: 2017-10-01 dom 16:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
