@@ -1,0 +1,15 @@
+
+** Cálculo de la nota
+- Nota de la evaluación
+#+begin_src notas
+trabajos*0.25 + actitud*0.10 + exámenes*0.65
+#+END_SRC
+
+- Nota de exámenes
+#+begin_src notas
+La mayor de:
+  * Media de la nota de los parciales
+  * Examen final
+#+end_src
+
+- Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]

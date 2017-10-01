@@ -72,20 +72,7 @@
   - Individuales
   - Un trabajo entregado tarde puntua como máximo *6*
 
-** Cálculo de la nota
-- Nota de la evaluación
-#+begin_src notas
-trabajos*0.30 + actitud*0.05 + exámenes*0.65
-#+END_SRC
-
-- Nota de exámenes
-#+begin_src notas
-La mayor de:
-  * Media de la nota de los parciales
-  * Examen final
-#+end_src
-
-- Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]
+#+include: "../../../common/calculo-notas.org"
 
 
 
