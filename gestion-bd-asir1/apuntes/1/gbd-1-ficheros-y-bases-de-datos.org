@@ -211,7 +211,7 @@
 [[http://kpvxy.blogspot.com.es/2011/10/ficheros-con-organizacion-secuencial.html][Créditos: kpvxy.blogspot.com.es]]
 
 
-** Secuencial vs organización (escritura)
+** Secuencial vs Indexado (escritura)
 
 - Organización secuencial:
   - Si no se ordena, basta con añadir: rápido
