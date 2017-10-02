@@ -210,6 +210,19 @@
 
 [[http://kpvxy.blogspot.com.es/2011/10/ficheros-con-organizacion-secuencial.html][Créditos: kpvxy.blogspot.com.es]]
 
+
+** Secuencial vs organización (escritura)
+
+- Organización secuencial:
+  - Si no se ordena, basta con añadir: rápido
+  - Si se ordena, se puede necesitar cambiar todo el fichero: /muy/ lento
+- Organización indexada:
+  - Si no hay colisiones, dos escrituras (índice y fichero principal)
+  - Si hay colisiones (la clave ya está usada)
+    - Usar un fichero de /overflow/ (y reorganizar con el fichero principal en un futuro)
+    - Reorganizar el fichero principal /muy/ lento
+- Para lectura, ver [[#acceso-vs-organizacion][acceso vs organización]]
+
 * Acceso a ficheros
 
 - Acceso secuencial
@@ -221,10 +234,17 @@
   - Se puede leer directamente un registro sin tener que pasar por los anteriores
   - Se necesita saber su posición (por un índice)
 
-** Acceso vs organización
-|                         | Acceso secuencial                    | Acceso directo                        |
-| Organización secuencial | Fácil y rápido                       | Deben leerse los registros anteriores |
-| Organización idexada    | Algo más lento (dos lecturas mínimo) | Más rápido (dos lecturas)             |
+** <<#acceso-vs-organizacion>> Acceso vs organización (lectura)
+  :PROPERTIES:
+  :CUSTOM_ID: acceso-vs-organizacion
+  :END:
+|   |                         | Acceso secuencial                    | Acceso directo                                          |
+|---+-------------------------+--------------------------------------+---------------------------------------------------------|
+| / |                         | <                                    |                                                         |
+|   | Organización secuencial | Fácil y rápido                       | Deben leerse los registros anteriores, o estar ordenado |
+|   | Organización indexada   | Algo más lento (dos lecturas mínimo) | Más rápido (dos lecturas)                               |
+
+
 
 
 
