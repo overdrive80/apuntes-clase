@@ -1,4 +1,6 @@
+#+INCLUDE: "../../../common/header.org"
 #+TITLE: Introducción a la seguridad informática
+
 
 * Presentación del tema
 
@@ -70,11 +72,11 @@ Para proteger la información, es necesario establecer una serie de medidas. Las
 
 Atendiendo al carácter que tenga, hablamos de medidas de seguridad
 
--  *Activas*: aquellas cuyo objetivo es evitar o reducir los riesgos que amenazan al sistema. Podemos decir que tienen un carácter *preventivo.* es decir, intentan /impedir/ que ocurra un incidente.\\
+-  *Activas*: aquellas cuyo objetivo es evitar o reducir los riesgos que amenazan al sistema. Podemos decir que tienen un carácter *preventivo*. Intentan /impedir/ que ocurra un incidente.
    Por ejemplo, en un coche, el ABS es una medida de seguridad activa, ya que es un mecanismo electrónico que ayuda al conductor a frenar el coche... intenta evitar, prevenir un incidente.
 
--  *Pasivas*: aquellas cuyo objetivo es minimizar la repercusión de un incidente de seguridad una vez producido. Podemos decir que tienen un carácter *correctivo.\\
-   *Es decir, no intentan evitar un incidente, sino reducir sus posibles efectos adversos. Por ejemplo, en un coche, un cinturón de seguridad es una medida de seguridad pasiva: no intenta evitar un accidente, sino que, de producirse, los daños para el ocupante del vehículo sean menores.
+-  *Pasivas*: aquellas cuyo objetivo es minimizar la repercusión de un incidente de seguridad una vez producido. Podemos decir que tienen un carácter *correctivo*.
+   No intentan evitar un incidente, sino reducir sus posibles efectos adversos. Por ejemplo, en un coche, un cinturón de seguridad es una medida de seguridad pasiva: no intenta evitar un accidente, sino que, de producirse, los daños para el ocupante del vehículo sean menores.
 
 Una determinada medida de seguridad casi siempre cae en uno de los dos grupos. Es poco frecuente encontrar medidas de seguridad que simultáneamente puedan considerarse activas y pasivas... no obstante, como haberlas, haylas. Por ejemplo, cualquiera de los antivirus modernos, por un lado intenta /impedir/ la entrada de virus y malwares, y por otro lado, si entran y el antivirus los detecta intentará minimizar su impacto.
 
