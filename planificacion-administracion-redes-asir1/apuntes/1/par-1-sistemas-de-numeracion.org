@@ -26,18 +26,18 @@
   - cuando llegamos al último, añadimos un acarreo
 
 
-*** Contar con otras bases
+** Contar con otras bases
 
 - ¿Cuántos PIN distintos puede tener una tarjeta bancaria?
 - ¿Cuántos números puedo expresar en un byte?
 - Más difícil: ¿Cuántas matrículas de automóvil hay?
 
-*** Binario
+** Binario
 - ¿Cuántos /símbolos/ podemos representar con el voltaje de los circuitos?
   - La mejor opción es *2*: Sí hay corriente, no hay corriente
   - Es un sistema *binario*
 
-*** Binario
+** Binario
 
 | Decimal | =Binario= | Decimal | =Binario= |
 |---------+-----------+---------+-----------|
@@ -74,7 +74,7 @@ Intenta completar esta tabla hasta 11111_{(2}
   - 1100101_{(2}
   - 01101101_{(2}
   - 100100100_{(2}
-- Ampliación: Haz una [[file:data/binario.xls][hoja excel]] que permita hacer las cuentas anteriores
+- Ampliación: Haz una hoja excel que permita hacer las cuentas anteriores
 
 ** De decimal a binario
 1. Se divide entre 2 el número
@@ -97,9 +97,7 @@ Intenta completar esta tabla hasta 11111_{(2}
 - Nuestos sistemas de numeración son posicionales
   - El /valor/ de un dígito depende de su /posición/
   - Cada posición tiene un valor multiplicativo de la /base/ elevada a la /posición/
-
-$$ (d_n,d_{n-1},...,d_2,d_1,d_0) = \sum_{i=0}^{n} d_i \cdot b^i $$
-
+  $$ (d_n,d_{n-1},...,d_2,d_1,d_0) = \sum_{i=0}^{n} d_i \cdot b^i $$
 - Más en la [[https://es.wikipedia.org/wiki/Sistema_de_numeraci%25C3%25B3n#Teorema_fundamental_de_la_numeraci.C3.B3n][Wikipedia]]
 
 ** Ejemplo: Base 3
@@ -144,11 +142,11 @@ $$ (d_n,d_{n-1},...,d_2,d_1,d_0) = \sum_{i=0}^{n} d_i \cdot b^i $$
 
 ** ¿Por qué estas bases? (8, 16)
 - Al ser 16 potencia de 2, puede cambiarse entre estas bases /agrupando/ números
-- Ejemplo: Pasar 1A4_{(16)} a binario
+- Ejemplo: Pasar 1A4_{(16} a binario
   | 1 | 0001 |
   | A | 1010 |
   | 4 | 0100 |
-- Por tanto, 1A4_{(16)} es 0001 1010 0100_{(2}
+- Por tanto, 1A4_{(16} es 0001 1010 0100_{(2}
 
 ** Ejercicios
 - Pasa a decimal (Ojo, uno tiene /trampa/):
