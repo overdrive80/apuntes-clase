@@ -2,7 +2,7 @@
 #+TITLE:  PLANIFICACIÓN Y ADMINISTRACIÓN DE REDES 
 #+SUBTITLE: (CÓDIGO: 0370)
 #+KEYWORDS: 0370
-#+REVEAL_THEME: serif
+
 
 * Cómo serán las clases
 + Teoría
