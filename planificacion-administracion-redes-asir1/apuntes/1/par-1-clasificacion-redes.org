@@ -2,7 +2,7 @@
 #+TITLE:  Clasificación de redes
 #+SUBTITLE: 
 #+KEYWORDS: 
-#+OPTIONS: reveal_single_file:t
+#+OPTIONS: reveal_single_file:nil
 
 
 * Introducción
