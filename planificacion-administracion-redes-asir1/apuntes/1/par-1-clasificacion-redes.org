@@ -335,6 +335,9 @@ http://www.chrisharrison.net/index.php/Visualizations/InternetMap
   - Es difícil controlar a los usuarios de la red
 
 #+reveal: split
+[[file:windows-red-publico-privada.png]]
+
+#+reveal: split
 - Clasifica estas redes según su propiertario
   - /GPRS/
   - /X25/
