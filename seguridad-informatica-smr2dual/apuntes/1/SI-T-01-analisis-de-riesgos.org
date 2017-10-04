@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Análisis de riesgos
-
+#+OPTIONS:   toc:2
 
 * Análisis de riesgos
 
@@ -113,7 +113,7 @@ Los impactos se puede estimar:
 
 
 
-*** SPOF (/Single Point of Failure/)
+** SPOF (/Single Point of Failure/)
 
 En seguridad, un *single point of failure* o SPOF ("punto único de fallo") es un componente de un sistema que tras un fallo en su funcionamiento ocasiona un fallo global en el sistema completo, dejándolo inoperante. Un SPOF puede ser un componente de hardware, software o eléctrico. Un SPOF es siempre un *riesgo*.
 
@@ -167,11 +167,11 @@ Es la herramienta clave de la SEGURIDAD, tanto informática como de cualquier ot
 
 * Políticas de seguridad
 
-Llamamos así a las directrices u objetivos de una organización con respecto a la seguridad.
+Llamamos así a las *directrices u objetivos* de una organización con respecto a la seguridad.
 
 Toda organización debe tener recogidas esas directrices, que todas las personas involucradas de alguna manera con la empresa deben conocer y cumplir.
 
-Las políticas de seguridad se refieren a todos los aspectos de seguridad de la empresa, pero por supuesto, habrá medidas referidas a los sistemas informáticos. Las medidas en ese sentido deben proponerse a partir de los análisis de riesgos.
+Las políticas de seguridad se refieren a todos los aspectos de seguridad de la empresa, pero por supuesto, habrá medidas referidas a los sistemas informáticos. Las medidas en ese sentido deben proponerse *a partir de los análisis de riesgos*.
 
 Un análisis de riesgos es un documento técnico y exhaustivo. Si a partir de uno o varios análisis de riesgos se llega a una medida o mecanismo de seguridad que deba ser conocido y respetado por todos, debe estar plasmado en las *políticas de seguridad* de la empresa.
 
@@ -181,7 +181,7 @@ Es un documento que debe ser aprobado por la dirección de la empresa y conocido
 
 La parte referida a los sistemas informáticos será propuesta sin duda por personal técnico a partir de uno o más análisis de riesgos.
 
-Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International Organization for Standarization) define uno. MAGERIT también.
+Existen estándares para realizar las políticas de seguridad de las empresas. Por ejemplo el ISO (International Organization for Standarization) define uno. [[https://administracionelectronica.gob.es/pae_Home/pae_Documentacion/pae_Metodolog/pae_Magerit.html#.WdSrHXWCyis][MAGERIT]] también.
 
 Entre los puntos que debe cubrir la política de seguridad podemos destacar:
 
@@ -207,7 +207,10 @@ Ante un ataque, algunas actividades de la empresa se verán afectadas, impidiend
 
 Un plan de contingencias intenta organizar la manera de actuar ante la presencia de un ataque, de manera que el desarrollo de la actividad empresarial afectada pueda continuar.
 
-Es decir, está enfocado a continuar con la actividad de la empresa aunque se produzca un ataque... NO a la continuidad del funcionamiento del sistema informático.
+Es decir, está enfocado a continuar con la actividad de la empresa aunque se produzca un ataque... NO a la continuidad del funcionamiento del sistema informático. 
+
+#+ATTR_HTML: :style margin-left: auto; margin-right: auto;
+| Lo importante no es el sistema informático, sino el sistema de información|
 
 En ese sentido, para cada contingencia previsible (cada posible amenaza), debería existir un plan de contingencias (que se anexa a las políticas de seguridad), y que contenga cada uno al menos tres planes independientes:
 

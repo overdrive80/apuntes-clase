@@ -1,5 +1,7 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Introducción a la seguridad informática
+#+OPTIONS:   toc:2
+
 
 
 * Presentación del tema
@@ -12,9 +14,9 @@ La mayor parte de ésta terminología ha sido adoptada de terminología ya exist
 
 La Seguridad Informática se encarga de los aspectos relacionados con la seguridad de los equipos informáticos, pero también de todo lo que le rodea de manera más o menos directa: personas, datos, software, instalaciones...
 
-** Sistemas de información y sistemas informáticos.
+* Sistemas de información y sistemas informáticos.
 
-*** Sistema de información:
+** Sistema de información:
 
 Un sistema de información es un conjunto de elementos organizados, relacionados y coordinados entre sí, encargados de facilitar el funcionamiento global de una empresa o de cualquier otra actividad humana para conseguir sus objetivos.
 
@@ -28,7 +30,7 @@ Esos elementos son:
 
 -  Actividades: muy importante... toda organización realiza varias actividades en su negocio. (Ej.: una pequeña tienda tiene varias actividades: vender productos a los clientes, hacer pedidos a los proveedores, controlar la cantidad de productos almacenados, gestionar los gastos, ingresos, impuestos, etc...)
 
-*** Sistema informático:
+** Sistema informático:
 
 Un Sistema informático está formado por un conjunto de elementos físicos (hardware, conexiones, cables...) lógicos (Software de aplicación, de base, protocolos) y también podemos considerar con frecuencia al componente humano.
 
@@ -36,7 +38,7 @@ Un sistema informático *da soporte a las actividades de los sistemas de informa
 
 No necesariamente todas las actividades de la empresa requieren de sistemas informáticos.
 
-** Seguridad
+* Seguridad
 
 La seguridad es la disciplina que se ocupa de diseñar las *normas, procedimientos, métodos y técnicas* destinados a conseguir un sistema de información seguro y confiable.
 
@@ -64,17 +66,17 @@ Reflexiona sobre ésto:¿Crees que en efecto, el factor humano es el eslabón m�
 
 
 
-** Propiedades de un sistema de información seguro.
+* Propiedades de un sistema de información seguro.
 
 ¿Qué le pedimos a un sistema de información seguro? ¿Que no se cuelgue? ¿Que no nos borre cosas? ¿Que no lo puedan hackear?.... Si... por supuesto. Estas cosas y muchas otras más. Formalmente hablando, hay tres /propiedades/ básicas que un sistema de información debe mantener al máximo que sea posible. Prácticamente todo lo que le pidamos a un sistema de información que consideremos seguro cae dentro de mantener estas tres propiedades altas:
 
-*** INTEGRIDAD:
+** INTEGRIDAD:
 
 Garantizar la autenticidad y precisión de la información, sin importar el momento en que se solicita.
 
 Dicho de otra forma, que los datos no son alterados ni destruidos de modo no autorizado, ni accidentalmente. Si los datos se pierden, se borran, se modifican, se corrompen, o se añaden datos nuevos fraudulentos o erróneos consideramos que se ha perdido la integridad de un sistema de información. Esto puede ocurrir con datos que están almacenados (“quietos”, en un fichero, o base de datos, o manejados por una aplicación...) o con datos que se está en un sistema de comunicaciones (se están “moviendo”... y llegan a su destino en un estado diferente al que fueron emitidos.
 
-*** CONFIDENCIALIDAD:
+** CONFIDENCIALIDAD:
 
 Garantizar que los datos almacenados estén únicamente al alcance de las personas, entidades o mecanismos autorizados, en los momentos autorizados y de una manera autorizada.
 
@@ -82,7 +84,7 @@ Es decir, no sólo que se pueda acceder a información si se está autorizado, s
 
 Si un sistema de información permite que un dato cualquiera llegue a ser visto por alguien que no está autorizado supone una pérdida de la confidencialidad. El concepto va todavía más lejos... Si el dato llega a una persona que sí es un destinatario legítimo de la información, pero llega por un mecanismo no autorizado, o un momento no autorizado, o utilizando algún procedimiento no autorizado, también consideramos que se ha producido una pérdida de la confidencialidad.
 
-*** DISPONIBILIDAD:
+** DISPONIBILIDAD:
 
 El grado en que un dato está en el lugar, momento y forma en que es requerido por un usuario autorizado.
 
@@ -91,7 +93,7 @@ Dicho de otro modo, que la información que se solicite esté disponible en un p
 La pérdida de la disponibilidad sólo implica en sí misma que en un momento dado, una información que se solicita no es devuelta por un sistema. Esto no implica que la información haya perdido la integridad... sólo que no se puede proporcionar en ese momento.
 
 
-*** Otras propiedades de seguridad.
+** Otras propiedades de seguridad.
 
 Además de las tres propiedades fundamentales de un sistema de información seguro (la disponibilidad, confidencialidad e integridad), y de la cualidad de no-repudio, a menudo se utilizan otras propiedades de seguridad en algunos sistemas, según sean útiles o no:
 
@@ -105,11 +107,11 @@ Además de las tres propiedades fundamentales de un sistema de información segu
 
 
 
-** Medidas de seguridad. Clasificaciones.
+* Medidas de seguridad. Clasificaciones.
 
 Para proteger la información, es necesario establecer una serie de medidas. Las medidas de seguridad pueden clasificarse de varias maneras. Nosotros vamos a mencionar dos:
 
-*** SEGURIDAD ACTIVA / SEGURIDAD PASIVA:
+** SEGURIDAD ACTIVA / SEGURIDAD PASIVA:
 
 Atendiendo al carácter que tenga, hablamos de medidas de seguridad
 
@@ -121,7 +123,7 @@ Atendiendo al carácter que tenga, hablamos de medidas de seguridad
 
 Una determinada medida de seguridad casi siempre cae en uno de los dos grupos. Es poco frecuente encontrar medidas de seguridad que simultáneamente puedan considerarse activas y pasivas... no obstante, como haberlas, haylas. Por ejemplo, cualquiera de los antivirus modernos, por un lado intenta /impedir/ la entrada de virus y malwares, y por otro lado, si entran y el antivirus los detecta intentará minimizar su impacto.
 
-*** SEGURIDAD FÍSICA / SEGURIDAD LÓGICA
+** SEGURIDAD FÍSICA / SEGURIDAD LÓGICA
 
 Referido ya al ámbito exclusivo de la seguridad informática, podemos hablar de
 
