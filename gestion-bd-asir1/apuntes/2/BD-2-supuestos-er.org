@@ -1,5 +1,5 @@
 * Biblioteca
-Crear un diseño entdad relación que permita gestionar los datos de una biblioteca de modo que:
+Crear un diseño ER que permita gestionar los datos de una biblioteca de modo que:
 
 - Las personas socias de la biblioteca disponen de un código de socio y además necesitar almacenar su dni, dirección, teléfono, nombre y apellidos
 - La biblioteca almacena libros que presta a los socios y socias, de ellos se almacena su título, su editorial, el año en el que se escribió el libro, el nombre completo del autor (o autores), el año en que se editó y en qué editorial fue y el ISBN.
