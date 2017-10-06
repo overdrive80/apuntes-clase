@@ -1,0 +1,35 @@
+* Biblioteca
+Crear un diseño entdad relación que permita gestionar los datos de una biblioteca de modo que:
+
+- Las personas socias de la biblioteca disponen de un código de socio y además necesitar almacenar su dni, dirección, teléfono, nombre y apellidos
+- La biblioteca almacena libros que presta a los socios y socias, de ellos se almacena su título, su editorial, el año en el que se escribió el libro, el nombre completo del autor (o autores), el año en que se editó y en qué editorial fue y el ISBN.
+- Necesitamos poder indicar si un volumen en la biblioteca está deteriorado o no
+- Queremos controlar cada préstamo que se realiza almacenando la fecha en la que se realiza, la fecha tope para devolver (que son 15 días más que la fecha inicial) y la fecha real en la que se devuelve el libro
+
+
+* Menú diario
+
+Crear un esquema ER que represente un modelo para llevar los datos que maneja un restaurante de menús diarios. Teniendo en cuenta que:
+- Sólo interesa llevar los datos de los menús diarios a la hora de la comida, nada más del restaurante
+- Cada menús se compone de una serie de posibles platos. Cada plato se puede repetir en diferentes días. Los platos pueden ser primer plato, segundo plato o postres.
+- De cada plato se almacena el nombre (por ejemplo /Arroz negro con setas/) y una pequeña descripción.
+- De los menús almacenamos la fecha en la que se ofrece el menú, y el número de raciones de cada plato que se han servido ese día.
+- Se almacena también la temperatura que hacía el día del menú para así poder analiziar las temperaturas y los platos exitosos
+
+
+* Horario
+Crear un esquema ER que represente el funcionamiento de un centro escolar de formación profesional, teniendo en cuenta que:
+
+- Sólo interesa llevar el control de ocupación de las aulas en el horario escolar
+- El horario es de seis horas diarias y en la base de datos simplemente se anota si es la primera, segunda,… y el día de la semana del que hablamos (por ejemplo miércoles a tercera hora)
+- Las asignaturas tienen un nombre, un código interno del centro y un código europeo.
+- La misma asignatura se puede impartir en dos ciclos distintos y en ese caso tendría el mismo código europeo y nombre, pero el código interno sería distinto. Hace falta saber en qué curso del ciclo se imparte la asignatura
+- Los ciclos tienen un nombre, pueden ser de grado superior,de grado medio o de iniciación profesional
+- Las asignaturas en cada momento ocupan un aula, del que tenemos que almacenar un código de aula, un nombre (que no se repite), un número de aula (que tampoco se repite) y los metros que tiene. A una hora concreta de la semana, el aula puede estar vacía o bien ocuparse, pero sólo se puede ocupar por una asignatura
+- Necesitamos saber y anotar en la base de datos si una asignatura requiere que antes se hayan aprobado otras, para poder matricularse en ella. Por ejemplo, Ampliación de Matemáticas de 2º a lo mejor requiere aprobar Matemáticas de 1º. Puede requerirse terminar más de una asignatura previamente para poder matricularse de una concreta.
+- De los profesores se almacena su nombre, dirección, teléfono, email, DNI, nº de Seguridad Social y un código interno de profesor así como los años que tiene de antigüedad impartiendo cada asignatura.
+- Nos damos cuenta de que en un curso escolar, puede haber varios profesores responsables de una asignatura (por bajas, ceses, etc.); por lo que anotamos cuándo empezó a impartir dicho profesor la asignatura y cuando terminó (si no ha terminado, se dejaría vacío)
+
+Asegúrate de que podemos averiguar gracias al diseño, que si buscamos a un profesor un día concreto (por ejemplo el 13 de Mayo de 2018) a una hora concreta (sexta hora), podríamos saber en qué aula va a estar.
+
+
