@@ -25,7 +25,7 @@
   - =users=: Tablespace asignado por defecto para los datos de todos los usuarios
   - =system=: Datos acerca de la instancia y del diccionario de datos
   - =sysaux=: Operaciones temporales del administrador que no caben en memoria
-  - =undo= (=undotbs1=): Datos para deshacer las transacciones (=roolback=)
+  - =undo= (=undotbs1=): Datos para deshacer las transacciones (=rollback=)
   - =temp=: Operaciones temporales de usuarios que no caben en memoria
 
 -----
@@ -71,16 +71,43 @@ CREATE USER usuario IDENTIFIED BY contraseña
 
 ** Modificación de usuario
 - Modificación de un usuario ya creado
-#+begin_src sql
-ALTER USER usuario
-  cualquier opción válida al crear usuario
-#+end_src
+  #+begin_src sql
+  ALTER USER usuario
+    cualquier opción válida al crear usuario
+  #+end_src
 
 - Borrado de usuario
-#+begin_src sql
-DROP USER usuario
-#+end_src
+  #+begin_src sql
+  DROP USER usuario
+  #+end_src
 
+
+
+** Ejercicio
+- Crea un usuario =LIMITADITO=
+- Permítele almacenar 100k en el tablespace =USERS=
+- Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
+  - Llena toda su cuota insertando filas
+- ¿Qué ocurre?
+
+#+BEGIN_NOTES
+create user limitadito identified by limitadito;
+grant resource,connect to limitadito;
+alter user limitadito quota 100k on users;
+
+connect limitadito/limitadito
+
+create table datos(texto varchar2(255),numero integer);
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+commit;
+
+ORA-01536: space quota exceeded for tablespace 'USERS'
+
+#+END_NOTES
 
 * Privilegios
 - Cada usuario puede tener unos permisos distintos
@@ -89,13 +116,125 @@ DROP USER usuario
   - Cuántos datos se pueden escribir en esos /tablespaces/
   - Si una cuenta está bloqueada
 - Pero hay más permisos
-  - Veremos los /privilegios/ de *oracle*
+  - Veremos los /privilegios/ de *Oracle*
 
+
+
+** Privilegios de *Oracle*
+|   | Privilegio                       | Objeto sobre el que se aplica                   |
+|---+----------------------------------+-------------------------------------------------|
+| / | <>                               | <>                                              |
+|   | =Create, alter, drop=            | =Table, sequence, view, user, synonym, session= |
+|   | =select, update, delete, insert= | Sobre campos de tablas y filas                  |
+
+** Sintaxis de =Grant=
+
+#+begin_src sql
+grant PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
+on OBJETO
+to USUARIO
+with grant option;
+#+end_src
+
+#+begin_src sql
+create table alumnos(...);
+create user profesor ...;
+grant select on alumnos to profesor;
+#+end_src
+
+
+[[https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339][Fuente: docs.oracle.com]]
+
+** Ejercicio
+- Crea un usuario =CONPERMISOS=
+- Haz que =LIMITADITO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
+  - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar files
 
 
 * Roles
+- Asignar todos los privilegios a un usuario es trabajoso, pero factible
+- ¿Qué ocurre si tenemos que manejar a muchos usuario?
+- Los *roles* permiten dar nombre a un grupo de privilegios
+  - Se pueden asignar privilegios a un rol
+  - Y después asignar ese rol a varios usuarios
+
+** Sintaxis de roles
+#+begin_src sql
+create role NOMBREROL;
+grant PRIVILEGIOS on OBJETOS to NOMBREROL;
+grant NOMBREROL to USUARIO;
+#+end_src
+
+[[https://docs.oracle.com/cd/B10501_01/server.920/a96521/privs.htm][Fuente: docs.oracle.com]]
+
+** Ejercicio
+- Imagina que
+  1. Creas un rol con sus permisos
+  2. Le asignas privilegios
+  3. Lo asignas al usuario =USUARIOANTES=
+  4. Quitas algún privilegio del rol
+  5. Asignas el rol al usuario =USUARIODESPUES=
+- El usuario =USUARIODESPUES=, ¿tiene más, menos o los mismos privilegios que =USUARIOANTES=?
+  - O lo que es lo mismo, ¿los permisos del rol se /copian/ al usuario o se /enlazan/?
+
+#+BEGIN_NOTES
+create role ELROL;
+grant resource, connect to ELROL;
+grant select on LIMITADITO.DATOS to ELROL;
+create user usuarioantes identified by u;
+grant ELROL to usuarioantes;
+revoke select on LIMITADITO.DATOS from ELROL;
+create user usuariodespues identified by u;
+grant ELROL to usuariodespues;
+#+END_NOTES
 
 * Perfiles
 
+- Un /profile/ es un conjunto de limitaciones sobre el sistema *Oracle*
+- No limita acceso a datos, sino al propio SGBD y sistema operativo
+
+
+** Creación de perfiles
+#+begin_src sql
+CREATE PROFILE nombreperfil LIMIT 
+   SESSIONS_PER_USER          UNLIMITED 
+   CPU_PER_SESSION            UNLIMITED 
+   CPU_PER_CALL               3000 
+   CONNECT_TIME               45 
+   IDLE_TIME                 300
+   LOGICAL_READS_PER_SESSION  DEFAULT 
+   LOGICAL_READS_PER_CALL     1000 
+   PRIVATE_SGA                15K
+   COMPOSITE_LIMIT            5000000; 
+
+ALTER SYSTEM SET resource_limit = TRUE scope = BOTH 
+#+end_src
+
+- Nota: Según la funente, los tiempos se miden en días. Se pueden especificar fracciones de día.
+  - Pero a mí me funcionan como minutos ❓
+
+[[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm][Fuente: docs.oracle.com]]
+
+** Asignación de perfil a un usuario
+- En la creación (=create user=), o posteriormente
+  #+begin_src sql
+  alter user USUARIO profile NOMBREDEPERFIL
+  #+end_src
+
+** Ejercicio
+- Haz que el usuario =LIMITADITO= 
+  - se quede sin sesión tras 1 minuto de inactividad
+  - se quede sin sesión a los 2 minutos de conectarse, aunque no haya estado inactivo
+
+#+BEGIN_NOTES
+drop profile limitadito cascade;
+create profile limitadito limit idle_time 1 connect_time 2;
+alter user limitadito profile limitadito;
+
+ERROR at line 1:
+ORA-02396: exceeded maximum idle time, please connect again
+
+
+#+END_NOTES
 
 
