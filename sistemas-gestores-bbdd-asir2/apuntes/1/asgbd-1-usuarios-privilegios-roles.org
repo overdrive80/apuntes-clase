@@ -84,18 +84,18 @@ CREATE USER usuario IDENTIFIED BY contraseña
 
 
 ** Ejercicio
-- Crea un usuario =LIMITADITO=
+- Crea un usuario =LIMITADO=
 - Permítele almacenar 100k en el tablespace =USERS=
 - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
   - Llena toda su cuota insertando filas
 - ¿Qué ocurre?
 
 #+BEGIN_NOTES
-create user limitadito identified by limitadito;
-grant resource,connect to limitadito;
-alter user limitadito quota 100k on users;
+create user limitado identified by limitado;
+grant resource,connect to limitado;
+alter user limitado quota 100k on users;
 
-connect limitadito/limitadito
+connect limitado/limitado
 
 create table datos(texto varchar2(255),numero integer);
 insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
@@ -147,7 +147,7 @@ grant select on alumnos to profesor;
 
 ** Ejercicio
 - Crea un usuario =CONPERMISOS=
-- Haz que =LIMITADITO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
+- Haz que =LIMITADO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
   - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar files
 
 
@@ -180,10 +180,10 @@ grant NOMBREROL to USUARIO;
 #+BEGIN_NOTES
 create role ELROL;
 grant resource, connect to ELROL;
-grant select on LIMITADITO.DATOS to ELROL;
+grant select on LIMITADO.DATOS to ELROL;
 create user usuarioantes identified by u;
 grant ELROL to usuarioantes;
-revoke select on LIMITADITO.DATOS from ELROL;
+revoke select on LIMITADO.DATOS from ELROL;
 create user usuariodespues identified by u;
 grant ELROL to usuariodespues;
 #+END_NOTES
@@ -222,14 +222,14 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
   #+end_src
 
 ** Ejercicio
-- Haz que el usuario =LIMITADITO= 
+- Haz que el usuario =LIMITADO= 
   - se quede sin sesión tras 1 minuto de inactividad
   - se quede sin sesión a los 2 minutos de conectarse, aunque no haya estado inactivo
 
 #+BEGIN_NOTES
-drop profile limitadito cascade;
-create profile limitadito limit idle_time 1 connect_time 2;
-alter user limitadito profile limitadito;
+drop profile limitado cascade;
+create profile limitado limit idle_time 1 connect_time 2;
+alter user limitado profile limitado;
 
 ERROR at line 1:
 ORA-02396: exceeded maximum idle time, please connect again
