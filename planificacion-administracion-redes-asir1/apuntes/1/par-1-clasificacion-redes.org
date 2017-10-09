@@ -67,7 +67,7 @@ La *compartición de recursos* aporta las siguientes ventajas:
 3. De todos estos, solo B se quedará con la información.
 4. El resto también la reciben, pero la ignoran
 
-[[file:difusion.svg]]
+[[file:media/difusion.svg]]
 #+REVEAL: split
 
 Características:
@@ -89,7 +89,7 @@ Ejemplo de redes de difusión:
 2. Entre A y B existen otros elementos de interconexión que se ocupan de seleccionar un camino de A a B.
 3. Los equipos que no estén directamente en la interconexión no interactúan
 
-[[file:punto-a-punto.svg]]
+[[file:media/punto-a-punto.svg]]
 
 *** Características
 - Privacidad
@@ -106,7 +106,7 @@ Ejemplo de redes de difusión:
 
 #+REVEAL: split
 #+attr_html: :width 80%
-[[file:conmutacion-circuitos-temporal.jpg]]
+[[file:media/conmutacion-circuitos-temporal.jpg]]
 
 
 [[https://sites.google.com/site/redeslocalesyglobales/1-caracterizacion-de-las-redes/2-redes-de-transmision-de-datos/3-tipos-de-redes/redes-clasificadas-por-el-metodo-de-transmision][Fuente]]
@@ -139,7 +139,7 @@ real.
 
 #+REVEAL: split
 
-file:conmutacion-paquetes.gif]]
+file:media/conmutacion-paquetes.gif]]
 
 De Oddbodz - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=29033823
 
@@ -147,7 +147,7 @@ De Oddbodz - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index
 #+REVEAL: split
 
 #+attr_html: :width 60%
-[[file:conmutacion-paquetes-temporal.jpg]]
+[[file:media/conmutacion-paquetes-temporal.jpg]]
 
 [[https://sites.google.com/site/redeslocalesyglobales/1-caracterizacion-de-las-redes/2-redes-de-transmision-de-datos/3-tipos-de-redes/redes-clasificadas-por-el-metodo-de-transmision][Fuente]]
 
@@ -204,13 +204,13 @@ retardo en la transmisión (no en tiempo real).
   - Si falla el bus, ningún equipo mantiene la comunicación
   - Son redes de /difusión/
 
-[[file:bus.svg]]
+[[file:media/bus.svg]]
 
 **  Anillo
 - Cada equipo tiene un enlace con el siguiente equipo
 - El último equipo se une con el primero
 
-[[file:anillo.svg]]
+[[file:media/anillo.svg]]
 
 #+REVEAL: split
 Características de redes en anillo:
@@ -223,14 +223,14 @@ Características de redes en anillo:
 - Dos anillos "paralelos", cada uno en una dirección
 - Si se rompe un enlace o un nodo, se puede recuperar la forma de anillo
 
-[[file:anillo-doble.svg]]
+[[file:media/anillo-doble.svg]]
 
 ** Estrella
 -  Los nodos se conectan a un nodo central.
 -  El fallo de un enlace no afecta el resto de la red.
 -  El fallo del nodo central impide el funcionamiento de la red.
 
-[[file:topologia-estrella.svg]]
+[[file:media/topologia-estrella.svg]]
 
 
 **  Árbol
@@ -239,20 +239,20 @@ Características de redes en anillo:
   - La /raíz/ del árbol es el único nodo sin nodo superior
 - Si un enlace falla, el “subárbol” se queda aislado.
 
-[[file:topologia-arbol.svg]]
+[[file:media/topologia-arbol.svg]]
 
 #+REVEAL: split
 
-[[file:topologia-arbol-niveles.svg]]
+[[file:media/topologia-arbol-niveles.svg]]
 
 *** Completa (malla completa)
 -  Todos los nodos se conectan entre ellos.
 -  Muy cara, pero muy tolerante a los fallos de nodos y enlaces
 
-[[file:malla-completa.svg]]
+[[file:media/malla-completa.svg]]
 
 #+REVEAL: split
-[[file:malla-completa-2.svg]]
+[[file:media/malla-completa-2.svg]]
 
 ----- 
 Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
@@ -262,7 +262,7 @@ Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
 -  Es parecida a la completa, pero sin la conexión total entre los nodos
 - Es la topología "por descarte"
 
-[[file:topologia-irregular.svg]]
+[[file:media/topologia-irregular.svg]]
 
 
 
@@ -275,14 +275,14 @@ Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
 
 #+REVEAL: split
 
-[[file:arpanet-1978.png]]
+[[file:media/arpanet-1978.png]]
 
 #+REVEAL: split
 
-[[file:estrella-grande.png]]
+[[file:media/estrella-grande.png]]
 
 #+REVEAL: split
-[[file:red-europea.png]]
+[[file:media/red-europea.png]]
 http://www.chrisharrison.net/index.php/Visualizations/InternetMap
 
 ** Topología física vs topología lógica
@@ -299,7 +299,7 @@ http://www.chrisharrison.net/index.php/Visualizations/InternetMap
 - Cuando termina, transmite el testigo a otro equipo
 
 #+attr_html: :width 40%
-[[file:carga-ethernet.png]]
+[[file:media/carga-ethernet.png]]
 
 * Extensión de la red
 - *PAN* /Personal Area Network/
@@ -335,7 +335,7 @@ http://www.chrisharrison.net/index.php/Visualizations/InternetMap
   - Es difícil controlar a los usuarios de la red
 
 #+reveal: split
-[[file:windows-red-publico-privada.png]]
+[[file:media/windows-red-publico-privada.png]]
 
 #+reveal: split
 - Clasifica estas redes según su propiertario
