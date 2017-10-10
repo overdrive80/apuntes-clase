@@ -15,6 +15,7 @@
 - Pero a bajo nivel
   - Solo hay números
 
+#+attr_latex: :width 0.5\textwidth
 [[file:media/matrix.png]]
 
 
@@ -81,7 +82,7 @@ Intenta completar esta tabla hasta 11111_{(2}
 4. El número en binario son los restos en orden inverso
 
 #+reveal: split
-
+#+attr_latex: :width 0.5\textwidth
 [[file:media/decimal-a-binario.jpg]]
 
 [[http://www.wikihow.com/Convert-from-Decimal-to-Binary][Créditos: WiKihow]]
@@ -194,7 +195,7 @@ Intenta completar esta tabla hasta 11111_{(2}
 - Por tanto, 1A4_{(16} es 0001 1010 0100_{(2}
 
 ** Resumen de cambios de base
-
+#+attr_latex: :width 0.5\textwidth
 file:media/cambios-de-base-numerica.svg
 
 ** Ejercicios
@@ -215,7 +216,6 @@ file:media/cambios-de-base-numerica.svg
 
 |   |  Binario | Decimal | Octal | Hexadecimal |
 |---+----------+---------+-------+-------------|
-| / |       <> |      <> |    <> | <>          |
 |   | 10010001 |     145 |       |             |
 |   |          |     876 |       |             |
 |   |          |    1224 |  2310 |             |
@@ -227,3 +227,14 @@ file:media/cambios-de-base-numerica.svg
 
 
 #+END_NOTES
+
+* Referencias
+
+- Formatos:
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.html][Transparencias]] 
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.pdf][PDF]]
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.org][Código fuente]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
