@@ -17,7 +17,7 @@
 - Pero a bajo nivel
   - Solo hay números
 
-[[file:matrix.png]]
+[[file:media/matrix.png]]
 
 
 * Números
@@ -84,7 +84,7 @@ Intenta completar esta tabla hasta 11111_{(2}
 
 #+reveal: split
 
-[[file:decimal-a-binario.jpg]]
+[[file:media/decimal-a-binario.jpg]]
 
 [[http://www.wikihow.com/Convert-from-Decimal-to-Binary][Créditos: Wikihow]]
 
