@@ -1,8 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Sistemas de numeración
 #+OPTIONS: reveal_single_file:t
-# #+OPTIONS: REVEAL_MATHJAX_URL:https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js
-# #+REVEAL_MATHJAX_URL: https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js
 #+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
@@ -197,8 +195,7 @@ Intenta completar esta tabla hasta 11111_{(2}
 
 ** Resumen de cambios de base
 
-#+attr_html: :width 20%
-[[file:media/cambios-de-base-numerica.svg]]
+file:media/cambios-de-base-numerica.svg
 
 ** Ejercicios
 
