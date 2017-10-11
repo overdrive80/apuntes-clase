@@ -33,6 +33,7 @@
 
 ** Comunicación por niveles
 #+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/comunicacion-por-niveles.png]]
 
 
@@ -88,6 +89,7 @@
 
 - ¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/ejemplo-red.png]]
 
 ** ¿Qué hace falta?
@@ -143,6 +145,7 @@
 #+reveal:split
 
 #+ATTR_HTML: :width 35%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/osi-usuario-conexion-red.png]]
 
 
@@ -160,12 +163,14 @@
 
 #+reveal: split
 #+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/encapsulacion-niveles-osi.png]]
 
 
 ** Nodos intermedios
 
 #+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/osi-niveles-nodos-intermedios.png]]
 
 ** Servicios
@@ -318,10 +323,14 @@
 - La capa de aplicación implementa las capas de sesión, presentación y aplicación de OSI.
 
 ** Niveles TCP-IP
+
+#+attr_latex: :width 0.6\textwidth
 [[file:media/niveles-tcpip.png]]
 
 
 ** Protocolos TCP-IP
+
+#+attr_latex: :width 0.6\textwidth
 [[file:media/protocolos-tcpip.png]]
 
 
@@ -416,3 +425,14 @@
 
 
 
+
+* Referencias
+
+- Formatos:
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.html][Transparencias]] 
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.pdf][PDF]]
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.org][Código fuente]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
