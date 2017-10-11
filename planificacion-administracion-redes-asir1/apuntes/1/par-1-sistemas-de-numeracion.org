@@ -233,6 +233,7 @@ file:media/cambios-de-base-numerica.svg
   - [[file:par-1-sistemas-de-numeracion.html][Transparencias]] 
   - [[file:par-1-sistemas-de-numeracion.pdf][PDF]]
   - [[file:par-1-sistemas-de-numeracion.org][Código fuente]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
