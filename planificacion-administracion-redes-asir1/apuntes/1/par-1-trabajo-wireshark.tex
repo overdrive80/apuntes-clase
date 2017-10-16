@@ -1,0 +1,84 @@
+\input{../../../common/plantilla-ejercicio.tex}
+
+\renewcommand{\hmwkTitle}{Análisis de tráfico con \textbf{Wireshark}}
+
+\renewcommand{\hmwkClass}{Plan. y Admin. de Redes}
+
+
+\begin{document}
+
+\primerapagina
+
+
+\section{Objetivo de la práctica}
+En esta práctica se espera que el alumno se familiarize con:
+\begin{itemize}
+\item La encapsulación de los protocolos de nivel $n$ en los protocolos $n-1$
+\item Búsqueda de la información relevante entre el resto de información
+\item Utilización de la herramienta \textbf{Wireshark}
+  
+\end{itemize}
+
+\begin{homeworkProblem}[: Protocolos de nivel 2]
+
+  \begin{itemize}
+  \item Monitoriza la red durante uno o dos minutos. 
+  \item Haz una lista de los protocolos de nivel 2 que encuentres.
+  \item Compara esos protocolos entre sí
+    \begin{itemize}
+    \item ¿Cuáles son más modernos?
+    \item Compara los datos de su cabecera ¿qué informaciones incluye cada uno?
+    \end{itemize}
+  \end{itemize}
+  
+\end{homeworkProblem}
+
+\begin{homeworkProblem}[: Tramas de \textit{broadcast}]
+
+  Las tramas de \textit{broadcast} son un tipo especial de tramas, con la dirección del nivel de enlace \texttt{FF:FF:FF:FF:FF:FF:FF:FF}.
+
+  Monitoriza la red durante uno o dos minutos y determina qué tramas de las recibidas son de \textit{broadcast}. Haz una lista de las pilas de protocolos que \textit{viajan} sobre tramas de \textit{broadcast}, e inluye al menos 3 pantallazos de estas pilas como ejemplo.
+
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[¿Qué protocolos de nivel 3 encuentras?]
+  Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos de nivel 3 que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo, hay tramas \textit{Ethernet} que llevan \textit{IP} (0x0800) (no apuntes el Transmission Control Protocol, que no va directamente sobre ethernet sino dentro de IP)
+\end{homeworkProblem}
+
+
+\section{Qué se valorará}
+
+\begin{itemize}
+\item La corrección técnica 
+\item Que esté correctamente redactado (ortografía, gramática)
+\item La apariencia profesional:
+  \begin{itemize}
+  \item Estética
+  \item Organización
+  \item Homogeneidad de formatos y estilos
+  \end{itemize}
+\end{itemize}
+
+\section{Instrucciones de entrega}
+\begin{itemize}
+\item El ejercicio se realizará y entregará de manera individual.
+  \begin{itemize}
+  \item Solo se admiten trabajos en pareja, si en clase es necesario compartir ordenador.
+  \item En este caso, todos los integrantes del grupo deben subir el trabajo al aula virtual, y el trabajo debe especificar todos sus autores.
+  \end{itemize}
+
+\item Los trabajos pueden entregarse:
+  \begin{itemize}
+  \item En formato \textbf{DOC} o \textbf{DOCX}.
+  \item En formato \textbf{ODT}.
+  \item En formato \textbf{PDF}. 
+  \item Como una entrada en un \textbf{blog} 
+
+  \end{itemize}
+  
+\item La entrega se realizará en la tarea correspondiente del aula virtual. Si se entrega un fichero, este se subirá directamente. Si es una entrada de blog, se subirá un fichero de texto con la URL de dicha entrada.
+\end{itemize}  
+
+
+\end{document}
