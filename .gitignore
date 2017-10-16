@@ -4,3 +4,8 @@
 *.tmp
 /common/reveal.js.zip
 .~*#
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.toc
