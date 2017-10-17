@@ -134,7 +134,7 @@ Después, deberíamos seguir un cierto esquema, que, sin duda pasa por estos pun
 
 -  *Enumerar y valorar los activos*: decir cuáles son los implicados en el caso, cuál es su función, qué contienen, en qué actividades se ven involucrados, quién los utiliza... etc.
 
--  *Identificar y valorar las vulnerabilidades*de cada activo ante cada amenaza: dadas las amenazas a estudiar, algunos activos presentarán vulnerabilidades, otros no, y otros sólo en cierto grado o aspecto: reflexionar sobre ello y plasmarlo.
+-  *Identificar y valorar las vulnerabilidades* de cada activo ante cada amenaza: dadas las amenazas a estudiar, algunos activos presentarán vulnerabilidades, otros no, y otros sólo en cierto grado o aspecto: reflexionar sobre ello y plasmarlo.
 
 -  *Identificar y valorar las amenazas que pueden afectar a los activos*: definir qué amenazas pueden tener impacto sobre los activos enumerados... en qué consisten, en qué circunstancias se producirían
 
@@ -214,11 +214,11 @@ Es decir, está enfocado a continuar con la actividad de la empresa aunque se pr
 
 En ese sentido, para cada contingencia previsible (cada posible amenaza), debería existir un plan de contingencias (que se anexa a las políticas de seguridad), y que contenga cada uno al menos tres planes independientes:
 
--  *El plan de emergencia:* el que contempla qué hacer *cuando se está produciendo* un ataque o acaba de producirse: qué se debe hacer para continuar con las actividades empresariales afectadas. Debe ser una descripción clara y sencilla: debemos intentar que cada persona actúe de acuerdo al plan (sea bueno o menos bueno), de esa manera se intenta evitar la desorganización y el caos.
+-  *El plan de emergencia*: el que contempla qué hacer *cuando se está produciendo* un ataque o acaba de producirse: qué se debe hacer para continuar con las actividades empresariales afectadas. Debe ser una descripción clara y sencilla: debemos intentar que cada persona actúe de acuerdo al plan (sea bueno o menos bueno), de esa manera se intenta evitar la desorganización y el caos.
 
--  *Plan de respaldo*: Contempla las contramedidas preventivas *antes*de que se materialice una amenaza. Su finalidad es evitar dicha materialización.
+-  *Plan de respaldo*: Contempla las contramedidas preventivas *antes* de que se materialice una amenaza. Su finalidad es evitar dicha materialización.
 
--  *Plan de recuperación*: Contempla las medidas necesarias *después*de materializada y controlada la amenaza. Su finalidad es *restaurar* el estado de las cosas tal y como se encontraban antes de la materialización de la amenaza.
+-  *Plan de recuperación*: Contempla las medidas necesarias *después* de materializada y controlada la amenaza. Su finalidad es *restaurar* el estado de las cosas tal y como se encontraban antes de la materialización de la amenaza.
 
 Los planes de contingencia forman parte de las políticas de seguridad de una empresa.
 
