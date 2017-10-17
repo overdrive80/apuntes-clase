@@ -397,6 +397,8 @@ Nada de esto es /directamente/ bases de datos...
 | ~ssh~      | Conexión remota                          |
 | ~grep~     | Busca líneas con un texto                |
 | ~nano~     | Editor de ficheros                       |
+| ~netstat~  | Ver conexiones de red                    |
+| ~nc~       | Conectarse por TCP o UDP                 |
   
 ** Comandos, /shell/ y variables 
 | ~$variable~    | Valor de una variable (de =export= y =env= )        |
