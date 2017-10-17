@@ -145,7 +145,8 @@ real.
 #+attr_latex: :width 0.6\textwidth
 [[file:media/conmutacion-paquetes.gif]]
 
-De Oddbodz - Trabajo propio, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=29033823
+
+[[https://commons.wikimedia.org/w/index.php?curid=29033823][De Oddbodz - Trabajo propio, CC BY-SA 3.0]]
 
 
 #+REVEAL: split
