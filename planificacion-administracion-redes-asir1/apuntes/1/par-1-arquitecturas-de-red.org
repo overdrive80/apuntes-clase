@@ -384,7 +384,7 @@
 | Nivel                 | Sistema de interconexión                                       |
 |-----------------------+----------------------------------------------------------------|
 | Transporte y superior | Pasarela (/proxy/)                                             |
-| Red                   | Enrutador (/route/)                                            |
+| Red                   | Enrutador (/router/)                                           |
 | Enlace                | Puente (/bridge/), conmutador (/switch/), concentrador (/hub/) |
 | Físico                | Repetidor                                                      |
 
