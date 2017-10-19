@@ -44,7 +44,7 @@ La seguridad es la disciplina que se ocupa de diseñar las *normas, procedimient
 
 Todos los elementos que participan en un sistema de información pueden verse afectados por factores de diversa índole que pueden poner en peligro su estabilidad y normal funcionamiento.
 
-Con respecto a la Seguridad Informática, debemos tener en cuenta, que de todos esos elementos, debemos poner especial atención en la *información,* pues es el elemento más sensible de la empresa, y la que tiene un valor /incalculable/ [1]... pero siempre por detrás, por supuesto, de la seguridad de las personas.
+Con respecto a la Seguridad Informática, debemos tener en cuenta, que de todos esos elementos, debemos poner especial atención en la *información,* pues es el elemento más sensible de la empresa, y la que tiene un valor /incalculable/... pero siempre por detrás, por supuesto, de la seguridad de las personas.
 
 Reflexiona sobre ésto: ¿Tendría sentido anteponer la seguridad de la información o de cualquier otro elemento a la seguridad de las personas?
 
@@ -58,7 +58,7 @@ Reflexiona sobre ésto: ¿Se puede lograr la seguridad total? Es decir... estar 
 
 Hay un dicho en el sector de la seguridad:
 
-/*La cadena siempre se rompe por el eslabón más débil.*/
+| /*La cadena siempre se rompe por el eslabón más débil*/ |
 
 A menudo se dice también que ese eslabón suele implicar al factor humano.
 

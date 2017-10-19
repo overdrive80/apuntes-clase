@@ -33,6 +33,7 @@
 
 ** Comunicación por niveles
 #+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/comunicacion-por-niveles.png]]
 
 
@@ -88,6 +89,7 @@
 
 - ¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/ejemplo-red.png]]
 
 ** ¿Qué hace falta?
@@ -143,6 +145,7 @@
 #+reveal:split
 
 #+ATTR_HTML: :width 35%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/osi-usuario-conexion-red.png]]
 
 
@@ -160,13 +163,9 @@
 
 #+reveal: split
 #+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
 [[file:media/encapsulacion-niveles-osi.png]]
 
-
-** Nodos intermedios
-
-#+ATTR_HTML: :width 50%
-[[file:media/osi-niveles-nodos-intermedios.png]]
 
 ** Servicios
 - Cada capa se dedica a prestar /servicios/ a su capa superior
@@ -226,6 +225,13 @@
 - Tratamiento de la congestión de la red: debe intentar reducir al mínimo la congestión de la red evitando caminos que tienen demasiado tráfico.
 - Interconexión de redes heterogéneas: tiene que resolver los problemas que surgen cuando el destino está en otra red que puede ser de tipo distinto a la red origen
 
+
+
+** Nodos intermedios
+
+#+ATTR_HTML: :width 50%
+#+attr_latex: :width 0.6\textwidth
+[[file:media/osi-niveles-nodos-intermedios.png]]
 
 
 * Capa de transporte
@@ -318,10 +324,14 @@
 - La capa de aplicación implementa las capas de sesión, presentación y aplicación de OSI.
 
 ** Niveles TCP-IP
+
+#+attr_latex: :width 0.6\textwidth
 [[file:media/niveles-tcpip.png]]
 
 
 ** Protocolos TCP-IP
+
+#+attr_latex: :width 0.6\textwidth
 [[file:media/protocolos-tcpip.png]]
 
 
@@ -374,7 +384,7 @@
 | Nivel                 | Sistema de interconexión                                       |
 |-----------------------+----------------------------------------------------------------|
 | Transporte y superior | Pasarela (/proxy/)                                             |
-| Red                   | Enrutador (/route/)                                            |
+| Red                   | Enrutador (/router/)                                           |
 | Enlace                | Puente (/bridge/), conmutador (/switch/), concentrador (/hub/) |
 | Físico                | Repetidor                                                      |
 
@@ -416,3 +426,14 @@
 
 
 
+
+* Referencias
+
+- Formatos:
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.html][Transparencias]] 
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.pdf][PDF]]
+  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.org][Código fuente]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]

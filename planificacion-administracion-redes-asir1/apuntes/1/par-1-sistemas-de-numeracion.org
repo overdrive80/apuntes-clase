@@ -229,12 +229,13 @@ file:media/cambios-de-base-numerica.svg
 #+END_NOTES
 
 * Referencias
-
 - Formatos:
-  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.html][Transparencias]] 
-  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.pdf][PDF]]
-  - [[http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-sistemas-de-numeracion.org][Código fuente]]
+  - [[file:par-1-sistemas-de-numeracion.html][Transparencias]] 
+  - [[file:par-1-sistemas-de-numeracion.pdf][PDF]]
+  - [[file:par-1-sistemas-de-numeracion.org][Código fuente]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
+- [[mailto:alvaro.gonzalezsotillo@educa.madrid.org][Por Álvaro González]]
