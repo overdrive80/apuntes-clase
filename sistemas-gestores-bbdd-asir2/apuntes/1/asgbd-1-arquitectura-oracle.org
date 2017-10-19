@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Arquitectura de *Oracle*
-# #+OPTIONS: reveal_single_file:nil
+
 
 
 
@@ -11,10 +11,12 @@
 - Para hacerlo más seguro, sus tareas se distribuyen entre muchos procesos
   - Si un proceso falla, los demás pueden intentar seguir trabajando
 
+#+attr_latex: :width 0.6\textwidth
 [[file:sga-procesos-usuario-sistema.png]]
 
 
 ** Algunos procesos
+#+ATTR_LATEX: :align |l|p{7cm}|
 | ~PMON~ (Process MONitor)         | Monitor de procesos, se encarga controlar los otros procesos en background  y de recuperarlos cuando uno de ellos falla              |
 | ~SMON~ (System MONitor process)  | Recupera transacciones. Realiza tareas de limpieza: recuperar segmentos temporales, combinar extensiones contiguas y disponibles,... |
 | ~DBWn~ (Database Writer Process) | Escribe el contenido de los buffers en los datafiles. ~n~ puede ser 0,1,...,9,a,...,j                                                |
@@ -32,13 +34,15 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 - *SGA*: /System Global Area/
   - Memoria compartida entre todos los procesos de *Oracle*
 
+#+attr_latex: :width 0.6\textwidth
 [[file:pga-sga-muchos-procesos.png]]
 
 ** Procesos de usuario y procesos de sistema
 - Los procesos de usuario no se conectan directamente a la SGA
 - *Oracle* crea procesos /intermedios/ para aislarlos
 
-[[file:procesos-usuario-sistema.gif]]
+#+attr_latex: :width 0.6\textwidth
+[[file:procesos-usuario-sistema.png]]
 
 
 * Arranque y parada
@@ -51,6 +55,7 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 
 #+reveal: split
 
+#+attr_latex: :width 0.6\textwidth
 [[file:arranque-parada-oracle.svg]]
 
 ** ¿Por qué tantos modos?
@@ -116,14 +121,14 @@ column comments format a150
 
 
 ** Ejemplo de vistas: ficheros
-| Tipos de archivos                      | Vista         |
-|----------------------------------------+---------------|
-| De Datos (dbf) undo, system y users    | v$datafile    |
-| Temporales (tmp)                       | v$tempfile    |
-| Rehacer o Redo Log (log) v$logfile,    | v$log         |
-| De control. Estructura física de la BD | v$controlfile |
-| De Log                                 | v$diag_info   |
-| Información de la BD                   | v$database    |
+| Tipos de archivos                      | Vista             |
+|----------------------------------------+-------------------|
+| De Datos (dbf) undo, system y users    | ~v$datafile~      |
+| Temporales (tmp)                       | ~v$tempfile~      |
+| Rehacer o Redo Log (log)               | ~v$logfile,v$log~ |
+| De control. Estructura física de la BD | ~v$controlfile~   |
+| De Log                                 | ~v$diag_info~     |
+| Información de la BD                   | ~v$database~      |
 
 ** Archivos
 - Los datos de las tablas al final se almacenan en archivos
@@ -140,3 +145,16 @@ column comments format a150
 * Bibliografía
 - https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit
 - https://docs.google.com/presentation/d/1pIrg5ZfTOr_j_MxBSMW3pl6jmabko_zvoAJ2ktXPis8/edit
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-1-arquitectura-oracle.html][Transparencias]] 
+  - [[file:asgbd-1-arquitectura-oracle.pdf][PDF]]
+  - [[file:asgbd-1-arquitectura-oracle.org][Código fuente]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+- [[mailto:alvaro.gonzalezsotillo@educa.madrid.org][Por Álvaro González]]
+
