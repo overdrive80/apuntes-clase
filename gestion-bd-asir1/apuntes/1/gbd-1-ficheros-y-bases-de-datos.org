@@ -356,3 +356,5 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
 - Independencia lógica de datos
   - Un programa debería poder seguir funcionando aunque el diseño lógico (cómo se relacionan los datos) cambie
   - Es más difícil, pero teóricamente son suficientes las vistas (niveles externos)
+
+* Para Andrés
