@@ -47,11 +47,18 @@ La última versión de este documento está disponible en \enlace{https://alvaro
 
 
 \begin{homeworkProblem}[¿Qué protocolos viajan sobre el nivel 2?]
-  Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos de nivel todos los que viajen sobre un nivel 2 que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo, hay tramas \textit{Ethernet} que llevan \textit{IP} (\texttt{0x0800}) (pero no apuntes el Transmission Control Protocol, que no va directamente sobre el nivel 2 \textit{ethernet} sino dentro de \textit{IP})
-  
+  Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos que viajen sobre un nivel 2 que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo:
+  \begin{itemize}
+  \item Hay tramas \textit{Ethernet} que llevan \textit{IP} (\texttt{0x0800}). Hay que apuntar \textit{IP}.
+  \item Pero no apuntes el Transmission Control  Protocol, que no va directamente sobre el nivel 2. \textit{ethernet} sino dentro de \textit{IP}
+\end{itemize}
   \small{Nota: puede que alguno de los protocolos que viajen sobre el nivel 2 no sean de nivel 3 OSI.}
 \end{homeworkProblem}
 
+
+\begin{homeworkProblem}[ (Opcional): Haz una redacción alternativa del ejercicio anterior]
+El ejercicio anterior es algo confuso. Redacta un enunciado alternativo que te parezca más claro, para que los alumnos de futuros cursos lo entiendan mejor.
+\end{homeworkProblem}
 
 \section{Qué se valorará}
 

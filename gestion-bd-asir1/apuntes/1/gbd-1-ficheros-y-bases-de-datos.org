@@ -140,6 +140,7 @@
   - Los programas o personas /interpretan/ los números
 - Un fichero de texto es en el fondo un fichero binario
 - La traducción a “humano” es el estándar ASCII (o UNICODE), que asigna a cada byte una letra
+#+attr_latex: :width 0.6\textwidth
 [[file:tabla-ascii-hexadecimal.jpg]]
 
 ** Ejercicio                                                  :noexport:
@@ -185,7 +186,7 @@
     - Identificador de cada registro
     - En qué línea (posición) está ese registro
 
-
+#+attr_latex: :width 0.6\textwidth
 [[file:fichero-indexado.gif]]
 
 [[https://www.dlsweb.rmit.edu.au/toolbox/knowmang/content/physical/file_organisation.htm][Crédito: www.dlsweb.rmit.edu.au]]
@@ -197,6 +198,7 @@
 - Cada fichero de índice es a su vez un fichero secuencial
   - Podría indexarse, con un índice de segundo nivel
 
+#+attr_latex: :width 0.6\textwidth
 [[file:fichero-indexado-multinivel.png]]
 
 [[https://www.tutorialspoint.com/dbms/dbms_indexing.htm][Créditos: www.tutorialspoint.com]]
@@ -206,6 +208,7 @@
   - Por ejemplo, código postal en un fichero de alumnos
 - Si hay un /conflicto/, los datos se almacenan en un área de /overflow/
 
+#+attr_latex: :width 0.6\textwidt
 [[file:fichero-indexado-overflow.png]]
 
 [[http://kpvxy.blogspot.com.es/2011/10/ficheros-con-organizacion-secuencial.html][Créditos: kpvxy.blogspot.com.es]]
@@ -267,6 +270,7 @@ Una colección de datos que están lógicamente relacionados entre sí, que tien
 Una base de datos es una colección de datos estructurados según un modelo que refleje las relaciones y restricciones existentes en el mundo real. Los datos, que han de ser compartidos por diferentes usuarios y aplicaciones, deben mantenerse independientes de ésta, y su definición y descripción han de ser únicas estando almacenados junto a los mismos. Por último, los tratamientos que sufran estos datos tendrán que conservar la integridad y seguridad de éstos
 
 #+reveal: split
+#+attr_latex: :width 0.6\textwidth
 [[file:ejemplo-base-de-datos.png]]
 
 ** Ventajas de las bases de datos
@@ -294,6 +298,7 @@ Una base de datos es una colección de datos estructurados según un modelo que 
   - Relaciones entre entidades
 - *Externo*: Cada tipo de usuario/aplicación puede operar con una parte del nivel conceptual, a veces con una transformación intermedia
 
+#+attr_latex: :width 0.6\textwidth
 [[file:ansi-sparc.png]]
 
 * Diseño de bases de datos
@@ -314,6 +319,7 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
   - relaciones entre ellas
   - datos a almacenar por cada entidad y relación
 
+#+attr_latex: :width 0.6\textwidth
 [[file:ejemplo-entidad-relacion.png]]
 
 ** Nivel lógico
@@ -321,6 +327,7 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
 - No se decide cómo se guardarán los datos, pero sí qué forma tendrán
   - Generalmente, en forma de tabla
 
+#+attr_latex: :width 0.6\textwidth
 [[file:ejemplo-logico.png]]
 
 ** Nivel físico
@@ -356,3 +363,15 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
 - Independencia lógica de datos
   - Un programa debería poder seguir funcionando aunque el diseño lógico (cómo se relacionan los datos) cambie
   - Es más difícil, pero teóricamente son suficientes las vistas (niveles externos)
+
+
+* Referencias
+- Formatos:
+  - [[file:gbd-1-ficheros-y-bases-de-datos.html][Transparencias]] 
+  - [[file:gbd-1-ficheros-y-bases-de-datos.pdf][PDF]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+- [[mailto:alvaro.gonzalezsotillo@educa.madrid.org][Por Álvaro González]]
