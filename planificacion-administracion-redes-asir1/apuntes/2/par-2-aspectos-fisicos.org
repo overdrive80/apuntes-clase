@@ -1,0 +1,336 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Aspectos físicos de la transmisión
+#+SUBTITLE: 
+#+KEYWORDS: 
+#+OPTIONS: reveal_single_file:nil
+
+* Introducción
+
+- La capa física se encarga de la transmisión de bits por el medio o canal de comunicación.
+- El nivel de enlace genera grupo de bits (tramas). Los medios físicos transportan señales, que representan los bits.
+
+
+** Elementos
+- Elementos de una comunicación:
+  -  Emisor: codificar en señales los dígitos binarios que representan las tramas de la capa de enlace de datos.
+  -  Medio: transmitir las magnitudes físicas por el canal.
+  -  Receptor: recuperar estas señales individuales desde los medios, restaurarlas para sus representaciones de bit y enviar los bits hacia la capa de enlace de datos.  
+
+** Qué define la capa física
+- La capa física debe contemplar:
+  -  Medios físicos y conectores asociados.
+  -  Una representación de los bits en los medios .
+  -  Codificación de los datos y de la información de control.
+  -  Sistema de circuitos del receptor y transmisor en los dispositivos de red.
+
+* Medio de transmisión
+** Tipos básicos de medios de red:
+-  Cable de cobre. Pulsos eléctricos.
+-  Fibra. Patrones de luz.
+-  Inalámbrico. Patrones de transmisión de radio.
+
+** Tipos de señal
+- Señal analógica
+  - Todos los niveles de señal son importantes
+  - En cualquier momento
+  - No hay /cuantización/
+- Señal digital
+  - Sólo unos pocos niveles son válidos
+  - En algunos momentos (/muestreo/)
+  - Los demás niveles se aproximan a los válidos
+
+
+#+reveal: split
+
+[[file:media/muestreo-analogico-digital.png]]
+[[https://wikitecno.wikispaces.com/file/view/Sennal_analogica_digital.png/364985066/967x394/Sennal_analogica_digital.png][
+Fuente: wikitecno]]
+
+** tipos de señal
+
+|   |                       | *Canal analógico*                  | *Canal digital*    |
+|---+-----------------------+------------------------------------+--------------------|
+| / | >                     | <                                  |                    |
+|   | *Información analógica* | Teléfono o televisión (analógicos) | Televisión digital |
+|   | *Información digital* | Fax, módem telefónico              | ADSL, fibra        |
+
+
+
+- La señal no es digital, la *información* que lleva sí.
+- Consideramos canal digital a uno diseñado originalmente para llevar información digital
+  - Siempre se puede cuantizar después para convertir en digital
+
+* Estándares
+- Un estándar es un acuerdo entre varias partes
+- Sirve para garantizar la *interoperabilidad*
+  - Cada elemento es sustituible por partes equivalentes de otro proveedor
+- Tipos de estándares
+  - De /iure/: Acordado entre varias partes
+  - De /facto/: Por costumbre o dominancia de algún proveedor
+
+
+
+* Principales organizaciones involucradas:
+-  Organización Internacional para la Estandarización (ISO)
+-  Instituto de Ingenieros Eléctricos y Electrónicos (IEEE)
+-  Instituto Nacional Estadounidense de Estándares (ANSI)
+-  Unión Internacional de Telecomunicaciones (ITU)
+-  La Asociación de Industrias Electrónicas y la Asociación de
+las Industrias de las Telecomunicaciones (EIA/TIA)
+-  Autoridades de las telecomunicaciones nacionales, como la
+Comisión Federal de Comunicaciones (FCC) en EE. UU..
+
+Estándares
+
+* La capa física debe generar las señales inalámbricas, ópticas o
+eléctricas que representan el "1" y el "0" en los medios. El método de representación de bits se denomina método de señalización.  La transmisión de la trama a través de los medios se realiza mediante una cadena o stream de bits.  El tiempo de bit es el tiempo que ocupa el medio la transmisión de un bit. El tiempo de bit debe estar sincronizado entre el transmisor y el receptor (se utilizan señales de reloj para este fin).  Para sincronizar los relojes e identificar inicios/finales tramas (información a nivel de enlace), se utilizan combinaciones de bits preestablecidas (patrones).
+
+Señalización
+
+* Los bits se representan en el medio al cambiar una o más de las
+siguientes características de una señal.
+-  Amplitud
+-  Frecuencia
+-  Fase
+Ejemplos de modulación de señales digitales a analógicas en amplitud, frecuencia y fase.
+
+Señalización – Señales analógicas
+
+* Amplitud: medida de la variación máxima del desplazamiento de la
+onda con respecto a su posición de reposo o equilibrio.  Ciclo: oscilación de un punto desde su posición inicial hasta que vuelve a esa posición.  Periodo (T): duración de un ciclo.  Frecuencia (f=1/T): es una magnitud que mide el número de repeticiones por unidad de tiempo de cualquier fenómeno o suceso periódico Fase: desplazamiento inicial de la señal
+
+Señales analógicas periódicas (características)
+
+* Una onda compleja se
+puede ver como la composición de ondas más sencillas con distintas frecuencias.  La transformada de Fourier permite encontrar las ondas sencillas que componen un más compleja.
+
+Señalización – Señales analógicas complejas
+
+* Las señales digitales presentan un conjunto de valores discreto,
+siendo su modo de señalización los diferentes valores que presenta la señal física.  En las comunicaciones, habitualmente se utiliza un modelo de señalización binario.  La tasa de bits (bit-rate) es el número de bits transmitidos por unidad de tiempo.  La tasa de bautidos (baudrate) es el número de señales por segundo. Un baudio puede contener varios bits.
+
+Señalización – Señales digitales
+
+* La codificación es un método que se utiliza para convertir un flujo
+o conjunto de bits de datos en un código predefinido.  Los códigos son grupos de bits utilizados para ofrecer un patrón predecible que pueda reconocer tanto el emisor como el receptor.  La utilización de patrones predecibles permite distinguir los bits de datos de los bits de control y ofrece una mejor detección de errores en los medios.  También permiten identificar el comienzo y el final de una trama.
+
+Codificación digital
+
+* 
+Codificación digital - binaria
+
+* 
+Codificación digital (unipolar, NRZ-L y NRZI)
+
+Código unipolar (0  0, 1  x).  La amplitud media no es cero.  Componente de corriente continua.  Código NRZ-L (0  -x, 1  x).  Sincronización con muchos 0s o 1s seguidos.  Código NRZI
+-  0 la señal no cambia
+-  1 la señal se invierte
+Sincronización con muchos 0s seguidos.
+* Código RZ. Como NRZL pero a mitad del intervalo se
+vuelve a cero.
+-  0  transición desde positivo a cero
+-  1  transición desde negativo a cero
+Requiere 2 transiciones por cada bit.
+
+Codificación digital (RZ)
+
+Permite sincronización entre emisor y receptor con las transiciones a 0
+* Código Manchester
+-  0 La señal sube de –x a x
+-  1 La señal baja de x a –x
+La transición se realiza a mitad del bit.  Si es preciso (dependiendo del siguiente bit a transmitir), al inicio de cada bit vuelve a realizar una transición.
+
+Codificación digital (Manchester)
+
+Transiciones extra al inicio de algunos ciclos.  Permite sincronización entre emisor y receptor
+* Código Manchester diferencial. Siempre transición en medio.
+-  0 Transición al principio
+-  1 Sin transición al principio
+La transición se realiza a mitad del bit.  Si es preciso (dependiendo del siguiente bit a transmitir), al inicio de cada bit vuelve a realizar una transición.
+
+Codificación digital (Manchester diferencial)
+
+Transiciones extra al inicio de algunos ciclos.  Permite sincronización entre emisor y receptor
+* Código AMI
+-  0 0
+-  1 Alterna entre –x y x
+Problemas para sincronizar muchos 0s seguidos.
+
+Codificación digital (AMI)
+
+* Código B8ZS. Como la AMI, pero cuando aparecen 8 "ceros"
+consecutivos, se introducen cambios artificiales en el patrón basados en la polaridad del último bit 'uno' codificado:
+-  V: Violación, mantiene la polaridad anterior en la secuencia.
+-  B: Transición, invierte la polaridad anterior en la secuencia.
+-  Los ocho ceros se sustituyen por la secuencia: 000V B0VB
+
+Codificación digital (Bipolar con sustitución 8 ceros)
+
+* En 4B/5B, cada byte que a transmitir se divide en partes de
+cuatro bits y se codifica según la tabla como valores de cinco bits denominados símbolos.
+
+Codificación digital (4B/5B)
+
+4B/5B garantiza la aplicación de al menos un cambio de nivel por código para proporcionar sincronización.
+* Los diferentes medios físicos admiten la transferencia de bits a
+distintas velocidades. La transferencia de datos puede medirse de tres formas:
+-  Ancho de banda. Capacidad que posee un medio de
+transportar datos sin procesar.  El ancho de banda digital (kbps o Mbps) mide la cantidad de información que puede fluir desde un lugar hacia otro en un período de tiempo determinado.
+-  Rendimiento. Medida de transferencia de bits a través de los
+medios durante un período de tiempo determinado.  Generalmente no coincide con el ancho de banda. Por ejemplo por colisiones en el medio si es de acceso compartido.
+-  Capacidad de transferencia útil. Mide la transferencia efectiva
+de los datos del usuario entre las entidades de la capa de aplicación (descartando la sobrecarga de cabeceras del resto de capas).
+
+Capacidad del canal para transportar datos
+
+* Modulación en amplitud, frecuencia y fase.
+
+Señales digitales en medios analógicos
+
+* Codifica los dígitos 1011100010 en:
+-  NRZ
+-  NRZI
+-  AMI
+-  Bipolar con sustitución de 8 ceros
+-  Manchester
+-  Manchester diferencial.
+-  4B/5B
+-  Modulación en amplitud
+-  Modulación en frecuencia
+-  Modulación en fase
+
+Actividades
+
+* No lo vamos a ver
+
+Señales analógicas en medios analógicos
+
+* Conversión de una señal analógica a digital. Pasos:
+-  Muestreo
+-  Redondeo
+-  Codificación
+-  Transmisión
+La señal se reconstruye en el receptor a partir de información digital Codificador: transforma de analógico a digital Descodificador: transforma de digital a analógico
+
+Señales analógicas en medios digitales
+
+* Se toman medidas de la señal analógica a intervalos regulares.
+A mayor número de muestras por segundo (frecuencia de muestreo), más fiel es la onda digital resultante.  Por otro lado, es necesario establecer cuántos bits son necesarios para cada medición.
+
+Señales analógicas en medios digitales. Muestreo
+
+A mayor número de bits, mayor precisión y más fiel será la onda digital resultante.
+* Redondeo: a mayor número de muestras obtenidas, la señal
+digital reflejará con mayor precisión la señal analógica que reproduce. Aquello valores de la señal analógica que no se consideran en la digital, deberán ser redondeados al valor digital mas próximo.  Codificación: en última instancia, la transmisión por el medio será digital binaria. Por tanto si el muestreo se realiza sobre múltiples valores digitales, éstos tendrán que utilizar combinaciones de bits para reflejar el valor.  Envío por canal digital: para el envío final, se podrá utilizar cualquiera de los modelos de codificación digital vistos anteriormente.
+
+Señales analógicas en medios digitales. Redondeo y codificación
+
+* Se trata de la técnica que permite compartir el medio entre
+diferentes usuarios para obtener el mejor aprovechamiento de su ancho de banda.  Ejemplo: si un medio tiene una capacidad de 4800 bps, entonces puede admitir 2 canales separados de 2400 bps o 4 canales de 1200 bps.
+
+Multiplexación
+
+* Se asigna una banda de frecuencias concreta a cada canal
+lógico.
+-  Se usa en la radio y tv.
+-  Se usa en ADSL para separar voz y datos.
+Frecuencia Tiempo Canal 1 Canal 2 Canal 3 Canal 4 1Mhz 500Khz 250Khz 100Khz
+
+Multiplexación por división en frecuencia
+
+* Se divide el tiempo
+en ranuras. Cada canal obtiene determinadas ranuras de tiempo.
+-  Se usa en
+transmisión digital
+
+Multiplexación por división en tiempo
+
+* 
+Multiplexación combinada
+
+* Dibuja la señal que se transmite por un medio cuando se
+envía las secuencias
+-  100101
+-  101110
+Utilizando:
+-  Multiplexación por división en el tiempo, donde a cada
+canal se asigna una ranura de 2 bits
+-  Usa codificación NRZ
+Repite el ejercicio con codificación NRZI y ranuras de 3 bits.
+
+Actividades
+
+* Proceso mediante en cual el equipo receptor, conoce los
+momentos exactos en que debe medir la magnitud de la señal para identificar la información recibida.  Dependiendo del tipo de sincronización, la transmisión puede ser:
+-  Asíncrona
+-  Síncrona
+
+Sincronización
+
+* Las señales que permiten marcar los tiempos están
+incluidas en el mensaje transmitido.  En el mensaje hay algunos bits que sirven para sincronizar emisor y receptor.  Los datos se transmiten enviándolos carácter a carácter, donde cada carácter tiene una longitud de 5 a 8 bits. El receptor tiene la oportunidad de resincronizarse al principio de cada carácter.  La transmisión asíncrona es sencilla y no costosa, si bien requiere de 2 o 3 bits suplementarios por cada carácter.
+
+Transmisión asíncrona
+
+* 
+Transmisión asíncrona
+
+* Los bits se envían a una cadencia constante sin
+discriminar los caracteres que componen.  El emisor y el receptor se encargan de la sincronización de modo que sean capaces de reconstruir la información original. Deben utilizar relejes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
+
+Transmisión síncrona
+
+* Serie: todas las señales se transmiten por una única línea de
+datos secuencialmente.
+-  Ordenador-modem
+-  Modem-línea telefónica
+Paralelo: se transmiten simultáneamente un grupo de bits, uno por cada línea del mismo canal.
+-  Es N veces más rápida que una serie equivalente.
+-  Más caro en grandes distancias
+-  Cableado interno en el ordenador.
+
+Modos de transmisión
+
+* En una transmisión, la señal recibida puede ser distinta de
+la emitida por culpa de perturbaciones:
+-  Atenuación
+-  Distorsión
+-  Interferencia
+-  Ruido
+-  Diafonía
+
+Perturbaciones en la transmisión
+
+* Debilitamiento de la señal.
+Debido a la resistencia eléctrica que presenta tanto el canal como los otros elementos que participan en la transmisión.  La amplitud disminuye.
+
+Atenuación
+
+* Deformación de la señal por el hecho de que la
+velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
+
+Distorsión
+
+* Suma a la señal que se transmite de otra señal
+conocida y no deseada.
+-  Ejemplo: cuando la señal de potencia, se acopla
+a la señal de datos transmitidos.
+
+Interferencia
+
+* Es la suma de múltiples interferencias, posiblemente
+de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.
+
+Ruido
+
+* 
+Distorsión
+
+* Entre dos circuitos existe diafonía, denominada en
+inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
+-  Ejemplo: escuchar a otra conversación por
+teléfono.
+
+Diafonía
+
+* 
