@@ -16,13 +16,12 @@
   -  Medio: transmitir las magnitudes físicas por el canal.
   -  Receptor: recuperar estas señales individuales desde los medios, restaurarlas para sus representaciones de bit y enviar los bits hacia la capa de enlace de datos.  
 
-** Qué define la capa física
 - La capa física debe contemplar:
   -  Medios físicos y conectores asociados.
   -  Una representación de los bits en los medios .
   -  Codificación de los datos y de la información de control.
   -  Sistema de circuitos del receptor y transmisor en los dispositivos de red.
-
+    
 * Medio de transmisión
 ** Tipos básicos de medios de red:
 -  Cable de cobre. Pulsos eléctricos.
@@ -48,11 +47,11 @@ Fuente: wikitecno]]
 
 ** tipos de señal
 
-|   |                       | *Canal analógico*                  | *Canal digital*    |
-|---+-----------------------+------------------------------------+--------------------|
-| / | >                     | <                                  |                    |
+|   |                         | *Canal analógico*                  | *Canal digital*    |
+|---+-------------------------+------------------------------------+--------------------|
+| / | >                       | <                                  |                    |
 |   | *Información analógica* | Teléfono o televisión (analógicos) | Televisión digital |
-|   | *Información digital* | Fax, módem telefónico              | ADSL, fibra        |
+|   | *Información digital*   | Fax, módem telefónico              | ADSL, fibra        |
 
 
 
@@ -68,110 +67,183 @@ Fuente: wikitecno]]
   - De /iure/: Acordado entre varias partes
   - De /facto/: Por costumbre o dominancia de algún proveedor
 
+** Principales organizaciones estandarizadoras
+#+ATTR_LATEX: :align |l|p{7cm}|
+| ISO     | Organización Internacional para la Estandarización                                                      |
+| IEEE    | Instituto de Ingenieros Eléctricos y Electrónicos                                                       |
+| ANSI    | Instituto Nacional Estadounidense de Estándares                                                         |
+| ITU     | Unión Internacional de Telecomunicaciones                                                               |
+| EIA/TIA | La Asociación de Industrias Electrónicas y la Asociación de las Industrias de las Telecomunicaciones    |
+| FCC     | Autoridades de las telecomunicaciones nacionales, como la Comisión Federal de Comunicaciones  en EE.UU. |
+| IETF    | /Internet Engineering Task Force/                                                                       |
 
+#+reveal: split
 
-* Principales organizaciones involucradas:
--  Organización Internacional para la Estandarización (ISO)
--  Instituto de Ingenieros Eléctricos y Electrónicos (IEEE)
--  Instituto Nacional Estadounidense de Estándares (ANSI)
--  Unión Internacional de Telecomunicaciones (ITU)
--  La Asociación de Industrias Electrónicas y la Asociación de
-las Industrias de las Telecomunicaciones (EIA/TIA)
--  Autoridades de las telecomunicaciones nacionales, como la
-Comisión Federal de Comunicaciones (FCC) en EE. UU..
+#+attr_latex: :width 0.6\textwidth
+[[file:media/estandares-y-niveles.png]]
 
-Estándares
+* Señalización
+- La capa física debe generar las señales (inalámbricas, ópticas o eléctricas) que representan el "1" y el "0" en los medios. 
+- El método de representación de bits se denomina método de señalización.
+- La transmisión de la trama a través de los medios se realiza mediante una cadena o stream de bits. 
+- El tiempo de bit es el tiempo que ocupa el medio la transmisión de un bit. 
+  - El tiempo de bit debe estar sincronizado entre el transmisor y el receptor (se utilizan señales de reloj para este fin).
+  - Para sincronizar los relojes e identificar inicios/finales tramas (información a nivel de enlace), se utilizan combinaciones de bits preestablecidas (patrones).
 
-* La capa física debe generar las señales inalámbricas, ópticas o
-eléctricas que representan el "1" y el "0" en los medios. El método de representación de bits se denomina método de señalización.  La transmisión de la trama a través de los medios se realiza mediante una cadena o stream de bits.  El tiempo de bit es el tiempo que ocupa el medio la transmisión de un bit. El tiempo de bit debe estar sincronizado entre el transmisor y el receptor (se utilizan señales de reloj para este fin).  Para sincronizar los relojes e identificar inicios/finales tramas (información a nivel de enlace), se utilizan combinaciones de bits preestablecidas (patrones).
+** Banda base/Banda ancha
+- [[https://es.wikipedia.org/wiki/Banda_base][Banda base]]
+  - Se pueden utilizar simplemente voltajes para indicar niveles
+  - No se puede multiplexar el medio
+  - Se suele utilizar en medios de baja velocidad
+- [[https://es.wikipedia.org/wiki/Banda_ancha][Banda ancha]]
+  - El medio se comparte, utilizando diferentes frecuencias
+  - Cada frecuencia es un canal independiente
 
-Señalización
-
-* Los bits se representan en el medio al cambiar una o más de las
-siguientes características de una señal.
+** Modulación de señal
+- Las señales no se suelen emitir sin más (excepto a veces en banda base)
+- Sino que se transmiten como variaciones de una [[https://www.geogebra.org/m/KfUX66de][onda sinusoidal]]
+  $$y(t) = A\times\sen(\omega \times t + \varphi)$$
+  - $A$: Amplitud 
+  - $\omega$: Frecuencia
+  - $\varphi$: Fase 
+- Los bits se representan en el medio al cambiar una o más de las características de la señal
 -  Amplitud
 -  Frecuencia
 -  Fase
-Ejemplos de modulación de señales digitales a analógicas en amplitud, frecuencia y fase.
 
-Señalización – Señales analógicas
+#+reveal: split
+[[file:media/modulacion-animacion.gif]]
 
-* Amplitud: medida de la variación máxima del desplazamiento de la
-onda con respecto a su posición de reposo o equilibrio.  Ciclo: oscilación de un punto desde su posición inicial hasta que vuelve a esa posición.  Periodo (T): duración de un ciclo.  Frecuencia (f=1/T): es una magnitud que mide el número de repeticiones por unidad de tiempo de cualquier fenómeno o suceso periódico Fase: desplazamiento inicial de la señal
+#+reveal: split
+| Amplitud                           | Frecuencia                           | Fase                           |
+| [[file:media/modulacion-amplitud.png]] | [[file:media/modulacion-frecuencia.png]] | [[file:media/modulacion-fase.png]] |
 
-Señales analógicas periódicas (características)
 
-* Una onda compleja se
-puede ver como la composición de ondas más sencillas con distintas frecuencias.  La transformada de Fourier permite encontrar las ondas sencillas que componen un más compleja.
+** Suma de señales
+- Se pueden [[https://www.geogebra.org/m/BOMfKCIK][sumar varias señales]]
+  - Es la forma de multiplexar varias señales por un medio
+- En el lado receptor se pueden separar las señales
+  - Si cada señal tiene un rango de frecuencias distinto
+  - Utilizando la [[https://es.wikipedia.org/wiki/Transformada_de_Fourier][Transformada de Fourier]]
+  
+file:media/suma-de-senales.png
 
 Señalización – Señales analógicas complejas
 
-* Las señales digitales presentan un conjunto de valores discreto,
-siendo su modo de señalización los diferentes valores que presenta la señal física.  En las comunicaciones, habitualmente se utiliza un modelo de señalización binario.  La tasa de bits (bit-rate) es el número de bits transmitidos por unidad de tiempo.  La tasa de bautidos (baudrate) es el número de señales por segundo. Un baudio puede contener varios bits.
+** Baudios / /bit rate/
+- *Baudios*: Número de señales *digitales* enviadas por segundo
+  - Cada señal es de un conjunto limitado de posibilidades
+- *Bits*: Número de bits enviados por segundo
 
-Señalización – Señales digitales
+$$ bitrate = baudios*bitsporbaudio $$
 
-* La codificación es un método que se utiliza para convertir un flujo
-o conjunto de bits de datos en un código predefinido.  Los códigos son grupos de bits utilizados para ofrecer un patrón predecible que pueda reconocer tanto el emisor como el receptor.  La utilización de patrones predecibles permite distinguir los bits de datos de los bits de control y ofrece una mejor detección de errores en los medios.  También permiten identificar el comienzo y el final de una trama.
+** Ejercicios
+- Determina los baudios y bits por segundo de:
+  - El foco morse de un barco de la marina, que se puede encender o apagar cada segundo
+  - Un semáforo, que puede cambiar cada 0.5 segundos a uno de sus tres colores
+  - Un semáforo, que puede cambiar cada 0.5 segundos a cualquier combinación de sus tres colores
+  - Una sinusoidal, que 10 veces por segundo puede
+    - cambiar de frecuencia tres frecuencias posibles
+    - y a la vez, cambiar de amplitud a dos amplitudes posibles
 
-Codificación digital
+* Codificación de canal
+- Cada señal enviada no tiene por que ser *directamente* el dato que se quiere enviar
+- El conjunto de señales recibidas pueden ser reinterpretadas
+  - Para distinguir el inicio y el fin de la transmisión de los datos reales
+  - Para mejorar la detección de errores
+  - Para sincronizar los relojes de muestreo entre emisor y receptor
 
-* 
-Codificación digital - binaria
+- Para el resto de la explicación se supondrán señales en banda base
+  -  Aunque sería aplicable a banda ancha
 
-* 
-Codificación digital (unipolar, NRZ-L y NRZI)
+** Codificación unipolar
+| 0 | 0V |
+| 1 | xV | 
 
-Código unipolar (0  0, 1  x).  La amplitud media no es cero.  Componente de corriente continua.  Código NRZ-L (0  -x, 1  x).  Sincronización con muchos 0s o 1s seguidos.  Código NRZI
--  0 la señal no cambia
--  1 la señal se invierte
-Sincronización con muchos 0s seguidos.
-* Código RZ. Como NRZL pero a mitad del intervalo se
-vuelve a cero.
--  0  transición desde positivo a cero
--  1  transición desde negativo a cero
-Requiere 2 transiciones por cada bit.
+- Ventajas
+  - Simple de entender e implementar
+- Desventajas
+  - La amplitud media no es 0, por lo que hay un componente de corriente continua apreciable
 
-Codificación digital (RZ)
+** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZ-L]] 
+| 0 | -xV |
+| 1 | +xV |
+[[file:media/codificacion-nrzl.png]]
+- Ventajas
+  - Ya no hay corriente continua
+- Desventajas
+  - Si mando muchos 0s o 1s seguidos, puedo perder la sincronización del reloj
 
-Permite sincronización entre emisor y receptor con las transiciones a 0
-* Código Manchester
--  0 La señal sube de –x a x
--  1 La señal baja de x a –x
-La transición se realiza a mitad del bit.  Si es preciso (dependiendo del siguiente bit a transmitir), al inicio de cada bit vuelve a realizar una transición.
+** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZI]]
+| 0 | La señal no cambia       |
+| 1 | La señal cambia de signo |
+[[file:media/codificacion-nrzi.png]]
 
-Codificación digital (Manchester)
+- Ventajas
+  - Si mando muchos 1s no pierdo sincronía
+- Desventajas
+  - Pero si mando muchos 0s sí pierdo sincronía
 
-Transiciones extra al inicio de algunos ciclos.  Permite sincronización entre emisor y receptor
-* Código Manchester diferencial. Siempre transición en medio.
--  0 Transición al principio
--  1 Sin transición al principio
-La transición se realiza a mitad del bit.  Si es preciso (dependiendo del siguiente bit a transmitir), al inicio de cada bit vuelve a realizar una transición.
+** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_RZ][RZ]]   
+| 0 | -xV seguido de 0V |
+| 1 | xV seguido de 0V  |
+[[file:media/codificacion-rz.png]]
 
-Codificación digital (Manchester diferencial)
+- Ventajas
+  - No pierdo sincronía
+- Desventajas
+  - Necesito 3 niveles posibles en vez de dos (desperdicio bits, /hardware/ más complejo)
+  - La mitad de los baudios se gasta en la sincronía
 
-Transiciones extra al inicio de algunos ciclos.  Permite sincronización entre emisor y receptor
-* Código AMI
--  0 0
--  1 Alterna entre –x y x
-Problemas para sincronizar muchos 0s seguidos.
+** Código [[https://es.wikipedia.org/wiki/Codificaci%25C3%25B3n_Manchester][Manchester]]   
+| 0 | -xV seguido de xV |
+| 1 | xV seguido de -xV |
+[[file:media/codificacion-manchester.png]]
+- Ventajas
+  - Sólo dos niveles de señal
+- Desventajas
+  - Transiciones extra a principio de señal (con muchos 0s o 1s seguidos)
 
-Codificación digital (AMI)
+** Código Manchester diferencial
+| 0 | Se cambia el voltaje al principio     |
+| 1 | No se cambia el voltaje al principio  |
+|---+---------------------------------------|
+|   | Pero a mitad de bit siempre se cambia |
+[[file:media/codificacion-manchesterdiferencial.png]]
+- Ventajas
+  - Me ahorro algunas transiciones extra al principio
+- Desventajas
+  - Pero siguen quedando transiciones extra al principio
 
-* Código B8ZS. Como la AMI, pero cuando aparecen 8 "ceros"
-consecutivos, se introducen cambios artificiales en el patrón basados en la polaridad del último bit 'uno' codificado:
--  V: Violación, mantiene la polaridad anterior en la secuencia.
--  B: Transición, invierte la polaridad anterior en la secuencia.
--  Los ocho ceros se sustituyen por la secuencia: 000V B0VB
+** Código [[https://es.wikipedia.org/wiki/Alternate_Mark_Inversion][AMI]]
+| 0 | 0V                            |
+| 1 | xV o -xV, alternando cada vez |
+file:media/codificacion-ami.png
+- Desventaja
+  - Pérdida de sincronía con muchos 0s
 
-Codificación digital (Bipolar con sustitución 8 ceros)
 
-* En 4B/5B, cada byte que a transmitir se divide en partes de
-cuatro bits y se codifica según la tabla como valores de cinco bits denominados símbolos.
+** B8ZS   
+|        0 | 0V                             |
+|        1 | xV o -xV, alternando cada vez  |
+|----------+--------------------------------|
+| 00000000 | 000VB0VB                       |
+|          | V: Violación, un 1 mal enviado |
+|          | B: un 1 bien enviado           |
+[[file:media/codificacion-b8zs.png]]
+- Ventajas
+  - Sincronización com muchos 0s
 
-Codificación digital (4B/5B)
+** 4B/5B
+- Se agrupan paquetes de 5 bits
+- Correspondencia entre cada paquete de 5 bits con
+  - Una secuencia de 4 bits
+  - Un código de control
+  - Algo inválido (ha habido un error)
 
-4B/5B garantiza la aplicación de al menos un cambio de nivel por código para proporcionar sincronización.
+[[file:media/codificacion-4b5b.png]]
+
+
 * Los diferentes medios físicos admiten la transferencia de bits a
 distintas velocidades. La transferencia de datos puede medirse de tres formas:
 -  Ancho de banda. Capacidad que posee un medio de
