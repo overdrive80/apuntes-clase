@@ -101,6 +101,7 @@
 - Control de errores
 - Multiplexación
 - Segmentación y ensamblado
+- Privacidad
 
 
 
@@ -133,7 +134,12 @@
 - Segmentación: algunos bloques de información pueden ser demasiados grandes para ser enviados y hay que fraccionarlos.
 - Ensamblado: si se ha segmentado la información hay que volver a reconstruirla en el destino.
 
-
+** Privacidad
+- Los datos transmitidos no deberían poder ser
+  - Vistos por terceras personas
+  - Modificados por terceras personas
+- En el caso de saltos intermedios ¿cómo pueden los nodos intermedios pasar la información sin conocer los datos?
+  
 * Modelo OSI
 
 - Modelo desarrollado por la ISO (International Standardization Organization).
