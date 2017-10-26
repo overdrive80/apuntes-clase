@@ -37,7 +37,7 @@ Mas información en:
 #+begin_src sql
 CREATE TABLESPACE nombre 
   DATAFILE '/camino/al/fichero.dbf'
-  SIZE tamañoinicial
+  SIZE tamanoinicial
   AUTOEXTEND ON NEXT 200k MAXSIZE 1400K
   DEFAULT STORAGE (INITIAL 16k NEXT 16k MINEXTENTS 1 MAXEXTENTS 3);
 #+end_src
@@ -60,11 +60,11 @@ CREATE TABLESPACE nombre
 
 ** Creación de usuarios
 #+begin_src sql
-CREATE USER usuario IDENTIFIED BY contraseña
+CREATE USER usuario IDENTIFIED BY contrasena
   DEFAULT TABLESPACE tablespace
   TEMPORARY TABLESPACE tablespace
   QUOTA UNLIMITED ON tablespace
-  QUOTA tamaño ON tablespace
+  QUOTA tamano ON tablespace
   ACCOUNT LOCK
   ACCOUNT UNLOCK
 #+end_src
@@ -73,7 +73,7 @@ CREATE USER usuario IDENTIFIED BY contraseña
 - Modificación de un usuario ya creado
   #+begin_src sql
   ALTER USER usuario
-    cualquier opción válida al crear usuario
+    cualquier opcion valida al crear usuario
   #+end_src
 
 - Borrado de usuario
@@ -172,7 +172,7 @@ grant select on unatabla to otrousuario;
 connect sys/*******
 revoke select on unatabla to unusuario;
 
--- AQUÍ NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
+-- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
 #+end_src
 
 * Roles
@@ -235,7 +235,7 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
 #+end_src
 
 - Nota: Según la funente, los tiempos se miden en días. Se pueden especificar fracciones de día.
-  - Pero a mí me funcionan como minutos ❓
+  - Pero a mí me funcionan como minutos 
 
 [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm][Fuente: docs.oracle.com]]
 
