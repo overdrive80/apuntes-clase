@@ -157,6 +157,23 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 
 #+END_NOTES
 
+** Quitar privilegios
+- Los privilegios se quitan con =revoke=
+- Cuando un usuario pierde un privilegio, los pierden también todos los que recibieron el mismo privilegio a través de él
+  - Por la cláusula =with grant option=
+
+#+begin_src sql
+connect sys/*******
+grant select on unatabla to unusuario with grant option;
+
+connect unusuario/*******
+grant select on unatabla to otrousuario;
+
+connect sys/*******
+revoke select on unatabla to unusuario;
+
+-- AQUÍ NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
+#+end_src
 
 * Roles
 - Asignar todos los privilegios a un usuario es trabajoso, pero factible
