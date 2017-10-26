@@ -124,8 +124,10 @@ grant select on alumnos to profesor;
 - Crea un usuario =LIMITADO=
   - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
 - Crea un usuario =CONPERMISOS=
-- Haz que =LIMITADO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
-  - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar filas
+- Haz que =LIMITADO= de privilegios a =CONPERMISOS= para que:
+  - Pueda leer todos los campos de la tabla =DATOS=
+  - Pueda actualizar el campo =NUMERO= de tabla =DATOS=
+  - Pero no pueda modificar el campo =TEXTO=, ni borrar filas, ni insertar filas
 
 #+BEGIN_NOTES
 grant update(column-name) on table-name to user-name
