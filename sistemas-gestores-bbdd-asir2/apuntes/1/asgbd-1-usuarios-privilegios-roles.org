@@ -83,31 +83,6 @@ CREATE USER usuario IDENTIFIED BY contraseña
 
 
 
-** Ejercicio
-- Crea un usuario =LIMITADO=
-- Permítele almacenar 100k en el tablespace =USERS=
-- Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
-  - Llena toda su cuota insertando filas
-- ¿Qué ocurre?
-
-#+BEGIN_NOTES
-create user limitado identified by limitado;
-grant resource,connect to limitado;
-alter user limitado quota 100k on users;
-
-connect limitado/limitado
-
-create table datos(texto varchar2(255),numero integer);
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-commit;
-
-ORA-01536: space quota exceeded for tablespace 'USERS'
-
-#+END_NOTES
 
 * Privilegios
 - Cada usuario puede tener unos permisos distintos
@@ -146,9 +121,39 @@ grant select on alumnos to profesor;
 [[https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339][Fuente: docs.oracle.com]]
 
 ** Ejercicio
+- Crea un usuario =LIMITADO=
+  - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
 - Crea un usuario =CONPERMISOS=
 - Haz que =LIMITADO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
-  - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar files
+  - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar filas
+
+#+BEGIN_NOTES
+grant update(column-name) on table-name to user-name
+#+END_NOTES
+
+** Ejercicio
+- Haz que el usuario =LIMITADO= tenga una cuota de 100k en el tablespace =USERS=
+- Llena toda su cuota insertando filas en la tabla =DATOS=
+- ¿Qué ocurre?
+
+#+BEGIN_NOTES
+create user limitado identified by limitado;
+grant resource,connect to limitado;
+alter user limitado quota 100k on users;
+
+connect limitado/limitado
+
+create table datos(texto varchar2(255),numero integer);
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+commit;
+
+ORA-01536: space quota exceeded for tablespace 'USERS'
+
+#+END_NOTES
 
 
 * Roles
@@ -238,3 +243,14 @@ ORA-02396: exceeded maximum idle time, please connect again
 #+END_NOTES
 
 
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-1-usuarios-privilegios-roles.html][Transparencias]] 
+  - [[file:asgbd-1-usuarios-privilegios-roles.pdf][PDF]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+- [[mailto:alvaro.gonzalezsotillo@educa.madrid.org][Por Álvaro González]]
