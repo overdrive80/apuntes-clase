@@ -210,7 +210,11 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - Pero si mando muchos 0s sí pierdo sincronía
 
-** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_RZ][RZ]]   
+** <<#rz>>Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_RZ][RZ]]   
+  :PROPERTIES:
+  :CUSTOM_ID: rz
+  :END:
+
 | 0 | -xV seguido de 0V |
 | 1 | xV seguido de 0V  |
 [[file:media/codificacion-rz.png]]
@@ -221,16 +225,24 @@ $$ bitrate = baudios*bitsporbaudio $$
   - Necesito 3 niveles posibles en vez de dos (desperdicio bits, /hardware/ más complejo)
   - La mitad de los baudios se gasta en la sincronía
 
-** Código [[https://es.wikipedia.org/wiki/Codificaci%25C3%25B3n_Manchester][Manchester]]   
+** <<#manchester>>Código [[https://es.wikipedia.org/wiki/Codificaci%25C3%25B3n_Manchester][Manchester]]   
+  :PROPERTIES:
+  :CUSTOM_ID: manchester
+  :END:
+
 | 0 | -xV seguido de xV |
 | 1 | xV seguido de -xV |
-[[file:media/codificacion-manchester.png]]
+<[[file:media/codificacion-manchester.png]]
 - Ventajas
   - Sólo dos niveles de señal
 - Desventajas
   - Transiciones extra a principio de señal (con muchos 0s o 1s seguidos)
 
-** Código Manchester diferencial
+** <<#manchester-diferencial>>Código Manchester diferencial
+  :PROPERTIES:
+  :CUSTOM_ID: manchester-diferencial
+  :END:
+
 | 0 | Se cambia el voltaje al principio     |
 | 1 | No se cambia el voltaje al principio  |
 |---+---------------------------------------|
@@ -345,7 +357,9 @@ Codifica los dígitos =1011100010= en:
 - Los bits se envían a una cadencia constante sin discriminar los caracteres que componen.
 - El emisor y el receptor se encargan de la sincronización de modo que sean capaces de reconstruir la información original.
 - Deben utilizar relojes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
+- Es la utilizada en [[#manchester][Manchester]], [[#manchester-diferencial][Manchester diferencial]], [[#rz][RZ]]
 
+[[file:media/transmision-sincrona.png]]
 
 * Serie: todas las señales se transmiten por una única línea de
 datos secuencialmente.
