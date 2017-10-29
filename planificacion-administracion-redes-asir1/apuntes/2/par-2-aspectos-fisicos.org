@@ -3,6 +3,8 @@
 #+SUBTITLE: 
 #+KEYWORDS: 
 #+OPTIONS: reveal_single_file:nil
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
 
 * Introducción
 
@@ -59,8 +61,6 @@ Fuente: wikitecno]]
 - *Muestreador*: A mayor número de muestras por segundo (frecuencia de muestreo), 
   - Más fiel es la onda digital resultante.
   - Más información se genera por segundo
-
-
 - *Cuantificador*: A mayor número de bits, 
   - mayor precisión 
   - más información se genera por segundo
@@ -169,7 +169,7 @@ $$ bitrate = baudios*bitsporbaudio $$
   - Un semáforo, que puede cambiar cada 0.5 segundos a uno de sus tres colores
   - Un semáforo, que puede cambiar cada 0.5 segundos a cualquier combinación de sus tres colores
   - Una sinusoidal, que 10 veces por segundo puede
-    - cambiar de frecuencia tres frecuencias posibles
+    - cambiar de frecuencia tres a frecuencias posibles
     - y a la vez, cambiar de amplitud a dos amplitudes posibles
 
 * Codificación de canal
