@@ -414,11 +414,10 @@ Codifica los dígitos =1011100010= en:
   - Causas naturales: tormentas solares, rayos...
   - Alimentación eléctrica 
 
-*** Diafonía
- Entre dos circuitos existe diafonía, denominada en
-inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
--  Ejemplo: escuchar a otra conversación por
-teléfono.
+*** Diafonía (/Crosstalk/ o XT)
+- La señal de un canal, considerado perturbador, aparece en el otro, considerado perturbado. 
+- Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
+  - Ejemplo: escuchar a otra conversación por teléfono.
 
 ** Ruido
 - Es la suma de múltiples interferencias
