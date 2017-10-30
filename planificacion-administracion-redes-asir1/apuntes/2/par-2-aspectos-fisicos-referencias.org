@@ -327,13 +327,8 @@ Codifica los dígitos =1011100010= en:
 - Se divide el rango de frecuencias que el medio soporta
 - Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
+[[file:media/multiplexacion-frecuencia.png]]
 
-
-** Ejemplos de multiplexación en frecuencias
-- Cuadro Nacional de Atribución de frecuencias
-  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
-- [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
-  - [[file:media/frecuencias-estados-unidos.pdf]]
 
 ** Multiplexación en tiempo y frecuencia
 - Se utilizan la multiplexación en tiempo
@@ -344,6 +339,11 @@ Codifica los dígitos =1011100010= en:
 
 
 
+** Ejemplos de multiplexación en frecuencias
+- Cuadro Nacional de Atribución de frecuencias
+  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
+- [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
+  - [[file:media/frecuencias-estados-unidos.pdf]]
 
 * Sincronización
 - Proceso mediante en cual el equipo receptor, conoce los momentos exactos en que debe medir la magnitud de la señal para identificar la información recibida.  
@@ -369,7 +369,7 @@ Codifica los dígitos =1011100010= en:
 - Deben utilizar relojes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
 - Es la utilizada en [[#manchester][Manchester]], [[#manchester-diferencial][Manchester diferencial]], [[#rz][RZ]]
 
-
+[[file:media/transmision-sincrona.png]]
 
 * Paralelo/serie
 - Modo de transmisión serie
@@ -401,37 +401,18 @@ Codifica los dígitos =1011100010= en:
 
 
 ** Distorsión
-- Deformación de la señal 
-  - Distintas frecuencias se transmiten mejor por el medio
-  - Inducción y resistencia del canal
 
-[[file:media/distorsion.png]]
+- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
 
 ** Interferencia
 - Suma a la señal que se transmite de otra señal de origen conocido.
-  - Otras señales transmitidas en canales cercanos
-  - Aparatos eléctricos: fluorescentes, motores, alternadores...
-  - Causas naturales: tormentas solares, rayos...
-  - Alimentación eléctrica 
+-  Ejemplo: cuando la señal de potencia, se acopla a la señal de datos transmitidos.
 
-*** Diafonía (/Crosstalk/ o XT)
-- La señal de un canal, considerado perturbador, aparece en el otro, considerado perturbado. 
-- Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
-  - Ejemplo: escuchar a otra conversación por teléfono.
+*** Diafonía
+ Entre dos circuitos existe diafonía, denominada en
+inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
+-  Ejemplo: escuchar a otra conversación por
+teléfono.
 
 ** Ruido
-- Es la suma de múltiples interferencias
-  - Puede intentar aislarse             
-- Ruido térmico: agitación de los electr
-  - *No se puede eliminar* completamente
-                                        
-
-* Referencias
-- Formatos:
-  - [[file:par-2-aspectos-fisicos.html][Transparencias]] 
-  - [[file:par-2-aspectos-fisicos.pdf][PDF]]
-  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.

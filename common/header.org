@@ -1,6 +1,9 @@
 #+attr_latex: :width 1pt :placement [H]
 
 
+# LISTADOS
+#+latex_header: \usepackage{listings}
+#+latex_header: \lstset{frame=single}
 
 # SE INCLUYEN IMAGENES VECTORIALES SI ES POSIBLE (EN FORMATO PDF)
 #+latex_header_extra: \usepackage{svg}

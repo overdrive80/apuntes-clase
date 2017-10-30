@@ -37,7 +37,7 @@ Mas información en:
 #+begin_src sql
 CREATE TABLESPACE nombre 
   DATAFILE '/camino/al/fichero.dbf'
-  SIZE tamañoinicial
+  SIZE tamanoinicial
   AUTOEXTEND ON NEXT 200k MAXSIZE 1400K
   DEFAULT STORAGE (INITIAL 16k NEXT 16k MINEXTENTS 1 MAXEXTENTS 3);
 #+end_src
@@ -60,11 +60,11 @@ CREATE TABLESPACE nombre
 
 ** Creación de usuarios
 #+begin_src sql
-CREATE USER usuario IDENTIFIED BY contraseña
+CREATE USER usuario IDENTIFIED BY contrasena
   DEFAULT TABLESPACE tablespace
   TEMPORARY TABLESPACE tablespace
   QUOTA UNLIMITED ON tablespace
-  QUOTA tamaño ON tablespace
+  QUOTA tamano ON tablespace
   ACCOUNT LOCK
   ACCOUNT UNLOCK
 #+end_src
@@ -73,7 +73,7 @@ CREATE USER usuario IDENTIFIED BY contraseña
 - Modificación de un usuario ya creado
   #+begin_src sql
   ALTER USER usuario
-    cualquier opción válida al crear usuario
+    cualquier opcion valida al crear usuario
   #+end_src
 
 - Borrado de usuario
@@ -83,31 +83,6 @@ CREATE USER usuario IDENTIFIED BY contraseña
 
 
 
-** Ejercicio
-- Crea un usuario =LIMITADO=
-- Permítele almacenar 100k en el tablespace =USERS=
-- Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
-  - Llena toda su cuota insertando filas
-- ¿Qué ocurre?
-
-#+BEGIN_NOTES
-create user limitado identified by limitado;
-grant resource,connect to limitado;
-alter user limitado quota 100k on users;
-
-connect limitado/limitado
-
-create table datos(texto varchar2(255),numero integer);
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
-commit;
-
-ORA-01536: space quota exceeded for tablespace 'USERS'
-
-#+END_NOTES
 
 * Privilegios
 - Cada usuario puede tener unos permisos distintos
@@ -146,10 +121,59 @@ grant select on alumnos to profesor;
 [[https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339][Fuente: docs.oracle.com]]
 
 ** Ejercicio
+- Crea un usuario =LIMITADO=
+  - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
 - Crea un usuario =CONPERMISOS=
-- Haz que =LIMITADO= le deje leer y actualizar el campo =NUMERO= de su tabla =DATOS=
-  - Pero no puede modificar el campo =TEXTO=, ni borrar filas, ni insertar files
+- Haz que =LIMITADO= de privilegios a =CONPERMISOS= para que:
+  - Pueda leer todos los campos de la tabla =DATOS=
+  - Pueda actualizar el campo =NUMERO= de tabla =DATOS=
+  - Pero no pueda modificar el campo =TEXTO=, ni borrar filas, ni insertar filas
 
+#+BEGIN_NOTES
+grant update(column-name) on table-name to user-name
+#+END_NOTES
+
+** Ejercicio
+- Haz que el usuario =LIMITADO= tenga una cuota de 100k en el tablespace =USERS=
+- Llena toda su cuota insertando filas en la tabla =DATOS=
+- ¿Qué ocurre?
+
+#+BEGIN_NOTES
+create user limitado identified by limitado;
+grant resource,connect to limitado;
+alter user limitado quota 100k on users;
+
+connect limitado/limitado
+
+create table datos(texto varchar2(255),numero integer);
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+commit;
+
+ORA-01536: space quota exceeded for tablespace 'USERS'
+
+#+END_NOTES
+
+** Quitar privilegios
+- Los privilegios se quitan con =revoke=
+- Cuando un usuario pierde un privilegio, los pierden también todos los que recibieron el mismo privilegio a través de él
+  - Por la cláusula =with grant option=
+
+#+begin_src sql
+connect sys/*******
+grant select on unatabla to unusuario with grant option;
+
+connect unusuario/*******
+grant select on unatabla to otrousuario;
+
+connect sys/*******
+revoke select on unatabla to unusuario;
+
+-- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
+#+end_src
 
 * Roles
 - Asignar todos los privilegios a un usuario es trabajoso, pero factible
@@ -211,7 +235,7 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
 #+end_src
 
 - Nota: Según la funente, los tiempos se miden en días. Se pueden especificar fracciones de día.
-  - Pero a mí me funcionan como minutos ❓
+  - Pero a mí me funcionan como minutos 
 
 [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm][Fuente: docs.oracle.com]]
 
@@ -238,3 +262,14 @@ ORA-02396: exceeded maximum idle time, please connect again
 #+END_NOTES
 
 
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-1-usuarios-privilegios-roles.html][Transparencias]] 
+  - [[file:asgbd-1-usuarios-privilegios-roles.pdf][PDF]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+- [[mailto:alvaro.gonzalezsotillo@educa.madrid.org][Por Álvaro González]]
