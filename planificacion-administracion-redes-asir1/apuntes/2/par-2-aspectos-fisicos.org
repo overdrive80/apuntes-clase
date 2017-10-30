@@ -2,7 +2,10 @@
 #+TITLE:  Aspectos físicos de la transmisión
 #+SUBTITLE: 
 #+KEYWORDS: 
-#+OPTIONS: reveal_single_file:nil
+#+OPTIONS: reveal_single_file:t
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 
 * Introducción
 
@@ -22,6 +25,28 @@
   -  Codificación de los datos y de la información de control.
   -  Sistema de circuitos del receptor y transmisor en los dispositivos de red.
     
+* Estándares
+- Un estándar es un acuerdo entre varias partes
+- Sirve para garantizar la *interoperabilidad*
+  - Cada elemento es sustituible por partes equivalentes de otro proveedor
+- Tipos de estándares
+  - De /iure/: Acordado entre varias partes
+  - De /facto/: Por costumbre o dominancia de algún proveedor
+
+** Principales organizaciones estandarizadoras
+#+ATTR_LATEX: :align |l|p{7cm}|
+| ISO     | Organización Internacional para la Estandarización                                                      |
+| IEEE    | Instituto de Ingenieros Eléctricos y Electrónicos                                                       |
+| ANSI    | Instituto Nacional Estadounidense de Estándares                                                         |
+| ITU     | Unión Internacional de Telecomunicaciones                                                               |
+| EIA/TIA | La Asociación de Industrias Electrónicas y la Asociación de las Industrias de las Telecomunicaciones    |
+| FCC     | Autoridades de las telecomunicaciones nacionales, como la Comisión Federal de Comunicaciones  en EE.UU. |
+| IETF    | /Internet Engineering Task Force/                                                                       |
+
+#+reveal: split
+
+#+attr_latex: :width 0.6\textwidth
+[[file:media/estandares-y-niveles.png]]
 * Medio de transmisión
 ** Tipos básicos de medios de red:
 -  Cable de cobre. Pulsos eléctricos.
@@ -59,28 +84,6 @@ Fuente: wikitecno]]
 - Consideramos canal digital a uno diseñado originalmente para llevar información digital
   - Siempre se puede cuantizar después para convertir en digital
 
-* Estándares
-- Un estándar es un acuerdo entre varias partes
-- Sirve para garantizar la *interoperabilidad*
-  - Cada elemento es sustituible por partes equivalentes de otro proveedor
-- Tipos de estándares
-  - De /iure/: Acordado entre varias partes
-  - De /facto/: Por costumbre o dominancia de algún proveedor
-
-** Principales organizaciones estandarizadoras
-#+ATTR_LATEX: :align |l|p{7cm}|
-| ISO     | Organización Internacional para la Estandarización                                                      |
-| IEEE    | Instituto de Ingenieros Eléctricos y Electrónicos                                                       |
-| ANSI    | Instituto Nacional Estadounidense de Estándares                                                         |
-| ITU     | Unión Internacional de Telecomunicaciones                                                               |
-| EIA/TIA | La Asociación de Industrias Electrónicas y la Asociación de las Industrias de las Telecomunicaciones    |
-| FCC     | Autoridades de las telecomunicaciones nacionales, como la Comisión Federal de Comunicaciones  en EE.UU. |
-| IETF    | /Internet Engineering Task Force/                                                                       |
-
-#+reveal: split
-
-#+attr_latex: :width 0.6\textwidth
-[[file:media/estandares-y-niveles.png]]
 
 * Señalización
 - La capa física debe generar las señales (inalámbricas, ópticas o eléctricas) que representan el "1" y el "0" en los medios. 
@@ -330,7 +333,21 @@ canal se asigna una ranura de 2 bits
 -  Usa codificación NRZ
 Repite el ejercicio con codificación NRZI y ranuras de 3 bits.
 
+<<<<<<< Updated upstream
 Actividades
+=======
+** Ejemplos de multiplexación en frecuencias
+- Cuadro Nacional de Atribución de frecuencias
+  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
+- [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
+  - [[file:media/frecuencias-estados-unidos.pdf]]
+
+* Sincronización
+- Proceso mediante en cual el equipo receptor, conoce los momentos exactos en que debe medir la magnitud de la señal para identificar la información recibida.  
+- Dependiendo del tipo de sincronización, la transmisión puede ser:
+  - Asíncrona
+  - Síncrona
+>>>>>>> Stashed changes
 
 * Proceso mediante en cual el equipo receptor, conoce los
 momentos exactos en que debe medir la magnitud de la señal para identificar la información recibida.  Dependiendo del tipo de sincronización, la transmisión puede ser:
@@ -374,21 +391,42 @@ Transmisión síncrona
 ** Atenuación
 - Debilitamiento de la señal debido a la resistencia eléctrica del canal
 - La *amplitud* de la señal disminuye
+- Se puede mejorar con
+  - Mejores cables: cobre, oro
+  - Amplificadores
 
 
-** Distorsión
+** Distorsión 
+- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma
+[[file:media/distorsion.png]]
 
-- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
+*** /Delay skew/
+- En transmisiones paralelas, diferencia en la llegada entre señalas transmitidas simultáneamente
+- Empeora con la distancia
+  - Hasta hacer imposible la transmisión paralela
 
 ** Interferencia
 - Suma a la señal que se transmite de otra señal de origen conocido.
 -  Ejemplo: cuando la señal de potencia, se acopla a la señal de datos transmitidos.
 
 *** Diafonía
- Entre dos circuitos existe diafonía, denominada en
-inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
--  Ejemplo: escuchar a otra conversación por
-teléfono.
+- Entre dos circuitos existe diafonía (/Crosstalk/ o XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado. 
+- Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
+  - Ejemplo: escuchar a otra conversación por teléfono.
 
 ** Ruido
-- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.
+- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria. 
+  - Los propios componentes físicos del dispositivo de transmisión generan ruido. 
+  - Ruido térmico: agitación de los electrones en el canal por encima de 0K
+
+
+* Referencias
+- Formatos:
+  - [[file:par-2-aspectos-fisicos.html][Transparencias]] 
+  - [[file:par-2-aspectos-fisicos.pdf][PDF]]
+  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+    
