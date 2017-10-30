@@ -401,12 +401,18 @@ Codifica los dígitos =1011100010= en:
 
 
 ** Distorsión
+- Deformación de la señal 
+  - Distintas frecuencias se transmiten mejor por el medio
+  - Inducción y resistencia del canal
 
-- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
+[[file:media/distorsion.png]]
 
 ** Interferencia
 - Suma a la señal que se transmite de otra señal de origen conocido.
--  Ejemplo: cuando la señal de potencia, se acopla a la señal de datos transmitidos.
+  - Otras señales transmitidas en canales cercanos
+  - Aparatos eléctricos: fluorescentes, motores, alternadores...
+  - Causas naturales: tormentas solares, rayos...
+  - Alimentación eléctrica 
 
 *** Diafonía
  Entre dos circuitos existe diafonía, denominada en
