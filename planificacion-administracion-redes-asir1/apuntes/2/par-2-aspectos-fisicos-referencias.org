@@ -67,10 +67,32 @@
 #+reveal: split
 
 [[file:media/muestreo-analogico-digital.png]]
+
+
 [[https://wikitecno.wikispaces.com/file/view/Sennal_analogica_digital.png/364985066/967x394/Sennal_analogica_digital.png][
 Fuente: wikitecno]]
 
-** tipos de señal
+
+** Conversión de una señal analógica a digital
+- Codificador: transforma de analógico a digital 
+- Descodificador: transforma de digital a analógico
+
+[[file:media/codificador-analogico-digital.png]]
+
+#+reveal: split
+
+- *Muestreador*: A mayor número de muestras por segundo (frecuencia de muestreo), 
+  - Más fiel es la onda digital resultante.
+  - Más información se genera por segundo
+- *Cuantificador*: A mayor número de bits, 
+  - mayor precisión 
+  - más información se genera por segundo
+
+[[file:media/conversion-analogico-digital.png]]
+
+
+
+** Ejemplos analógico/digital
 
 |   |                         | *Canal analógico*                  | *Canal digital*    |
 |---+-------------------------+------------------------------------+--------------------|
@@ -93,13 +115,17 @@ Fuente: wikitecno]]
   - El tiempo de bit debe estar sincronizado entre el transmisor y el receptor (se utilizan señales de reloj para este fin).
   - Para sincronizar los relojes e identificar inicios/finales tramas (información a nivel de enlace), se utilizan combinaciones de bits preestablecidas (patrones).
 
-** Banda base/Banda ancha
+** <<#banda-ancha>>Banda base/Banda ancha
+  :PROPERTIES:
+  :CUSTOM_ID: banda-ancha
+  :END:
+
 - [[https://es.wikipedia.org/wiki/Banda_base][Banda base]]
   - Se pueden utilizar simplemente voltajes para indicar niveles
   - No se puede multiplexar el medio
   - Se suele utilizar en medios de baja velocidad
 - [[https://es.wikipedia.org/wiki/Banda_ancha][Banda ancha]]
-  - El medio se comparte, utilizando diferentes frecuencias
+  - El medio se comparte, utilizando diferentes frecuencias (ver [[#multiplexacion-frecuencia][multiplexación por frecuencia]])
   - Cada frecuencia es un canal independiente
 
 ** Modulación de señal
@@ -146,7 +172,7 @@ $$ bitrate = baudios*bitsporbaudio $$
   - Un semáforo, que puede cambiar cada 0.5 segundos a uno de sus tres colores
   - Un semáforo, que puede cambiar cada 0.5 segundos a cualquier combinación de sus tres colores
   - Una sinusoidal, que 10 veces por segundo puede
-    - cambiar de frecuencia tres frecuencias posibles
+    - cambiar de frecuencia tres a frecuencias posibles
     - y a la vez, cambiar de amplitud a dos amplitudes posibles
 
 * Codificación de canal
@@ -187,7 +213,11 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - Pero si mando muchos 0s sí pierdo sincronía
 
-** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_RZ][RZ]]   
+** <<#rz>>Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_RZ][RZ]]   
+  :PROPERTIES:
+  :CUSTOM_ID: rz
+  :END:
+
 | 0 | -xV seguido de 0V |
 | 1 | xV seguido de 0V  |
 [[file:media/codificacion-rz.png]]
@@ -198,7 +228,11 @@ $$ bitrate = baudios*bitsporbaudio $$
   - Necesito 3 niveles posibles en vez de dos (desperdicio bits, /hardware/ más complejo)
   - La mitad de los baudios se gasta en la sincronía
 
-** Código [[https://es.wikipedia.org/wiki/Codificaci%25C3%25B3n_Manchester][Manchester]]   
+** <<#manchester>>Código [[https://es.wikipedia.org/wiki/Codificaci%25C3%25B3n_Manchester][Manchester]]   
+  :PROPERTIES:
+  :CUSTOM_ID: manchester
+  :END:
+
 | 0 | -xV seguido de xV |
 | 1 | xV seguido de -xV |
 [[file:media/codificacion-manchester.png]]
@@ -207,7 +241,11 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - Transiciones extra a principio de señal (con muchos 0s o 1s seguidos)
 
-** Código Manchester diferencial
+** <<#manchester-diferencial>>Código Manchester diferencial
+  :PROPERTIES:
+  :CUSTOM_ID: manchester-diferencial
+  :END:
+
 | 0 | Se cambia el voltaje al principio     |
 | 1 | No se cambia el voltaje al principio  |
 |---+---------------------------------------|
@@ -247,22 +285,9 @@ file:media/codificacion-ami.png
 [[file:media/codificacion-4b5b.png]]
 
 
-* Los diferentes medios físicos admiten la transferencia de bits a
-distintas velocidades. La transferencia de datos puede medirse de tres formas:
--  Ancho de banda. Capacidad que posee un medio de
-transportar datos sin procesar.  El ancho de banda digital (kbps o Mbps) mide la cantidad de información que puede fluir desde un lugar hacia otro en un período de tiempo determinado.
--  Rendimiento. Medida de transferencia de bits a través de los
-medios durante un período de tiempo determinado.  Generalmente no coincide con el ancho de banda. Por ejemplo por colisiones en el medio si es de acceso compartido.
--  Capacidad de transferencia útil. Mide la transferencia efectiva
-de los datos del usuario entre las entidades de la capa de aplicación (descartando la sobrecarga de cabeceras del resto de capas).
 
-Capacidad del canal para transportar datos
-
-* Modulación en amplitud, frecuencia y fase.
-
-Señales digitales en medios analógicos
-
-* Codifica los dígitos 1011100010 en:
+** Ejercicios
+Codifica los dígitos =1011100010= en:
 -  NRZ
 -  NRZI
 -  AMI
@@ -270,68 +295,49 @@ Señales digitales en medios analógicos
 -  Manchester
 -  Manchester diferencial.
 -  4B/5B
--  Modulación en amplitud
--  Modulación en frecuencia
--  Modulación en fase
 
-Actividades
 
-* No lo vamos a ver
 
-Señales analógicas en medios analógicos
+** Velocidad de transferencia
+- Cada medios físico admiten la transferencia de información a cierta velocidad.
+- La transferencia de datos puede medirse de tres formas:
+  - *Ancho de banda*: Capacidad que posee un medio de transportar datos sin procesar.  El ancho de banda digital (kbps o Mbps) mide la cantidad de información que puede fluir desde un lugar hacia otro en un período de tiempo determinado.
+  - *Rendimiento*: Medida de transferencia de *bits* a través de los medios durante un período de tiempo determinado.  Generalmente /no coincide/ con el ancho de banda (colisiones en el medio si es de acceso compartido, errores de transmisión o sincronía,...)
+  - *Transferencia útil*. Mide la transferencia efectiva de los datos del usuario entre las entidades de la capa de aplicación descartando la /sobrecarga de cabeceras/ del resto de capas.
 
-* Conversión de una señal analógica a digital. Pasos:
--  Muestreo
--  Redondeo
--  Codificación
--  Transmisión
-La señal se reconstruye en el receptor a partir de información digital Codificador: transforma de analógico a digital Descodificador: transforma de digital a analógico
+* Multiplexación
+- Uso compartido del medio por los hosts de la red
+  - Por frecuencia
+  - Por tiempo
+  - Por frecuencia y tiempo
+- El efecto es conseguir varios /canales/ a través de solo un medio de transmisión
 
-Señales analógicas en medios digitales
+** Multiplexación por tiempo
+- Se divide el tiempo en ranuras (/slots/)
+- Las ranuras se reparten por orden entre los canales
+- Si el medio tiene una capacidad $c$, cada uno de los $n$ canales tiene una capacidad de $c/n$
 
-* Se toman medidas de la señal analógica a intervalos regulares.
-A mayor número de muestras por segundo (frecuencia de muestreo), más fiel es la onda digital resultante.  Por otro lado, es necesario establecer cuántos bits son necesarios para cada medición.
+[[file:media/multiplexacion-tiempo.png]]
 
-Señales analógicas en medios digitales. Muestreo
+** <<#multiplexacion-frecuencia>>Multiplexación por frecuencia
+  :PROPERTIES:
+  :CUSTOM_ID: multiplexacion-frecuencia
+  :END:
 
-A mayor número de bits, mayor precisión y más fiel será la onda digital resultante.
-* Redondeo: a mayor número de muestras obtenidas, la señal
-digital reflejará con mayor precisión la señal analógica que reproduce. Aquello valores de la señal analógica que no se consideran en la digital, deberán ser redondeados al valor digital mas próximo.  Codificación: en última instancia, la transmisión por el medio será digital binaria. Por tanto si el muestreo se realiza sobre múltiples valores digitales, éstos tendrán que utilizar combinaciones de bits para reflejar el valor.  Envío por canal digital: para el envío final, se podrá utilizar cualquiera de los modelos de codificación digital vistos anteriormente.
+- Se divide el rango de frecuencias que el medio soporta
+- Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
-Señales analógicas en medios digitales. Redondeo y codificación
+[[file:media/multiplexacion-frecuencia.png]]
 
-* Se trata de la técnica que permite compartir el medio entre
-diferentes usuarios para obtener el mejor aprovechamiento de su ancho de banda.  Ejemplo: si un medio tiene una capacidad de 4800 bps, entonces puede admitir 2 canales separados de 2400 bps o 4 canales de 1200 bps.
 
-Multiplexación
+** Multiplexación en tiempo y frecuencia
+- Se utilizan la multiplexación en tiempo
+- En cada canal resultante, se usa la multiplexación en frecuencia
+[[file:media/multiplexacion-tiempo-frecuencia.png]]
 
-* Se asigna una banda de frecuencias concreta a cada canal
-lógico.
--  Se usa en la radio y tv.
--  Se usa en ADSL para separar voz y datos.
-Frecuencia Tiempo Canal 1 Canal 2 Canal 3 Canal 4 1Mhz 500Khz 250Khz 100Khz
+- Nota: se podría seguir multiplexando cada canal por tiempo y por frecuencia
 
-Multiplexación por división en frecuencia
 
-* Se divide el tiempo
-en ranuras. Cada canal obtiene determinadas ranuras de tiempo.
--  Se usa en
-transmisión digital
-
-Multiplexación por división en tiempo
-
-* 
-Multiplexación combinada
-
-* Dibuja la señal que se transmite por un medio cuando se
-envía las secuencias
--  100101
--  101110
-Utilizando:
--  Multiplexación por división en el tiempo, donde a cada
-canal se asigna una ranura de 2 bits
--  Usa codificación NRZ
-Repite el ejercicio con codificación NRZI y ranuras de 3 bits.
 
 ** Ejemplos de multiplexación en frecuencias
 - Cuadro Nacional de Atribución de frecuencias
@@ -345,18 +351,25 @@ Repite el ejercicio con codificación NRZI y ranuras de 3 bits.
   - Asíncrona
   - Síncrona
 
-* Las señales que permiten marcar los tiempos están
-incluidas en el mensaje transmitido.  En el mensaje hay algunos bits que sirven para sincronizar emisor y receptor.  Los datos se transmiten enviándolos carácter a carácter, donde cada carácter tiene una longitud de 5 a 8 bits. El receptor tiene la oportunidad de resincronizarse al principio de cada carácter.  La transmisión asíncrona es sencilla y no costosa, si bien requiere de 2 o 3 bits suplementarios por cada carácter.
+** Transmisión asíncrona
 
-Transmisión asíncrona
+- Las señales que permiten marcar los tiempos están incluidas en el mensaje transmitido.
+- Los datos se transmiten enviándolos carácter a carácter, donde cada carácter tiene una longitud de 5 a 8 bits.
+- El receptor tiene la oportunidad de resincronizarse al principio de cada carácter. 
+- La transmisión asíncrona es sencilla y no costosa, si bien requiere de 2 o 3 bits suplementarios por cada carácter.
+- Está en *desuso*
 
-* 
-Transmisión asíncrona
+[[file:media/transmision-asincrona.png]]
 
-* Los bits se envían a una cadencia constante sin
-discriminar los caracteres que componen.  El emisor y el receptor se encargan de la sincronización de modo que sean capaces de reconstruir la información original. Deben utilizar relejes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
 
-Transmisión síncrona
+** Transmisión síncrona
+
+- Los bits se envían a una cadencia constante sin discriminar los caracteres que componen.
+- El emisor y el receptor se encargan de la sincronización de modo que sean capaces de reconstruir la información original.
+- Deben utilizar relojes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
+- Es la utilizada en [[#manchester][Manchester]], [[#manchester-diferencial][Manchester diferencial]], [[#rz][RZ]]
+
+[[file:media/transmision-sincrona.png]]
 
 * Paralelo/serie
 - Modo de transmisión serie
@@ -387,42 +400,19 @@ Transmisión síncrona
 [[file:media/atenuacion.png]]
 
 
-** Distorsión 
-- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma
-[[file:media/distorsion.png]]
+** Distorsión
 
-*** /Delay skew/
-- En transmisiones paralelas, diferencia en la llegada entre señalas transmitidas simultáneamente
-- Empeora con la distancia
-  - Hasta hacer imposible la transmisión paralela
+- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
 
 ** Interferencia
 - Suma a la señal que se transmite de otra señal de origen conocido.
-  - Otras líneas cercanas (diafonía)
-  - Sucesos naturales: tormentas solares, rayos
-  - Líneas de corriente
-  - Otros aparatos eléctricos: fluorescentes, motores, alternadores
-
+-  Ejemplo: cuando la señal de potencia, se acopla a la señal de datos transmitidos.
 
 *** Diafonía
-- Entre dos circuitos existe diafonía (/Crosstalk/ o XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado. 
-- Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
-  - Ejemplo: escuchar a otra conversación por teléfono.
+ Entre dos circuitos existe diafonía, denominada en
+inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
+-  Ejemplo: escuchar a otra conversación por
+teléfono.
 
 ** Ruido
-- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria. 
-  - Puede intentar aislarse
-- Ruido térmico: agitación de los electrones en el canal por encima de 0K
-  - *No se puede eliminar* completamente
-
-
-* Referencias
-- Formatos:
-  - [[file:par-2-aspectos-fisicos.html][Transparencias]] 
-  - [[file:par-2-aspectos-fisicos.pdf][PDF]]
-  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
-    
+- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.
