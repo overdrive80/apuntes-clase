@@ -352,57 +352,43 @@ discriminar los caracteres que componen.  El emisor y el receptor se encargan de
 
 Transmisión síncrona
 
-* Serie: todas las señales se transmiten por una única línea de
-datos secuencialmente.
--  Ordenador-modem
--  Modem-línea telefónica
-Paralelo: se transmiten simultáneamente un grupo de bits, uno por cada línea del mismo canal.
--  Es N veces más rápida que una serie equivalente.
--  Más caro en grandes distancias
--  Cableado interno en el ordenador.
+* Paralelo/serie
+- Modo de transmisión serie
+  - Una única línea transmite los datos
+  - Ejemplos: ADSL, USB 1.0
+- Mode de transmisión paralelo
+  - La información se envía simultáneamente por varias líneas
+  - Más rápido, pero con mayores problemas de sincronía a distancias largas
+  - Ejemplos: buses internos del ordenador
 
-Modos de transmisión
 
-* En una transmisión, la señal recibida puede ser distinta de
-la emitida por culpa de perturbaciones:
+* Problemas en la transmisión
+
+- En una transmisión, la señal recibida puede ser distinta de la emitida por culpa de perturbaciones:
 -  Atenuación
 -  Distorsión
 -  Interferencia
 -  Ruido
 -  Diafonía
 
-Perturbaciones en la transmisión
+** Atenuación
+- Debilitamiento de la señal debido a la resistencia eléctrica del canal
+- La *amplitud* de la señal disminuye
 
-* Debilitamiento de la señal.
-Debido a la resistencia eléctrica que presenta tanto el canal como los otros elementos que participan en la transmisión.  La amplitud disminuye.
 
-Atenuación
+** Distorsión
 
-* Deformación de la señal por el hecho de que la
-velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
+- Deformación de la señal por el hecho de que la velocidad de propagación de la señal en el medio varía con las características de la señal misma (ejemplo frecuencia).
 
-Distorsión
+** Interferencia
+- Suma a la señal que se transmite de otra señal de origen conocido.
+-  Ejemplo: cuando la señal de potencia, se acopla a la señal de datos transmitidos.
 
-* Suma a la señal que se transmite de otra señal
-conocida y no deseada.
--  Ejemplo: cuando la señal de potencia, se acopla
-a la señal de datos transmitidos.
-
-Interferencia
-
-* Es la suma de múltiples interferencias, posiblemente
-de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.
-
-Ruido
-
-* 
-Distorsión
-
-* Entre dos circuitos existe diafonía, denominada en
+*** Diafonía
+ Entre dos circuitos existe diafonía, denominada en
 inglés Crosstalk (XT), cuando parte de las señales presentes en uno de ellos, considerado perturbador, aparece en el otro, considerado perturbado.  Diafonía inteligible es aquella en que en el circuito perturbado se "entiende" la señal que se transmite por el circuito perturbador
 -  Ejemplo: escuchar a otra conversación por
 teléfono.
 
-Diafonía
-
-* 
+** Ruido
+- Es la suma de múltiples interferencias, posiblemente de origen desconocido y de naturaleza aleatoria.  Los propios componentes físicos de cualquier canal o dispositivo de transmisión generan ruido eléctrico.  El ruido se puede aislar solo en ciertos casos.
