@@ -327,8 +327,13 @@ Codifica los dígitos =1011100010= en:
 - Se divide el rango de frecuencias que el medio soporta
 - Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
-[[file:media/multiplexacion-frecuencia.png]]
 
+
+** Ejemplos de multiplexación en frecuencias
+- Cuadro Nacional de Atribución de frecuencias
+  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
+- [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
+  - [[file:media/frecuencias-estados-unidos.pdf]]
 
 ** Multiplexación en tiempo y frecuencia
 - Se utilizan la multiplexación en tiempo
@@ -339,11 +344,6 @@ Codifica los dígitos =1011100010= en:
 
 
 
-** Ejemplos de multiplexación en frecuencias
-- Cuadro Nacional de Atribución de frecuencias
-  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
-- [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
-  - [[file:media/frecuencias-estados-unidos.pdf]]
 
 * Sincronización
 - Proceso mediante en cual el equipo receptor, conoce los momentos exactos en que debe medir la magnitud de la señal para identificar la información recibida.  
@@ -369,7 +369,7 @@ Codifica los dígitos =1011100010= en:
 - Deben utilizar relojes a la misma frecuencia.  El comienzo y el final de cada bloque de datos se identifican con patrones de bits conocidos en ambos lados de la comunicación.  El modo de transmisión síncrona permite velocidades de transmisión mayores que la asíncrona ya que es menos sensible al ruido y obtiene un mejor rendimiento de la línea de datos.
 - Es la utilizada en [[#manchester][Manchester]], [[#manchester-diferencial][Manchester diferencial]], [[#rz][RZ]]
 
-[[file:media/transmision-sincrona.png]]
+
 
 * Paralelo/serie
 - Modo de transmisión serie
