@@ -139,9 +139,9 @@ Fuente: wikitecno]]
   - $\omega$: Frecuencia
   - $\varphi$: Fase 
 - Los bits se representan en el medio al cambiar una o más de las características de la señal
--  Amplitud
--  Frecuencia
--  Fase
+  - Amplitud
+  - Frecuencia
+  - Fase
 
 #+reveal: split
 #+attr_latex: :width 0.6\textwidth
@@ -268,6 +268,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 ** Código [[https://es.wikipedia.org/wiki/Alternate_Mark_Inversion][AMI]]
 | 0 | 0V                            |
 | 1 | xV o -xV, alternando cada vez |
+#+attr_latex: :width 0.6\textwidth
 file:media/codificacion-ami.png
 - Desventaja
   - Pérdida de sincronía con muchos 0s
@@ -345,7 +346,8 @@ Codifica los dígitos =1011100010= en:
 - Cuadro Nacional de Atribución de frecuencias
   - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
 - [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
-  - [[file:media/frecuencias-estados-unidos.pdf]]
+  #+attr_latex: :width 0.6\textwidth
+  [[file:media/frecuencias-estados-unidos.pdf]]
 
 ** Multiplexación en tiempo y frecuencia
 - Se utilizan la multiplexación en tiempo
