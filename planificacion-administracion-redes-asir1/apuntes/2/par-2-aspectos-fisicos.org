@@ -166,7 +166,7 @@ Señalización – Señales analógicas complejas
 ** Baudios / /bit rate/
 - *Baudios*: Número de señales *digitales* enviadas por segundo
   - Cada señal es de un conjunto limitado de posibilidades
-- *Bits*: Número de bits enviados por segundo
+- *Bitrate*: Número de bits enviados por segundo
 
 $$ bitrate = baudios*bitsporbaudio $$
 
