@@ -55,6 +55,10 @@
 #+AUTHOR: Álvaro González Sotillo
 #+EMAIL: alvaro.gonzalezsotillo@educa.madrid.org
 
+# MATHJAX EN HTML
+#+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
 # OTRAS OPCIONES
 #+LANGUAGE: es
 #+OPTIONS:   H:3
