@@ -66,6 +66,7 @@
 
 #+reveal: split
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/muestreo-analogico-digital.png]]
 
 
@@ -77,6 +78,7 @@ Fuente: wikitecno]]
 - Codificador: transforma de analógico a digital 
 - Descodificador: transforma de digital a analógico
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificador-analogico-digital.png]]
 
 #+reveal: split
@@ -88,6 +90,7 @@ Fuente: wikitecno]]
   - mayor precisión 
   - más información se genera por segundo
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/conversion-analogico-digital.png]]
 
 
@@ -131,7 +134,7 @@ Fuente: wikitecno]]
 ** Modulación de señal
 - Las señales no se suelen emitir sin más (excepto a veces en banda base)
 - Sino que se transmiten como variaciones de una [[https://www.geogebra.org/m/KfUX66de][onda sinusoidal]]
-  $$y(t) = A\times\sen(\omega \times t + \varphi)$$
+  $$y(t) = A\times sen(\omega \times t + \varphi)$$
   - $A$: Amplitud 
   - $\omega$: Frecuencia
   - $\varphi$: Fase 
@@ -141,6 +144,7 @@ Fuente: wikitecno]]
 -  Fase
 
 #+reveal: split
+#+attr_latex: :width 0.6\textwidth
 [[file:media/modulacion-animacion.gif]]
 
 #+reveal: split
@@ -197,6 +201,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 ** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZ-L]] 
 | 0 | -xV |
 | 1 | +xV |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-nrzl.png]]
 - Ventajas
   - Ya no hay corriente continua
@@ -206,6 +211,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 ** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZI]]
 | 0 | La señal no cambia       |
 | 1 | La señal cambia de signo |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-nrzi.png]]
 
 - Ventajas
@@ -220,6 +226,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 
 | 0 | -xV seguido de 0V |
 | 1 | xV seguido de 0V  |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-rz.png]]
 
 - Ventajas
@@ -235,6 +242,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 
 | 0 | -xV seguido de xV |
 | 1 | xV seguido de -xV |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-manchester.png]]
 - Ventajas
   - Sólo dos niveles de señal
@@ -250,6 +258,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 | 1 | No se cambia el voltaje al principio  |
 |---+---------------------------------------|
 |   | Pero a mitad de bit siempre se cambia |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-manchesterdiferencial.png]]
 - Ventajas
   - Me ahorro algunas transiciones extra al principio
@@ -271,6 +280,7 @@ file:media/codificacion-ami.png
 | 00000000 | 000VB0VB                       |
 |          | V: Violación, un 1 mal enviado |
 |          | B: un 1 bien enviado           |
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-b8zs.png]]
 - Ventajas
   - Sincronización com muchos 0s
@@ -282,6 +292,7 @@ file:media/codificacion-ami.png
   - Un código de control
   - Algo inválido (ha habido un error)
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-4b5b.png]]
 
 
@@ -317,6 +328,7 @@ Codifica los dígitos =1011100010= en:
 - Las ranuras se reparten por orden entre los canales
 - Si el medio tiene una capacidad $c$, cada uno de los $n$ canales tiene una capacidad de $c/n$
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/multiplexacion-tiempo.png]]
 
 ** <<#multiplexacion-frecuencia>>Multiplexación por frecuencia
@@ -338,6 +350,7 @@ Codifica los dígitos =1011100010= en:
 ** Multiplexación en tiempo y frecuencia
 - Se utilizan la multiplexación en tiempo
 - En cada canal resultante, se usa la multiplexación en frecuencia
+#+attr_latex: :width 0.6\textwidth
 [[file:media/multiplexacion-tiempo-frecuencia.png]]
 
 - Nota: se podría seguir multiplexando cada canal por tiempo y por frecuencia
@@ -359,6 +372,7 @@ Codifica los dígitos =1011100010= en:
 - La transmisión asíncrona es sencilla y no costosa, si bien requiere de 2 o 3 bits suplementarios por cada carácter.
 - Está en *desuso*
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/transmision-asincrona.png]]
 
 
@@ -397,6 +411,7 @@ Codifica los dígitos =1011100010= en:
   - Mejores cables: cobre, oro
   - Amplificadores
   - Retransmisores/Repetidor
+#+attr_latex: :width 0.6\textwidth
 [[file:media/atenuacion.png]]
 
 
@@ -405,6 +420,7 @@ Codifica los dígitos =1011100010= en:
   - Distintas frecuencias se transmiten mejor por el medio
   - Inducción y resistencia del canal
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/distorsion.png]]
 
 ** Interferencia
