@@ -170,7 +170,7 @@ connect unusuario/*******
 grant select on unatabla to otrousuario;
 
 connect sys/*******
-revoke select on unatabla to unusuario;
+revoke select on unatabla from unusuario;
 
 -- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
 #+end_src
