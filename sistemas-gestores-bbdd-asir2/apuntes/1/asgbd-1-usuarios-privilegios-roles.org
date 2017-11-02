@@ -267,8 +267,13 @@ alter user limitado profile limitado;
 ERROR at line 1:
 ORA-02396: exceeded maximum idle time, please connect again
 
+ERROR at line 1:
+ORA-02399: exceeded maximum connect time, you are being logged off
 
 #+END_NOTES
+
+** Ejercicio
+- Utiliza las vistas de *Oracle* para conocer los límites del profile por defecto.
 
 
 
