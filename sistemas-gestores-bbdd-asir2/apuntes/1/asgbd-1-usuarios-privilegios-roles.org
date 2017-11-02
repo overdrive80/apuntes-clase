@@ -170,7 +170,7 @@ connect unusuario/*******
 grant select on unatabla to otrousuario;
 
 connect sys/*******
-revoke select on unatabla to unusuario;
+revoke select on unatabla from unusuario;
 
 -- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
 #+end_src
@@ -202,14 +202,23 @@ grant NOMBREROL to USUARIO;
   - O lo que es lo mismo, ¿los permisos del rol se /copian/ al usuario o se /enlazan/?
 
 #+BEGIN_NOTES
+
+drop role ELROL;
+
 create role ELROL;
 grant resource, connect to ELROL;
 grant select on LIMITADO.DATOS to ELROL;
+
+drop user usuarioantes;
 create user usuarioantes identified by u;
 grant ELROL to usuarioantes;
+
 revoke select on LIMITADO.DATOS from ELROL;
+
+drop user usuariodespues;
 create user usuariodespues identified by u;
 grant ELROL to usuariodespues;
+
 #+END_NOTES
 
 * Perfiles
@@ -234,7 +243,7 @@ CREATE PROFILE nombreperfil LIMIT
 ALTER SYSTEM SET resource_limit = TRUE scope = BOTH 
 #+end_src
 
-- Nota: Según la funente, los tiempos se miden en días. Se pueden especificar fracciones de día.
+- Nota: Según la fuente, los tiempos se miden en días. Se pueden especificar fracciones de día.
   - Pero a mí me funcionan como minutos 
 
 [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm][Fuente: docs.oracle.com]]
@@ -258,8 +267,13 @@ alter user limitado profile limitado;
 ERROR at line 1:
 ORA-02396: exceeded maximum idle time, please connect again
 
+ERROR at line 1:
+ORA-02399: exceeded maximum connect time, you are being logged off
 
 #+END_NOTES
+
+** Ejercicio
+- Utiliza las vistas de *Oracle* para conocer los límites del profile por defecto.
 
 
 
