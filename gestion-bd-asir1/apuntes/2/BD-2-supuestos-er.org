@@ -57,3 +57,80 @@ Un gestor de correo electrónico maneja la siguiente información
 - Se deben almacenar también los correos enviados. Los correos enviados tienen la misma información que los recibidos, y se guardan en la carpeta ENVIADOS
 - Se desea que el usuario pueda organizar los correos por conversaciones (como GMail)
 
+
+
+* Correo electrónico
+Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo electrónico:
+- Un email puede tener varios destinatarios, pero solo un remitente
+- Los destinatarios son de tres tipos
+  - TO: Un destinatario directo
+  - CC: indirecto en copia
+  - CCO: como copia oculta a otros destinatarios
+- Un email puede tener varios ficheros adjuntos
+- De cada usuario se guarda su nombre de usuario y su nombre real. Cada usuario tiene una agenda donde apunta sus contactos.
+  
+
+
+
+
+
+* Empresa
+  Realiza un diagrama E-R del siguiente supuesto acerca de los empleados de una empresa:
+- De cada empleado se sabe su DNI, nombre, apellidos y sueldo anual.
+- Cada empleado trabaja en un departamento, de los que se conoce el nombre.
+- Cada departamento tiene un responsable, que es uno de los empleados de la empresa.
+- La empresa desarrolla proyectos, que tienen un nombre y un presupuesto
+- Cada proyecto tiene un responsable, y trabajan en él varios empleados.
+- Un empleado puede ser responsable de varios proyectos. Un empleado puede trabajar en varios proyectos.
+    
+  
+  
+
+
+* Colección de cromos
+  Realiza un diagrama E-R del siguiente supuesto acerca de un coleccionista de cromos:
+- De cada colección quiere saber el año de publicación inicial del álbum, editorial, nombre y número total de cromos.
+- Las colecciones se agrupan por temas: fútbol, series de televisión, películas \ldots
+- Cada cromo poseido pertenece a una colección, tiene un número, una descripción y un estado de conservación
+- Cada álbum poseido pertenece a una colección, y tiene un estado de conservación
+- También se desea almacenar información del cromos y álbums no poseidos, como en una \textit{lista de deseos}
+- Algunos cromos son especialmente difíciles de conseguir. Hay que conocer qué cromos son especialmente difíciles de cada colección, se posean ya o no.
+- De los cromos especialmente difíciles de conseguir, se debe conocer su abundancia relativa respecto de los demás cromos de la colección y su precio de mercado.
+  
+
+
+
+* Sistema de ficheros Windows
+Realiza un diagrama E-R del siguiente supuesto acerca del sistema de ficheros de un ordenador:
+- El ordenador puede tener varias unidades: A:, B:, C: \ldots
+- Cada unidad tiene un directorio raíz
+- Tanto directorios como ficheros tienen:
+  - Un nombre
+  - Una fecha de creación
+  - Unos permisos, que indican si cada usuario puede leerlos o si puede modificarlos.
+- Un directorio puede contener otros ficheros y directorios.
+- Un fichero tiene datos almacenados
+- De cada usuario necesitamos saber el nombre interno del sistema y una descripción.  
+  
+
+
+
+* Autoescuela
+Realiza un diagrama E-R del siguiente supuesto acerca de una autoescuela
+- Se desea saber de cada alumno su nombre, apellidos, DNI y carnets de conducir que ya posee.
+- Hay una batería de tests de prueba para los alumnos en fase teórica, que se identifican por un número
+- Los alumnos se matriculan para conseguir cierto carnet (A, B, C, D \ldots)
+- Cada alumno está en la fase teórica o práctica
+  - Si está en la fase teórica, es necesario saber qué tests de prueba ha realizado ya, con su puntuación
+  - Si está en la fase práctica, es necesario saber cuántas clases prácticas lleva.
+- De cada clase práctica, hay que saber qué profesor acompañó a qué estudiante, y en qué fecha.
+- De los profesores solo conocemos el nombre, que no se repite.
+- De cada examen al que se presente un alumno (teórico o práctico), hay que saber el resultado (aprobado o no) y en qué fecha se realizó, y para qué tipo de carnet era.
+  
+  
+
+
+
+
+
+
