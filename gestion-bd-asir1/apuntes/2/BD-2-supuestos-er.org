@@ -11,10 +11,10 @@ Crear un diseño ER que permita gestionar los datos de una biblioteca de modo qu
 
 Crear un esquema ER que represente un modelo para llevar los datos que maneja un restaurante de menús diarios. Teniendo en cuenta que:
 - Sólo interesa llevar los datos de los menús diarios a la hora de la comida, nada más del restaurante
-- Cada menús se compone de una serie de posibles platos. Cada plato se puede repetir en diferentes días. Los platos pueden ser primer plato, segundo plato o postres.
+- Cada menús se compone de una serie de posibles platos. Cada plato se puede repetir en diferentes días. Los platos pueden ser primer plato, segundo plato o postre.
 - De cada plato se almacena el nombre (por ejemplo /Arroz negro con setas/) y una pequeña descripción.
 - De los menús almacenamos la fecha en la que se ofrece el menú, y el número de raciones de cada plato que se han servido ese día.
-- Se almacena también la temperatura que hacía el día del menú para así poder analiziar las temperaturas y los platos exitosos
+- Se almacena también la temperatura que hacía el día del menú para así poder analizar las temperaturas y los platos exitosos
 
 
 * Horario
