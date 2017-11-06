@@ -299,15 +299,15 @@ file:media/codificacion-ami.png
 
 
 ** Ejercicios
--Codifica los dígitos =1011100010= en:
+- Codifica los dígitos =1011100010= en:
   - NRZ
   - NRZI
   - AMI
   - Bipolar con sustitución de 8 ceros
   - Manchester
   - Manchester diferencial.
-  - 4B/5B
 - Codifica los dígitos =100100000000001011= en las mismas codificaciones
+- Aplica 4B/5B a los bits anteriores. Rellena con bits a =0= al final si es necesario
 
 
 ** Velocidad de transferencia
