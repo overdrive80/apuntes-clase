@@ -246,6 +246,15 @@ stepnumber=5 % Line numbers go in steps of 5
 
 \newcommand{\ficheroautoref}[0]{
 
+  \IfFileExists{../../common/plantilla-ejercicio.tex}
+  {
+    \textattachfile[mimetype=text/plain,
+    description={La plantilla},
+    subject={La plantilla}]
+    {../../common/plantilla-ejercicio.tex}
+    {}
+  }
+  {}
 
   \IfFileExists{../common/plantilla-ejercicio.tex}
   {
