@@ -38,21 +38,23 @@
 
 *** Anomalía de inserción/borrado
 
-| ~Id_empleado~ | ~NombreP~      | ~DirecciónP~  | ~Puesto~       | ~Salario~ | ~Centro~           | ~DirecciónC~ | ~Teléfono~ |
-| 123A          | Ana Almansa    | c/ Argentales | Profesor       |    20.000 | Informática        | Complutense  |        123 |
-| 456B          | Bernardo Botín | c/ Barcelona  | Administrativo |    15.000 | Matemáticas        | Complutense  |        456 |
-| 789C          | Carlos Crespo  | c/ Cruz       | Catedrático    |    30.000 | CC . Empresariales | Somosaguas   |        789 |
-| 012D          | David Díaz     | c/ Daroca     | Ayudante       |    10.000 | Informática        | Complutense  |        123 |
+| ~Idempleado~ | ~NombreP~      | ~Puesto~       | ~Salario~ | ~Centro~           | ~DirecciónC~ | ~Teléfono~ |
+|--------------+----------------+----------------+-----------+--------------------+--------------+------------|
+| 123A         | Ana Almansa    | Profesor       |    20.000 | Informática        | Complutense  |        123 |
+| 456B         | Bernardo Botín | Administrativo |    15.000 | Matemáticas        | Complutense  |        456 |
+| 789C         | Carlos Crespo  | Catedrático    |    30.000 | CC . Empresariales | Somosaguas   |        789 |
+| 012D         | David Díaz     | Ayudante       |    10.000 | Informática        | Complutense  |        123 |
 
 - ¿Cómo inserto un empleado que aún no tiene centro de trabajo?
 - ¿Cómo inserto un centro de trabajo que aún no tiene empleados?
 
 *** Anomalía de modificación   
-| ~Id_empleado~ | ~NombreP~      | ~DirecciónP~  | ~Puesto~       | ~Salario~ | ~Centro~           | ~DirecciónC~ | ~Teléfono~ |
-| 123A          | Ana Almansa    | c/ Argentales | Profesor       |    20.000 | Informática        | Complutense  |        123 |
-| 456B          | Bernardo Botín | c/ Barcelona  | Administrativo |    15.000 | Matemáticas        | Complutense  |        456 |
-| 789C          | Carlos Crespo  | c/ Cruz       | Catedrático    |    30.000 | CC . Empresariales | Somosaguas   |        789 |
-| 012D          | David Díaz     | c/ Daroca     | Ayudante       |    10.000 | Informática        | Complutense  |        123 |
+| ~Idempleado~ | ~NombreP~      | ~Puesto~       | ~Salario~ | ~Centro~           | ~DirecciónC~ | ~Teléfono~ |
+|--------------+----------------+----------------+-----------+--------------------+--------------+------------|
+| 123A         | Ana Almansa    | Profesor       |    20.000 | Informática        | Complutense  |        123 |
+| 456B         | Bernardo Botín | Administrativo |    15.000 | Matemáticas        | Complutense  |        456 |
+| 789C         | Carlos Crespo  | Catedrático    |    30.000 | CC . Empresariales | Somosaguas   |        789 |
+| 012D         | David Díaz     | Ayudante       |    10.000 | Informática        | Complutense  |        123 |
 
 - ¿Cómo muevo la facultad de informática a Somosaguas?
 
@@ -80,10 +82,11 @@
   - DNI \rightarrow Nombre
   - DNI \rightarrow Turno
   - CódigoTienda \rightarrow DirecciónTienda  
+  - DirecciónTienda \rightarrow CódigoTienda
   - (DNI, Fecha) \rightarrow CódigoTienda
 - Hay más dependencias, pero pueden deducirse de las anteriores
   - Por ejemplo (DNI, Fecha, Turno) \rightarrow DirecciónTienda
-
+    
 ** Ejercicio
 - Se desea una base de datos que guarde los atributos =(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)=
 - Los empleados no tienen un turno fijo, y cada día pueden trabajar en una tienda en un turno
@@ -107,10 +110,11 @@
 
 *** Ejemplo 1FN
 
-| IDCliente  | Nombre | Apellido |                   Teléfono |
-|        123 | Rachel | Ingram   |               555-861-2025 |
-|        456 | James  | Wright   | 555-403-1659, 555-776-4100 |
-|        789 | Cesar  | Dure     |               555-808-9633 |
+| ~IDCliente~ | ~Nombre~ | ~Apellido~ |                 ~Teléfono~ |
+|-------------+----------+------------+----------------------------|
+|         123 | Rachel   | Ingram     |               555-861-2025 |
+|         456 | James    | Wright     | 555-403-1659, 555-776-4100 |
+|         789 | Cesar    | Dure       |               555-808-9633 |
 
 - La clave es =IDCLIENTE=
 - La relación se parte en dos:
@@ -118,16 +122,18 @@
   - Otra con la clave =IDCLIENTE= y el atributo que no respeta 1FN
 
 #+reveal: split
-| ID Cliente | Nombre | Apellido |
-|        123 | Rachel | Ingram   |
-|        456 | James  | Wright   |
-|        789 | Cesar  | Dure     |
+| ~IDCliente~ | ~Nombre~ | ~Apellido~ |
+|-------------+----------+------------|
+|         123 | Rachel   | Ingram     |
+|         456 | James    | Wright     |
+|         789 | Cesar    | Dure       |
 
-| ID Cliente |     Teléfono |
-|        123 | 555-861-2025 |
-|        456 | 555-403-1659 |
-|        456 | 555-776-4100 |
-|        789 | 555-808-9633 |
+| ~IDCliente~ |   ~Teléfono~ |
+|-------------+--------------|
+|         123 | 555-861-2025 |
+|         456 | 555-403-1659 |
+|         456 | 555-776-4100 |
+|         789 | 555-808-9633 |
 
 
 ** Segunda forma normal (2FN)
@@ -137,17 +143,18 @@
 - Como consecuencia, si está en 1FN y la clave candidata es de un atributo, está en 2FN
 
 *** Ejemplo 2FN
-| Empleado | Habilidad       | Lugar de trabajo  |
-| Jones    | Mecanografía    | 114 Main Street   |
-| Jones    | Taquigrafía     | 114 Main Street   |
-| Jones    | Tallado         | 114 Main Street   |
-| Bravo    | Limpieza ligera | 73 Industrial Way |
-| Ellis    | Alquimia        | 73 Industrial Way |
-| Ellis    | Malabarismo     | 73 Industrial Way |
-| Harrison | Limpieza ligera | 73 Industrial Way |
+| ~Empleado~ | ~Habilidad~     | ~Lugardetrabajo~  |
+|------------+-----------------+-------------------|
+| Jones      | Mecanografía    | 114 Main Street   |
+| Jones      | Taquigrafía     | 114 Main Street   |
+| Jones      | Tallado         | 114 Main Street   |
+| Bravo      | Limpieza ligera | 73 Industrial Way |
+| Ellis      | Alquimia        | 73 Industrial Way |
+| Ellis      | Malabarismo     | 73 Industrial Way |
+| Harrison   | Limpieza ligera | 73 Industrial Way |
 
 - La clave es =(Empleado,Habilidad)=
-- =Lugar de trabajo= depende de =Empleado=
+- =Lugardetrabajo= depende de =Empleado=
 - Hay anomalías de modificación
 - Hay redundancias de datos
 
@@ -155,20 +162,22 @@
 - Para conseguir 2FN se parte la relación en dos
   - Se deja la clave y todos los atributos que dependen totalmente de ella
   - Se crea una relación con el atributo que depende de una parte de la clave, con esa parte de la clave
-| Empleado | Lugar actual de trabajo |
-| Jones    | 114 Main Street         |
-| Bravo    | 73 Industrial Way       |
-| Ellis    | 73 Industrial Way       |
-| Harrison | 73 Industrial Way       |
+| ~Empleado~ | ~Lugaractualdetrabajo~ |
+|------------+------------------------|
+| Jones      | 114 Main Street        |
+| Bravo      | 73 Industrial Way      |
+| Ellis      | 73 Industrial Way      |
+| Harrison   | 73 Industrial Way      |
 
-| Empleado | Habilidad       |
-| Jones    | Mecanografía    |
-| Jones    | Taquigrafía     |
-| Jones    | Tallado         |
-| Bravo    | Limpieza ligera |
-| Ellis    | Alquimia        |
-| Ellis    | Malabarismo     |
-| Harrison | Limpieza ligera |
+| ~Empleado~ | ~Habilidad~     |
+|------------+-----------------|
+| Jones      | Mecanografía    |
+| Jones      | Taquigrafía     |
+| Jones      | Tallado         |
+| Bravo      | Limpieza ligera |
+| Ellis      | Alquimia        |
+| Ellis      | Malabarismo     |
+| Harrison   | Limpieza ligera |
 
 ** Tercera forma normal (3FN)
 - Una relación está en [[https://es.wikipedia.org/wiki/Tercera_forma_normal][3FN]] si
@@ -176,7 +185,8 @@
   - No hay dependencias transitivas de la clave
 
 *** Ejemplo 3FN
-| Torneo               |  Año | Ganador        | Fecha de nacimiento del ganador |
+| ~Torneo~             |  ~Año~ | ~Ganador~      | ~Fechadenacimientodelganador~ |
+|----------------------+------+----------------+---------------------------------|
 | Indiana Invitational | 1998 | Al Fredrickson | 21 de julio de 1975             |
 | Cleveland Open       | 1999 | Bob Albertson  | 28 de septiembre de 1968        |
 | Des Moines Masters   | 1999 | Al Fredrickson | 21 de julio de 1975             |
@@ -189,13 +199,15 @@
 - Para conseguir 3FN se parte la relación en 2
   - Se deja la clave y los atributos sin dependencia transitiva
   - Se crea una relación que tiene como clave y campos la dependencia transitiva
-| Torneo               |  Año | Ganador        |
+| ~Torneo~             |  ~Año~ | ~Ganador~      |
+|----------------------+------+----------------|
 | Indiana Invitational | 1998 | Al Fredrickson |
 | Cleveland Open       | 1999 | Bob Albertson  |
 | Des Moines Masters   | 1999 | Al Fredrickson |
 | Indiana Invitational | 1999 | Chip Masterson |
 
-| Ganador        | Fecha de nacimiento      |
+| ~Ganador~      | ~Fechadenacimiento~      |
+|----------------+--------------------------|
 | Chip Masterson | 14 de marzo de 1977      |
 | Al Fredrickson | 21 de julio de 1975      |
 | Bob Albertson  | 28 de septiembre de 1968 |
@@ -203,8 +215,8 @@
 
 * Referencias
 - Formatos:
-  - [[file:gbd-1-ficheros-y-bases-de-datos.html][Transparencias]] 
-  - [[file:gbd-1-ficheros-y-bases-de-datos.pdf][PDF]]
+  - [[file:bd-2-anomalias-y-normalizacion.html][Transparencias]] 
+  - [[file:bd-2-anomalias-y-normalizacion.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
