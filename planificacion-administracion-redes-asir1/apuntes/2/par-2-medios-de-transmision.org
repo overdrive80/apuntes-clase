@@ -5,7 +5,7 @@
 #+OPTIONS: reveal_single_file:t
 
 
-* Tipos de medios.Clasificación 
+* Introducción
 Los medios de transmisión son el medio físico que facilita el transporte de la información.  La calidad de la transmisión dependerá de sus características.  
 
 - Medios guiados
@@ -23,7 +23,7 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
 
 
 
-** Medios guiados 
+* Medios guiados 
 - Transmiten impulsos eléctricos o lumínicos.  Los bits se “transforman” en la tarjeta de red. Ésta los convierte en señales eléctricas o lumínicas respetando ciertos criterios definidos por el protocolo usado en esa red.
 
 - Cada cable tiene unas características propias:
@@ -36,7 +36,7 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
 
 
 
-** Cables de pares trenzados 
+* Cables de pares trenzados 
 - El trenzado se comporta como un apantallamiento (la interferencia se anula a sí misma en la siguiente vuelta)
 - El más común consta de 8 hilos trenzados dos a dos identificados por colores. 
 - Fabricados en cobre.  
@@ -45,7 +45,6 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
   - A mayor trenzado, menos interferencias y mayor velocidad de transferencia. 
 - Afectado por la atenuación
   -  Para aumentar ésta, se hace uso de repetidores.
-
 
 
 
@@ -86,6 +85,7 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
   - Conectores
   - Terminación de los cables
   - Métodos para realizar pruebas de cable
+
 #+reveal: split
 - UTP Categoria 6
 [[file:media/categoria6-utp.png]]
@@ -323,93 +323,42 @@ https://es.wikipedia.org/wiki/TIA-568B
 
 
 
+* Medios no guiados
+- Las señales no viajan por un canal cerrado
+- Ventajas
+  - Bajo coste
+  - Comodidad
+- Desventajas
+[[file:media/probemas-medios-no-guiados.png]]
+
+** Espectro electromagnético
+[[file:media/espectro-electromagenico-medios-no-guiados.png]]
+
+
+** Bluetooth
+- IEEE 802.15
+- Baja velocidad
+- Bajo gasto de energía
+- Corto alcance (PAN)
+
+** Wimax
+- IEEE 802.16
+- /Worldwide Interoperability for Microwave Access/
+- Utiliza ondas de radio en las frecuencias de 2,5 a 3,5 Ghz.
+- Se usa en zonas de difícil acceso para medios guiados (por terreno o por número de usuarios).
 
 
 
-Ethernet como caso de medios guiados Los medios no guiados o medios inalámbricos transportan señales electromagnéticas
-mediante frecuencias de microondas y radiofrecuencias que representan los dígitos binarios de las comunicaciones de
-datos.  El sistema inalámbrico no se limita a conductores o canaletas, como en el caso de los medios de fibra o de
-cobre.
+** Wifi
+- IEEE 802.11
+- Destinada a LAN
+- Microondas y radiofrecencia
+[[file:media/wifi.png]]
 
-Susceptible a la interferencia.  Riesgos de seguridad por intrusos.  
-
-
-
-Espectro electromagnético
-
-
-
-
-
-Tipos de redes inalámbricas IEEE estándar 802.11 (Wifi):  Tecnología LAN inalámbrica (WLAN).   Utiliza CSMA/CA. Se
-verá en la capa de enlace.   Frecuencias de microondas y radiofrecuencias.  IEEE estándar 802.15:   
-
-Estándar de red de área personal inalámbrica (WPAN).  Comúnmente denominada "Bluetooth“.  Utiliza un proceso de
-emparejamiento de dispositivos para comunicarse a través de una distancia de 1 a 100 metros.
-
-
-
-
-
-Tipos de redes inalámbricas IEEE estándar 802.16 (WiMAX):   
-
-
-
-Worldwide Interoperability for Microwave Access.  Utiliza ondas de radio en las frecuencias de 2,5 a 3,5 Ghz.  Permite
-la recepción de datos por microondas y retransmisión por ondas de radio.  Se usa en zonas de difícil acceso para medios
-guiados (por terreno o por número de usuarios).
-
-Sistema global para comunicaciones móviles (GSM): Incluye las especificaciones de la capa física para el protocolo
-Servicio general de radio por paquetes (GPRS) de Capa 2 para proporcionar la transferencia de datos a través de redes de
-telefonía celular móvil.  Comunicaciones vía satélite.  
-
-
-
-LAN inalámbrica Una WLAN requiere los siguientes dispositivos de red:  Punto de acceso inalámbrico (AP): concentra las
-señales inalámbricas de los usuarios y se conecta, generalmente a través de un cable de cobre, a la infraestructura de
-red existente basada en cobre, como Ethernet.
-
-
-
-Adaptadores NIC inalámbricos: proporcionan capacidad de comunicación inalámbrica a cada host de la red.
-
-
-
-
-
-LAN inalámbrica. Estándares IEEE 802.11a: 
-
-
-
-Opera en una banda de frecuencia de 5 GHz y ofrece velocidades de hasta 54 mbps.  Posee un área de cobertura menor y es
-menos efectivo al penetrar edificios.
-
-IEEE 802.11b: 
-
-
-
-Opera en una banda de frecuencia de 2.4 GHz y ofrece velocidades de hasta 11 mbps.  Posee un área de cobertura mayor y
-presenta mejor comportamiento para penetrar estructuras edilicias
-
-
-
-
-
-LAN inalámbrica. Estándares IEEE 802.11g: 
-
-
-
-Opera en una banda de frecuencia de 2.4 GHz y ofrece velocidades de hasta 54 mbps.  Utiliza la misma banda de
-frecuencias y tiene el mismo alcance que IEEE802.11b, pero su ancho de banda es el de IEEE802.11a.
-
-IEEE 802.11n: 
-
-
-
-Opera en las bandas de frecuencia de 2.4 GHz o 5 GHz.  Ofrece velocidades entre 100 y 250 mbps.  Alcanza distancias de
-70 metros.
-
-
-
-
-
+#+reveal: split
+| Estándar     | Frecuencia    | Velocidad | Alcance    |
+|--------------+---------------+-----------+------------|
+| IEEE 802.11a | 5GHz          | 54mbps    | 50 metros  |
+| IEEE 802.11b | 2.4GHz        | 11mbsp    | 100 metros |
+| IEEE 802.11g | 2.4GHz        | 54mbps    |            |
+| IEEE 802.11n | 2.4GHz y 5GHz | 600mbps   | 70 metros  |
