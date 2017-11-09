@@ -1,7 +1,6 @@
 ﻿#+INCLUDE: "../../../common/header.org"
 #+TITLE:  Seguridad física en equipos y servidores
 #+OPTIONS:   toc:2
-#+STYLE: <style>.center {margin-left:auto; margin- right:auto;}</style>
 
 
 
