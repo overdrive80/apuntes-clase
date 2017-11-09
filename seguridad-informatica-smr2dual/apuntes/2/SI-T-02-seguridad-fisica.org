@@ -18,6 +18,7 @@ Las empresas de producción de bienes y servicios suelen organizar su trabajo en
 Las estaciones de trabajo (workstations), donde se sientan las personas, son considerados clientes, consumidores de servicios. Son ordenadores dedicados al usuario, y configurados de acuerdo a esta mentalidad.
 Algunos otros ordenadores, los servidores (servers), son configurados como prestadores de servicios a las estaciones de trabajo, a través de la red. En general, toda su capacidad debe dedicarse a ello. Es decir, los usuarios no deben trabajar en ellos directamente.
 
+#+caption: Esquema de red con un servidor
 [[file:media/red-con-servidor.png]]
 
 De esta manera, se centraliza la información en servidores, así como otros recursos compartidos:
@@ -42,6 +43,7 @@ Es un modelo cómodo para infraestructuras muy pequeñas
 Dificulta la administración, ya que las amenazas y configuraciones se descentralizan y multiplican.
 Aumenta los riesgos de las amenazas de seguridad, ya que quedan dispersas y multiplicadas por las estaciones de trabajo, que, en cierto modo /se convierten también en servidores/.
 
+#+caption: Esquema de red SOHO, sin servidor definido
 [[file:media/red-soho.png]]
 
 * Acceso físico de personas
@@ -60,14 +62,17 @@ Estas formas de acceso se basan en :
 
 
 #+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
+#+caption: Tarjetas magnéticas, tarquetas inteligentes, chip RFID
   | [[file:media/tarjeta-banda-magnetica.png]] | [[file:media/tarjeta-chip-inteligente.png]] | [[file:media/llave-magnetica.png]] |
 
 - Saber algo (como una contraseña)
 
+#+caption: Control de acceso mediante PIN
   [[file:media/teclado-acceso-pin.png]]
 
 - Ser algo: Exhibir algún rasgo o característica física intransferible: Biometría.
 
+#+caption: Control de acceso mendiante huella digital (biometría)
   [[file:media/lector-huella-digital.png]]
 
 
@@ -77,6 +82,7 @@ Trataremos estas tecnologías más adelante, en otro tema, cuando hablemos del a
 Según la legislación Española, las tareas de vigilancia se encomiendan a un profesional vigilante o guardia de seguridad privada, que pertenecen obligatoriamente a una empresa de seguridad y siguen un proceso de selección y acreditación de acuerdo a normativa.
 “Se reserva al personal de seguridad privada estrictamente las funciones de vigilancia y seguridad activa de bienes y personas –diurna y nocturna- y el control de sistemas de seguridad; entendiéndose por vigilancia y seguridad activa aquella que incluye la posibilidad de repeler cualquier agresión al bien que se vigila”
 
+#+caption: Personal de vigilancia
 [[file:media/vigilante-de-seguridad.png]]
 
 Principalmente, sus funciones se centran en:
@@ -87,6 +93,7 @@ Principalmente, sus funciones se centran en:
 ** Cámaras de seguridad
 Las cámaras son una medida típicamente pasiva, ya que en general, su misión es grabar lo sucedido, de tal manera que si se produce un ataque, se pueda reducir su impacto.
 
+#+caption: Cámara de vigilancia
 [[file:media/camara-de-segurdad.png]]
 
 A veces, la cámara no solo graba, sino que un vigilante de seguridad puede estar viendo en tiempo real lo que sucede en otras dependencias, y en ese caso, impedir un ataque. En ese caso, la cámara junto con el vigilante forma un mecanismo de seguridad activa... pero la cámara por sí sola no tiene esa clara vertiente de seguridad activa.
@@ -110,6 +117,7 @@ Consta de:
 - Una sirena y luces con intención disuasoria
 
 #+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
+#+caption: Centralitas y sensores de alarma
 | [[file:media/centralita-alarma.png]] | [[file:media/centralita-y-sensores-alarma.png]] |
 
 La alarma está conectada a la línea telefónica, con el fin de mandar un aviso a la empresa de seguridad responsable de la alarma (Que sabe qué cliente tiene apuros por el CALLER-ID, identificador de llamada) y en algunos casos también mensajes pregrabados (a policía, etc…) También suelen estar conectadas de manera redundante a través de redes de telefonía móvil.
@@ -145,6 +153,7 @@ Para los equipos electrónicos, es conveniente mantenerla entre el 40% y el 50% 
 En ambientes de humedad alta, puede eliminarse humedad mediante deshumidificadores, que condensan el agua del aire, la devuelven al estado líquido haciéndolo pasar por una rejilla fría.
 Los deshumidificadores pueden conectase a un desagüe para evacuar el agua en estado líquido.
 
+#+caption: Deshumificador doméstico
 [[file:media/deshumidificador.png]]
 
 ** Polvo
@@ -157,6 +166,7 @@ Se adhiere a piezas móviles (Ej: Ventiladores, motores de dispositivos ópticos
 
 Si en nuestras instalaciones el polvo supone un problema, se puede paliar con filtros de partículas. El filtro es básicamente una malla de fibras por la que se fuerza el paso del aire mediante ventiladores. Las partículas de polvo quedan adheridas al filtro y cuando está muy sucio se limpia o se cambia.
 
+#+caption: Filtro de polvo y partículas
 [[file:media/filtro-de-polvo.png]]
 
 Algunos equipos pueden aislarse en un recinto hermético, de tal manera que toda la circulación de aire esté controlada, y la mayor parte del aire pase por un filtro.
@@ -179,11 +189,13 @@ Las puertas cortafuegos son para el paso de personas. Se cierran solas con algú
 
 Suelen estar clasificadas con un rótulo “DF” seguido del número de minutos que resisten un fuego directo (Ej: una puerta DF-30 resiste 30 minutos de fuego directo)
 
+#+caption: Puertas de seguridad antiincencios
 [[file:media/puertas-antiincendios.png]]
 
 Las compuertas cortafuegos se colocan en conductos (ventilación, aire acondicionado, calefacción). Impiden que el fuego se propague por estos medios
 Su cierre es automático.
 
+#+caption: Compuertas antiincencios para conductos de calefacción
 [[file:media/compuerta-cortafuegos-ventilacion.png]]
 
 *** Detectores:
@@ -197,16 +209,19 @@ En cualquier caso, la central de alarma hará una o más de éstas acciones:
 - Avisar a una empresa de seguridad mediante la línea telefónica fija o móvil.
 - Avisar a un servicio de emergencia (tipo 112) mediante un sistema pregrabado.
 
+#+caption: Detector de humo
 [[file:media/detector-humo.png]]
 
 
 ** Sistemas de extinción.
 - Automáticos: En muchos entornos en los que hay instalados ordenadores se cuenta con sistemas de extinción automáticos instalados en el edificio y sus dependencias. Principalmente se basan en esparcir algún agente extintor en el ambiente, como el agua nebulizada, o sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO2). También son gases de este tipo los hidrocarburos halogenados, derivados del gas halón, utilizados durante mucho tiempo, pero actualmente prohibidos por su efecto sobre la capa de ozono.
 
+#+caption: Aspersor para la extinción automática de incendios
   [[file:media/aspersor-incendios.png]]
 
 - Manuales:  Basados en la dispersión manual de algún agente…. Es decir, utilizar “extintores”.
 
+#+caption: Extintores manuales
   [[file:media/extintores.png]]
 
 ** Tipos de fuego.
@@ -231,6 +246,7 @@ Los principales agentes extintores para uso automático son:
 ** Vías de evacuación y señalización.
 Distintas normas europeas  indican cómo debe ser la señalización referida a los incendios. En todos los casos se trata de señales verdes que se colocan en partes altas.
 
+#+caption: Señalización de las vías de evaluación
 [[file:media/senalizacion-emergencia.png]]
 
 * El entorno físico de un centro de proceso de datos (CPD)
@@ -299,11 +315,13 @@ El armario RACK es la forma estándar de configurar instalaciones de hardware fo
 
 Un armario RACK común mide 19” (pulgadas) de ancho (482.6mm) en la parte interior. Es decir... por fuera es algo más ancho, pero los aparatos que encajan dentro miden 19” de ancho. Incluye dos raíles laterales en la parte frontal con perforaciones para sujetar aparatos. Los dispositivos van sujetos sólo por delante.
 
+#+caption: Armarios rack
 [[file:media/rack.png]]
 
 
 La altura de los dispositivos que se montan en rack es múltiplo de una unidad llamada “U” (Una pulgada y tres cuartos, es decir... 1.75 pulgadas... o sea... 4.5 cm aproximadamente).
 
+#+caption: Dimensiones de los railes de un rack
 [[file:media/rail-rack.png]]
 
 Pueden existir raíles también en la parte del fondo, para sujetar equipos pesados, o especialmente bandejas sobre las que colocar dichos equipos.
@@ -312,6 +330,7 @@ La medida del fondo no está normalizada, aunque son comunes medidas como 600, 8
 
 Los armarios rack suelen anclarse en el suelo con pernos para que no se deslicen. Es necesario asegurarse de que el suelo va a resistir el peso del rack y su contenido.
 
+#+caption: Dispositivos de anclaje al suelo
 [[file:media/anclaje-suelo-rack.png]]
 
 Los armarios RACK sirven normalmente para contener:
@@ -327,15 +346,18 @@ Casi todos los aparatos integrados en un Rack se manejan por red. Es poco habitu
 
 La versión mural del armario RACK está pensada para pequeños dispositivos de comunicaciones (switches, hubs, patchpanels, routers y cables)
 
+#+caption: Pequeño armario rack, adecuado para instalación mural
 [[file:media/rack-mural.png]]
 
 Los dispositivos de comunicaciones suelen servirse en varios factores de forma.
 - El comúnmente llamado SOHO (Small Office, Home Office), sin forma estándar y normalmente de sobremesa
 
+#+caption: Switch/router SOHO de sobremesa (no enracable)
 [[file:media/dispositivo-soho-no-enracable.png]] 
 
 - En formato para rack, de 19”      
 
+#+caption: Switch enracable
 [[file:media/switch-enracable.png]]   
 
 
@@ -343,6 +365,7 @@ Con los ordenadores pasa lo mismo, aunque estemos poco habituados.
 
 - Los ordenadores de escritorio SOHO y estaciones de trabajo suelen venir montados en cajas de pie con factores de forma ATX µATX, ITX y algunas otras.
 
+#+caption: Servidor de sobremesa, no enracable
 [[file:media/servidor-no-enracable.png]]
 
 - Los servidores, en un rack de 19” tienen al menos dos factores de forma específicos en sus cajas: Pizza box y Blade
@@ -351,6 +374,7 @@ Con los ordenadores pasa lo mismo, aunque estemos poco habituados.
 Un servidor en factor de forma *pizza box* es la forma más simple de caja para rack: 19” de ancho y 1U de alto. Es un ordenador completo autocontenido con su fuente de alimentación, red, dispositivos de E/S y almacenamiento, etc Las conexiones van atrás.
 En el momento actual... en una caja pizza box pueden ir varios ordenadores completos.
 
+#+caption: Servidor tipo /pizza box/
 [[file:media/servidor-pizzabox.png]]
 
 
@@ -358,6 +382,7 @@ En el momento actual... en una caja pizza box pueden ir varios ordenadores compl
 
 Los servidores Blade no están completos. Encajan en un contenedor (“vaina”, “horno”) que es la que se monta en rack. Ese contenedor centraliza algunos servicios, normalmente alimentación, comunicaciones, y en algunos casos E/S y almacenamiento
 
+#+caption: Servidor tipo blade
 [[file:media/servidor-blade.png]]
 
 Es común encontar también dispositivos RAID montados en rack. Como ya sabes, se trata de un sistema de discos redundantes, en el que se permite el fallo de un disco sin perder la información. Cuando un disco falla, en los sistemas profesionales, puede sustituirse “en caliente”
@@ -365,6 +390,7 @@ Es común encontar también dispositivos RAID montados en rack. Como ya sabes, s
 
 Un equipo RAID para rack mide, por supuesto 19” de ancho y un múltiplo de “U” de alto, Tiene huecos para almacenar varios discos duros. Cada disco va montado en una bandeja (llamada caddy), que permite su montaje y extracción de manera rápida e independiente. Cuando un disco falla, el sistema avisa… y se sustituye por uno nuevo de idénticas características. Todo el conjunto funciona como un único disco de red.
 
+#+caption: Equipo RAID enracable
 [[file:media/raid-enracable.png]]
 
 * Electricidad
@@ -385,6 +411,7 @@ Los dispositivos que necesitan corriente continua, disponen de una fuente de ali
 *** Schuko
 Schuko es el nombre coloquial, aunque absolutamente aceptado, de un sistema de enchufe y toma de corriente (que se define en el estándar CEE 7/4 Tipo F). "Schuko" es la forma abreviada del término alemán Schutzkontakt (literalmente: contacto protector), lo que sencillamente indica que tanto el enchufe como la toma están equipados con contactos de protección a tierra (en foma de ganchos laterales en lugar de clavijas). Los conectores Schuko se usan normalmente en circuitos de 230 V, 50 Hz y para corrientes no superiores a 16 A. 
 
+#+caption: Enchufe schuko
 [[file:media/enchufe-schuco.png]]
 
 (En el sistema francés y belga, utilizan un conector y enchufe similar, pero que tiene una tercera patilla para la conexión a tierra, en lugar de ganchos. Algunos enchufes schuko son compatibles con éste sistema.)
@@ -392,6 +419,7 @@ Schuko es el nombre coloquial, aunque absolutamente aceptado, de un sistema de e
 *** Europlug
 La Europlug es una clavija de enchufe plano de dos polos, diseñada para corrientes de hasta 2,5 A. Fue ideada para funcionar, de forma segura, en las tomas de corriente de todos los paises europeos, con excepción del sistema que se usa en Gran Bretaña, Chipre, Gibraltar, Irlanda y Malta. Se puede enchufar en tomas de corriente schuko.
 
+#+caption: Enchufe europlug
 [[file:media/enchufe-europlug.png]]
 
 
@@ -407,30 +435,44 @@ Los conectores utilizados en la CE están normalizados por la norma IEC 60320 (I
 Los conectores y entradas IEC  se denominan por una letra “C” y un número. Los números impares corresponden a un conector, y los pares a una entrada. La entrada siempre presenta “pines” al descubierto, mientras que el conector dispone de agujeros en los que encajan los pines. 
 
 Es decir...: En los conectores y entradas IEC
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Conector → Da corriente → tiene agujeros → está en el cable de corriente → No lo toques (por eso tiene agujeros, para que no lo toques por accidente) |
-| Entrada → Toma corriente → tiene pines → está en la fuente de alimentación → Si ves los pines, es porque no está el conector. No hay corriente.       |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------|
+
+#+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
+|----------+--------------------------------------------------------------------|
+| Conector | Da corriente                                                       |
+|          | tiene agujeros                                                     |
+|          | está en el cable de corriente                                      |
+|          | No lo toques                                                       |
+|----------+--------------------------------------------------------------------|
+| Entrada  | Toma corriente                                                     |
+|          | tiene pines                                                        |
+|          | está en la fuente de alimentación                                  |
+|          | Si ves los pines, es porque no está el conector. No hay corriente. |
+|----------+--------------------------------------------------------------------|
 
 
 
 
-- C5/C62: 2.5 amperes máximo con toma de tierra. (Apodado “Mickey Mouse” o “Hoja de trébol”)  Se utiliza en portátiles.
-
+- C5/C6: 2.5 amperes máximo con toma de tierra. (Apodado “Mickey Mouse” o “Hoja de trébol”)  Se utiliza en portátiles.
+#+caption: Conector C5
 [[file:media/conector-c5-c6.png]]
 
 
 - C7/C8: 2.5 amperes máximo  sin toma de tierra. (Apodado “El 8” o “la escopeta”). Se utiliza en periféricos y dispositivos de comunicaciones.
+#+caption: Conector C7
 [[file:media/conector-c7-c8.png]]
 
 - C13/C14: 10 A máximo con toma de tierra. Se utiliza en ordenadores de sobremesa, monitores, periféricos, sais, etc.
+#+caption: Conector C13
 [[file:media/conector-c13-c14.png]]
 
 
 
 - C19/C20: 16 A máximo con toma de tierra. Se utiliza en grandes instalaciones. Servidores y SAIs de alta potencia
+#+caption: Conector C19
 [[file:media/conector-c19-c20.png]]
 
+
+Más información en la página de [[https://es.wikipedia.org/wiki/Conector_IEC][wikipedia sobre conectores IEC]].
 
 ** Protección eléctrica
 La red eléctrica proporciona tensiones nominales de entre 220 y 240V La potencia que suministra la red (kiloWatts – kW) se estipula por contrato.
@@ -442,9 +484,11 @@ La instalación eléctrica debe ir acorde a la potencia suministrada. Un Interru
 Protegen un circuito. Cada uno admite una determinada corriente máxima, que se mide en Amperes (A). Los magnetotérmicosvienen marcados con la letra “C” -de Current, corriente- y una cantidad, que indica el paso máximo de corriente que permiten “C16 → 16 Amperios máximo”. Saltan ante cortocircuitos y consumo excesivo (sobrecarga del circuito)
 Es capaz de interrumpir la corriente eléctrica de un circuito cuando ésta sobrepasa ciertos valores máximos (Que se expresan en amperios)
 
+#+caption: Mangetotérmico doble
 [[file:media/magnetotermico-doble.png]]
 
 
+#+caption: Magnetotérmico simple
 [[file:media/magnetotermico-simple.png]]
 
 (NOTA: no confundas el hecho de que un magnetotérmico pueda estar rotulado como C16 con el conector IEC C16, que obviamente, no tiene nada que ver)
@@ -466,6 +510,7 @@ Se pueden colocar varios magnetotérmicos jerárquicamente (ej: uno en una ofici
 *** El interruptor diferencial
 Se coloca en las instalaciones eléctricas con el fin de proteger a las personas de las derivaciones causadas por faltas de aislamiento entre los conductores activos y tierra o masa de los aparatos. Lo distinguirás fácilmente por el botón marcado con una “T”.
 
+#+caption: Diferencial
 [[file:media/diferencial.png]]
 
 
@@ -482,10 +527,10 @@ El enchufe schuko garantiza las fugas a tierra de corrientes descontroladas y es
 *** Doble aislamiento
 Algunos aparatos disponen de un doble aislamiento de sus partes activas (tanto neutro como fase). En ese caso, no requieren conexión a tierra. Van marcados con éste símbolo en su carcasa. Pueden llevar un enchufe Europlug o Schuko sin toma de tierra.
 
-
+#+caption: Símbolo de doble aislamiento
 [[file:media/simbolo-doble-aislamiento.png]]
 
-
+#+caption: Enchufe schuco válido para equipo con doble aislamiento (sin tierra)
 [[file:media/schuko-sin-tierra.png]]
 
 
@@ -493,14 +538,15 @@ Algunos aparatos disponen de un doble aislamiento de sus partes activas (tanto n
 *** Adaptadores, ladrones, regletas
 En ningún caso están especialmente recomendados los “adaptadores”, “ladrones” o regletas de corriente si pueden evitarse. Pero es necesario tener en cuenta que NUNCA DEBE UTILIZARSE UN ADAPTADOR CON ENTRADA EUROPLUG Y CONECTOR SCHUKO. Ya que permitiría enchufar aparatos con enchufe Schuko (de hasta 16A), cuando una entrada europlug solo está certificada para 2.5A.
 
-#+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
-| Entrada                   | Conector                         | Intensidad                                         |                                                |
-|---------------------------+----------------------------------+----------------------------------------------------+------------------------------------------------|
-| Schuko                    | Europlug                         | Hasta 2.5A                                         | [[file:media/adaptador-schuko-europlug.png]]       |
-| Schuko                    | Schuko                           | Hasta 16A                                          | [[file:media/adaptador-schuko-schuko.png]]         |
-| Schuko                    | Schuko y Europlug                | Hasta 16A en el Schuko. Hasta 2.5A en los Europlug | [[file:media/adaptador-schuko-schukoeuroplug.png]] |
-| Algo parecido al Europlug | Agujeros compatibles con Schuko. | No permitido                                       | [[file:media/adaptador-europlug-schuko.png]]       |
 
+
+#+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
+| Entrada    | Conector                | Intensidad            |                                                |
+|------------+-------------------------+-----------------------+------------------------------------------------|
+| Schuko     | Europlug                | Hasta 2.5A            | [[file:media/adaptador-schuko-europlug.png]]       |
+| Schuko     | Schuko                  | Hasta 16A             | [[file:media/adaptador-schuko-schuko.png]]         |
+| Schuko     | Schuko y Europlug       | Hasta 16A (en schuko) | [[file:media/adaptador-schuko-schukoeuroplug.png]] |
+| ¿Europlug? | Compatibles con Schuko. | No permitido          | [[file:media/adaptador-europlug-schuko.png]]       |
 
 
 ** Cálculo aproximado del consumo eléctrico
@@ -529,14 +575,17 @@ Los problemas más habituales en el suministro eléctrico pueden ser de diversa 
 ** Regletas protectoras de sobretensiones.
 Las regletas protectoras están pensadas para evitar subidas y picos de tensión. Es una medida muy económica. Pero OJO: algunas sólo protegen de cortocircuitos
 
+#+caption: Regleta protectora, con fusible y toma de tierra para televisión y teléfono
 [[file:media/regleta-protectora.png]]
 
 Las más simples, llevan en su interior un fusible, que se coloca en serie con la entrada de la fase o del neutro. El fusible se “quema” con corrientes elevadas. La regleta queda inutilizada, pero protege al equipo en caso de cortocircuito. Un fusible no protege frente a tensiones elevadas
 
+#+caption: Fusible
 [[file:media/fusible.png]]
 
 Sólo protegen de picos de tensión las que se basan en “varistores” (o componentes similares). Un varistor (variable resistor) es un componente electrónico cuya resistencia disminuye cuando la tensión eléctrica que se le aplica aumenta.  El varistor protege el circuito de variaciones y picos bruscos de tensión. Se coloca en paralelo al circuito a proteger y absorbe todos los picos mayores a su tensión nominal. El varistor sólo suprime picos transitorios; si lo sometemos a una tensión elevada constante, conduce totalmente –provocando que un magnetotérmico corte la corriente-. O bien algunos se funden (como un fusible) y deja de conducir. El varistor se puede combinar con un fusible normal.
 
+#+caption: Varistor
 [[file:media/varistor.png]]
 
 ** Reguladores automáticos de voltaje (AVR) 
@@ -546,6 +595,7 @@ No obstante, tiene un límite, y no puede operar con tensiones de entrada inferi
 
 Son dispositivos muy útiles, pero están desapareciendo como dispositivo independiente, ya que suelen estar integrados en SAIs.
 
+#+caption: Regulador de voltaje
 [[file:media/avr.png]]
 
 ** Sistemas de Alimentación Ininterrumpida (SAI)
@@ -553,6 +603,7 @@ Son dispositivos muy útiles, pero están desapareciendo como dispositivo indepe
 SAI son las siglas en español de Sistema de Alimentación Ininterrupida. A menudo lo vemos abreviado también como UPS, del inglés Uninterruptiblepowersupply.
 Básicamente, un SAI es un aparato basado en baterías que es capaz de proporcionar corriente a los aparatos electrónicos como ordenadores ante la ausencia de corriente en el suministro eléctrico normal.
 
+#+caption: Vista frontal y trasera de un SAI tipo SOHO
 #+ATTR_HTML:  :style margin-left:auto;margin-right:auto;
 | [[file:media/sai-fontal.png]] | [[file:media/sai-trasera.png]] |
 
@@ -560,6 +611,7 @@ Básicamente, un SAI es un aparato basado en baterías que es capaz de proporcio
 
 Los SAIs contienen en su interior algún tipo de batería, capaz de acumular electricidad. El SAI se enchufa a la red eléctrica y con esa energía va recargando su batería. Los aparatos electrónicos que se quieran proteger se enchufan al SAI. Ante un suministro de energía eléctrica deficiente en la red eléctrica, el SAI proporcionará energía eléctrica al aparato que tenga enchufado sacándola de su batería, y evitando que se apague. Si es un ordenador, el evitar un apagado brusco evitará pérdidas de información.
 
+#+caption: Conexión entre SAI y ordenador
 [[file:media/conexion-sai-pc.png]]
 
 Esa es la idea básica de un SAI, pero con el tiempo, han ido evolucionando y perfeccionándose, evitando otros problemas que puede presentar el suministro de corriente, además de la pérdida de tensión eléctrica (voltaje).
@@ -570,6 +622,7 @@ Casi todos los SAIs disponen de alguna aplicación de monitorización: se conect
 *** La batería, el cargador y el inversor.
 Las baterías de los SAI suelen ser de plomo y ácido, muy similares a los de los coches y las motos. Tienen una vida limitada, de unos pocos años, luego se van degradando.
 
+#+caption: Batería interna de un SAI
 [[file:media/foto-sai-bateria.png]]
 
 No se suelen utilizar otro tipo de baterías, como las de Níquel e Hidruro Metálico, o las de iones de litio debido a que en general, no son capaces de entregar demasiada energía rápidamente y presentan algunos inconvenientes. No obstante, algunas sí son aptas para su utilización en SAIs, pero encarecen mucho el producto.
@@ -583,6 +636,7 @@ Hay muchos tipos de SAI, y cuentan con todo tipo de circuitos auxiliares... pero
 Los sai off-line son los más comunes, los más sencillos y también los más económicos. Constan de un cargador que le proporciona la carga a la batería a partir de la AC del suministro eléctrico normal, y un inversor que proporciona AC corriente al aparato enchufado a partir de la batería.
 Pero el SAI Off-line sólo obtiene energía de la batería cuando hay una ausencia de suministro, un microcorte o una bajada de tensión importante. Para ello, un circuito conmutador está constantemente vigilando el suministro eléctrico, y cuando su tensión cae por debajo de un cierto límite, conmuta la salida a la batería.
 
+#+caption: SAI offline
 [[file:media/sai-offline.png]]
 
 El conmutador tarda un cierto tiempo en detectar el problema... en general, es rápido, pero durante un corto periodo de tiempo, la salida presentará el problema que el SAI intentará subsanar. A este tiempo, se le llama tiempo de conmutación  o de  transferencia.
@@ -591,11 +645,13 @@ Aunque no lo hayamos dibujado, muchos de ellos cuentan con un sencillo filtro en
 *** Off-Line interactivos, o con estabilizador o AVR
 El estabilizador (AVR- AutomaticVoltageRegulator) es un circuito que es capaz de proporcionar una tensión de salida constante (230V en el caso de España), aunque la entrada tenga pequeñas fluctuaciones. Un SAI interactivo dispone de un AVR en la entrada de corriente alterna (desde la red eléctrica), y proporciona al cargador de la batería y a la salida de AC una tensión constante. Los AVR tienen un rango de trabajo. Si la entrada cae por debajo de los 175V o sube por encima de los 270V (aproximadamente), no podrán estabilizarla, y el conmutador deberá conmutar la salida a la batería.
 
+#+caption: SAI offline interactivo
 [[file:media/sai-con-avr.png]]
 
 *** On line, en línea o de doble conversión.
 Son la "gama alta" de los SAI. En estos SAI no hay conmutador, y en la salida nunca se obtiene la corriente directamente de la entrada. En su lugar, la batería está constantemente cargándose, y la salida se obtiene siempre de la batería.
 
+#+caption: SAI online
 [[file:media/sai-online.png]]
 
 Los SAI en línea no necesitan estabilizador, ya que la salida siempre está limpia. Además, con esa doble conversión que se produce siempre, la salida queda aislada de la entrada, a diferencia de los off-line, en los que la salida está directamente conectada a la entrada cuando ésta suministra energía.
@@ -623,7 +679,7 @@ $$P_{voltioamperio} = \frac{P_{watios}}{0.7}$$
 
 
 Hay SAIs de todos los tamaños, desde los muy muy pequeños para equipos domésticos y de pequeña oficina hasta los muy muy grandes, para grandes instalaciones y servidores, como éste de la foto, de 500000VA.
-
+#+caption: SAI para una gran instalación
 [[file:media/sai-en-rack.png]]
 
 Cabe destacar que existen equipos de medidas normalizadas para armarios rack. Muy útiles para proteger ordenadores y dispositivos de comunicación del mismo armario. Cuando los SAI se colocan en RACK en general, se hace en la parte inferior, debido a dos motivos: por un lado, en la parte inferior es donde suelen estar las tomas eléctricas, y por el otro, las baterías de plomo pesan mucho, así que colocándolos abajo es donde menos sufre el armario por el peso del SAI.
@@ -636,7 +692,7 @@ Tienen un tiempo de conmutación muy grande (se puede compensar con un SAI inter
 Requieren mucho mantenimiento.
 
 
-
+#+caption: Grupo electrógeno
 [[file:media/sai-grande.png]]
 
 

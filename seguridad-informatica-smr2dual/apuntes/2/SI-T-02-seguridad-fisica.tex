@@ -1,4 +1,4 @@
-﻿% Created 2017-11-08 mié 19:18
+﻿% Created 2017-11-09 jue 13:19
 % Intended LaTeX compiler: pdflatex
 \documentclass{article}
 \usepackage[utf8]{inputenc}
@@ -55,20 +55,24 @@
 
 
 \section{Introducción}
-\label{sec:org8f8dafe}
+\label{sec:org2710e6e}
 En este tema hablaremos de las amenazas se que presentan al hardware de una manera directa, es decir, desde un punto de vista absolutamente físico, y de las medidas de seguridad más comunes ante cada una de ellas.
 
 Hablaremos desde el punto de vista de empresas que utilizan un esquema de servidores y estaciones de trabajo, que es una manera sensata de trabajar si se requiere escalar los sistemas y prestar atención a la seguridad de la información… aunque por supuesto, prácticamente todo lo que hablemos puede ser extrapolado a pequeñas empresas o pequeños sistemas basados en equipos únicos o grupos de trabajo sin servidores dedicados.
 
 
 \subsection{Estaciones de trabajo y servidores}
-\label{sec:org052a273}
+\label{sec:orgc5e1d05}
 Las empresas de producción de bienes y servicios suelen organizar su trabajo en base a estructuras estaciones de trabajo/servidores.
 
 Las estaciones de trabajo (workstations), donde se sientan las personas, son considerados clientes, consumidores de servicios. Son ordenadores dedicados al usuario, y configurados de acuerdo a esta mentalidad.
 Algunos otros ordenadores, los servidores (servers), son configurados como prestadores de servicios a las estaciones de trabajo, a través de la red. En general, toda su capacidad debe dedicarse a ello. Es decir, los usuarios no deben trabajar en ellos directamente.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/red-con-servidor.png}
+\caption{Esquema de red con un servidor}
+\end{figure}
 
 De esta manera, se centraliza la información en servidores, así como otros recursos compartidos:
 \begin{itemize}
@@ -89,7 +93,7 @@ Esta forma de organización centralizada aporta las siguientes ventajas:
 Ser servidor o estación de trabajo es un \textbf{papel}. Un servidor es, básicamente, un ordenador en el que se decide que su misión va a ser prestar servicios a las estaciones de trabajo a través de la red. No es imprescindible hacer otras consideraciones de hardware o software. Cualquier ordenador puede ser un servidor: es decir, ser servidor es un rol, una función… y no una característica.
 
 \subsection{Grupos de trabajo (Workgroups)}
-\label{sec:orgd723bf8}
+\label{sec:orga3d43d7}
 Las instalaciones SoHo (Small Office/Home Office) pueden estar en un modelo de grupo de trabajo (workgroup), donde no hay servidores dedicados.
 En cada estación de trabajo se guarda información.
 Asimismo, cada estación de trabajo puede prestar servicios a las demás (compartir archivos, comunicaciones, impresoras…), y consumir servicios que prestan otras estaciones.
@@ -97,10 +101,14 @@ Es un modelo cómodo para infraestructuras muy pequeñas
 Dificulta la administración, ya que las amenazas y configuraciones se descentralizan y multiplican.
 Aumenta los riesgos de las amenazas de seguridad, ya que quedan dispersas y multiplicadas por las estaciones de trabajo, que, en cierto modo \emph{se convierten también en servidores}.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/red-soho.png}
+\caption{Esquema de red SOHO, sin servidor definido}
+\end{figure}
 
 \section{Acceso físico de personas}
-\label{sec:org7fb5c21}
+\label{sec:org42eaeec}
 Desde el punto de vista de la seguridad física, en algunos casos puede suponer una amenaza el acceso de personas no autorizadas a determinadas dependencias o instalaciones.
 El espacio donde se encuentra el hardware puede contar con restricciones físicas a las personas. Algunas serán correctivas y otras preventivas. Muchas de éstas restricciones nos son familiares:
 \begin{itemize}
@@ -111,7 +119,7 @@ El espacio donde se encuentra el hardware puede contar con restricciones física
 \end{itemize}
 
 \subsection{Cerraduras}
-\label{sec:org52709d5}
+\label{sec:orge11c0f8}
 Las cerraduras con una llave pueden impedir el acceso de personas… pero más allá de la cerradura tradicional, otros sistemas de acceso como tarjetas, contraseñas o la biometría pueden realizar otras tareas como la autentificación y el control de acceso de las personas.
 Estas formas de acceso se basan en :
 \begin{itemize}
@@ -121,28 +129,50 @@ Estas formas de acceso se basan en :
 
 
 \begin{longtable}{lll}
-\includegraphics[width=0.6\textwidth]{media/tarjeta-banda-magnetica.png} & \includegraphics[width=0.6\textwidth]{media/tarjeta-chip-inteligente.png} & \includegraphics[width=0.6\textwidth]{media/llave-magnetica.png}\\
+\caption{Tarjetas magnéticas, tarquetas inteligentes, chip RFID}
+\\
+\begin{center}
+\includegraphics[width=0.6\textwidth]{media/tarjeta-banda-magnetica.png}
+\end{center} & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/tarjeta-chip-inteligente.png}
+\end{center} & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/llave-magnetica.png}
+\end{center}\\
 \end{longtable}
 
 \begin{itemize}
 \item Saber algo (como una contraseña)
-
-\includegraphics[width=0.6\textwidth]{media/teclado-acceso-pin.png}
-
-\item Ser algo: Exhibir algún rasgo o característica física intransferible: Biometría.
-
-\includegraphics[width=0.6\textwidth]{media/lector-huella-digital.png}
 \end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/teclado-acceso-pin.png}
+\caption{Control de acceso mediante PIN}
+\end{figure}
+
+\begin{itemize}
+\item Ser algo: Exhibir algún rasgo o característica física intransferible: Biometría.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/lector-huella-digital.png}
+\caption{Control de acceso mendiante huella digital (biometría)}
+\end{figure}
 
 
 Trataremos estas tecnologías más adelante, en otro tema, cuando hablemos del acceso físico a los sistemas.
 
 \subsection{Personal de vigilancia.}
-\label{sec:orgd9a036d}
+\label{sec:org3f43622}
 Según la legislación Española, las tareas de vigilancia se encomiendan a un profesional vigilante o guardia de seguridad privada, que pertenecen obligatoriamente a una empresa de seguridad y siguen un proceso de selección y acreditación de acuerdo a normativa.
 “Se reserva al personal de seguridad privada estrictamente las funciones de vigilancia y seguridad activa de bienes y personas –diurna y nocturna- y el control de sistemas de seguridad; entendiéndose por vigilancia y seguridad activa aquella que incluye la posibilidad de repeler cualquier agresión al bien que se vigila”
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/vigilante-de-seguridad.png}
+\caption{Personal de vigilancia}
+\end{figure}
 
 Principalmente, sus funciones se centran en:
 \begin{enumerate}
@@ -152,10 +182,14 @@ Principalmente, sus funciones se centran en:
 \end{enumerate}
 
 \subsection{Cámaras de seguridad}
-\label{sec:org98aba1d}
+\label{sec:orgb50c6d0}
 Las cámaras son una medida típicamente pasiva, ya que en general, su misión es grabar lo sucedido, de tal manera que si se produce un ataque, se pueda reducir su impacto.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/camara-de-segurdad.png}
+\caption{Cámara de vigilancia}
+\end{figure}
 
 A veces, la cámara no solo graba, sino que un vigilante de seguridad puede estar viendo en tiempo real lo que sucede en otras dependencias, y en ese caso, impedir un ataque. En ese caso, la cámara junto con el vigilante forma un mecanismo de seguridad activa\ldots{} pero la cámara por sí sola no tiene esa clara vertiente de seguridad activa.
 
@@ -164,7 +198,7 @@ A veces, la cámara no solo graba, sino que un vigilante de seguridad puede esta
 
 
 \subsection{Alarma contra intrusos.}
-\label{sec:org7f5baae}
+\label{sec:org4ad7c9c}
 Es un sistema encargado de detectar la intrusión de personas no autorizadas o por medios no autorizados al recinto, especialmente durante horas en las que no debe haber personas en él.
 
 
@@ -181,7 +215,13 @@ Consta de:
 \end{itemize}
 
 \begin{longtable}{ll}
-\includegraphics[width=0.6\textwidth]{media/centralita-alarma.png} & \includegraphics[width=0.6\textwidth]{media/centralita-y-sensores-alarma.png}\\
+\caption{Centralitas y sensores de alarma}
+\\
+\begin{center}
+\includegraphics[width=0.6\textwidth]{media/centralita-alarma.png}
+\end{center} & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/centralita-y-sensores-alarma.png}
+\end{center}\\
 \end{longtable}
 
 La alarma está conectada a la línea telefónica, con el fin de mandar un aviso a la empresa de seguridad responsable de la alarma (Que sabe qué cliente tiene apuros por el CALLER-ID, identificador de llamada) y en algunos casos también mensajes pregrabados (a policía, etc…) También suelen estar conectadas de manera redundante a través de redes de telefonía móvil.
@@ -200,12 +240,12 @@ Los sensores, pulsadores suelen estar conectados en estrella:
 \end{itemize}
 
 \section{Condiciones climáticas y ambientales.}
-\label{sec:orga4aa687}
+\label{sec:orgceaf9ee}
 Aunque el hardware, en general puede operar correctamente en diversas condiciones ambientales, es conveniente mantenerlo en una franja concreta de éstas.
 Los factores que más afectan a la electrónica son temperatura, humedad y polvo
 
 \subsection{Temperatura}
-\label{sec:orgb4ee951}
+\label{sec:org0f09549}
 Los equipos electrónicos  de consumo pueden funcionar correctamente con una temperatura ambiental del aire en un rango de 10 a 32ºC.
 Generan bastante calor interno, con lo que es conveniente que el ambiente en el que se encuentran esté lo más fresco posible.
 Si los equipos conviven con personas, pueden estar perfectamente a las temperaturas en las que vivimos las personas.
@@ -214,7 +254,7 @@ Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacent
 Ten en cuenta, que en estos rangos de temperatura, hablamos de la temperatura del aire de la habitación. En el interior de los ordenadores el aire estará más caliente.
 
 \subsection{Humedad}
-\label{sec:orga692e6c}
+\label{sec:orgcacf483}
 El aire contiene una pequeña cantidad de agua en estado gaseoso (o incluso líquido en suspensión). La cantidad de vapor que contiene el aire en un instante dado con respecto al máximo que puede contener es la es la humedad relativa. Se expresa con un tanto por ciento.
 Si la humedad es del 100\%, quiere decir que el aire contiene la máxima cantidad de vapor que puede llevar disuelto antes de expulsarlo en forma líquida.
 La humedad máxima varía con la temperatura. La relativa, por lo tanto, también.
@@ -224,10 +264,14 @@ Para los equipos electrónicos, es conveniente mantenerla entre el 40\% y el 50\
 En ambientes de humedad alta, puede eliminarse humedad mediante deshumidificadores, que condensan el agua del aire, la devuelven al estado líquido haciéndolo pasar por una rejilla fría.
 Los deshumidificadores pueden conectase a un desagüe para evacuar el agua en estado líquido.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/deshumidificador.png}
+\caption{Deshumificador doméstico}
+\end{figure}
 
 \subsection{Polvo}
-\label{sec:org3374a17}
+\label{sec:org4b98b68}
 El polvo son partículas sólidas de todo tipo en suspensión (fibras, tierra, pelos y piel de animales y humanos, polen, resinas…) .
 Es un gran enemigo de los sistemas informáticos:
 Recubre los circuitos y propicia la acumulación de humedad, provocando óxido o desperfectos relacionados con la electricidad.
@@ -237,12 +281,16 @@ Se adhiere a piezas móviles (Ej: Ventiladores, motores de dispositivos ópticos
 
 Si en nuestras instalaciones el polvo supone un problema, se puede paliar con filtros de partículas. El filtro es básicamente una malla de fibras por la que se fuerza el paso del aire mediante ventiladores. Las partículas de polvo quedan adheridas al filtro y cuando está muy sucio se limpia o se cambia.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/filtro-de-polvo.png}
+\caption{Filtro de polvo y partículas}
+\end{figure}
 
 Algunos equipos pueden aislarse en un recinto hermético, de tal manera que toda la circulación de aire esté controlada, y la mayor parte del aire pase por un filtro.
 
 \subsection{Agua}
-\label{sec:orgbb74a43}
+\label{sec:org0c24fca}
 Es necesario tomar algunas precauciones absolutamente evidentes con respecto a pequeñas fugas de agua:
 \begin{itemize}
 \item Los baños y salidas de agua deben situarse a distancia de las salas que alojen hardware. Si no es posible, debe contarse con sistemas de desviación y absorción (Ej: desagües)
@@ -251,28 +299,36 @@ Es necesario tomar algunas precauciones absolutamente evidentes con respecto a p
 \end{itemize}
 
 \subsection{Fuego}
-\label{sec:org14d8c15}
+\label{sec:orgda1d367}
 El fuego es una amenaza mucho más seria de lo que puede parecer en un primer momento. Las averías eléctricas son fuente frecuentemente de pequeños incendios. La mayor parte de éstos pequeños incendios pueden ser controlados, pero si no lo son, un fuego puede extenderse y descontrolarse rápidamente.
 
 Vamos a hablar de algunas medidas de seguridad comunes con respecto al fuego.
 
 \subsubsection{Barreras}
-\label{sec:org15be208}
+\label{sec:orgd0dd453}
 Algunos muros están construidos con especial resistencia al fuego, para evitar que se propague. Contienen materiales aislantes e incluso refrigerantes. Se sellan sus resquicios con masillas y siliconas ignífugas
 
 Las puertas cortafuegos son para el paso de personas. Se cierran solas con algún mecanismo de muelle y tienen unas palancas para abrirlas
 
 Suelen estar clasificadas con un rótulo “DF” seguido del número de minutos que resisten un fuego directo (Ej: una puerta DF-30 resiste 30 minutos de fuego directo)
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/puertas-antiincendios.png}
+\caption{Puertas de seguridad antiincencios}
+\end{figure}
 
 Las compuertas cortafuegos se colocan en conductos (ventilación, aire acondicionado, calefacción). Impiden que el fuego se propague por estos medios
 Su cierre es automático.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/compuerta-cortafuegos-ventilacion.png}
+\caption{Compuertas antiincencios para conductos de calefacción}
+\end{figure}
 
 \subsubsection{Detectores:}
-\label{sec:org1be37a1}
+\label{sec:org45653a4}
 Hay de varios tipos. Se sitúan en partes altas. Están conectados a la central de alarma
 
 
@@ -285,23 +341,37 @@ En cualquier caso, la central de alarma hará una o más de éstas acciones:
 \item Avisar a un servicio de emergencia (tipo 112) mediante un sistema pregrabado.
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/detector-humo.png}
+\caption{Detector de humo}
+\end{figure}
 
 
 \subsection{Sistemas de extinción.}
-\label{sec:org9704970}
+\label{sec:org8f1321e}
 \begin{itemize}
 \item Automáticos: En muchos entornos en los que hay instalados ordenadores se cuenta con sistemas de extinción automáticos instalados en el edificio y sus dependencias. Principalmente se basan en esparcir algún agente extintor en el ambiente, como el agua nebulizada, o sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO2). También son gases de este tipo los hidrocarburos halogenados, derivados del gas halón, utilizados durante mucho tiempo, pero actualmente prohibidos por su efecto sobre la capa de ozono.
-
-\includegraphics[width=0.6\textwidth]{media/aspersor-incendios.png}
-
-\item Manuales:  Basados en la dispersión manual de algún agente…. Es decir, utilizar “extintores”.
-
-\includegraphics[width=0.6\textwidth]{media/extintores.png}
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/aspersor-incendios.png}
+\caption{Aspersor para la extinción automática de incendios}
+\end{figure}
+
+\begin{itemize}
+\item Manuales:  Basados en la dispersión manual de algún agente…. Es decir, utilizar “extintores”.
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/extintores.png}
+\caption{Extintores manuales}
+\end{figure}
+
 \subsection{Tipos de fuego.}
-\label{sec:org28926a3}
+\label{sec:org4830d81}
 Hay varios tipos de fuego, según el material que esté ardiendo. Los más comunes son:
 \begin{itemize}
 \item Tipo A: Material combustible sólido, como madera, papel, etc… que forma brasa
@@ -312,7 +382,7 @@ Hay varios tipos de fuego, según el material que esté ardiendo. Los más comun
 Además, es posible que se presente el fuego donde pueden haber cargas eléctricas, así que hablamos de fuego con riesgo de electrocución. (Antiguamente llamado Tipo E. Ya no se llama así): Materiales que conducen, producen o almacenan corriente (ej: Baterías, SAIs, cables).
 
 \subsection{Agentes extintores}
-\label{sec:org52348ed}
+\label{sec:org05806c3}
 Los principales agentes extintores para uso manual son:
 \begin{itemize}
 \item CO2: Se trata del dióxido de carbono, un gas que no es peligroso para los humanos en bajas concentraciones. Es adecuado para fuegos A y B, y algo menos para el C.
@@ -328,13 +398,17 @@ Los principales agentes extintores para uso automático son:
 \end{itemize}
 
 \subsection{Vías de evacuación y señalización.}
-\label{sec:org8082d06}
+\label{sec:orgbbc9936}
 Distintas normas europeas  indican cómo debe ser la señalización referida a los incendios. En todos los casos se trata de señales verdes que se colocan en partes altas.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/senalizacion-emergencia.png}
+\caption{Señalización de las vías de evaluación}
+\end{figure}
 
 \section{El entorno físico de un centro de proceso de datos (CPD)}
-\label{sec:orge72376c}
+\label{sec:org2ba013b}
 
 Un Centro de Proceso de Datos (CPD) es una instalación que alberga un sistema principal de redes, ordenadores y recursos para procesar toda la información de una empresa u organismo (o varios)
 Otros nombres: Centro de cálculo, Datacenter.
@@ -347,14 +421,14 @@ Eso ocurre con los datacenter grandes (Ej: Amazon web services,Microsoft Azure\l
 
 
 \begin{figure}[htbp]
-
+\centering
 \includegraphics[width=0.6\textwidth]{media/exterior-datacenter.png}
 \caption{Datacenter de Google en Montain View, California, EEUU. 45000 servidores}
 \end{figure}
 
 I
 \begin{figure}[htbp]
-
+\centering
 \includegraphics[width=0.6\textwidth]{media/interior-datacenter.png}
 \caption{Interior del Datacenter de un proveedor de hosting y servicios web (ThePlanet)}
 \end{figure}
@@ -420,17 +494,25 @@ También es importante en algunos casos, decidir dónde y cómo ubicar las insta
 Por último, una consideración acerca de la duplicación de sistemas en un Datacenter. Ya hemos comentado que en los CPD es común duplicar algunos sistemas, como las acometidas de electricidad o las redes. En algunos casos, se opta por duplicar completamente el centro, en otras instalaciones alejadas, de tal manera que tengan los mismos datos y el mismo funcionamiento, para que en caso de fallo en un datacenter, el otro siga operativo.
 
 \section{Sujeción y factores de forma en entorno profesional: el Rack}
-\label{sec:orgdb08fb7}
+\label{sec:org56dc937}
 El armario RACK es la forma estándar de configurar instalaciones de hardware formados por múltiples dispositivos. Está respaldado por varias organizaciones de estándares.
 
 Un armario RACK común mide 19” (pulgadas) de ancho (482.6mm) en la parte interior. Es decir\ldots{} por fuera es algo más ancho, pero los aparatos que encajan dentro miden 19” de ancho. Incluye dos raíles laterales en la parte frontal con perforaciones para sujetar aparatos. Los dispositivos van sujetos sólo por delante.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/rack.png}
+\caption{Armarios rack}
+\end{figure}
 
 
 La altura de los dispositivos que se montan en rack es múltiplo de una unidad llamada “U” (Una pulgada y tres cuartos, es decir\ldots{} 1.75 pulgadas\ldots{} o sea\ldots{} 4.5 cm aproximadamente).
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/rail-rack.png}
+\caption{Dimensiones de los railes de un rack}
+\end{figure}
 
 Pueden existir raíles también en la parte del fondo, para sujetar equipos pesados, o especialmente bandejas sobre las que colocar dichos equipos.
 
@@ -438,7 +520,11 @@ La medida del fondo no está normalizada, aunque son comunes medidas como 600, 8
 
 Los armarios rack suelen anclarse en el suelo con pernos para que no se deslicen. Es necesario asegurarse de que el suelo va a resistir el peso del rack y su contenido.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/anclaje-suelo-rack.png}
+\caption{Dispositivos de anclaje al suelo}
+\end{figure}
 
 Los armarios RACK sirven normalmente para contener:
 \begin{itemize}
@@ -457,20 +543,32 @@ Casi todos los aparatos integrados en un Rack se manejan por red. Es poco habitu
 
 La versión mural del armario RACK está pensada para pequeños dispositivos de comunicaciones (switches, hubs, patchpanels, routers y cables)
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/rack-mural.png}
+\caption{Pequeño armario rack, adecuado para instalación mural}
+\end{figure}
 
 Los dispositivos de comunicaciones suelen servirse en varios factores de forma.
 \begin{itemize}
 \item El comúnmente llamado SOHO (Small Office, Home Office), sin forma estándar y normalmente de sobremesa
 \end{itemize}
 
-\includegraphics[width=0.6\textwidth]{media/dispositivo-soho-no-enracable.png} 
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/dispositivo-soho-no-enracable.png}
+\caption{Switch/router SOHO de sobremesa (no enracable)}
+\end{figure} 
 
 \begin{itemize}
 \item En formato para rack, de 19”
 \end{itemize}
 
-\includegraphics[width=0.6\textwidth]{media/switch-enracable.png}   
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.6\textwidth]{media/switch-enracable.png}
+\caption{Switch enracable}
+\end{figure}   
 
 
 Con los ordenadores pasa lo mismo, aunque estemos poco habituados.
@@ -479,7 +577,11 @@ Con los ordenadores pasa lo mismo, aunque estemos poco habituados.
 \item Los ordenadores de escritorio SOHO y estaciones de trabajo suelen venir montados en cajas de pie con factores de forma ATX µATX, ITX y algunas otras.
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/servidor-no-enracable.png}
+\caption{Servidor de sobremesa, no enracable}
+\end{figure}
 
 \begin{itemize}
 \item Los servidores, en un rack de 19” tienen al menos dos factores de forma específicos en sus cajas: Pizza box y Blade
@@ -489,27 +591,39 @@ Con los ordenadores pasa lo mismo, aunque estemos poco habituados.
 Un servidor en factor de forma \textbf{pizza box} es la forma más simple de caja para rack: 19” de ancho y 1U de alto. Es un ordenador completo autocontenido con su fuente de alimentación, red, dispositivos de E/S y almacenamiento, etc Las conexiones van atrás.
 En el momento actual\ldots{} en una caja pizza box pueden ir varios ordenadores completos.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/servidor-pizzabox.png}
+\caption{Servidor tipo \emph{pizza box}}
+\end{figure}
 
 
 
 
 Los servidores Blade no están completos. Encajan en un contenedor (“vaina”, “horno”) que es la que se monta en rack. Ese contenedor centraliza algunos servicios, normalmente alimentación, comunicaciones, y en algunos casos E/S y almacenamiento
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/servidor-blade.png}
+\caption{Servidor tipo blade}
+\end{figure}
 
 Es común encontar también dispositivos RAID montados en rack. Como ya sabes, se trata de un sistema de discos redundantes, en el que se permite el fallo de un disco sin perder la información. Cuando un disco falla, en los sistemas profesionales, puede sustituirse “en caliente”
 
 
 Un equipo RAID para rack mide, por supuesto 19” de ancho y un múltiplo de “U” de alto, Tiene huecos para almacenar varios discos duros. Cada disco va montado en una bandeja (llamada caddy), que permite su montaje y extracción de manera rápida e independiente. Cuando un disco falla, el sistema avisa… y se sustituye por uno nuevo de idénticas características. Todo el conjunto funciona como un único disco de red.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/raid-enracable.png}
+\caption{Equipo RAID enracable}
+\end{figure}
 
 \section{Electricidad}
-\label{sec:org899ac41}
+\label{sec:org5a6c5a3}
 
 \subsection{La red eléctrica}
-\label{sec:orga750290}
+\label{sec:orgebba8f8}
 En España, el suministro de corriente eléctrica se hace con corriente alterna (que es la forma de transportar corriente a largas distancias, con éstos parámetros fijos:
 Tensión: 230 Volts (Con ±10V de oscilaciones permitidas, es decir, entre 220 y 240 Volts)
 Frecuencia: 50 Hertz
@@ -517,29 +631,37 @@ Frecuencia: 50 Hertz
 Los dispositivos electrónicos (ordenadores, periféricos, comunicaciones…) utilizan corriente continua, así que la corriente alterna se transforma en continua en cada dispositivo, mediante fuentes de alimentación o transformadores.
 
 \subsection{Enchufes}
-\label{sec:org1deb051}
+\label{sec:org6e391ea}
 En España se utilizan básicamente dos tomas de enchufe:
 Schukoy Europlug, ambas normalizadas por la CEE, para suministrar corriente alterna.
 
 Los dispositivos que necesitan corriente continua, disponen de una fuente de alimentación (un transformador), que se conecta a enchufes Schuko o europlug mediante los conectores  IEC, normalizados a nivel internacional.
 
 \subsubsection{Schuko}
-\label{sec:org983630b}
+\label{sec:org6053570}
 Schuko es el nombre coloquial, aunque absolutamente aceptado, de un sistema de enchufe y toma de corriente (que se define en el estándar CEE 7/4 Tipo F). "Schuko" es la forma abreviada del término alemán Schutzkontakt (literalmente: contacto protector), lo que sencillamente indica que tanto el enchufe como la toma están equipados con contactos de protección a tierra (en foma de ganchos laterales en lugar de clavijas). Los conectores Schuko se usan normalmente en circuitos de 230 V, 50 Hz y para corrientes no superiores a 16 A. 
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/enchufe-schuco.png}
+\caption{Enchufe schuko}
+\end{figure}
 
 (En el sistema francés y belga, utilizan un conector y enchufe similar, pero que tiene una tercera patilla para la conexión a tierra, en lugar de ganchos. Algunos enchufes schuko son compatibles con éste sistema.)
 
 \subsubsection{Europlug}
-\label{sec:org7840c2b}
+\label{sec:org7136d7e}
 La Europlug es una clavija de enchufe plano de dos polos, diseñada para corrientes de hasta 2,5 A. Fue ideada para funcionar, de forma segura, en las tomas de corriente de todos los paises europeos, con excepción del sistema que se usa en Gran Bretaña, Chipre, Gibraltar, Irlanda y Malta. Se puede enchufar en tomas de corriente schuko.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/enchufe-europlug.png}
+\caption{Enchufe europlug}
+\end{figure}
 
 
 \subsection{Conectores y entradas normalizados (IEC)}
-\label{sec:org9e2b945}
+\label{sec:orga76531c}
 Los fabricantes de dispositivos, para abaratar costes, mantener la compatibilidad eléctrica y las características de seguridad han optado por utilizar en las fuentes de alimentación y transformadores una serie de conectores y entradas de corriente normalizados.
 
 Existen varios tipos de conectores y entradas normalizados, aunque en informática se utilizan básicamente cuatro.
@@ -551,10 +673,29 @@ Los conectores utilizados en la CE están normalizados por la norma IEC 60320 (I
 Los conectores y entradas IEC  se denominan por una letra “C” y un número. Los números impares corresponden a un conector, y los pares a una entrada. La entrada siempre presenta “pines” al descubierto, mientras que el conector dispone de agujeros en los que encajan los pines. 
 
 Es decir\ldots{}: En los conectores y entradas IEC
-\begin{longtable}{l}
+
+\begin{longtable}{ll}
 \hline
-Conector → Da corriente → tiene agujeros → está en el cable de corriente → No lo toques (por eso tiene agujeros, para que no lo toques por accidente)\\
-Entrada → Toma corriente → tiene pines → está en la fuente de alimentación → Si ves los pines, es porque no está el conector. No hay corriente.\\
+Conector & Da corriente\\
+ & tiene agujeros\\
+ & está en el cable de corriente\\
+ & No lo toques\\
+\hline
+\endfirsthead
+\multicolumn{2}{l}{Continúa de la página anterior} \\
+
+ & No lo toques \\
+
+\hline
+\endhead
+\hline\multicolumn{2}{r}{Continúa en la siguiente página} \\
+\endfoot
+\endlastfoot
+\hline
+Entrada & Toma corriente\\
+ & tiene pines\\
+ & está en la fuente de alimentación\\
+ & Si ves los pines, es porque no está el conector. No hay corriente.\\
 \hline
 \end{longtable}
 
@@ -562,47 +703,72 @@ Entrada → Toma corriente → tiene pines → está en la fuente de alimentaci�
 
 
 \begin{itemize}
-\item C5/C62: 2.5 amperes máximo con toma de tierra. (Apodado “Mickey Mouse” o “Hoja de trébol”)  Se utiliza en portátiles.
+\item C5/C6: 2.5 amperes máximo con toma de tierra. (Apodado “Mickey Mouse” o “Hoja de trébol”)  Se utiliza en portátiles.
 \end{itemize}
-
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/conector-c5-c6.png}
+\caption{Conector C5}
+\end{figure}
 
 
 \begin{itemize}
 \item C7/C8: 2.5 amperes máximo  sin toma de tierra. (Apodado “El 8” o “la escopeta”). Se utiliza en periféricos y dispositivos de comunicaciones.
 \end{itemize}
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/conector-c7-c8.png}
+\caption{Conector C7}
+\end{figure}
 
 \begin{itemize}
 \item C13/C14: 10 A máximo con toma de tierra. Se utiliza en ordenadores de sobremesa, monitores, periféricos, sais, etc.
 \end{itemize}
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/conector-c13-c14.png}
+\caption{Conector C13}
+\end{figure}
 
 
 
 \begin{itemize}
 \item C19/C20: 16 A máximo con toma de tierra. Se utiliza en grandes instalaciones. Servidores y SAIs de alta potencia
 \end{itemize}
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/conector-c19-c20.png}
+\caption{Conector C19}
+\end{figure}
 
+
+Más información en la página de \href{https://es.wikipedia.org/wiki/Conector\_IEC}{wikipedia sobre conectores IEC}.
 
 \subsection{Protección eléctrica}
-\label{sec:org5f03ccf}
+\label{sec:org9c7f0ac}
 La red eléctrica proporciona tensiones nominales de entre 220 y 240V La potencia que suministra la red (kiloWatts – kW) se estipula por contrato.
 
 \subsubsection{El Interruptor de Control de Potencia.}
-\label{sec:org4175ce2}
+\label{sec:orgb96e4ec}
 La instalación eléctrica debe ir acorde a la potencia suministrada. Un Interruptor de Control de Potencia (ICP) se coloca a la entrada del suministro, después de los contadores para garantizar que no se consume más allá de la potencia contratada. Hay uno a la entrada de cada cliente. Se coloca más para control de consumo que para seguridad.
 
 \subsubsection{Los interruptores magnetotérmicos}
-\label{sec:orgf626126}
+\label{sec:org73260b1}
 Protegen un circuito. Cada uno admite una determinada corriente máxima, que se mide en Amperes (A). Los magnetotérmicosvienen marcados con la letra “C” -de Current, corriente- y una cantidad, que indica el paso máximo de corriente que permiten “C16 → 16 Amperios máximo”. Saltan ante cortocircuitos y consumo excesivo (sobrecarga del circuito)
 Es capaz de interrumpir la corriente eléctrica de un circuito cuando ésta sobrepasa ciertos valores máximos (Que se expresan en amperios)
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/magnetotermico-doble.png}
+\caption{Mangetotérmico doble}
+\end{figure}
 
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/magnetotermico-simple.png}
+\caption{Magnetotérmico simple}
+\end{figure}
 
 (NOTA: no confundas el hecho de que un magnetotérmico pueda estar rotulado como C16 con el conector IEC C16, que obviamente, no tiene nada que ver)
 
@@ -623,10 +789,14 @@ Si es en la instalación, se deja en manos de un electricista
 Se pueden colocar varios magnetotérmicos jerárquicamente (ej: uno en una oficina, otro en la planta, otro en la entrada del edificio)\ldots{} En general, ante un problema salta siempre el más cercano al problema, y que además dejará pasar menos cantidad de corriente.
 
 \subsubsection{El interruptor diferencial}
-\label{sec:orgad9b8c5}
+\label{sec:org1e3cfff}
 Se coloca en las instalaciones eléctricas con el fin de proteger a las personas de las derivaciones causadas por faltas de aislamiento entre los conductores activos y tierra o masa de los aparatos. Lo distinguirás fácilmente por el botón marcado con una “T”.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/diferencial.png}
+\caption{Diferencial}
+\end{figure}
 
 
 Los interruptores diferenciales suelen instalarse en menor cantidad, y protegen varios circuitos de posibles fugas de corriente.
@@ -634,27 +804,38 @@ Los interruptores diferenciales suelen instalarse en menor cantidad, y protegen 
 El botón “T” (de Test) sirve para comprobar que funciona correctamente, ya que son propensos a averías.
 
 \subsubsection{La toma de Tierra.}
-\label{sec:org1a76fed}
+\label{sec:org80aca4a}
 La instalación eléctrica, además de los dos cables que traen la corriente alterna cuenta con un tercero conectado a tierra.
 (La FASE –que siempre es rojo,  marrón o negro- es el conductor que realmente trae la potencia. El NEUTRO, que siempre es azul es realmente el retorno del circuito. No transporta corriente si no se cierra el circuito con la fase. La TIERRA –en amarillo y verde- está conectado a un gran clavo en los cimientos del edificio.
 
 El enchufe schuko garantiza las fugas a tierra de corrientes descontroladas y estáticas en aquellos aparatos construidos de manera adecuada para ello.
 
 \subsubsection{Doble aislamiento}
-\label{sec:org999af11}
+\label{sec:org280de2d}
 Algunos aparatos disponen de un doble aislamiento de sus partes activas (tanto neutro como fase). En ese caso, no requieren conexión a tierra. Van marcados con éste símbolo en su carcasa. Pueden llevar un enchufe Europlug o Schuko sin toma de tierra.
 
-
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/simbolo-doble-aislamiento.png}
+\caption{Símbolo de doble aislamiento}
+\end{figure}
 
-
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/schuko-sin-tierra.png}
+\caption{Enchufe schuco válido para equipo con doble aislamiento (sin tierra)}
+\end{figure}
 
 
 
 \subsubsection{Adaptadores, ladrones, regletas}
-\label{sec:org9f64a2e}
+\label{sec:org24bc88b}
 En ningún caso están especialmente recomendados los “adaptadores”, “ladrones” o regletas de corriente si pueden evitarse. Pero es necesario tener en cuenta que NUNCA DEBE UTILIZARSE UN ADAPTADOR CON ENTRADA EUROPLUG Y CONECTOR SCHUKO. Ya que permitiría enchufar aparatos con enchufe Schuko (de hasta 16A), cuando una entrada europlug solo está certificada para 2.5A.
+
+\begin{verbatim}
+0.2
+\end{verbatim}
+
 
 \begin{longtable}{llll}
 Entrada & Conector & Intensidad & \\
@@ -671,16 +852,27 @@ Entrada & Conector & Intensidad &  \\
 \endfoot
 \endlastfoot
 \hline
-Schuko & Europlug & Hasta 2.5A & \includegraphics[width=0.6\textwidth]{media/adaptador-schuko-europlug.png}\\
-Schuko & Schuko & Hasta 16A & \includegraphics[width=0.6\textwidth]{media/adaptador-schuko-schuko.png}\\
-Schuko & Schuko y Europlug & Hasta 16A en el Schuko. Hasta 2.5A en los Europlug & \includegraphics[width=0.6\textwidth]{media/adaptador-schuko-schukoeuroplug.png}\\
-Algo parecido al Europlug & Agujeros compatibles con Schuko. & No permitido & \includegraphics[width=0.6\textwidth]{media/adaptador-europlug-schuko.png}\\
+Schuko & Europlug & Hasta 2.5A & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/adaptador-schuko-europlug.png}
+\end{center}\\
+Schuko & Schuko & Hasta 16A & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/adaptador-schuko-schuko.png}
+\end{center}\\
+Schuko & Schuko y Europlug & Hasta 16A (en schuko) & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/adaptador-schuko-schukoeuroplug.png}
+\end{center}\\
+¿Europlug? & Compatibles con Schuko. & No permitido & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/adaptador-europlug-schuko.png}
+\end{center}\\
 \end{longtable}
 
 
+\begin{verbatim}
+0.6
+\end{verbatim}
 
 \subsection{Cálculo aproximado del consumo eléctrico}
-\label{sec:org3ff1657}
+\label{sec:orgd2058f8}
 Todos los circuitos eléctricos permiten un consumo máximo instantáneo de corriente, expresado en Amperios. En última instancia, si lo sobrepasamos, el interruptor magnetotérmico que protege el circuito saltará, debido al exceso de demanda de corriente.
 La demanda eléctrica máxima de un dispositivo debe venir indicada por el fabricante del mismo, expresada en Amperes (Amperios)… o bien, el consumo expresado en Watts (Vatios).
 En ese caso, y sólo como aproximación (teniendo en cuenta que para ser exactos es necesario hacer otras consideraciones), podemos considerar que
@@ -694,7 +886,7 @@ Siendo:
 \end{itemize}
 
 \subsection{Problemas en el suministro eléctrico}
-\label{sec:org22e0771}
+\label{sec:org0659190}
 
 Los problemas más habituales en el suministro eléctrico pueden ser de diversa índole:
 \begin{itemize}
@@ -709,44 +901,70 @@ Los problemas más habituales en el suministro eléctrico pueden ser de diversa 
 
 
 \subsection{Regletas protectoras de sobretensiones.}
-\label{sec:org5098b7f}
+\label{sec:org3e2327f}
 Las regletas protectoras están pensadas para evitar subidas y picos de tensión. Es una medida muy económica. Pero OJO: algunas sólo protegen de cortocircuitos
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/regleta-protectora.png}
+\caption{Regleta protectora, con fusible y toma de tierra para televisión y teléfono}
+\end{figure}
 
 Las más simples, llevan en su interior un fusible, que se coloca en serie con la entrada de la fase o del neutro. El fusible se “quema” con corrientes elevadas. La regleta queda inutilizada, pero protege al equipo en caso de cortocircuito. Un fusible no protege frente a tensiones elevadas
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/fusible.png}
+\caption{Fusible}
+\end{figure}
 
 Sólo protegen de picos de tensión las que se basan en “varistores” (o componentes similares). Un varistor (variable resistor) es un componente electrónico cuya resistencia disminuye cuando la tensión eléctrica que se le aplica aumenta.  El varistor protege el circuito de variaciones y picos bruscos de tensión. Se coloca en paralelo al circuito a proteger y absorbe todos los picos mayores a su tensión nominal. El varistor sólo suprime picos transitorios; si lo sometemos a una tensión elevada constante, conduce totalmente –provocando que un magnetotérmico corte la corriente-. O bien algunos se funden (como un fusible) y deja de conducir. El varistor se puede combinar con un fusible normal.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/varistor.png}
+\caption{Varistor}
+\end{figure}
 
 \subsection{Reguladores automáticos de voltaje (AVR)}
-\label{sec:orge28792d}
+\label{sec:orge39593e}
 También llamados “Estabilizadores de tensión”. Un AVR es un circuito eléctrico basado en varios bobinados que intenta conseguir siempre una tensión de salida de 230V.
 Protege de bajadas y subidas de tensión, y también elimina ruidos.
 No obstante, tiene un límite, y no puede operar con tensiones de entrada inferiores a 175V ni superiores a 275V (aproximadamente).
 
 Son dispositivos muy útiles, pero están desapareciendo como dispositivo independiente, ya que suelen estar integrados en SAIs.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/avr.png}
+\caption{Regulador de voltaje}
+\end{figure}
 
 \subsection{Sistemas de Alimentación Ininterrumpida (SAI)}
-\label{sec:orgbe176b1}
+\label{sec:org14d9a3d}
 
 SAI son las siglas en español de Sistema de Alimentación Ininterrupida. A menudo lo vemos abreviado también como UPS, del inglés Uninterruptiblepowersupply.
 Básicamente, un SAI es un aparato basado en baterías que es capaz de proporcionar corriente a los aparatos electrónicos como ordenadores ante la ausencia de corriente en el suministro eléctrico normal.
 
 \begin{longtable}{ll}
-\includegraphics[width=0.6\textwidth]{media/sai-fontal.png} & \includegraphics[width=0.6\textwidth]{media/sai-trasera.png}\\
+\caption{Vista frontal y trasera de un SAI tipo SOHO}
+\\
+\begin{center}
+\includegraphics[width=0.6\textwidth]{media/sai-fontal.png}
+\end{center} & \begin{center}
+\includegraphics[width=0.6\textwidth]{media/sai-trasera.png}
+\end{center}\\
 \end{longtable}
 
 
 
 Los SAIs contienen en su interior algún tipo de batería, capaz de acumular electricidad. El SAI se enchufa a la red eléctrica y con esa energía va recargando su batería. Los aparatos electrónicos que se quieran proteger se enchufan al SAI. Ante un suministro de energía eléctrica deficiente en la red eléctrica, el SAI proporcionará energía eléctrica al aparato que tenga enchufado sacándola de su batería, y evitando que se apague. Si es un ordenador, el evitar un apagado brusco evitará pérdidas de información.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/conexion-sai-pc.png}
+\caption{Conexión entre SAI y ordenador}
+\end{figure}
 
 Esa es la idea básica de un SAI, pero con el tiempo, han ido evolucionando y perfeccionándose, evitando otros problemas que puede presentar el suministro de corriente, además de la pérdida de tensión eléctrica (voltaje).
 El SAI se conecta al suministro de la red eléctrica mediante un cable de alimentación que tenga un enchufe normalizado del país correspondiente (enchufe schukoen España), y los ordenadores se conectan a él bien mediante el mismo tipo de enchufe (Schuko) o bien mediante alguno de los conocidos conectores IEC, en especial el C13/C14.
@@ -754,10 +972,14 @@ El SAI se conecta al suministro de la red eléctrica mediante un cable de alimen
 Casi todos los SAIs disponen de alguna aplicación de monitorización: se conectan al equipo que protegen por un cable serie, usb o por red. El programa de monitorización puede realizar acciones como hibernar el equipo, vaciar cachés de disco, apagar de manera seguro.
 
 \subsubsection{La batería, el cargador y el inversor.}
-\label{sec:orgaa8f4ed}
+\label{sec:org08b195c}
 Las baterías de los SAI suelen ser de plomo y ácido, muy similares a los de los coches y las motos. Tienen una vida limitada, de unos pocos años, luego se van degradando.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/foto-sai-bateria.png}
+\caption{Batería interna de un SAI}
+\end{figure}
 
 No se suelen utilizar otro tipo de baterías, como las de Níquel e Hidruro Metálico, o las de iones de litio debido a que en general, no son capaces de entregar demasiada energía rápidamente y presentan algunos inconvenientes. No obstante, algunas sí son aptas para su utilización en SAIs, pero encarecen mucho el producto.
 Pueden encontrarse repuestos de la batería de casi todos los modelos de una cierta calidad. Las baterías reemplazadas deben ser procesadas convenientemente, ya que son contaminantes. No deben tirarse a la basura.
@@ -767,36 +989,48 @@ Análogamente, si desde la batería se debe proporcionar AC a un ordenador, pero
 Hay muchos tipos de SAI, y cuentan con todo tipo de circuitos auxiliares\ldots{} pero bueno\ldots{} se pueden observar dos grandes grupos: Los off-line y los on-line. Dentro de los primeros, cabe dedicar una mención especial a los que además, regulan el voltaje.
 
 \subsubsection{Off-Line pasivos, también llamados "Stand-by".}
-\label{sec:orgb6771a7}
+\label{sec:orgbcfc8a6}
 Los sai off-line son los más comunes, los más sencillos y también los más económicos. Constan de un cargador que le proporciona la carga a la batería a partir de la AC del suministro eléctrico normal, y un inversor que proporciona AC corriente al aparato enchufado a partir de la batería.
 Pero el SAI Off-line sólo obtiene energía de la batería cuando hay una ausencia de suministro, un microcorte o una bajada de tensión importante. Para ello, un circuito conmutador está constantemente vigilando el suministro eléctrico, y cuando su tensión cae por debajo de un cierto límite, conmuta la salida a la batería.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/sai-offline.png}
+\caption{SAI offline}
+\end{figure}
 
 El conmutador tarda un cierto tiempo en detectar el problema\ldots{} en general, es rápido, pero durante un corto periodo de tiempo, la salida presentará el problema que el SAI intentará subsanar. A este tiempo, se le llama tiempo de conmutación  o de  transferencia.
 Aunque no lo hayamos dibujado, muchos de ellos cuentan con un sencillo filtro en la entrada que elimina los posibles ruídos.
 
 \subsubsection{Off-Line interactivos, o con estabilizador o AVR}
-\label{sec:org4781b58}
+\label{sec:org4572b46}
 El estabilizador (AVR- AutomaticVoltageRegulator) es un circuito que es capaz de proporcionar una tensión de salida constante (230V en el caso de España), aunque la entrada tenga pequeñas fluctuaciones. Un SAI interactivo dispone de un AVR en la entrada de corriente alterna (desde la red eléctrica), y proporciona al cargador de la batería y a la salida de AC una tensión constante. Los AVR tienen un rango de trabajo. Si la entrada cae por debajo de los 175V o sube por encima de los 270V (aproximadamente), no podrán estabilizarla, y el conmutador deberá conmutar la salida a la batería.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/sai-con-avr.png}
+\caption{SAI offline interactivo}
+\end{figure}
 
 \subsubsection{On line, en línea o de doble conversión.}
-\label{sec:org2609edd}
+\label{sec:org9812b95}
 Son la "gama alta" de los SAI. En estos SAI no hay conmutador, y en la salida nunca se obtiene la corriente directamente de la entrada. En su lugar, la batería está constantemente cargándose, y la salida se obtiene siempre de la batería.
 
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/sai-online.png}
+\caption{SAI online}
+\end{figure}
 
 Los SAI en línea no necesitan estabilizador, ya que la salida siempre está limpia. Además, con esa doble conversión que se produce siempre, la salida queda aislada de la entrada, a diferencia de los off-line, en los que la salida está directamente conectada a la entrada cuando ésta suministra energía.
 
 \subsubsection{El By-pass de los SAI online:}
-\label{sec:org0b0ae75}
+\label{sec:org674b8d9}
 Dado que un SAI online siempre está operando con la batería, ésta no se puede sustituir sin pérdida de suministro.
 El Bypass (del inglés by-pass) es un simple conmutador, que conecta directamente la entrada de AC con la salida de AC en un SAI online, con la única intención de poder realizar tareas de mantenimiento en la batería.
 
 \subsubsection{Capacidad y tiempo de suministro.}
-\label{sec:orgfa09ea3}
+\label{sec:org7cbb6a1}
 Los SAIs no fueron ideados para proporcionar energía a los equipos durante mucho tiempo. La idea es mantener la corriente el tiempo necesario para que el equipo pueda salvaguardar los datos adecuadamente (por ejemplo, cerrando bases de datos, servicios, o hibernando), bien manualmente o bien automáticamente\ldots{} es decir\ldots{} hablamos de minutos.
 Para poder hacerlo automáticamente, casi todos los SAI pueden conectarse al equipo mediante un cable USB (o un cable serie RS-232 en algunos casos). En el equipo se instala un software de control que puede realizar alguna tarea de salvaguarda cuando el SAI indica que está actuando porque no hay suministro.
 A través de ese cable también se suelen obtener otros datos, como la cantidad de carga de las baterías, o el tiempo que podrá suministrar energía el SAI si se va la corriente.
@@ -817,20 +1051,32 @@ $$P_{voltioamperio} = \frac{P_{watios}}{0.7}$$
 
 
 Hay SAIs de todos los tamaños, desde los muy muy pequeños para equipos domésticos y de pequeña oficina hasta los muy muy grandes, para grandes instalaciones y servidores, como éste de la foto, de 500000VA.
-
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/sai-en-rack.png}
+\caption{SAI para una gran instalación}
+\end{figure}
 
 Cabe destacar que existen equipos de medidas normalizadas para armarios rack. Muy útiles para proteger ordenadores y dispositivos de comunicación del mismo armario. Cuando los SAI se colocan en RACK en general, se hace en la parte inferior, debido a dos motivos: por un lado, en la parte inferior es donde suelen estar las tomas eléctricas, y por el otro, las baterías de plomo pesan mucho, así que colocándolos abajo es donde menos sufre el armario por el peso del SAI.
 
 
 
 \subsection{Grupos electrógenos}
-\label{sec:orgf65934b}
+\label{sec:orge50231f}
 Generan electricidad quemando un combustible (normalmente gasoil).
 Tienen un tiempo de conmutación muy grande (se puede compensar con un SAI intermedio o manteniendo el grupo en marcha)
 Requieren mucho mantenimiento.
 
 
-
+\begin{figure}[htbp]
+\centering
 \includegraphics[width=0.6\textwidth]{media/sai-grande.png}
+\caption{Grupo electrógeno}
+\end{figure}
+
+
+
+\section{Referencias}
+\label{sec:org4850f27}
+\href{SI-T-02-seguridad-fisica.pdf}{Versión en PDF}
 \end{document}
