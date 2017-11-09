@@ -290,13 +290,13 @@ Una base de datos es una colección de datos estructurados según un modelo que 
 
 
 * Estándar ANSI/SPARC 
-- Define tres niveles en un SGBD
-- *Interno*: es como se almacena la información realmente. Por lo general, en ficheros en disco
-- *Conceptual*: incluye la estructura de la base de datos total
-  - Entidades
-  - Campos de las entidades
-  - Relaciones entre entidades
-- *Externo*: Cada tipo de usuario/aplicación puede operar con una parte del nivel conceptual, a veces con una transformación intermedia
+- Define tres niveles, para ayudar a conseguir los [[#objetivos-sgbd][objetivos de un SGBD]]
+  - *Interno*: es como se almacena la información realmente. Por lo general, en ficheros en disco
+  - *Conceptual*: incluye la estructura de la base de datos total
+    - Entidades
+    - Campos de las entidades
+    - Relaciones entre entidades
+  - *Externo*: Cada tipo de usuario/aplicación puede operar con una parte del nivel conceptual, a veces con una transformación intermedia
 
 #+attr_latex: :width 0.6\textwidth
 [[file:ansi-sparc.png]]
@@ -356,14 +356,18 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
 - Integridad: sólo los datos que sigan el diseño lógico pueden ser almacenados
 - Comunicación: Datos y operaciones están disponibles para usuarios y aplicaciones
   
-** SGBD: Objetivos
+** <<#objetivos-sgbd>>SGBD: Objetivos
+  :PROPERTIES:
+  :CUSTOM_ID: objetivos-sgbd
+  :END:
+
 - Independencia física de datos
   - Un programa debería poder seguir funcionando aunque el diseño físico (cómo se almacenan los datos en disco) cambie
   - Basta con que el SGBD ofrezca sólo un nivel conceptual que pueda usar diferentes niveles físicos
 - Independencia lógica de datos
   - Un programa debería poder seguir funcionando aunque el diseño lógico (cómo se relacionan los datos) cambie
   - Es más difícil, pero teóricamente son suficientes las vistas (niveles externos)
-
+    
 
 * Referencias
 - Formatos:
