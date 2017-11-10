@@ -62,11 +62,31 @@ Se pide, considerando únicamente la extensión de la relación mostrada en la t
 
 
 ** Actividades extraescolares
-Dada la siguiente relación SE REALIZA(Cod_Actividad, Nombre_Actividad,
-DNI_Monitor, Nombre_monitor, Sala, Fecha, Hora_I, Hora_F) utilizada para almacenar
-información sobre la fecha y duración de las actividades deportivas que se organizan en
-un colegio
+Dada la siguiente relación SE REALIZA(Cod_Actividad, Nombre_Actividad, DNI_Monitor, Nombre_monitor, Sala, Fecha, Hora_I, Duración) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
 Se pide:
+| Cod_Actividad | Nombre_Actividad | DNI_Monitor | Nombre_Monitor    | Sala                   | Fecha     | Hora_I | Duración |
+|---------------+------------------+-------------+-------------------+------------------------+-----------+--------+----------|
+|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |  10:00 |     1:00 |
+|            02 | Fitness          |    65434527 | P. García         | Pabellón polideportivo | 9/9/2007  |  10:00 |     1:30 |
+|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 11/9/2007 |   9:30 |     1:00 |
+|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 15/9/2007 |  12:00 |     1:00 |
+|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |   9:00 |     0:30 |
+|            04 | Gimnasia         |    54332221 | J. Luis Hernández | Sala Musculación       | 1/10/2007 |  12:00 |     1:00 |
+|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |  11:00 |     0:30 |
+|            04 | Gimnasia         |    45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |  12:00 |     1:00 |
+|            02 | Fitness          |    45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |  10:00 |     1:30 |
+|            01 | Pilates          |    65434527 | P. García         | Sala Multiusos         | 9/9/2007  |  10:00 |     1:00 |
+
+Se pide, considerando que los nombres de los monitores no son únicos, ateniéndose a las tuplas de la relación SE REALIZA:
+a. Indicar un ejemplo de anomalía de borrado
+b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas:Cod_Actividad (A), Nombre_Actividad (N), DNI_Monitor (D), Nombre_Monitor(M), Sala (S), Fecha(F), Hora_I (I), Duración(L).
+c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
+d. Pasar a tercera forma normal
+
+
+** Actividades extraescolares II
+Dada la siguiente relación SE REALIZA(Cod_Actividad, Nombre_Actividad, DNI_Monitor, Nombre_monitor, Sala, Fecha, Hora_I, Hora_F) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
+ Se pide:
 | Cod_Actividad | Nombre_Actividad | DNI_Monitor | Nombre_Monitor    | Sala                   | Fecha     | Hora_I | Hora_F |
 |---------------+------------------+-------------+-------------------+------------------------+-----------+--------+--------|
 |            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |  10:00 |  11:00 |
@@ -85,6 +105,29 @@ a. Indicar un ejemplo de anomalía de borrado
 b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas:Cod_Actividad (A), Nombre_Actividad (N), DNI_Monitor (D), Nombre_Monitor(M), Sala (S), Fecha(F), Hora_I (I), Hora_F(E).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
+
+** Broker bursátil
+Se desea modelar la actividad de una empresa bursátil, quien maneja las carteras de acciones de varios inversores. Las atributos relevantes son:
+- B (broker),
+- I (inversor),
+- E (domicilio comercial del broker),
+- A (acción de una empresa que cotiza en bolsa),
+- D (dividendo),
+- C (cantidad de acciones).
+
+Además, se cumplen las DFs: 
+- A  → D
+- I  → B
+- IA → C
+- B  → E
+
+Se pide:
+- Pasar a tercera forma normal
+
+** Broker bursátil histórico
+Para el ejercicio anterior, se necesita mantener un histórico de datos. Se supondrá que los inversores no cambian de broker, pero pueden cambiar:
+- La cantidad de acciones
+- El dividendo
 
 
 ** Pruebas de caja blanca
@@ -119,28 +162,6 @@ a. Encontrar una clave del esquema y demostrar que lo es.
 b. Descomponer el esquema en 3NF, manteniendo las dependencias.
 c. ¿La descomposición está en BCNF? 
 
-** Broker bursátil
-Se desea modelar la actividad de una empresa bursátil, quien maneja las carteras de acciones de varios inversores. Las atributos relevantes son:
-- B (broker),
-- I (inversor),
-- E (domicilio comercial del broker),
-- A (acción de una empresa que cotiza en bolsa),
-- D (dividendo),
-- C (cantidad de acciones).
-
-Además, se cumplen las DFs: 
-- A  → D
-- I  → B
-- IA → C
-- B  → E
-
-Se pide:
-- Pasar a tercera forma normal
-
-** Broker bursátil histórico
-Para el ejercicio anterior, se necesita mantener un histórico de datos. Se supondrá que los inversores no cambian de broker, pero pueden cambiar:
-- La cantidad de acciones
-- El dividendo
 
 ** Equivalencia de dependencias
 Decidir si los siguientes conjuntos de dependencias son los mismos:
