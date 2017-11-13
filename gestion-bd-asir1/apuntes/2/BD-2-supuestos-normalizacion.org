@@ -10,8 +10,8 @@ f. A cada casting se le asigna uno o varios perfiles identificados por un códig
 g. Los candidatos de la agencia se identifican por un código (CM) y tienen además un nombre (M) y una dirección (D). Cada candidato tienen un único perfil pero un perfil puede corresponder a varios candidatos.
 h. Cada candidato que encaje con el perfil de un casting realizará una prueba individual y obtendrá un resultado (RP) que puede ser “apto” o “no apto”. Un candidato solo puede realizar pruebas de castings compatibles con su perfil.
 i. Un candidato puede someterse como máximo a una prueba individual dentro de cada fase de un casting.
-j. En cada prueba individual de una fase solo la participa un único candidato. Cadaprueba en la que participa un candidato pertenece sólo a una fase de un casting.
-k. Un candidato no podrá realizar una prueba individual de una fase si en la faseanterior realizó una prueba cuyo resultado fue “no apto”.  
+j. En cada prueba individual de una fase solo participa un único candidato. Cada prueba en la que participa un candidato pertenece sólo a una fase de un casting.
+k. Un candidato no podrá realizar una prueba individual de una fase si en la fase anterior realizó una prueba cuyo resultado fue “no apto”.  
 
 Se pide:
 1. Formular las dependencias funcionales correspondientes a los supuestos semánticos anteriores utilizando las abreviaturas que se indican entre paréntesis.
@@ -162,6 +162,28 @@ a. Encontrar una clave del esquema y demostrar que lo es.
 b. Descomponer el esquema en 3NF, manteniendo las dependencias.
 c. ¿La descomposición está en BCNF? 
 
+** Broker bursátil
+Se desea modelar la actividad de una empresa bursátil, quien maneja las carteras de acciones de varios inversores. Las atributos relevantes son:
+- B (broker),
+- I (inversor),
+- E (domicilio comercial del broker),
+- A (acción de una empresa que cotiza en bolsa),
+- D (dividendo),
+- C (cantidad de acciones).
+
+Además, se cumplen las DFs: 
+- A   → D
+- I   → B
+- I,A → C
+- B   → E
+
+Se pide:
+- Pasar a tercera forma normal
+
+** Broker bursátil histórico
+Para el ejercicio anterior, se necesita mantener un histórico de datos. Se supondrá que los inversores no cambian de broker, pero pueden cambiar:
+- La cantidad de acciones
+- El dividendo
 
 ** Equivalencia de dependencias
 Decidir si los siguientes conjuntos de dependencias son los mismos:
