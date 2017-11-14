@@ -14,8 +14,8 @@ Hablaremos desde el punto de vista de empresas que utilizan un esquema de servid
 ** Estaciones de trabajo y servidores
 Las empresas de producción de bienes y servicios suelen organizar su trabajo en base a estructuras estaciones de trabajo/servidores.
 
-Las estaciones de trabajo (workstations), donde se sientan las personas, son considerados clientes, consumidores de servicios. Son ordenadores dedicados al usuario, y configurados de acuerdo a esta mentalidad.
-Algunos otros ordenadores, los servidores (servers), son configurados como prestadores de servicios a las estaciones de trabajo, a través de la red. En general, toda su capacidad debe dedicarse a ello. Es decir, los usuarios no deben trabajar en ellos directamente.
+Las estaciones de trabajo (workstations), donde se sientan las personas, son considerados clientes, /consumidores de servicios/. Son ordenadores dedicados al usuario, y configurados de acuerdo a esta mentalidad.
+Algunos otros ordenadores, los servidores (servers), son configurados como /prestadores de servicios/ a las estaciones de trabajo, a través de la red. En general, toda su capacidad debe dedicarse a ello. Es decir, los usuarios no deben trabajar en ellos directamente.
 
 #+caption: Esquema de red con un servidor
 [[file:media/red-con-servidor.png]]
@@ -35,12 +35,12 @@ Esta forma de organización centralizada aporta las siguientes ventajas:
 Ser servidor o estación de trabajo es un *papel*. Un servidor es, básicamente, un ordenador en el que se decide que su misión va a ser prestar servicios a las estaciones de trabajo a través de la red. No es imprescindible hacer otras consideraciones de hardware o software. Cualquier ordenador puede ser un servidor: es decir, ser servidor es un rol, una función… y no una característica.
 
 ** Grupos de trabajo (Workgroups)
-Las instalaciones SoHo (Small Office/Home Office) pueden estar en un modelo de grupo de trabajo (workgroup), donde no hay servidores dedicados.
+Las instalaciones SOHO (Small Office/Home Office) pueden estar en un modelo de grupo de trabajo (workgroup), donde no hay servidores dedicados.
 En cada estación de trabajo se guarda información.
 Asimismo, cada estación de trabajo puede prestar servicios a las demás (compartir archivos, comunicaciones, impresoras…), y consumir servicios que prestan otras estaciones.
-Es un modelo cómodo para infraestructuras muy pequeñas
-Dificulta la administración, ya que las amenazas y configuraciones se descentralizan y multiplican.
-Aumenta los riesgos de las amenazas de seguridad, ya que quedan dispersas y multiplicadas por las estaciones de trabajo, que, en cierto modo /se convierten también en servidores/.
+- Es un modelo cómodo para infraestructuras muy pequeñas
+- Dificulta la administración, ya que las amenazas y configuraciones se descentralizan y multiplican.
+- Aumenta los riesgos de las amenazas de seguridad, ya que quedan dispersas y multiplicadas por las estaciones de trabajo, que, en cierto modo /se convierten también en servidores/.
 
 #+caption: Esquema de red SOHO, sin servidor definido
 [[file:media/red-soho.png]]
@@ -138,7 +138,9 @@ Los factores que más afectan a la electrónica son temperatura, humedad y polvo
 Los equipos electrónicos  de consumo pueden funcionar correctamente con una temperatura ambiental del aire en un rango de 10 a 32ºC.
 Generan bastante calor interno, con lo que es conveniente que el ambiente en el que se encuentran esté lo más fresco posible.
 Si los equipos conviven con personas, pueden estar perfectamente a las temperaturas en las que vivimos las personas.
-Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente mantenerlos a baja temperatura, pero no es realmente necesario y el gasto energético de bajar la temperatura podría ser muy elevado, así que mantenerlos a unos 22ºC ya se consideraría adecuado. En las salas aisladas de un datacenter, por normativa internacional, la temperatura promedio en el ambiente debe ser de 22.3ºC
+Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente mantenerlos a baja temperatura, pero no es realmente necesario y el gasto energético de bajar la temperatura podría ser muy elevado, así que mantenerlos a unos 22ºC ya se consideraría adecuado. 
+
+En las salas aisladas de un datacenter, por normativa internacional, la temperatura promedio en el ambiente debe ser de 22.3ºC. Por lo general, esta temperatura es menor y se acerca a los 10ºC.
 
 Ten en cuenta, que en estos rangos de temperatura, hablamos de la temperatura del aire de la habitación. En el interior de los ordenadores el aire estará más caliente.
 
@@ -158,12 +160,14 @@ Los deshumidificadores pueden conectase a un desagüe para evacuar el agua en es
 ** Polvo
 El polvo son partículas sólidas de todo tipo en suspensión (fibras, tierra, pelos y piel de animales y humanos, polen, resinas…) .
 Es un gran enemigo de los sistemas informáticos:
-Recubre los circuitos y propicia la acumulación de humedad, provocando óxido o desperfectos relacionados con la electricidad.
-Se adhiere a dispositivos lectores (Ej: los cabezales de dispositivos ópticos).
-Se adhiere a piezas móviles (Ej: Ventiladores, motores de dispositivos ópticos, ratones, y todo tipo de periféricos) 
+- Recubre los circuitos y propicia la acumulación de humedad, provocando óxido o desperfectos relacionados con la electricidad.
+- Se adhiere a dispositivos lectores (Ej: los cabezales de dispositivos ópticos).
+- Se adhiere a piezas móviles (Ej: Ventiladores, motores de dispositivos ópticos, ratones, y todo tipo de periféricos) 
 
 
 Si en nuestras instalaciones el polvo supone un problema, se puede paliar con filtros de partículas. El filtro es básicamente una malla de fibras por la que se fuerza el paso del aire mediante ventiladores. Las partículas de polvo quedan adheridas al filtro y cuando está muy sucio se limpia o se cambia.
+
+Hay que tener en cuenta que los sistemas de climatización de los CPD, el aire acondicionado ya incluye filtro de partículas y deshumidifica por el propio enfriamiento.
 
 #+caption: Filtro de polvo y partículas
 [[file:media/filtro-de-polvo.png]]
@@ -213,7 +217,13 @@ En cualquier caso, la central de alarma hará una o más de éstas acciones:
 
 
 ** Sistemas de extinción.
-- Automáticos: En muchos entornos en los que hay instalados ordenadores se cuenta con sistemas de extinción automáticos instalados en el edificio y sus dependencias. Principalmente se basan en esparcir algún agente extintor en el ambiente, como el agua nebulizada, o sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO2). También son gases de este tipo los hidrocarburos halogenados, derivados del gas halón, utilizados durante mucho tiempo, pero actualmente prohibidos por su efecto sobre la capa de ozono.
+- Automáticos: En muchos entornos en los que hay instalados ordenadores se cuenta con sistemas de extinción automáticos instalados en el edificio y sus dependencias. 
+  - Principalmente se basan en esparcir algún agente extintor en el ambiente, como el agua nebulizada, 
+  - Puede sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO2)
+  - Los gases limpios (HF's, como el FE13 y el FM200) actúan directamente sobre el fuego a concentraciones relativamente bajas. Se almacenan como gases licuados y apagan el fuego por enfriamiento de la llama. Tienen menor toxicidad que el CO2 y no afectan a la capa de ozono.
+  - También son gases de este tipo los hidrocarburos halogenados, derivados del gas halón, utilizados durante mucho tiempo, pero actualmente /prohibidos/ por su efecto sobre la capa de ozono.
+
+
 
 #+caption: Aspersor para la extinción automática de incendios
   [[file:media/aspersor-incendios.png]]
