@@ -138,7 +138,7 @@ Los factores que más afectan a la electrónica son temperatura, humedad y polvo
 Los equipos electrónicos  de consumo pueden funcionar correctamente con una temperatura ambiental del aire en un rango de 10 a 32ºC.
 Generan bastante calor interno, con lo que es conveniente que el ambiente en el que se encuentran esté lo más fresco posible.
 Si los equipos conviven con personas, pueden estar perfectamente a las temperaturas en las que vivimos las personas.
-Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente mantenerlos a baja temperatura, pero no es realmente necesario y el gasto energético de bajar la temperatura podría ser muy elevado, así que mantenerlos a unos 22ºC ya se consideraría adecuado. En las salas aisladas de un datacenter, por normativa internacional1, la temperatura promedio en el ambiente debe ser de 22.3ºC
+Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente mantenerlos a baja temperatura, pero no es realmente necesario y el gasto energético de bajar la temperatura podría ser muy elevado, así que mantenerlos a unos 22ºC ya se consideraría adecuado. En las salas aisladas de un datacenter, por normativa internacional, la temperatura promedio en el ambiente debe ser de 22.3ºC
 
 Ten en cuenta, que en estos rangos de temperatura, hablamos de la temperatura del aire de la habitación. En el interior de los ordenadores el aire estará más caliente.
 
