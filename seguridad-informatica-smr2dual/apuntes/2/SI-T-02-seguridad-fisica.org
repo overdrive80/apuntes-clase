@@ -412,8 +412,7 @@ Frecuencia: 50 Hertz
 Los dispositivos electrónicos (ordenadores, periféricos, comunicaciones…) utilizan corriente continua, así que la corriente alterna se transforma en continua en cada dispositivo, mediante fuentes de alimentación o transformadores.
 
 ** Enchufes
-En España se utilizan básicamente dos tomas de enchufe:
-Schukoy Europlug, ambas normalizadas por la CEE, para suministrar corriente alterna.
+En España se utilizan básicamente dos tomas de enchufe: Schuko y Europlug, ambas normalizadas por la CEE, para suministrar corriente alterna.
 
 Los dispositivos que necesitan corriente continua, disponen de una fuente de alimentación (un transformador), que se conecta a enchufes Schuko o europlug mediante los conectores  IEC, normalizados a nivel internacional.
 
