@@ -363,6 +363,8 @@ https://es.wikipedia.org/wiki/TIA-568B
 | IEEE 802.11g | 2.4GHz        | 54mbps    |            |
 | IEEE 802.11n | 2.4GHz y 5GHz | 600mbps   | 70 metros  |
 
+** Canales wifi
+[[file:media/canales-wifi.png]]
 
 * Referencias
 - Formatos:
