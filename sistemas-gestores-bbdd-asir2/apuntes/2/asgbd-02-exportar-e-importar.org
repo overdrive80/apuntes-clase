@@ -288,6 +288,10 @@ grant create any directory to myschema;
 create directory mi_directorio_de_backup as '/home/alumno/backups';
 #+end_src
 
+#+begin_src sql
+GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
+#+end_src
+
 
 * Importar datos
 
@@ -579,6 +583,28 @@ Processing object type SCHEMA_EXPORT/STATISTICS/MARKER
 Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:58 2016 elapsed 0 00:00:19
 #+end_src
 
+
+
+* Otras soluciones
+- RMAN
+- Copias de /tablespaces/
+
+** [[https://oracle-base.com/articles/9i/recovery-manager-9i][RMAN]]
+- Solución de Oracle para backups
+- Ventajas
+  - Granularidad del backup
+  - En línea
+- Desventajas
+  - Mayor complejidad
+  
+
+** Copias de /tablespaces/
+- Los datos están en ficheros =dbf=
+- Basta con hacer copias de esos ficheros
+- Ventajas
+  - Fácil, no se necesitan herramientas especiales
+- Desventajas
+  - Es necesario parar Oracle para hacer la copia y la restauración
 
 * Referencias
 - Formatos:
