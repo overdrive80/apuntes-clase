@@ -292,7 +292,7 @@ create directory mi_directorio_de_backup as '/home/alumno/backups';
 * Importar datos
 
 - Se utiliza el comando =impdp=
-  - Ayuda con =expdp help=yes=
+  - Ayuda con =impdp help=yes=
 
 #+begin_src C
 
