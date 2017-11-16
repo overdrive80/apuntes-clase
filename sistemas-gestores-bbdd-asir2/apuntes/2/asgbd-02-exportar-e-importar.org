@@ -590,9 +590,9 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 - Copias de /tablespaces/
 
 ** [[https://oracle-base.com/articles/9i/recovery-manager-9i][RMAN]]
-- Solución de Oracle para backups
+- Solución de [[https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmquick.htm#BRADV89346][Oracle para backups]]
 - Ventajas
-  - Granularidad del backup
+  - Granularidad del backup: incrementales o totales
   - En línea
 - Desventajas
   - Mayor complejidad
