@@ -3,7 +3,8 @@
 
 # LISTADOS
 #+latex_header: \usepackage{listings}
-#+latex_header: \lstset{frame=single}
+#+latex_header: \lstset{frame=single,inputencoding=utf8,basicstyle=\scriptsize\ttfamily,showstringspaces=false,numbers=none}
+
 
 # SE INCLUYEN IMAGENES VECTORIALES SI ES POSIBLE (EN FORMATO PDF)
 #+latex_header_extra: \usepackage{svg}

@@ -70,7 +70,7 @@ sqlplus sys/alumno@CONEXION as sysdba
 
 ** Ejemplo /heredoc/
 #+begin_src shell
-sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+sqlplus -S alumno/alumno <<HEREDOC
 set  autocommit off
 create table prueba(un_atributo int);
 insert into prueba values(1);
@@ -85,7 +85,7 @@ HEREDOC
 - Puede enviarse la salida a un fichero
 
 #+begin_src shell
-sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+sqlplus -S alumno/alumno <<HEREDOC
 set  autocommit off
 insert into prueba values(1);
 insert into prueba values(2);
@@ -102,7 +102,7 @@ less prueba.txt
 
 - Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
 #+begin_src shell
-sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
+sqlplus -S sys/alumno as sysdba <<HEREDOC
 set colsep ','    -- separate columns with a comma
 set pagesize 0    -- No header rows
 set trimspool on  -- remove trailing blanks
@@ -126,7 +126,7 @@ HEREDOC
 - =sqlplus= también puede leer scripts de =SQL= con *=@=*
 
 #+begin_src shell
-sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
+sqlplus -S sys/alumno as sysdba <<HEREDOC
 @/camino/al/fichero.sql
 HEREDOC
 #+end_src
