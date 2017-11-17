@@ -411,3 +411,13 @@ Nada de esto es /directamente/ bases de datos...
 | ~history~      | Lista de comandos introducidos en la /shell/        |
 
 
+
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-1-instalar-oracle.html][Transparencias]] 
+  - [[file:asgbd-1-instalar-oracle.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]

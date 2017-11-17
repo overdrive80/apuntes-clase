@@ -1,6 +1,6 @@
 #+include: "../../../common/header.org"
 #+Title: Concurrencia y bloqueos en Oracle
-#+REVEAL_THEME: simple
+# #+REVEAL_THEME: simple
 #+EXCLUDE_TAGS: no_export
 
 
@@ -286,4 +286,14 @@ ALTER SYSTEM KILL SESSION 'sid,serial#';
 ** Terminar una sesión (sistema operativo)
 - Se debe matar el proceso identificado en el =spid= (/system process identifier/)
 - Solo como último recurso, mejor =KILL SESSION=
+  
 
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-4-bloqueos-oracle.html][Transparencias]] 
+  - [[file:asgbd-4-bloqueos-oracle.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
