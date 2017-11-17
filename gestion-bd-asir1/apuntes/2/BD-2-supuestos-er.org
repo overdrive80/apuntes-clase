@@ -145,6 +145,21 @@ Una base de datos para una pequeña empresa debe contener información acerca de
 
 Nota: Una dirección se entenderá como Nº, Calle y Ciudad. Una fecha incluye hora.
 
+| NC | Número de cliente                  |
+| DE | Dirección de envío                 |
+| SC | Saldo cliente                      |
+| LC | Límite crédito cliente             |
+| DC | Descuento cliente                  |
+| NA | Número de artículo                 |
+| EA | Existencias de artículo en fábrica |
+| DA | Descripción artículo               |
+| FP | Fecha del pedido                   |
+| CA | Cantidad de artículo               |
+| NF | Número de fábrica                  |
+| TF | Teléfono fábrica                   |
+| FA | La fábrica es alternativa          |
+
+
 Se pide hacer el diagrama ER para la base de datos que represente esta información.
 
 * Sistema de ventas
