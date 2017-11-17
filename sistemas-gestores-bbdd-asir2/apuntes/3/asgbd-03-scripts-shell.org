@@ -1,6 +1,5 @@
 #+include: "../../../common/header.org"
 #+Title: Scripts de shell para Oracle
-#+REVEAL_THEME: simple
 #+EXCLUDE_TAGS: no_export
 
 
@@ -230,4 +229,13 @@ systemctl stop SERVICIO
   - Más información con =man run-parts=
 
 
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-03-scripts-shell.html][Transparencias]] 
+  - [[file:asgbd-03-scripts-shell.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
 
