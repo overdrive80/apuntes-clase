@@ -192,3 +192,13 @@
   - Hamming extendido
   - Paridad lineal: un bit de paridad cada 7 de datos
   - Paridad de bloque: un bit de paridad lineal gcada 7 de datos, bloques de 49 bits de datos
+
+
+* Referencias
+- Formatos:
+  - [[file:par-03-capa-de-enlace.html][Transparencias]] 
+  - [[file:par-03-capa-de-enlace.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
