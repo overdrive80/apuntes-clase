@@ -242,10 +242,9 @@ de una base de datos:
 El sistema debe memorizar todos los encuentros que se han desarrollado desde que existe el torneo, así
 como las siguientes características de estos.
 
-- El Grand Slam se compone de cuatro torneos anuales que se celebran en Gran Bretaña, Estados Unidos,
-Francia y Australia.
-- En cada país se pueden desarrollar en distintos lugares (p. ej., en EE. UU. puededesarrollarse en Forest Hill o en Flashing Meadows).
-- Cada partido tiene asociado un premio de consolación para el perdedor que dependerá de la fase en quese encuentre el torneo (p. ej., el perdedor de octavos de final puede ganar 5.000 dólares). El ganador dea final recibirá el premio correspondiente al torneo.
+- El Grand Slam se compone de cuatro torneos anuales que se celebran en Gran Bretaña, Estados Unidos, Francia y Australia.
+- En cada país se pueden desarrollar en distintos lugares (p. ej., en EE. UU. puede desarrollarse en Forest Hill o en Flashing Meadows).
+- Cada partido tiene asociado un premio de consolación para el perdedor que dependerá de la fase en que se encuentre el torneo (p. ej., el perdedor de octavos de final puede ganar 5.000 dólares). El ganador de la final recibirá el premio correspondiente al torneo.
 - Cada torneo tiene cinco modalidades: Individual masculino, individual femenino, dobles masculino, dobles femenino y dobles mixtos.
 - También hay que tener en cuenta la nacionalidad de un jugador, de forma que éste puede ser apátrida o tener varias nacionalidades.
 
@@ -256,7 +255,7 @@ El sistema debe dar respuesta a las siguientes preguntas:
 4. Lista de entrenadores que han entrenado a un jugador a lo largo del torneo y fechas en las que lo hizo.
 
 Ejemplos de acceso a la base de datos.
-1. Connors gano Gerulaitis en Roland Garros en 1979 en cuartos de final en individuales masculinos por 6-3 4-6 7-5 6-0.
+1. Connors ganó Gerulaitis en Roland Garros en 1979 en cuartos de final en individuales masculinos por 6-3 4-6 7-5 6-0.
 2. El señor Wilkinson arbitró ese partido.
 3. Alemania ha ganado dos veces las individuales masculinas de Wimbledon. Borg ha ganado 2.000.000 de dólares a lo largo de su participación en el Grand Slam.
 4. El ganado de Roland Garros de 1987 ganó 20.000 dólares.
