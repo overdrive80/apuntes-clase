@@ -131,7 +131,7 @@
 - Codificación que permite la detección y la corrección de un bit
   - Su distancia de Hamming es 1
 - Se inluyen bits de paridad de la siguiente forma:
-  - Los bits de las posiciones $s=2^{p-1}$ son de paridad: 0, 1, 2, 4, 8...
+  - Los bits de las posiciones $s=2^{p-1}$ son de paridad: 1, 2, 4, 8...
   - El resto son de datos
   - El bit de la posición $s$ se incluye en el bit de paridad $p$ si la expresión de $s$ en binario tiene a 1 el bit $p$
 
