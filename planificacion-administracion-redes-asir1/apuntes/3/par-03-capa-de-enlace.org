@@ -187,7 +187,10 @@
 - Conclusión:
   - Si falla un bit, puedo arreglarlo
   - Si fallan dos bits, lo detecto
-  - Si fallan más, puedo no enterarme.
+  - Si fallan más, 
+    - Puedo no enterarme
+    - Puede parecer que ha fallado solo uno
+    - Puedo detectar el error
 
   
 ** Actividad
