@@ -334,6 +334,8 @@ https://es.wikipedia.org/wiki/TIA-568B
 ** Espectro electromagnético
 [[file:media/espectro-electromagenico-medios-no-guiados.png]]
 
+#+reveal: split
+[[file:media/espectro-electromagnetico-uhf-vhf.png]]
 
 ** Bluetooth
 - IEEE 802.15
