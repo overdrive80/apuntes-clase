@@ -190,7 +190,7 @@
   - Hamming 
   - Hamming extendido
   - Paridad lineal: un bit de paridad cada 7 de datos
-  - Paridad de bloque: un bit de paridad lineal gcada 7 de datos, bloques de 49 bits de datos
+  - Paridad de bloque: un bit de paridad lineal cada 7 de datos, bloques de 49 bits de datos
 
 
 * Referencias
