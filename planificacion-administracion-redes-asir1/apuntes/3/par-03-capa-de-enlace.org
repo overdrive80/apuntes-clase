@@ -2,6 +2,7 @@
 #+TITLE: Capa de enlace
 #+SUBTITLE: 
 #+KEYWORDS: 
+#+language: es
 
 
 * Introducción
@@ -106,7 +107,7 @@
 - Los errores se producen típicamente a ráfagas
 - Para un CRC de $n$ bits
   - Se detectan todos los errores de ráfagas de menos de $n$ bits incorrectos
-  - Se detecta una fracción de las ráfagas más largas ($1 − 2^{-n}$)
+  - Se detecta una fracción de las ráfagas más largas ($1 - 2^{-n}$)
 
 | Longitud de crc | Porcentaje de detección de ráfagas mayores |
 |-----------------+--------------------------------------------|
@@ -190,7 +191,7 @@
   - Hamming 
   - Hamming extendido
   - Paridad lineal: un bit de paridad cada 7 de datos
-  - Paridad de bloque: un bit de paridad lineal gcada 7 de datos, bloques de 49 bits de datos
+  - Paridad de bloque: un bit de paridad lineal cada 7 de datos, bloques de 49 bits de datos
 
 
 * Referencias
