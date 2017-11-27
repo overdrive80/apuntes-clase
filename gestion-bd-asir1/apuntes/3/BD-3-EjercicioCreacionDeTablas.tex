@@ -1,4 +1,4 @@
-\input{../common/plantilla-ejercicio.tex}
+\input{../../../common/plantilla-ejercicio.tex}
 \usepackage{eurosym}
 
 
@@ -6,9 +6,10 @@
 
 
 \renewcommand{\hmwkTitle}{Diseño E/R, paso a SQL e inserción de datos}
+\renewcommand{\hmwkClass}{Gestión de Bases de Datos}
 
-
-\usepackage{blindtext}
+\usepackage{enumitem}% http://ctan.org/pkg/enumitem
+%\setlist[itemize]{parsep=0em}
 
 \begin{document}
 
@@ -22,33 +23,25 @@
 
 \primerapagina
 
-\setlength{\parindent}{2em}
-\setlength{\parskip}{1em}
 
 \section{Objetivo de la práctica}
 Se pretende que el alumno sea capaz de pasar desde las necesidades de datos de una empresa hasta las órdenes SQL necesarias para implementar dicha necesidad en Oracle
 
 \section{Modelo de datos}
-Una compañía de alquiler de coches desea informatizar su gestión.
-Su flota de coches se divide en tres categorías: Functional, Advance y
-Prestige. Cada categoría puede tener diferentes modelos de coche
-con diferentes acabados. Un modelo concreto puede pertenecer a
-varias categorías, si el acabado es distinto. El precio por día del
-alquiler depende de la categoría asignada al coche.
+Una compañía de alquiler de coches desea informatizar su gestión.  Su flota de coches se divide en tres categorías: Functional, Advance y Prestige. Cada categoría puede tener diferentes modelos de coche con diferentes acabados. Un modelo concreto puede pertenecer a varias categorías, si el acabado es distinto. El precio por día del alquiler depende de la categoría asignada al coche.
 
-Se desea saber los siguientes datos en el acabado de los coches:
+La categoría no depende directamente del acabado del coche: el departamento comercial asigna la categoría atendiendo a criterios de coste y demanda.
+
+Se desea saber los siguientes datos en el acabado de los coches, entre otros:
 \begin{itemize}
-\item aire acondicionado, climatizador, navegador, bluetooth, mp3,
-  cambio automático, techo solar
+\item aire acondicionado, climatizador, navegador, bluetooth, mp3, cambio automático, techo solar
 \end{itemize}
 
 De cada coche de la flota se desea saber:
 \begin{itemize}
-\item Marca
-\item Modelo
+\item Marca, modelo y color
 \item Categoría
 \item Acabado
-\item Color de carrocería
 \item Matrícula y número de bastidor
 \end{itemize}
 
@@ -94,7 +87,7 @@ De cada alquiler de coche se desea saber:
 \begin{homeworkProblem}[: Crear las tablas de Oracle utilizando \textbf{SQL} (1 punto)]
   Este paso puede conseguirse:
   \begin{itemize}
-  \item De forma automática tras el ejercicio anterior, pidiendo a \textbf{Modeler} que convierta el diagrama \textbf{relacinal} en las sentencias \textbf{DDL} (\textit{Data Definition Language}) de \textbf{SQL}
+  \item De forma automática tras el ejercicio anterior, pidiendo a \textbf{Modeler} que convierta el diagrama \textbf{relacional} en las sentencias \textbf{DDL} (\textit{Data Definition Language}) de \textbf{SQL}
   \item De forma manual
   \end{itemize}
 
@@ -173,14 +166,14 @@ De cada alquiler de coche se desea saber:
   \end{itemize}
 \item Entrega tu trabajo en un fichero \texttt{ZIP} con
   \begin{itemize}
-  \item La imagen de tu modelo ER  con JDeveloper
-  \item La imagen de tu modelo relacional con JDeveloper
-  \item \texttt{\textbf{1.creacion.sql}}: El script de creación de tablas
-  \item \texttt{\textbf{2.insercion.sql}}: El script de inserción de datos en las tablas
-  \item \texttt{\textbf{3.modificacion.sql}}: El script de modificación de las tablas
-  \item \texttt{\textbf{4.insercion.sql}}: El script de inserción de datos en las tablas modificadas
+  \item \texttt{\textbf{1.modelo-er.pdf}}: La imagen de tu modelo ER  con SQLDeveloper
+  \item \texttt{\textbf{2.modelo-relacional.pdf}}: La imagen de tu modelo relacional con SQLDeveloper
+  \item \texttt{\textbf{3.creacion.sql}}: El script de creación de tablas
+  \item \texttt{\textbf{4.insercion.sql}}: El script de inserción de datos en las tablas
+  \item \texttt{\textbf{5.modificacion.sql}}: El script de modificación de las tablas
+  \item \texttt{\textbf{6.insercion.sql}}: El script de inserción de datos en las tablas modificadas
   \end{itemize}
-\item Sube el documento a \enlace{http://aulavirtual2.educa.madrid.org/mod/assignment/view.php?id=1116703}{la tarea correspondiente en el aula virtual}
+\item Sube el documento a \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189}{la tarea correspondiente en el aula virtual}
 \item Presta atención al plazo de entrega (con fecha y hora).
   
 \end{itemize}

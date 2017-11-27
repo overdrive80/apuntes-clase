@@ -206,6 +206,8 @@
 - La [[https://es.wikipedia.org/wiki/Distancia_de_Hamming][distancia de Hamming]] de un código es la cantidad de bits que hay que cambiar en una combinación válida para llegar a otra combinación válida
 - Cuanto mayor sea la distancia, más robusto es el código frente a errores
   - Si la distancia es $d$, se pueden detectar errores de hasta $d-1$ bits.
+  - Si la distancia es $d$, se pueden corregir errores de hasta $\lfloor(d-1)/2\rfloor$ bits.
+
 - ¿Cuál es la distancia de Hamming de una transmisión con paridad?
 
 ** [[https://es.wikipedia.org/wiki/Verificaci%25C3%25B3n_de_redundancia_c%25C3%25ADclica][CRC]]
@@ -264,15 +266,28 @@
 
 *** Ejemplo Hamming(11,7)
 - Para transmitir =0110101=
+  |                      | p1 | p2 | d1 | p3 | d2 | d3 | d4 | p4 | d5 |  d6 |  d7 |
+  |                      | s1 | s2 | s3 | s4 | s5 | s6 | s7 | s8 | s9 | s10 | s11 |
+  |----------------------+----+----+----+----+----+----+----+----+----+-----+-----|
+  | Datos                |    |    |  0 |    |  1 |  1 |  0 |    |  1 |   0 |   1 |
+  | p1                   |    |    |  0 |    |  1 |    |  0 |    |  1 |     |   1 |
+  | p2                   |    |    |  0 |    |    |  1 |  0 |    |    |   0 |   1 |
+  | p3                   |    |    |    |    |  1 |  1 |  0 |    |    |     |     |
+  | p4                   |    |    |    |    |    |    |    |    |  1 |   0 |   1 |
+  | Datos (con paridad): |    |    |  0 |    |  1 |  1 |  0 |    |  1 |   0 |   1 |
+
+#+reveal: split
+- Para transmitir =0110101=
 - Se transmite =10001100101=
-  |                      | p1 | p2 | d1 | p3 | d2 | d3 | d4 | p4 | d5 | d6 | d7 |
-  |----------------------+----+----+----+----+----+----+----+----+----+----+----|
-  | Datos                |    |    |  0 |    |  1 |  1 |  0 |    |  1 |  0 |  1 |
-  | p1                   |  1 |    |  0 |    |  1 |    |  0 |    |  1 |    |  1 |
-  | p2                   |    |  0 |  0 |    |    |  1 |  0 |    |    |  0 |  1 |
-  | p3                   |    |    |    |  0 |  1 |  1 |  0 |    |    |    |    |
-  | p4                   |    |    |    |    |    |    |    |  0 |  1 |  0 |  1 |
-  | Datos (con paridad): |  1 |  0 |  0 |  0 |  1 |  1 |  0 |  0 |  1 |  0 |  1 |
+  |                      | p1 | p2 | d1 | p3 | d2 | d3 | d4 | p4 | d5 |  d6 |  d7 |
+  |                      | s1 | s2 | s3 | s4 | s5 | s6 | s7 | s8 | s9 | s10 | s11 |
+  |----------------------+----+----+----+----+----+----+----+----+----+-----+-----|
+  | Datos                |    |    |  0 |    |  1 |  1 |  0 |    |  1 |   0 |   1 |
+  | p1                   |  1 |    |  0 |    |  1 |    |  0 |    |  1 |     |   1 |
+  | p2                   |    |  0 |  0 |    |    |  1 |  0 |    |    |   0 |   1 |
+  | p3                   |    |    |    |  0 |  1 |  1 |  0 |    |    |     |     |
+  | p4                   |    |    |    |    |    |    |    |  0 |  1 |   0 |   1 |
+  | Datos (con paridad): |  1 |  0 |  0 |  0 |  1 |  1 |  0 |  0 |  1 |   0 |   1 |
 
 
 *** Detección de un error con Hamming
@@ -301,7 +316,7 @@ http://www.ecs.umass.edu/ece/koren/FaultTolerantSystems/simulator/Hamming/Hammin
 #+end_NOTES
 
 *** ¿Y si hay más de 1 error?
-- Su distancia de Hamming es 1, así que no se puede detectar
+- Su distancia de Hamming es 3, así que no se puede detectar
 - En Hamming extendido se añade un bit de paridad adicional
   - Permite detectar errores de dos bits, pero no corregirlos
 
