@@ -1,0 +1,194 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE: Ethernet. Switchs y Hubs
+#+SUBTITLE:
+#+KEYWORDS: 
+#+language: es
+
+
+* Introducción
+
+- Recuerda que en la arquitectura IEEE 802, el nivel de enlace se divide en dos subcapas:
+  - LLC: se encarga de las funciones comunes de la capa independientemente del medio físico usado (ej: control de errores o de flujo). Sus funciones han sido definidas por el subgrupo 802.2.
+  - MAC: se encarga del acceso al medio.
+
+- En esta presentación nos ocuparemos de algunas de las funciones definidas en la subcapa MAC. Aunque haremos referencia a otros protocolos, se describirá en mayor detalle el protocolo Ethernet 802.3.
+
+
+* Dominios de colisión
+- Un dominio de colisión es el conjunto de segmentos de cable que interconectan una red donde, al transmitir dos o más estaciones, puede producirse una colisión.
+- La subcapa MAC
+  - Se encarga de que no haya colisión
+  - O si se producen, gestionar las colisiones
+
+
+** Compartición del medio 
+- Al principio del curso vimos 2 tipos de redes:
+  - Redes de difusión.
+  - Redes punto a punto. No existen colisiones.
+- En las redes de difusión, cuyo medio de transmisión está compartido por diferentes dispositivos, hace falta un mecanismo para que cada equipo pueda usar el medio durante un tiempo suficiente.  
+- Los protocolos se tienen que encargar de resolver los conflictos de acceso al medio.  Por esta razón, la capa de enlace de redes de difusión es más compleja que la de las redes punto a punto
+
+
+** Gestión de un dominio de colisión
+- *Detección de portadora*. Se trata de la capacidad de las estaciones transmisoras para detectar si en un determinado momento el canal está siendo ocupado por otra transmisión.  
+- *Detección de colisión*. Se trata de la capacidad de las estaciones para determinar si se ha producido una colisión en el medio.
+
+
+* Precedente de Ethernet (802.3)
+** [[https://es.wikipedia.org/wiki/ALOHAnet][ALOHA]]
+- Elaborado en el 1970 por la Universidad de Hawaii.
+- Se manda una trama y se espera una confirmación.
+- Si no llega la confirmación se supone que ha habido una colisión y se retransmite la trama. 
+  - Uso temporizadores.  
+  - La trama retransmitida podría colisionar otra vez.  
+  - Poco eficiente. 
+- Se mejora repartiendo el tiempo en slots. 
+  - Disminuye la probabilidad de colisión.
+  - No comprueba si el canal está libre antes de transmitir.
+
+
+** CSMA. 
+- Carrier Sense Multiple Access. 
+- Escucha el canal antes de empezar a transmitir, para comprobar que no se está en uso.
+- *CSMA persistente*: comprueba continuamente si el canal está libre.
+  - En cuanto detecta disponibilidad, envía. 
+  - Si varios dispositivos están esperando disponibilidad del canal para realizar un envío, enviarán al mismo tiempo y se producirá colisión.
+- *CSMA no persistente*: si al intentar transmitir está ocupado, espera un tiempo aleatorio antes de intentar transmisión otra vez. 
+  - Reduce las colisiones, pero aumenta el retardo con de bajo tráfico. 
+- *CSMA-CD* (Collision detection). Las estaciones son capaces de detectar una colisión después de haber empezado a transmitir. 
+  - Si esto ocurre, abortan la transmisión y vuelven a intentarlo después de un tiempo aleatorio.
+
+
+
+* Ethernet (802.3) 
+- Ethernet se basa sobre el CSMA/CD persistente. 
+- Utilizan cable UTP de cat. 5e o 6.
+  - [[https://es.wikipedia.org/wiki/100Base-TX][100 Base TX]]
+    - Usa codificación 4B/5B [[https://en.wikipedia.org/wiki/MLT-3_encoding][MTL-3]]
+  - 1000 Base T
+    - [[https://en.wikipedia.org/wiki/Pulse-amplitude_modulation][PAM]]-5
+- 1000 Base X (SX, LX...) 
+  - Fibra óptica con codificación 8B/10B
+
+** Tramas
+[[file:media/tramas-ethernet.png]]
+
+** [[https://es.wikipedia.org/wiki/IEEE_802.2][LLC]]
+[[file:media/llc.png]]
+- *DSAP* y *SSAP*: Especifican los protocolos de nivel superior 
+- Control:
+  - Paquetes *U* , con un campo de control de 8 bits, están pensados para servicios no orientados a conexión. Son los usados /normalmente/
+  - Paquetes *I*, con un campo de control y secuencia numérica de 16 bits, están pensados para servicios orientados a conexión
+  - Paquetes *S*, con un campo de control de 16 bits, están pensados para usarse en funciones supervisoras en la capa LLC (Logical Link Control).
+
+#+begin_NOTES
+- Lista de dsap-ssap:
+  - http://standards.ieee.org/develop/regauth/llc/public.html
+#+end_NOTES
+** [[https://en.wikipedia.org/wiki/Subnetwork_Access_Protocol][SNAP]]
+- Cuando DSAP y SSAP tienen el valor =0xAA=
+- Distingue protocolos adicionales a los de LLC
+  - Por ejemplo, no hay un número asignado para que IP viaje sobre LLC
+
+** ¿Se usa LLC, SNAP?
+/As per IETF RFC 1042, IP datagrams and ARP datagrams are transmitted over IEEE 802 networks using LLC and SNAP headers, except on Ethernet/IEEE 802.3, where they are transmitted with Ethernet II headers, as per RFC 894/
+- Lo normal son tramas Ethernet-DIX, o 802.3 Raw
+
+
+** Tamaño
+- Tamaño mínimo: 64 bytes (46 de datos)
+  - Se necesita un *mínimo* para poder detectar las colisiones en [[https://es.wikipedia.org/wiki/10BASE-T][10baseT]] (2500 metros máximos a 10Mbs)
+- Tamaño máximo: 1518 bytes (1500 de datos)
+  - Para limitar las colisiones y mejorar la compartición del medio
+- Estos límites son *obsoletos*
+  - Con los switches no hay colisiones
+  - Mayores velocidades permiten [[https://en.wikipedia.org/wiki/Jumbo_frame][tramas jumbo]]
+
+*** MTU
+- /Maximum Transfer Unit/
+- El sistema operativo puede permitir configurarlo para 
+  - Mejorar el rendimiento: tramas jumbo
+  - Reducir la latencia: tramas más pequeñas
+
+  #+caption: MTU por defecto para algunas redes
+  | Network              | MTU (bytes) |
+  |----------------------+-------------|
+  | 16 Mbps Token Ring   |       17914 |
+  | 4 Mbps Token Ring    |        4464 |
+  | FDDI                 |        4352 |
+  | Ethernet             |        1500 |
+  | IEEE 802.3/802.2     |        1492 |
+  | PPPoE (WAN Miniport) |        1480 |
+  | X.25                 |         576 |
+
+
+* Direcciones MAC
+- Se llaman *direcciones físicas*, aunque son de la capa de enlace
+- Son números de 48 bits (6 bytes). 
+  - Se expresan como números hexadecimales separados por dos puntos (=D4:AA:12:F3:00:C8=)
+  - En ocasiones (Windows) se utiliza como separador un - (=D4-AA-12-F3-00-C8=)
+- Cada tarjeta de red tiene una dirección MAC única
+   - 24 bits indican el fabricante
+   - 24 bits como identificador de la tarjeta dentro del fabricante
+
+- Es posible consultar el fabricante de tu tarjeta de red desde la MAC en muchos sitios de la web
+  - [[http://www.seguridadwireless.net/php/direccion-mac.php][http://www.seguridadwireless.net/php/direccion-mac.php]]
+  - [[http://standards-oui.ieee.org/oui/oui.txt][http://standards-oui.ieee.org/oui/oui.txt]]
+
+#+begin_NOTES
+
+#!/bin/bash
+#https://www.linux.com/blog/handy-2-line-script-lookup-network-card-manufacturer-mac-address
+OUI=$(echo ${1//[:.- ]/} | tr "[a-f]" "[A-F]" | egrep -o "^[0-9A-F]{6}")
+grep $OUI lynx -dump http://standards.ieee.org/regauth/oui/oui.txt
+
+#+end_NOTES
+
+** Consultar la propia MAC
+- Windows
+  =ipconfig /all=
+- Linux
+  =ifconfig -a | grep HWaddr=
+La dirección MAC: FF:FF:FF:FF:FF:FF es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred.
+
+** ¿Puedo cambiar mi MAC?
+- El sistema operativo consulta la MAC de la tarjeta
+- Después, la usa para enviar tramas
+- Pero se puede utilizar otra MAC a voluntad
+  - Máquinas virtuales
+  - Con comandos/utilidades del sistema operativo
+
+#+begin_src shell
+ifconfig eth0 down
+ifconfig eth0 hw ether 60:6c:66:b5:85:65
+ifconfig eth0 up
+#+end_src
+
+
+
+Protocolo ARP Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.  Permite determinar la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la trama localmente. Esta tarea la realiza el sistema operativo de nuestra máquina de forma transparente al usuario.  Cada vez que se hace una consulta para determinar la dirección física, el sistema operativo almacena temporalmente en una tabla la correspondencia de las direcciones IP y MAC para evitar repetir el proceso en futuros envíos.
+
+
+Protocolo ARP Desde una sesión de consola, podemos consultar la información actual de la tabla ARP con el comando: arp –a.  Otros parámetros aceptados por el comando arp son:
+- arp –d. Borra entradas en la tabla arp.
+- arp –s. Permite introducir entradas estáticas en la tabla arp.
+- Consulta el resto de opciones disponibles introduciendo el comando
+arp sin parámetros.
+
+
+Otros estándares 802.5 Token ring: utiliza el algoritmo de paso de testigo para regular el acceso al medio.  El testigo pasa de ordenador a ordenador (conectados en anillo) y si un ordenador quiere transmitir, puede hacerlo (por un tiempo limitado) cuando posee el testigo Usa codificación Manchester diferencial Existen especificaciones para lograr 1Gbps.  802.4 Token bus: es una mezcla entre ethernet y token ring. Se utiliza el paso de testigo en una red que tiene topología bus
+
+
+
+
+
+
+
+* Referencias
+- Formatos:
+  - [[file:par-03-capa-de-enlace.html][Transparencias]]
+  - [[file:par-03-capa-de-enlace.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
