@@ -146,10 +146,9 @@ grep $OUI lynx -dump http://standards.ieee.org/regauth/oui/oui.txt
 
 ** Consultar la propia MAC
 - Windows
-  =ipconfig /all=
+  - =ipconfig /all=
 - Linux
-  =ifconfig -a | grep HWaddr=
-La dirección MAC: FF:FF:FF:FF:FF:FF es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred.
+  - =ifconfig -a | grep HWaddr=
 
 ** ¿Puedo cambiar mi MAC?
 - El sistema operativo consulta la MAC de la tarjeta
@@ -165,7 +164,11 @@ ifconfig eth0 up
 #+end_src
 
 
+** Broadcast
+La dirección MAC: FF:FF:FF:FF:FF:FF es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred.
 
+
+* ARP
 Protocolo ARP Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.  Permite determinar la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la trama localmente. Esta tarea la realiza el sistema operativo de nuestra máquina de forma transparente al usuario.  Cada vez que se hace una consulta para determinar la dirección física, el sistema operativo almacena temporalmente en una tabla la correspondencia de las direcciones IP y MAC para evitar repetir el proceso en futuros envíos.
 
 
