@@ -165,8 +165,58 @@ ifconfig eth0 up
 
 
 ** Broadcast
-La dirección MAC: FF:FF:FF:FF:FF:FF es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred.
+- Hay ocasiones en las que interesa hablar con todos los ordenadores de la red
+  - [[https://es.wikipedia.org/wiki/Zeroconf][MDNS/Zeroconf]]
+  - [[https://es.wikipedia.org/wiki/Protocolo_de_resoluci%25C3%25B3n_de_direcciones][ARP]]
+  - [[https://es.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol][DHCP]]
+- La dirección MAC =FF:FF:FF:FF:FF:FF= es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred. 
 
+* Equipos de interconexión
+
+** Componentes de red: Repetidor
+- Un repetidor es un equipo con dos puertos de comunicaciones
+- Repite la señal recibida por un extremo hacia el otro extremo
+  - Puede regenerar y amplificar la señal
+  - Puede almacenar la trama completa antes de empezar a retransmitirla
+  - Un concentrador (hub) es un repetidor con más de dos puertos
+
+** Componentes de red: Puente
+- Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada
+- No solo trabaja a nivel eléctrico. Además, entiende las tramas y puede decidir si las retransmite o no
+  - Solo retransmite tramas si el destinatario está al otro lado
+- Un puente (bridge) con más de dos puertos se denomina switch.
+
+** Hub VS switch
+- Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red
+- Un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
+[[file:media/retransmision-hub.png]]
+
+** Hub VS switch
+- Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red
+- Un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
+
+[[file:media/retransmision-switch.png]]
+
+
+
+** ¿Direcciones MAC?
+- Los hub y los switch no tienen una dirección MAC
+  - Los paquetes no se dirigen directamente a ellos
+  - La introducción de un hub/switch en una infraestructura de red ya existente no cambia la configuración de ningún otro equipo
+
+** Switch ¿Configuración?
+- ¿Cómo conoce un bridge qué equipos están en qué zonas de la red?
+  - Generalmente, un bridge/switch no tiene este tipo de configuración
+- El switch aprende “hacia atrás”
+  - Nada más ser enchufado, se comporta como un hub
+  - Cada vez que recibe una trama, apunta la dirección origen de la trama y el puerto por donde ha llegado
+  - De esa forma, cuando una trama tenga como destino una dirección MAC conocida, sólo la envía por el puerto por el que llegan sus paquetes
+
+** Switch: aprendizaje inicial
+- En una red grande, es casi /obligatorio/ utilizar switches
+  - Para evitar /tormentas de broadcast/
+- Aún así, inicialmente hay una /inundación/ hasta que los switches conocen las MAC de los equipos
+[[file:media/muchos-switch.png]]
 
 * ARP
 Protocolo ARP Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.  Permite determinar la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la trama localmente. Esta tarea la realiza el sistema operativo de nuestra máquina de forma transparente al usuario.  Cada vez que se hace una consulta para determinar la dirección física, el sistema operativo almacena temporalmente en una tabla la correspondencia de las direcciones IP y MAC para evitar repetir el proceso en futuros envíos.
@@ -181,7 +231,7 @@ arp sin parámetros.
 
 Otros estándares 802.5 Token ring: utiliza el algoritmo de paso de testigo para regular el acceso al medio.  El testigo pasa de ordenador a ordenador (conectados en anillo) y si un ordenador quiere transmitir, puede hacerlo (por un tiempo limitado) cuando posee el testigo Usa codificación Manchester diferencial Existen especificaciones para lograr 1Gbps.  802.4 Token bus: es una mezcla entre ethernet y token ring. Se utiliza el paso de testigo en una red que tiene topología bus
 
-
+* 
 
 
 
