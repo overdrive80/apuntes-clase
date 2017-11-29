@@ -1,5 +1,8 @@
 #+attr_latex: :width 1pt :placement [H]
 
+# IDIOMA
+#+latex_header: \usepackage[spanish]{babel}
+
 
 # LISTADOS
 #+latex_header: \usepackage{listings}

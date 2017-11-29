@@ -30,3 +30,7 @@ body{
     background: white;
     background-color: white;
 }
+
+div.figure, caption.t-bottom{
+    font-size: 0.75em;
+}

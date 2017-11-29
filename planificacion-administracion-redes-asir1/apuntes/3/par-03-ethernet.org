@@ -2,7 +2,7 @@
 #+TITLE: Ethernet. Switchs y Hubs
 #+SUBTITLE:
 #+KEYWORDS: 
-#+language: es
+#+language: ES
 
 
 * Introducción
@@ -71,10 +71,13 @@
   - Fibra óptica con codificación 8B/10B
 
 ** Tramas
+#+caption: Estándares de tramas Ethernet/802
 [[file:media/tramas-ethernet.png]]
 
 ** [[https://es.wikipedia.org/wiki/IEEE_802.2][LLC]]
+#+caption: Cabecera LLC
 [[file:media/llc.png]]
+
 - *DSAP* y *SSAP*: Especifican los protocolos de nivel superior 
 - Control:
   - Paquetes *U* , con un campo de control de 8 bits, están pensados para servicios no orientados a conexión. Son los usados /normalmente/
@@ -86,9 +89,12 @@
   - http://standards.ieee.org/develop/regauth/llc/public.html
 #+end_NOTES
 ** [[https://en.wikipedia.org/wiki/Subnetwork_Access_Protocol][SNAP]]
-- Cuando DSAP y SSAP tienen el valor =0xAA=
+- Cuando DSAP y SSAP tienen el valor =AA= o =BB=
 - Distingue protocolos adicionales a los de LLC
   - Por ejemplo, no hay un número asignado para que IP viaje sobre LLC
+
+#+caption: Cabecera LLC y SNAP
+[[file:media/snap.png]]
 
 ** ¿Se usa LLC, SNAP?
 /As per IETF RFC 1042, IP datagrams and ARP datagrams are transmitted over IEEE 802 networks using LLC and SNAP headers, except on Ethernet/IEEE 802.3, where they are transmitted with Ethernet II headers, as per RFC 894/
@@ -188,12 +194,11 @@ ifconfig eth0 up
 
 ** Hub VS switch
 - Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red
-- Un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
-[[file:media/retransmision-hub.png]]
+
+file:media/retransmision-hub.png
 
 ** Hub VS switch
-- Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red
-- Un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
+- Si A envía un mensaje a B, un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
 
 [[file:media/retransmision-switch.png]]
 
@@ -219,28 +224,49 @@ ifconfig eth0 up
 [[file:media/muchos-switch.png]]
 
 * ARP
-Protocolo ARP Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.  Permite determinar la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la trama localmente. Esta tarea la realiza el sistema operativo de nuestra máquina de forma transparente al usuario.  Cada vez que se hace una consulta para determinar la dirección física, el sistema operativo almacena temporalmente en una tabla la correspondencia de las direcciones IP y MAC para evitar repetir el proceso en futuros envíos.
 
+- Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.  
+- Determina la dirección MAC de un equipo de nuestra misma subred conocida su dirección IP, para hacer la entrega de la trama localmente. 
+- Suele realizarlo el sistema operativo
 
-Protocolo ARP Desde una sesión de consola, podemos consultar la información actual de la tabla ARP con el comando: arp –a.  Otros parámetros aceptados por el comando arp son:
-- arp –d. Borra entradas en la tabla arp.
-- arp –s. Permite introducir entradas estáticas en la tabla arp.
-- Consulta el resto de opciones disponibles introduciendo el comando
-arp sin parámetros.
+** Comando ARP (Linux)
+- Consultar las direcciones conocidas
+#+begin_src shell
+  arp -n
+#+end_src
+- Borrar una entrada (dirección IP)
+#+begin_src shell
+  sudo arp -d III.III.III.III
+#+end_src
 
+- Añadir manualmente una entrada (dirección IP, MAC)
+#+begin_src shell
+  sudo arp -s III.III.III.III XX:XX:XX:XX:XX:XX
+#+end_src
 
-Otros estándares 802.5 Token ring: utiliza el algoritmo de paso de testigo para regular el acceso al medio.  El testigo pasa de ordenador a ordenador (conectados en anillo) y si un ordenador quiere transmitir, puede hacerlo (por un tiempo limitado) cuando posee el testigo Usa codificación Manchester diferencial Existen especificaciones para lograr 1Gbps.  802.4 Token bus: es una mezcla entre ethernet y token ring. Se utiliza el paso de testigo en una red que tiene topología bus
-
-* 
-
-
-
+** Comando ARP (Windows)
+- Consultar las direcciones conocidas
+#+begin_src shell
+  arp -a
+#+end_src
+- Borrar una entrada (dirección IP)
+#+begin_src shell
+  arp -d III.III.III.III
+#+end_src
+- Borrar todas las entradas
+#+begin_src shell
+  arp -d
+#+end_src
+- Añadir manualmente una entrada (dirección IP, MAC)
+#+begin_src shell
+  arp -s III.III.III.III XX:XX:XX:XX:XX:XX
+#+end_src
 
 
 * Referencias
 - Formatos:
-  - [[file:par-03-capa-de-enlace.html][Transparencias]]
-  - [[file:par-03-capa-de-enlace.pdf][PDF]]
+  - [[file:par-03-ethernet.html][Transparencias]]
+  - [[file:par-03-ethernet.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
