@@ -195,11 +195,13 @@ ifconfig eth0 up
 ** Hub VS switch
 - Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red
 
+#+caption: Un hub retransmite todas las tramas
 file:media/retransmision-hub.png
 
 ** Hub VS switch
 - Si A envía un mensaje a B, un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
 
+#+caption: Un switch solo retransmite si es necesario
 [[file:media/retransmision-switch.png]]
 
 
@@ -221,6 +223,8 @@ file:media/retransmision-hub.png
 - En una red grande, es casi /obligatorio/ utilizar switches
   - Para evitar /tormentas de broadcast/
 - Aún así, inicialmente hay una /inundación/ hasta que los switches conocen las MAC de los equipos
+
+#+caption: La primera comunicación entre A y B inundará la red
 [[file:media/muchos-switch.png]]
 
 * ARP
