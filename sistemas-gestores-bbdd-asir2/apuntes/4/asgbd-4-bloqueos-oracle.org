@@ -59,6 +59,7 @@
 - Idealmente, cada usuario debería poder trabajar sin notar que otros usuarios usan a la vez la base de datos
 - Debido a otras transacciones, pueden presentarse los siguientes problemas:
 
+#+ATTR_LATEX: :align l|l|p{9cm}
 | Lectura sucia        | /Dirty read/      | Un usuario lee datos aún no confirmados                                                              |
 | Lectura no repetible | /Repeatable read/ | Un usuario lee menos filas (o filas cambiadas) en =select= sucesivas dentro de la misma transaccción |
 | Fila fantasma        | /Phanton read/    | Un usuario lee más filas en =select= sucesivas  dentro de la misma transacción                       |
@@ -87,6 +88,7 @@ insert into ALUMNOS values ('3','María');
 
 
 ** Lectura no repetible
+#+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
 | Conexión 1                                           | Conexión 2                                       |
 |------------------------------------------------------+--------------------------------------------------|
 | =set transaction isolation level read committed=     | =set transaction isolation level read committed= |
@@ -102,6 +104,7 @@ insert into ALUMNOS values ('3','María');
 
 
 ** Fila fantasma
+#+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
 | Conexión 1                                                                  | Conexión 2                                       |
 |-----------------------------------------------------------------------------+--------------------------------------------------|
 | =set transaction isolation level read committed=                            | =set transaction isolation level read committed= |
@@ -124,36 +127,39 @@ insert into ALUMNOS values ('3','María');
 
 
 ** Lectura no repetible bloqueada
-| Conexión 1                                        | Conexión 2                                      |
-|---------------------------------------------------+-------------------------------------------------|
-| =set transaction isolation level serializable=    |                                                 |
-| =select * from alumnos=                           |                                                 |
-|                                                   | ~update alumnos set nombre='Pepe2' where dni=3~ |
-| ~select * from alumnos~                           |                                                 |
-| /Aún no se ve el cambio, sería una lectura sucia/ |                                                 |
-|                                                   |                                                 |
-|                                                   | =commit=                                        |
-| ~select * from alumnos~                           |                                                 |
-| /El cambio no se ve/                              |                                                 |
-| =rollback=                                        |                                                 |
+#+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
+| Conexión 1                                       | Conexión 2                                      |
+|--------------------------------------------------+-------------------------------------------------|
+| =set transaction isolation level serializable=   |                                                 |
+| =select * from alumnos=                          |                                                 |
+|                                                  | ~update alumnos set nombre='Pepe2' where dni=3~ |
+| ~select * from alumnos~                          |                                                 |
+| /No se ve el cambio, sería una lectura sucia/    |                                                 |
+|                                                  |                                                 |
+|                                                  | =commit=                                        |
+| ~select * from alumnos~                          |                                                 |
+| /El cambio no se ve, sería lectura no repetible/ |                                                 |
+| =rollback=                                       |                                                 |
 
 
 ** Fila fantasma bloqueada
-| Conexión 1                                             | Conexión 2                               |
-|--------------------------------------------------------+------------------------------------------|
-| =set transaction isolation level serializable=         |                                          |
-|                                                        | ~insert into ALUMNOS values('5','Pepe')~ |
-|                                                        | =commit=                                 |
-| =select * from alumnos=                                |                                          |
-| ~delete from alumnos where nombre='Pepe'~              |                                          |
-| ORA-08177: can't serialize access for this transaction |                                          |
-| =rollback=                                             |                                          |
+#+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
+| Conexión 1                                               | Conexión 2                               |
+|----------------------------------------------------------+------------------------------------------|
+| =set transaction isolation level serializable=           |                                          |
+|                                                          | ~insert into ALUMNOS values('5','Pepe')~ |
+|                                                          | =commit=                                 |
+| =select * from alumnos=                                  |                                          |
+| /No se ve el cambio, sería lectura no repetible/         |                                          |
+| ~delete from alumnos where nombre='Pepe'~                |                                          |
+| *ORA-08177: can't serialize access for this transaction* |                                          |
+| =rollback=                                               |                                          |
 
 
 ** Bloqueos no automáticos
 - Los niveles de aislamiento bloquean automáticamente filas, campos o tablas
 - Pero también pueden bloquearse manualmente
-- Bloqueo de una tabla completa
+- Bloqueo de una [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_9015.htm][tabla completa]]
   - =lock table TABLA=
 - Bloqueo de algunas filas:
 #+begin_src sql
@@ -247,7 +253,7 @@ select s1.username || '@' || s1.machine
 #+begin_src sql
 select s.sid, q.sql_text from v_$sqltext q, v_$session s
 where q.address = s.sql_address
-and s.sid = ELSIDBLOQUEADO
+and s.sid = *ELSIDBLOQUEADO*
 order by piece;
 #+end_src
 
