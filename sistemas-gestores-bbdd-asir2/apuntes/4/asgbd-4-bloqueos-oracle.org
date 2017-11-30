@@ -102,15 +102,15 @@ insert into ALUMNOS values ('3','María');
 
 
 ** Fila fantasma
-| Conexión 1                                                                  | Conexión 2                                 |
-|-----------------------------------------------------------------------------+--------------------------------------------|
-| =set isolation level read commited=                                         | =set isolation level read commited=        |
-| =select * from alumnos=                                                     |                                            |
-|                                                                             | ~insert into ALUMNOS values('4','Susana')~ |
-|                                                                             | =commit=                                   |
-| =select * from alumnos=                                                     |                                            |
-| /La conexión 1 leerá más alumnos en la segunda =select=, una fila fantasma/ |                                            |
-| =rollback=                                                                  |                                            |
+| Conexión 1                                                                  | Conexión 2                                       |
+|-----------------------------------------------------------------------------+--------------------------------------------------|
+| =set transaction isolation level read committed=                            | =set transaction isolation level read committed= |
+| =select * from alumnos=                                                     |                                                  |
+|                                                                             | ~insert into ALUMNOS values('4','Susana')~       |
+|                                                                             | =commit=                                         |
+| =select * from alumnos=                                                     |                                                  |
+| /La conexión 1 leerá más alumnos en la segunda =select=, una fila fantasma/ |                                                  |
+| =rollback=                                                                  |                                                  |
 
 
 * Bloqueos
