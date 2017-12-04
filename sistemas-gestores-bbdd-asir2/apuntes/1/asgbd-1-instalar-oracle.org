@@ -308,46 +308,47 @@ sqlplus / as sysdba
   - http://download.oracle.com/otn/linux/instantclient/122010/instantclient-sqlplus-linux.x64-12.2.0.1.0.zip
 - Tras descomprimir, hay que definir las variables =ORACLE_HOME= y =LD_LIBRARY_PATH= al directorio de instalación
 - Para contectarse:
-  #+begin_src
+
+#+begin_src bash
   sqlplus username/password@host:port/service
   
   sqlplus sys/alumno@centosprofe.local/asir as sysdba
-  #+end_src
+#+end_src
 
 
-#+BEGIN_NOTES
+# #+BEGIN_NOTES
 See the Instant Client Home Page for more information.
 
 - Installation of ZIP files:
   1. Download the desired Instant Client ZIP files. All installations require the Basic or Basic Light package. 
   2. Unzip the packages into a single directory such as /opt/oracle/instantclient_12_2 that is accessible to your application. For example:
-     #+begin_src   
+     #+begin_src bash
      cd /opt/oracle			
      unzip instantclient-basic-linux.x64-12.2.0.1.0.zip
      #+end_src
   3. Create the appropriate libclntsh.so and libocci.so links for the version of Instant Client. For example:
-     #+begin_src   
+     #+begin_src bash  
      cd /opt/oracle/instantclient_12_2
      ln -s libclntsh.so.12.1 libclntsh.so
      ln -s libocci.so.12.1 libocci.so
      #+end_src
   4. Install the libaio package, for example on Oracle Linux, run this as the root user:
-     #+begin_src   
+     #+begin_src bash  
      yum install libaio
      #+end_src
      On some Linux distributions the package is called libaio1.
   5. Set the environment variable LD_LIBRARY_PATH to the directory created in Step 2, for example:
-     #+begin_src   
+     #+begin_src bash  
      export LD_LIBRARY_PATH=/opt/oracle/instantclient_12_2:$LD_LIBRARY_PATH
      #+end_src
      Alternatively, add this path to an ldconfig configuration file if there is no other Oracle software that will be impacted.
   6. To use supplied binaries such as SQL*Plus, update your PATH environment variable, for example:
-     #+begin_src   
+     #+begin_src bash  
      export PATH=/opt/oracle/instantclient_12_2:$PATH
      #+end_src
   7. Start your application.
 
-#+END_NOTES
+# #+END_NOTES
 
 ** Instalación de *SQLDeveloper* en Centos
 - Se necesita *JDK 1.8*
@@ -401,14 +402,14 @@ Nada de esto es /directamente/ bases de datos...
 | ~nc~       | Conectarse por TCP o UDP                 |
   
 ** Comandos, /shell/ y variables 
-| ~$variable~    | Valor de una variable (de =export= y =env= )        |
-| \vert          | Manda la salida de un programa a la entrada de otro |
-| ~$HOME/bashrc~ | /script/ de inicio del usuario                      |
-| ~source~       | Ejecuta un /script/ dentro de la /shell/ actual     |
-| ~export~       | Define una variable                                 |
-| ~env~          | Lista de variables                                  |
-| ~PATH~         | Lista de directorios donde se buscan comandos       |
-| ~history~      | Lista de comandos introducidos en la /shell/        |
+| ~$variable~     | Valor de una variable (de =export= y =env= )        |
+| \vert           | Manda la salida de un programa a la entrada de otro |
+| ~$HOME/.bashrc~ | /script/ de inicio del usuario                      |
+| ~source~        | Ejecuta un /script/ dentro de la /shell/ actual     |
+| ~export~        | Define una variable                                 |
+| ~env~           | Lista de variables                                  |
+| ~PATH~          | Lista de directorios donde se buscan comandos       |
+| ~history~       | Lista de comandos introducidos en la /shell/        |
 
 
 
