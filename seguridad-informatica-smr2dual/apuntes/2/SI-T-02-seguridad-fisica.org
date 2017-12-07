@@ -79,7 +79,7 @@ Trataremos estas tecnologías más adelante, en otro tema, cuando hablemos del a
 
 ** Personal de vigilancia.
 Según la legislación Española, las tareas de vigilancia se encomiendan a un profesional vigilante o guardia de seguridad privada, que pertenecen obligatoriamente a una empresa de seguridad y siguen un proceso de selección y acreditación de acuerdo a normativa.
-“Se reserva al personal de seguridad privada estrictamente las funciones de vigilancia y seguridad activa de bienes y personas –diurna y nocturna- y el control de sistemas de seguridad; entendiéndose por vigilancia y seguridad activa aquella que incluye la posibilidad de repeler cualquier agresión al bien que se vigila”
+“Se reserva al personal de seguridad privada estrictamente las funciones de vigilancia y seguridad activa de bienes y personas -diurna y nocturna- y el control de sistemas de seguridad; entendiéndose por vigilancia y seguridad activa aquella que incluye la posibilidad de repeler cualquier agresión al bien que se vigila”
 
 #+caption: Personal de vigilancia
 [[file:media/vigilante-de-seguridad.png]]
@@ -158,7 +158,7 @@ Los deshumidificadores pueden conectase a un desagüe para evacuar el agua en es
 [[file:media/deshumidificador.png]]
 
 ** Polvo
-El polvo son partículas sólidas de todo tipo en suspensión (fibras, tierra, pelos y piel de animales y humanos, polen, resinas…) .
+El polvo se compone de  partículas sólidas de todo tipo en suspensión (fibras, tierra, pelos y piel de animales y humanos, polen, resinas…) .
 Es un gran enemigo de los sistemas informáticos:
 - Recubre los circuitos y propicia la acumulación de humedad, provocando óxido o desperfectos relacionados con la electricidad.
 - Se adhiere a dispositivos lectores (Ej: los cabezales de dispositivos ópticos).
@@ -219,8 +219,8 @@ En cualquier caso, la central de alarma hará una o más de éstas acciones:
 ** Sistemas de extinción.
 - Automáticos: En muchos entornos en los que hay instalados ordenadores se cuenta con sistemas de extinción automáticos instalados en el edificio y sus dependencias. 
   - Principalmente se basan en esparcir algún agente extintor en el ambiente, como el agua nebulizada, 
-  - Puede sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO2)
-  - Los gases limpios (HF's, como el FE13 y el FM200) actúan directamente sobre el fuego a concentraciones relativamente bajas. Se almacenan como gases licuados y apagan el fuego por enfriamiento de la llama. Tienen menor toxicidad que el CO2 y no afectan a la capa de ozono.
+  - Puede sustituir el oxígeno del aire por algún otro gas que impida la combustión, como  gas inergen (una mezcla de nitrógeno, argón y CO_2)
+  - Los gases limpios (HF's, como el FE13 y el FM200) actúan directamente sobre el fuego a concentraciones relativamente bajas. Se almacenan como gases licuados y apagan el fuego por enfriamiento de la llama. Tienen menor toxicidad que el CO_2 y no afectan a la capa de ozono.
   - También son gases de este tipo los hidrocarburos halogenados, derivados del gas halón, utilizados durante mucho tiempo, pero actualmente /prohibidos/ por su efecto sobre la capa de ozono.
 
 
@@ -253,7 +253,7 @@ Los principales agentes extintores para uso automático son:
 - Gases eliminadores del oxígeno. Tradicionalmente se han utilizado derivados del gas halón, pero dañan la capa de ozono. Existen soluciones alternativas, como el gas inergén.
 
 ** Vías de evacuación y señalización.
-Distintas normas europeas  indican cómo debe ser la señalización referida a los incendios. En todos los casos se trata de señales verdes que se colocan en partes altas.
+Distintas normas europeas indican cómo debe ser la señalización referida a los incendios. En todos los casos se trata de señales verdes que se colocan en partes altas.
 
 #+caption: Señalización de las vías de evaluación
 [[file:media/senalizacion-emergencia.png]]
@@ -287,9 +287,9 @@ Vamos a comentar acerca de los principales factores de riesgo que pueden suponer
   - Alarmas detectoras de incendios (normalmente, conectadas a una empresa de seguridad).
   - Extintores automáticos y manuales.
   - Sistemas mixtos de alarmas(Un sistema mixto es sistema de alarma contra intrusos que también gestiona la detección del fuego)
-- Redes internas (lan)
+- Redes internas (LAN)
   - Duplicación de redes
-- Redes externas (wan)
+- Redes externas (WAN)
   - Duplicación de proveedores
 - Climatización (temperatura, humedad, polvo)
   - Control ambiental con refrigeración, deshumidificadores, filtros de polvo
@@ -406,8 +406,8 @@ Un equipo RAID para rack mide, por supuesto 19” de ancho y un múltiplo de “
 
 ** La red eléctrica
 En España, el suministro de corriente eléctrica se hace con corriente alterna (que es la forma de transportar corriente a largas distancias, con éstos parámetros fijos:
-Tensión: 230 Volts (Con ±10V de oscilaciones permitidas, es decir, entre 220 y 240 Volts)
-Frecuencia: 50 Hertz
+- Tensión: 230 Volts (Con ±10V de oscilaciones permitidas, es decir, entre 220 y 240 Volts)
+- Frecuencia: 50 Hertz
 
 Los dispositivos electrónicos (ordenadores, periféricos, comunicaciones…) utilizan corriente continua, así que la corriente alterna se transforma en continua en cada dispositivo, mediante fuentes de alimentación o transformadores.
 
@@ -489,7 +489,7 @@ La red eléctrica proporciona tensiones nominales de entre 220 y 240V La potenci
 La instalación eléctrica debe ir acorde a la potencia suministrada. Un Interruptor de Control de Potencia (ICP) se coloca a la entrada del suministro, después de los contadores para garantizar que no se consume más allá de la potencia contratada. Hay uno a la entrada de cada cliente. Se coloca más para control de consumo que para seguridad.
 
 *** Los interruptores magnetotérmicos
-Protegen un circuito. Cada uno admite una determinada corriente máxima, que se mide en Amperes (A). Los magnetotérmicosvienen marcados con la letra “C” -de Current, corriente- y una cantidad, que indica el paso máximo de corriente que permiten “C16 → 16 Amperios máximo”. Saltan ante cortocircuitos y consumo excesivo (sobrecarga del circuito)
+Protegen un circuito. Cada uno admite una determinada corriente máxima, que se mide en Amperes (A). Los magnetotérmicos vienen marcados con la letra “C” -de Current, corriente- y una cantidad, que indica el paso máximo de corriente que permiten “C16 → 16 Amperios máximo”. Saltan ante cortocircuitos y consumo excesivo (sobrecarga del circuito)
 Es capaz de interrumpir la corriente eléctrica de un circuito cuando ésta sobrepasa ciertos valores máximos (Que se expresan en amperios)
 
 #+caption: Mangetotérmico doble
