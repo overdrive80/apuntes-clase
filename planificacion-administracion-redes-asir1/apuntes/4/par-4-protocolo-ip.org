@@ -14,7 +14,7 @@
   - Encontrar la ruta necesaria para enviar un paquete individual
   - Determinar si un paquete recibido es correcto
 
-* Estructura paquete IP
+** Estructura paquete IP
 
 [[file:media/cabecera-ip.png]]
 
@@ -57,7 +57,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 | ~192.168.1.1~                      |
 | ~11000000101010000000000100000001~ |
 
-* Direcciones IP ¿qué identifican?
+** Direcciones IP ¿qué identifican?
 - Las direcciones no se asignan por host.
 - Se asignan a interfaces del host
   - Un equipo con dos enlaces a la red tendrá dos direcciones IP
@@ -144,158 +144,131 @@ Host 1
 
 | Bits de red | Bits de host | Significado                              |
 |-------------+--------------+------------------------------------------|
-|           0 |            0 | El propio host                           |
-|           0 |         host | Host indicado dentro de mi red           |
+|           0 |            0 | El propio host ~*~                       |
+|           0 |         host | Host indicado dentro de mi red~*~        |
 |         red |            0 | Dirección de la red                      |
-|           1 |            1 | Difusión a mi red                        |
+|           1 |            1 | Difusión a mi red ~*~                    |
 |         red |            1 | Difusión a la red indicada (/broadcast/) |
 
+~*~ En desuso
 
 
-* En las últimas versiones ya no
-* Direcciones de red y host
-- En la Internet original, las tramas IP se
-llevaban hasta la red a la que pertenecían
-- La red de destino se suponía un gran bus.
-Una vez la trama llegaba a la red, el host
-de destino recibía la trama
-* Problemas de las clases IP
-- En un principio, IP tenía suficientes direcciones
-y redes para todo el mundo
-- La creciente demanda de direcciones IP supuso
-problemas
-   -  Ejemplo: Una empresa con 3000 hosts debe reservar
-una red de clase B, con más de 65000 direcciones
-(muchas direcciones desperdiciadas)
-   -  Si reserva más de una red de clase B (unas 12), hay
-que configurar muchas redes en los routers
-intermedios.
-- Últimamente (desde 1985) las direcciones IP ya
-no se dividen en clases, utilizándose el CIDR
-(Classless Internet Domain Routing)
+** ¿Para qué sirve la red y el host?
+- Cuando un host va a enviar un paquete
+  - Decide si el destino está en su misma red
+  - Si está en su misma red, se encarga la capa de enlace (posiblemente con ARP)
+  - Si no está en su red, envía el paquete al router
+  - Y el router está en su misma red
+
+
+** Problemas de las clases IP
+- En un principio, IP tenía suficientes direcciones y redes para todo el mundo
+- La creciente demanda de direcciones IP supuso problemas
+   -  Ejemplo: Una empresa con 3000 hosts debe reservar una red de clase B, con más de 65000 direcciones (muchas direcciones desperdiciadas)
+   -  Si reserva más de una red de clase B (unas 12), hay que configurar muchas redes en los routers intermedios.
+- Últimamente (desde 1985) las direcciones IP ya no se dividen en clases, utilizándose CIDR (/Classless Internet Domain Routing/)
+
 * CIDR
-- Classles Internet Domain Routing
-- La dirección IP ya no da información
-acerca de los bits reservados para red y
-para host
-- Las redes se identifican por la dirección
-de la red y el número de bits destinado a
-la misma
-   - 172.16.0.0/12
-   - 198.18.0.0/15
-* CIDR
-- Con CIDR las parte de la dirección red y
-host se calcula mediante las máscaras de
-red
+- /Classles Internet Domain Routing/
+- La dirección IP ya no da información acerca de los bits reservados para red y para host
+- Las redes se identifican por la dirección de la red y el número de bits destinado a la misma
+   - ~172.16.0.0/12~
+   - ~198.18.0.0/15~
+
+** Máscara de red
+- Con CIDR las parte de la dirección red y host se calcula mediante las máscaras de red
 - La máscara de red es un número binario:
    - Tantos 1’s como el tamaño de la red CIDR
-   - Los 0’s necesarios para completar hasta los
-32 bits
-- Las máscaras de red también se expresan
-como 4 números decimales separados por
-puntos.
-* CIDR
-- ¿Qué máscaras de red tienen las
-siguientes redes?
+   - Los 0’s necesarios para completar hasta los 32 bits
+- Las máscaras de red también se expresan como 4 números decimales separados por puntos.
+
+** Ejercicio
+- ¿Qué máscaras de red tienen las siguientes redes?
    - 172.16.0.0/12
    - 198.18.0.0/15
    - 198.18.0.0/30
    - 192.168.255.0/24
    - 172.31.0.0/16
-* CIDR: Máscaras de red
-- Con CIDR, la dirección de red sigue
-siendo la que tiene todos los bits del host
-a 0, y la de broadcast a 1.
-- Sin embargo, ya no es tan fácil como con
-clases
+
+** Dirección de red
+- Con CIDR, la dirección de red sigue siendo la que tiene todos los bits del host a 0, y la de broadcast a 1.
+- Sin embargo, ya no es tan fácil como con clases
    - Los bits de la red no son múltiplos de 8
-- Se utiliza una máscara de red, realizando
-la operación AND con la dirección IP para
-encontrar la dirección de red
-* CIDR: Máscaras de red
+- Se utiliza una máscara de red, realizando la operación ~AND~ con la dirección IP para encontrar la dirección de red
+
+
+#+reveal: split
 - Ejemplo
-   - La dirección IP es 192.168.20.100/26
-   - La máscara de red son 26 1’s
+   - La dirección IP es ~192.168.20.100/26~
+   - La máscara de red son 26 1’s \to ~255.255.255.192~
    - La dirección pertenece a la red
-192.168.20.64/26
-255.255.255.192
-AND 192.168.020.100
-192.168.020.064
-* CIDR
-- Utilizando máscaras de red pueden
-saltarse los límites de las clases IP
-   - Una red grande puede dividirse en varias
-redes pequeñas
-   - Varias redes pequeñas pueden reunirse en
-una red más grande
-* CIDR Subnetting
-- Consiste en crear subredes pequeñas dentro de
-una red de clase A, B o C
+   #+begin_example
+       255.255.255.192
+   AND 192.168.020.100
+   -------------------
+       192.168.020.064
+   #+end_example
+  - La red a la que pertenece es ~192.168.20.64/26~
+
+** /Subnetting/ y /supernetting/
+- Utilizando máscaras de red pueden saltarse los límites de las clases IP
+   - Una red grande puede dividirse en varias redes pequeñas (/subnetting/)
+   - Varias redes pequeñas pueden reunirse en una red más grande (/supernetting/)
+
+** Subnetting
+- Consiste en crear subredes pequeñas dentro de una red de clase A, B o C
 - Ejemplo
    -  Conseguir 4 redes a partir de una red clase C
-192.168.20.0: Red clase C
-Máscara de red:
-255.255.255.0
-192.168.20.0/24
-(CIDR)
-Ampliando la
-máscara 2 bits
-tenemos
-192.168.20.0/26
-(CIDR)
-Redes Primer host Ultimo host Broadcast
-Red original clase C 192.168.20.0/24 192.168.20.1 192.168.20.254 192.168.20.255
-192.168.20.0/26 192.168.20.1 192.168.20.62 192.168.20.63
-192.168.20.64/26 192.168.20.65 192.168.20.126 192.168.20.127
-192.168.20.128/26 192.168.20.129 192.168.20.190 192.168.20.191
-192.168.20.192/26 192.168.20.193 192.168.20.254 192.168.20.255
-Subnetting para 4
-redes
+   - Hay que aumentar la máscara de red 2 bits (4 posibilidades)
+#+reveal: split
+|                | Redes               | Primer host      | Último host      | Broadcast        |
+|----------------+---------------------+------------------+------------------+------------------|
+| Red original   | ~192.168.20.0/24~   | ~192.168.20.1~   | ~192.168.20.254~ | ~192.168.20.255~ |
+|----------------+---------------------+------------------+------------------+------------------|
+| Primera subred | ~192.168.20.0/26~   | ~192.168.20.1~   | ~192.168.20.62~  | ~192.168.20.63~  |
+| Segunda subred | ~192.168.20.64/26~  | ~192.168.20.65~  | ~192.168.20.126~ | ~192.168.20.127~ |
+| Tercera subred | ~192.168.20.128/26~ | ~192.168.20.129~ | ~192.168.20.190~ | ~192.168.20.191~ |
+| Cuarta subred  | ~192.168.20.192/26~ | ~192.168.20.193~ | ~192.168.20.254~ | ~192.168.20.255~ |
+
 http://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi
-* CIDR Supernetting
-- A partir de varias redes pequeñas
-(generalmente clase C), conseguir una
-más grande
+
+** Supernetting
+- A partir de varias redes pequeñas (generalmente clase C), conseguir una más grande
 - Ejemplo
-   - Conseguir una red con más de 1000 hosts a
-partir de redes clase C
-Tenemos las 32 redes
-192.168.0.0 a la
-192.168.31.0
-Reducimos la
-máscara en 5
-bits
-192.168.0.0/19
-Red Primer host Último host Broadcast Máscara
-192.168.0.0/19 192.168.0.1 192.168.31.254 192.168.31.255 255.255.255.224
-* CIDR: Redes reservadas
-- En el estándar CIDR se reserva la primera
-y última red de cada partición
-   - Por ejemplo, al dividir la red de clase C
-192.168.20.0/24 en 4 redes (pasando a
-máscara /26), las redes 192.168.20.0/26 y
-192.168.20.192/26 quedan reservadas
-   - La mayoría de routers e implementaciones de
-IP pueden trabajar con ellas, pero es mejor no
-utilizarlas para no tener problemas con
-equipos antiguos o quisquillosos.
-* Otras redes reservadas
-Red Uso
-0.0.0.0/8 El propio host
-127.0.0.0/8
-"loopback", utilizado para enviar
-paquetes IP al propio host
-10.0.0.0/8
-172.16.0.0/12
-192.168.0.0/16
-169.254.0.1 a
-169.254.255.254
-"Link Local". Direcciones
-automáticas en redes pequeñas sin
-servidor DHCP
-Redes privadas (RFC 1918) No
-puede usarse en Internet
-- IANA, por medio de RFC’s, ha reservado
-varias redes para usos concretos. Algunos
-ejemplos son:
-* 
+   - Conseguir una red con más de 1000 hosts a partir de redes clase C
+1. Tenemos las 32 redes ~192.168.0.0~ a la ~192.168.31.0~
+2. Reducimos la máscara en 5 bits \to ~192.168.0.0/19~
+| Red              | Primer host   | Último host      | Broadcast        | Máscara           |
+|------------------+---------------+------------------+------------------+-------------------|
+| ~192.168.0.0/19~ | ~192.168.0.1~ | ~192.168.31.254~ | ~192.168.31.255~ | ~255.255.255.224~ |
+
+
+* Redes reservadas
+- IANA, por medio de RFC’s, ha reservado varias redes para usos concretos. Algunos ejemplos son:
+
+
+| Red              | Uso                                                                                 |
+|------------------+-------------------------------------------------------------------------------------|
+| ~127.0.0.0/8~    | "loopback", utilizado para enviar paquetes IP al propio host                        |
+| ~10.0.0.0/8~     | Red privada (RFC 1918)                                                              |
+| ~172.16.0.0/12~  | Red privada (RFC 1918)                                                              |
+| ~192.168.0.0/16~ | Red privada (RFC 1918)                                                              |
+| ~169.254.0.0/16~ | /Link Local/ o /APIPA/. Direcciones automáticas en redes pequeñas sin servidor DHCP |
+
+
+
+
+** CIDR: Redes reservadas
+- En el estándar CIDR se reserva la primera y última red de cada partición
+   - Por ejemplo, al dividir la red de clase C ~192.168.20.0/24~ en 4 redes (pasando a máscara ~/26~), las redes ~192.168.20.0/26~ y ~192.168.20.192/26~ quedan reservadas
+   - La mayoría de routers e implementaciones de IP pueden trabajar con ellas, pero es mejor no utilizarlas para no tener problemas con equipos antiguos.
+
+
+* Referencias
+- Formatos:
+  - [[file:par-4-protocolo-ip.html][Transparencias]]
+  - [[file:par-4-protocolo-ip.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
