@@ -134,7 +134,7 @@ Fuente: wikitecno]]
 ** Modulación de señal
 - Las señales no se suelen emitir sin más (excepto a veces en banda base)
 - Sino que se transmiten como variaciones de una [[https://www.geogebra.org/m/KfUX66de][onda sinusoidal]]
-  $$y(t) = A\times sen(\omega \times t + \varphi)$$
+  $$y(t) = A\cdot sen(\omega \cdot t + \varphi)$$
   - $A$: Amplitud 
   - $\omega$: Frecuencia
   - $\varphi$: Fase 
