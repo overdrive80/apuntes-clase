@@ -15,7 +15,7 @@
 * Protocolo IP
 [[file:media/protocolos-tcp-ip.png]]
 
-* Protocolo IP
+** Protocolo IP
 - Internet Protocol (RFC 791)
 - Es un protocolo de la capa 3 (red) del modelo OSI
 - Entre sus funciones se encuentran:
@@ -26,6 +26,7 @@
 ** Estructura paquete IP
 
 [[file:media/cabecera-ip.png]]
+[[https://en.wikipedia.org/wiki/IPv4#Packet_structure][Estructura en la wikipedia]]
 
 ** Longitud de la cabecera
 - IP no tiene un tamaño de cabecera fijo
