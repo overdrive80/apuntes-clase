@@ -650,7 +650,7 @@ Pero el SAI Off-line sólo obtiene energía de la batería cuando hay una ausenc
 El conmutador tarda un cierto tiempo en detectar el problema... en general, es rápido, pero durante un corto periodo de tiempo, la salida presentará el problema que el SAI intentará subsanar. A este tiempo, se le llama tiempo de conmutación  o de  transferencia.
 Aunque no lo hayamos dibujado, muchos de ellos cuentan con un sencillo filtro en la entrada que elimina los posibles ruídos.
 
-*** Off-Line interactivos, o con estabilizador o AVR
+*** Off-Line interactivos, o activos, o con estabilizador o AVR
 El estabilizador (AVR- AutomaticVoltageRegulator) es un circuito que es capaz de proporcionar una tensión de salida constante (230V en el caso de España), aunque la entrada tenga pequeñas fluctuaciones. Un SAI interactivo dispone de un AVR en la entrada de corriente alterna (desde la red eléctrica), y proporciona al cargador de la batería y a la salida de AC una tensión constante. Los AVR tienen un rango de trabajo. Si la entrada cae por debajo de los 175V o sube por encima de los 270V (aproximadamente), no podrán estabilizarla, y el conmutador deberá conmutar la salida a la batería.
 
 #+caption: SAI offline interactivo
