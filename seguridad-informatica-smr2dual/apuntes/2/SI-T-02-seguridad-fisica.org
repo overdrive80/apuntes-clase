@@ -528,7 +528,7 @@ El botón “T” (de Test) sirve para comprobar que funciona correctamente, ya 
 
 *** La toma de Tierra.
 La instalación eléctrica, además de los dos cables que traen la corriente alterna cuenta con un tercero conectado a tierra.
-(La FASE –que siempre es rojo,  marrón o negro- es el conductor que realmente trae la potencia. El NEUTRO, que siempre es azul es realmente el retorno del circuito. No transporta corriente si no se cierra el circuito con la fase. La TIERRA –en amarillo y verde- está conectado a un gran clavo en los cimientos del edificio.
+(La *FASE* –que siempre es rojo, marrón o negro- es el conductor que realmente trae la potencia. El *NEUTRO*, que siempre es azul es realmente el retorno del circuito. No transporta corriente si no se cierra el circuito con la fase. La *TIERRA* –en amarillo y verde- está conectado a un gran clavo en los cimientos del edificio.
 
 El enchufe schuko garantiza las fugas a tierra de corrientes descontroladas y estáticas en aquellos aparatos construidos de manera adecuada para ello.
 
