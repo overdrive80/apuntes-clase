@@ -1,3 +1,6 @@
+REM Ponemos el idioma en inglés, por problemas con las fechas
+ALTER SESSION SET NLS_LANGUAGE='English'
+
 REM ******************************************************************
 REM  File:        CreateStudent.sql
 REM  Description: Used for creating the objects and loading data
