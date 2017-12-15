@@ -319,6 +319,50 @@ También es importante en algunos casos, decidir dónde y cómo ubicar las insta
 
 Por último, una consideración acerca de la duplicación de sistemas en un Datacenter. Ya hemos comentado que en los CPD es común duplicar algunos sistemas, como las acometidas de electricidad o las redes. En algunos casos, se opta por duplicar completamente el centro, en otras instalaciones alejadas, de tal manera que tengan los mismos datos y el mismo funcionamiento, para que en caso de fallo en un datacenter, el otro siga operativo.
 
+** Niveles TIER 
+
+El concepto de Tier nos indica el nivel de fiabilidad de un centro de datos asociados a cuatro niveles de disponibilidad definidos. A mayor número en el Tier, mayor disponibilidad, y por lo tanto mayores costes asociados en su construcción y más tiempo para hacerlo. A día de hoy se han definido cuatro Tier diferentes, y ordenados de menor a mayor son:
+
+*** Tier I: Centro de datos Básico: Disponibilidad del 99.671%.
+
+- El servicio puede interrumpirse por actividades planeadas o no planeadas.
+- No hay componentes redundantes en la distribución eléctrica y de refrigeración.
+- Puede o no puede tener suelos elevados, generadores auxiliares o UPS.
+- La infraestructura del datacenter deberá estar fuera de servicio al menos una vez al año por razones de mantenimiento y/o reparaciones.
+
+*** Tier II: Centro de datos Redundante: Disponibilidad del 99.741%.
+- Menos susceptible a interrupciones por actividades planeadas o no planeadas.
+- Tiene suelos elevados, generadores auxiliares o UPS.
+- Conectados a una única línea de distribución eléctrica y de refrigeración.
+- Componentes redundantes (N+1). 
+  - Una única línea alimenta a dos SAI. Cada SAI es capaz de mantener a todos (N) los equipos.
+- El mantenimiento de esta línea de distribución o de otras partes de la infraestructura requiere una interrupción del servicio.
+
+*** Tier III: Centro de datos Concurrentemente Mantenibles: Disponibilidad del 99.982%.
+
+- Permite planificar actividades de mantenimiento sin afectar al servicio de computación, pero eventos no planeados pueden causar paradas no planificadas.
+- Componentes redundantes (N+1)
+- Conectados  múltiples líneas de distribución eléctrica y de refrigeración, pero únicamente con una activa.
+- Hay suficiente capacidad y distribución para poder llevar a cabo tareas de mantenimiento en una línea mientras se da servicio por otras.
+
+*** Tier IV: Centro de datos Tolerante a fallos: Disponibilidad del 99.995%.
+
+- Permite planificar actividades de mantenimiento sin afectar al servicio de computación críticos, y es capaz de soportar por lo menos un evento no planificado del tipo ‘peor escenario’ sin impacto crítico en la carga.
+- Conectados múltiples líneas de distribución eléctrica y de refrigeración con múltiples componentes redundantes
+- Componentes redundantes  2(N+1)
+  - Duplicación de sistemas N+1. Implica que cada uno de los cuatro SAI puede mantener a todos los equipos. Hay dos líneas de alimentación exterior. Cada ordenador se conecta a los dos SAI de forma separada.
+
+
+#+caption: Resumen de niveles TIER
+[[file:media/tier.png]]
+
+
+
+*** Bibliografia                                                  :noexport:
+https://www.ovh.es/servidores_dedicados/niveles-tier-3-4.xml
+http://blog.aodbc.es/2012/07/10/clasificacion-tier-en-el-datacenter-el-estandar-ansitia-942/
+https://www.muycomputerpro.com/2013/03/14/que-es-un-tier
+
 * Sujeción y factores de forma en entorno profesional: el Rack
 El armario RACK es la forma estándar de configurar instalaciones de hardware formados por múltiples dispositivos. Está respaldado por varias organizaciones de estándares.
 
