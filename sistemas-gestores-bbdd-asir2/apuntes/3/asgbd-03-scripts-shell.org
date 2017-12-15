@@ -20,7 +20,7 @@
 - También es conveniente añadir los comandos de *Oracle* al /path/
 - El siguiente /script/ puede utilizarse para tener estas variables (ejecutándolo con =source=)
 
-#+begin_src shell
+#+begin_src sh
 #!/bin/sh 
 ORACLE_HOME=/var/oracle/product/12.1.0/asir_bbdd
 ORACLE_SID=asir
@@ -37,12 +37,12 @@ export ORACLE_SID
 
 #+reveal: split
 *SQLPlus* con autenticación de sistema operativo
-#+begin_src shell
+#+begin_src sh
 sqlplus / as sysdba
 #+end_src
 
 *SQLPlus* con autenticación de *Oracle*
-#+begin_src shell
+#+begin_src sh
 sqlplus sys/alumno as sysdba
 #+end_src
 
@@ -53,13 +53,29 @@ sqlplus sys/alumno as sysdba
 - Para conectar por red con *SQLPlus* se utiliza un descriptor de conexión
   - Los descriptores están en el fichero =tnsnames.ora=
 
-#+begin_src shell
+#+begin_src sh
 sqlplus sys/alumno@CONEXION as sysdba
 #+end_src
 
 ** =tnsnames.ora=
-
-
+#+begin_src lisp
+MYSID=
+  (DESCRIPTION =
+    (ADDRESS_LIST =
+      (ADDRESS = (PROTOCOL = TCP)(HOST = mydnshostname)(PORT = 1521))
+    )
+    (CONNECT_DATA =
+      (SERVICE_NAME = MYSID)
+    )
+  )
+#+end_src
+- Situado en =$ORACLE_HOME/network/admin/=
+- Indica las formas de conexión a instancias de base de datos
+  - Protoloco de conexión: TCP
+  - Dirección IP
+  - Puerto
+  - SID
+- Equivalen a la lista de conexiones de SQLDeveloper
 
 
 * Ejecución de *SQL* desde la /shell/
@@ -69,7 +85,7 @@ sqlplus sys/alumno@CONEXION as sysdba
   - Se puede usar un /heredoc/
 
 ** Ejemplo /heredoc/
-#+begin_src shell
+#+begin_src sh
 sqlplus -S alumno/alumno <<HEREDOC
 set  autocommit off
 create table prueba(un_atributo int);
@@ -84,7 +100,7 @@ HEREDOC
 
 - Puede enviarse la salida a un fichero
 
-#+begin_src shell
+#+begin_src sh
 sqlplus -S alumno/alumno <<HEREDOC
 set  autocommit off
 insert into prueba values(1);
@@ -101,7 +117,7 @@ less prueba.txt
 ** Formateo básico de la salida 
 
 - Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
-#+begin_src shell
+#+begin_src sh
 sqlplus -S sys/alumno as sysdba <<HEREDOC
 set colsep ','    -- separate columns with a comma
 set pagesize 0    -- No header rows
@@ -125,10 +141,12 @@ HEREDOC
 
 - =sqlplus= también puede leer scripts de =SQL= con *=@=*
 
-#+begin_src shell
+#+begin_src sh
+
 sqlplus -S sys/alumno as sysdba <<HEREDOC
 @/camino/al/fichero.sql
 HEREDOC
+
 #+end_src
 
 
@@ -143,7 +161,7 @@ HEREDOC
   - no hace =startup open=, así que no se registra en el /listener/ :( 
   - Se puede modificar el /script/ para que lo haga
 
-#+begin_src shell
+#+begin_src sh
 # This file is used by ORACLE utilities.  It is created by root.sh
 # and updated by either Database Configuration Assistant while creating
 # a database or ASM Configuration Assistant while creating ASM instance.
@@ -180,7 +198,7 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
   - Otros servicios dependen de ellos (=WantedBy=)
   - Se puede elegir el usuario que lo lanza (=User=)
 
-#+begin_src shell
+#+begin_src sh
 [Unit]
 Description=Oracle
 After=network.target
@@ -201,13 +219,13 @@ Más información con =man systemd.service=
 #+reveal: split
 
 - Habilitar/Deshabilitar un servicio al inicio del sistema
-#+begin_src shell
+#+begin_src sh
 systemctl enable SERVICIO
 systemctl disable SERVICIO
 #+end_src
 
 - Arrancar o parar un servicio
-#+begin_src shell
+#+begin_src sh
 systemctl start SERVICIO
 systemctl stop SERVICIO
 #+end_src
