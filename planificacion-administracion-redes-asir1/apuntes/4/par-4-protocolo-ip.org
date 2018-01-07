@@ -253,6 +253,15 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
    #+end_example
   - La red a la que pertenece es ~192.168.20.64/26~
 
+** Ejercicio
+- ¿A qué red perteneces las siguientes direcciones IP?
+   - ~172.46.25.1/12~
+   - ~198.30.18.18/15~
+   - ~198.30.18.18/30~
+   - ~192.168.255.253/24~
+   - ~172.37.10.255/16~
+
+
 ** /Subnetting/ y /supernetting/
 - Utilizando máscaras de red pueden saltarse los límites de las clases IP
    - Una red grande puede dividirse en varias redes pequeñas (/subnetting/)
@@ -267,6 +276,8 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 |                | Redes               | Primer host      | Último host      | Broadcast        |
 |----------------+---------------------+------------------+------------------+------------------|
 | Red original   | ~192.168.20.0/24~   | ~192.168.20.1~   | ~192.168.20.254~ | ~192.168.20.255~ |
+|----------------+---------------------+------------------+------------------+------------------|
+|                |                     |                  |                  |                  |
 |----------------+---------------------+------------------+------------------+------------------|
 | Primera subred | ~192.168.20.0/26~   | ~192.168.20.1~   | ~192.168.20.62~  | ~192.168.20.63~  |
 | Segunda subred | ~192.168.20.64/26~  | ~192.168.20.65~  | ~192.168.20.126~ | ~192.168.20.127~ |

@@ -1,5 +1,7 @@
 REM Ponemos el idioma en inglés, por problemas con las fechas
-ALTER SESSION SET NLS_LANGUAGE='English'
+ALTER SESSION SET NLS_LANGUAGE='English';
+ALTER SESSION SET NLS_DATE_LANGUAGE='English';
+
 
 REM ******************************************************************
 REM  File:        CreateStudent.sql
@@ -4062,3 +4064,15 @@ SELECT 'Count of ZIPCODE Table:', COUNT(*)
 SET PAGES 24
 SET ECHO ON
 
+/*
+| Count of COURSE             |   30 |
+| Count of ENROLLMENT         |  226 |
+| Count of GRADE              | 2004 |
+| Count of GRADE_CONVERSION   |   15 |
+| Count of GRADE_TYPE         |    6 |
+| Count of GRADE_TYPE_WEIGHT  |  300 |
+| Count of INSTRUCTOR         |   10 |
+| Count of SECTION            |   78 |
+| Count of STUDENT            |  268 |
+| Count of ZIPCODE            |  227 |
+*/
