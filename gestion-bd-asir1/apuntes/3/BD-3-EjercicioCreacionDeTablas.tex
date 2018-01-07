@@ -27,6 +27,8 @@
 \section{Objetivo de la práctica}
 Se pretende que el alumno sea capaz de pasar desde las necesidades de datos de una empresa hasta las órdenes SQL necesarias para implementar dicha necesidad en Oracle
 
+Se puede descargar \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/apuntes/3/BD-3-EjercicioCreacionDeTablas.pdf}{la última versión de la práctica en este enlace}
+
 \section{Modelo de datos}
 Una compañía de alquiler de coches desea informatizar su gestión.  Su flota de coches se divide en tres categorías: Functional, Advance y Prestige. Cada categoría puede tener diferentes modelos de coche con diferentes acabados. Un modelo concreto puede pertenecer a varias categorías, si el acabado es distinto. El precio por día del alquiler depende de la categoría asignada al coche.
 
@@ -67,30 +69,8 @@ De cada alquiler de coche se desea saber:
 
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Realizar el diagrama \textbf{relacional} con Oracle \textbf{SQLDeveloper} (1 punto)]
-  Este paso puede conseguirse:
-  \begin{itemize}
-  \item De forma automática tras el ejercicio anterior, pidiendo a \textbf{Modeler} que convierta el diagrama \textbf{ER} en uno relacional.
-  \item De forma manual
-  \end{itemize}
-
-  En el diagrama deben ser visibles (al menos):
-  \begin{itemize}
-  \item Los nombres de las tablas
-  \item Los campos de las tablas, su tipo y si son claves primarias
-  \item Las relaciones entre las tablas (conexiones debidas a claves extranjeras)  
-  \end{itemize}
-  
-\end{homeworkProblem}
-
 
 \begin{homeworkProblem}[: Crear las tablas de Oracle utilizando \textbf{SQL} (1 punto)]
-  Este paso puede conseguirse:
-  \begin{itemize}
-  \item De forma automática tras el ejercicio anterior, pidiendo a \textbf{Modeler} que convierta el diagrama \textbf{relacional} en las sentencias \textbf{DDL} (\textit{Data Definition Language}) de \textbf{SQL}
-  \item De forma manual
-  \end{itemize}
-
   Se entregará un fichero de texto de extensión \texttt{.SQL} con las órdenes \textbf{SQL} de creación de tablas, sus claves primarias, extranjeras, valores por defecto y restricciones.
 
 \end{homeworkProblem}
@@ -120,6 +100,14 @@ De cada alquiler de coche se desea saber:
   \item  \texttt{Manolo Bombo Bombo} alquiló un Renault Modus el \texttt{1-3-13}, y aún no lo
     ha devuelto. Tenía bluetooth, y lo recogió en Barcelona.
   \end{enumerate}
+
+  Para comprobar los datos introducidos, se consultarán las siguientes vistas:
+  
+  \begin{listadosql}{Vistas a crear}{lst:vistas1}
+  V_ALQUILERES(nombrecliente, matricula, marca, modelo, categoria, fechainicio, fechafin, descuento)
+  V_ACABADOS(matricula, tienebluetooth, tienenavegador, tienecambioautomatico)
+  V_CATEGORIAS(categoria, preciodia)
+  \end{listadosql}
 \end{homeworkProblem}
 
 
@@ -132,8 +120,8 @@ De cada alquiler de coche se desea saber:
     periódicas a los coches. Necesita saber, por cada coche:
     \begin{itemize}
     \item Tipo de revisión (ITV, mantenimiento)
-    \item Nº de kilómetros o fecha máxima para esa revisión.
-    \item Nº de kilómetros o fecha en la que se pasaron las anteriores revisiones.
+    \item Nº de kilómetros (o fecha máxima) para esa revisión.
+    \item Nº de kilómetros y fecha en la que se pasaron las anteriores revisiones.
     \end{itemize}
 
 
@@ -156,6 +144,16 @@ De cada alquiler de coche se desea saber:
   \item Todos los coches se revisan a los 4 años en la ITV.
   \item El coche con matrícula \texttt{1111ABC} tiene asientos calefactados.
   \end{itemize}
+
+  Para comprobar los nuevos datos introducidos, se consultarán las siguientes vistas:
+  
+  \begin{listadosql}{Vistas a crear tras las modificaciones}{lst:vistas2}
+  V_REVISIONESREALIZADAS(matricula, tiporevision, kilometros, fecha)
+  V_PROXIMASREVISIONES(matricula, tiporevision, kilometros, fecha)
+  V_ACABADOS2(matricula, tienebluetooth, tienenavegador, tienecambioautomatico, tieneasientoscalefactados)
+  V_COLORES(matricula,color,fechainiciocolor)
+  \end{listadosql}
+
 \end{homeworkProblem}
 
 \section{Instrucciones de entrega}
@@ -167,11 +165,10 @@ De cada alquiler de coche se desea saber:
 \item Entrega tu trabajo en un fichero \texttt{ZIP} con
   \begin{itemize}
   \item \texttt{\textbf{1.modelo-er.pdf}}: La imagen de tu modelo ER  con SQLDeveloper
-  \item \texttt{\textbf{2.modelo-relacional.pdf}}: La imagen de tu modelo relacional con SQLDeveloper
-  \item \texttt{\textbf{3.creacion.sql}}: El script de creación de tablas
-  \item \texttt{\textbf{4.insercion.sql}}: El script de inserción de datos en las tablas
-  \item \texttt{\textbf{5.modificacion.sql}}: El script de modificación de las tablas
-  \item \texttt{\textbf{6.insercion.sql}}: El script de inserción de datos en las tablas modificadas
+  \item \texttt{\textbf{2.creacion.sql}}: El script de creación de tablas y vistas
+  \item \texttt{\textbf{3.insercion.sql}}: El script de inserción de datos en las tablas
+  \item \texttt{\textbf{4.modificacion.sql}}: El script de modificación de las tablas y creación de vistas
+  \item \texttt{\textbf{5.insercion.sql}}: El script de inserción de datos en las tablas modificadas
   \end{itemize}
 \item Sube el documento a \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189}{la tarea correspondiente en el aula virtual}
 \item Presta atención al plazo de entrega (con fecha y hora).

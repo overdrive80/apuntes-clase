@@ -325,12 +325,25 @@ subject={#1}]%
     {Ú}{{\'U}}1
 }
 
+\lstset{
+  inputencoding=utf8,
+  captionpos=b,
+  frame=single,
+  basicstyle=\small\ttfamily,
+  showstringspaces=false,
+  numbers=none,
+  numbers=left,
+  xleftmargin=2em,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space}
+}
+
 \renewcommand{\lstlistingname}{Listado}
 \captionsetup[lstlisting]{font={footnotesize},labelfont=bf,position=bottom}
 \captionsetup[figure]{font={footnotesize},labelfont=bf}
 \lstnewenvironment{listadojava}[2]
 {
-  \lstset{captionpos=b,caption={#1},label={#2},language=Java,frame=single,basicstyle=\footnotesize\ttfamily,showstringspaces=false,numbers=left,xleftmargin=2em}
+  \lstset{language=Java,caption={#1},label={#2}}
   \noindent\minipage{\linewidth}%
 }
 {\endminipage}
@@ -338,7 +351,7 @@ subject={#1}]%
 % LISTADO SHELL
 \lstnewenvironment{listadoshell}[2]
 {
-  \lstset{captionpos=b,caption={#1},label={#2},language=bash,frame=single,basicstyle=\scriptsize\ttfamily,showstringspaces=false,numbers=none}
+  \lstset{language=bash,caption={#1},label={#2}}
   \noindent\minipage{\linewidth}%
 }
 {\endminipage}
@@ -346,7 +359,7 @@ subject={#1}]%
 % LISTADO TXT
 \lstnewenvironment{listadotxt}[2]
 {
-  \lstset{inputencoding=utf8,captionpos=b,caption={#1},label={#2},frame=single,basicstyle=\scriptsize\ttfamily,showstringspaces=false,numbers=none}
+  \lstset{caption={#1},label={#2}}
   \noindent\minipage{\linewidth}%
 }
 {\endminipage}
@@ -354,10 +367,9 @@ subject={#1}]%
 % LISTADO SQL
 \lstnewenvironment{listadosql}[2]%
 {%
-  (el 1 )caption es #1\\%
-  (el 2) label es #2\\%
-  \\%
-  \lstset{language=sql,inputencoding=utf8,captionpos=b,caption={#1},label={#2},frame=single,basicstyle=\small\ttfamily,showstringspaces=false,numbers=none}%
+  %(el 1 )caption es #1\\%
+  %(el 2) label es #2\\%
+  \lstset{language=sql,caption={#1},label={#2}}%
   \noindent\minipage{\linewidth}%
 }
 {\endminipage}
