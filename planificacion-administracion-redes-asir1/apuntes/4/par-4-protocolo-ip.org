@@ -326,13 +326,15 @@ Una organización tiene 5 departamentos independientes. En cada uno de ellos se 
 - Indica las direcciones de subred, broadcast y rangos de direcciones IP de los host para cada departamento.
 
 ** Subnetting
-Una organización tiene asignada la red 192.168.2.0/24 y desea agrupar a su personal en grupos de trabajo de 140 empleados. En conjunto de trabajadores de cada grupo, comparte una subred diferente a la de los otros grupos.
--¿Cuántos grupos de trabajo se pueden hacer?.
+Una organización tiene asignada la red 192.168.2.0/24 y desea agrupar a su personal en grupos de trabajo de 140 empleados. El conjunto de trabajadores de cada grupo, comparte una subred diferente a la de los otros grupos.
+- ¿Cuántos grupos de trabajo se pueden hacer?.
 - Establece la máscara necesaria para que la organización subdivida la red en redes a razón de una subred por cada grupo.
 - Indica las direcciones de subred, broadcast y rangos de direcciones IP de los host para cada departamento.
 
 ------
-El ejercicio se puede repetir con grupos de 60 empleados y 22 empleados
+El ejercicio se puede repetir con 
+- Grupos de 60 empleados
+- Un grupo de 60 empleados y 3 de 22 empleados
 
 ** Subnetting
 Una empresa recibe la dirección 132.33.0.0 para su red. Asigna a cada uno de los siete departamentos una subred, teniendo en cuenta el número de ordenadores de cada uno:
