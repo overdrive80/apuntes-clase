@@ -16,7 +16,6 @@ select count(*)
 from student
 where salutation='Ms.'
 ** Número de alumnos con tratamiento 'Ms' o 'Mr'
-
 select count(*)
 from student
 where salutation in( 'Ms.', 'Mr.');
@@ -30,7 +29,6 @@ where lower(first_name) like 'o%';
 ** Alumnos con un nombre de 4 letras
 select * from student
 where first_name like '____';
-
 
 ** ¿Cuál es la mejor nota en la sección con identificador 86?
 
@@ -47,7 +45,6 @@ from section
 where start_date_time=(
   select max(start_date_time) from section
 );
-
 
 ** ¿En qué fecha comienza la última sección?
 select max(start_date_time) from section;
@@ -96,7 +93,6 @@ order by last_name;
 
 ** ¿Cuál es la media de capacidad de las aulas (location)?
 
-
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con más de 20 alumnos?
 select distinct location from section
@@ -120,7 +116,6 @@ where 74 between min_grade and max_grade;
 ** ¿Qué rango de nota numérica puede tener un alumno que ha conseguido un B+?
 select min_grade, max_grade from GRADE_CONVERSION
 where letter_grade='B+';
-
 
 ** ¿Cuántos códigos postales hay en la ciudad de New York?
 
