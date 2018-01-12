@@ -4,7 +4,10 @@
 ** Nota media
 select avg(numeric_grade)
 from grade
-** Nota media de los exámenes finales
+** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
+select description from GRADE_TYPE;
+
+** Nota media de los exámenes finales (el tipo de nota es 'FI')
 select avg(numeric_grade)
 from grade
 where grade_type_code='FI';
@@ -16,12 +19,14 @@ select count(*)
 from student
 where salutation='Ms.'
 ** Número de alumnos con tratamiento 'Ms' o 'Mr'
+
 select count(*)
 from student
 where salutation in( 'Ms.', 'Mr.');
-** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
-select grade_type_code, description from GRADE_TYPE;
-
+** ¿Cuántos tratamientos (Ms, Mr...) hay en la base de datos?
+select count(distinct salutation) from student;
+** ¿Cuáles son los tratamientos (Ms, Mr...) que hay en la base de datos?
+select distinct salutation from student;
 ** Alumnos cuyo nombre comience por 'o' (mayúscula o minúscula)
 select * from student
 where lower(first_name) like 'o%';
@@ -30,14 +35,48 @@ where lower(first_name) like 'o%';
 select * from student
 where first_name like '____';
 
+select 
+  first_name
+from
+  student
+where
+  first_name like '____';
 ** ¿Cuál es la mejor nota en la sección con identificador 86?
+select 
+  first_name
+from
+  student
+where
+  first_name like '____';
 
 ** ¿Cuál es la mejor nota del alumno con identificador 102?
+select 
+  first_name
+from
+  student
+where
+  first_name like '____';
 
 ** ¿Cuál es el identificador del alumno con la mejor nota en la sección con identificador 86?
+select 
+  student_id
+from
+  grade
+where
+  section_id = 86 and
+  numeric_grade = (select max(numeric_grade) from grade where section_id = 86);
 
 ** ¿En qué fecha comienza la sección que primero empieza sus clases?
 select min(start_date_time) from section;
+** ¿En qué fecha comienza la sección que primero empieza en Junio?
+select 
+  min( start_date_time )
+from
+  section
+where
+  to_char(start_date_time,'MM') = '06';
+** ¿En qué fecha comienza la última sección?
+select max(start_date_time) from section;
 
 ** Datos de la sección que empieza la última
 select * 
@@ -46,8 +85,10 @@ where start_date_time=(
   select max(start_date_time) from section
 );
 
-** ¿En qué fecha comienza la última sección?
-select max(start_date_time) from section;
+select 
+  max( start_date_time )
+from
+  section;
 
 ** Lista de alumnos ordenados por apellido (sin importar minúsculas)
 select first_name,last_name,student_id, lower(last_name) as paraordenar 
@@ -69,9 +110,9 @@ order by last_name;
 select last_name, registration_date
 from student studentdefuera
 where registration_date = (
-  select min(registration_date)
-  from student studentdedentro
-  where studentdedentro.last_name=studentdefuera.last_name
+select min(registration_date)
+from student studentdedentro
+where studentdedentro.last_name=studentdefuera.last_name
 )
 order by last_name;
 
@@ -93,13 +134,15 @@ order by last_name;
 
 ** ¿Cuál es la media de capacidad de las aulas (location)?
 
+
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con más de 20 alumnos?
 select distinct location from section
 where capacity>20;
 
-** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos?
+** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como máximo?
 
+** ¿Cuáles son los identificadores de las secciones con menos de 15 alumnos matriculados?
 ** ¿Qué nota alfabética consigo con un 72 numérico?
 
 select letter_grade from GRADE_CONVERSION
@@ -117,11 +160,12 @@ where 74 between min_grade and max_grade;
 select min_grade, max_grade from GRADE_CONVERSION
 where letter_grade='B+';
 
-** ¿Cuántos códigos postales hay en la ciudad de New York?
+
+** ¿Cuántos códigos postales hay registrados de la ciudad de New York?
 
 
 select count(*) from zipcode where city='New York';
-** ¿Cuántos códigos postales hay en el estado de New York (NY)?
+** ¿Cuántos códigos postales hay registrados del estado de New York (NY)?
 select count(*) from zipcode where state='NY';
 
 ** ¿Cuántos estados hay registrados en la base de datos?
