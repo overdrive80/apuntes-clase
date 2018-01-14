@@ -290,8 +290,14 @@ ALTER SYSTEM KILL SESSION 'sid,serial#';
 #+end_src
 
 ** Terminar una sesión (sistema operativo)
-- Se debe matar el proceso identificado en el =spid= (/system process identifier/)
 - Solo como último recurso, mejor =KILL SESSION=
+- Se debe matar el proceso identificado en el =spid= (/system process identifier/)
+- Importante:
+  - el =spid= es del proceso intermedio entre el cliente (/application code/) y el servidor (/system global area/)
+  - Por tanto, el proceso a matar se encuentra en el mismo host que el servidor de base de datos
+
+[[file:procesos-usuario-sistema.png]]
+
   
 
 
