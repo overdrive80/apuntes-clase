@@ -1,4 +1,4 @@
-﻿#+include: "../common/header.org"
+#+include: "../common/header.org"
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** ¿Cuáles son las descripciones de los cursos que son requisito para otro curso?

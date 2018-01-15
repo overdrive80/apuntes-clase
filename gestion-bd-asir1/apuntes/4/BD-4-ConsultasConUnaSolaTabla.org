@@ -4,30 +4,30 @@
 ** Nota media
 select avg(numeric_grade)
 from grade
-** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
+** Â¿CuÃ¡les son las descripciones de los tipos de notas que se pueden poner?
 select description from GRADE_TYPE;
 
-** Nota media de los exámenes finales (el tipo de nota es 'FI')
+** Nota media de los exÃ¡menes finales (el tipo de nota es 'FI')
 select avg(numeric_grade)
 from grade
 where grade_type_code='FI';
-** Número de alumnos totales
+** NÃºmero de alumnos totales
 select count(*)
 from student;
-** Número de alumnos con tratamiento 'Ms'
+** NÃºmero de alumnos con tratamiento 'Ms'
 select count(*)
 from student
 where salutation='Ms.'
-** Número de alumnos con tratamiento 'Ms' o 'Mr'
+** NÃºmero de alumnos con tratamiento 'Ms' o 'Mr'
 
 select count(*)
 from student
 where salutation in( 'Ms.', 'Mr.');
-** ¿Cuántos tratamientos (Ms, Mr...) hay en la base de datos?
+** Â¿CuÃ¡ntos tratamientos (Ms, Mr...) hay en la base de datos?
 select count(distinct salutation) from student;
-** ¿Cuáles son los tratamientos (Ms, Mr...) que hay en la base de datos?
+** Â¿CuÃ¡les son los tratamientos (Ms, Mr...) que hay en la base de datos?
 select distinct salutation from student;
-** Alumnos cuyo nombre comience por 'o' (mayúscula o minúscula)
+** Alumnos cuyo nombre comience por 'o' (mayÃºscula o minÃºscula)
 select * from student
 where lower(first_name) like 'o%';
 
@@ -41,7 +41,7 @@ from
   student
 where
   first_name like '____';
-** ¿Cuál es la mejor nota en la sección con identificador 86?
+** Â¿CuÃ¡l es la mejor nota en la secciÃ³n con identificador 86?
 select 
   first_name
 from
@@ -49,7 +49,7 @@ from
 where
   first_name like '____';
 
-** ¿Cuál es la mejor nota del alumno con identificador 102?
+** Â¿CuÃ¡l es la mejor nota del alumno con identificador 102?
 select 
   first_name
 from
@@ -57,7 +57,7 @@ from
 where
   first_name like '____';
 
-** ¿Cuál es el identificador del alumno con la mejor nota en la sección con identificador 86?
+** Â¿CuÃ¡l es el identificador del alumno con la mejor nota en la secciÃ³n con identificador 86?
 select 
   student_id
 from
@@ -66,19 +66,19 @@ where
   section_id = 86 and
   numeric_grade = (select max(numeric_grade) from grade where section_id = 86);
 
-** ¿En qué fecha comienza la sección que primero empieza sus clases?
+** Â¿En quÃ© fecha comienza la secciÃ³n que primero empieza sus clases?
 select min(start_date_time) from section;
-** ¿En qué fecha comienza la sección que primero empieza en Junio?
+** Â¿En quÃ© fecha comienza la secciÃ³n que primero empieza en Junio?
 select 
   min( start_date_time )
 from
   section
 where
   to_char(start_date_time,'MM') = '06';
-** ¿En qué fecha comienza la última sección?
+** Â¿En quÃ© fecha comienza la Ãºltima secciÃ³n?
 select max(start_date_time) from section;
 
-** Datos de la sección que empieza la última
+** Datos de la secciÃ³n que empieza la Ãºltima
 select * 
 from section
 where start_date_time=(
@@ -90,12 +90,12 @@ select
 from
   section;
 
-** Lista de alumnos ordenados por apellido (sin importar minúsculas)
+** Lista de alumnos ordenados por apellido (sin importar minÃºsculas)
 select first_name,last_name,student_id, lower(last_name) as paraordenar 
 from student
 order by paraordenar;
 
-** Lista de apellidos de alumnos, y cuántos alumnos tienen cada apellido
+** Lista de apellidos de alumnos, y cuÃ¡ntos alumnos tienen cada apellido
 select count(*) as cuantos, last_name
 from student
 group by last_name
@@ -116,31 +116,31 @@ where studentdedentro.last_name=studentdefuera.last_name
 )
 order by last_name;
 
-** ¿Qué aulas (location) se usan por las secciones?
+** Â¿QuÃ© aulas (location) se usan por las secciones?
 
-** ¿Cuántas aulas (location) se usan por las secciones?
+** Â¿CuÃ¡ntas aulas (location) se usan por las secciones?
 
-** ¿Cuál es el identificador del alumno con la peor nota en la sección con identificador 86?
+** Â¿CuÃ¡l es el identificador del alumno con la peor nota en la secciÃ³n con identificador 86?
 
-** ¿Cuál es el identificador del alumno con la mejor nota de proyecto (PJ) en la sección con identificador 86?
+** Â¿CuÃ¡l es el identificador del alumno con la mejor nota de proyecto (PJ) en la secciÃ³n con identificador 86?
 
-** ¿Cuál es la media de las notas de proyecto (PJ) en la sección con identificador 86?
+** Â¿CuÃ¡l es la media de las notas de proyecto (PJ) en la secciÃ³n con identificador 86?
 
-** ¿Cuántos alumnos hay matriculados en la sección con identificador 86?
+** Â¿CuÃ¡ntos alumnos hay matriculados en la secciÃ³n con identificador 86?
 
-** ¿Cuántas secciones hay?
+** Â¿CuÃ¡ntas secciones hay?
 
-** ¿Cuál es la media de capacidad de las secciones?
+** Â¿CuÃ¡l es la media de capacidad de las secciones?
 
-** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
-** ¿Cuáles son las aulas (location) en las que se imparten secciones con más de 20 alumnos?
+** Â¿CuÃ¡l es el mÃ¡ximo de alumnos matriculable (suma de capacidades de las secciones)?
+** Â¿CuÃ¡les son las aulas (location) en las que se imparten secciones con mÃ¡s de 20 alumnos?
 select distinct location from section
 where capacity>20;
 
-** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como máximo?
+** Â¿CuÃ¡les son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como mÃ¡ximo?
 
-** ¿Cuáles son los identificadores de las secciones con menos de 15 alumnos matriculados?
-** Lista de identificadores de secciones y número de alumnos matriculados en cada una
+** Â¿CuÃ¡les son los identificadores de las secciones con menos de 15 alumnos matriculados?
+** Lista de identificadores de secciones y nÃºmero de alumnos matriculados en cada una
 select 
   section_id, 
   count(section_id)
@@ -148,7 +148,7 @@ from
   ENROLLMENT
 group by
   section_id;
-** ¿Qué nota alfabética consigo con un 72 numérico?
+** Â¿QuÃ© nota alfabÃ©tica consigo con un 72 numÃ©rico?
 
 select letter_grade from GRADE_CONVERSION
 where 72 >= min_grade and 72 <=max_grade;
@@ -156,24 +156,24 @@ where 72 >= min_grade and 72 <=max_grade;
 select letter_grade from GRADE_CONVERSION
 where 72 between min_grade and max_grade;
 
-** ¿Qué nota alfabética consigo con un 74 numérico?
+** Â¿QuÃ© nota alfabÃ©tica consigo con un 74 numÃ©rico?
 
 select letter_grade from GRADE_CONVERSION
 where 74 between min_grade and max_grade;
 
-** ¿Qué rango de nota numérica puede tener un alumno que ha conseguido un B+?
+** Â¿QuÃ© rango de nota numÃ©rica puede tener un alumno que ha conseguido un B+?
 select min_grade, max_grade from GRADE_CONVERSION
 where letter_grade='B+';
 
 
-** ¿Cuántos códigos postales hay registrados de la ciudad de New York?
+** Â¿CuÃ¡ntos cÃ³digos postales hay registrados de la ciudad de New York?
 
 
 select count(*) from zipcode where city='New York';
-** ¿Cuántos códigos postales hay registrados del estado de New York (NY)?
+** Â¿CuÃ¡ntos cÃ³digos postales hay registrados del estado de New York (NY)?
 select count(*) from zipcode where state='NY';
 
-** ¿Cuántos estados hay registrados en la base de datos?
+** Â¿CuÃ¡ntos estados hay registrados en la base de datos?
 select count(state)
 from (
   select state from zipcode
@@ -183,11 +183,11 @@ from (
 select count(distinct state)
 from zipcode;
 
-** ¿Cuántos alumnos varones hay? (los reverendos son varones)
+** Â¿CuÃ¡ntos alumnos varones hay? (los reverendos son varones)
 
-** ¿Cuántas alumnas hay? (los doctores son mujeres)
+** Â¿CuÃ¡ntas alumnas hay? (los doctores son mujeres)
 
-** ¿Cuáles son las descripciones de los cursos que necesitan un curso previo?
+** Â¿CuÃ¡les son las descripciones de los cursos que necesitan un curso previo?
 
 select * from course where not(prerequisite is null);
 
@@ -196,4 +196,4 @@ select * from course where not(prerequisite is null);
 
 
 
-** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
+** Â¿CuÃ¡les son las descripciones de los cursos que no necesitan un curso previo?
