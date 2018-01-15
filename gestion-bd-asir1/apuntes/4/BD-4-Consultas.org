@@ -6,6 +6,13 @@
 select distinct pre.DESCRIPTION
 from course c, course pre
 where c.PREREQUISITE = pre.course_no;
+select
+  c.description as descripcion,
+  p.description as pre_descripcion
+from
+  course c, course p
+where
+  c.prerequisite = p.course_no;
 ** Lista de alumnos, ordenados por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 ** Lista de los 20 primeros alumnos, ordenados (ascendente) por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 #+begin_src sql

@@ -132,9 +132,6 @@ order by last_name;
 
 ** ¿Cuál es la media de capacidad de las secciones?
 
-** ¿Cuál es la media de capacidad de las aulas (location)?
-
-
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con más de 20 alumnos?
 select distinct location from section
@@ -143,6 +140,14 @@ where capacity>20;
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como máximo?
 
 ** ¿Cuáles son los identificadores de las secciones con menos de 15 alumnos matriculados?
+** Lista de identificadores de secciones y número de alumnos matriculados en cada una
+select 
+  section_id, 
+  count(section_id)
+from
+  ENROLLMENT
+group by
+  section_id;
 ** ¿Qué nota alfabética consigo con un 72 numérico?
 
 select letter_grade from GRADE_CONVERSION
@@ -191,3 +196,4 @@ select * from course where not(prerequisite is null);
 
 
 
+** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
