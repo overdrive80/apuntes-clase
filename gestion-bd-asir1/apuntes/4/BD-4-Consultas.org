@@ -67,6 +67,59 @@ where capacity = (select count(*)
                    section_id=s.section_id)
 #+end_src
 
+select * from  
+  
+    (select 
+      section_id as seccion_matriculados, 
+      count(student_id) as matriculados
+    from
+      enrollment
+    group by
+      section_id  
+    order by
+      section_id),
+  
+    (select 
+      section_id as seccion_capacidad,
+      capacity
+    from
+      section)
+
+where
+  seccion_matriculados = seccion_capacidad
+  and matriculados = capacity;
+
+
+select * from ( 
+    select 
+      s.section_id,
+      s.capacity,
+      count(e.student_id) as total
+    from
+      section s, enrollment e
+    where
+      s.section_id = e.section_id
+    group by
+      s.section_id, s.capacity
+)
+where
+  total = capacity;
+  
+select 
+  s.section_id,
+  s.capacity,
+  count(e.student_id) as total
+from
+  section s, enrollment e
+where
+  s.section_id = e.section_id
+group by
+  s.section_id, s.capacity
+having
+  count(e.student_id) = capacity;
+
+
+
 ** Lista de todos los usuarios de la base de datos (sin duplicados) que han creado o modificado filas
 #+begin_src sql
 select distinct u
