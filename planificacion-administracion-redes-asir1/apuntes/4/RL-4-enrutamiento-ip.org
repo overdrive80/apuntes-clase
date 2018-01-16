@@ -145,3 +145,13 @@ sudo route add -net 157.0.0.0 netmask 255.0.0.0 gw 157.55.80.1 metric 3 dev eth0
 - Para que se active *en el siguiente inicio* se debe cambiar el fichero /etc/sysctl.conf:
   - ~net.ipv4.ip_forward = 1~
 
+
+
+* Referencias
+- Formatos:
+  - [[file:par-4-enrutamiento-ip.html][Transparencias]]
+  - [[file:par-4-enrutamiento-ip.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
