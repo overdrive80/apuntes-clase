@@ -58,8 +58,8 @@ sort < fichero
 # La entrada sale de un fichero, y la salida va a otro fichero
 sort < fichero > fichero_ordenado
 
-# La entrada sale de un fichero, y la salida se añade a un fichero
-sort < otro_fichero > fichero_ordenado
+# La entrada sale de un fichero, y la salida se agrega al final de un fichero
+sort < otro_fichero >> fichero_ordenado
 
 # La salida del primer comando es la entrada del segudo
 sort < fichero | less
