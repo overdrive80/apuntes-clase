@@ -1,4 +1,4 @@
-\input{../common/plantilla-ejercicio.tex}
+\input{../../../common/plantilla-ejercicio.tex}
 \usepackage{eurosym}
 
 
@@ -40,8 +40,8 @@
 \section{Objetivo de la práctica}
 Durante el desarrollo de esta práctica, el alumno infectará una máquina virtual de Windows con un gusano. Los objetivos  de la práctica son:
 \begin{itemize}
-\item reconocer los gusanos como un proceso más del sistema operativo (si no se instala un \textit{rootkit})
-\item localizar el gusano y eliminarlo del sistema de forma manual, sin utilizar un antivirus.
+\item Reconocer los gusanos como un proceso más del sistema operativo (si no se instala un \textit{rootkit})
+\item Localizar el gusano y eliminarlo del sistema de forma manual, sin utilizar un antivirus.
 \end{itemize}
 
 
@@ -56,13 +56,18 @@ Instalar un gusano es una operación \textit{arriesgada}, por lo que no se recom
 \end{itemize}
 
 \begin{homeworkProblem}[: Instalación del gusano (1 punto)]
-  Descarga el gusano de cualquiera de las siguientes direcciones:
-  \begin{itemize}
-  \item \url{https://alvarogonzalezsotillo.github.io/seguridad-informatica-smr2dual/Worm.VBS.Dunihi.C/article_FB.vbs.zip}: Fichero comprimido con la contraseña \texttt{virus}, para evitar problemas con los antivirus
-  \item \url{https://alvarogonzalezsotillo.github.io/seguridad-informatica-smr2dual/Worm.VBS.Dunihi.C/article_FB.vbs}: El gusano sin comprimir
-  \end{itemize}
+  Descarga el gusano:
 
-  Colócalo en el escritorio y ejecútalo.
+  \begin{center}
+    \begin{minipage}{.8\textwidth}
+      \begin{center}
+        \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/seguridad-informatica-smr2dual/Worm.VBS.Dunihi.C/article\_FB.vbs.zip}{https://alvarogonzalezsotillo.github.io/apuntes-clase/seguridad-informatica-smr2dual/Worm.VBS.Dunihi.C/article\_FB.vbs.zip}
+      \end{center}
+    \end{minipage}
+  \end{center}
+  
+
+  El fichero está comprimido con la contraseña \texttt{virus}. Utiliza un programa como 7-Zip para descomprimirlo. Colócalo en el escritorio y ejecútalo.
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Localización y eliminación del gusano (4 puntos)]
@@ -70,7 +75,7 @@ Instalar un gusano es una operación \textit{arriesgada}, por lo que no se recom
   \begin{enumerate}
   \item Localizar el programa del gusano
   \item Localizar de qué forma se ejecuta cada vez que se inicia Windows
-  \item Detectar si el gusano se está comunicando con algún otro programa utilizando la red
+  \item Detectar si el gusano se está comunicando con algún otro programa utilizando la red (\textit{(llamada a casa})
   \item Desactivar y eliminar el gusano
   \end{enumerate}
 
@@ -131,10 +136,10 @@ Se valorará:
   \end{itemize}
 \item Los trabajos pueden entregarse:
   \begin{itemize}
+  \item Como una entrada en un blog (preferido)  
   \item En formato \textbf{DOC} o \textbf{DOCX}.
   \item En formato \textbf{ODT}.
   \item En formato \textbf{PDF}. 
-  \item Como una entrada en un blog (\textit{novedad})  
 
   \end{itemize}
 

@@ -510,7 +510,7 @@ ExecStop=/home/alumno/oracle-al-final.sh
 WantedBy=multi-user.target
 #+end_src
 
-Más información con =man systemd.service=
+Más información con =man systemd.service= y =man systemd.unit=
 
 #+reveal: split
 
