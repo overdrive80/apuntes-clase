@@ -71,7 +71,7 @@ sort < fichero | less
 
 # La entrada se especifica en el propio script
 sort <<FINDEFICHERO
-María
+Maria
 Pepe
 Juan
 Susana
@@ -113,7 +113,7 @@ importante(){
   echo --------------------------
 }
 
-importante "Así se define una función en bash"
+importante "Asi se define una funcion en bash"
 
 #+end_src
 
@@ -135,7 +135,7 @@ echo grep ha devuelto: $exit_code_del_grep
 - Con =for= se pueden hacer bucles sobre una lista de parámetros
 - Para bucles numéricos se puede usar el comando =seq=
 #+begin_src sh
-for nombre in María Juan Pepe Susana Manolo
+for nombre in Maria Juan Pepe Susana Manolo
 do
    echo Realizando una vuelta de bucle sobre $nombre
 done
