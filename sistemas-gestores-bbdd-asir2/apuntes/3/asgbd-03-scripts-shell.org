@@ -13,6 +13,302 @@
 - Para ello, se utilizan las facilidades de ejecución del sistema operativo aprendidas en otros módulos
 
 
+* Scripts de /shell/
+
+** /shebang/
+- Los scripts empiezan con una línea indicando el intérprete que los ejecutará, con un comentario ~#!~
+#+begin_src sh
+#!/bin/sh
+#+end_src
+
+#+begin_src sh
+#!/usr/bin/php
+#+end_src
+
+#+begin_src sh
+#!/usr/bin/python
+#+end_src
+
+** Variables
+
+#+begin_src sh
+# Variable local a esta shell
+variable=valor
+
+# Variable exportada a los hijos de esta shell
+export variable_exportada=valor
+
+# Variable definida solo para un comando
+variable_para_un_comando=valor comando
+
+#+end_src
+
+** Entrada/salida
+- Los programas comienzan su ejecución con una salida y una entrada
+- Son flujos de bytes
+- Inicialmente:
+  - La entrada es el teclado
+  - La salida es la consola
+
+*** Redirigir entrada/salida a fichero
+#+begin_src sh
+# La entrada sale de un fichero en vez del teclado
+sort < fichero
+
+# La entrada sale de un fichero, y la salida va a otro fichero
+sort < fichero > fichero_ordenado
+
+# La entrada sale de un fichero, y la salida se agrega al final de un fichero
+sort < otro_fichero >> fichero_ordenado
+
+# La salida del primer comando es la entrada del segudo
+sort < fichero | less
+
+#+end_src
+
+*** /HEREDOCS/
+#+begin_src sh
+
+# La entrada se especifica en el propio script
+sort <<FINDEFICHERO
+Maria
+Pepe
+Juan
+Susana
+Manolo
+FINDEFICHERO
+
+#+end_src
+
+*** Salida como parámetro
+- Se puede capturar la salida de un comando en una cadena
+- Esa cadena se utiliza luego como otra cadena cualquiera en el script
+
+#+begin_src sh
+
+# Defino una variable con los ficheros del directorio
+variable=$(ls)
+
+#+end_src
+
+
+
+
+
+** Parámetros del /script/
+- =$0=: El nombre del /script/
+- =$1=: Primer parámetro
+- =$2=: Segundo parámetro
+- =$*=: Todos los parámetros a partir del primero
+
+** Funciones
+- Son conjuntos agrupados de órdenes con un nombre
+- Tienen sus propios argumentos =$*=, =$1=, =$2=...
+
+#+begin_src sh
+
+importante(){
+  echo --------------------------
+  echo Aviso: $*
+  echo --------------------------
+}
+
+importante "Asi se define una funcion en bash"
+
+#+end_src
+
+
+** Código de error (/exit code/)
+- Al terminar, un programa devuelve un valor numérico
+- Por convenio
+  - =0=: Todo ha funcionado correctamente
+  - Distinto de =0=: Ha sucedido algún tipo de error
+- Se puede consultar con =$?= *inmediatamente* después de ejecutar el comando
+
+#+begin_src sh
+grep cadena *
+exit_code_del_grep=$?
+echo grep ha devuelto: $exit_code_del_grep
+#+end_src
+
+** Bucles
+- Con =for= se pueden hacer bucles sobre una lista de parámetros
+- Para bucles numéricos se puede usar el comando =seq=
+#+begin_src sh
+for nombre in Maria Juan Pepe Susana Manolo
+do
+   echo Realizando una vuelta de bucle sobre $nombre
+done
+
+# CUIDADO CON LOS NOMBRES DE FICHERO CON ESPACIOS
+for fichero in $(ls)
+do
+   echo El siguiente fichero es $fichero
+done
+
+#+end_src
+
+
+
+** Condicionales
+- =if= utiliza los códigos de error de los programas
+  - =0= se considera =true=
+  - Cualquier otro valor se considera =false=
+
+#+begin_src sh
+if grep cadena *
+then
+  echo grep ha encontrado algo sin errores
+else
+  echo grep no lo ha encontrado, o ha habido errores
+fi
+
+#+end_src
+
+*** Comando =[=
+- =[= es un comando externo que ayuda a hacer condiciones con =if=
+  - Comparación de cadenas
+  - Comparación de números
+  - Existencia de ficheros
+
+#+begin_src sh
+TEST(1)                      User Commands                     TEST(1)
+
+NAME
+       test - check file types and compare values
+
+SYNOPSIS
+       test EXPRESSION
+       test
+
+       [ EXPRESSION ]
+       [ ]
+       [ OPTION
+
+DESCRIPTION
+       Exit with the status determined by EXPRESSION.
+
+       --help display this help and exit
+
+       --version
+              output version information and exit
+
+       An omitted EXPRESSION defaults to false.  Otherwise, EXPRESSION
+       is true or false and sets exit status.  It is one of:
+
+       ( EXPRESSION )
+              EXPRESSION is true
+
+       ! EXPRESSION
+              EXPRESSION is false
+
+       EXPRESSION1 -a EXPRESSION2
+              both EXPRESSION1 and EXPRESSION2 are true
+
+       EXPRESSION1 -o EXPRESSION2
+              either EXPRESSION1 or EXPRESSION2 is true
+
+       -n STRING
+              the length of STRING is nonzero
+
+       STRING equivalent to -n STRING
+
+       -z STRING
+              the length of STRING is zero
+
+       STRING1 = STRING2
+              the strings are equal
+
+       STRING1 != STRING2
+              the strings are not equal
+
+       INTEGER1 -eq INTEGER2
+              INTEGER1 is equal to INTEGER2
+
+       INTEGER1 -ge INTEGER2
+              INTEGER1 is greater than or equal to INTEGER2
+
+       INTEGER1 -gt INTEGER2
+              INTEGER1 is greater than INTEGER2
+
+       INTEGER1 -le INTEGER2
+              INTEGER1 is less than or equal to INTEGER2
+
+       INTEGER1 -lt INTEGER2
+              INTEGER1 is less than INTEGER2
+
+       INTEGER1 -ne INTEGER2
+              INTEGER1 is not equal to INTEGER2
+
+       FILE1 -ef FILE2
+              FILE1 and FILE2 have the same device and inode numbers
+
+       FILE1 -nt FILE2
+              FILE1 is newer (modification date) than FILE2
+
+       FILE1 -ot FILE2
+              FILE1 is older than FILE2
+
+       -b FILE
+              FILE exists and is block special
+
+       -c FILE
+              FILE exists and is character special
+
+       -d FILE
+              FILE exists and is a directory
+
+       -e FILE
+              FILE exists
+
+       -f FILE
+              FILE exists and is a regular file
+
+       -g FILE
+              FILE exists and is set-group-ID
+
+       -G FILE
+              FILE exists and is owned by the effective group ID
+
+       -h FILE
+              FILE exists and is a symbolic link (same as -L)
+
+       -k FILE
+              FILE exists and has its sticky bit set
+
+       -L FILE
+              FILE exists and is a symbolic link (same as -h)
+
+       -O FILE
+              FILE exists and is owned by the effective user ID
+
+       -p FILE
+              FILE exists and is a named pipe
+
+       -r FILE
+              FILE exists and read permission is granted
+
+       -s FILE
+              FILE exists and has a size greater than zero
+
+       -S FILE
+              FILE exists and is a socket
+
+       -t FD  file descriptor FD is opened on a terminal
+
+       -u FILE
+              FILE exists and its set-user-ID bit is set
+
+       -w FILE
+              FILE exists and write permission is granted
+
+       -x FILE
+              FILE  exists  and  execute  (or  search)  permission  is
+              granted
+#+end_src
+
+
+
 * Prerrequisitos
 
 - Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia
@@ -214,7 +510,7 @@ ExecStop=/home/alumno/oracle-al-final.sh
 WantedBy=multi-user.target
 #+end_src
 
-Más información con =man systemd.service=
+Más información con =man systemd.service= y =man systemd.unit=
 
 #+reveal: split
 
