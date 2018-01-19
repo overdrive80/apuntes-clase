@@ -120,6 +120,18 @@ having
 
 
 
+** Nombres que tiene algún profesor pero que no tiene ningún alumno
+select distinct first_name from instructor
+minus
+select distinct first_name from student;
+
+
+** Nombres que tiene algún profesor y algún alumno
+select distinct first_name from instructor
+intersect
+select distinct first_name from student;
+
+
 ** Lista de todos los usuarios de la base de datos (sin duplicados) que han creado o modificado filas
 #+begin_src sql
 select distinct u
@@ -185,6 +197,27 @@ where
   e.section_id = se.section_id and
   salutation = 'Rev';
 ** Lista de las notas parciales otorgadas por los reverendos (nombre y apellidos del alumno, nota numérica, curso, tipo de nota)
+-- quiero el nombre, apellidos, nota, curso y tipo de nota 
+select
+  st.first_name, st.last_name, 
+  numeric_grade, course_no, grade_type_code
+  ,i.first_name, i.salutation
+
+-- que está en las tablas  grade y student
+from 
+  student st, grade g, enrollment e, section se, instructor i
+where
+  -- unión de enrollment con grade
+  e.student_id = g.student_id and
+  e.section_id = g.section_id and
+  -- unión de enrollment y student
+  e.student_id = st.student_id and
+  -- unión de enrollment con section
+  e.section_id = se.section_id and
+  -- unión de instructor con section
+  se.instructor_id = i.instructor_id and
+  i.salutation = 'Rev';
+
 ** Lista del número de alumnos de cada estado que asisten al curso "Operating Systems"
 
 ** Lista de los profesores y los cursos que imparten (nombre, apellidos, descripción del curso)
