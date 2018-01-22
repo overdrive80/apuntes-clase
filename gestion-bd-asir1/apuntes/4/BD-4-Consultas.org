@@ -224,8 +224,22 @@ where
 
 ** Lista de los profesores y las secciones que imparten (nombre, apellidos, descripción del curso, identificador de sección)
 
-** ¿Qué profesor o profesores imparten más cursos?
+** ¿Qué profesor o profesores imparten más cursos? (nombre y apellidos)
+** ¿Qué profesor o profesores imparten más secciones? (nombre y apellidos)
 
+create view secciones_por_profesor(numerosecciones,instructor_id) as
+select 
+  count(section_id), instructor_id
+from 
+  section
+group by
+  instructor_id;
+  
+select first_name, last_name
+from secciones_por_profesor s, instructor i
+where 
+  i.instructor_id = s.instructor_id and
+  numerosecciones = (select max(numerosecciones) from secciones_por_profesor);
 ** ¿Qué profesor o profesores imparten en menos secciones?
 
 ** Lista de profesores y número de alumnos a los que imparten algún curso (nombre, apellidos, número de alumnos)
@@ -280,6 +294,15 @@ Nota: ignoramos el criterio de no contar la más baja
 
 ** Lista de secciones con menos de 15 alumnos matriculados (descripción del curso, identificador de sección, número de alumnos)
 
+** Facturación desde que se creó la academia
+select 
+  -- course.course_no, cost, enrollment.student_id
+  sum(cost)
+from
+  enrollment, section, course
+where
+  enrollment.section_id = section.section_id and
+  section.course_no = course.course_no;
 ** Lista de ingresos por curso (descripción de curso, ingresos)
 
 ** Lista de ingresos por profesor (nombre, apellidos, ingresos)
@@ -291,6 +314,7 @@ from course c full join course p on c.PREREQUISITE = p.course_no;
 
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito NULL.
 ** Lista de las secciones con mas de 12 alumnos matriculados
+** Lista de estados y el número de alumnos matriculados de ese estado
 ** Lista de los estados con más de 10 alumnos matriculados
 ** Lista de los estados con menos de 11 alumnos matriculados
 ** Estado(s) con más alumnos matriculados
@@ -312,7 +336,7 @@ where numeroprofes = (
   from profesores_por_curso  
 );
 
-
+** Estado cuyos alumnos tienen mejor nota media (de sus notas parciales)
 ** Número de alumnos por estado que ha sacado más de un 85 en la media de tareas de "homework" (HM)
 select state, count(*) alumnosconmasde85
 from (
@@ -333,4 +357,4 @@ from (
 where
   e.zip = z.zip
 group by
-  state;
+state;
