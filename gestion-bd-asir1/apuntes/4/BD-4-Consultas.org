@@ -309,15 +309,84 @@ where
 
 ** Lista de ingresos por alumno (nombre, apellidos, ingresos)
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito 'SIN PRERREQUISITO'.
-select * 
-from course c full join course p on c.PREREQUISITE = p.course_no;
+select 
+  c.description, p.description
+from 
+  course c, course p
+where
+  c.prerequisite = p.course_no
+union
+select 
+  c.description, 'SIN PREREQUISITO'
+from
+  course c
+where
+  c.prerequisite is null;
+  
 
+select 
+  c.description, p.description
+from 
+  course c left join course p on c.prerequisite = p.course_no;
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito NULL.
 ** Lista de las secciones con mas de 12 alumnos matriculados
 ** Lista de estados y el número de alumnos matriculados de ese estado
 ** Lista de los estados con más de 10 alumnos matriculados
+select
+  z.state, count(student_id)
+from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state
+having
+  count(student_id) >= 10;
+
 ** Lista de los estados con menos de 11 alumnos matriculados
 ** Estado(s) con más alumnos matriculados
+create view estado_de_estudiante(estudiante,estado) as
+select
+  student_id, state
+from
+  student, zipcode
+where
+  student.zip = zipcode.zip;
+
+create view estudiantes_por_estado(estudiantes, estado) as
+select 
+  count(*), estado
+from 
+  estado_de_estudiante
+group by
+  estado;
+  
+create view estado_con_mas_estudiantes as
+select 
+  estado, estudiantes
+from 
+  estudiantes_por_estado 
+where
+  estudiantes=(select max(estudiantes) from estudiantes_por_estado);
+ 
+  
+  
+select
+  z.state, count(student_id)
+from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state
+having
+  count(student_id) >= all(select count(student_id) from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state);
+
 ** Qué curso (descripción) tiene más profesores
 create view profesores_por_curso as
 select c.description, c.course_no, count(*) as numeroprofes
