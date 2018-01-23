@@ -1,4 +1,4 @@
-#+include: "../common/header.org"
+# #+include: "../../../common/header.org"
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** ¿Cuáles son las descripciones de los cursos que son requisito para otro curso?
@@ -120,6 +120,18 @@ having
 
 
 
+** Nombres que tiene algún profesor pero que no tiene ningún alumno
+select distinct first_name from instructor
+minus
+select distinct first_name from student;
+
+
+** Nombres que tiene algún profesor y algún alumno
+select distinct first_name from instructor
+intersect
+select distinct first_name from student;
+
+
 ** Lista de todos los usuarios de la base de datos (sin duplicados) que han creado o modificado filas
 #+begin_src sql
 select distinct u
@@ -168,29 +180,66 @@ from
 #+end_src
 
 ** Lista de las notas parciales obtenidas por los reverendos (nombre y apellidos del alumno, nota numérica, curso, tipo de nota)
-select 
-  st.last_name, st.first_name,
-  g.NUMERIC_GRADE , g.GRADE_TYPE_CODE , g.GRADE_CODE_OCCURRENCE,
-  se.course_no
+-- quiero el nombre, apellidos, nota, curso y tipo de nota 
+select
+  first_name, last_name, numeric_grade, course_no, grade_type_code
+
+-- que está en las tablas  grade y student
 from 
-  student st, ENROLLMENT e, grade g, section se
+  student st, grade g, enrollment e, section se
 where
-  st.salutation = 'Rev.' and
-  st.student_id = e.student_id and
+  -- unión de enrollment con grade
   e.student_id = g.student_id and
   e.section_id = g.section_id and
-  e.section_id = se.section_id
-order by last_name, first_name;
-
+  -- unión de enrollment y student
+  e.student_id = st.student_id and
+  -- unión de enrollment con section
+  e.section_id = se.section_id and
+  salutation = 'Rev';
 ** Lista de las notas parciales otorgadas por los reverendos (nombre y apellidos del alumno, nota numérica, curso, tipo de nota)
+-- quiero el nombre, apellidos, nota, curso y tipo de nota 
+select
+  st.first_name, st.last_name, 
+  numeric_grade, course_no, grade_type_code
+  ,i.first_name, i.salutation
+
+-- que está en las tablas  grade y student
+from 
+  student st, grade g, enrollment e, section se, instructor i
+where
+  -- unión de enrollment con grade
+  e.student_id = g.student_id and
+  e.section_id = g.section_id and
+  -- unión de enrollment y student
+  e.student_id = st.student_id and
+  -- unión de enrollment con section
+  e.section_id = se.section_id and
+  -- unión de instructor con section
+  se.instructor_id = i.instructor_id and
+  i.salutation = 'Rev';
+
 ** Lista del número de alumnos de cada estado que asisten al curso "Operating Systems"
 
 ** Lista de los profesores y los cursos que imparten (nombre, apellidos, descripción del curso)
 
 ** Lista de los profesores y las secciones que imparten (nombre, apellidos, descripción del curso, identificador de sección)
 
-** ¿Qué profesor o profesores imparten más cursos?
+** ¿Qué profesor o profesores imparten más cursos? (nombre y apellidos)
+** ¿Qué profesor o profesores imparten más secciones? (nombre y apellidos)
 
+create view secciones_por_profesor(numerosecciones,instructor_id) as
+select 
+  count(section_id), instructor_id
+from 
+  section
+group by
+  instructor_id;
+  
+select first_name, last_name
+from secciones_por_profesor s, instructor i
+where 
+  i.instructor_id = s.instructor_id and
+  numerosecciones = (select max(numerosecciones) from secciones_por_profesor);
 ** ¿Qué profesor o profesores imparten en menos secciones?
 
 ** Lista de profesores y número de alumnos a los que imparten algún curso (nombre, apellidos, número de alumnos)
@@ -245,20 +294,99 @@ Nota: ignoramos el criterio de no contar la más baja
 
 ** Lista de secciones con menos de 15 alumnos matriculados (descripción del curso, identificador de sección, número de alumnos)
 
+** Facturación desde que se creó la academia
+select 
+  -- course.course_no, cost, enrollment.student_id
+  sum(cost)
+from
+  enrollment, section, course
+where
+  enrollment.section_id = section.section_id and
+  section.course_no = course.course_no;
 ** Lista de ingresos por curso (descripción de curso, ingresos)
 
 ** Lista de ingresos por profesor (nombre, apellidos, ingresos)
 
 ** Lista de ingresos por alumno (nombre, apellidos, ingresos)
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito 'SIN PRERREQUISITO'.
-select * 
-from course c full join course p on c.PREREQUISITE = p.course_no;
+select 
+  c.description, p.description
+from 
+  course c, course p
+where
+  c.prerequisite = p.course_no
+union
+select 
+  c.description, 'SIN PREREQUISITO'
+from
+  course c
+where
+  c.prerequisite is null;
+  
 
+select 
+  c.description, p.description
+from 
+  course c left join course p on c.prerequisite = p.course_no;
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito NULL.
 ** Lista de las secciones con mas de 12 alumnos matriculados
+** Lista de estados y el número de alumnos matriculados de ese estado
 ** Lista de los estados con más de 10 alumnos matriculados
+select
+  z.state, count(student_id)
+from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state
+having
+  count(student_id) >= 10;
+
 ** Lista de los estados con menos de 11 alumnos matriculados
 ** Estado(s) con más alumnos matriculados
+create view estado_de_estudiante(estudiante,estado) as
+select
+  student_id, state
+from
+  student, zipcode
+where
+  student.zip = zipcode.zip;
+
+create view estudiantes_por_estado(estudiantes, estado) as
+select 
+  count(*), estado
+from 
+  estado_de_estudiante
+group by
+  estado;
+  
+create view estado_con_mas_estudiantes as
+select 
+  estado, estudiantes
+from 
+  estudiantes_por_estado 
+where
+  estudiantes=(select max(estudiantes) from estudiantes_por_estado);
+ 
+  
+  
+select
+  z.state, count(student_id)
+from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state
+having
+  count(student_id) >= all(select count(student_id) from
+  student s, zipcode z
+where
+  s.zip = z.zip
+group by
+  z.state);
+
 ** Qué curso (descripción) tiene más profesores
 create view profesores_por_curso as
 select c.description, c.course_no, count(*) as numeroprofes
@@ -277,7 +405,7 @@ where numeroprofes = (
   from profesores_por_curso  
 );
 
-
+** Estado cuyos alumnos tienen mejor nota media (de sus notas parciales)
 ** Número de alumnos por estado que ha sacado más de un 85 en la media de tareas de "homework" (HM)
 select state, count(*) alumnosconmasde85
 from (
@@ -298,4 +426,4 @@ from (
 where
   e.zip = z.zip
 group by
-  state;
+state;
