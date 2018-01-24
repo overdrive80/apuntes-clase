@@ -1,0 +1,78 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Comandos IOS
+#+SUBTITLE: 
+#+KEYWORDS: IOS, Packet Tracer
+
+* General
+- ~CTRL-ALT-6~ para parar un comando incorrecto
+- ~?~ para conseguir siguientes comandos
+- ~TAB~ para autocompletar
+- Un comando con =no= deshace el comando
+** Modos
+- =Press RETURN to get started.=
+  - Desactivado
+- =Router>=
+  - =show= para mostrar información
+  - =enable= para configurar (privileged commands)
+- =Router#=
+  - Resto de comandos
+  - =configure terminal= para cambiar la configuración
+- =Router(config)#=
+  - Raíz de la configuración
+
+** Para activar la configuración
+#+begin_src java
+Router> enable
+Router# configure terminal
+Router(config)#
+#+end_src
+
+** Salvar la configuración
+#+begin_src java
+Router# write memory
+Router# copy running-config startup-config
+#+end_src
+
+* Direcciones IP
+
+** Asignar IP
+#+begin_src java
+Router(config-if)# interface fa0/0
+Router(config-if)# ip address 192.168.6.1 255.255.255.0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+Router(config)#
+#+end_src
+
+** Consultar IP
+#+begin_src java
+Router> show ip interface
+Router> show ip interface brief
+#+end_src
+
+* Enrutamiento
+** Añadir ruta
+#+begin_src java
+Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
+#+end_src
+
+** Borrar ruta
+#+begin_src java
+Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
+#+end_src
+
+
+** Consultar rutas
+#+begin_src java
+Router> show ip route
+#+end_src
+
+
+* Referencias
+- Formatos:
+  - [[file:par-4-comandos-ios.html][Transparencias]]
+  - [[file:par-4-comandos-ios.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
