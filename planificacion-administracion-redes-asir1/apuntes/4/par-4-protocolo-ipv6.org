@@ -1,0 +1,111 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Protocolo IP
+#+SUBTITLE: 
+#+KEYWORDS: 
+
+* Introducción
+
+
+- En IPv4, las direcciones son de 32 bits
+  - 2^32 direcciones posibles, unos 4000 millones
+  - Inicialmente fueron direcciones /suficientes/
+  - Actualmente, se encuentran agotadas
+- Ante la escasez de direcciones, se palia el problema con
+  - CIDR
+  - Direcciones privadas, con acceso NAT (siguientes temas)
+  - Direcciones dinámicas (DHCP), para los accesos ADSL 
+- Estas soluciones solo son *temporales*
+
+* IPv6
+- Las direcciones tienen 128 bits de longitud
+  - 2^128 son más o menos 300 trillones de trillones de direcciones
+  - De momento parecen /suficientes/
+- Ejercicio comparativo: La tierra tiene un radio de 6370 Km aproximadamente
+  ¿Cuántas direcciones IPv4 hay por m2?
+  ¿Cuántas direcciones IPv6 hay por m2?
+
+** Direcciones IPv6
+- Se especifican en hexadecimal, separando grupos de 32 bits con “:”
+- Ejemplo de dirección IPv6
+  =2001:0db8:85a3:0000:0000:8a2e:0370:7334=
+- Simplificaciones
+  - Se pueden omitir los ceros iniciales de cada grupo
+    =2001:db8:85a3:0:0:8a2e:370:7334= 
+  - Se pueden omitir varios grupos que valgan 0 (solo una vez)
+    =2001:db8:85a3::8a2e:370:7334= 
+
+
+** Direcciones reservadas
+
+| Dirección                  | Descripción                                                                                                   |
+|----------------------------+---------------------------------------------------------------------------------------------------------------|
+| ~::/128~                   | Dirección indefinida. Ningún host puede tener esta dirección. Como ~0.0.0.0~ en IPv4                          |
+| ~::1/128~                  | El propio host (~127.0.0.0/8~ en IPv4)                                                                        |
+| ~fe80::interfaz/10~        | /[[https://es.wikipedia.org/wiki/Direcci%C3%B3n_de_Enlace-Local][link-local]]/. Equivalentes a APIPA (~169.254.0.0/16~ en IPv4). El identificador de interfaz es el EUI-64 bits |
+| ~ffc0::subred:interfaz/10~ | /site-local/. Como /link-local/, pero permitiendo subredes. *[[https://www.ietf.org/rfc/rfc3879.txt][Ya no se usan]]*.                                  |
+| ~fc00::/7~                 | /[[https://en.wikipedia.org/wiki/Unique_local_address][Unique-local]]/. Parecidas a las redes privadas IPv6                                                           |
+| ~ff00::/18~                | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]]                                                                                              |
+
+
+** /link-local/ con /eui-64/
+- Inicialmente, Windows y Linux calculaban las direcciones /link-local/ con el [[https://es.wikipedia.org/wiki/Direcci%25C3%25B3n_IPv6#EUI-64_Modificado][eui-64]]
+- Actualmente, Windows utiliza una dirección aleatoria
+[[file:media/link-local-eui-64.png]]
+
+
+
+
+** Tipos de comunicación
+- *Unicast*
+  - El paquete se envía a una dirección concreta de destino
+  - Esto también existe en IPv4 y en Ethernet
+- *Broadcast*
+  - En IP4, con todos los bits de host a 1
+  - En Ethernet hay broadcast a toda la red (todos los bits a 1)
+  - En IPv6, no hay, aunque se puede usar =FF01::1= (All Nodes Address)
+- *Multicast*
+  - El paquete se envía a varios hosts de, posiblemente, varias redes (FF01::/16)
+  - En IPv4, con direcciones de clase D
+- *Anycast*
+  - El paquete se envía a un solo host de un conjunto de hosts
+
+** Subnetting en IPv6
+- Conceptualmente es igual que en IPv4
+- El IETF recomienda en su [[https://tools.ietf.org/html/rfc3177][RFC 3177]] que todas las redes sean al menos /64
+- Se recomienda:
+  - Usuarios en el ámbito doméstico, con conexiones permanentes o bajo demanda deberían recibir una máscara /48.
+  - Pequeñas y grandes empresas deberían recibir /48.
+  - Conjuntos muy grandes de abonados deberían recibir un /47.
+  - Redes móviles, como vehículos o teléfonos móviles, un /64.
+
+#+begin_src sh
+This document provides recommendations to the addressing registries
+(APNIC, ARIN and RIPE-NCC) on policies for assigning IPv6 address
+blocks to end sites.  In particular, it recommends the assignment of
+/48 in the general case, /64 when it is known that one and only one
+subnet is needed and /128 when it is absolutely known that one and
+only one device is connecting.
+#+end_src
+
+* Configuración de IPv6
+
+** Linux [[https://debian-handbook.info/browse/es-ES/stable/sect.ipv6.html][Debian]]
+
+#+begin_src sh
+iface eth0 inet6 static 
+  address 2607:f0d0:2001:000a:0000:0000:0000:0002 
+  netmask 64 
+  gateway 2607:f0d0:2001:000a:0000:0000:0000:0001
+#+end_src
+
+
+* Referencias
+- Formatos:
+  - [[file:par-4-protocolo-ipv6.html][Transparencias]]
+  - [[file:par-4-protocolo-ipv6.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+
+
