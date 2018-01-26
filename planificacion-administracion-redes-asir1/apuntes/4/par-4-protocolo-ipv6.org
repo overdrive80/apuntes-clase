@@ -37,6 +37,7 @@
 
 ** Direcciones reservadas
 
+#+ATTR_LATEX: :align |l|p{10cm}|
 | Dirección                  | Descripción                                                                                                   |
 |----------------------------+---------------------------------------------------------------------------------------------------------------|
 | ~::/128~                   | Dirección indefinida. Ningún host puede tener esta dirección. Como ~0.0.0.0~ en IPv4                          |
@@ -44,7 +45,8 @@
 | ~fe80::interfaz/10~        | /[[https://es.wikipedia.org/wiki/Direcci%C3%B3n_de_Enlace-Local][link-local]]/. Equivalentes a APIPA (~169.254.0.0/16~ en IPv4). El identificador de interfaz es el EUI-64 bits |
 | ~ffc0::subred:interfaz/10~ | /site-local/. Como /link-local/, pero permitiendo subredes. *[[https://www.ietf.org/rfc/rfc3879.txt][Ya no se usan]]*.                                  |
 | ~fc00::/7~                 | /[[https://en.wikipedia.org/wiki/Unique_local_address][Unique-local]]/. Parecidas a las redes privadas IPv6                                                           |
-| ~ff00::/18~                | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]]                                                                                              |
+| ~ff00::/18~                | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]].                                                                                             |
+| ~2001:0DB8::/32~           | Ejemplos para [[https://www.apnic.net/get-ip/faqs/ipv6-documentation-prefix/][documentación]]                                                                                   |
 
 
 ** /link-local/ con /eui-64/
@@ -62,12 +64,13 @@
 - *Broadcast*
   - En IP4, con todos los bits de host a 1
   - En Ethernet hay broadcast a toda la red (todos los bits a 1)
-  - En IPv6, no hay, aunque se puede usar =FF01::1= (All Nodes Address)
+  - En IPv6, *no* hay, aunque se puede usar =FF01::1= ([[https://www.iana.org/assignments/ipv6-multicast-addresses/ipv6-multicast-addresses.xhtml][Multicast: All Nodes Address]])
 - *Multicast*
-  - El paquete se envía a varios hosts de, posiblemente, varias redes (FF01::/16)
-  - En IPv4, con direcciones de clase D
-- *Anycast*
+  - El paquete se envía a varios hosts de, posiblemente, varias redes (=FF01::/16=)
+  - En [[https://en.wikipedia.org/wiki/Multicast_address#IPv4][IPv4]], con direcciones de clase D
+- *[[https://tools.ietf.org/html/rfc4291#section-2.6][Anycast]]*
   - El paquete se envía a un solo host de un conjunto de hosts
+  - En IPv6, se calcula como la dirección de red en IPv4
 
 ** Subnetting en IPv6
 - Conceptualmente es igual que en IPv4
@@ -90,13 +93,73 @@ only one device is connecting.
 * Configuración de IPv6
 
 ** Linux [[https://debian-handbook.info/browse/es-ES/stable/sect.ipv6.html][Debian]]
-
 #+begin_src sh
 iface eth0 inet6 static 
   address 2607:f0d0:2001:000a:0000:0000:0000:0002 
   netmask 64 
   gateway 2607:f0d0:2001:000a:0000:0000:0000:0001
 #+end_src
+
+** Windows
+- En las propiedades del adaptador, como IPv4
+[[file:media/configurar-ipv6-windows.png]]
+
+
+** IOS
+- Se puede utilizar el sufico eui64, o indicar completamente la dirección
+  #+begin_src sh
+  ipv6 address 2001:0DB8:c18:1::/64 eui 64
+  ipv6 address 2001:0DB8:c18:1::1/64
+  #+end_src
+
+* Convivencia IPv4/IPv6
+- Todos los sistemas operativos actuales cuentan con pila IPv6
+- Los /backbones/ de Internet funcionan con IPv6
+- Los ISP siguen funcionando con IPv4
+- Pocas empresas utilizan IPv4 de forma general
+- Para hacerlo interoperable hay varias soluciones
+  - IPv4 mapeada a IPv6
+  - Túneles dinámicos de IPv6 sobre IPv4
+
+** Interoperabilidad
+
+#+ATTR_LATEX: :align |l|p{10cm}|
+| Rango           | Tipo de túnel                                                                                                                               |
+|-----------------+---------------------------------------------------------------------------------------------------------------------------------------------|
+| ~::ffff:0:0/96~ | IPv4-mapeada. En un entorno IPv6, los programas que sólo entiendan IPv4 utilizan este tipo de direcciones, traducidas por IPv6 directamente |
+| ~::0:0/96~      | Túnel dinámico, para transmitir IPv6 sobre IPv4 de forma automática                                                                         |
+
+
+#+reveal: split
+- Cuando se mezclan direcciones IPv4 e IPv6, la notación es mixta
+  - ~::ffff:192.168.10.6~: IPv4 mapeada
+  - ~::192.168.10.6~: túnel dinámico
+
+*** IPv4 mapeada a IPv6
+
+#+caption: IPv4 viajando por red IPv6
+[[file:media/ipv6-ipv4-mapped.svg]]
+
+#+reveal:split
+
+#+caption: IPv4 mapeada a IPv6
+[[file:media/ipv6-ipv4-mapped.png]]
+
+Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpipguide]]
+
+
+
+*** IPv6 compatible con IPv4 (túnel dinámico)
+
+#+caption: IPv6 viajando por red IPv4
+[[file:media/ipv6-ipv4-compatible.svg]]
+
+#+reveal: split
+
+#+caption: IPv6 compatible con IPv4 (túnel dinámico)
+[[file:media/ipv6-ipv4-compatible.png]]
+
+Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpipguide]]
 
 
 * Referencias
