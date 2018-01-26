@@ -1,5 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  Protocolo IP
+#+TITLE:  Protocolo IPd
 #+SUBTITLE: 
 #+KEYWORDS: 
 
@@ -162,6 +162,28 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
 Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpipguide]]
 
 
+* Ejercicios
+
+** Linux
+- Configura una máquina virtual linux en modo bridged con ip6
+  - Dirección =fe80::xx/112= 
+  - =xx= es tu número de ordenador (1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, …)
+- Haz ping al resto de ordenadores de tus compañeros
+  #+begin_src sh
+  ping6 –I <interfaz> fe80::xx
+  #+end_src
+
+** Windows
+- Configura una máquina virtual Windows 7 en modo bridged con ip6
+  - Dirección =fe80::xx00/112= 
+  - =xx= es tu número de ordenador (1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, …)
+- Haz ping al resto de ordenadores de tus compañeros (=interfaz= hace falta si hay más de una interfaz)
+  #+begin_src sh
+  ping -6 fe80::xx%interfaz
+  ping -6 fe80::xx00%interfaz
+  #+end_src
+- Haz ping desde tu Linux a los Windows
+
 * Referencias
 - Formatos:
   - [[file:par-4-protocolo-ipv6.html][Transparencias]]
@@ -169,6 +191,6 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+
 
 
