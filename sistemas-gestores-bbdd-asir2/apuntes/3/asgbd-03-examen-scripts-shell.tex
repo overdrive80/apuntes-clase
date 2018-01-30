@@ -1,8 +1,8 @@
-\input{../common/plantilla-ejercicio.tex}
+\input{../../../common/plantilla-ejercicio.tex}
 \usepackage{eurosym}
 
 
-
+\renewcommand{\hmwkClass}{Automatización de tareas}
 \renewcommand{\hmwkTitle}{Examen de \textit{scripts} de \textit{shell}}
 
 
@@ -67,6 +67,17 @@ El desarrollo de este ejercicio será como el de otras prácticas. La única dif
   
 \end{homeworkProblem}
 
+\begin{homeworkProblem}[: Crea usuarios de base de datos (2 puntos)]
+  Crea un script de nombre \texttt{/home/alumno/scripts/nuevo-usuario-oracle.sh} que cree un nuevo usuario de oracle. Si se invoca sin parámetros, o con más de dos, mostrará el texto de ayuda del listado \ref{lst:nuevo-usuario-ayuda}
+
+  \begin{listadotxt}{Ayuda del script \texttt{nuevo-usuario-oracle.sh}}{lst:nuevo-usuario-ayuda}
+  Crea un usuario nuevo de oracle, con permisos connect y resource.
+  Si el usuario ya existe, lo desbloquea y le cambia la contraseña.
+  
+  Uso: nuevo-usuario-oracle.sh <usuario> <contraseña>
+  \end{listadotxt}
+\end{homeworkProblem}
+
 
 \begin{homeworkProblem}[: Almacena información periódicamente en la base de datos (4 puntos)]
   % df -k | awk '{print $3}'
@@ -75,7 +86,7 @@ El desarrollo de este ejercicio será como el de otras prácticas. La única dif
   % do
   %     name="$line"
   %     echo "Name read from file - $name"
-  %     done < "$filename"
+  % done < "$filename"
 
   Programa un \textit{script} para que cada minuto almacene en la tabla \texttt{DF} la información del comando \texttt{df -k}. Esta tabla (listado \ref{lst:tabla.sql}) tendrá como columnas:
   \begin{itemize}
@@ -143,7 +154,8 @@ tmpfs             804488        88    804400   1% /run/user/1000
 
   \begin{itemize}
   \item Programa un \textit{script} para que cada minuto envíe un correo con la información promedio del comando  \texttt{df -k}. Puedes usar como base para la consulta el listado \ref{lst:promedio.sql}.
-  \item El correo se enviará a \path{alvarogonzalez.profesor@gmail.com}
+  \item El correo se enviará a \path{alvarogonzalez.profesor@gmail.com} 
+  \item Con copia a \path{alvaro@alvarogonzalez.no-ip.biz}
   \item Indica tu nombre en el asunto del correo  
 
 
