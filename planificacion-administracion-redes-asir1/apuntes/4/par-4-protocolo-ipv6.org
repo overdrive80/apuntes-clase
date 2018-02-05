@@ -1,5 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  Protocolo IPd
+#+TITLE:  Protocolo IPv6
 #+SUBTITLE: 
 #+KEYWORDS: 
 
