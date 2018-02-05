@@ -50,7 +50,7 @@ La última versión de este documento se puede descargar de \enlace{https://alva
   \item En el fichero \texttt{/home/alumno/logs/oracle.log} se dejará una traza de cuando se arrancó y se paró la máquina, y si fue necesario arrancar o parar \textit{Oracle}. Por ejemplo:
     
     \begin{listadotxt}{Ejemplo de \texttt{/home/alumno/logs/oracle.log} cuando \textbf{Oracle} se arranca}{lst:yoracle.log}
-      2017-02-10-12:40:00 - Máquina arrancada
+      2017-02-10-12:40:00 - Solicitud de arrancar Oracle
       2017-02-10-12:40:01 - Oracle arrancando porque /etc/oratab indica Y
       2017-02-10-12:40:20 - Oracle arrancado
       2017-02-10-12:41:00 - Máquina parando
@@ -59,7 +59,7 @@ La última versión de este documento se puede descargar de \enlace{https://alva
     \end{listadotxt}
 
     \begin{listadotxt}{Ejemplo de \texttt{/home/alumno/logs/oracle.log} cuando \textbf{Oracle} no se arranca}{lst:noracle.log}
-      2017-02-10-12:40:00 - Máquina arrancada
+      2017-02-10-12:40:00 - Solicitud de arrancar Oracle
       2017-02-10-12:40:01 - Oracle no se arranca porque /etc/oratab indica N
       2017-02-10-12:41:00 - Máquina parando
       2017-02-10-12:41:01 - Oracle parando
