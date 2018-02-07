@@ -43,6 +43,8 @@
 # SI HAY FLOTANTES, QUE NO PASEN DEL TÍTULO
 #+HTML_HEAD: <style>h2::before,h1::before,h3::before,h4::before{ clear: both; }</style>
 
+# LAS IMAGENES NO DEBEN SER MAS ANCHAS QUE LO VISIBLE
+#+HMTL_HEAD: <style>img{max-width:100%;}</style>
 
 # PARA ORG-REVEAL
 #+REVEAL_EXTRA_CSS: ../../../common/mi-css.css
