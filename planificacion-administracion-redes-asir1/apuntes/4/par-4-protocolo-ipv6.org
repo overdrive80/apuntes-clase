@@ -70,7 +70,6 @@
   - En [[https://en.wikipedia.org/wiki/Multicast_address#IPv4][IPv4]], con direcciones de clase D
 - *[[https://tools.ietf.org/html/rfc4291#section-2.6][Anycast]]*
   - El paquete se envía a un solo host de un conjunto de hosts
-  - En IPv6, se calcula como la dirección de red en IPv4
 
 ** Subnetting en IPv6
 - Conceptualmente es igual que en IPv4
@@ -106,7 +105,7 @@ iface eth0 inet6 static
 
 
 ** IOS
-- Se puede utilizar el sufico eui64, o indicar completamente la dirección
+- Se puede utilizar el sufijo eui64, o indicar completamente la dirección
   #+begin_src sh
   ipv6 address 2001:0DB8:c18:1::/64 eui 64
   ipv6 address 2001:0DB8:c18:1::1/64
@@ -170,7 +169,7 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
   - =xx= es tu número de ordenador (1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, …)
 - Haz ping al resto de ordenadores de tus compañeros
   #+begin_src sh
-  ping6 –I <interfaz> fe80::xx
+  ping6 -I <interfaz> fe80::xx
   #+end_src
 
 ** Windows
