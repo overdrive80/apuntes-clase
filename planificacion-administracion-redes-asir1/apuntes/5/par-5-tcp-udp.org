@@ -1,0 +1,80 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  TCP y UDP
+#+SUBTITLE: 
+#+KEYWORDS: 
+
+* Introducción
+
+#+caption: Esquema de niveles de red
+[[file:media/capas-tcpip.png]]
+
+
+#+reveal: split
+- TCP y UDP son de la capa de transporte
+- Es la primera que une dos entidades (procesos), en vez de dos hosts
+- Suele ser la primera capa visible para los programadores de aplicaciones
+  - IP se puede considerar la /frontera/ entre los /administradores/ y los /programadores/
+
+* UDP
+- /User Datagram Protocol/
+- Funciones:
+  - Entregar un datagrama entre el emisor y receptor (procesos)
+  - Detección de errores
+
+** Formato de trama UDP
+
+[[file:par-5-tcp-udp.org_20180209_085112_12356zqb.png]]
+
+** Características de UDP
+- Los datagramas pueden llegar en un orden diferente al enviado (si IP elige rutas distintas para ellos)
+- El emisor no tiene la seguridad de que los datagramas llegan al receptor
+- Por tanto, no se utilizan *conexiones* ni es *confiable*. Cada datagrama se envía de forma independiente. 
+-----
+- ¿Cuántos puertos hay?
+- ¿Cuál es el tamaño máximo de un datagrama UDP?
+
+* TCP
+- /Transmission Control Protocol/
+- Asegura que la transmisión se realiza por un medio fiable
+- Garantiza la recepción de los mensajes en orden correcto
+- Garantiza al emisor que los mensajes llegan correctamente al receptor
+- Por tanto, es orientado a *conexión* y *confiable*.
+
+#+reveal: split
+[[file:par-5-tcp-udp.org_20180209_091000_12356BER.png]]
+
+** /Sequence number/ y /Acknowledgment number/
+- *TCP* intenta que la comunicación se asemeje a un flujo de bytes
+  - Todos los bytes que entran por un extremo
+  - ... deben salir por el otro lado
+- En *cada paquete* se envía
+  - el número de secuencia del primer byte transmitido en el paquete
+  - el número de secuencia del siguiente byte que se espera
+
+** Cómo se consigue la conexión
+- Cada extremo de la comunicación debe saber:
+  - Cuál es su siguiente byte a enviar (/sequence number/)
+  - Cuál es su siguiente byte a recibir (/acknowledgment number/)
+- Si se recibe un /sequence number/ posterior a nuestro /acknowledgment number/
+  - Es un paquete *posterior* al que esperamos: se guarda en la capa *TCP* hasta que lleguen los anteriores
+- Si se recibe un /sequence number/ anterior a nuestro /acknowledgment number/
+  - Es un paquete ya recibido (se habrá duplicado)
+
+** Corrección de errores
+- Si se pierde un paquete, o llega con error
+  - Enviaré un /acknowledgment number/ menor que el que espera el otro lado
+  - El otro lado reenviará los paquetes necesarios
+
+** Ventana de transmisión
+- 
+
+
+
+* Referencias
+- Formatos:
+  - [[file:par-4-protocolo-ip.html][Transparencias]]
+  - [[file:par-4-protocolo-ip.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+
