@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-02-10 sáb 19:15 -->
+<!-- 2018-02-10 sáb 19:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP y UDP</title>
@@ -238,16 +238,17 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0233bd7">1. Introducción</a></li>
-<li><a href="#orgc9b3d54">2. UDP</a></li>
-<li><a href="#org479283e">3. TCP</a></li>
-<li><a href="#orgd9ad2e7">4. Referencias</a></li>
+<li><a href="#org055d47b">1. Introducción</a></li>
+<li><a href="#org06891fb">2. UDP</a></li>
+<li><a href="#org4d5a208">3. TCP</a></li>
+<li><a href="#org44487d6">4. TCP vs UDP</a></li>
+<li><a href="#org001cef5">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org0233bd7" class="outline-2">
-<h2 id="org0233bd7"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org055d47b" class="outline-2">
+<h2 id="org055d47b"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -268,8 +269,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgc9b3d54" class="outline-2">
-<h2 id="orgc9b3d54"><span class="section-number-2">2</span> UDP</h2>
+<div id="outline-container-org06891fb" class="outline-2">
+<h2 id="org06891fb"><span class="section-number-2">2</span> UDP</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><i>User Datagram Protocol</i></li>
@@ -281,8 +282,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org93024a4" class="outline-3">
-<h3 id="org93024a4"><span class="section-number-3">2.1</span> Formato de trama UDP</h3>
+<div id="outline-container-org79fc572" class="outline-3">
+<h3 id="org79fc572"><span class="section-number-3">2.1</span> Formato de trama UDP</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <div class="figure">
@@ -292,8 +293,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb246a12" class="outline-3">
-<h3 id="orgb246a12"><span class="section-number-3">2.2</span> Características de UDP</h3>
+<div id="outline-container-orgb78e1b8" class="outline-3">
+<h3 id="orgb78e1b8"><span class="section-number-3">2.2</span> Características de UDP</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Los datagramas pueden llegar en un orden diferente al enviado (si IP elige rutas distintas para ellos)</li>
@@ -309,8 +310,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org479283e" class="outline-2">
-<h2 id="org479283e"><span class="section-number-2">3</span> TCP</h2>
+<div id="outline-container-org4d5a208" class="outline-2">
+<h2 id="org4d5a208"><span class="section-number-2">3</span> TCP</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><i>Transmission Control Protocol</i></li>
@@ -328,8 +329,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org31b38b5" class="outline-3">
-<h3 id="org31b38b5"><span class="section-number-3">3.1</span> Ventana y corrección de errores</h3>
+<div id="outline-container-org5e42f60" class="outline-3">
+<h3 id="org5e42f60"><span class="section-number-3">3.1</span> Ventana y corrección de errores</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>TCP necesita confirmación de cada mensaje enviado
@@ -363,8 +364,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org95f60f8" class="outline-3">
-<h3 id="org95f60f8"><span class="section-number-3">3.2</span> <i>Sequence number</i> y <i>Acknowledgment number</i></h3>
+<div id="outline-container-org9a099b9" class="outline-3">
+<h3 id="org9a099b9"><span class="section-number-3">3.2</span> <i>Sequence number</i> y <i>Acknowledgment number</i></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><b>TCP</b> intenta que la comunicación se asemeje a un flujo de bytes
@@ -379,11 +380,10 @@ Sorry, your browser does not support SVG.</object>
 </ul></li>
 </ul>
 </div>
-</div>
 
-<div id="outline-container-org960dfd0" class="outline-3">
-<h3 id="org960dfd0"><span class="section-number-3">3.3</span> Cómo se consigue la conexión</h3>
-<div class="outline-text-3" id="text-3-3">
+<div id="outline-container-orgf3410ea" class="outline-4">
+<h4 id="orgf3410ea"><span class="section-number-4">3.2.1</span> Cómo se consigue la conexión</h4>
+<div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li>Cada extremo de la comunicación debe saber:
 <ul class="org-ul">
@@ -402,11 +402,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
+</div>
 
 
-<div id="outline-container-org8cd759c" class="outline-3">
-<h3 id="org8cd759c"><span class="section-number-3">3.4</span> Corrección de errores</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-orge7e834a" class="outline-3">
+<h3 id="orge7e834a"><span class="section-number-3">3.3</span> Corrección de errores</h3>
+<div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Si se recibe un <i>sequence number</i> posterior a nuestro <i>acknowledgment number</i>
 <ul class="org-ul">
@@ -469,13 +470,98 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
+
+<div id="outline-container-orgd3b7496" class="outline-3">
+<h3 id="orgd3b7496"><span class="section-number-3">3.4</span> Establecimiento de conexión</h3>
+<div class="outline-text-3" id="text-3-4">
+<ol class="org-ol">
+<li>Un servidor escucha en un puerto</li>
+<li>Un cliente envía una solicitud de conexión</li>
+<li>El servidor responde con una aceptación de la conexión</li>
+<li>El cliente <i>acepta</i> la aceptación</li>
+</ol>
+
+
+<div class="figure">
+<p><img src="./media/inicio-tcp.png" alt="inicio-tcp.png" />
+</p>
+</div>
+</div>
 </div>
 
+<div id="outline-container-orga0690dc" class="outline-3">
+<h3 id="orga0690dc"><span class="section-number-3">3.5</span> Estados TCP</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>Los principales estados son:
+<ul class="org-ul">
+<li><b>Closed</b>: Ninguna conexión</li>
+<li><b>Listening</b>: Un servidor está esperando en un puerto a ser conectado</li>
+<li><b>Established</b>: Un cliente ha conectado con un servidor</li>
+<li><b>Time wait</b>: Esperando a que la conexión termine</li>
+</ul></li>
+</ul>
 
 
-<div id="outline-container-orgd9ad2e7" class="outline-2">
-<h2 id="orgd9ad2e7"><span class="section-number-2">4</span> Referencias</h2>
+
+<div class="figure">
+<p><img src="./media/estados-tcp.png" alt="estados-tcp.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org44487d6" class="outline-2">
+<h2 id="org44487d6"><span class="section-number-2">4</span> TCP vs UDP</h2>
 <div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>TCP es un medio de transmisión asegurado
+<ul class="org-ul">
+<li>Las aplicaciones que usan TCP no envían paquetes, sino bytes.</li>
+<li>TCP decide cuando enviar un paquete (las aplicaciones pueden <i>opinar</i>)</li>
+<li>Consume más CPU y memoria, por la ventana de emisión y los reenvíos</li>
+</ul></li>
+<li>UDP es más eficiente
+<ul class="org-ul">
+<li>No necesita mantener conexión, ni reordenar paquetes, ni retransmitir paquetes</li>
+<li>Las aplicaciones son <i>conscientes</i> de que se envían paquetes, no bytes.</li>
+<li>En redes con pocos errores, puede ser más adecuado</li>
+<li>Interesante cuando se necesita mucho ancho de banda pero no importa perder algún paquete (voz, vídeo)</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org5a95223" class="outline-3">
+<h3 id="org5a95223"><span class="section-number-3">4.1</span> TCP Joke</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li>Hello, would you like to hear a TCP joke?</li>
+<li>Yes, I'd like to hear a TCP joke.</li>
+<li>OK, I'll tell you a TCP joke.</li>
+<li>OK, I'll hear a TCP joke.</li>
+<li>Are you ready to hear a TCP joke?</li>
+<li>Yes, I am ready to hear a TCP joke.</li>
+<li>OK, I'm about to send the TCP joke. It will last 10 seconds, it has two characters, it does not have a setting, it ends with a punchline.</li>
+<li>OK, I'm ready to hear the TCP joke that will last 10 seconds, has two characters, does not have a setting and will end with a punchline.</li>
+<li>I'm sorry, your connection has timed out&#x2026; &#x2026;Hello, would you like to hear a TCP joke?</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-org932a778" class="outline-3">
+<h3 id="org932a778"><span class="section-number-3">4.2</span> UDP Joke</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Lo anterior era una broma de TCP. No me importa si la pillas o no.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org001cef5" class="outline-2">
+<h2 id="org001cef5"><span class="section-number-2">5</span> Referencias</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -493,7 +579,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-02-10 sáb 19:15</p>
+<p class="date">Created: 2018-02-10 sáb 19:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

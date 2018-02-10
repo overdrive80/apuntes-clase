@@ -71,7 +71,7 @@
   - el número de secuencia del primer byte transmitido en el paquete
   - el número de secuencia del siguiente byte que se espera
 
-** Cómo se consigue la conexión
+*** Cómo se consigue la conexión
 - Cada extremo de la comunicación debe saber:
   - Cuál es su siguiente byte a enviar (/sequence number/)
   - Cuál es su siguiente byte a recibir (/acknowledgment number/)
@@ -93,7 +93,7 @@ file:./media/sequence-number-acknoledgement-number.svg
 
 #+reveal: split
 #+caption: Llegada de un paquete posterior al esperado
-file:./media/sequence-number-acknoledgement-number-1.svg
+[[file:./media/sequence-number-acknoledgement-number-1.svg]]
 
 
 #+reveal: split
@@ -106,7 +106,7 @@ file:./media/sequence-number-acknoledgement-number-1.svg
   - Reenviaré a partir de dicho /acknowledgement number/
 #+reveal: split
 #+caption: El otro lado informa de la pérdida de algún paquete
-file:./media/sequence-number-acknoledgement-number-2.svg
+[[file:./media/sequence-number-acknoledgement-number-2.svg]]
 
 
 
@@ -116,10 +116,51 @@ file:./media/sequence-number-acknoledgement-number-2.svg
 
 #+reveal: split
 #+caption: Paquete no confirmado tras un /timeout/
-file:./media/sequence-number-acknoledgement-number-3.svg
+[[file:./media/sequence-number-acknoledgement-number-3.svg]]
 
+** Establecimiento de conexión
+1. Un servidor escucha en un puerto
+2. Un cliente envía una solicitud de conexión
+3. El servidor responde con una aceptación de la conexión
+4. El cliente /acepta/ la aceptación 
 
+[[file:./media/inicio-tcp.png]]
 
+** Estados TCP
+- Los principales estados son:
+  - *Closed*: Ninguna conexión
+  - *Listening*: Un servidor está esperando en un puerto a ser conectado
+  - *Established*: Un cliente ha conectado con un servidor
+  - *Time wait*: Esperando a que la conexión termine
+ 
+
+[[file:./media/estados-tcp.png]]
+
+* TCP vs UDP
+- TCP es un medio de transmisión asegurado
+  - Las aplicaciones que usan TCP no envían paquetes, sino bytes. 
+  - TCP decide cuando enviar un paquete (las aplicaciones pueden /opinar/)
+  - Consume más CPU y memoria, por la ventana de emisión y los reenvíos
+- UDP es más eficiente
+  - No necesita mantener conexión, ni reordenar paquetes, ni retransmitir paquetes
+  - Las aplicaciones son /conscientes/ de que se envían paquetes, no bytes.
+  - En redes con pocos errores, puede ser más adecuado
+  - Interesante cuando se necesita mucho ancho de banda pero no importa perder algún paquete (voz, vídeo)
+
+** TCP Joke
+1. Hello, would you like to hear a TCP joke?                                                                                                 
+2. Yes, I'd like to hear a TCP joke.                                                                                                         
+3. OK, I'll tell you a TCP joke.                                                                                                             
+4. OK, I'll hear a TCP joke.                                                                                                                 
+5. Are you ready to hear a TCP joke?                                                                                                         
+6. Yes, I am ready to hear a TCP joke.                                                                                                       
+7. OK, I'm about to send the TCP joke. It will last 10 seconds, it has two characters, it does not have a setting, it ends with a punchline. 
+8. OK, I'm ready to hear the TCP joke that will last 10 seconds, has two characters, does not have a setting and will end with a punchline.  
+9. I'm sorry, your connection has timed out... ...Hello, would you like to hear a TCP joke?                                                  
+
+** UDP Joke
+- Lo anterior era una broma de TCP. No me importa si la pillas o no.
+                                                                                                                                          
 * Referencias
 - Formatos:
   - [[file:par-4-protocolo-ip.html][Transparencias]]
