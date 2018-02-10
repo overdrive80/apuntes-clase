@@ -43,6 +43,26 @@
 #+reveal: split
 [[file:par-5-tcp-udp.org_20180209_091000_12356BER.png]]
 
+
+** Ventana y corrección de errores
+- TCP necesita confirmación de cada mensaje enviado
+  - Para garantizar la confiabilidad
+- Opciones:
+  - *[[https://es.wikipedia.org/wiki/Parada_y_espera][Parada y espera]]*: Cada mensaje necesita confirmación
+  - *[[https://en.wikipedia.org/wiki/Piggybacking_(data_transmission)][Piggybacking]]*: La confirmación puede retrasarse algunos mensajes ([[https://en.wikipedia.org/wiki/Sliding_window_protocol][ventana]])
+- La parada y espera es más simple, pero desaprovecha ancho de banda
+
+#+reveal: split
+
+#+caption: Ejemplo de parada y espera
+[[file:media/parada-y-espera.svg]]
+
+#+reveal: split
+
+#+caption: Ejemplo de piggybacking con ventana 3
+[[file:media/piggybacking.svg]]
+
+
 ** /Sequence number/ y /Acknowledgment number/
 - *TCP* intenta que la comunicación se asemeje a un flujo de bytes
   - Todos los bytes que entran por un extremo
@@ -55,18 +75,48 @@
 - Cada extremo de la comunicación debe saber:
   - Cuál es su siguiente byte a enviar (/sequence number/)
   - Cuál es su siguiente byte a recibir (/acknowledgment number/)
-- Si se recibe un /sequence number/ posterior a nuestro /acknowledgment number/
-  - Es un paquete *posterior* al que esperamos: se guarda en la capa *TCP* hasta que lleguen los anteriores
-- Si se recibe un /sequence number/ anterior a nuestro /acknowledgment number/
-  - Es un paquete ya recibido (se habrá duplicado)
+- Además, también lleva la cuenta de su opinión acerca del /sequence number/ y del /acknowledgment number/ del otro extremo
+
+#+reveal: split
+
+#+caption: /Sequence number/ y /acknowledgment number/
+file:./media/sequence-number-acknoledgement-number.svg
+
 
 ** Corrección de errores
-- Si se pierde un paquete, o llega con error
-  - Enviaré un /acknowledgment number/ menor que el que espera el otro lado
+- Si se recibe un /sequence number/ posterior a nuestro /acknowledgment number/
+  - Es un paquete *posterior* al que esperamos
+    - Se puede guardar en la capa *TCP* hasta que lleguen los anteriores
+    - O se puede ignorar, y reclamar los paquetes perdidos enviando un /acknowledgment number/ menor que el que espera el otro 
   - El otro lado reenviará los paquetes necesarios
 
-** Ventana de transmisión
-- 
+
+#+reveal: split
+#+caption: Llegada de un paquete posterior al esperado
+file:./media/sequence-number-acknoledgement-number-1.svg
+
+
+#+reveal: split
+- Si se recibe un /sequence number/ anterior a nuestro /acknowledgment number/
+  - Es un paquete ya recibido (se habrá duplicado)
+  - Por tanto, se ignora
+
+#+reveal: split
+- Si me llega un /acknowledgement number/ menor que los bytes que yo he enviado
+  - Reenviaré a partir de dicho /acknowledgement number/
+#+reveal: split
+#+caption: El otro lado informa de la pérdida de algún paquete
+file:./media/sequence-number-acknoledgement-number-2.svg
+
+
+
+#+reveal: split
+- Si no tengo confirmación de un paquete enviado tras un /timeout/
+  - Reenviaré el paquete
+
+#+reveal: split
+#+caption: Paquete no confirmado tras un /timeout/
+file:./media/sequence-number-acknoledgement-number-3.svg
 
 
 
