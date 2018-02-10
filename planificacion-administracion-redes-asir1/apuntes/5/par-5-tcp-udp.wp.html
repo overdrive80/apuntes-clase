@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-02-10 sáb 18:50 -->
+<!-- 2018-02-10 sáb 19:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TCP y UDP</title>
@@ -238,16 +238,16 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org466ef54">1. Introducción</a></li>
-<li><a href="#orgb3c6888">2. UDP</a></li>
-<li><a href="#org38865d6">3. TCP</a></li>
-<li><a href="#orgcda26ea">4. Referencias</a></li>
+<li><a href="#org0233bd7">1. Introducción</a></li>
+<li><a href="#orgc9b3d54">2. UDP</a></li>
+<li><a href="#org479283e">3. TCP</a></li>
+<li><a href="#orgd9ad2e7">4. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org466ef54" class="outline-2">
-<h2 id="org466ef54"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org0233bd7" class="outline-2">
+<h2 id="org0233bd7"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -268,8 +268,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgb3c6888" class="outline-2">
-<h2 id="orgb3c6888"><span class="section-number-2">2</span> UDP</h2>
+<div id="outline-container-orgc9b3d54" class="outline-2">
+<h2 id="orgc9b3d54"><span class="section-number-2">2</span> UDP</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><i>User Datagram Protocol</i></li>
@@ -281,8 +281,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org784ff0d" class="outline-3">
-<h3 id="org784ff0d"><span class="section-number-3">2.1</span> Formato de trama UDP</h3>
+<div id="outline-container-org93024a4" class="outline-3">
+<h3 id="org93024a4"><span class="section-number-3">2.1</span> Formato de trama UDP</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <div class="figure">
@@ -292,8 +292,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5ca2d29" class="outline-3">
-<h3 id="org5ca2d29"><span class="section-number-3">2.2</span> Características de UDP</h3>
+<div id="outline-container-orgb246a12" class="outline-3">
+<h3 id="orgb246a12"><span class="section-number-3">2.2</span> Características de UDP</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Los datagramas pueden llegar en un orden diferente al enviado (si IP elige rutas distintas para ellos)</li>
@@ -309,8 +309,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org38865d6" class="outline-2">
-<h2 id="org38865d6"><span class="section-number-2">3</span> TCP</h2>
+<div id="outline-container-org479283e" class="outline-2">
+<h2 id="org479283e"><span class="section-number-2">3</span> TCP</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li><i>Transmission Control Protocol</i></li>
@@ -328,8 +328,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgf3a14d1" class="outline-3">
-<h3 id="orgf3a14d1"><span class="section-number-3">3.1</span> Ventana y corrección de errores</h3>
+<div id="outline-container-org31b38b5" class="outline-3">
+<h3 id="org31b38b5"><span class="section-number-3">3.1</span> Ventana y corrección de errores</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>TCP necesita confirmación de cada mensaje enviado
@@ -343,11 +343,7 @@ for the JavaScript code in this tag.
 </ul></li>
 <li>La parada y espera es más simple, pero desaprovecha ancho de banda</li>
 </ul>
-</div>
 
-<div id="outline-container-org0515107" class="outline-4">
-<h4 id="org0515107"><span class="section-number-4">3.1.1</span> Ejemplo de parada y espera</h4>
-<div class="outline-text-4" id="text-3-1-1">
 
 <div class="figure">
 <p><object type="image/svg+xml" data="media/parada-y-espera.svg" class="org-svg">
@@ -355,12 +351,7 @@ Sorry, your browser does not support SVG.</object>
 </p>
 <p><span class="figure-number">Figura 4: </span>Ejemplo de parada y espera</p>
 </div>
-</div>
-</div>
 
-<div id="outline-container-org0671e6c" class="outline-4">
-<h4 id="org0671e6c"><span class="section-number-4">3.1.2</span> Ejemplo de <i>piggybacking</i></h4>
-<div class="outline-text-4" id="text-3-1-2">
 
 <div class="figure">
 <p><object type="image/svg+xml" data="media/piggybacking.svg" class="org-svg">
@@ -370,11 +361,10 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-</div>
 
 
-<div id="outline-container-orga17944e" class="outline-3">
-<h3 id="orga17944e"><span class="section-number-3">3.2</span> <i>Sequence number</i> y <i>Acknowledgment number</i></h3>
+<div id="outline-container-org95f60f8" class="outline-3">
+<h3 id="org95f60f8"><span class="section-number-3">3.2</span> <i>Sequence number</i> y <i>Acknowledgment number</i></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><b>TCP</b> intenta que la comunicación se asemeje a un flujo de bytes
@@ -391,8 +381,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org4ec6b7d" class="outline-3">
-<h3 id="org4ec6b7d"><span class="section-number-3">3.3</span> Cómo se consigue la conexión</h3>
+<div id="outline-container-org960dfd0" class="outline-3">
+<h3 id="org960dfd0"><span class="section-number-3">3.3</span> Cómo se consigue la conexión</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Cada extremo de la comunicación debe saber:
@@ -402,12 +392,20 @@ Sorry, your browser does not support SVG.</object>
 </ul></li>
 <li>Además, también lleva la cuenta de su opinión acerca del <i>sequence number</i> y del <i>acknowledgment number</i> del otro extremo</li>
 </ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/sequence-number-acknoledgement-number.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figura 6: </span><i>Sequence number</i> y <i>acknowledgment number</i></p>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-org71e8341" class="outline-3">
-<h3 id="org71e8341"><span class="section-number-3">3.4</span> Corrección de errores</h3>
+<div id="outline-container-org8cd759c" class="outline-3">
+<h3 id="org8cd759c"><span class="section-number-3">3.4</span> Corrección de errores</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Si se recibe un <i>sequence number</i> posterior a nuestro <i>acknowledgment number</i>
@@ -415,10 +413,21 @@ Sorry, your browser does not support SVG.</object>
 <li>Es un paquete <b>posterior</b> al que esperamos
 <ul class="org-ul">
 <li>Se puede guardar en la capa <b>TCP</b> hasta que lleguen los anteriores</li>
-<li>Se puede ignorar, y reclamar los paquetes perdidos</li>
+<li>O se puede ignorar, y reclamar los paquetes perdidos enviando un <i>acknowledgment number</i> menor que el que espera el otro</li>
 </ul></li>
+<li>El otro lado reenviará los paquetes necesarios</li>
 </ul></li>
 </ul>
+
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/sequence-number-acknoledgement-number-1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figura 7: </span>Llegada de un paquete posterior al esperado</p>
+</div>
+
 
 <ul class="org-ul">
 <li>Si se recibe un <i>sequence number</i> anterior a nuestro <i>acknowledgment number</i>
@@ -429,12 +438,20 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 
 <ul class="org-ul">
-<li>Si se pierde un paquete, o llega con error
+<li>Si me llega un <i>acknowledgement number</i> menor que los bytes que yo he enviado
 <ul class="org-ul">
-<li>Enviaré un <i>acknowledgment number</i> menor que el que espera el otro lado</li>
-<li>El otro lado reenviará los paquetes necesarios</li>
+<li>Reenviaré a partir de dicho <i>acknowledgement number</i></li>
 </ul></li>
 </ul>
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/sequence-number-acknoledgement-number-2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figura 8: </span>El otro lado informa de la pérdida de algún paquete</p>
+</div>
+
+
 
 <ul class="org-ul">
 <li>Si no tengo confirmación de un paquete enviado tras un <i>timeout</i>
@@ -442,26 +459,22 @@ Sorry, your browser does not support SVG.</object>
 <li>Reenviaré el paquete</li>
 </ul></li>
 </ul>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/sequence-number-acknoledgement-number-3.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figura 9: </span>Paquete no confirmado tras un <i>timeout</i></p>
 </div>
-</div>
-
-
-
-
-<div id="outline-container-orgd83722a" class="outline-3">
-<h3 id="orgd83722a"><span class="section-number-3">3.5</span> Ventana de transmisión</h3>
-<div class="outline-text-3" id="text-3-5">
-<ul class="org-ul">
-<li></li>
-</ul>
 </div>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgcda26ea" class="outline-2">
-<h2 id="orgcda26ea"><span class="section-number-2">4</span> Referencias</h2>
+<div id="outline-container-orgd9ad2e7" class="outline-2">
+<h2 id="orgd9ad2e7"><span class="section-number-2">4</span> Referencias</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Formatos:
@@ -480,7 +493,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-02-10 sáb 18:50</p>
+<p class="date">Created: 2018-02-10 sáb 19:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
