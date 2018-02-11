@@ -162,8 +162,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="141.54153"
-     inkscape:cy="353.07761"
+     inkscape:cx="204.04153"
+     inkscape:cy="238.7919"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -512,18 +512,21 @@
            id="tspan5273">30 - 10</tspan></tspan></text>
     <g
        id="g7706">
-      <flowRoot
-         transform="translate(-179.35498,348.96643)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-7-2-0-1"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-6-9-8-5"><rect
-             y="416.64792"
-             x="240"
-             height="14.285714"
-             width="62.142857"
-             id="rect4424-3-0-9-5-3-8-9" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-6-9-5-8">10 - 10</flowPara></flowRoot>    </g>
+         x="60.64502"
+         y="775.58234"
+         id="text4344"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="60.64502"
+           y="775.58234"
+           id="tspan4346"><tspan
+             x="60.64502"
+             y="775.58234"
+             id="tspan4348">10 - 10</tspan></tspan></text>
+    </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9-0-0-4)"
        d="m 121.00899,773.71595 300.7143,35.71428"
@@ -592,18 +595,21 @@
     <g
        id="g4822-8"
        transform="translate(5.3631352,88.023711)">
-      <flowRoot
-         transform="translate(195.63197,270.81498)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-2-3"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-0-18"><rect
-             y="416.64792"
-             x="240"
-             height="15.714247"
-             width="38.571449"
-             id="rect4424-3-0-9-6-9" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-1-6">10 - 20</flowPara></flowRoot>    </g>
+         x="435.63196"
+         y="697.43091"
+         id="text4356"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="435.63196"
+           y="697.43091"
+           id="tspan4358"><tspan
+             x="435.63196"
+             y="697.43091"
+             id="tspan4360">10 - 20</tspan></tspan></text>
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -621,33 +627,39 @@
     <g
        id="g4822-7-6"
        transform="translate(72.531661,88.657661)">
-      <flowRoot
-         transform="translate(195.63197,270.81498)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-2-4-0"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-0-1-4"><rect
-             y="416.64792"
-             x="240"
-             height="15.714233"
-             width="58.571442"
-             id="rect4424-3-0-9-6-8-8" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-1-5-8">20 - 10</flowPara></flowRoot>    </g>
+         x="435.63196"
+         y="697.43091"
+         id="text4362"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="435.63196"
+           y="697.43091"
+           id="tspan4364"><tspan
+             x="435.63196"
+             y="697.43091"
+             id="tspan4366">20 - 10</tspan></tspan></text>
+    </g>
     <g
        id="g4822-9-8"
        transform="translate(71.225639,113.58588)">
-      <flowRoot
-         transform="translate(195.63197,270.81498)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-2-7-9"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-0-5-7"><rect
-             y="416.64792"
-             x="240"
-             height="15.714247"
-             width="38.571449"
-             id="rect4424-3-0-9-6-3-7" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-1-8-6">30 - 10</flowPara></flowRoot>    </g>
+         x="435.63196"
+         y="697.43091"
+         id="text4368"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="435.63196"
+           y="697.43091"
+           id="tspan4370"><tspan
+             x="435.63196"
+             y="697.43091"
+             id="tspan4372">30 - 10</tspan></tspan></text>
+    </g>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker6288)"
        d="M 417.28206,837.13128 116.56775,872.84556"
@@ -684,18 +696,21 @@
     <g
        id="g4822-9-8-6"
        transform="translate(73.000406,144.99749)">
-      <flowRoot
-         transform="translate(195.63197,270.81498)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-2-7-9-9"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-0-5-7-2"><rect
-             y="416.64792"
-             x="240"
-             height="15.714247"
-             width="38.571449"
-             id="rect4424-3-0-9-6-3-7-2" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-1-8-6-4">30 - 10</flowPara></flowRoot>    </g>
+         x="435.63196"
+         y="697.43091"
+         id="text4374"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="435.63196"
+           y="697.43091"
+           id="tspan4376"><tspan
+             x="435.63196"
+             y="697.43091"
+             id="tspan4378">30 - 10</tspan></tspan></text>
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -724,18 +739,21 @@
     <g
        id="g6533"
        transform="translate(3.0304576,-39.395949)">
-      <flowRoot
-         transform="translate(-180.30607,488.44268)"
+      <text
+         xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         id="flowRoot4420-7-3-3-7-2-0-1-8"
-         xml:space="preserve"><flowRegion
-           id="flowRegion4422-5-6-1-6-9-8-5-1"><rect
-             y="416.64792"
-             x="240"
-             height="14.285714"
-             width="62.142857"
-             id="rect4424-3-0-9-5-3-8-9-2" /></flowRegion><flowPara
-           id="flowPara4426-5-6-4-6-9-5-8-8">20 - 30</flowPara></flowRoot>    </g>
+         x="59.693932"
+         y="915.05859"
+         id="text4350"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="59.693932"
+           y="915.05859"
+           id="tspan4352"><tspan
+             x="59.693932"
+             y="915.05859"
+             id="tspan4354">20 - 30</tspan></tspan></text>
+    </g>
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
