@@ -142,6 +142,72 @@ Fuente: [[https://commons.wikimedia.org/w/index.php?curid=11680600][By Snubcube]
 Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]] 
 
 
+* Puertos
+- Se llama puerto a la dirección de nivel de transporte en
+  - TCP
+  - UDP
+- La asignación de puertos se realiza según el [[http://www.ietf.org/rfc/rfc1700.txt?number=1700][RFC 1700]]
+
+|---+--------------------+----------------+----------------------------------------|
+| / | <>                 | <>             | <>                                     |
+|   | *Well-known ports* | 0 - 1023       | Solo para el administrador             |
+|   | *Registered ports* | 1024 - 49151   | Generalmente, servicios menos críticos |
+|   | *Dynamic ports*    | 49152 to 65535 | Asignables a los clientes              |
+|---+--------------------+----------------+----------------------------------------|
+
+** Asignación de puertos
+- *Servidor*: El proceso escucha en un puerto conocido 
+  - Ejemplos: 80 para HTTP, 25 para SMTP...
+  - Lista de /well known ports/ en el fichero [[http://www.penguintutor.com/linux/network-services-ports][=/etc/services]]=
+- *Cliente*: El cliente inicia una conexión un servidor. 
+  - El sistema le asigna un puerto no utilizado cualquiera
+  - Generalmente, un puerto dinámico
+  - El cliente también puede solicitar un puerto, pero es poco frecuente
+
+** Comando =netstat=
+- Informa de 
+  - Las conexiones TCP y UDP activas
+  - Los programas escuchando en puertos TCP y UDP
+
+|---------------------------+-------+----------|
+|                           | Linux | Windows  |
+|---------------------------+-------+----------|
+| Conexiones TCP            | ~-t~  | ~-p tcp~ |
+| Conexiones UDP            | ~-u~  | ~-p udp~ |
+| Proceso                   | ~-p~  | ~-o~     |
+| No traducir direcciones   | ~-n~  | ~-n~     |
+| Escuchando                | ~-l~  |          |
+| Escuchando y establecidas | ~-a~  | ~-a~     |
+|---------------------------+-------+----------|
+
+
+*** Ejercicio
+- Comprueba qué conexiones están establecidas en tu ordenador
+- Comprueba a qué direcciones está conectado tu ordenador
+- Comprueba qué puertos admiten conexiones
+- Comprueba qué procesos admiten conexiones
+
+** Comando =nc=
+- [[https://es.wikipedia.org/wiki/Netcat][Netcat]] permite realizar conexiones TCP/UDP y redirigir su entrada/salida
+- [[http://crysol.github.io/recipe/2005-10-10/netcat-la-navaja-suiza-de-tcp-ip.html][Usos]]
+  - Simular de forma rápida un cliente para probar un servidor
+  - Simular un servidor para probar un cliente
+  - Comprobar si el /firewall/ permite conexiones
+  - Transferir información por red
+- Versión Windows: 
+  - https://eternallybored.org/misc/netcat/
+  - *[[https://git-scm.com/download/win][git]]* incluye una /shell/ con netcat
+
+*** Ejercicio
+- Pon a *netcat* a escuchar en un puerto
+- Haz que un compañero se conecte a ese puerto
+- Utiliza *netcat* como chat.
+
+*** Youtube, 1990
+=nc towel.blinkenlights.nl 23=
+
+
+
 
 
 * TCP vs UDP
@@ -168,11 +234,12 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
 
 ** UDP Joke
 - Lo anterior era una broma de TCP. No me importa si la pillas o no.
+
                                                                                                                                           
 * Referencias
 - Formatos:
-  - [[file:par-4-protocolo-ip.html][Transparencias]]
-  - [[file:par-4-protocolo-ip.pdf][PDF]]
+  - [[file:par-5-tcp-udp.reveal.html][Transparencias]]
+  - [[file:par-5-tcp-udp.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
