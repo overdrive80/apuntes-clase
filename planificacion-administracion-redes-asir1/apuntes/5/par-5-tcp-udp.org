@@ -63,7 +63,7 @@
 [[file:media/piggybacking.svg]]
 
 
-** /Sequence number/ y /Acknowledgment number/
+* /Sequence number/ y /Acknowledgment number/
 - *TCP* intenta que la comunicación se asemeje a un flujo de bytes
   - Todos los bytes que entran por un extremo
   - ... deben salir por el otro lado
@@ -71,7 +71,7 @@
   - el número de secuencia del primer byte transmitido en el paquete
   - el número de secuencia del siguiente byte que se espera
 
-*** Cómo se consigue la conexión
+** Estado de la conexión
 - Cada extremo de la comunicación debe saber:
   - Cuál es su siguiente byte a enviar (/sequence number/)
   - Cuál es su siguiente byte a recibir (/acknowledgment number/)
@@ -87,7 +87,7 @@ file:./media/sequence-number-acknoledgement-number.svg
 - Si se recibe un /sequence number/ posterior a nuestro /acknowledgment number/
   - Es un paquete *posterior* al que esperamos
     - Se puede guardar en la capa *TCP* hasta que lleguen los anteriores
-    - O se puede ignorar, y reclamar los paquetes perdidos enviando un /acknowledgment number/ menor que el que espera el otro 
+    - O se puede ignorar, y [[https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Dupack_based_retransmission][reclamar los paquetes perdidos]] enviando un /acknowledgment number/ menor que el que espera el otro 
   - El otro lado reenviará los paquetes necesarios
 
 
@@ -111,20 +111,22 @@ file:./media/sequence-number-acknoledgement-number.svg
 
 
 #+reveal: split
-- Si no tengo confirmación de un paquete enviado tras un /timeout/
+- Si no tengo confirmación de un paquete enviado tras un /[[https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Timeout_based_retransmission][timeout]]/
   - Reenviaré el paquete
 
 #+reveal: split
 #+caption: Paquete no confirmado tras un /timeout/
 [[file:./media/sequence-number-acknoledgement-number-3.svg]]
 
+* Mensajes TCP
 ** Establecimiento de conexión
 1. Un servidor escucha en un puerto
 2. Un cliente envía una solicitud de conexión
 3. El servidor responde con una aceptación de la conexión
 4. El cliente /acepta/ la aceptación 
 
-[[file:./media/inicio-tcp.png]]
+[[file:media/inicio-tcp.svg]]
+Fuente: [[https://commons.wikimedia.org/w/index.php?curid=11680600][By Snubcube]] 
 
 ** Estados TCP
 - Los principales estados son:
@@ -132,9 +134,15 @@ file:./media/sequence-number-acknoledgement-number.svg
   - *Listening*: Un servidor está esperando en un puerto a ser conectado
   - *Established*: Un cliente ha conectado con un servidor
   - *Time wait*: Esperando a que la conexión termine
+- Todos los estados en [[http://www.medianet.kent.edu/techreports/TR2005-07-22-tcp-EFSM.pdf][http://www.medianet.kent.edu/techreports/TR2005-07-22-tcp-EFSM.pdf]]
  
+#+reveal: split
 
-[[file:./media/estados-tcp.png]]
+[[file:./media/estados-tcp.svg]]
+Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]] 
+
+
+
 
 * TCP vs UDP
 - TCP es un medio de transmisión asegurado
