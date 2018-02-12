@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-01-18 jue 13:07 -->
+<!-- 2018-02-07 mié 20:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Dispositivos de almacenamiento y copias de seguridad</title>
@@ -189,7 +189,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2017 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -238,68 +238,68 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8ecb543">1. Introducción</a></li>
-<li><a href="#orgd24652f">2. Medios de almacenamiento en memoria secundaria.</a>
+<li><a href="#org82b731d">1. Introducción</a></li>
+<li><a href="#org9c0b923">2. Medios de almacenamiento en memoria secundaria.</a>
 <ul>
-<li><a href="#orgd9c21b0">2.1. Magnéticos</a></li>
-<li><a href="#org58c5abc">2.2. Ópticos</a></li>
-<li><a href="#org9b9ac46">2.3. Flash</a></li>
+<li><a href="#orgbef120e">2.1. Magnéticos</a></li>
+<li><a href="#org89eee63">2.2. Ópticos</a></li>
+<li><a href="#orgc8dce8c">2.3. Flash</a></li>
 </ul>
 </li>
-<li><a href="#org17a459c">3. Unidades de medida de la información</a></li>
-<li><a href="#orgd5a5def">4. Redundancia en discos: RAID</a>
+<li><a href="#org0fc004d">3. Unidades de medida de la información</a></li>
+<li><a href="#org171cbc3">4. Redundancia en discos: RAID</a>
 <ul>
-<li><a href="#orgd69a50d">4.1. Niveles</a></li>
-<li><a href="#org53c37a7">4.2. Cómo se implementa</a></li>
-<li><a href="#org5c0519d">4.3. Cómo funciona.</a></li>
-<li><a href="#orgbf4e1fe">4.4. El estado de emergencia</a></li>
-<li><a href="#org8406799">4.5. El estado de reconstrucción</a></li>
+<li><a href="#org7b8a609">4.1. Niveles</a></li>
+<li><a href="#org5d648ae">4.2. Cómo se implementa</a></li>
+<li><a href="#org7798960">4.3. Cómo funciona.</a></li>
+<li><a href="#orgb0a05c6">4.4. El estado de emergencia</a></li>
+<li><a href="#org2eedc10">4.5. El estado de reconstrucción</a></li>
 </ul>
 </li>
-<li><a href="#org437ffe7">5. Los niveles RAID</a>
+<li><a href="#org3571053">5. Los niveles RAID</a>
 <ul>
-<li><a href="#orgeac8419">5.1. RAID 1</a></li>
-<li><a href="#orgea27911">5.2. RAID 5</a></li>
-<li><a href="#orgc87c760">5.3. RAID 6</a></li>
-<li><a href="#org8bc815b">5.4. RAID 5E y 6E.</a></li>
-<li><a href="#org2f15e0b">5.5. RAID 0</a></li>
-<li><a href="#orgb632f0c">5.6. Combinaciones de RAID</a></li>
-<li><a href="#orga69b95f">5.7. Lo que RAID NO PUEDE HACER</a></li>
+<li><a href="#org40ccfe5">5.1. RAID 1</a></li>
+<li><a href="#org8abf80d">5.2. RAID 5</a></li>
+<li><a href="#org96e901b">5.3. RAID 6</a></li>
+<li><a href="#orga81a5a6">5.4. RAID 5E y 6E.</a></li>
+<li><a href="#orgb66a308">5.5. RAID 0</a></li>
+<li><a href="#org2ca08fa">5.6. Combinaciones de RAID</a></li>
+<li><a href="#orgdf7f561">5.7. Lo que RAID NO PUEDE HACER</a></li>
 </ul>
 </li>
-<li><a href="#org0c9e929">6. La conexión de los almacenamientos</a>
+<li><a href="#org6855777">6. La conexión de los almacenamientos</a>
 <ul>
-<li><a href="#org910c117">6.1. DAS: Direct Attached Storage.</a></li>
-<li><a href="#org6482b8f">6.2. NAS: Network Attached Storage.</a></li>
-<li><a href="#org9763017">6.3. SAN: Storage Area Network</a></li>
-<li><a href="#orga2ee65b">6.4. Un caso particular: iSCSI SAN</a></li>
+<li><a href="#org72d2951">6.1. DAS: Direct Attached Storage.</a></li>
+<li><a href="#org2950606">6.2. NAS: Network Attached Storage.</a></li>
+<li><a href="#org60a5335">6.3. SAN: Storage Area Network</a></li>
+<li><a href="#org2db6305">6.4. Un caso particular: iSCSI SAN</a></li>
 </ul>
 </li>
-<li><a href="#orgcc7eaa4">7. La detección del deterioro de los discos</a>
+<li><a href="#org6c0c24c">7. La detección del deterioro de los discos</a>
 <ul>
-<li><a href="#orga95962b">7.1. CRC</a></li>
-<li><a href="#org104244e">7.2. S.M.A.R.T.</a></li>
+<li><a href="#orge39ff56">7.1. CRC</a></li>
+<li><a href="#orge44dfcd">7.2. S.M.A.R.T.</a></li>
 </ul>
 </li>
-<li><a href="#orga28dd44">8. Redundancia en servidores: clústeres.</a></li>
-<li><a href="#org83e4d3a">9. El respaldo de los datos: la copia de seguridad.</a>
+<li><a href="#orge166704">8. Redundancia en servidores: clústeres.</a></li>
+<li><a href="#orgddfd648">9. El respaldo de los datos: la copia de seguridad.</a>
 <ul>
-<li><a href="#org0140af0">9.1. Tipos de copias de seguridad.</a></li>
-<li><a href="#orgecdddc0">9.2. Los medios en los que se guardan las copias</a></li>
-<li><a href="#orgf1a54a3">9.3. Diseño de las políticas de respaldo.</a></li>
-<li><a href="#org5274b13">9.4. Encriptación</a></li>
-<li><a href="#org9bc1fcc">9.5. El bit de archivo y la fecha de modificación.</a></li>
-<li><a href="#org2e47424">9.6. Políticas de respaldo.</a></li>
+<li><a href="#org640422f">9.1. Tipos de copias de seguridad.</a></li>
+<li><a href="#org50cb252">9.2. Los medios en los que se guardan las copias</a></li>
+<li><a href="#org7748d3d">9.3. Diseño de las políticas de respaldo.</a></li>
+<li><a href="#org016ee6c">9.4. Encriptación</a></li>
+<li><a href="#orgd5c4266">9.5. El bit de archivo y la fecha de modificación.</a></li>
+<li><a href="#orgc8d6987">9.6. Políticas de respaldo.</a></li>
 </ul>
 </li>
-<li><a href="#org5ce516b">10. Referencias</a></li>
+<li><a href="#orge517b16">10. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org8ecb543" class="outline-2">
-<h2 id="org8ecb543"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org82b731d" class="outline-2">
+<h2 id="org82b731d"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 En éste tema hablaremos de los distintos tipos de dispositivos de almacenamiento de la información que se utilizan en la actualidad, comentando sus principales ventajas, inconvenientes y vulnerabilidades.
@@ -326,8 +326,8 @@ Tanto una cosa como la otra no pueden evitar ataques (la redundancia no puede ev
 
 
 
-<div id="outline-container-orgd24652f" class="outline-2">
-<h2 id="orgd24652f"><span class="section-number-2">2</span> Medios de almacenamiento en memoria secundaria.</h2>
+<div id="outline-container-org9c0b923" class="outline-2">
+<h2 id="org9c0b923"><span class="section-number-2">2</span> Medios de almacenamiento en memoria secundaria.</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 El almacenamiento de la información de un ordenador puede producirse en la memoria
@@ -344,16 +344,16 @@ los “1” y “0” que componen la información binaria.
 Básicamente, hay tres grandes grupos:
 </p>
 </div>
-<div id="outline-container-orgd9c21b0" class="outline-3">
-<h3 id="orgd9c21b0"><span class="section-number-3">2.1</span> Magnéticos</h3>
+<div id="outline-container-orgbef120e" class="outline-3">
+<h3 id="orgbef120e"><span class="section-number-3">2.1</span> Magnéticos</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Hoy en día se reducen únicamente a discos duros y cintas magnéticas, aunque anteriormente fueron bastante populares los discos flexibles. Se basan en la propiedad de las moléculas de los materiales magnéticos de “girar” y orientarse en la dirección de un campo magnético. Esa orientación se utiliza para representar los valores binarios de 1 y 0.
 </p>
 </div>
 
-<div id="outline-container-org1ce12cb" class="outline-4">
-<h4 id="org1ce12cb"><span class="section-number-4">2.1.1</span> Discos duros:</h4>
+<div id="outline-container-org209c85e" class="outline-4">
+<h4 id="org209c85e"><span class="section-number-4">2.1.1</span> Discos duros:</h4>
 <div class="outline-text-4" id="text-2-1-1">
 
 <div class="figure">
@@ -389,8 +389,8 @@ Uso
 </div>
 </div>
 
-<div id="outline-container-org24e5d16" class="outline-4">
-<h4 id="org24e5d16"><span class="section-number-4">2.1.2</span> Las cintas magnéticas</h4>
+<div id="outline-container-orgb3791e5" class="outline-4">
+<h4 id="orgb3791e5"><span class="section-number-4">2.1.2</span> Las cintas magnéticas</h4>
 <div class="outline-text-4" id="text-2-1-2">
 
 <div class="figure">
@@ -437,8 +437,8 @@ viva sufre un ataque.
 </div>
 </div>
 
-<div id="outline-container-org58c5abc" class="outline-3">
-<h3 id="org58c5abc"><span class="section-number-3">2.2</span> Ópticos</h3>
+<div id="outline-container-org89eee63" class="outline-3">
+<h3 id="org89eee63"><span class="section-number-3">2.2</span> Ópticos</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <div class="figure">
@@ -482,8 +482,8 @@ Uso:
 </div>
 </div>
 
-<div id="outline-container-org9b9ac46" class="outline-3">
-<h3 id="org9b9ac46"><span class="section-number-3">2.3</span> Flash</h3>
+<div id="outline-container-orgc8dce8c" class="outline-3">
+<h3 id="orgc8dce8c"><span class="section-number-3">2.3</span> Flash</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Las tecnologías Flash son una evolución de las memorias EEPROM. Se trata de memorias en
@@ -499,8 +499,8 @@ que internamente: los pendrives, las tarjetas de memoria y los discos de estado 
 </div>
 
 
-<div id="outline-container-orgb86d9ac" class="outline-4">
-<h4 id="orgb86d9ac"><span class="section-number-4">2.3.1</span> Tarjetas y pendrives</h4>
+<div id="outline-container-org1f48cc6" class="outline-4">
+<h4 id="org1f48cc6"><span class="section-number-4">2.3.1</span> Tarjetas y pendrives</h4>
 <div class="outline-text-4" id="text-2-3-1">
 
 <div class="figure">
@@ -557,8 +557,8 @@ uso:
 </div>
 </div>
 
-<div id="outline-container-orgab4fbe3" class="outline-4">
-<h4 id="orgab4fbe3"><span class="section-number-4">2.3.2</span> ssd</h4>
+<div id="outline-container-org04f1496" class="outline-4">
+<h4 id="org04f1496"><span class="section-number-4">2.3.2</span> ssd</h4>
 <div class="outline-text-4" id="text-2-3-2">
 
 <div class="figure">
@@ -605,8 +605,8 @@ vulnerabilidades
 </div>
 </div>
 
-<div id="outline-container-org17a459c" class="outline-2">
-<h2 id="org17a459c"><span class="section-number-2">3</span> Unidades de medida de la información</h2>
+<div id="outline-container-org0fc004d" class="outline-2">
+<h2 id="org0fc004d"><span class="section-number-2">3</span> Unidades de medida de la información</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 La unidad básica de medida de la información en memoria, tanto principal como secundaria es el byte. se pueden utilizar múltiplos del byte, utilizando un prefijo.  en el sistema internacional de magnitudes (iso/iec 80000) y también en la norma ieee 1541 se definen para su uso una serie de prefijos que pueden expresar potencias de 10 (kilo, mega&#x2026;), o bien potencias de 2 (kibi, mebi,&#x2026;)
@@ -727,8 +727,8 @@ La unidad básica de medida de la información en memoria, tanto principal como 
 </div>
 
 
-<div id="outline-container-orgd5a5def" class="outline-2">
-<h2 id="orgd5a5def"><span class="section-number-2">4</span> Redundancia en discos: RAID</h2>
+<div id="outline-container-org171cbc3" class="outline-2">
+<h2 id="org171cbc3"><span class="section-number-2">4</span> Redundancia en discos: RAID</h2>
 <div class="outline-text-2" id="text-4">
 <p>
 Todos los dispositivos de memoria secundaria son susceptibles de presentar fallos.  Los discos duros, debido a su carga de trabajo tienen una vida útil muy limitada.  Especialmente, en máquinas con rol de tipo servidor de información, es conveniente que haya más de una instancia de cada unidad de información.
@@ -755,8 +755,8 @@ Sin embargo, el hardware RAID se encarga de guardar la información siguiendo es
 </ol>
 </div>
 
-<div id="outline-container-orgd69a50d" class="outline-3">
-<h3 id="orgd69a50d"><span class="section-number-3">4.1</span> Niveles</h3>
+<div id="outline-container-org7b8a609" class="outline-3">
+<h3 id="org7b8a609"><span class="section-number-3">4.1</span> Niveles</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Hay varias formas de hacer redundancia de la información en un sistema RAID. Es lo que se llaman niveles.
@@ -780,8 +780,8 @@ Los niveles combinados, como 0+1, 1+0 o 5+0 intentan combinar seguridad con velo
 </div>
 </div>
 
-<div id="outline-container-org53c37a7" class="outline-3">
-<h3 id="org53c37a7"><span class="section-number-3">4.2</span> Cómo se implementa</h3>
+<div id="outline-container-org5d648ae" class="outline-3">
+<h3 id="org5d648ae"><span class="section-number-3">4.2</span> Cómo se implementa</h3>
 <div class="outline-text-3" id="text-4-2">
 <p>
 El sistema RAID normalmente se implementa por hardware especial.
@@ -846,8 +846,8 @@ También puede realizarse RAID por software. Por ejemplo, desde el administrador
 </div>
 
 
-<div id="outline-container-org5c0519d" class="outline-3">
-<h3 id="org5c0519d"><span class="section-number-3">4.3</span> Cómo funciona.</h3>
+<div id="outline-container-org7798960" class="outline-3">
+<h3 id="org7798960"><span class="section-number-3">4.3</span> Cómo funciona.</h3>
 <div class="outline-text-3" id="text-4-3">
 <p>
 En primer lugar, un conjunto RAID debe instalarse y configurarse.
@@ -871,8 +871,8 @@ Cuando el sistema operativo envía bloques de datos para grabar, el sistema RAID
 </div>
 </div>
 
-<div id="outline-container-orgbf4e1fe" class="outline-3">
-<h3 id="orgbf4e1fe"><span class="section-number-3">4.4</span> El estado de emergencia</h3>
+<div id="outline-container-orgb0a05c6" class="outline-3">
+<h3 id="orgb0a05c6"><span class="section-number-3">4.4</span> El estado de emergencia</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 Si se produce un fallo en un disco, el sistema RAID lo marcará como inutilizado, y dejará de utilizarlo. El sistema RAID se pone en estado de emergencia. De cara al sistema operativo de las máquinas que utilicen el almacenamiento, éste seguirá funcionando (quizá algo más lento).  El sistema avisará de alguna manera de éste estado (luces, pitidos, mensajes&#x2026;) para que el disco inutilizado sea sustituido a la mayor brevedad posible por uno nuevo de igual tamaño (o superior, pero entonces sólo se utiliza el mismo espacio que en el disco inutilizado).
@@ -896,8 +896,8 @@ La mayor parte de los sistemas RAID permiten que el disco se cambie sin tener qu
 </div>
 
 
-<div id="outline-container-org8406799" class="outline-3">
-<h3 id="org8406799"><span class="section-number-3">4.5</span> El estado de reconstrucción</h3>
+<div id="outline-container-org2eedc10" class="outline-3">
+<h3 id="org2eedc10"><span class="section-number-3">4.5</span> El estado de reconstrucción</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 Una vez insertado el disco nuevo, comienza automáticamente la reconstrucción. El sistema RAID reconstruirá la información que tenía el disco inutilizado sobre el disco nuevo.  El proceso puede durar varias horas, ya que mientras dura, el dispositivo RAID sigue funcionando y sirviendo a los ordenadores que tiene conectado.
@@ -910,12 +910,12 @@ El estado de emergencia no finaliza hasta que finaliza la reconstrucción.
 </div>
 </div>
 
-<div id="outline-container-org437ffe7" class="outline-2">
-<h2 id="org437ffe7"><span class="section-number-2">5</span> Los niveles RAID</h2>
+<div id="outline-container-org3571053" class="outline-2">
+<h2 id="org3571053"><span class="section-number-2">5</span> Los niveles RAID</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgeac8419" class="outline-3">
-<h3 id="orgeac8419"><span class="section-number-3">5.1</span> RAID 1</h3>
+<div id="outline-container-org40ccfe5" class="outline-3">
+<h3 id="org40ccfe5"><span class="section-number-3">5.1</span> RAID 1</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 También conocido como espejo (<i>Mirroring</i>). Es la implementación más sencilla de RAID. Se utilizan al menos dos discos. Se graba una copia exacta de la información en ambos.
@@ -934,8 +934,8 @@ El dispositivo en conjunto tiene la misma capacidad que uno de los discos. Ej: s
 </div>
 </div>
 
-<div id="outline-container-orgea27911" class="outline-3">
-<h3 id="orgea27911"><span class="section-number-3">5.2</span> RAID 5</h3>
+<div id="outline-container-org8abf80d" class="outline-3">
+<h3 id="org8abf80d"><span class="section-number-3">5.2</span> RAID 5</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Este nivel se suele implementar con al menos cuatro discos. Utiliza el cálculo de la paridad
@@ -973,8 +973,8 @@ RAID 5 puede utilizarse con cualquier número de discos, pero con menos de 4 se 
 </div>
 </div>
 
-<div id="outline-container-orgc87c760" class="outline-3">
-<h3 id="orgc87c760"><span class="section-number-3">5.3</span> RAID 6</h3>
+<div id="outline-container-org96e901b" class="outline-3">
+<h3 id="org96e901b"><span class="section-number-3">5.3</span> RAID 6</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Se creó con una finalidad muy concreta: si en un sistema RAID 5 falla un segundo disco durante el estado de emergencia, se pierde absolutamente todo. Aunque el riesgo de que ésto ocurra es bajo, no es inexistente. Raid 6 intenta reducir ese riesgo.
@@ -1003,8 +1003,8 @@ Se gasta en códigos correctores el tamaño equivalente a dos de los discos. Ej:
 </div>
 </div>
 
-<div id="outline-container-org8bc815b" class="outline-3">
-<h3 id="org8bc815b"><span class="section-number-3">5.4</span> RAID 5E y 6E.</h3>
+<div id="outline-container-orga81a5a6" class="outline-3">
+<h3 id="orga81a5a6"><span class="section-number-3">5.4</span> RAID 5E y 6E.</h3>
 <div class="outline-text-3" id="text-5-4">
 <p>
 Son versiones modificadas de RAID 5 y 6, en las cuales, se monta en el dispositivo un disco más, en blanco&#x2026; y que no forma parte del conjunto inicial (set). En general, va a estar inactivo. Es el disco de reserva (<i>spare disk</i>).
@@ -1016,8 +1016,8 @@ Cuando en 5E o 6E se inutiliza un disco, se empieza la reconstrucción inmediata
 </div>
 </div>
 
-<div id="outline-container-org2f15e0b" class="outline-3">
-<h3 id="org2f15e0b"><span class="section-number-3">5.5</span> RAID 0</h3>
+<div id="outline-container-orgb66a308" class="outline-3">
+<h3 id="orgb66a308"><span class="section-number-3">5.5</span> RAID 0</h3>
 <div class="outline-text-3" id="text-5-5">
 <p>
 Consiste en <i>concatenar</i> la capacidad de varios discos. No proporciona ningún mecanismo de redundancia, por lo que no es realmente un nivel de RAID.
@@ -1032,8 +1032,8 @@ Consiste en <i>concatenar</i> la capacidad de varios discos. No proporciona ning
 
 
 
-<div id="outline-container-orgb632f0c" class="outline-3">
-<h3 id="orgb632f0c"><span class="section-number-3">5.6</span> Combinaciones de RAID</h3>
+<div id="outline-container-org2ca08fa" class="outline-3">
+<h3 id="org2ca08fa"><span class="section-number-3">5.6</span> Combinaciones de RAID</h3>
 <div class="outline-text-3" id="text-5-6">
 <p>
 Puesto que un disco RAID puede verse por el sistema operativo como un disco más, es posible utilizar un disco RAID en la construcción de otro RAID. Por ejemplo, el RAID 10 se construye con varios discos RAID 1, agrupados todos ellos en un RAID 0
@@ -1051,8 +1051,8 @@ Las combinaciones de RAID buscan conseguir las ventajas de distintos niveles RAI
 
 
 
-<div id="outline-container-orga69b95f" class="outline-3">
-<h3 id="orga69b95f"><span class="section-number-3">5.7</span> Lo que RAID NO PUEDE HACER</h3>
+<div id="outline-container-orgdf7f561" class="outline-3">
+<h3 id="orgdf7f561"><span class="section-number-3">5.7</span> Lo que RAID NO PUEDE HACER</h3>
 <div class="outline-text-3" id="text-5-7">
 <ul class="org-ul">
 <li>RAID <b>no protege los datos</b>. Los datos siguen siendo vulnerables a una amplia variedad de riesgos aparte del fallo físico de disco, por lo que RAID no evita la pérdida de datos por estas causas. RAID no impedirá:
@@ -1069,8 +1069,8 @@ Las combinaciones de RAID buscan conseguir las ventajas de distintos niveles RAI
 </div>
 </div>
 
-<div id="outline-container-org0c9e929" class="outline-2">
-<h2 id="org0c9e929"><span class="section-number-2">6</span> La conexión de los almacenamientos</h2>
+<div id="outline-container-org6855777" class="outline-2">
+<h2 id="org6855777"><span class="section-number-2">6</span> La conexión de los almacenamientos</h2>
 <div class="outline-text-2" id="text-6">
 <p>
 En pequeños ordenadores, los discos se conectan directamente a la placa base mediante conexiones directas, como SATA.
@@ -1085,8 +1085,8 @@ Así pues, definiremos tres formas de conectar los almacenamientos a los ordenad
 </p>
 </div>
 
-<div id="outline-container-org910c117" class="outline-3">
-<h3 id="org910c117"><span class="section-number-3">6.1</span> DAS: Direct Attached Storage.</h3>
+<div id="outline-container-org72d2951" class="outline-3">
+<h3 id="org72d2951"><span class="section-number-3">6.1</span> DAS: Direct Attached Storage.</h3>
 <div class="outline-text-3" id="text-6-1">
 <p>
 Ésta es la forma tradicional de conectar los almacenamientos: directa a un ordenador&#x2026; bien a la placa base, a través de conexiones típicas (SATA, SCSI, etc&#x2026;) o externas (eSATA, FireWire, USB).
@@ -1098,8 +1098,8 @@ El sistema operativo puede suponer que es el único que usa ese disco. Las opera
 </div>
 </div>
 
-<div id="outline-container-org6482b8f" class="outline-3">
-<h3 id="org6482b8f"><span class="section-number-3">6.2</span> NAS: Network Attached Storage.</h3>
+<div id="outline-container-org2950606" class="outline-3">
+<h3 id="org2950606"><span class="section-number-3">6.2</span> NAS: Network Attached Storage.</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
 Se conecta el almacenamiento a una red de comunicaciones, bien local de tipo Ethernet o cualquier otra, o bien remota.
@@ -1133,8 +1133,8 @@ Si se hace un uso muy intenso, un dispositivo NAS supone un pequeño cuello de b
 </div>
 </div>
 
-<div id="outline-container-org9763017" class="outline-3">
-<h3 id="org9763017"><span class="section-number-3">6.3</span> SAN: Storage Area Network</h3>
+<div id="outline-container-org60a5335" class="outline-3">
+<h3 id="org60a5335"><span class="section-number-3">6.3</span> SAN: Storage Area Network</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Una SAN, o red de almacenamiento consiste en conectar un conjunto de grandes almacenamientos con un conjunto de grandes servidores, utilizando enlaces de red.
@@ -1174,8 +1174,8 @@ Una SAN puede mejorar la disponibilidad y/o la integridad, al alejar físicament
 </div>
 </div>
 
-<div id="outline-container-orga2ee65b" class="outline-3">
-<h3 id="orga2ee65b"><span class="section-number-3">6.4</span> Un caso particular: iSCSI SAN</h3>
+<div id="outline-container-org2db6305" class="outline-3">
+<h3 id="org2db6305"><span class="section-number-3">6.4</span> Un caso particular: iSCSI SAN</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 Un caso particular de SAN lo forman las redes iSCSI (SCSI over Internet). Básicamente consisten en redes SAN, pero montadas sobre TCP/IP, y que hacen uso del protocolo SCSI para la transmisión de sectores a través de la red.
@@ -1198,16 +1198,16 @@ Este tipo de SAN han experimentado un incremento importante en su utilización e
 </div>
 </div>
 
-<div id="outline-container-orgcc7eaa4" class="outline-2">
-<h2 id="orgcc7eaa4"><span class="section-number-2">7</span> La detección del deterioro de los discos</h2>
+<div id="outline-container-org6c0c24c" class="outline-2">
+<h2 id="org6c0c24c"><span class="section-number-2">7</span> La detección del deterioro de los discos</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 Los sistemas redundantes deben marcar un disco como inutilizado cuando detectan un fallo.
 </p>
 </div>
 
-<div id="outline-container-orga95962b" class="outline-3">
-<h3 id="orga95962b"><span class="section-number-3">7.1</span> CRC</h3>
+<div id="outline-container-orge39ff56" class="outline-3">
+<h3 id="orge39ff56"><span class="section-number-3">7.1</span> CRC</h3>
 <div class="outline-text-3" id="text-7-1">
 <p>
 El Control de Redundancia Cíclica (CRC) es un mecanismo matemático que sirve de comprobación de la integridad de los datos, y que se calcula cada vez que se leen o se escriben datos en un almacenamiento. El cálculo del CRC puede detectar fallos en un disco&#x2026; una vez que éstos fallos se han producido&#x2026; es decir, cuando el disco no es capaz de leer o escribir bien un sector.
@@ -1215,8 +1215,8 @@ El Control de Redundancia Cíclica (CRC) es un mecanismo matemático que sirve d
 </div>
 </div>
 
-<div id="outline-container-org104244e" class="outline-3">
-<h3 id="org104244e"><span class="section-number-3">7.2</span> S.M.A.R.T.</h3>
+<div id="outline-container-orge44dfcd" class="outline-3">
+<h3 id="orge44dfcd"><span class="section-number-3">7.2</span> S.M.A.R.T.</h3>
 <div class="outline-text-3" id="text-7-2">
 <p>
 Pero por otro lado, sabemos que todos los discos duros se deterioran con el tiempo de manera inevitable. Los fabricantes de discos duros han desarrollado un sistema de auto-monitorización llamado SMART (Self-Monitoring Analysis and Reporting Technology).  El sistema viene implementado en mayor o menor medida en las unidades de disco. Consta de una serie de sensores que miden atributos físicos o lógicos relativos al funcionamiento del disco duro.
@@ -1245,8 +1245,8 @@ Es necesario tener en cuenta que no existe una uniformidad con respecto al nivel
 </div>
 </div>
 
-<div id="outline-container-orga28dd44" class="outline-2">
-<h2 id="orga28dd44"><span class="section-number-2">8</span> Redundancia en servidores: clústeres.</h2>
+<div id="outline-container-orge166704" class="outline-2">
+<h2 id="orge166704"><span class="section-number-2">8</span> Redundancia en servidores: clústeres.</h2>
 <div class="outline-text-2" id="text-8">
 <p>
 Al igual que los almacenamientos se disponen formando sistemas redundantes, también se
@@ -1312,8 +1312,8 @@ En general, un clúster necesita de varios componentes de software y hardware pa
 
 
 
-<div id="outline-container-org83e4d3a" class="outline-2">
-<h2 id="org83e4d3a"><span class="section-number-2">9</span> El respaldo de los datos: la copia de seguridad.</h2>
+<div id="outline-container-orgddfd648" class="outline-2">
+<h2 id="orgddfd648"><span class="section-number-2">9</span> El respaldo de los datos: la copia de seguridad.</h2>
 <div class="outline-text-2" id="text-9">
 <p>
 Las copias de seguridad de la información son una medida de seguridad pasiva para restaurar la información a un estado válido y reciente, de tal manera que el impacto de cualquier posible contingencia sea mínimo.
@@ -1338,8 +1338,8 @@ Una aplicación de copia de seguridad puede tener varias de esas programaciones,
 </p>
 </div>
 
-<div id="outline-container-org0140af0" class="outline-3">
-<h3 id="org0140af0"><span class="section-number-3">9.1</span> Tipos de copias de seguridad.</h3>
+<div id="outline-container-org640422f" class="outline-3">
+<h3 id="org640422f"><span class="section-number-3">9.1</span> Tipos de copias de seguridad.</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Según la intención con la que se realice la copia, podemos distinguir:
@@ -1364,8 +1364,8 @@ Una aplicación de copia de seguridad puede tener varias de esas programaciones,
 </div>
 </div>
 
-<div id="outline-container-orgecdddc0" class="outline-3">
-<h3 id="orgecdddc0"><span class="section-number-3">9.2</span> Los medios en los que se guardan las copias</h3>
+<div id="outline-container-org50cb252" class="outline-3">
+<h3 id="org50cb252"><span class="section-number-3">9.2</span> Los medios en los que se guardan las copias</h3>
 <div class="outline-text-3" id="text-9-2">
 <ul class="org-ul">
 <li>Hay varios medios posibles para guardar copias de seguridad:
@@ -1393,8 +1393,8 @@ especialmente pensadas para mantener a salvo las copias de seguridad, como la ro
 </div>
 </div>
 
-<div id="outline-container-orgf1a54a3" class="outline-3">
-<h3 id="orgf1a54a3"><span class="section-number-3">9.3</span> Diseño de las políticas de respaldo.</h3>
+<div id="outline-container-org7748d3d" class="outline-3">
+<h3 id="org7748d3d"><span class="section-number-3">9.3</span> Diseño de las políticas de respaldo.</h3>
 <div class="outline-text-3" id="text-9-3">
 <p>
 Ya hemos comentado que lo más importante de las copias de seguridad es diseñar unas políticas y ceñirse a ellas. No obstante, hay algunos factores simples a tener en cuenta: Seguir un sistema simple para hacer las copias NO ES EFECTIVO. Por ejemplo, hay mucha gente que hace una copia de seguridad periódicamente en un disco duro externo o en un Cd Rom. Si surge, por ejemplo, un malware que compromete la integridad, los datos en buen estado de una copia podrían ser sobreescritos con datos dañados antes de haberse manifestado el problema. Es decir, tanto los datos originales como los de la copia de seguridad pueden estar mal. Por eso es necesario seguir un sistema de rotación, es decir, una política de respaldo segura.
@@ -1427,8 +1427,8 @@ Utilice un medio distinto cada día de la semana</li>
 </div>
 </div>
 
-<div id="outline-container-org5274b13" class="outline-3">
-<h3 id="org5274b13"><span class="section-number-3">9.4</span> Encriptación</h3>
+<div id="outline-container-org016ee6c" class="outline-3">
+<h3 id="org016ee6c"><span class="section-number-3">9.4</span> Encriptación</h3>
 <div class="outline-text-3" id="text-9-4">
 <p>
 Es necesario hacer notar que es importante almacenar las copias de seguridad cifradas, de tal manera que si alguien no autorizado se hace con una de ellas, la confidencialidad de los datos no se vea comprometida.
@@ -1436,8 +1436,8 @@ Es necesario hacer notar que es importante almacenar las copias de seguridad cif
 </div>
 </div>
 
-<div id="outline-container-org9bc1fcc" class="outline-3">
-<h3 id="org9bc1fcc"><span class="section-number-3">9.5</span> El bit de archivo y la fecha de modificación.</h3>
+<div id="outline-container-orgd5c4266" class="outline-3">
+<h3 id="orgd5c4266"><span class="section-number-3">9.5</span> El bit de archivo y la fecha de modificación.</h3>
 <div class="outline-text-3" id="text-9-5">
 <p>
 A los programas de copia de seguridad se les indica que deben hacer copia de los archivos y carpetas contenidos en una determinada ubicación.
@@ -1460,8 +1460,8 @@ A pesar de estas facilidades, pueden configurarse las herramientas de copia para
 
 
 
-<div id="outline-container-org2e47424" class="outline-3">
-<h3 id="org2e47424"><span class="section-number-3">9.6</span> Políticas de respaldo.</h3>
+<div id="outline-container-orgc8d6987" class="outline-3">
+<h3 id="orgc8d6987"><span class="section-number-3">9.6</span> Políticas de respaldo.</h3>
 <div class="outline-text-3" id="text-9-6">
 <p>
 Una política de respaldos es una estrategia para realizar las copias de seguridad. Se definen todos los aspectos aquí descritos:
@@ -1496,8 +1496,8 @@ Muchos de los incidentes de seguridad relacionados con pérdidas de datos por pr
 </div>
 
 
-<div id="outline-container-org5ce516b" class="outline-2">
-<h2 id="org5ce516b"><span class="section-number-2">10</span> Referencias</h2>
+<div id="outline-container-orge517b16" class="outline-2">
+<h2 id="orge517b16"><span class="section-number-2">10</span> Referencias</h2>
 <div class="outline-text-2" id="text-10">
 <p>
 <a href="SI-T-03-almacenamiento-y-copias.pdf">Versión en PDF</a>
@@ -1507,7 +1507,7 @@ Muchos de los incidentes de seguridad relacionados con pérdidas de datos por pr
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-01-18 jue 13:07</p>
+<p class="date">Created: 2018-02-07 mié 20:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
