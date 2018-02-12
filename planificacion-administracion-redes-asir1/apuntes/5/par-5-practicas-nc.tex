@@ -1,0 +1,103 @@
+\input{../../../common/plantilla-ejercicio.tex}
+\usepackage{eurosym}
+
+
+\renewcommand{\hmwkClass}{Planificación y Administración de Redes}
+\renewcommand{\hmwkTitle}{Práctica de conexiones TCP}
+
+
+
+
+\begin{document}
+
+% \maketitle
+
+% ----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+% ----------------------------------------------------------------------------------------
+
+% \setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\primerapagina
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+
+La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}
+
+
+
+\begin{homeworkProblem}[: Crea un chat con otros ordenadores del aula (2 puntos)]
+  Crea un chat con otro compañero del aula. Para ello:
+  \begin{itemize}
+  \item Deberás localizar un puerto libre para escuchar
+  \item Comprueba que estás escuchando en un puerto con el comando \texttt{netstat}
+  \item El compañero se conectará a tu IP y tu puerto
+  \item Comprueba que se ha establecido la conexión con la salida del comando \texttt{netstat}
+  \end{itemize}
+
+  Después
+  \begin{itemize}
+  \item Repite los pasos intercambiando los roles de servidor y cliente.
+  \item Conéctate simultáneamente a dos compañeros, y muéstralo con \texttt{netstat}
+  \end{itemize}
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Envía información de tus ficheros (2 puntos)]
+  Envía información de tu disco a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
+
+  
+  \begin{listadoshell}{Enviar la salida de un comando a \texttt{nc}}{lst:tuberias}
+    ls -la | nc ipdelservidor puertolibre
+  \end{listadoshell}
+
+  Después, envía una imagen a un compañero. El compañero debe grabar dicha imagen y visualizarla.
+
+  \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
+    nc ipdelservidor puertolibre < imagen
+  \end{listadoshell}
+  
+
+\end{homeworkProblem}
+\begin{homeworkProblem}[Simulación de servidor web (2 puntos)]
+
+  Utiliza \texttt{netcat} para crear un servidor en el puerto \texttt{8080}. Utiliza un navegador web para visitar el servidor, en \url{http://localhost:8080}. Consigue que el navegador vea una página como la siguiente:
+
+  \begin{cuadrito}
+    {\large \textbf{Un título de nivel 1}}
+    
+    Un ejemplo de página que tiene \textbf{negrita} y \textit{cursiva.}
+  \end{cuadrito}
+
+  Puedes escribir directamente la página en el terminal, o enviar un fichero.
+  
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Simulación de cliente web (2 puntos)]
+  Utilizaremos el protocolo HTTP directamente para pedir una página a un servidor
+  b. Ejecutar NetCat conectándose al puerto 80 de www.google.es
+  nc www.google.es 80
+  c. Tras la conexión, escribir
+  GET / HTTP/1.1
+  Host:www.google.es
+  (Aquí hay que darle al Enter dos veces)
+  d. Observa la salida y compárala con el código fuente de la página al cargarla con un
+  navegador (Internet Explorer o Firefox)
+  3. Cómo solicitan las páginas los navegadores de Internet
+  a. Utilizaremos NetCat para crear un servidor en el puerto 8080
+  nc –l –p 8080
+  b. Comprobaremos que hemos creado un servidor con la utilidad netstat
+  c. Conectaremos Firefox a este servidor, visitando la dirección
+  http://direcciondelservidor:8080/index.html
+  d. Firefox esperará indefinidamente a la página, pero pararemos el NetCat pulsando CTRL-
+  C.
+  e. ¿qué información envía Firefox al servidor?
+
+\end{homeworkProblem}
+
+
+\end{document}
