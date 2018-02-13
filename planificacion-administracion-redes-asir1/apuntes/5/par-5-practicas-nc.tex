@@ -24,8 +24,17 @@
 \setlength{\parskip}{1em}
 
 
+\section{Objetivo de la práctica}
+Los objetivos  de la práctica son:
+\begin{itemize}
+\item Familiarizarse con los conceptos de puerto y conexión
+\item Crear servicios simples de red
+\item Utilizar servicios simples de red
+\item Monitorizar el estado de las conexiones de red
+\end{itemize}
 
-La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}
+
+La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}{este enlace}.
 
 
 
@@ -41,8 +50,10 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   Después
   \begin{itemize}
   \item Repite los pasos intercambiando los roles de servidor y cliente.
-  \item Conéctate simultáneamente a dos compañeros, y muéstralo con \texttt{netstat}
+  \item Conéctate simultáneamente a dos compañeros, y demuéstralo con \texttt{netstat}
   \end{itemize}
+
+  En las salidas de \texttt{netstat}, incluye tus conexiones y las de tus compañeros, identificando las conexiones de la práctica en cada máquina.
 \end{homeworkProblem}
 
 
@@ -59,45 +70,60 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
     nc ipdelservidor puertolibre < imagen
   \end{listadoshell}
-  
-
 \end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Envía una máquina virtual a un compañero (2 puntos)]
+  \begin{itemize}
+  \item Empaqueta una máquina virtual (fichero \texttt{OVA}, \texttt{ZIP}, \texttt{VMDK} o \texttt{DVI}).
+  \item Envía el fichero a un compañero usando \texttt{netcat}. Mide el tiempo total de transmisión con el comando \texttt{time}
+
+    \begin{listadoshell}{Medir el tiempo de ejecución con  \texttt{time}}{lst:time}
+    time nc ....
+  \end{listadoshell}
+    
+  \item Monitoriza el progreso en el ordenador cliente, vigilando el directorio de destino con
+
+  \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
+    watch -d ls -l
+  \end{listadoshell}
+
+    
+  \end{itemize}
+\end{homeworkProblem}
+
 \begin{homeworkProblem}[Simulación de servidor web (2 puntos)]
 
-  Utiliza \texttt{netcat} para crear un servidor en el puerto \texttt{8080}. Utiliza un navegador web para visitar el servidor, en \url{http://localhost:8080}. Consigue que el navegador vea una página como la siguiente:
+  Utiliza \texttt{netcat} para crear un servidor en el puerto \texttt{8080} (u otro que esté libre). Utiliza un navegador web para visitar el servidor, en \url{http://localhost:8080}. Consigue que el navegador vea una página como la siguiente:
 
   \begin{cuadrito}
     {\large \textbf{Un título de nivel 1}}
     
-    Un ejemplo de página que tiene \textbf{negrita} y \textit{cursiva.}
+    Un ejemplo de página que tiene \textbf{negrita} y \textit{cursiva}.
   \end{cuadrito}
 
-  Puedes escribir directamente la página en el terminal, o enviar un fichero.
+  Puedes escribir directamente la página en el terminal, o enviar un fichero. Debes conseguir que funcionen los clientes Chrome y Firefox.
   
 \end{homeworkProblem}
 
 
 \begin{homeworkProblem}[Simulación de cliente web (2 puntos)]
   Utilizaremos el protocolo HTTP directamente para pedir una página a un servidor
-  b. Ejecutar NetCat conectándose al puerto 80 de www.google.es
-  nc www.google.es 80
-  c. Tras la conexión, escribir
-  GET / HTTP/1.1
-  Host:www.google.es
-  (Aquí hay que darle al Enter dos veces)
-  d. Observa la salida y compárala con el código fuente de la página al cargarla con un
-  navegador (Internet Explorer o Firefox)
-  3. Cómo solicitan las páginas los navegadores de Internet
-  a. Utilizaremos NetCat para crear un servidor en el puerto 8080
-  nc –l –p 8080
-  b. Comprobaremos que hemos creado un servidor con la utilidad netstat
-  c. Conectaremos Firefox a este servidor, visitando la dirección
-  http://direcciondelservidor:8080/index.html
-  d. Firefox esperará indefinidamente a la página, pero pararemos el NetCat pulsando CTRL-
-  C.
-  e. ¿qué información envía Firefox al servidor?
-
+  \begin{itemize}
+  \item Ejecuta NetCat conectándote al puerto 80 de \url{www.dgt.es}
+  \item Tras la conexión, introducir
+    \begin{cuadrito}
+      \texttt{GET /gsm.txt HTTP/1.1} \\
+      \texttt{Host:www.dgt.es} \\
+      \\
+      \\
+      (Aquí hay que darle al Enter dos veces)
+    \end{cuadrito}
+  \item Con la información obtenida, decide si hay atasco de camino a casa.
+  \end{itemize}
 \end{homeworkProblem}
+
+
 
 
 \end{document}
