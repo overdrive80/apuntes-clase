@@ -1,0 +1,129 @@
+\input{../../../common/plantilla-ejercicio.tex}
+\usepackage{eurosym}
+
+
+\renewcommand{\hmwkClass}{Planificación y Administración de Redes}
+\renewcommand{\hmwkTitle}{Práctica de conexiones TCP}
+
+
+
+
+\begin{document}
+
+% \maketitle
+
+% ----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+% ----------------------------------------------------------------------------------------
+
+% \setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\primerapagina
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+\section{Objetivo de la práctica}
+Los objetivos  de la práctica son:
+\begin{itemize}
+\item Familiarizarse con los conceptos de puerto y conexión
+\item Crear servicios simples de red
+\item Utilizar servicios simples de red
+\item Monitorizar el estado de las conexiones de red
+\end{itemize}
+
+
+La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}{este enlace}.
+
+
+
+\begin{homeworkProblem}[: Crea un chat con otros ordenadores del aula (2 puntos)]
+  Crea un chat con otro compañero del aula. Para ello:
+  \begin{itemize}
+  \item Deberás localizar un puerto libre para escuchar
+  \item Comprueba que estás escuchando en un puerto con el comando \texttt{netstat}
+  \item El compañero se conectará a tu IP y tu puerto
+  \item Comprueba que se ha establecido la conexión con la salida del comando \texttt{netstat}
+  \end{itemize}
+
+  Después
+  \begin{itemize}
+  \item Repite los pasos intercambiando los roles de servidor y cliente.
+  \item Conéctate simultáneamente a dos compañeros, y demuéstralo con \texttt{netstat}
+  \end{itemize}
+
+  En las salidas de \texttt{netstat}, incluye tus conexiones y las de tus compañeros, identificando las conexiones de la práctica en cada máquina.
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Envía información de tus ficheros (2 puntos)]
+  Envía información de tu disco a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
+
+  
+  \begin{listadoshell}{Enviar la salida de un comando a \texttt{nc}}{lst:tuberias}
+    ls -la | nc ipdelservidor puertolibre
+  \end{listadoshell}
+
+  Después, envía una imagen a un compañero. El compañero debe grabar dicha imagen y visualizarla.
+
+  \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
+    nc ipdelservidor puertolibre < imagen
+  \end{listadoshell}
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Envía una máquina virtual a un compañero (2 puntos)]
+  \begin{itemize}
+  \item Empaqueta una máquina virtual (fichero \texttt{OVA}, \texttt{ZIP}, \texttt{VMDK} o \texttt{DVI}).
+  \item Envía el fichero a un compañero usando \texttt{netcat}. Mide el tiempo total de transmisión con el comando \texttt{time}
+
+    \begin{listadoshell}{Medir el tiempo de ejecución con  \texttt{time}}{lst:time}
+    time nc ....
+  \end{listadoshell}
+    
+  \item Monitoriza el progreso en el ordenador cliente, vigilando el directorio de destino con
+
+  \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
+    watch -d ls -l
+  \end{listadoshell}
+
+    
+  \end{itemize}
+\end{homeworkProblem}
+
+\begin{homeworkProblem}[Simulación de servidor web (2 puntos)]
+
+  Utiliza \texttt{netcat} para crear un servidor en el puerto \texttt{8080} (u otro que esté libre). Utiliza un navegador web para visitar el servidor, en \url{http://localhost:8080}. Consigue que el navegador vea una página como la siguiente:
+
+  \begin{cuadrito}
+    {\large \textbf{Un título de nivel 1}}
+    
+    Un ejemplo de página que tiene \textbf{negrita} y \textit{cursiva}.
+  \end{cuadrito}
+
+  Puedes escribir directamente la página en el terminal, o enviar un fichero. Debes conseguir que funcionen los clientes Chrome y Firefox.
+  
+\end{homeworkProblem}
+
+
+\begin{homeworkProblem}[Simulación de cliente web (2 puntos)]
+  Utilizaremos el protocolo HTTP directamente para pedir una página a un servidor
+  \begin{itemize}
+  \item Ejecuta NetCat conectándote al puerto 80 de \url{www.dgt.es}
+  \item Tras la conexión, introducir
+    \begin{cuadrito}
+      \texttt{GET /gsm.txt HTTP/1.1} \\
+      \texttt{Host:www.dgt.es} \\
+      \\
+      \\
+      (Aquí hay que darle al Enter dos veces)
+    \end{cuadrito}
+  \item Con la información obtenida, decide si hay atasco de camino a casa.
+  \end{itemize}
+\end{homeworkProblem}
+
+
+
+
+\end{document}
