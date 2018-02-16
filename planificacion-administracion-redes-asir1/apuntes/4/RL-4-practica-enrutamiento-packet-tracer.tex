@@ -35,10 +35,10 @@ Está dispobile la \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase
 \section{Enunciado}
 Una empresa decide conectar varios departamentos en una sola red IP. Para ello, dispone de la red \texttt{192.168.\textit{2*N}.0/23} (\texttt{\textit{N}} indica el número de ordenador de clase del alumno usado en prácticas anteriores. Si \texttt{\textit{N}} es 3, la red sería \texttt{192.168.6.0/23}).
 \begin{itemize}
-\item Departamento de administración: 12 ordenadores.
-\item Departamento de contabilidad: 30 ordenadores.
-\item Departamento de ventas: 13 ordenadores.
-\item Departamento de informática: 20 ordenadores.
+\item Departamento de administración: 12 ordenadores. % /28
+\item Departamento de contabilidad: 30 ordenadores. % /26
+\item Departamento de ventas: 13 ordenadores.     % /28
+\item Departamento de informática: 20 ordenadores.%  /27
 \end{itemize}
 
 Se desea que cada departamento tenga su propio domino de broadcast, pero tengan conectividad entre sí a nivel de red, por lo que estarán unidos mediante routers. Se decide que los routers formen parte de la red de servidores, la \texttt{172.N.48.0/23}, siendo los cuatro últimos de esta red. En la parte interna (hacia los departamentos), cada router será el último de la red.
