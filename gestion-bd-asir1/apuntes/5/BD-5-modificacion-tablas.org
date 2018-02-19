@@ -1,7 +1,7 @@
 * Student
-- Fred Crocitto vive en "New Milford" 
+- "Fred Crocitto" vive en "New Milford" 
 
-- Pasa grade_type a español
+- Pasa =grade_type= a español
 
 - Todos los cursos de Java empiezan el 3 de septiembre del 2007.
 
@@ -13,7 +13,30 @@
 
 - El profesor Mr Tom Wojick da un aprobado general a todos sus alumnos en la nota final (80).
   
-- Las notas de los cursos de "Nina Schori" se calculan solo como la nota del examen final, el resto de notas se ignora (0% de la nota final).
+- Las notas de los cursos de "Nina Schori" se calcularán solo como la nota del examen final, el resto de notas se ignora (0% de la nota final).
+  #+begin_src sql
+  create or replace view cursos_de_nina_schori as
+  select 
+    s.section_id, s.instructor_id
+  from
+    section s, instructor i
+  where
+    s.instructor_id = i.instructor_id and
+    lower(i.first_name) like '%nina%' and
+    lower(i.last_name) like '%schori%';
+
+
+
+  update grade_type_weight
+  set 
+    PERCENT_OF_FINAL_GRADE = (
+      case grade_type_code
+        when 'FI' then 100
+        else 0 end)
+  where
+    section_id in (select section_id from cursos_de_nina_schori);
+  #+end_src
+
 
 - La nota final de "Intro to Programming" que imparte "Nina Schori" será la nota del examen final menos un 10%.
 
