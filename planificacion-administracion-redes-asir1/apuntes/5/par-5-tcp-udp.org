@@ -196,7 +196,10 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
   - Transferir información por red
 - Versión Windows: 
   - https://eternallybored.org/misc/netcat/
-  - *[[https://git-scm.com/download/win][git]]* incluye una /shell/ con netcat
+- Otras opciones para Windows
+  - Máquina virtual con Linux
+  - [[https://docs.microsoft.com/en-us/windows/wsl/install-win10][Windows Subsystem for Linux]]  
+
 
 *** Ejercicio
 - Pon a *netcat* a escuchar en un puerto
