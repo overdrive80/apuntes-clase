@@ -15,6 +15,6 @@
   
 - Las notas de los cursos de "Nina Schori" se calculan solo como la nota del examen final, el resto de notas se ignora (0% de la nota final).
 
-- La nota final de "Intro to Programming" que imparte "Nina	Schori" será la nota del examen final menos un 10%.
+- La nota final de "Intro to Programming" que imparte "Nina Schori" será la nota del examen final menos un 10%.
 
 
