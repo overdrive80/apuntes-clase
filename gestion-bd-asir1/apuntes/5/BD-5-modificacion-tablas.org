@@ -1,18 +1,18 @@
 * Student
-- Fred Croccito vive en New Milford 
+- Fred Crocitto vive en "New Milford" 
 
 - Pasa grade_type a español
 
 - Todos los cursos de Java empiezan el 3 de septiembre del 2007.
 
-- Los teléfonos se amplían para incluir el prefijo internacional, de 15 a 20 caracteres. El prefijo de todos los teléfonos conocidos es '+1' (Estados Unidos).
+- Los teléfonos de estudiantes y profesores se amplían para incluir el prefijo internacional, de 15 a 20 caracteres. El prefijo de todos los teléfonos *conocidos* es '+1' (Estados Unidos).
 
-- Los teléfonos no conocidos de alumnos pasan a ser 'desconocido'
+- Los teléfonos no conocidos de alumnos pasan a ser 'desconocido'.
 
 - Todas la notas parciales de "Intermediate Java Programming" que imparte "Marilyn Frantzen" son un 30.
 
-- El profesor Mr Tom Wojick da un aprobado general a todos sus alumnos en la nota final (80)
-
+- El profesor Mr Tom Wojick da un aprobado general a todos sus alumnos en la nota final (80).
+  
 - Las notas de los cursos de "Nina Schori" se calculan solo como la nota del examen final, el resto de notas se ignora (0% de la nota final).
 
 - La nota final de "Intro to Programming" que imparte "Nina Schori" será la nota del examen final menos un 10%.
