@@ -12,7 +12,7 @@ digraph {
                 reservas_mundiales_oro [label="Reservas mundiales de oro"];
                 valor_asteroide [label="Valor de un asteroide"];
                 hay_poco_oro [label="Escasez de oro"];
-                comparacion_humanitas [label="Visualización reservas de oro"];
+                comparacion_humanitas [label="Visualización\nreservas de oro"];
                 oro_consumible [label="La electrónica consume oro"];
                 oro_reutilizado [label="El oro no solía consumirse"];
                 
@@ -41,9 +41,9 @@ digraph {
                 label="Asteroides posibles";
                 sortv=2;
 
-                composicion_asteroide [label="Composición de los asteroides"];
+                composicion_asteroide [label="Composición de\nlos asteroides"];
                 que_asteroides [label="Selección de asteroides"];
-                interferencias_jupiter [label="Interferencias gravitatorias de Júpiter"];
+                interferencias_jupiter [label="Interferencias gravitatorias\n de Júpiter"];
                 cinturon_asteroides [label="Cinturón de asteroides"];
                 incremento_velocidad [label="Incremento de velocidad"];
                 
@@ -60,9 +60,9 @@ digraph {
                 label="Cómo llegar";
                 sortv=3;
 
-                lanzamiento_carga_util [label="Lanzamiento de la carga útil"];
-                carga_util_hasta_asteroide [label="Carga útil hasta asteroide"];
-                segundo_cohete [label="Segundo cohete con combustible"];
+                lanzamiento_carga_util [label="Lanzamiento de\nla carga útil"];
+                carga_util_hasta_asteroide [label="Carga útil\nhasta asteroide"];
+                segundo_cohete [label="Segundo cohete\ncon combustible"];
                 cohete_por_fases [label="Cohete por fases"];
                 
                 cohete_por_fases -> lanzamiento_carga_util;
@@ -85,7 +85,7 @@ digraph {
                 sortv=5;
 
 
-                combustible_de_agua [label="Combustible en origen a patir de agua"];
+                combustible_de_agua [label="Combustible en origen\na patir de agua"];
                 hasta_luna [label="Impacto en la Luna"];
                 hasta_orbita [label="Órbita a la Tierra"];
                 construccion_en_orbita [label="Aprovechamiento en órbita"];
@@ -107,7 +107,7 @@ digraph {
                 label="Minería espacial";
 
                 creditos[label="Jaime González Fábregas\nhttps://goo.gl/xj3KwM"];
-                qr[image="mineria-espacial-qr.png", label=""];
+                qr[image="mineria-espacial-qr.png", label=" "];
                 creditos -> qr [style=invis];
                 
                 
