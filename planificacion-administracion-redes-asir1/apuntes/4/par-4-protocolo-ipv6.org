@@ -45,7 +45,7 @@
 | ~fe80::interfaz/10~        | /[[https://es.wikipedia.org/wiki/Direcci%C3%B3n_de_Enlace-Local][link-local]]/. Equivalentes a APIPA (~169.254.0.0/16~ en IPv4). El identificador de interfaz es el EUI-64 bits |
 | ~ffc0::subred:interfaz/10~ | /site-local/. Como /link-local/, pero permitiendo subredes. *[[https://www.ietf.org/rfc/rfc3879.txt][Ya no se usan]]*.                                  |
 | ~fc00::/7~                 | /[[https://en.wikipedia.org/wiki/Unique_local_address][Unique-local]]/. Parecidas a las redes privadas IPv6                                                           |
-| ~ff00::/18~                | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]].                                                                                             |
+| ~ff00::/8~                 | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]].                                                                                             |
 | ~2001:0DB8::/32~           | Ejemplos para [[https://www.apnic.net/get-ip/faqs/ipv6-documentation-prefix/][documentación]]                                                                                   |
 
 
