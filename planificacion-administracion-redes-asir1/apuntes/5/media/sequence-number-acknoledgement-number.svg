@@ -14,7 +14,7 @@
    viewBox="0 0 566.08538 435.7332"
    id="svg2"
    version="1.1"
-   inkscape:version="0.91 r13725"
+   inkscape:version="0.48.4 r9939"
    sodipodi:docname="sequence-number-acknoledgement-number.svg">
   <defs
      id="defs4">
@@ -77,22 +77,6 @@
          d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
          transform="matrix(-1.1,0,0,-1.1,-1.1,0)"
          inkscape:connector-curvature="0" />
-    </marker>
-    <marker
-       inkscape:stockid="Arrow1Lend"
-       orient="auto"
-       refY="0"
-       refX="0"
-       id="Arrow1Lend-2"
-       style="overflow:visible"
-       inkscape:isstock="true"
-       inkscape:collect="always">
-      <path
-         inkscape:connector-curvature="0"
-         id="path4161-6"
-         d="M 0,0 5,-5 -12.5,0 5,5 0,0 Z"
-         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1pt;stroke-opacity:1"
-         transform="matrix(-0.8,0,0,-0.8,-10,0)" />
     </marker>
     <marker
        inkscape:stockid="Arrow1Lend"
@@ -193,15 +177,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="248.69277"
+     inkscape:cx="61.309472"
      inkscape:cy="156.06233"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="836"
+     inkscape:window-width="1024"
+     inkscape:window-height="744"
      inkscape:window-x="0"
-     inkscape:window-y="27"
+     inkscape:window-y="24"
      inkscape:window-maximized="1"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -262,7 +246,7 @@
          y="376.64792"
          style="font-style:italic">Suponemos que todos los paquetes son de 10 bytes</tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none"
        d="m 118.57143,450.21935 300.71429,35.71428"
        id="path4416"
        inkscape:connector-curvature="0" />
@@ -337,7 +321,7 @@
            y="489.57379"
            id="tspan5833">0 - 10</tspan></tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-2)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none"
        d="M 417.6599,518.19224 116.9456,553.90652"
        id="path4416-1"
        inkscape:connector-curvature="0" />
@@ -370,7 +354,7 @@
            y="556.00238"
            id="tspan5845">10 - 10</tspan></tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none"
        d="m 115.91153,597.47794 300.71429,35.71428"
        id="path4416-2"
        inkscape:connector-curvature="0" />
@@ -431,7 +415,7 @@
            y="657.43091"
            id="tspan5869">30 - 10</tspan></tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9-0)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none"
        d="m 116.62582,657.47795 300.71429,35.71428"
        id="path4416-2-6"
        inkscape:connector-curvature="0" />
@@ -651,7 +635,7 @@
            y="696.17419"
            id="tspan5941">30 - 10</tspan></tspan></text>
     <path
-       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-2-6)"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00000003000000004;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);stroke-miterlimit:4;stroke-dasharray:none"
        d="M 416.27191,740.03415 115.5576,775.74843"
        id="path4416-1-9"
        inkscape:connector-curvature="0" />
