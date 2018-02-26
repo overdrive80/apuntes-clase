@@ -158,7 +158,7 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
 ** Asignación de puertos
 - *Servidor*: El proceso escucha en un puerto conocido 
   - Ejemplos: 80 para HTTP, 25 para SMTP...
-  - Lista de /well known ports/ en el fichero [[http://www.penguintutor.com/linux/network-services-ports][=/etc/services]]=
+  - Lista de /well known ports/ en el fichero [[http://www.penguintutor.com/linux/network-services-ports][=/etc/services=]]
 - *Cliente*: El cliente inicia una conexión un servidor. 
   - El sistema le asigna un puerto no utilizado cualquiera
   - Generalmente, un puerto dinámico
@@ -198,6 +198,7 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
   - https://eternallybored.org/misc/netcat/
 - Otras opciones para Windows
   - Máquina virtual con Linux
+  - [[https://github.com/besimorhino/powercat][powercat]]
   - [[https://docs.microsoft.com/en-us/windows/wsl/install-win10][Windows Subsystem for Linux]]  
 
 

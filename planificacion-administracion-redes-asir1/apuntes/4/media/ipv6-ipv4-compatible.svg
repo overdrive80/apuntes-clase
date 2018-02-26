@@ -76,7 +76,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -289,15 +289,15 @@
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="19.285715"
-       y="282.36218"
+       x="31.428572"
+       y="283.07648"
        id="text4710"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4712"
-         x="19.285715"
-         y="282.36218"
-         style="font-size:10px">::FFFF:192.168.1.5</tspan></text>
+         x="31.428572"
+         y="283.07648"
+         style="font-size:10px">:::192.168.1.5</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
@@ -331,7 +331,7 @@
          id="tspan4712-0"
          x="344.1225"
          y="281.00232"
-         style="font-size:10px">::FFFF:192.168.1.5</tspan></text>
+         style="font-size:10px">:::192.168.1.5</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:40px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
