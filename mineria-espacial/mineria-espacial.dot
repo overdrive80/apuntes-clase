@@ -9,7 +9,7 @@ digraph {
                 label="Valor de un asteroide";
                 sortv=1;
                 
-                reservas_mundiales_oro [label="Reservas mundiales de oro"];
+                reservas_mundiales_oro [label="Reservas mundiales\nde oro"];
                 valor_asteroide [label="Valor de un asteroide"];
                 hay_poco_oro [label="Escasez de oro"];
                 comparacion_humanitas [label="Visualización\nreservas de oro"];
@@ -65,7 +65,7 @@ digraph {
                 segundo_cohete [label="Segundo cohete\ncon combustible"];
                 cohete_por_fases [label="Cohete por fases"];
                 
-                cohete_por_fases -> lanzamiento_carga_util;
+                cohete_por_fases -> lanzamiento_carga_util, segundo_cohete;
                 segundo_cohete -> carga_util_hasta_asteroide;
                 lanzamiento_carga_util -> segundo_cohete ;
         }
@@ -74,7 +74,7 @@ digraph {
                 label="Cómo extraer mineral";
                 sortv=4;
 
-                sin_extraer [label="No extraer en origen"];
+                sin_extraer [label="No extraer\nen origen"];
                 enjambre_robots [label="Enjambre de robots"];
                 
                 Posibilidades -> sin_extraer, enjambre_robots, Disolventes, Barrido, Perforación;
