@@ -236,37 +236,22 @@ stepnumber=0 % Line numbers go in steps of 5
 }
 
 
-\newcommand{\ficheroautoref}[0]{
+\usepackage{pgffor}
+\newcommand{\ficheroautoref}[0]{%
+  \foreach \ficherotex in {../../../common/plantilla-ejercicio.tex,../../common/plantilla-ejercicio.tex,../common/plantilla-ejercicio.tex,../apuntes/common/plantilla-ejercicio.tex}{
 
-  \IfFileExists{../../common/plantilla-ejercicio.tex}
-  {
-    \textattachfile[mimetype=text/plain,
-    description={La plantilla},
-    subject={La plantilla}]
-    {../../common/plantilla-ejercicio.tex}
-    {}
+    \IfFileExists{\ficherotex}%
+    {%
+      \textattachfile[mimetype=text/plain,%
+      description={La plantilla},%
+      subject={La plantilla}]%
+      {\ficherotex}%
+      {}%
+      % RECUPERO ESPACIO VERTICAL PERDIDO
+      \vspace{-6em}%
+    }%
+    {}%
   }
-  {}
-
-  \IfFileExists{../common/plantilla-ejercicio.tex}
-  {
-    \textattachfile[mimetype=text/plain,
-    description={La plantilla},
-    subject={La plantilla}]
-    {../common/plantilla-ejercicio.tex}
-    {}
-  }
-  {}
-
-  \IfFileExists{../apuntes/common/plantilla-ejercicio.tex}
-  {
-    \textattachfile[mimetype=text/plain,
-    description={La plantilla},
-    subject={La plantilla}]
-    {../apuntes/common/plantilla-ejercicio.tex}
-    {}
-  }
-  {}
   
 
   \textattachfile[mimetype=text/plain,
