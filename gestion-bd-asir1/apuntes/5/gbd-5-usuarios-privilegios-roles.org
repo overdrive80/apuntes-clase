@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Usuarios, privilegios y roles de *Oracle*
-# #+OPTIONS: reveal_single_file:nil
+
 
 
 * Introducción
