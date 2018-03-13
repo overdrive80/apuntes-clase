@@ -1,0 +1,22 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  /Network Address Translation/ (NAT)
+#+SUBTITLE: 
+#+KEYWORDS: 
+
+* Introducción
+
+En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes routers
+-¿Qué pasaría si un router cambiase la dirección IP de origen por la suya propia?
+-El destino de la comunicación pensaría que el origen de la misma es ese router
+-La información de vuelta se enviaría al router, no al origen real
+-¿Esto es deseable? ¿Esto es útil?
+
+
+* Referencias
+- Formatos:
+  - [[file:par-6-nat.reveal.html][Transparencias]]
+  - [[file:par-6-nat.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
