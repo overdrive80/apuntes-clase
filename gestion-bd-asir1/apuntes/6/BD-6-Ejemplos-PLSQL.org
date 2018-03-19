@@ -1,6 +1,126 @@
+* Programación
+
+** Decidir si 1000003 es primo
+#+begin_src sql
+declare
+  posibleprimo numeric(10,0) := 1000003;
+  limitededivisores numeric(10,0);
+  esprimo boolean := true;
+begin
+  limitededivisores := sqrt(posibleprimo)+1;
+  for posibledivisor in 2..limitededivisores loop
+     esprimo := mod(posibleprimo,posibledivisor) <> 0;
+     exit when not esprimo;
+     
+  end loop;
+  if( esprimo ) then
+    dbms_output.put_line( posibleprimo || ' es primo'  );
+  else
+    dbms_output.put_line( posibleprimo || ' NO es primo'  );
+  end if;
+end;
+/
+#+end_src
+
+
+** Convertir boolean a char
+#+begin_src sql
+create or replace function bool2char(b in boolean) return varchar 
+is
+begin
+  return (case b when true then 'si' else 'no' end );
+
+end;
+/
+#+end_src
+
+
+** Primos
+#+begin_src sql
+create or replace function es_primo(posibleprimo IN number) return char
+is
+  esprimo boolean := true;
+begin
+  for posibledivisor in 2..(sqrt(posibleprimo)) loop
+     esprimo := mod(posibleprimo,posibledivisor) <> 0;
+     exit when not esprimo;
+  end loop;
+  return case esprimo
+    when true then 's'
+    else 'n' 
+  end;  
+end;
+/
+#+end_src
+
+#+begin_src sql
+begin
+  for i in 2 .. 1000 loop
+    if( es_primo(i) = 's' ) then
+      dbms_output.put_line( 'Es primo:' || i );
+    end if;
+  end loop;
+end;
+/
+#+end_src
+
+
+** Paso por valor
+#+begin_src sql
+create or replace procedure sumaUno(n in out numeric)
+is
+begin
+  n := n +1;
+end;
+/
+
+declare
+  numero numeric(10,0);
+begin
+  numero := 3;
+  sumauno(3);
+  dbms_output.put_line(numero);
+end;
+/
+
+#+end_src
+
+
+
+
 
 
 * Estudiantes
+
+** Estadística por nombre
+#+begin_src sql
+create or replace function cuantos_se_llaman(nombre_o_apellidos in varchar) return numeric
+as
+  cuantosnombres numeric;
+  cuantosapellidos numeric;
+
+begin
+  select count(*) 
+     into cuantosnombres 
+     from student 
+     where first_name = nombre_o_apellidos;
+  
+  select count(*) 
+     into cuantosapellidos 
+     from student 
+     where last_name = nombre_o_apellidos;
+  
+  return cuantosnombres + cuantosapellidos;
+
+end;
+/
+
+begin
+  dbms_output.put_line( cuantos_se_llaman('González') );
+end;
+/
+#+end_src
+
 
 ** Matricular un hermano
  Un hermano comparte todos los datos, excepto el nombre y el tratamiento
@@ -21,6 +141,28 @@
  END MATRICULAR_HERMANO;
  #+end_src
 
+** Calcular nota máxima y mínima
+
+#+begin_src sql
+create or replace function maxima_minima_nota(
+  maximo out numeric,
+  minimo out numeric
+)
+return varchar
+as
+  retorno varchar(15) := 'sin datos';
+begin
+  maximo := -1000;
+  minimo := 1000;
+  for g in (select * from grade) loop
+    retorno := 'ok';
+    maximo := greatest(maximo,g.numeric_grade);
+    minimo := least(minimo,g.numeric_grade);
+  end loop;
+  return retorno;
+end;
+/
+#+end_src
 
 ** Calcular la media de notas por encima de cierto valor
  #+begin_src sql
@@ -86,7 +228,18 @@
  ALTER TRIGGER "ALUMNO"."PONER_ID_A_STUDENT" ENABLE;
  #+end_src
 
-
+** Actualizar campos de auditoría
+#+begin_src sql
+create or replace trigger actualiza_lo_de_modificado
+before update
+on student
+for each row
+begin
+  :new.modified_by := user;
+  :new.modified_date := sysdate;
+end;
+/
+#+end_src
 
 * Sueldos y masa salarial (desnormalización)
 
