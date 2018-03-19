@@ -1,7 +1,5 @@
-#+include: "../common/header.org"
+#+include: "../../../common/header.org"
 #+Title: Bases de datos distribuidas (dblinks)
-#+REVEAL_THEME: simple
-#+EXCLUDE_TAGS: no_export
 
 
 * Introducción
@@ -98,3 +96,13 @@ Create database link LNK_DE_A_a_B
   USING 'servidorB.com/XE';
 #+end_src
 
+
+* Referencias
+- Formatos:
+  - [[file:.//BD-7-dblinks.reveal.html][Transparencias]] 
+  - [[file:.//BD-7-dblinks.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+    

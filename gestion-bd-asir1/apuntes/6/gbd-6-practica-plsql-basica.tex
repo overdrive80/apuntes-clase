@@ -1,0 +1,194 @@
+\input{../../../common/plantilla-ejercicio.tex}
+\usepackage{needspace}
+
+
+
+
+\renewcommand{\hmwkTitle}{Práctica PLSQL}
+\renewcommand{\hmwkClass}{Gestión de Bases de datos}
+
+
+\begin{document}
+
+% \maketitle
+
+% ----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+% ----------------------------------------------------------------------------------------
+
+% \setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\primerapagina
+
+
+\section{Objetivo de la práctica}
+En esta práctica el alumno utilizará las funcionalidades de PLSQL para automatizar algunas operaciones y para realizar comprobaciones sobre los datos. Estas operaciones y comprobaciones no pueden realizarse solo con SQL.
+
+
+\newcommand{\maximopiezasavion}{15}
+\newcommand{\maximopiezaspieza}{5}
+
+
+\section{Descripción del problema}
+Una compañía necesita automatizar su almacén
+\begin{itemize}
+\item De cada producto se almacena su identificador, su nombre y su \textit{stock}.
+\item En cada entrada de producto al almacén, se apunta
+  \begin{itemize}
+  \item El proveedor de esta entrada
+  \item La fecha de entrada
+  \item El producto
+  \item La cantidad de producto
+  \item El precio pagado al proveedor por unidad de producto
+  \end{itemize}
+\item De cada salida de producto del almacén se apunta
+  \begin{itemize}
+  \item El cliente al que se envía
+  \item La fecha de salida
+  \item El producto, cantidad de producto y precio por unidad que paga el proveedor
+  \end{itemize}
+\end{itemize}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[: Definir el modelo de datos]
+  Crea las tablas y funciones necesarias para soportar la descripción del problema. Las tablas y atributos concretos no son importantes, ya que el profesor consultará los datos a partir de la vista definida más adelante.
+\end{homeworkProblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcounter{Avion} \setcounter{Avion}{1}
+\newcounter{SN} \setcounter{SN}{1}
+\newcounter{Asiento} \setcounter{Asiento}{1}
+\newcounter{Motor} \setcounter{Motor}{1}
+\newcommand{\Contador}[1]{%
+  \arabic{#1}%
+  \stepcounter{#1}%
+}
+\newcommand{\FuselajePN}{PN-001}
+\newcommand{\AsientoPN}{PN-002}
+\newcommand{\ControlesPN}{PN-003}
+\newcommand{\MotorPN}{PN-004}
+
+\begin{homeworkProblem}[: Procedimiento para crear un producto]
+  Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
+
+  \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
+create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar(255), idproducto OUT number)
+as 
+begin
+  -- CONSIGUE EL NUEVO ID 
+  -- INSERTA EL PRODUCTO CON ESE ID
+end;
+\end{listadosql}
+
+  Crea una vista de nombre \texttt{V\_PRODUCTOS} para que el profesor pueda consultar los productos en el catálogo (listado \ref{lst:vproductos})
+  
+  \begin{listadosql}{Creación de la vista \texttt{V\_PRODUCTOS}}{lst:vproductos}
+  create or replace view V_PRODUCTOS(nombreproducto,idproducto) as
+  ...
+  \end{listadosql}
+
+
+  
+\end{homeworkProblem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[: Entrada y salida de productos]
+
+  \begin{itemize}
+  \item Crea un procedimiento \texttt{ENTRADA\_PRODUCTO} que actualice la base de datos cuando llegue un producto.
+  \item Crea un procedimiento \texttt{SALIDA\_PRODUCTO} que actualice la base de datos cuando se envie un producto.
+  \item En ninguno de los dos casos la fecha de la entrada o la salida puede ser posterior a la actual (error -20103).
+  \item Si el producto no existe, se lanzará el error -20102.
+  \end{itemize}
+  
+  \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
+create or replace procedure ENTRADA_PRODUCTO(
+  idproducto IN number,
+  idproveedor IN number,
+  cantidad IN number,
+  preciopagado IN number,
+  fecha IN timestamp default systimestamp)
+as
+begin
+  ...
+end; 
+
+create or replace procedure SALIDA_PRODUCTO(
+  idproducto IN number,
+  idcliente IN number,
+  cantidad IN number,
+  preciocobrado IN number,
+  fecha IN timestamp default systimestamp)
+as
+begin
+  ...
+end; 
+  \end{listadosql}
+
+  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto en un momento concreto. Se tendrán en cuenta las entradas y salidas de producto hasta la fecha indicada (fecha incluida). Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
+
+  \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
+create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number, fecha IN timestamp default sysdate) return number
+as
+begin
+  ...
+end; 
+  \end{listadosql}  
+  
+
+
+\end{homeworkProblem}
+
+\begin{homeworkProblem}[: Vista de existencias (1 punto)]
+
+  Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock \textbf{en el momento actual}. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero.
+
+  \begin{listadosql}{Vista de existencias}{lst:vista-existencias}
+create or replace view EXISTENCIAS(idproducto,existencias) as
+...
+  \end{listadosql}  
+  
+\end{homeworkProblem}
+
+
+
+\begin{homeworkProblem}[: Salida del almacén respetando existencias (1 punto)]
+
+  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}
+
+  \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
+create or replace procedure SALIDA_PRODUCTO_CON_STOCK(
+  idproducto IN number,
+  idcliente IN number,
+  cantidad IN number,
+  preciocobrado IN number,
+  fecha IN timestamp default systimestamp)
+as
+begin
+  ...
+  RAISE_APPLICATION_ERROR(-20101,'Rotura de stock');
+  ...
+end; 
+  \end{listadosql}
+  
+\end{homeworkProblem}
+
+
+\section{Instrucciones de entrega}
+Se creará un único fichero SQL para todos los apartados. Este fichero se corregirá de forma semiautomática, por lo que es necesario seguir la nomenclatura propuesta en el ejercicio.
+
+La autoría del trabajo puede ser por parejas. A pesar de ello, cada alumno debe subir al moodle una copia del trabajo.
+
+
+Sube el documento a \enlace{http://aulavirtual2.educa.madrid.org/mod/assignment/view.php?id=1116703}{la tarea correspondiente en el aula virtual}
+Presta atención al plazo de entrega (con fecha y hora).
+
+
+\end{document}
+
+
+
+
