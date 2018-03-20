@@ -103,6 +103,8 @@ end;
   \item En ninguno de los dos casos la fecha de la entrada o la salida puede ser posterior a la actual (error -20103).
   \item Si el producto no existe, se lanzará el error -20102.
   \end{itemize}
+
+
   
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure ENTRADA_PRODUCTO(
@@ -128,6 +130,8 @@ begin
 end; 
   \end{listadosql}
 
+
+  
   Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto en un momento concreto. Se tendrán en cuenta las entradas y salidas de producto hasta la fecha indicada (fecha incluida). Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
 
   \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
