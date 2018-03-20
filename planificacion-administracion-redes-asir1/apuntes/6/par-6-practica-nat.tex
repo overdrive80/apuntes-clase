@@ -42,7 +42,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \begin{itemize}
   \item No necesita mucha memoria (256 MBytes)
     
-  \item Tendrá una tarjeta de red \textit{bridged} con la dirección \texttt{192.168.255.N} (siendo \texttt{N} tu número de ordenador)
+  \item Tendrá una tarjeta de red \textit{bridged} con la dirección \texttt{192.168.255.N/24} (siendo \texttt{N} tu número de ordenador)
   \item Tendrá una tarjeta de red \textit{bridged} con una IP en la red del aula, para la comunicación con Internet.
   \item Tendrá una tarjeta de red \textit{internal}, con una dirección privada clase B.
 
@@ -117,7 +117,14 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \item Instala openssh-server en los dos ordenadores, si no está ya instalado.
   \item Abre los puertos necesarios para llegar a C desde la red del aula.
   \end{itemize}
+\end{homeworkProblem}
 
+\begin{homeworkProblem}[Comprueba el NAT con \texttt{tcpdump} (2 puntos)]
+  \begin{itemize}
+  \item Abre dos consolas en la máquina A. Utiliza \texttt{tcpdump} para ver en una consola los paquetes ICMP enviados y recibidos (\enlace{https://forum.ivorde.com/tcpdump-how-to-to-capture-only-icmp-ping-echo-requests-t15191.html}{forum.ivorde.com}) por la tarjeta conectada a internet. En la otra consola, visualiza los paquetes ICMP de la tarjeta de red interna.
+  \item Ejecuta un \texttt{ping} a internet desde la máquina B.
+  \item Comprueba que la máquina A, además de enrutar, está cambiado las direcciones IP de origen y destino.
+  \end{itemize}
 \end{homeworkProblem}
 
 
@@ -128,15 +135,77 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \item La memoria incluirá
 
   \begin{itemize}
-  \item un esquema de la red (2 puntos)
-  \item las órdenes realizadas en el servidor Linux para conseguir realizar el NAT correctamente.
+  \item Un esquema de la red (2 puntos)
+  \item Las órdenes realizadas en el servidor Linux para conseguir realizar el NAT correctamente.
   \item Pantallazos que demuestren que se han realizado las tareas pedidas
   \item
     \begin{small}
-Nota: Las órdenes que manejan NAT en Linux deben comenzar siempre desde la primera. Se recomienda hacer un script SH para las órdenes.
-\end{small}
-
+      Nota: Las órdenes que manejan NAT en Linux deben comenzar siempre desde la primera. Se recomienda hacer un script SH para las órdenes.
+    \end{small}
+    
   \end{itemize}
 
 \end{itemize}
+
+
+\begin{comment}
+#!/bin/bash
+
+INTERNET=enp0s3
+ALUMNOS=enp0s8
+INTERNA=enp0s9
+
+SERVIDORWINDOWS=10.0.0.2
+LINUXINTERNO=10.0.0.3
+
+
+# ACTIVA ENRUTAMIENTO
+echo "1" > /proc/sys/net/ipv4/ip_forward
+
+
+# LIMPIAR TABLAS
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -t nat -F
+iptables -t mangle -F
+iptables -F
+iptables -X
+
+# NAT POR TARJETA CON INTERNET enp0s3
+iptables -t nat -A POSTROUTING -o $INTERNET -j MASQUERADE
+
+# NAT POR TARJETA ENTRE ALUMNOS
+iptables -t nat -A POSTROUTING -o $ALUMNOS -j MASQUERADE
+
+# ABRIR 3389 A SERVIDORWINDOWS
+iptables -t nat -A PREROUTING -p tcp --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
+
+# ABRIR 22022 A LINUXINTERNO                                                                                                                                              
+iptables -t nat -A PREROUTING -p tcp --dport 22022 -j DNAT --to $LINUXINTERNO:22
+
+
+# CARPETAS COMPARTIDAS SERVIDOR WINDOWS
+TCPPORTS="139 445"
+UDPPORTS=""
+for PORT in $TCPPORTS
+do
+    iptables -t nat -A PREROUTING -p tcp --dport $PORT -j DNAT --to $SERVIDORWINDOWS:$PORT
+done
+for PORT in $UDPPORTS
+do
+    iptables -t nat -A PREROUTING -p udp --dport $PORT -j DNAT --to $SERVIDORWINDOWS:$PORT
+done
+
+
+# COMO QUEDAN LAS TABLAS
+iptables-save
+
+# VIGILAR EL PING PARA VER EL NAT
+tcpdump -v -v -n -i $INTERNA icmp&
+tcpdump -v -v -n -i $INTERNET icmp&
+
+
+\end{comment}
+
 \end{document}
