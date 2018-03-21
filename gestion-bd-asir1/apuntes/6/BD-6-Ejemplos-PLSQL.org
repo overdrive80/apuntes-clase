@@ -1,5 +1,15 @@
 * Programación
 
+** Tabla de multiplicar Del 7
+** Tablas de multiplicar del 1 al 9
+** Tablas de multiplicar bien alineadas
+** Pasar de decimal a binario
+** Pasar de decimal a una base entre 2 y 16
+** Pasar de una base de 2 a 16 a decimal 
+** Números primos menores de 1000
+** Decidir si un número es capicúa
+** Números primos capicúas menores de 100000
+
 ** Decidir si 1000003 es primo
 #+begin_src sql
 declare
