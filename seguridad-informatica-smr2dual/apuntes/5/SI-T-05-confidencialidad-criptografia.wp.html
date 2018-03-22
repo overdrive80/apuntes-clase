@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-03-09 vie 09:10 -->
+<!-- 2018-03-21 mié 12:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Privacidad, confidencialidad</title>
@@ -239,18 +239,18 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org965e0cd">1. Introducción</a></li>
-<li><a href="#orgfa381b1">2. Autenticación.</a></li>
-<li><a href="#org3618869">3. Criptografía.</a>
+<li><a href="#orge31793c">1. Introducción</a></li>
+<li><a href="#orgd907ef5">2. Autenticación.</a></li>
+<li><a href="#orgea6a8df">3. Criptografía.</a>
 <ul>
-<li><a href="#orgd66d7e1">3.1. Terminología.</a></li>
-<li><a href="#orgacfbb78">3.2. Utilización</a></li>
+<li><a href="#org2000fa9">3.1. Terminología.</a></li>
+<li><a href="#org2050e44">3.2. Utilización</a></li>
 </ul>
 </li>
-<li><a href="#orgf53692c">4. Criptografía simétrica</a></li>
-<li><a href="#org7e81764">5. Criptografía asimétrica</a>
+<li><a href="#org076e62e">4. Criptografía simétrica</a></li>
+<li><a href="#orgf72702e">5. Criptografía asimétrica</a>
 <ul>
-<li><a href="#org8c8026d">5.1. Características principales:</a></li>
+<li><a href="#org6840425">5.1. Características principales:</a></li>
 </ul>
 </li>
 </ul>
@@ -258,8 +258,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org965e0cd" class="outline-2">
-<h2 id="org965e0cd"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orge31793c" class="outline-2">
+<h2 id="orge31793c"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Ya hemos estudiado muchas medidas de seguridad que ayudan a proteger la confidencialidad como propiedad segura importante que es, aunque en general, casi todas las medidas que hemos visto y que ayudaban a proteger la confidencialidad, también contribuían en mayor o menor medida al mantenimiento de las otras dos propiedades seguras: la disponibilidad y la integridad.
@@ -270,12 +270,7 @@ En éste tema, ahondaremos en algunas medidas y sistemas cuyo objetivo primordia
 </p>
 <ul class="org-ul">
 <li>Hablaremos de la autenticación, el procedimiento por el cual una máquina puede reconocer al legítimo usuario de una determinada información.</li>
-<li>Hablaremos de la criptografía, la ciencia y los procedimientos para enviar y recibir información cifrada. Además de sus fundamentos, también hablaremos de la técnica del</li>
-</ul>
-<p>
-desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos de resumen criptográfico, que son la base de la firma digital.
-</p>
-<ul class="org-ul">
+<li>Hablaremos de la criptografía, la ciencia y los procedimientos para enviar y recibir información cifrada. Además de sus fundamentos, también hablaremos de la técnica del desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos de resumen criptográfico, que son la base de la firma digital.</li>
 <li>Hablaremos de la firma digital o electrónica, un procedimiento por el que se verifica el emisor de una información, y que contribuye al no repudio.</li>
 <li>Por último, hablaremos de algunas aplicaciones comunes en el mundo real de la criptografía en:
 <ul class="org-ul">
@@ -287,8 +282,8 @@ desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos
 </div>
 
 
-<div id="outline-container-orgfa381b1" class="outline-2">
-<h2 id="orgfa381b1"><span class="section-number-2">2</span> Autenticación.</h2>
+<div id="outline-container-orgd907ef5" class="outline-2">
+<h2 id="orgd907ef5"><span class="section-number-2">2</span> Autenticación.</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 La confidencialidad es la propiedad que nos asegura que la información llega sólo a sus usuarios legítimos. Para ello, un punto clave suele ser autenticar a éstos usuarios legítimos.
@@ -340,8 +335,8 @@ La biometría, por el momento, se basa en técnicas estadísticas, no hay ningú
 </div>
 </div>
 
-<div id="outline-container-org3618869" class="outline-2">
-<h2 id="org3618869"><span class="section-number-2">3</span> Criptografía.</h2>
+<div id="outline-container-orgea6a8df" class="outline-2">
+<h2 id="orgea6a8df"><span class="section-number-2">3</span> Criptografía.</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 La criptografía es la ciencia (una rama de las matemáticas y la estadística) que se encarga de ocultar la información, para que sólo sea accesible para sus usuarios legítimos.  Aunque se utiliza desde hace muchos siglos, en el mundo actual en el que la información es digital, la criptografía también se ha hecho digital.
@@ -352,8 +347,8 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 </p>
 </div>
 
-<div id="outline-container-orgd66d7e1" class="outline-3">
-<h3 id="orgd66d7e1"><span class="section-number-3">3.1</span> Terminología.</h3>
+<div id="outline-container-org2000fa9" class="outline-3">
+<h3 id="org2000fa9"><span class="section-number-3">3.1</span> Terminología.</h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -419,8 +414,8 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 </div>
 </div>
 
-<div id="outline-container-orgacfbb78" class="outline-3">
-<h3 id="orgacfbb78"><span class="section-number-3">3.2</span> Utilización</h3>
+<div id="outline-container-org2050e44" class="outline-3">
+<h3 id="org2050e44"><span class="section-number-3">3.2</span> Utilización</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 La criptografía se usa en distintas aplicaciones, pero las principales formas de utilizarla caen en
@@ -449,12 +444,12 @@ alguno de estos grupos:
 
 
 
-<div id="outline-container-orgf53692c" class="outline-2">
-<h2 id="orgf53692c"><span class="section-number-2">4</span> Criptografía simétrica</h2>
+<div id="outline-container-org076e62e" class="outline-2">
+<h2 id="org076e62e"><span class="section-number-2">4</span> Criptografía simétrica</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgafb6f91" class="outline-4">
-<h4 id="orgafb6f91"><span class="section-number-4">4.0.1</span> Características principales:</h4>
+<div id="outline-container-org7f398b0" class="outline-4">
+<h4 id="org7f398b0"><span class="section-number-4">4.0.1</span> Características principales:</h4>
 <div class="outline-text-4" id="text-4-0-1">
 <ul class="org-ul">
 <li>Para cifrar y descifrar se utiliza una única clave, que debe permanecer en secreto.</li>
@@ -469,8 +464,8 @@ alguno de estos grupos:
 </div>
 </div>
 
-<div id="outline-container-org2816bda" class="outline-4">
-<h4 id="org2816bda"><span class="section-number-4">4.0.2</span> Algoritmos simétricos comnunmente usados:</h4>
+<div id="outline-container-org2a52bcd" class="outline-4">
+<h4 id="org2a52bcd"><span class="section-number-4">4.0.2</span> Algoritmos simétricos comnunmente usados:</h4>
 <div class="outline-text-4" id="text-4-0-2">
 <ul class="org-ul">
 <li>DES (Data Encryption Standard) 1976: Escogido por el gobierno de los EEUU como algoritmo de encriptación estándar en 1976. Lo sustituye por AES 26 años después.  A lo largo de todos esos años, se ha demostrado bastante inseguro. No obstante, hay algunas variantes (como el Triple DES) que se siguen utilizando en algunas aplicaciones de no muy alta seguridad.</li>
@@ -492,12 +487,12 @@ alguno de estos grupos:
 </div>
 </div>
 
-<div id="outline-container-org7e81764" class="outline-2">
-<h2 id="org7e81764"><span class="section-number-2">5</span> Criptografía asimétrica</h2>
+<div id="outline-container-orgf72702e" class="outline-2">
+<h2 id="orgf72702e"><span class="section-number-2">5</span> Criptografía asimétrica</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org8c8026d" class="outline-3">
-<h3 id="org8c8026d"><span class="section-number-3">5.1</span> Características principales:</h3>
+<div id="outline-container-org6840425" class="outline-3">
+<h3 id="org6840425"><span class="section-number-3">5.1</span> Características principales:</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Se utiliza un algoritmo que debe ser público y conocido por todos los que participen en el cifrado o descifrado. Así pues, toda la seguridad reside en la fortaleza de la clave, y no en la utilización de un algoritmo secreto.</li>
@@ -1086,7 +1081,7 @@ mecánica de utilización del DNIe y el certificado de la FNMT. [CLICK AQUí]
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-03-09 vie 09:10</p>
+<p class="date">Created: 2018-03-21 mié 12:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

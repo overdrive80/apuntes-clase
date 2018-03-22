@@ -83,6 +83,8 @@ begin
 end;
 \end{listadosql}
 
+  El procedimiento devolverá en su segundo parámetro el identificador del producto recién creado.
+
   Crea una vista de nombre \texttt{V\_PRODUCTOS} para que el profesor pueda consultar los productos en el catálogo (listado \ref{lst:vproductos})
   
   \begin{listadosql}{Creación de la vista \texttt{V\_PRODUCTOS}}{lst:vproductos}
@@ -148,10 +150,10 @@ end;
 
 \begin{homeworkProblem}[: Vista de existencias (1 punto)]
 
-  Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock \textbf{en el momento actual}. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero.
+  Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock \textbf{en el momento actual}. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}.
 
   \begin{listadosql}{Vista de existencias}{lst:vista-existencias}
-create or replace view EXISTENCIAS(idproducto,existencias) as
+create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
 ...
   \end{listadosql}  
   
