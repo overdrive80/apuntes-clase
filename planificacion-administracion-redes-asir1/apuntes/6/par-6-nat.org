@@ -15,7 +15,7 @@
 
 * Enrutamiento
 
-En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes /router/s
+En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes /routers/
 
 #+reveal: split
 #+caption: Se envía un paquete a otra red 

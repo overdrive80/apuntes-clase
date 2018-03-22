@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-03-22 jue 09:49 -->
+<!-- 2018-03-22 jue 22:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title><i>Network Address Translation</i> (NAT)</title>
@@ -238,21 +238,21 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org9c5c5a5">1. Introducción</a></li>
-<li><a href="#orgf9adcc1">2. Enrutamiento</a></li>
-<li><a href="#org71701b3">3. NAT</a></li>
-<li><a href="#org7fad236">4. Ventajas de NAT</a></li>
-<li><a href="#org2dd1efb">5. Redirección permanente de puertos</a></li>
-<li><a href="#org705f7cd">6. Ejemplo NAT: ICS de Windows</a></li>
-<li><a href="#org7e1f801">7. DMZ</a></li>
-<li><a href="#org20a09c8">8. Referencias</a></li>
+<li><a href="#orgc5de0f4">1. Introducción</a></li>
+<li><a href="#org51cc2e1">2. Enrutamiento</a></li>
+<li><a href="#org8f39c09">3. NAT</a></li>
+<li><a href="#org172c186">4. Ventajas de NAT</a></li>
+<li><a href="#org3b7dc64">5. Redirección permanente de puertos</a></li>
+<li><a href="#org1a48b9b">6. Ejemplo NAT: ICS de Windows</a></li>
+<li><a href="#org6e66f41">7. DMZ</a></li>
+<li><a href="#orgf50a60e">8. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org9c5c5a5" class="outline-2">
-<h2 id="org9c5c5a5"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orgc5de0f4" class="outline-2">
+<h2 id="orgc5de0f4"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes routers
@@ -266,11 +266,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf9adcc1" class="outline-2">
-<h2 id="orgf9adcc1"><span class="section-number-2">2</span> Enrutamiento</h2>
+<div id="outline-container-org51cc2e1" class="outline-2">
+<h2 id="org51cc2e1"><span class="section-number-2">2</span> Enrutamiento</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes /router/s
+En un enrutamiento normal IP los paquetes siempre conservan su IP origen y destino, aunque pasen por diferentes <i>routers</i>
 </p>
 
 
@@ -304,8 +304,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org71701b3" class="outline-2">
-<h2 id="org71701b3"><span class="section-number-2">3</span> NAT</h2>
+<div id="outline-container-org8f39c09" class="outline-2">
+<h2 id="org8f39c09"><span class="section-number-2">3</span> NAT</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>NATP cambia la dirección IP de origen
@@ -385,8 +385,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org7fad236" class="outline-2">
-<h2 id="org7fad236"><span class="section-number-2">4</span> Ventajas de NAT</h2>
+<div id="outline-container-org172c186" class="outline-2">
+<h2 id="org172c186"><span class="section-number-2">4</span> Ventajas de NAT</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>El NAT crea un <i>firewall</i> automático y casi imposible de saltar
@@ -402,8 +402,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2dd1efb" class="outline-2">
-<h2 id="org2dd1efb"><span class="section-number-2">5</span> Redirección permanente de puertos</h2>
+<div id="outline-container-org3b7dc64" class="outline-2">
+<h2 id="org3b7dc64"><span class="section-number-2">5</span> Redirección permanente de puertos</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Puede ser interesante que haya entradas NAT permanentes en la tabla de correspondencias
@@ -422,8 +422,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org5c50a54" class="outline-3">
-<h3 id="org5c50a54"><span class="section-number-3">5.1</span> ¿Qué puertos exponer?</h3>
+<div id="outline-container-org50287c9" class="outline-3">
+<h3 id="org50287c9"><span class="section-number-3">5.1</span> ¿Qué puertos exponer?</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Cada protocolo tiene un puerto asignado (aunque algunos pueden cambiarse)</li>
@@ -500,8 +500,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org705f7cd" class="outline-2">
-<h2 id="org705f7cd"><span class="section-number-2">6</span> Ejemplo NAT: ICS de Windows</h2>
+<div id="outline-container-org1a48b9b" class="outline-2">
+<h2 id="org1a48b9b"><span class="section-number-2">6</span> Ejemplo NAT: ICS de Windows</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><i>Internet Connection Sharing</i> permite compartir una conexión Internet entre muchos ordenadores</li>
@@ -523,8 +523,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org7e1f801" class="outline-2">
-<h2 id="org7e1f801"><span class="section-number-2">7</span> DMZ</h2>
+<div id="outline-container-org6e66f41" class="outline-2">
+<h2 id="org6e66f41"><span class="section-number-2">7</span> DMZ</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>La <i>zona desmilitarizada</i> la componen los hosts que una empresa expone a Internet</li>
@@ -532,8 +532,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-org62f0149" class="outline-3">
-<h3 id="org62f0149"><span class="section-number-3">7.1</span> DMZ expuesta</h3>
+<div id="outline-container-orgec67fe9" class="outline-3">
+<h3 id="orgec67fe9"><span class="section-number-3">7.1</span> DMZ expuesta</h3>
 <div class="outline-text-3" id="text-7-1">
 
 <div class="figure">
@@ -543,8 +543,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org3e5361d" class="outline-3">
-<h3 id="org3e5361d"><span class="section-number-3">7.2</span> DMZ Host</h3>
+<div id="outline-container-orgfb6d657" class="outline-3">
+<h3 id="orgfb6d657"><span class="section-number-3">7.2</span> DMZ Host</h3>
 <div class="outline-text-3" id="text-7-2">
 
 <div class="figure">
@@ -554,8 +554,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgc51b606" class="outline-3">
-<h3 id="orgc51b606"><span class="section-number-3">7.3</span> DMZ doble firewall</h3>
+<div id="outline-container-org9ca4446" class="outline-3">
+<h3 id="org9ca4446"><span class="section-number-3">7.3</span> DMZ doble firewall</h3>
 <div class="outline-text-3" id="text-7-3">
 
 <div class="figure">
@@ -567,8 +567,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org20a09c8" class="outline-2">
-<h2 id="org20a09c8"><span class="section-number-2">8</span> Referencias</h2>
+<div id="outline-container-orgf50a60e" class="outline-2">
+<h2 id="orgf50a60e"><span class="section-number-2">8</span> Referencias</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Formatos:
@@ -588,7 +588,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-03-22 jue 09:49</p>
+<p class="date">Created: 2018-03-22 jue 22:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
