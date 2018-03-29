@@ -26,12 +26,21 @@ Por ejemplo, para meterte en la página de la asignatura, te has identificado co
 
 La identificación no es significativa desde el punto de vista de la Seguridad.
 
-En esa imagen hay un tipo que se identifica como Eduardo Punset. ¿Realmente es quien dice ser?
+#+caption: En esa imagen hay un tipo que se identifica como Eduardo Punset. ¿Realmente es quien dice ser?
+[[file:media/punset.jpg]]
+
 
 Hay muchas formas de autenticar a un usuario frente a una máquina, pero desde el punto de vista de la Seguridad Informática, todas caen en tres grandes categorías:
 1. Saber algo: El usuario sabe una contraseña, o PIN, que introduce para que el sistema lo autentifique
+   #+caption: Ejemplo de contraseña y PIN 
+   | [[file:media/teclado-pin.png]] | [[file:media/postit-password.png]]  |
 2. Tener algo El usuario posee algún objeto que tiene grabado en su interior una contraseña, y que el sistema es capaz de leer. (Por ejemplo, tarjetas con banda magnética, Tarjetas Smartcard con chip, Llaveros de radiofrecuencia)
+   #+caption: Llave RFID y tarjeta magnética
+   | [[file:media/llave-rfid.png]] | [[file:media/lector-tarjetas.png]] | [[file:media/smartcard.png]]  | 
 3. Exhibir algún rasgo o característica física intransferible.
+   #+caption: Diferentes medidas biométricas
+   | [[file:media/lector-iris.png]] | [[file:media/huella-digital.png]] | [[file:media/firma-analogica.png]] | 
+
 
 Aunque todavía es una tecnología emergente y no demasiado precisa, la biometría es la tercera vía para autenticar a un usuario: que el sistema reconozca alguna característica física, como la huella dactilar, el iris o la retina, o los movimiento y la presión en el gesto de firmar sobre una tableta.
 
@@ -51,17 +60,17 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 
 ** Terminología.
 #+ATTR_LATEX: :align |l|p{7cm}|
-| Concepto                                | Significado                                                                                                                                                                                                                                                                                                                                                   |
-|-----------------------------------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| En claro (texto, información o mensaje) | Se refiere al texto, a la información o a un mensaje original, antes de cifrar.                                                                                                                                                                                                                                                                               |
-| Cifrar, encriptar                       | Los consideramos sinónimos... Es el acto de transformar la información en claro a información cifrada, sin sentido para cualquiera que no sea usuario legítimo                                                                                                                                                                                                |
-| Descifrar, desencriptar                 | Pues obtener la información en claro a partir de la cifrada                                                                                                                                                                                                                                                                                                   |
-| Algoritmo criptográfico                 | El método que transforma la información en claro en información cifrada o al revés.                                                                                                                                                                                                                                                                           |
-| Clave                                   | Es un valor (contraseña) que se proporciona al algoritmo, y que sirve para cifrar o para descifrar.                                                                                                                                                                                                                                                           |
-| Tamaño de clave                         | Número de dígitos (binarios) necesarios para expresar la clave. La dificultad para encontrar por fuerza bruta dicha clave crece exponencialmente con el número de bits. Por ejemplo, una clave de 256 es una entre 2^256 posibilidades, algo así como 11.579.208.923.731.619.542.357.098.500.868.790.785.326.998.466.564.056.403.945.758.400.791.312.9639.936 |
-| Criptoanálisis                          | La rama de las matemáticas que analiza mensajes cifrados, intentando descubrir sus claves, sus algoritmos y en última instancia, la información en claro                                                                                                                                                                                                      |
-| Hash, huella digital (resumen)          | Información de pequeño tamaño generada por un algoritmo de /un solo sentido/ a partir de otra información. Es fácil conseguir el resumen de una información, pero es muy difícil encontrar la información a partir del resumen                                                                                                                                |
-| Codificar                               | Aunque en el lenguaje coloquial lo utilizamos a menudo como sinónimo de cifrado, en la informática no lo es. codificar es utilizar un código público (como el código ASCII) para representar información. No hay clave, ni intención de encriptar.                                                                                                            |
+| Concepto                                | Significado                                                                                                                                                                                                                                                                                                                                                                    |
+|-----------------------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| En claro (texto, información o mensaje) | Se refiere al texto, a la información o a un mensaje original, antes de cifrar.                                                                                                                                                                                                                                                                                                |
+| Cifrar, encriptar                       | Los consideramos sinónimos... Es el acto de transformar la información en claro a información cifrada, sin sentido para cualquiera que no sea usuario legítimo                                                                                                                                                                                                                 |
+| Descifrar, desencriptar                 | Pues obtener la información en claro a partir de la cifrada                                                                                                                                                                                                                                                                                                                    |
+| Algoritmo criptográfico                 | El método que transforma la información en claro en información cifrada o al revés.                                                                                                                                                                                                                                                                                            |
+| Clave                                   | Es un valor (contraseña) que se proporciona al algoritmo, y que sirve para cifrar o para descifrar.                                                                                                                                                                                                                                                                            |
+| Tamaño de clave                         | Número de dígitos (binarios) necesarios para expresar la clave. La dificultad para encontrar por fuerza bruta dicha clave crece exponencialmente con el número de bits. Por ejemplo, una clave de 256 bits es una entre 2^256 posibilidades, algo así como 115.792 .089.237 .316.195 .423.570 .985.008 .687.907 .853.269 .984.665 .640.564 .039.457 .584.007 .913.129 .639.936 |
+| Criptoanálisis                          | La rama de las matemáticas que analiza mensajes cifrados, intentando descubrir sus claves, sus algoritmos y en última instancia, la información en claro                                                                                                                                                                                                                       |
+| Hash, huella digital (resumen)          | Información de pequeño tamaño generada por un algoritmo de /un solo sentido/ a partir de otra información. Es fácil conseguir el resumen de una información, pero es muy difícil encontrar la información a partir del resumen                                                                                                                                                 |
+| Codificar                               | Aunque en el lenguaje coloquial lo utilizamos a menudo como sinónimo de cifrado, en la informática no lo es. codificar es utilizar un código público (como el código ASCII) para representar información. No hay clave, ni intención de encriptar.                                                                                                                             |
 
 ** Utilización
 La criptografía se usa en distintas aplicaciones, pero las principales formas de utilizarla caen en
@@ -82,17 +91,37 @@ alguno de estos grupos:
 
 * Criptografía simétrica
 
-*** Características principales:
+** Características principales:
 - Para cifrar y descifrar se utiliza una única clave, que debe permanecer en secreto.
-- Dicha clave, debe ser conocida por quien cifra y por quien descifra... así que deben comunicársela previamente utilizando un canal seguro.
+- Dicha clave, debe ser conocida por quien cifra y por quien descifra... así que deben comunicársela previamente utilizando un *canal seguro*.
 - Se utiliza un algoritmo que utiliza de una forma la clave para cifrar, y de forma contraria la clave para descifrar. 
-- Antiguamente, el algoritmo se mantenía en secreto. 
-- Hoy en día se considera inseguro confiar en un algoritmo secreto. Los algoritmos de cifrado son conocidos, y para aumentar la seguridad se eligen claves suficientemente grandes.
-- Es el tipo de cifrado basado en los métodos tradicionales.
+
+#+caption: Cifrado simétrico
+
+
+
+- Antiguamente, el algoritmo se mantenía en secreto. Hoy en día se considera inseguro confiar en un algoritmo secreto. Los algoritmos de cifrado son conocidos, y para aumentar la seguridad se eligen claves suficientemente grandes.
+- Es el tipo de cifrado basado en los métodos tradicionales, ya que suelen necesitar poca capacidad de cálculo.
 - Casi todos los algoritmos de cifrado simétrico tienen debilidades, o se pueden atacar utilizando criptoanálisis , aunque si el algoritmo es bueno y la clave secreta es grande, se puede requerir muchísimo esfuerzo y tiempo.
 - A lo largo de la historia se conocen muchos algoritmos de cifrado simétrico, pero hoy en día, en la práctica, sólo se utilizan unos pocos de manera habitual.
 
-*** Algoritmos simétricos comnunmente usados:
+*** Cifrado del César
+Cada letra del alfabeto se reemplaza por la que se encuentra varias posiciones más a la derecha. Es un cifrado por sustitución, y puede atacarse criptográficamente con medios muy básicos. Originalmente se desplazaban dos posiciones, y posteriormente la *clave* se acordaba previamente como el número de posiciones a desplazar
+#+caption: Cifrado del César (3 posiciones)
+[[file:media/cifrado-cesar.png]]
+
+| Texto en claro           | Texto cifrado           |
+|--------------------------+-------------------------|
+| En el parque a las cinco | Hq ho sdutx d odv flqfr |
+|--------------------------+-------------------------|
+
+*** Cifrado por sustitución
+Es una evolución del cifrado del César. La tabla de sustitución ya no se calcula a partir del alfabeto y un desplazamiento, sino que es la propia clave
+#+caption: Posible clave en cifrado por sustitución
+[[file:media/cifrado-sustitucion.png]]
+
+
+** Algoritmos simétricos comnunmente usados:
 - DES (Data Encryption Standard) 1976: Escogido por el gobierno de los EEUU como algoritmo de encriptación estándar en 1976. Lo sustituye por AES 26 años después.  A lo largo de todos esos años, se ha demostrado bastante inseguro. No obstante, hay algunas variantes (como el Triple DES) que se siguen utilizando en algunas aplicaciones de no muy alta seguridad.
 - AES (Advanced Encryption Standard) 2002.El gobierno de EEUU realizó una convocatoria pública para sustituir su antiguo algoritmo DES por otro más moderno y seguro. Se presentaron varios algoritmos, y el escogido fue el que se presentó con el nombre de Rijndael (sus creadores se llamaban Joan Daemen y Vincent Rijmen, de la Universidad Católica de Lovaina, Bélgica). Tras ser escogido, se adoptó el nombre de AES. Por las claúsulas de la convocatoria, el algoritmo
   - Es de dominio público
@@ -113,13 +142,13 @@ alguno de estos grupos:
 - Es el tipo de cifrado más moderno. Se desarrolla durante la segunda mitad del siglo XX (antes de la aparición de los ordenadores es impensable, debido a la gran cantidad de cálculos necesarios)
 - Se basan en funciones u operaciones matemáticas de un solo sentido: aquellas que es sencillo realizar en un sentido, pero computacionalmente poco víable en sentido contrario. Una de las más significativas de éstas operaciones es la descomposición en factores primos.
 
-#+begin_src sh
+#+begin_src c
 Ej: Supongamos un número n que está compuesto por sólo dos factores primos, es decir, n=p·q, siendo p y q primos.
 Si sabemos p y q es facil saber el valor de n: basta multiplicar. 
 Sin embargo, si sólo sabemos el valor de n, para hallar p o q es
 necesario aplicar fuerza bruta, probando a dividir por todos los factores primos.
 
-Por ejemplo. 396307523=563·839. Si sólo te doy el primer número y te digo que está compuesto por dos primos...
+Por ejemplo: 396307523=563 x 839. Si sólo te doy el primer número y te digo que está compuesto por dos primos...
 solo puedes hallarlos probando a dividir.
 
 Eso es computacionalmente muy costoso y lento.
@@ -131,11 +160,11 @@ En el algoritmo RSA, el más utilizado de los asimétricos, la clave pública
 contiene el número n mientras que la privada contiene a p y q por separado.
 #+end_src 
 
-- Se utiliza también para la firma digital En la firma digital, un trozo de información se firma con la clave privada, y cualquiera puede comprobar su integridad, autenticar al emisor o incluso evitar un repudio utilizando la clave pública del firmante.
+- Se utiliza también para la [[#firmadigital][firma digital]]. En la firma digital, un trozo de información se firma con la clave privada, y cualquiera puede comprobar su integridad, autenticar al emisor o incluso evitar un repudio utilizando la clave pública del firmante.
 - A día de hoy son algoritmos muy seguros
-- Son bastante costosos computacionalmente: consumen recursos de tiempo de CPU y de espacio en memoria. (*)
-- A diferencia de los simétricos, no necesitan compartir nada por un canal seguro. (**)
-- Las dos características anteriores (* y **) hacen que en muchas ocasiones sean utilizados para transportar claves secretas de un algoritmo simétrico... y una vez transportada se utiliza un algoritmo simétrico, que es mucho más económico, rápido, y que su principal debilidad es el transporte de la clave secreta.  Es decir, el cifrado asimétrico se utiliza a menudo para paliar la principal vulnerabilidad del cifrado simétrico.
+- Son bastante costosos computacionalmente: consumen recursos de tiempo de CPU y de espacio en memoria.
+- A diferencia de los simétricos, no necesitan compartir nada por un canal seguro.
+- Las dos características anteriores hacen que en muchas ocasiones sean utilizados para transportar claves secretas de un algoritmo simétrico... y una vez transportada se utiliza un algoritmo simétrico, que es mucho más económico, rápido, y que su principal debilidad es el transporte de la clave secreta. Un ejemplo de esto es el [[#https][protocolo https]].
 
 Algoritmos simétricos comunmente usados:
 - RSA (Rivest-Shamir-Adleman) 1977. El más utilizado. Respaldado por una empresa: RSA Security, que mantiene su patente
@@ -156,7 +185,12 @@ El escenario es que una parte hay una entidad A (por ejemplo, Windows Server) qu
 
 Este proceso puede hacerse también posteriormente en sentido contrario, para que *B* verifique a *A*. Por supuesto, hay muchas variantes más o menos complejas, pero la idea básica es la expuesta.
 
-* Firma digital
+
+* <<#firmadigital>> Firma digital
+  :PROPERTIES:
+  :CUSTOM_ID: firmadigital
+  :END:
+
 Permite garantizar cualquiera de estas tres cualidades de una pieza de información:
 - Que no ha sido alterada durante su almacenamiento o transporte (integridad)
 - Que el emisor de la información es quien realmente dice ser (autenticación)
@@ -246,6 +280,9 @@ mundo real.
 *** El Encrypted File System de Windows 7 y Server 2008.
 Ambos sistemas operativos disponen de la capacidad de encriptar ficheros individuales o carpetas enteras, mediante el sistema EFS ([[https://en.wikipedia.org/wiki/Encrypting_File_System][Encrypted File System]]). Desde el entorno gráfico, basta con activar una casilla en la hoja de propiedades del archivo o carpeta (Botón derecho/Propiedades/Avanzados/Cifrar contenido...)
 
+#+caption: Activación de encriptación a nivel de fichero
+[[file:media/cifrado-efs.png]]
+
 Al activarla, Windows cifrará el contenido del objeto seleccionado con una clave que genera a partir de la contraseña del usuario, de tal modo que ante una sustracción física del almacenamiento, no sea posible acceder a los datos. También es posible hacerlo, con mucha más flexibilidad utilizando el comando cipher.
 
 EFS soporta los algoritmos
@@ -257,6 +294,126 @@ Si no se indica lo contrario, windows 7 utiliza un algoritmo simétrico, con una
 
 Para utilizar los otros algoritmos, es necesario disponer de un certificado (en el formato x509).
 El cifrado de EFS se gestiona a través de las políticas de seguridad de Windows
+
+#+caption: Directiva de seguridad del cifrado en Windows (EFS y Bitlocker)
+[[file:media/directivas-bitlocker.png]]
+
+#+caption: Ayuda de la utilidad =cipher= para EFS mediante línea de comandos
+#+BEGIN_SRC sh
+Muestra o altera el cifrado de directorios [archivos] en particiones NTFS.
+
+  CIPHER [/E | /D | /C]
+         [/S:directorio] [/B] [/H] [nombreDeRuta [...]]
+
+  CIPHER /K [/ECC:256|384|521]
+
+  CIPHER /R:nombreDeArchivo [/SMARTCARD] [/ECC:256|384|521]
+
+  CIPHER /U [/N]
+
+  CIPHER /W:directorio
+
+  CIPHER /X[:archivoEfs] [nombreDeArchivo]
+
+  CIPHER /Y
+
+  CIPHER /ADDUSER
+         [/CERTHASH:hash | /CERTFILE:nombreDeArchivo | /USER:nombreDeUsuario]
+         [/S:directorio] [/B] [/H] [nombreDeRuta [...]]
+
+  CIPHER /FLUSHCACHE [/SERVER:nombreDeServidor]
+ 
+  CIPHER /REMOVEUSER /CERTHASH:hash
+         [/S:directorio] [/B] [/H] [nombreDeRuta [...]]
+
+  CIPHER /REKEY [nombreDeRuta [...]]
+
+    /B        Anular si se detecta un error. De forma predeterminada, CIPHER
+              continúa ejecutándose aunque se detecten errores.
+    /C        Muestra información sobre el archivo cifrado.
+    /D        Descifra los archivos o directorios especificados.
+    /E        Cifra los archivos o directorios especificados. Los directorios
+              se marcarán para que los archivos agregados posteriormente se
+              cifren. El archivo cifrado podría descifrarse al modificarse si
+              el directorio principal no está cifrado. Se recomienda cifrar
+              el archivo y el directorio principal.
+    /H        Muestra los archivos con los atributos de sistema u ocultos.
+              Estos archivos se omiten de forma predeterminada.
+    /K        Crea un nuevo certificado y una nueva clave para usar con EFS.
+              Si se elige esta opción, se omite el resto de opciones.
+
+              Nota: de forma predeterminada, /K crea un certificado y una
+                    clave que siguen la directiva de grupo actual. Si se
+                    especifica EEC, se creará un certificado autofirmado
+                    con el tamaño de clave especificado.
+
+    /N        Esta opción sólo funciona con /U e impedirá que se actualicen
+              las claves. Se usa para buscar todos los archivos cifrados en
+              las unidades locales.
+    /R        Genera una clave y un certificado EFS, los guarda en un
+              archivo .PFX (que contiene el certificado y la clave privada)
+              y en un archivo .CER (que contiene sólo el certificado).
+              Un administrador puede agregar el contenido del
+              archivo .CER a la directiva de recuperación EFS para crear la
+              clave de recuperación para los usuarios e importar el archivo
+              .PFX para recuperar archivos individuales. Si se especifica
+              SMARTCARD, escribe el certificado y la clave de recuperación en
+              una tarjeta inteligente. Se genera un archivo .CER (que contiene
+              sólo el certificado). No se genera ningún archivo .PFX.
+
+              Nota: de forma predeterminada, /R crea un certificado y una
+                    clave de recuperación RSA de 2048 bits. Si se especifica
+                    ECC, debe ir seguido de un tamaño de clave de 256, 384
+                    o 521.
+
+    /S        Realiza la operación especificada en el directorio indicado y en
+              todos sus archivos y subdirectorios.
+    /U        Intenta procesar todos los archivos cifrados en unidades
+              locales. Esto actualizará la clave de cifrado de archivos del
+              usuario o las claves de recuperación a las actuales en caso de
+              que hayan cambiado. Esta opción no funciona con otras opciones a
+              excepción de /N.
+    /W        Quita datos de espacio en disco disponible en todo el
+              volumen. Si se elige esta opción, se omitirán todas las demás
+              opciones. El directorio especificado puede estar en cualquier
+              ubicación del volumen local. Si es un punto de montaje o apunta
+              a un directorio en otro volumen, se quitarán los datos del
+              volumen.
+    /X        Hace una copia de seguridad del certificado y las claves EFS en
+              el archivo nombreDeArchivo. Si el archivoEfs se proporciona, se
+              hará una copia de seguridad del certificado o certificados
+              actuales del usuario usados para cifrar el archivo. De lo
+              contrario, se hará una copia de seguridad
+              del certificado y las claves EFS actuales del usuario.
+    /Y        Muestra la vista en miniatura del certificado EFS actual en el
+              equipo local.
+    /ADDUSER  Agrega un usuario a los archivos cifrados especificados. Si se
+              proporciona CERTHASH, el cifrado buscará un certificado con este
+              hash SHA1. Si se proporciona CERTFILE, el cifrado extraerá el
+              certificado del archivo. Si se proporciona USER, el cifrado
+              intentará ubicar el certificado del usuario en Servicios
+              de dominio de Active Directory.
+    /FLUSHCACHE
+              Borra la memoria caché de claves EFT del usuario que realiza
+              la llamada en el servidor especificado.
+              Si no se proporciona el nombre del servidor, CIPHER borra
+              la memoria caché de claves de usuario en el equipo local.
+    /REKEY    Actualiza los archivos cifrados especificados para usar la clave
+              EFS configurada actual.
+    /REMOVEUSER
+              Quita un usuario de los archivos especificados. CERTHASH
+              debe ser el hash SHA1 del certificado que se va a quitar.
+
+    directorio       Ruta de acceso de un directorio.
+    nombreDeArchivo  Nombre de archivo sin extensión.
+    nombreDeRuta     Especifica un patrón, archivo o directorio.
+    archivoEfs       Ruta de acceso de un archivo cifrado.
+
+    Si se usa sin parámetros, CIPHER muestra el estado del cifrado del
+    directorio actual y de todos los archivos que contiene. Puede usar varios
+    nombres de directorio y caracteres comodín. Debe usar espacios entre
+    los diferentes parámetros.
+#+END_SRC
 
 
 *** Bitlocker: Cifrar volúmenes completos en Windows 7 y 2008 Server
@@ -273,17 +430,20 @@ Para crear unidades cifradas es necesaria la versión Professional o Ultimate de
 
 Para los dispositivos extraíbles (pendrives, HDDs y SDDs...) windows incluye en la propia unidad un pequeño programa sin cifrar: Bitlocker On The Go, de tal manera que si se inserta el dispositivo en un sistema XP o cualquier otro compatible, pero sin Bitlocker, se ejecuta ese pequeño programa que permite leer el contenido de la unidad, aunque no escribir en ella.
 
+[[file:media/cifrar-unidad-bitlocker.png]]
+
 *** Archivos comprimidos encriptados.
 La mayor parte de formatos de archivos comprimidos (Ej: zip, rar, 7z) admiten cifrado simétrico además de la compresión. Estos algoritmos obtienen una clave a partir de una contraseña suministrada por el usuario en el momento de cifrar, que debe ser también proporcionada al descifrar.
 
-Ej: El programa IZarc, mostrando las opciones de cifrado de un archivo comprimido zip
+#+caption: El programa IZarc, mostrando las opciones de cifrado de un archivo comprimido zip
+[[file:media/cifrado-zip.png]]
 
 *** Copias de seguridad encriptadas.
 Todos los sistemas de copia de seguridad permiten que la copia tenga algún tipo de
 encriptación.
-Por ejemplo Cobian Backup
-(NOTA: Rijndael = AES)
 
+#+caption: Opciones de encriptación de Cobian Backup (NOTA: Rijndael = AES)
+[[file:media/cifrado-cobian.png]]
 
 ** Cifrado/descifrado en la red
 
@@ -326,8 +486,9 @@ PSK tiene algunos problemas. En caso de que llegue a manos de un intruso, se le 
 
 Todos los sistemas servidores de Windows tienen el servicio de RADIUS, que además, puede asociarse a Active Directory. También existen aplicaciones independientes que pueden instalarse por separado, tanto en Windows como en sistemas Unix/Linus (Ej: FreeRADIUS)
 
-Ejemplo: la configuración de un punto de acceso inalámbrico (Un Router Conceptronic C54APRA2+) mostrando las opciones del
-servidor RADIUS: la IP del ordenador que lo tiene instalado, el puerto, y una contraseña configurada para evitar la suplantación del punto de acceso frente al servidor RADIUS.
+
+#+caption:  Router Conceptronic C54APRA2+) mostrando las opciones del servidor RADIUS
+[[file:media/radius.png]]
 
 
 
@@ -367,6 +528,10 @@ SSL/TLS es la base de protocolos de aplicación cifrados
 También hay otras aplicaciones con un sistema de cifrado Aplicaciones con su propio sistema de cifrado.  En este caso, la aplicación más popular es PGP, y su equivalente GnuPG, bastante orientadas a los mensajes de texto (e-mail, principalmente y similares). Aunque tiene bastante difusión en el ámbito del software libre, a nivel de implementación comercial apenas tiene penetración.
 
 ** Ejemplo: HTTPS
+   :PROPERTIES:
+   :CUSTOM_ID: https
+   :END:
+   
 En una conexión https se utiliza el protocolo TLS/SSL sobre HTTP. El servidor debe disponer de un certificado x.509. La conexión siempre está cifrada con un algoritmo simétrico, y a menudo (aunque no es obligatorio) se garantiza la autenticidad del servidor mediante la firma digital del certificado.
 
 Pasos que se siguen, a grandes rasgos, al conectarse por https, (Ej: https://facebook.com)
@@ -399,7 +564,11 @@ La ventaja del DNIe reside en que la clave privada no se puede extraer del chip.
 
 Para completar el tema, te remito al apartado de la web de la asignatura en el que puedes ver
 una animación realizada por INCIBE con los puntos clave del DNIe, así como un vídeo con la
-mecánica de utilización del DNIe y el certificado de la FNMT.
+mecánica de utilización del DNIe y el certificado de la FNMT. https://www.incibe.es/extfrontinteco/dnie/swf/dnie.html
+
+
+* Referencias
+[[file:SI-T-05-confidencialidad-criptografia.pdf][Versión en PDF]]
 
 
 
