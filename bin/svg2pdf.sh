@@ -6,5 +6,5 @@ do
     echo $ficherosinextension
     dirname "$fichero"
     inkscape --export-area-drawing --export-pdf="$ficherosinextension.pdf" "$fichero"
-    cp "$ficherosinextension.pdf" "$fichero.pdf"
+    mv "$ficherosinextension.pdf" "$fichero.pdf"
 done

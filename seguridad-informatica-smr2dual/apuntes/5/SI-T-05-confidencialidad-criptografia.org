@@ -97,6 +97,7 @@ alguno de estos grupos:
 - Se utiliza un algoritmo que utiliza de una forma la clave para cifrar, y de forma contraria la clave para descifrar. 
 
 #+caption: Cifrado simétrico
+[[file:media/criptografia-simetrica.svg]]
 
 
 
@@ -141,6 +142,14 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
   - Una clave privada que debe mantener en secreto, y que servirá para descifrar los mensajes que los demás dirigen a X.
 - Es el tipo de cifrado más moderno. Se desarrolla durante la segunda mitad del siglo XX (antes de la aparición de los ordenadores es impensable, debido a la gran cantidad de cálculos necesarios)
 - Se basan en funciones u operaciones matemáticas de un solo sentido: aquellas que es sencillo realizar en un sentido, pero computacionalmente poco víable en sentido contrario. Una de las más significativas de éstas operaciones es la descomposición en factores primos.
+
+
+#+caption: Cifrado asimétrico
+[[file:media/criptografia-asimetrica-1.svg]]
+
+#+caption: Cifrado asimétrico
+[[file:media/criptografia-asimetrica-2.svg]]
+
 
 #+begin_src c
 Ej: Supongamos un número n que está compuesto por sólo dos factores primos, es decir, n=p·q, siendo p y q primos.
@@ -214,6 +223,14 @@ Los más conocidos son:
 - La información a firmar se resume con un algoritmo de resumen
 - El resumen se cifra utilizando la clave privada
 - Utilizando la clave pública se puede comprobar la firma.
+
+
+#+caption: Generación de la firma digital
+[[file:media/firma-digital-generacion.svg]]
+
+#+caption: Comprobación de la firma digital
+[[file:media/firma-digital-comprobacion.svg]]
+
 
 
 * Sistemas de confianza e intercambio de claves: la PKI y PGP
