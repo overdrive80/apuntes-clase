@@ -1,0 +1,221 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE: PLSQL
+
+#+latex_header: \lstset{emph={begin,BEGIN,declare,DECLARE, SERVEROUTPUT, if, elsif, exit, while, loop}, emphstyle=\color{Blue}\ttfamily\bfseries}
+
+
+
+
+* Introducción
+
+** Palabras reservadas
+- Vista =V$RESERVED_WORDS=
+- Definen estructuras de programa
+- No pueden ser usados como identificadores
+
+** Identificadores
+- Nombres definidos por el programador
+  - No puede ser una palabra reservada
+  - Constante, variable, excepción, paquete, función, procedimiento, tabla, cursor...
+  - Hasta 30 caracteres
+  - Comienza por una letra. 
+  - Puede contener =$=, =#=, pero no puede contener operadores =+­%=/*= 
+
+* Bloques anónimos
+
+#+caption: Bloque anónimo
+#+begin_src sql
+
+select * from pepe where nombre='a';
+SET SERVEROUTPUT ON;
+
+begin
+  dbms_output.put_line('Hola');
+END;
+/
+
+#+end_src
+
+* Variables
+- Valores referenciados por un identificador
+- Deben declararse al principio de los bloques
+
+#+begin_src sql
+SET SERVEROUTPUT ON;
+
+DECLARE
+  msg varchar(255);
+BEGIN
+  msg := 'Hola';
+  dbms_output.put_line(msg);
+END;
+/
+#+end_src
+
+** Tipos de variable
+- Se pueden utilizar todos los tipos SQL
+  - =char=, =varchar=
+  - =number=, =integer=, =float=
+  - =date=, =timestamp=
+  - =blob=, =clob=
+- Tipos propios de PLSQL
+  - =bool=
+  - =pls_integer=
+
+** Tipos referidos
+- =%type= : Tipo de un campo de una tabla
+- =%rowtype= : Tipo compuesto, referido a una fila de una tabla
+
+
+#+begin_src sql
+create table cliente( id integer, nombre varchar(255) );
+
+DECLARE
+  filacliente cliente%rowtype;
+BEGIN
+  filacliente.id := 1;
+  filacliente.nombre := 'María';
+  insert into cliente values filacliente;
+END;
+/
+#+end_src
+
+* Control de flujo
+
+** Condicional
+#+begin_src sql
+DECLARE
+  numero integer := 1;
+BEGIN
+  if( numero < 0 ) then
+    dbms_output.put_line( "Menor que cero");
+  elsif( numero > 0 ) then
+    dbms_output.put_line( "Mayor que cero");
+  else
+    dbms_output.put_line( "Igual que cero");
+  end if;
+END;
+/
+#+end_src
+
+** Condicional múltiple (I)
+
+#+begin_src sql oracle
+case
+  when vsalario<0 then
+    dbms_output.put_line('Incorrecto');
+  when vsalario=0 THEN
+    dbms_output.put_line('Gratis!');  
+  when vsalario<10000 then
+    dbms_output.put_line('Salado!');
+  when vsalario<90000 then
+    dbms_output.put_line('Mas o menos');
+  else
+    dbms_output.put_line('Correcto');
+end case;
+#+end_src
+
+** Condicional múltiple (II)
+#+begin_src sql
+case v_job_grade
+  when 1 THEN
+    dbms_output.put_line('Jefe!');
+  when 2 then
+    dbms_output.put_line('Jefecito');
+  when 3 then
+    dbms_output.put_line('Empleado regular');
+  ELSE
+    dbms_output.put_line('CEO');
+end case;
+#+end_src
+
+** Bucle =loop=
+#+BEGIN_SRC sql
+LOOP
+    -- Instrucciones
+    IF (expresion) THEN
+      -- Instrucciones
+      EXIT;
+    END IF;
+END LOOP;
+#+END_SRC
+
+** Bucle =while=
+#+BEGIN_SRC sql
+WHILE (expresion) LOOP
+    -- Instrucciones
+END LOOP;
+#+END_SRC
+
+** Bucle =for=
+#+BEGIN_SRC sql
+DECLARE
+  c PLS_INTEGER DEFAULT 0;
+BEGIN
+  FOR c IN REVERSE 1..10 LOOP
+    dbms_output.put_line ('Contador = '||c);
+  END LOOP;
+END;
+#+END_SRC
+
+* Sentencias SQL 
+
+** Variables en =select=
+
+#+BEGIN_SRC sql
+create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+DECLARE
+  vsalario NUMBER;
+BEGIN
+  SELECT salario INTO vsalario FROM empleados WHERE empno=7369;
+  dbms_output.put_line('El empleado numero 7369 tiene un vsalario de '||vsalario||'€');
+end;
+/
+#+END_SRC
+
+** Variables en =insert=, =update=, =delete=
+- Se utilizan como un valor inmediato
+#+BEGIN_SRC sql
+declare
+  vempno number;
+begin
+  vempno := 100;
+  insert into empleados(empno, salario, nombre)
+         values( vempno, 1000, 'Juan');
+  update empleados 
+         set salario = salario + 100
+         where empno = vempno;
+  delete from empleados where empno = vempno;
+end;
+/
+#+END_SRC
+
+** Recorrer consultas
+#+BEGIN_SRC sql
+DECLARE
+  c empleados%ROWTYPE;
+  salariototal number;
+  numeroempleados number;
+  mediasalario number;
+begin
+  numeroempleados := 0;
+  for c in (select * from empleados) loop
+    dbms_output.put_line(c.nombre);
+    numeroempleados := numeroempleados + 1;
+    salariototal := salariototal + c.salario;
+  end loop;
+  mediasalario := salariototal / numeroempleados;
+end;
+/
+#+END_SRC
+
+
+
+* Referencias
+- Formatos:
+  - [[file:gbd-6-plsql.reveal.html][Transparencias]]
+  - [[file:gbd-6-plsql.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
