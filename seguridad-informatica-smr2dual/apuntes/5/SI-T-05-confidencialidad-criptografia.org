@@ -152,12 +152,14 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
 
 
 #+begin_src c
-Ej: Supongamos un número n que está compuesto por sólo dos factores primos, es decir, n=p·q, siendo p y q primos.
+Supongamos un número n que está compuesto por sólo dos factores primos, es decir, 
+n=p·q, siendo p y q primos.
 Si sabemos p y q es facil saber el valor de n: basta multiplicar. 
 Sin embargo, si sólo sabemos el valor de n, para hallar p o q es
 necesario aplicar fuerza bruta, probando a dividir por todos los factores primos.
 
-Por ejemplo: 396307523=563 x 839. Si sólo te doy el primer número y te digo que está compuesto por dos primos...
+Por ejemplo: 396307523=563 x 839. 
+Si sólo te doy el primer número y te digo que está compuesto por dos primos...
 solo puedes hallarlos probando a dividir.
 
 Eso es computacionalmente muy costoso y lento.
@@ -173,7 +175,6 @@ contiene el número n mientras que la privada contiene a p y q por separado.
 - A día de hoy son algoritmos muy seguros
 - Son bastante costosos computacionalmente: consumen recursos de tiempo de CPU y de espacio en memoria.
 - A diferencia de los simétricos, no necesitan compartir nada por un canal seguro.
-- Las dos características anteriores hacen que en muchas ocasiones sean utilizados para transportar claves secretas de un algoritmo simétrico... y una vez transportada se utiliza un algoritmo simétrico, que es mucho más económico, rápido, y que su principal debilidad es el transporte de la clave secreta. Un ejemplo de esto es el [[#https][protocolo https]].
 
 Algoritmos simétricos comunmente usados:
 - RSA (Rivest-Shamir-Adleman) 1977. El más utilizado. Respaldado por una empresa: RSA Security, que mantiene su patente
@@ -194,6 +195,15 @@ El escenario es que una parte hay una entidad A (por ejemplo, Windows Server) qu
 
 Este proceso puede hacerse también posteriormente en sentido contrario, para que *B* verifique a *A*. Por supuesto, hay muchas variantes más o menos complejas, pero la idea básica es la expuesta.
 
+
+* Criptografía híbrida
+Combina un algoritmo asimétrico inicial para intercambiar una clave simétrica, con la que se continúa la comunicación. 
+- Crea un canal seguro inicial para el intercambio de claves simétricas, lo que elimina el problema de intercambio de claves de la criptografía simétrica.
+- Utiliza algoritmos simétricos para el grueso de la comunicación, lo que elimina el problema de la gran necesidad de cálculo de la criptografía asimétrica.
+Este sistema se utiliza, por ejemplo, en el [[#https][protocolo https]]
+
+#+caption: Proceso simplificado de criptografía híbrida
+[[file:media/criptografia-hibrida.svg]]
 
 * <<#firmadigital>> Firma digital
   :PROPERTIES:
@@ -544,7 +554,7 @@ SSL/TLS es la base de protocolos de aplicación cifrados
 
 También hay otras aplicaciones con un sistema de cifrado Aplicaciones con su propio sistema de cifrado.  En este caso, la aplicación más popular es PGP, y su equivalente GnuPG, bastante orientadas a los mensajes de texto (e-mail, principalmente y similares). Aunque tiene bastante difusión en el ámbito del software libre, a nivel de implementación comercial apenas tiene penetración.
 
-** Ejemplo: HTTPS
+** <<#https>> Ejemplo: HTTPS
    :PROPERTIES:
    :CUSTOM_ID: https
    :END:
@@ -555,7 +565,7 @@ Pasos que se siguen, a grandes rasgos, al conectarse por https, (Ej: https://fac
 1. El servidor envia al navegador un certificado x509 con información de su identidad, una clave pública, y una firma digital.
 2. Si la firma digital corresponde a una CA de la cual tenemos su clave pública previamente almacenada en el navegador, entonces se puede comprobar la firma del certificado recibido de facebook, y tener seguridad de que el certificado es verdadero.
 3. Ahora se continúa la comunicación cifrada con un algoritmo asimétrico.
-4. El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía alservidor, pero cifra la comunicación con la clave pública del servidor.
+4. El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía al servidor, pero cifra la comunicación con la clave pública del servidor.
 5. El servidor responde ya enviando la página con información cifrada con el algoritmo simétrico y la clave que le ha enviado el navegador.
 
 Por supuesto, el proceso incluye muchos pasos intermedios no descritos aquí, por ejemplo, la negociación de qué protocolos van a utilizarse.

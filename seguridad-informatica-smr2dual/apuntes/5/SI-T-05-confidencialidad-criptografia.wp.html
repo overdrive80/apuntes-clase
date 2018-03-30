@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-03-29 jue 18:09 -->
+<!-- 2018-03-30 vie 17:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Privacidad, confidencialidad</title>
@@ -239,64 +239,65 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbc5c666">1. Introducción</a></li>
-<li><a href="#org6827e05">2. Autenticación.</a></li>
-<li><a href="#org9ada668">3. Criptografía.</a>
+<li><a href="#orgab14337">1. Introducción</a></li>
+<li><a href="#org3125d2b">2. Autenticación.</a></li>
+<li><a href="#orga8c295d">3. Criptografía.</a>
 <ul>
-<li><a href="#orgb46a6cf">3.1. Terminología.</a></li>
-<li><a href="#org66c4d81">3.2. Utilización</a></li>
+<li><a href="#orge6853e5">3.1. Terminología.</a></li>
+<li><a href="#org6d7c0c6">3.2. Utilización</a></li>
 </ul>
 </li>
-<li><a href="#org95ed414">4. Criptografía simétrica</a>
+<li><a href="#org12d64bd">4. Criptografía simétrica</a>
 <ul>
-<li><a href="#org9abe9f3">4.1. Características principales:</a></li>
-<li><a href="#orgc398274">4.2. Algoritmos simétricos comnunmente usados:</a></li>
+<li><a href="#org35adcfd">4.1. Características principales:</a></li>
+<li><a href="#orge2bff89">4.2. Algoritmos simétricos comnunmente usados:</a></li>
 </ul>
 </li>
-<li><a href="#orgf2c2a52">5. Criptografía asimétrica</a>
+<li><a href="#org7f475f1">5. Criptografía asimétrica</a>
 <ul>
-<li><a href="#orgb36abf6">5.1. Características principales:</a></li>
-<li><a href="#org8e8f7f5">5.2. El desafío/respuesta criptográfico.</a></li>
+<li><a href="#orga4832d4">5.1. Características principales:</a></li>
+<li><a href="#orgaba064d">5.2. El desafío/respuesta criptográfico.</a></li>
 </ul>
 </li>
-<li><a href="#firmadigital">6. Firma digital</a>
+<li><a href="#orgc4b277c">6. Criptografía híbrida</a></li>
+<li><a href="#firmadigital">7. Firma digital</a>
 <ul>
-<li><a href="#orgc0ceccf">6.1. Algoritmos de resumen criptográficos.</a></li>
-<li><a href="#org43f6591">6.2. El mecanismo de la firma digital.</a></li>
+<li><a href="#org0e71645">7.1. Algoritmos de resumen criptográficos.</a></li>
+<li><a href="#org7043852">7.2. El mecanismo de la firma digital.</a></li>
 </ul>
 </li>
-<li><a href="#orge3acfb8">7. Sistemas de confianza e intercambio de claves: la PKI y PGP</a>
+<li><a href="#org2542873">8. Sistemas de confianza e intercambio de claves: la PKI y PGP</a>
 <ul>
-<li><a href="#org18f25da">7.1. PGP (Pretty Good Privacy)</a></li>
+<li><a href="#org9eaaa4d">8.1. PGP (Pretty Good Privacy)</a></li>
 </ul>
 </li>
-<li><a href="#org437184e">8. x509 y la Public Key Infrastructure (PKI)</a></li>
-<li><a href="#org5216a38">9. Aplicaciones</a>
+<li><a href="#org140eb8d">9. x509 y la Public Key Infrastructure (PKI)</a></li>
+<li><a href="#org53cc3a3">10. Aplicaciones</a>
 <ul>
-<li><a href="#org44d8f04">9.1. Cifrado/descifrado en información almacenada</a></li>
-<li><a href="#org882a9e4">9.2. Cifrado/descifrado en la red</a></li>
+<li><a href="#orgab234c4">10.1. Cifrado/descifrado en información almacenada</a></li>
+<li><a href="#org67e55d4">10.2. Cifrado/descifrado en la red</a></li>
 </ul>
 </li>
-<li><a href="#org9bdb6d2">10. El nivel de red/transporte: TLS y SSL</a></li>
-<li><a href="#org4b26148">11. El nivel de aplicación</a>
+<li><a href="#orgb46a675">11. El nivel de red/transporte: TLS y SSL</a></li>
+<li><a href="#org6c285fb">12. El nivel de aplicación</a>
 <ul>
-<li><a href="#https">11.1. Ejemplo: HTTPS</a></li>
+<li><a href="#https">12.1. Ejemplo: HTTPS</a></li>
 </ul>
 </li>
-<li><a href="#org1ea2236">12. Firma digital</a>
+<li><a href="#org4141b9e">13. Firma digital</a>
 <ul>
-<li><a href="#org3c34cfd">12.1. FNMT</a></li>
-<li><a href="#org2002ee6">12.2. DNIe</a></li>
+<li><a href="#orgd9a8046">13.1. FNMT</a></li>
+<li><a href="#org4f76259">13.2. DNIe</a></li>
 </ul>
 </li>
-<li><a href="#orgdfea698">13. Referencias</a></li>
+<li><a href="#orgfa9a867">14. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgbc5c666" class="outline-2">
-<h2 id="orgbc5c666"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orgab14337" class="outline-2">
+<h2 id="orgab14337"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Ya hemos estudiado muchas medidas de seguridad que ayudan a proteger la confidencialidad como propiedad segura importante que es, aunque en general, casi todas las medidas que hemos visto y que ayudaban a proteger la confidencialidad, también contribuían en mayor o menor medida al mantenimiento de las otras dos propiedades seguras: la disponibilidad y la integridad.
@@ -324,8 +325,8 @@ desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos
 </div>
 
 
-<div id="outline-container-org6827e05" class="outline-2">
-<h2 id="org6827e05"><span class="section-number-2">2</span> Autenticación.</h2>
+<div id="outline-container-org3125d2b" class="outline-2">
+<h2 id="org3125d2b"><span class="section-number-2">2</span> Autenticación.</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 La confidencialidad es la propiedad que nos asegura que la información llega sólo a sus usuarios legítimos. Para ello, un punto clave suele ser autenticar a éstos usuarios legítimos.
@@ -439,8 +440,8 @@ La biometría, por el momento, se basa en técnicas estadísticas, no hay ningú
 </div>
 </div>
 
-<div id="outline-container-org9ada668" class="outline-2">
-<h2 id="org9ada668"><span class="section-number-2">3</span> Criptografía.</h2>
+<div id="outline-container-orga8c295d" class="outline-2">
+<h2 id="orga8c295d"><span class="section-number-2">3</span> Criptografía.</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 La criptografía es la ciencia (una rama de las matemáticas y la estadística) que se encarga de ocultar la información, para que sólo sea accesible para sus usuarios legítimos.  Aunque se utiliza desde hace muchos siglos, en el mundo actual en el que la información es digital, la criptografía también se ha hecho digital.
@@ -451,8 +452,8 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 </p>
 </div>
 
-<div id="outline-container-orgb46a6cf" class="outline-3">
-<h3 id="orgb46a6cf"><span class="section-number-3">3.1</span> Terminología.</h3>
+<div id="outline-container-orge6853e5" class="outline-3">
+<h3 id="orge6853e5"><span class="section-number-3">3.1</span> Terminología.</h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -518,8 +519,8 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 </div>
 </div>
 
-<div id="outline-container-org66c4d81" class="outline-3">
-<h3 id="org66c4d81"><span class="section-number-3">3.2</span> Utilización</h3>
+<div id="outline-container-org6d7c0c6" class="outline-3">
+<h3 id="org6d7c0c6"><span class="section-number-3">3.2</span> Utilización</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 La criptografía se usa en distintas aplicaciones, pero las principales formas de utilizarla caen en
@@ -548,12 +549,12 @@ alguno de estos grupos:
 
 
 
-<div id="outline-container-org95ed414" class="outline-2">
-<h2 id="org95ed414"><span class="section-number-2">4</span> Criptografía simétrica</h2>
+<div id="outline-container-org12d64bd" class="outline-2">
+<h2 id="org12d64bd"><span class="section-number-2">4</span> Criptografía simétrica</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org9abe9f3" class="outline-3">
-<h3 id="org9abe9f3"><span class="section-number-3">4.1</span> Características principales:</h3>
+<div id="outline-container-org35adcfd" class="outline-3">
+<h3 id="org35adcfd"><span class="section-number-3">4.1</span> Características principales:</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Para cifrar y descifrar se utiliza una única clave, que debe permanecer en secreto.</li>
@@ -579,8 +580,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orgc3a16e3" class="outline-4">
-<h4 id="orgc3a16e3"><span class="section-number-4">4.1.1</span> Cifrado del César</h4>
+<div id="outline-container-org928add9" class="outline-4">
+<h4 id="org928add9"><span class="section-number-4">4.1.1</span> Cifrado del César</h4>
 <div class="outline-text-4" id="text-4-1-1">
 <p>
 Cada letra del alfabeto se reemplaza por la que se encuentra varias posiciones más a la derecha. Es un cifrado por sustitución, y puede atacarse criptográficamente con medios muy básicos. Originalmente se desplazaban dos posiciones, y posteriormente la <b>clave</b> se acordaba previamente como el número de posiciones a desplazar
@@ -616,8 +617,8 @@ Cada letra del alfabeto se reemplaza por la que se encuentra varias posiciones m
 </div>
 </div>
 
-<div id="outline-container-org5ded7dc" class="outline-4">
-<h4 id="org5ded7dc"><span class="section-number-4">4.1.2</span> Cifrado por sustitución</h4>
+<div id="outline-container-org5ed63fa" class="outline-4">
+<h4 id="org5ed63fa"><span class="section-number-4">4.1.2</span> Cifrado por sustitución</h4>
 <div class="outline-text-4" id="text-4-1-2">
 <p>
 Es una evolución del cifrado del César. La tabla de sustitución ya no se calcula a partir del alfabeto y un desplazamiento, sino que es la propia clave
@@ -633,8 +634,8 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
 </div>
 
 
-<div id="outline-container-orgc398274" class="outline-3">
-<h3 id="orgc398274"><span class="section-number-3">4.2</span> Algoritmos simétricos comnunmente usados:</h3>
+<div id="outline-container-orge2bff89" class="outline-3">
+<h3 id="orge2bff89"><span class="section-number-3">4.2</span> Algoritmos simétricos comnunmente usados:</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>DES (Data Encryption Standard) 1976: Escogido por el gobierno de los EEUU como algoritmo de encriptación estándar en 1976. Lo sustituye por AES 26 años después.  A lo largo de todos esos años, se ha demostrado bastante inseguro. No obstante, hay algunas variantes (como el Triple DES) que se siguen utilizando en algunas aplicaciones de no muy alta seguridad.</li>
@@ -656,12 +657,12 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
 </div>
 </div>
 
-<div id="outline-container-orgf2c2a52" class="outline-2">
-<h2 id="orgf2c2a52"><span class="section-number-2">5</span> Criptografía asimétrica</h2>
+<div id="outline-container-org7f475f1" class="outline-2">
+<h2 id="org7f475f1"><span class="section-number-2">5</span> Criptografía asimétrica</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgb36abf6" class="outline-3">
-<h3 id="orgb36abf6"><span class="section-number-3">5.1</span> Características principales:</h3>
+<div id="outline-container-orga4832d4" class="outline-3">
+<h3 id="orga4832d4"><span class="section-number-3">5.1</span> Características principales:</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Se utiliza un algoritmo que debe ser público y conocido por todos los que participen en el cifrado o descifrado. Así pues, toda la seguridad reside en la fortaleza de la clave, y no en la utilización de un algoritmo secreto.</li>
@@ -693,20 +694,22 @@ Sorry, your browser does not support SVG.</object>
 
 
 <div class="org-src-container">
-<pre class="src src-c"><span style="color: #7aa6da;">Ej</span>: Supongamos un n&#250;mero n que est&#225; compuesto por s&#243;lo dos <span style="color: #7aa6da;">factores</span> <span style="color: #e7c547;">primos</span>, <span style="color: #e7c547;">es</span> decir, <span style="color: #e7c547;">n</span>=p&#183;q, <span style="color: #e7c547;">siendo</span> p y q primos.
+<pre class="src src-c">Supongamos un n&#250;mero n que est&#225; compuesto por s&#243;lo dos <span style="color: #228b22;">factores</span> <span style="color: #a0522d;">primos</span>, <span style="color: #a0522d;">es</span> decir, 
+<span style="color: #a0522d;">n</span>=p&#183;q, <span style="color: #a0522d;">siendo</span> p y q primos.
 Si sabemos p y q es facil saber el valor de n: basta multiplicar. 
-Sin embargo, <span style="color: #e7c547;">si</span> s&#243;lo sabemos el valor de n, <span style="color: #e7c547;">para</span> hallar p o q es
-necesario aplicar fuerza bruta, <span style="color: #e7c547;">probando</span> a dividir por todos los factores primos.
+Sin embargo, <span style="color: #a0522d;">si</span> s&#243;lo sabemos el valor de n, <span style="color: #a0522d;">para</span> hallar p o q es
+necesario aplicar fuerza bruta, <span style="color: #a0522d;">probando</span> a dividir por todos los factores primos.
 
-Por ejemplo: 396307523=563 x 839. Si s&#243;lo te doy el primer n&#250;mero y te digo que est&#225; compuesto por dos primos...
+Por ejemplo: 396307523=563 x 839. 
+Si s&#243;lo te doy el primer n&#250;mero y te digo que est&#225; compuesto por dos primos...
 solo puedes hallarlos probando a dividir.
 
 Eso es computacionalmente muy costoso y lento.
 
-Si p y q tuvieran unos pocos cientos de cifras, <span style="color: #e7c547;">obtenerlos</span> podr&#237;a llevar a&#241;os, 
-<span style="color: #e7c547;">utilizando</span> ordenadores muy r&#225;pidos.
+Si p y q tuvieran unos pocos cientos de cifras, <span style="color: #a0522d;">obtenerlos</span> podr&#237;a llevar a&#241;os, 
+<span style="color: #a0522d;">utilizando</span> ordenadores muy r&#225;pidos.
 
-En el algoritmo RSA, <span style="color: #e7c547;">el</span> m&#225;s utilizado de los asim&#233;tricos, <span style="color: #e7c547;">la</span> clave p&#250;blica 
+En el algoritmo RSA, <span style="color: #a0522d;">el</span> m&#225;s utilizado de los asim&#233;tricos, <span style="color: #a0522d;">la</span> clave p&#250;blica 
 contiene el n&#250;mero n mientras que la privada contiene a p y q por separado.
 </pre>
 </div>
@@ -716,7 +719,6 @@ contiene el n&#250;mero n mientras que la privada contiene a p y q por separado.
 <li>A día de hoy son algoritmos muy seguros</li>
 <li>Son bastante costosos computacionalmente: consumen recursos de tiempo de CPU y de espacio en memoria.</li>
 <li>A diferencia de los simétricos, no necesitan compartir nada por un canal seguro.</li>
-<li>Las dos características anteriores hacen que en muchas ocasiones sean utilizados para transportar claves secretas de un algoritmo simétrico&#x2026; y una vez transportada se utiliza un algoritmo simétrico, que es mucho más económico, rápido, y que su principal debilidad es el transporte de la clave secreta. Un ejemplo de esto es el <a href="#https">protocolo https</a>.</li>
 </ul>
 
 <p>
@@ -731,8 +733,8 @@ Algoritmos simétricos comunmente usados:
 </div>
 </div>
 
-<div id="outline-container-org8e8f7f5" class="outline-3">
-<h3 id="org8e8f7f5"><span class="section-number-3">5.2</span> El desafío/respuesta criptográfico.</h3>
+<div id="outline-container-orgaba064d" class="outline-3">
+<h3 id="orgaba064d"><span class="section-number-3">5.2</span> El desafío/respuesta criptográfico.</h3>
 <div class="outline-text-3" id="text-5-2">
 <p>
 Es un mecanismo para evitar que las contraseñas viajen, basado en la criptografía. Por ejemplo, es el que se utiliza entre un ordenador Windows y el servidor de dominio. La contraseña introducida no viaja por la red, en lugar de ello se desencadena un desafío/respuesta.
@@ -758,8 +760,32 @@ Este proceso puede hacerse también posteriormente en sentido contrario, para qu
 </div>
 
 
-<div id="outline-container-orgfbb945f" class="outline-2">
-<h2 id="firmadigital"><a id="orgfbb945f"></a><span class="section-number-2">6</span> <a id="org56d7b8b"></a> Firma digital</h2>
+<div id="outline-container-orgc4b277c" class="outline-2">
+<h2 id="orgc4b277c"><span class="section-number-2">6</span> Criptografía híbrida</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Combina un algoritmo asimétrico inicial para intercambiar una clave simétrica, con la que se continúa la comunicación. 
+</p>
+<ul class="org-ul">
+<li>Crea un canal seguro inicial para el intercambio de claves simétricas, lo que elimina el problema de intercambio de claves de la criptografía simétrica.</li>
+<li>Utiliza algoritmos simétricos para el grueso de la comunicación, lo que elimina el problema de la gran necesidad de cálculo de la criptografía asimétrica.</li>
+</ul>
+<p>
+Este sistema se utiliza, por ejemplo, en el <a href="#https">protocolo https</a>
+</p>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/criptografia-hibrida.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figura 7: </span>Proceso simplificado de criptografía híbrida</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4f822d3" class="outline-2">
+<h2 id="firmadigital"><a id="org4f822d3"></a><span class="section-number-2">7</span> <a id="orgd5a3eec"></a> Firma digital</h2>
 <div class="outline-text-2" id="text-firmadigital">
 <p>
 Permite garantizar cualquiera de estas tres cualidades de una pieza de información:
@@ -772,9 +798,9 @@ Permite garantizar cualquiera de estas tres cualidades de una pieza de informaci
 </div>
 
 
-<div id="outline-container-orgc0ceccf" class="outline-3">
-<h3 id="orgc0ceccf"><span class="section-number-3">6.1</span> Algoritmos de resumen criptográficos.</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-org0e71645" class="outline-3">
+<h3 id="org0e71645"><span class="section-number-3">7.1</span> Algoritmos de resumen criptográficos.</h3>
+<div class="outline-text-3" id="text-7-1">
 <p>
 La firma digital se basa en ellos, además de en la criptografía asimétrica, así que debemos empezar por describirlos.
 </p>
@@ -801,9 +827,9 @@ Los más conocidos son:
 </div>
 </div>
 
-<div id="outline-container-org43f6591" class="outline-3">
-<h3 id="org43f6591"><span class="section-number-3">6.2</span> El mecanismo de la firma digital.</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-org7043852" class="outline-3">
+<h3 id="org7043852"><span class="section-number-3">7.2</span> El mecanismo de la firma digital.</h3>
+<div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>La información a firmar se resume con un algoritmo de resumen</li>
 <li>El resumen se cifra utilizando la clave privada</li>
@@ -816,7 +842,7 @@ Los más conocidos son:
 <p><object type="image/svg+xml" data="media/firma-digital-generacion.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figura 7: </span>Generación de la firma digital</p>
+<p><span class="figure-number">Figura 8: </span>Generación de la firma digital</p>
 </div>
 
 
@@ -824,7 +850,7 @@ Sorry, your browser does not support SVG.</object>
 <p><object type="image/svg+xml" data="media/firma-digital-comprobacion.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
-<p><span class="figure-number">Figura 8: </span>Comprobación de la firma digital</p>
+<p><span class="figure-number">Figura 9: </span>Comprobación de la firma digital</p>
 </div>
 </div>
 </div>
@@ -832,9 +858,9 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orge3acfb8" class="outline-2">
-<h2 id="orge3acfb8"><span class="section-number-2">7</span> Sistemas de confianza e intercambio de claves: la PKI y PGP</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org2542873" class="outline-2">
+<h2 id="org2542873"><span class="section-number-2">8</span> Sistemas de confianza e intercambio de claves: la PKI y PGP</h2>
+<div class="outline-text-2" id="text-8">
 <p>
 La criptografía asimétrica tiene una utilidad apasionante, pero también tiene un punto débil.  Si bien proporciona un cifrado prácticamente imposible de romper, se basa en la difusión de una clave pública, por mecanismos públicos, y que siempre va asociada a una identidad. Es decir, yo puedo generar una clave pública para mi y publicarla donde sea asociada a mi nombre o a mi dirección de correo&#x2026; o a cualquier otro dato que me identifique&#x2026;. pero cualquiera puede hacer lo mismo suplantando mi identidad. En ese supuesto caso&#x2026; si un intruso pone en algun lugar público una dirección de correo y una clave pública diciendo que soy yo&#x2026; un posible emisor de un mensaje podría confundirse y enviarle a él un mensaje cifrado pensando que soy yo. Él lo podría descifrar, dado que ha sido él quien ha creado la clave pública. 
 </p>
@@ -844,9 +870,9 @@ La criptografía asimétrica necesita un mecanismo para autentificar la identida
 </p>
 </div>
 
-<div id="outline-container-org18f25da" class="outline-3">
-<h3 id="org18f25da"><span class="section-number-3">7.1</span> PGP (Pretty Good Privacy)</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-org9eaaa4d" class="outline-3">
+<h3 id="org9eaaa4d"><span class="section-number-3">8.1</span> PGP (Pretty Good Privacy)</h3>
+<div class="outline-text-3" id="text-8-1">
 <p>
 PGP es un programa creado en 1991, para el intercambio de mensajes cifrados utilizando
 criptografía asimétrica. El programa sigue hoy en día actualizado.
@@ -872,9 +898,9 @@ PGP es un buen medio para enviar mensajes cifrados, pero no para autenticar.
 </div>
 </div>
 
-<div id="outline-container-org437184e" class="outline-2">
-<h2 id="org437184e"><span class="section-number-2">8</span> x509 y la Public Key Infrastructure (PKI)</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-org140eb8d" class="outline-2">
+<h2 id="org140eb8d"><span class="section-number-2">9</span> x509 y la Public Key Infrastructure (PKI)</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 En otro ámbito, existe un estándar llamado x509, y propuesto por la ITU (Unión Internacional de Telecomunicaciones).
 </p>
@@ -937,22 +963,22 @@ va firmado por Entrust.net.
 
 
 
-<div id="outline-container-org5216a38" class="outline-2">
-<h2 id="org5216a38"><span class="section-number-2">9</span> Aplicaciones</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-org53cc3a3" class="outline-2">
+<h2 id="org53cc3a3"><span class="section-number-2">10</span> Aplicaciones</h2>
+<div class="outline-text-2" id="text-10">
 <p>
 Vamos a dar un repaso a algunas aplicaciones de lo que hemos visto hasta ahora, pero en el
 mundo real.
 </p>
 </div>
 
-<div id="outline-container-org44d8f04" class="outline-3">
-<h3 id="org44d8f04"><span class="section-number-3">9.1</span> Cifrado/descifrado en información almacenada</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-orgab234c4" class="outline-3">
+<h3 id="orgab234c4"><span class="section-number-3">10.1</span> Cifrado/descifrado en información almacenada</h3>
+<div class="outline-text-3" id="text-10-1">
 </div>
-<div id="outline-container-org1e53ee0" class="outline-4">
-<h4 id="org1e53ee0"><span class="section-number-4">9.1.1</span> El Encrypted File System de Windows 7 y Server 2008.</h4>
-<div class="outline-text-4" id="text-9-1-1">
+<div id="outline-container-org9a1b757" class="outline-4">
+<h4 id="org9a1b757"><span class="section-number-4">10.1.1</span> El Encrypted File System de Windows 7 y Server 2008.</h4>
+<div class="outline-text-4" id="text-10-1-1">
 <p>
 Ambos sistemas operativos disponen de la capacidad de encriptar ficheros individuales o carpetas enteras, mediante el sistema EFS (<a href="https://en.wikipedia.org/wiki/Encrypting_File_System">Encrypted File System</a>). Desde el entorno gráfico, basta con activar una casilla en la hoja de propiedades del archivo o carpeta (Botón derecho/Propiedades/Avanzados/Cifrar contenido&#x2026;)
 </p>
@@ -961,7 +987,7 @@ Ambos sistemas operativos disponen de la capacidad de encriptar ficheros individ
 <div class="figure">
 <p><img src="media/cifrado-efs.png" alt="cifrado-efs.png" />
 </p>
-<p><span class="figure-number">Figura 9: </span>Activación de encriptación a nivel de fichero</p>
+<p><span class="figure-number">Figura 10: </span>Activación de encriptación a nivel de fichero</p>
 </div>
 
 <p>
@@ -990,7 +1016,7 @@ El cifrado de EFS se gestiona a través de las políticas de seguridad de Window
 <div class="figure">
 <p><img src="media/directivas-bitlocker.png" alt="directivas-bitlocker.png" />
 </p>
-<p><span class="figure-number">Figura 10: </span>Directiva de seguridad del cifrado en Windows (EFS y Bitlocker)</p>
+<p><span class="figure-number">Figura 11: </span>Directiva de seguridad del cifrado en Windows (EFS y Bitlocker)</p>
 </div>
 
 <div class="org-src-container">
@@ -1083,7 +1109,7 @@ El cifrado de EFS se gestiona a través de las políticas de seguridad de Window
               equipo local.
     /ADDUSER  Agrega un usuario a los archivos cifrados especificados. Si se
               proporciona CERTHASH, el cifrado buscar&#225; un certificado con este
-              <span style="color: #c397d8;">hash</span> SHA1. Si se proporciona CERTFILE, el cifrado extraer&#225; el
+              <span style="color: #483d8b;">hash</span> SHA1. Si se proporciona CERTFILE, el cifrado extraer&#225; el
               certificado del archivo. Si se proporciona USER, el cifrado
               intentar&#225; ubicar el certificado del usuario en Servicios
               de dominio de Active Directory.
@@ -1113,9 +1139,9 @@ El cifrado de EFS se gestiona a través de las políticas de seguridad de Window
 </div>
 
 
-<div id="outline-container-org2a92262" class="outline-4">
-<h4 id="org2a92262"><span class="section-number-4">9.1.2</span> Bitlocker: Cifrar volúmenes completos en Windows 7 y 2008 Server</h4>
-<div class="outline-text-4" id="text-9-1-2">
+<div id="outline-container-org736810f" class="outline-4">
+<h4 id="org736810f"><span class="section-number-4">10.1.2</span> Bitlocker: Cifrar volúmenes completos en Windows 7 y 2008 Server</h4>
+<div class="outline-text-4" id="text-10-1-2">
 <p>
 <a href="https://en.wikipedia.org/wiki/BitLocker">Bitlocker</a> permite tener volúmenes completos cifrados en sistemas Windows 7 y 2008 server. Los volúmenes se protegen mediante una clave protegida por una contraseña.
 </p>
@@ -1149,9 +1175,9 @@ Para los dispositivos extraíbles (pendrives, HDDs y SDDs&#x2026;) windows inclu
 </div>
 </div>
 
-<div id="outline-container-org087eb8a" class="outline-4">
-<h4 id="org087eb8a"><span class="section-number-4">9.1.3</span> Archivos comprimidos encriptados.</h4>
-<div class="outline-text-4" id="text-9-1-3">
+<div id="outline-container-orgde3c53d" class="outline-4">
+<h4 id="orgde3c53d"><span class="section-number-4">10.1.3</span> Archivos comprimidos encriptados.</h4>
+<div class="outline-text-4" id="text-10-1-3">
 <p>
 La mayor parte de formatos de archivos comprimidos (Ej: zip, rar, 7z) admiten cifrado simétrico además de la compresión. Estos algoritmos obtienen una clave a partir de una contraseña suministrada por el usuario en el momento de cifrar, que debe ser también proporcionada al descifrar.
 </p>
@@ -1160,14 +1186,14 @@ La mayor parte de formatos de archivos comprimidos (Ej: zip, rar, 7z) admiten ci
 <div class="figure">
 <p><img src="media/cifrado-zip.png" alt="cifrado-zip.png" />
 </p>
-<p><span class="figure-number">Figura 12: </span>El programa IZarc, mostrando las opciones de cifrado de un archivo comprimido zip</p>
+<p><span class="figure-number">Figura 13: </span>El programa IZarc, mostrando las opciones de cifrado de un archivo comprimido zip</p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4b9d641" class="outline-4">
-<h4 id="org4b9d641"><span class="section-number-4">9.1.4</span> Copias de seguridad encriptadas.</h4>
-<div class="outline-text-4" id="text-9-1-4">
+<div id="outline-container-org976b215" class="outline-4">
+<h4 id="org976b215"><span class="section-number-4">10.1.4</span> Copias de seguridad encriptadas.</h4>
+<div class="outline-text-4" id="text-10-1-4">
 <p>
 Todos los sistemas de copia de seguridad permiten que la copia tenga algún tipo de
 encriptación.
@@ -1177,19 +1203,19 @@ encriptación.
 <div class="figure">
 <p><img src="media/cifrado-cobian.png" alt="cifrado-cobian.png" />
 </p>
-<p><span class="figure-number">Figura 13: </span>Opciones de encriptación de Cobian Backup (NOTA: Rijndael = AES)</p>
+<p><span class="figure-number">Figura 14: </span>Opciones de encriptación de Cobian Backup (NOTA: Rijndael = AES)</p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org882a9e4" class="outline-3">
-<h3 id="org882a9e4"><span class="section-number-3">9.2</span> Cifrado/descifrado en la red</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-org67e55d4" class="outline-3">
+<h3 id="org67e55d4"><span class="section-number-3">10.2</span> Cifrado/descifrado en la red</h3>
+<div class="outline-text-3" id="text-10-2">
 </div>
-<div id="outline-container-org0a77810" class="outline-4">
-<h4 id="org0a77810"><span class="section-number-4">9.2.1</span> Wifi (IEEE802.11)</h4>
-<div class="outline-text-4" id="text-9-2-1">
+<div id="outline-container-org38db925" class="outline-4">
+<h4 id="org38db925"><span class="section-number-4">10.2.1</span> Wifi (IEEE802.11)</h4>
+<div class="outline-text-4" id="text-10-2-1">
 <p>
 Es una tecnología para la comunicación de tramas Ethernet a través de conexiones inalámbricas. En su nivel físico y de enlace, admite varios tipos de cifrado
 </p>
@@ -1201,18 +1227,18 @@ Es una tecnología para la comunicación de tramas Ethernet a través de conexio
 </div>
 </div>
 
-<div id="outline-container-orgcbe920e" class="outline-4">
-<h4 id="orgcbe920e"><span class="section-number-4">9.2.2</span> WEP (Wired Equivalent Privacy - Privacidad tan buena como la del cable)</h4>
-<div class="outline-text-4" id="text-9-2-2">
+<div id="outline-container-org4bea6f5" class="outline-4">
+<h4 id="org4bea6f5"><span class="section-number-4">10.2.2</span> WEP (Wired Equivalent Privacy - Privacidad tan buena como la del cable)</h4>
+<div class="outline-text-4" id="text-10-2-2">
 <p>
 Se basa en un cifrado RC4 con claves de 64 o 128 bits.  La autenticación de los clientes en el punto de acceso se realiza conociendo esa clave, que se suele representar como un conjunto de dígitos hexadecimales.  El algoritmo RC4 tenía algunas vulnerabilidades conocidas.  Al ser implementado en WEP y popularizarse, no tardó en ser atacado por técnicas de criptoanálisis.  Hoy en día se considera absolutamente inseguro, y no hay ningún motivo para utilizarlo.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org97e2be8" class="outline-4">
-<h4 id="org97e2be8"><span class="section-number-4">9.2.3</span> WPA. (Wifi Protected Access)</h4>
-<div class="outline-text-4" id="text-9-2-3">
+<div id="outline-container-orga8a6776" class="outline-4">
+<h4 id="orga8a6776"><span class="section-number-4">10.2.3</span> WPA. (Wifi Protected Access)</h4>
+<div class="outline-text-4" id="text-10-2-3">
 <p>
 Fue un intento de los fabricantes de componentes Wifi de paliar la vulnerabilidad de WEP sin necesidad de cambiar el hardware: de hacer WEP más seguro sólo con una actualizacion de software.
 </p>
@@ -1227,9 +1253,9 @@ No obstante, fue solo una solución temporal. A día de hoy, RC4 con TKIP tambi�
 </div>
 </div>
 
-<div id="outline-container-org91b707a" class="outline-4">
-<h4 id="org91b707a"><span class="section-number-4">9.2.4</span> WPA2 (La segunda versión de WPA).</h4>
-<div class="outline-text-4" id="text-9-2-4">
+<div id="outline-container-org094c876" class="outline-4">
+<h4 id="org094c876"><span class="section-number-4">10.2.4</span> WPA2 (La segunda versión de WPA).</h4>
+<div class="outline-text-4" id="text-10-2-4">
 <p>
 Data de 2004 (IEEE802.11i) Se introduce AES como algoritmo criptográfico.  WPA2 es extensible, de tal manera que aceptará facilmente cambios de algoritmo si algún día AES es vulnerado.
 </p>
@@ -1270,7 +1296,7 @@ Todos los sistemas servidores de Windows tienen el servicio de RADIUS, que adem�
 <div class="figure">
 <p><img src="media/radius.png" alt="radius.png" />
 </p>
-<p><span class="figure-number">Figura 14: </span>Router Conceptronic C54APRA2+) mostrando las opciones del servidor RADIUS</p>
+<p><span class="figure-number">Figura 15: </span>Router Conceptronic C54APRA2+) mostrando las opciones del servidor RADIUS</p>
 </div>
 </div>
 </div>
@@ -1281,9 +1307,9 @@ Todos los sistemas servidores de Windows tienen el servicio de RADIUS, que adem�
 
 
 
-<div id="outline-container-org9bdb6d2" class="outline-2">
-<h2 id="org9bdb6d2"><span class="section-number-2">10</span> El nivel de red/transporte: TLS y SSL</h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-orgb46a675" class="outline-2">
+<h2 id="orgb46a675"><span class="section-number-2">11</span> El nivel de red/transporte: TLS y SSL</h2>
+<div class="outline-text-2" id="text-11">
 <p>
 En el nivel de red y transporte existe desde hace mucho un protocolo llamado SSL (Secure Socket Layer- Capa de Sockets Seguros) y que hoy en día conocemos como <b>TLS</b> (Transport Layer Security)
 </p>
@@ -1323,9 +1349,9 @@ En resumen, la clave pública asimétrica se utiliza para negociar una clave sec
 </div>
 </div>
 
-<div id="outline-container-org4b26148" class="outline-2">
-<h2 id="org4b26148"><span class="section-number-2">11</span> El nivel de aplicación</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org6c285fb" class="outline-2">
+<h2 id="org6c285fb"><span class="section-number-2">12</span> El nivel de aplicación</h2>
+<div class="outline-text-2" id="text-12">
 <p>
 Es muy común que haya aplicaciones que, en vez de definir un nuevo mecanismo de cifrado, sean montadas sobre transportes seguros SSL/TLS.
 </p>
@@ -1345,8 +1371,8 @@ También hay otras aplicaciones con un sistema de cifrado Aplicaciones con su pr
 </p>
 </div>
 
-<div id="outline-container-org1c918f4" class="outline-3">
-<h3 id="https"><a id="org1c918f4"></a><span class="section-number-3">11.1</span> Ejemplo: HTTPS</h3>
+<div id="outline-container-orga91aeee" class="outline-3">
+<h3 id="https"><a id="orga91aeee"></a><span class="section-number-3">12.1</span> <a id="org5253433"></a> Ejemplo: HTTPS</h3>
 <div class="outline-text-3" id="text-https">
 <p>
 En una conexión https se utiliza el protocolo TLS/SSL sobre HTTP. El servidor debe disponer de un certificado x.509. La conexión siempre está cifrada con un algoritmo simétrico, y a menudo (aunque no es obligatorio) se garantiza la autenticidad del servidor mediante la firma digital del certificado.
@@ -1359,7 +1385,7 @@ Pasos que se siguen, a grandes rasgos, al conectarse por https, (Ej: <a href="ht
 <li>El servidor envia al navegador un certificado x509 con información de su identidad, una clave pública, y una firma digital.</li>
 <li>Si la firma digital corresponde a una CA de la cual tenemos su clave pública previamente almacenada en el navegador, entonces se puede comprobar la firma del certificado recibido de facebook, y tener seguridad de que el certificado es verdadero.</li>
 <li>Ahora se continúa la comunicación cifrada con un algoritmo asimétrico.</li>
-<li>El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía alservidor, pero cifra la comunicación con la clave pública del servidor.</li>
+<li>El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía al servidor, pero cifra la comunicación con la clave pública del servidor.</li>
 <li>El servidor responde ya enviando la página con información cifrada con el algoritmo simétrico y la clave que le ha enviado el navegador.</li>
 </ol>
 
@@ -1370,9 +1396,9 @@ Por supuesto, el proceso incluye muchos pasos intermedios no descritos aquí, po
 </div>
 </div>
 
-<div id="outline-container-org1ea2236" class="outline-2">
-<h2 id="org1ea2236"><span class="section-number-2">12</span> Firma digital</h2>
-<div class="outline-text-2" id="text-12">
+<div id="outline-container-org4141b9e" class="outline-2">
+<h2 id="org4141b9e"><span class="section-number-2">13</span> Firma digital</h2>
+<div class="outline-text-2" id="text-13">
 <p>
 En el contexto de la firma digital, en España tenemos dos aplicaciones clave.
 Ambas sirven para identificarse ante las administraciones públicas, y firmar actos
@@ -1386,18 +1412,18 @@ principalmente).
 </p>
 </div>
 
-<div id="outline-container-org3c34cfd" class="outline-3">
-<h3 id="org3c34cfd"><span class="section-number-3">12.1</span> FNMT</h3>
-<div class="outline-text-3" id="text-12-1">
+<div id="outline-container-orgd9a8046" class="outline-3">
+<h3 id="orgd9a8046"><span class="section-number-3">13.1</span> FNMT</h3>
+<div class="outline-text-3" id="text-13-1">
 <p>
 La Fábrica Nacional de Moneda y Timbre (FNMT) emite a cualquier ciudadano español un certificado x509 en la que ella es CA (Autoridad Certificadora) y que contiene nuestra identidad y una clave privada que permite firma electrónica.  Se descarga en forma de fichero, y se puede instalar en el almacén de certificados de Windows, o de algunos navegadores, como FireFox.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2002ee6" class="outline-3">
-<h3 id="org2002ee6"><span class="section-number-3">12.2</span> DNIe</h3>
-<div class="outline-text-3" id="text-12-2">
+<div id="outline-container-org4f76259" class="outline-3">
+<h3 id="org4f76259"><span class="section-number-3">13.2</span> DNIe</h3>
+<div class="outline-text-3" id="text-13-2">
 <p>
 La Policía Nacional expide el DNI electrónico (DNIe) que es una tarjeta que además de hacer las mismas funciones físicas que un DNI tradicional permite la firma electrónica.  Dispone de un Chip criptográfico tipo SmartCard, que contiene en su interior la identidad del ciudadano y una clave privada que permite la firma electrónica. También tiene en sus interior otros datos del ciudadano.
 </p>
@@ -1420,9 +1446,9 @@ mecánica de utilización del DNIe y el certificado de la FNMT. <a href="https:/
 </div>
 
 
-<div id="outline-container-orgdfea698" class="outline-2">
-<h2 id="orgdfea698"><span class="section-number-2">13</span> Referencias</h2>
-<div class="outline-text-2" id="text-13">
+<div id="outline-container-orgfa9a867" class="outline-2">
+<h2 id="orgfa9a867"><span class="section-number-2">14</span> Referencias</h2>
+<div class="outline-text-2" id="text-14">
 <p>
 <a href="SI-T-05-confidencialidad-criptografia.pdf">Versión en PDF</a>
 </p>
@@ -1431,7 +1457,7 @@ mecánica de utilización del DNIe y el certificado de la FNMT. <a href="https:/
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-03-29 jue 18:09</p>
+<p class="date">Created: 2018-03-30 vie 17:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
