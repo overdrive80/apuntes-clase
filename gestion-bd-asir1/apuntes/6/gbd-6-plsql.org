@@ -158,7 +158,7 @@ BEGIN
 END;
 #+END_SRC
 
-* Sentencias SQL 
+* Sentencias SQL en PLSQL
 
 ** Variables en =select=
 
@@ -209,7 +209,159 @@ end;
 /
 #+END_SRC
 
+* Funciones y procedimientos
+- Son bloques de código identificados con un nombre
+- Pueden invocarse desde otros bloques de código
+- En la invocación, se utilizan parámetros
+  - De entrada
+  - De salida
 
+** Funciones
+- Las funciones devuelven *siempre* un valor
+- Pueden recibir parámetros
+- Por convenio:
+  - El resultado de una función solo depende de sus parámetros
+  - Una función no cambia la base de datos
+
+#+BEGIN_SRC sql
+CREATE OR REPLACE FUNCTION es_par(numero IN number)
+RETURN boolean
+IS
+  resto number;
+BEGIN
+  resto := mod(numero,2);
+  if( resto = 0 ) then
+    return true;
+  else
+    return false;
+  end if;
+END;
+/
+#+END_SRC 
+
+*** Funciones en SQL
+- Una función puede utilizarse en SQL
+#+BEGIN_SRC sql
+select empno, es_par(empno) from empleados;
+#+END_SRC
+
+*** Funciones predefinidas
+| replace | sysdate   | lpad   | instr  |
+| substr  | nvl       | trim   | trunc  |
+| upper   | to_date   | mod    | length |
+| lower   | to_char   | decode |        |
+| rpad    | to_number |        |        |
+
+               
+
+** Procedimientos
+- Los procedimentos no devuelven un valor
+  - Pero pueden tener parámetros =out=
+#+BEGIN_SRC sql
+CREATE OR REPLACE PROCEDURE aumenta_salario(vempno IN number)
+IS
+BEGIN
+  update empleados 
+    set salario=salario+100
+    where empno = vempno;
+END;
+/
+#+END_SRC 
+
+** Parámetros =in=
+- Es el tipo de parámetros por defecto
+- Un parámetro =in= se pasa /por valor/
+- Se copia el valor introducido en el parámetro 
+- Un cambio del parámetro no afecta al bloque llamante
+
+#+begin_src sql
+create or replace procedure suma_uno(n in numeric) is
+begin
+  n := n +1;
+end;
+/
+
+declare
+  numero numeric(10,0);
+begin
+  numero := 3;
+  sumauno(numero);
+  dbms_output.put_line(numero);
+end;
+/
+#+end_src
+
+
+** Parámetros =out=
+- Un parámetro =out= se pasa /por referencia/
+- Un cambio del parámetro afecta al bloque llamante
+
+#+begin_src sql
+create or replace procedure suma_uno(n in out numeric) is
+begin
+  n := n +1;
+end;
+/
+
+declare
+  numero numeric(10,0);
+begin
+  numero := 3;
+  sumauno(numero);
+  dbms_output.put_line(numero);
+end;
+/
+#+end_src
+
+
+
+* Control de errores
+- Si se produce un error, se lanza una *excepción*
+  - Se interrumpe el flujo de programa
+  - Hasta que se *atrapa*
+  - Puede atraparse en cada bloque/funcion/procedimiento
+
+#+BEGIN_SRC sql
+DECLARE
+  -- Declaraciones
+BEGIN
+  -- Ejecucion
+EXCEPTION
+  -- Excepcion
+END;
+#+END_SRC
+
+** Sección /exception/
+- Se especifican varios tipos de excepción que se esperan
+#+BEGIN_SRC sql
+DECLARE
+  -- Declaraciones
+BEGIN
+  -- Ejecucion
+EXCEPTION
+WHEN NO_DATA_FOUND THEN 
+  -- Se ejecuta cuando ocurre una excepcion de tipo NO_DATA_FOUND
+WHEN ZERO_DIVIDE THEN
+  -- Se ejecuta cuando ocurre una excepcion de tipo ZERO_DIVIDE
+WHEN OTHERS THEN
+  -- Se ejecuta cuando ocurre una excepcion de un tipo no tratado
+  -- en los bloques anteriores
+END;
+#+END_SRC
+
+** Excepciones predefinidas
+- Estas son algunas (hay muchas)
+| NO_DATA_FOUND    | TOO_MANY_ROWS | ACCESS_INTO_NULL |
+| INVALID_NUMBER   | NO_DATA_FOUND | VALUE_ERROR      |
+| ROWTYPE_MISMATCH | ZERO_DIVIDE   |                  |
+
+
+** Excepciones de usuario
+
+
+** =SQLCODE= y =SQLERRM=   
+
+* Disparadores (/triggers/)
 
 * Referencias
 - Formatos:
