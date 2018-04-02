@@ -356,10 +356,49 @@ END;
 | ROWTYPE_MISMATCH | ZERO_DIVIDE   |                  |
 
 
-** Excepciones de usuario
-
-
 ** =SQLCODE= y =SQLERRM=   
+- Funciones predefinidas
+- =SQLCODE=: Número de error (independiente del idioma)
+- =SQLERRM=: 
+  - Sin parámetros: Mensaje de error en el idioma de la base de datos
+  - Con un parámetro: mensaje de ese =sqlcode=
+
+#+BEGIN_SRC sql
+DECLARE
+  result NUMBER;
+BEGIN
+  SELECT 1/0 INTO result FROM DUAL;
+EXCEPTION
+  WHEN OTHERS THEN
+    DBMS_OUTPUT.put_line('Error:'||TO_CHAR(SQLCODE));
+    DBMS_OUTPUT.put_line(SQLERRM);
+END;
+#+END_SRC
+
+
+
+
+
+** Excepciones de usuario
+- En ocasiones queremos enviar un mensaje de error personalizado
+- Están disponibles los números de error entre =­20001= y =­20999=
+- Se pueden atrapar con =when others= y comprobarse con =SQLCODE=
+
+#+BEGIN_SRC sql
+  DECLARE
+    n number;
+  BEGIN
+    SELECT count(*) into n from empleados
+    if( n < 10 ) then
+      RAISE_APPLICATION_ERROR(-20001,'La empresa necesita al menos 10 empleados');
+    end if;
+    EXCEPTION 
+      WHEN OTHERS THEN
+        if( sqlcode = -20001) then
+          dbms_output.put_line('Pocos empleados');
+        end if;
+  END;
+#+END_SRC
 
 * Disparadores (/triggers/)
 
