@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-04-03 mar 12:09 -->
+<!-- 2018-04-03 mar 17:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PLSQL</title>
@@ -238,38 +238,53 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0967058">1. Introducción</a></li>
-<li><a href="#orgf534cd9">2. Bloques anónimos</a></li>
-<li><a href="#org37a14f1">3. Variables</a></li>
-<li><a href="#orgecacc3d">4. Control de flujo</a></li>
-<li><a href="#orgdba9a66">5. Sentencias SQL en PLSQL</a></li>
-<li><a href="#orga80726d">6. Funciones y procedimientos</a></li>
-<li><a href="#org110eb7b">7. Control de errores</a></li>
-<li><a href="#org9ae89ec">8. Disparadores (<i>triggers</i>)</a></li>
-<li><a href="#org12220a9">9. Referencias</a></li>
+<li><a href="#org3318b2e">1. Introducción</a></li>
+<li><a href="#org62e020a">2. Bloques anónimos</a></li>
+<li><a href="#orga707e99">3. Variables</a></li>
+<li><a href="#org724e2df">4. Control de flujo</a></li>
+<li><a href="#orgf0bee1a">5. Sentencias SQL en PLSQL</a></li>
+<li><a href="#orgf0f9c01">6. Funciones y procedimientos</a></li>
+<li><a href="#orgc889aa1">7. Control de errores</a></li>
+<li><a href="#org37ecf06">8. Disparadores (<i>triggers</i>)</a></li>
+<li><a href="#orgfc1c97e">9. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-org0967058" class="outline-2">
-<h2 id="org0967058"><span class="section-number-2">1</span> Introducción</h2>
+
+
+<div id="outline-container-org3318b2e" class="outline-2">
+<h2 id="org3318b2e"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>PLSQL es un lenguaje de programación ejecutado en los servidores Oracle
+<ul class="org-ul">
+<li>Con acceso a todas las sentencias SQL</li>
+<li>Incluye variables, funciones, control de flujo&#x2026;</li>
+</ul></li>
+<li>PLSQL es un lenguaje imperativo
+<ul class="org-ul">
+<li>Completa a SQL, que es un lenguaje declarativo</li>
+</ul></li>
+</ul>
 </div>
-<div id="outline-container-orgf56365f" class="outline-3">
-<h3 id="orgf56365f"><span class="section-number-3">1.1</span> Palabras reservadas</h3>
+
+<div id="outline-container-orgef62c0e" class="outline-3">
+<h3 id="orgef62c0e"><span class="section-number-3">1.1</span> Palabras reservadas</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li>Vista <code>V$RESERVED_WORDS</code></li>
+<li>Vista <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_2048.htm#REFRN30204"><code>V$RESERVED_WORDS</code></a></li>
 <li>Definen estructuras de programa</li>
 <li>No pueden ser usados como identificadores</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orga76d6c8" class="outline-3">
-<h3 id="orga76d6c8"><span class="section-number-3">1.2</span> Identificadores</h3>
+
+<div id="outline-container-orgfbe975d" class="outline-3">
+<h3 id="orgfbe975d"><span class="section-number-3">1.2</span> Identificadores</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Nombres definidos por el programador
@@ -285,14 +300,14 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf534cd9" class="outline-2">
-<h2 id="orgf534cd9"><span class="section-number-2">2</span> Bloques anónimos</h2>
+<div id="outline-container-org62e020a" class="outline-2">
+<h2 id="org62e020a"><span class="section-number-2">2</span> Bloques anónimos</h2>
 <div class="outline-text-2" id="text-2">
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listado de programa 1 </span>Bloque anónimo</label><pre class="src src-sql">
 <span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> pepe <span style="color: #b9ca4a;">where</span> nombre=<span style="color: #70c0b1;">'a'</span>;
-<span style="color: #b9ca4a;">SET</span> SERVEROUTPUT <span style="color: #b9ca4a;">ON</span>;
 
+<span style="color: #b9ca4a;">SET</span> SERVEROUTPUT <span style="color: #b9ca4a;">ON</span>;
 <span style="color: #b9ca4a;">begin</span>
   dbms_output.put_line(<span style="color: #70c0b1;">'Hola'</span>);
 <span style="color: #b9ca4a;">END</span>;
@@ -303,8 +318,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org37a14f1" class="outline-2">
-<h2 id="org37a14f1"><span class="section-number-2">3</span> Variables</h2>
+<div id="outline-container-orga707e99" class="outline-2">
+<h2 id="orga707e99"><span class="section-number-2">3</span> Variables</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Valores referenciados por un identificador</li>
@@ -325,8 +340,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd589770" class="outline-3">
-<h3 id="orgd589770"><span class="section-number-3">3.1</span> Tipos de variable</h3>
+<div id="outline-container-org8138628" class="outline-3">
+<h3 id="org8138628"><span class="section-number-3">3.1</span> Tipos de variable</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Se pueden utilizar todos los tipos SQL
@@ -345,8 +360,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8712cae" class="outline-3">
-<h3 id="org8712cae"><span class="section-number-3">3.2</span> Tipos referidos</h3>
+<div id="outline-container-org72112e7" class="outline-3">
+<h3 id="org72112e7"><span class="section-number-3">3.2</span> Tipos referidos</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><code>%type</code> : Tipo de un campo de una tabla</li>
@@ -371,12 +386,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgecacc3d" class="outline-2">
-<h2 id="orgecacc3d"><span class="section-number-2">4</span> Control de flujo</h2>
+<div id="outline-container-org724e2df" class="outline-2">
+<h2 id="org724e2df"><span class="section-number-2">4</span> Control de flujo</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org1d44820" class="outline-3">
-<h3 id="org1d44820"><span class="section-number-3">4.1</span> Condicional</h3>
+<div id="outline-container-orge49d834" class="outline-3">
+<h3 id="orge49d834"><span class="section-number-3">4.1</span> Condicional</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">DECLARE</span>
@@ -396,8 +411,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbf52315" class="outline-3">
-<h3 id="orgbf52315"><span class="section-number-3">4.2</span> Condicional múltiple (I)</h3>
+<div id="outline-container-org529c2d8" class="outline-3">
+<h3 id="org529c2d8"><span class="section-number-3">4.2</span> Condicional múltiple (I)</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">case</span>
@@ -417,8 +432,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7a8b5dd" class="outline-3">
-<h3 id="org7a8b5dd"><span class="section-number-3">4.3</span> Condicional múltiple (II)</h3>
+<div id="outline-container-orga218a1c" class="outline-3">
+<h3 id="orga218a1c"><span class="section-number-3">4.3</span> Condicional múltiple (II)</h3>
 <div class="outline-text-3" id="text-4-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">case</span> v_job_grade
@@ -436,8 +451,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4ee0f70" class="outline-3">
-<h3 id="org4ee0f70"><span class="section-number-3">4.4</span> Bucle <code>loop</code></h3>
+<div id="outline-container-org9a8697a" class="outline-3">
+<h3 id="org9a8697a"><span class="section-number-3">4.4</span> Bucle <code>loop</code></h3>
 <div class="outline-text-3" id="text-4-4">
 <div class="org-src-container">
 <pre class="src src-sql">LOOP
@@ -452,8 +467,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0d76028" class="outline-3">
-<h3 id="org0d76028"><span class="section-number-3">4.5</span> Bucle <code>while</code></h3>
+<div id="outline-container-org28dced1" class="outline-3">
+<h3 id="org28dced1"><span class="section-number-3">4.5</span> Bucle <code>while</code></h3>
 <div class="outline-text-3" id="text-4-5">
 <div class="org-src-container">
 <pre class="src src-sql">WHILE (expresion) LOOP
@@ -464,8 +479,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org640811c" class="outline-3">
-<h3 id="org640811c"><span class="section-number-3">4.6</span> Bucle <code>for</code></h3>
+<div id="outline-container-org59a4fa3" class="outline-3">
+<h3 id="org59a4fa3"><span class="section-number-3">4.6</span> Bucle <code>for</code></h3>
 <div class="outline-text-3" id="text-4-6">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">DECLARE</span>
@@ -481,12 +496,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdba9a66" class="outline-2">
-<h2 id="orgdba9a66"><span class="section-number-2">5</span> Sentencias SQL en PLSQL</h2>
+<div id="outline-container-orgf0bee1a" class="outline-2">
+<h2 id="orgf0bee1a"><span class="section-number-2">5</span> Sentencias SQL en PLSQL</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org75939fc" class="outline-3">
-<h3 id="org75939fc"><span class="section-number-3">5.1</span> Variables en <code>select</code></h3>
+<div id="outline-container-orgbaac882" class="outline-3">
+<h3 id="orgbaac882"><span class="section-number-3">5.1</span> Variables en <code>select</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">empleados</span>( empno <span style="color: #b9ca4a;">number</span>(20), salario <span style="color: #b9ca4a;">number</span>(8,2), nombre <span style="color: #7aa6da;">varchar</span>(255));
@@ -502,8 +517,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9e6f988" class="outline-3">
-<h3 id="org9e6f988"><span class="section-number-3">5.2</span> Variables en <code>insert</code>, <code>update</code>, <code>delete</code></h3>
+<div id="outline-container-org76702a7" class="outline-3">
+<h3 id="org76702a7"><span class="section-number-3">5.2</span> Variables en <code>insert</code>, <code>update</code>, <code>delete</code></h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Se utilizan como un valor inmediato</li>
@@ -526,8 +541,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7a25a41" class="outline-3">
-<h3 id="org7a25a41"><span class="section-number-3">5.3</span> Recorrer consultas</h3>
+<div id="outline-container-org605f340" class="outline-3">
+<h3 id="org605f340"><span class="section-number-3">5.3</span> Recorrer consultas</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">DECLARE</span>
@@ -551,8 +566,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga80726d" class="outline-2">
-<h2 id="orga80726d"><span class="section-number-2">6</span> Funciones y procedimientos</h2>
+<div id="outline-container-orgf0f9c01" class="outline-2">
+<h2 id="orgf0f9c01"><span class="section-number-2">6</span> Funciones y procedimientos</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Son bloques de código identificados con un nombre</li>
@@ -565,8 +580,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgfe65d6c" class="outline-3">
-<h3 id="orgfe65d6c"><span class="section-number-3">6.1</span> Funciones</h3>
+<div id="outline-container-org8e1b688" class="outline-3">
+<h3 id="org8e1b688"><span class="section-number-3">6.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Las funciones devuelven <b>siempre</b> un valor</li>
@@ -596,8 +611,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgca9d9be" class="outline-4">
-<h4 id="orgca9d9be"><span class="section-number-4">6.1.1</span> Funciones en SQL</h4>
+<div id="outline-container-org783554f" class="outline-4">
+<h4 id="org783554f"><span class="section-number-4">6.1.1</span> Funciones en SQL</h4>
 <div class="outline-text-4" id="text-6-1-1">
 <ul class="org-ul">
 <li>Una función puede utilizarse en SQL</li>
@@ -609,8 +624,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4dadb7c" class="outline-4">
-<h4 id="org4dadb7c"><span class="section-number-4">6.1.2</span> Funciones predefinidas</h4>
+<div id="outline-container-org94b1471" class="outline-4">
+<h4 id="org94b1471"><span class="section-number-4">6.1.2</span> Funciones predefinidas</h4>
 <div class="outline-text-4" id="text-6-1-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -667,8 +682,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org240ace7" class="outline-3">
-<h3 id="org240ace7"><span class="section-number-3">6.2</span> Procedimientos</h3>
+<div id="outline-container-org56bad13" class="outline-3">
+<h3 id="org56bad13"><span class="section-number-3">6.2</span> Procedimientos</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Los procedimentos no devuelven un valor
@@ -690,8 +705,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbe54d6e" class="outline-3">
-<h3 id="orgbe54d6e"><span class="section-number-3">6.3</span> Parámetros <code>in</code></h3>
+<div id="outline-container-org8b6810b" class="outline-3">
+<h3 id="org8b6810b"><span class="section-number-3">6.3</span> Parámetros <code>in</code></h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Es el tipo de parámetros por defecto</li>
@@ -721,8 +736,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgf8f32d4" class="outline-3">
-<h3 id="orgf8f32d4"><span class="section-number-3">6.4</span> Parámetros <code>out</code></h3>
+<div id="outline-container-org7cf9349" class="outline-3">
+<h3 id="org7cf9349"><span class="section-number-3">6.4</span> Parámetros <code>out</code></h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>Un parámetro <code>out</code> se pasa <i>por referencia</i></li>
@@ -752,8 +767,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org110eb7b" class="outline-2">
-<h2 id="org110eb7b"><span class="section-number-2">7</span> Control de errores</h2>
+<div id="outline-container-orgc889aa1" class="outline-2">
+<h2 id="orgc889aa1"><span class="section-number-2">7</span> Control de errores</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Si se produce un error, se lanza una <b>excepción</b>
@@ -776,8 +791,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org738bcf5" class="outline-3">
-<h3 id="org738bcf5"><span class="section-number-3">7.1</span> Sección <i>exception</i></h3>
+<div id="outline-container-orgc19ecdb" class="outline-3">
+<h3 id="orgc19ecdb"><span class="section-number-3">7.1</span> Sección <i>exception</i></h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Se especifican varios tipos de excepción que se esperan</li>
@@ -801,8 +816,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgab4b35d" class="outline-3">
-<h3 id="orgab4b35d"><span class="section-number-3">7.2</span> Excepciones predefinidas</h3>
+<div id="outline-container-orga05b399" class="outline-3">
+<h3 id="orga05b399"><span class="section-number-3">7.2</span> Excepciones predefinidas</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Estas son algunas (hay muchas)</li>
@@ -841,8 +856,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org66a2b21" class="outline-3">
-<h3 id="org66a2b21"><span class="section-number-3">7.3</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
+<div id="outline-container-org5771125" class="outline-3">
+<h3 id="org5771125"><span class="section-number-3">7.3</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Funciones predefinidas</li>
@@ -873,8 +888,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org5d2feb1" class="outline-3">
-<h3 id="org5d2feb1"><span class="section-number-3">7.4</span> Excepciones de usuario</h3>
+<div id="outline-container-org16d9fdc" class="outline-3">
+<h3 id="org16d9fdc"><span class="section-number-3">7.4</span> Excepciones de usuario</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>En ocasiones queremos enviar un mensaje de error personalizado</li>
@@ -902,8 +917,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9ae89ec" class="outline-2">
-<h2 id="org9ae89ec"><span class="section-number-2">8</span> <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm">Disparadores</a> (<i>triggers</i>)</h2>
+<div id="outline-container-org37ecf06" class="outline-2">
+<h2 id="org37ecf06"><span class="section-number-2">8</span> <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm">Disparadores</a> (<i>triggers</i>)</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Las funciones y procedimientos se invocan desde <i>fuera</i> de la base de datos</li>
@@ -929,8 +944,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3abd7b1" class="outline-3">
-<h3 id="org3abd7b1"><span class="section-number-3">8.1</span> Eventos</h3>
+<div id="outline-container-org68accf4" class="outline-3">
+<h3 id="org68accf4"><span class="section-number-3">8.1</span> Eventos</h3>
 <div class="outline-text-3" id="text-8-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1114,8 +1129,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3b6a6b0" class="outline-3">
-<h3 id="org3b6a6b0"><span class="section-number-3">8.2</span> <code>for each row</code></h3>
+<div id="outline-container-orga2794ab" class="outline-3">
+<h3 id="orga2794ab"><span class="section-number-3">8.2</span> <code>for each row</code></h3>
 <div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>Por defecto, un <i>trigger</i> se lanza una vez por cada sentencia SQL que provoque cambios</li>
@@ -1124,8 +1139,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdb1b8f1" class="outline-3">
-<h3 id="orgdb1b8f1"><span class="section-number-3">8.3</span> Momentos del evento</h3>
+<div id="outline-container-org4aebc97" class="outline-3">
+<h3 id="org4aebc97"><span class="section-number-3">8.3</span> Momentos del evento</h3>
 <div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>Se puede lanzar
@@ -1210,8 +1225,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org2a0d65d" class="outline-3">
-<h3 id="org2a0d65d"><span class="section-number-3">8.4</span> Ejemplo típico: auditoría</h3>
+<div id="outline-container-orgac31cfd" class="outline-3">
+<h3 id="orgac31cfd"><span class="section-number-3">8.4</span> Ejemplo típico: auditoría</h3>
 <div class="outline-text-3" id="text-8-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">alter</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">empleados</span> <span style="color: #b9ca4a;">add</span> (
@@ -1240,8 +1255,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org07c8ea5" class="outline-3">
-<h3 id="org07c8ea5"><span class="section-number-3">8.5</span> Sintaxis (casi) completa</h3>
+<div id="outline-container-org4d4522a" class="outline-3">
+<h3 id="org4d4522a"><span class="section-number-3">8.5</span> Sintaxis (casi) completa</h3>
 <div class="outline-text-3" id="text-8-5">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> [<span style="color: #b9ca4a;">OR</span> REPLACE] <span style="color: #b9ca4a;">TRIGGER</span> &lt;nombre_trigger&gt;
@@ -1262,8 +1277,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org12220a9" class="outline-2">
-<h2 id="org12220a9"><span class="section-number-2">9</span> Referencias</h2>
+
+<div id="outline-container-orgfc1c97e" class="outline-2">
+<h2 id="orgfc1c97e"><span class="section-number-2">9</span> Referencias</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Formatos:
@@ -1283,7 +1299,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-04-03 mar 12:09</p>
+<p class="date">Created: 2018-04-03 mar 17:44</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
