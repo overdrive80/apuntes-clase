@@ -38,7 +38,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 \section{Preparación del entorno}
 \begin{itemize}
-\item  Necesitas una máquina virtual Linux (recomendado Debian)
+\item  \textbf{A}: Máquina virtual Linux (recomendado Debian)
   \begin{itemize}
   \item No necesita mucha memoria (256 MBytes)
     
@@ -50,53 +50,53 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 
 
-\item Necesitas una máquina virtual Windows, versión \textit{profesional}, \textit{ultimate} o equivalente.
+\item \textbf{B}: Máquina virtual Windows, versión \textit{profesional}, \textit{ultimate} o equivalente.
   \begin{itemize}
   \item  No necesita mucha memoria (256 MBytes)
   \item Tendrá una tarjeta de red \textit{internal} , con una dirección privada clase B
   \end{itemize}
-\item Una máquina virtual Linux
+\item \textbf{C}: Máquina virtual Linux
   \begin{itemize}
   \item No necesita mucha memoria (256 MBytes)
   \item Tendrá una tarjeta de red \textit{internal}, con una dirección privada clase B
   \end{itemize}
   
-\item  La máquina A, B y C deben poder conectarse a nivel IP por sus tarjetas \textit{internal}. A es el router por defecto de B y C.
+\item  La máquina \textbf{A}, \textbf{B} y \textbf{C} deben poder conectarse a nivel IP por sus tarjetas \textit{internal}. \textbf{A} es el router por defecto de \textbf{B} y \textbf{C}.
 \end{itemize}
 
 
 
-\begin{homeworkProblem}[Activa el NAT en la máquina A (2 puntos)]
+\begin{homeworkProblem}[: Activa el NAT en la máquina A (2 puntos)]
   \begin{itemize}
-  \item Activa el flag de enrutamiento de Linux en A
+  \item Activa el flag de enrutamiento de Linux en \textbf{A}
   \item Desactiva NAT. Recuerda volver a desactivarlo y comenzar de cero cada vez que realices una prueba.
     \begin{comment}
       iptables -t nat –F
     \end{comment}
   \item Activa NAT. Puedes usar, entre otras, las instrucciones de \enlace{http://albertomolina.wordpress.com/2009/01/09/nat-con-iptables/}{albertomolina}, apartado \textit{Source NAT}
-  \item Comprueba que las máquinas B y C pueden acceder a internet
+  \item Comprueba que las máquinas \textbf{B} y \textbf{C} pueden acceder a internet
   \end{itemize}
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[Conectate a B por medio de escritorio remoto, desde tu PC físico (1 punto)]
+\begin{homeworkProblem}[: Conectate a B por medio de escritorio remoto, desde tu PC físico (1 punto)]
   \begin{itemize}
     
   \item Busca qué puerto utiliza el protocolo RDP y ábrelo (\enlace{http://albertomolina.wordpress.com/2009/01/09/nat-con-iptables/}{albertomolina}, apartado prerouting)
-  \item Activa el escritorio remoto en B (Propiedades del sistema $\rightarrow$ Remoto $\rightarrow$ Permitir escritorio remoto)
+  \item Activa el escritorio remoto en \textbf{B} (Propiedades del sistema $\rightarrow$ Remoto $\rightarrow$ Permitir escritorio remoto)
     
   \item Habilita algún usuario para que pueda conectarse por medio de escritorio remoto
-  \item Conéctate desde tu PC físico con la orden \texttt{mstsc} en  Windows (o \texttt{rdesktop} si el ordenador físico tiene Linux)
+  \item Conéctate desde tu PC físico con la orden \texttt{mstsc} en  Windows (o \texttt{rdesktop}/\texttt{remmina} si el ordenador físico tiene Linux)
   \end{itemize}
 
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[Conectate a B desde el equipo B de otro compañero (1 punto)]
+\begin{homeworkProblem}[: Conectate a B desde el equipo B de otro compañero (1 punto)]
   Necesitarás repetir los pasos anteriores, pero para otra tarjeta de red (la de dirección \texttt{192.168.255.N}).
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[Convierte a B en un servidor de ficheros (carpetas compartidas) (2 puntos)]
+\begin{homeworkProblem}[: Convierte a B en un servidor de ficheros (carpetas compartidas) (2 puntos)]
   \begin{itemize}
   \item Abre los puertos necesarios en \textbf{A} para que pueda accederse a \textbf{B} como servidor de ficheros (\enlace{http://www.chicagotech.net/netforums/viewtopic.php?t=5067}{ayuda}).
   \item Debe poder accederse desde cualquier red externa.
@@ -113,20 +113,23 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[Haz que A y C puedan ser administrados mediante SSH desde la red del aula (2 puntos)]
+\begin{homeworkProblem}[: Haz que A y C puedan ser administrados mediante SSH desde la red del aula (2 puntos)]
   \begin{itemize}
   \item Instala openssh-server en los dos ordenadores, si no está ya instalado.
-  \item Abre los puertos necesarios para llegar a C por SSH desde la red del aula.
+  \item Abre los puertos necesarios para llegar a \textbf{C} por SSH desde la red del aula.
     
   \item Debe ser posible, desde la red del aula y la \texttt{192.168.255.N/24}, conectarse simultáneamente a \textbf{A} y \textbf{C} por SSH.
   \end{itemize}
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[Comprueba el NAT con \texttt{tcpdump} (2 puntos)]
+\begin{homeworkProblem}[: Comprueba el NAT con \texttt{tcpdump} (2 puntos)]
   \begin{itemize}
-  \item Abre dos consolas en la máquina A. Utiliza \texttt{tcpdump} para ver en una consola los paquetes ICMP enviados y recibidos (\enlace{https://forum.ivorde.com/tcpdump-how-to-to-capture-only-icmp-ping-echo-requests-t15191.html}{forum.ivorde.com}) por la tarjeta conectada a internet. En la otra consola, visualiza los paquetes ICMP de la tarjeta de red interna.
-  \item Ejecuta un \texttt{ping} a internet desde la máquina B.
-  \item Comprueba que la máquina A, además de enrutar, está cambiado las direcciones IP de origen y destino.
+  \item Abre dos consolas en la máquina \textbf{A}. Utiliza \texttt{tcpdump} para ver en una consola los paquetes ICMP enviados y recibidos (\enlace{https://forum.ivorde.com/tcpdump-how-to-to-capture-only-icmp-ping-echo-requests-t15191.html}{forum.ivorde.com}) por la tarjeta conectada a internet. En la otra consola, visualiza los paquetes ICMP de la tarjeta de red interna.
+    \begin{itemize}
+    \item También puede usarse \texttt{WireShark}
+    \end{itemize}
+  \item Ejecuta un \texttt{ping} a internet desde la máquina \textbf{B}.
+  \item Comprueba que la máquina \textbf{A}, además de enrutar, está cambiado las direcciones IP de origen y destino.
   \end{itemize}
 \end{homeworkProblem}
 
