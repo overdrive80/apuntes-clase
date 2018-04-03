@@ -589,9 +589,6 @@ Puede utilizarse para identificarse ante la administración, y para firma electr
 
 La ventaja del DNIe reside en que la clave privada no se puede extraer del chip.  Realmente... es el propio chip del DNI el que realiza la firma de manera autónoma.  No obstante, para que el DNI firme se requiere de un PIN, que es susceptible de ser interceptado.
 
-Para completar el tema, te remito al apartado de la web de la asignatura en el que puedes ver
-una animación realizada por INCIBE con los puntos clave del DNIe, así como un vídeo con la
-mecánica de utilización del DNIe y el certificado de la FNMT. https://www.incibe.es/extfrontinteco/dnie/swf/dnie.html
 
 
 * Referencias
