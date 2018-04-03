@@ -98,13 +98,14 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 \begin{homeworkProblem}[Convierte a B en un servidor de ficheros (carpetas compartidas) (2 puntos)]
   \begin{itemize}
-  \item Abre los puertos necesarios en A para que pueda accederse a B como servidor de ficheros (\enlace{http://www.chicagotech.net/netforums/viewtopic.php?t=5067}{ayuda}).
+  \item Abre los puertos necesarios en \textbf{A} para que pueda accederse a \textbf{B} como servidor de ficheros (\enlace{http://www.chicagotech.net/netforums/viewtopic.php?t=5067}{ayuda}).
+  \item Debe poder accederse desde cualquier red externa.
   \item  Los puertos TCP se indican con el flag \texttt{-p tcp}. Los puertos UDP se indican con el flag \texttt{-p udp}.
     
   \item Comparte alguna carpeta en B. Recuerda que en Windows
     \begin{itemize}
     \item Es mejor desactivar “Utilizar el uso compartido simple de archivos”
-    \item  El usuario que se utiliza para acceder remotamente debe tener contraseña
+    \item El usuario que se utiliza para acceder remotamente debe tener contraseña
     \end{itemize}
 
   \end{itemize}
@@ -116,6 +117,8 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \begin{itemize}
   \item Instala openssh-server en los dos ordenadores, si no está ya instalado.
   \item Abre los puertos necesarios para llegar a C por SSH desde la red del aula.
+    
+  \item Debe ser posible, desde la red del aula y la \texttt{192.168.255.N/24}, conectarse simultáneamente a \textbf{A} y \textbf{C} por SSH.
   \end{itemize}
 \end{homeworkProblem}
 
