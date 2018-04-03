@@ -1,12 +1,16 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: PLSQL
 
-#+latex_header: \lstset{emph={begin,BEGIN,declare,DECLARE, SERVEROUTPUT, if, elsif, exit, while, loop}, emphstyle=\color{Blue}\ttfamily\bfseries}
-
+#+latex_header: \lstset{emph={begin,declare,serveroutput,trigger,on,before,after,each, if, elsif, exit, while, loop}, emphstyle=\color{Blue}\ttfamily\bfseries}
+#+reveal_single_file: nil
 
 
 
 * Introducción
+- PLSQL es un lenguaje de programación ejecutado en los servidores Oracle
+  - Con acceso a todas las sentencias SQL
+  - Incluye variables, funciones, control de flujo...
+
 
 ** Palabras reservadas
 - Vista =V$RESERVED_WORDS=
@@ -339,13 +343,13 @@ DECLARE
 BEGIN
   -- Ejecucion
 EXCEPTION
-WHEN NO_DATA_FOUND THEN 
-  -- Se ejecuta cuando ocurre una excepcion de tipo NO_DATA_FOUND
-WHEN ZERO_DIVIDE THEN
-  -- Se ejecuta cuando ocurre una excepcion de tipo ZERO_DIVIDE
-WHEN OTHERS THEN
-  -- Se ejecuta cuando ocurre una excepcion de un tipo no tratado
-  -- en los bloques anteriores
+  WHEN NO_DATA_FOUND THEN 
+    -- Se ejecuta cuando ocurre una excepcion de tipo NO_DATA_FOUND
+  WHEN ZERO_DIVIDE THEN
+    -- Se ejecuta cuando ocurre una excepcion de tipo ZERO_DIVIDE
+  WHEN OTHERS THEN
+    -- Se ejecuta cuando ocurre una excepcion de un tipo no tratado
+    -- en los bloques anteriores
 END;
 #+END_SRC
 
@@ -392,15 +396,154 @@ END;
     if( n < 10 ) then
       RAISE_APPLICATION_ERROR(-20001,'La empresa necesita al menos 10 empleados');
     end if;
-    EXCEPTION 
-      WHEN OTHERS THEN
-        if( sqlcode = -20001) then
-          dbms_output.put_line('Pocos empleados');
-        end if;
+  EXCEPTION 
+    WHEN OTHERS THEN
+      if( sqlcode = -20001) then
+        dbms_output.put_line('Pocos empleados');
+      end if;
   END;
 #+END_SRC
 
-* Disparadores (/triggers/)
+* [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm][Disparadores]] (/triggers/)
+- Las funciones y procedimientos se invocan desde /fuera/ de la base de datos
+- Los disparadores los lanza la propia base de datos en respuesta a eventos
+- Cada tabla tiene sus propios eventos
+- Los disparadores se pueden lanzar /antes/ o /después/ del evento
+- Los disparadores se pueden lanzar una vez por cada fila afectada, o una vez para toda la sentencia SQL
+
+#+BEGIN_SRC sql
+CREATE or replace TRIGGER personal_minimo
+BEFORE DELETE ON empleados
+declare
+  n number;
+begin
+  SELECT count(*) into n from empleados;
+  if( n < 10 ) then
+    RAISE_APPLICATION_ERROR(-20001,'La empresa necesita al menos 10 empleados');
+  end if;
+end;
+/
+#+END_SRC
+
+** Eventos
+| Evento DML  |                                      |
+|-------------+--------------------------------------|
+| ~delete~    | Borrado de una fila                  |
+| ~insert~    | Insercción de una fila               |
+| ~update~    | Modificación de fila                 |
+| ~update of~ | Modificación de un campo de una fila |
+
+#+reveal: split
+
+| Evento DDL/sistema      |                         |
+|-------------------------+-------------------------|
+| ALTER                   | Modificación de objetos |
+| ANALYSE                 |                         |
+| ASSOCIATE STATISTICS    |                         |
+| AUDIT                   |                         |
+| COMMENT                 |                         |
+| CREATE                  | Creación de objetos     |
+| DDL                     |                         |
+| DISASSOCIATE STATISTICS |                         |
+| DROP                    | Borrado de Objetos      |
+| GRANT                   |                         |
+| LOGON                   |                         |
+| LOGOFF                  |                         |
+| NOAUDIT                 |                         |
+| RENAME                  |                         |
+| REVOKE                  |                         |
+| TRUNCATE                |                         |
+| SERVERERROR             |                         |
+| STARTUP                 |                         |
+| SHUTDOWN                |                         |
+| SUSPEND                 |                         |
+
+- Se pueden combinar para un mismo /trigger/
+  - Las funciones =INSERTING=, =UPDATING= y =DELETING= sirven para diferenciar por qué se ha lanzado
+
+#+reveal: split
+#+BEGIN_SRC sql
+CREATE or replace TRIGGER ejemplo_or
+BEFORE DELETE OR UPDATE OR INSERT ON empleados
+begin
+  case 
+    when inserting THEN
+      dbms_output.put_line('Insertando empleados');
+    when updating then
+      dbms_output.put_line('Actualizando empleados');
+    when deleting then
+      dbms_output.put_line('Borrando empleados');
+    else
+      dbms_output.put_line('Inesperado');
+  end case;
+end;
+/
+#+END_SRC
+
+** =for each row=
+- Por defecto, un /trigger/ se lanza una vez por cada sentencia SQL que provoque cambios
+- Si se especifica =for each row=, se lanza una vez por cada fila cambiada
+
+** Momentos del evento
+- Se puede lanzar
+  - =before=
+  - =after=
+  - =instead of=: No se ejecuta el SQL, sino otro alternativo. Útil para vistas modificables.
+- Las variables =:old= y =:new= existen en los /triggers/ tipo =for each row=
+  - =:old=: Variable tipo =%rowtype= con los datos antiguos de la fila
+  - =:new=: Datos nuevos de la fila
+
+| Momento  | Evento   | =:old=  | =:new=            |
+|----------+----------+---------+-------------------|
+| ~before~ | ~delete~ | Lectura |                   |
+| ~before~ | ~insert~ |         | Lectura/escritura |
+| ~before~ | ~update~ | Lectura | Lectura/escritura |
+| ~after~  | ~delete~ | Lectura |                   |
+| ~after~  | ~insert~ |         | Lectura           |
+| ~after~  | ~update~ | Lectura | Lectura           |
+
+
+
+** Ejemplo típico: auditoría
+#+BEGIN_SRC sql
+alter table empleados add (
+  createdby varchar(255),
+  createddate timestamp,
+  modifiedby varchar(255),
+  modifieddate timestamp 
+);
+#+END_SRC
+
+#+BEGIN_SRC sql
+create or replace trigger auditoria_creacion_empleados
+  before insert 
+  on empleados
+  for each row
+begin
+  :new.createdby := username;
+  :new.createddate := systimestamp;
+end;
+/
+#+END_SRC
+
+
+
+** Sintaxis (casi) completa
+#+BEGIN_SRC sql
+CREATE [OR REPLACE] TRIGGER <nombre_trigger>
+  {BEFORE|AFTER}
+  {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
+  [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
+  ON <nombre_tabla>
+  [FOR EACH ROW [WHEN (<condicion>)]]
+DECLARE
+  -- variables locales
+BEGIN
+  -- Sentencias
+[EXCEPTION]
+  -- Sentencias control de excepcion
+END;
+#+END_SRC
 
 * Referencias
 - Formatos:
