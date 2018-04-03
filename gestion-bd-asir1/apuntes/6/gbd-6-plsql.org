@@ -175,7 +175,7 @@ DECLARE
   vsalario NUMBER;
 BEGIN
   SELECT salario INTO vsalario FROM empleados WHERE empno=7369;
-  dbms_output.put_line('El empleado numero 7369 tiene un vsalario de '||vsalario||'€');
+  dbms_output.put_line('El empleado numero 7369 tiene un sueldo de '||vsalario||'€');
 end;
 /
 #+END_SRC
@@ -407,6 +407,9 @@ END;
   END;
 #+END_SRC
 
+
+
+
 * [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm][Disparadores]] (/triggers/)
 - Las funciones y procedimientos se invocan desde /fuera/ de la base de datos
 - Los disparadores los lanza la propia base de datos en respuesta a eventos
@@ -548,10 +551,12 @@ BEGIN
 END;
 #+END_SRC
 
+
 * Referencias
 - Formatos:
   - [[file:gbd-6-plsql.reveal.html][Transparencias]]
   - [[file:gbd-6-plsql.pdf][PDF]]
+- [[file:BD-6-Ejemplos-PLSQL.org][Ejercicios]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
