@@ -203,11 +203,11 @@ select empno, es_par(empno) from empleados;
 #+END_SRC
 
 *** Funciones predefinidas
-| replace | sysdate   | lpad   | instr  |
-| substr  | nvl       | trim   | trunc  |
-| upper   | to_date   | mod    | length |
-| lower   | to_char   | decode |        |
-| rpad    | to_number |        |        |
+| ~replace~ | ~sysdate~   | ~lpad~   | ~instr~  |
+| ~substr~  | ~nvl~       | ~trim~   | ~trunc~  |
+| ~upper~   | ~to_date~   | ~mod~    | ~length~ |
+| ~lower~   | ~to_char~   | ~decode~ |          |
+| ~rpad~    | ~to_number~ |          |          |
 
                
 
