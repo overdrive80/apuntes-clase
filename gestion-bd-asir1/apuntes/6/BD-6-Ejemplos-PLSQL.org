@@ -28,6 +28,34 @@ Los números se tabulan alineándolos a la derecha
 ** Números primos menores de 1000
 ** Decidir si un número es capicúa
 Usa =to_char= para pasar el número a texto, y utiliza =substr= para extraer posiciones del texto y compararlas.
+
+*** Solución :noexport:
+#+BEGIN_SRC sql
+declare
+  n number := 1234543201;
+  numerocomotexto varchar(255);
+  longitud number;
+  letra char(1);
+  letracorrespondiente char(1);
+  escapicua number := 1;
+begin
+  numerocomotexto := to_char(n);
+  longitud := length(numerocomotexto);
+  for i in 1..longitud loop
+     letra := substr(numerocomotexto,i,1);
+     letracorrespondiente := substr(numerocomotexto,longitud-i+1,1);
+     if( letra <> letracorrespondiente ) then
+        escapicua := 0;
+     end if;  
+  end loop;
+  if escapicua = 0 then
+     dbms_output.put_line('No es capicua');
+  else
+     dbms_output.put_line('Es capicua');
+  end if;
+end;
+/
+#+END_SRC
 ** Números primos capicúas menores de 100000
 
 ** Decidir si 1000003 es primo
