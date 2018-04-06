@@ -165,56 +165,6 @@ BEGIN
 END;
 #+END_SRC
 
-* Sentencias SQL en PLSQL
-
-** Variables en =select=
-
-#+BEGIN_SRC sql
-create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
-DECLARE
-  vsalario NUMBER;
-BEGIN
-  SELECT salario INTO vsalario FROM empleados WHERE empno=7369;
-  dbms_output.put_line('El empleado numero 7369 tiene un sueldo de '||vsalario||'€');
-end;
-/
-#+END_SRC
-
-** Variables en =insert=, =update=, =delete=
-- Se utilizan como un valor inmediato
-#+BEGIN_SRC sql
-declare
-  vempno number;
-begin
-  vempno := 100;
-  insert into empleados(empno, salario, nombre)
-         values( vempno, 1000, 'Juan');
-  update empleados 
-         set salario = salario + 100
-         where empno = vempno;
-  delete from empleados where empno = vempno;
-end;
-/
-#+END_SRC
-
-** Recorrer consultas
-#+BEGIN_SRC sql
-DECLARE
-  c empleados%ROWTYPE;
-  salariototal number;
-  numeroempleados number;
-  mediasalario number;
-begin
-  numeroempleados := 0;
-  for c in (select * from empleados) loop
-    dbms_output.put_line(c.nombre);
-    numeroempleados := numeroempleados + 1;
-    salariototal := salariototal + c.salario;
-  end loop;
-  mediasalario := salariototal / numeroempleados;
-end;
-/
-#+END_SRC
 
 * Funciones y procedimientos
 - Son bloques de código identificados con un nombre
@@ -322,6 +272,60 @@ end;
 
 
 
+
+* Sentencias SQL en PLSQL
+
+** Variables en =select=
+
+#+BEGIN_SRC sql
+create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+DECLARE
+  vsalario NUMBER;
+BEGIN
+  SELECT salario INTO vsalario FROM empleados WHERE empno=7369;
+  dbms_output.put_line('El empleado numero 7369 tiene un sueldo de '||vsalario||'€');
+end;
+/
+#+END_SRC
+
+** Variables en =insert=, =update=, =delete=
+- Se utilizan como un valor inmediato
+#+BEGIN_SRC sql
+declare
+  vempno number;
+begin
+  vempno := 100;
+  insert into empleados(empno, salario, nombre)
+         values( vempno, 1000, 'Juan');
+  update empleados 
+         set salario = salario + 100
+         where empno = vempno;
+  delete from empleados where empno = vempno;
+end;
+/
+#+END_SRC
+
+** Recorrer consultas
+#+BEGIN_SRC sql
+DECLARE
+  c empleados%ROWTYPE;
+  salariototal number;
+  numeroempleados number;
+  mediasalario number;
+begin
+  numeroempleados := 0;
+  for c in (select * from empleados) loop
+    dbms_output.put_line(c.nombre);
+    numeroempleados := numeroempleados + 1;
+    salariototal := salariototal + c.salario;
+  end loop;
+  mediasalario := salariototal / numeroempleados;
+end;
+/
+#+END_SRC
+
+
+
 * Control de errores
 - Si se produce un error, se lanza una *excepción*
   - Se interrumpe el flujo de programa
@@ -358,9 +362,9 @@ END;
 
 ** Excepciones predefinidas
 - Estas son algunas (hay muchas)
-| NO_DATA_FOUND    | TOO_MANY_ROWS | ACCESS_INTO_NULL |
-| INVALID_NUMBER   | NO_DATA_FOUND | VALUE_ERROR      |
-| ROWTYPE_MISMATCH | ZERO_DIVIDE   |                  |
+| ~NO_DATA_FOUND~    | ~TOO_MANY_ROWS~ | ~ACCESS_INTO_NULL~ |
+| ~INVALID_NUMBER~   | ~NO_DATA_FOUND~ | ~VALUE_ERROR~      |
+| ~ROWTYPE_MISMATCH~ | ~ZERO_DIVIDE~   |                    |
 
 
 ** =SQLCODE= y =SQLERRM=   
