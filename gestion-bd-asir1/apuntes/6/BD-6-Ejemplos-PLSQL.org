@@ -1,8 +1,26 @@
 * Programación
 
 ** Tabla de multiplicar Del 7
+#+begin_src c
+7 x 1 = 7
+7 x 2 = 14
+...
+#+end_src
 ** Tablas de multiplicar del 1 al 9
 ** Tablas de multiplicar bien alineadas
+Los números se tabulan alineándolos a la derecha
+#+begin_src c
+7 x  1 =  7
+7 x  2 = 14
+7 x  3 = 14
+7 x  4 = 14
+7 x  5 = 14
+7 x  6 = 14
+7 x  7 = 14
+7 x  8 = 14
+7 x  9 = 14
+7 x 10 = 14
+#+end_src
 ** Pasar de decimal a binario
 ** Pasar de decimal a una base entre 2 y 16
 ** Pasar de una base de 2 a 16 a decimal 
@@ -11,6 +29,8 @@
 ** Números primos capicúas menores de 100000
 
 ** Decidir si 1000003 es primo
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 declare
   posibleprimo numeric(10,0) := 1000003;
@@ -34,6 +54,8 @@ end;
 
 
 ** Convertir boolean a char
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace function bool2char(b in boolean) return varchar 
 is
@@ -46,6 +68,8 @@ end;
 
 
 ** Primos
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace function es_primo(posibleprimo IN number) return char
 is
@@ -76,6 +100,8 @@ end;
 
 
 ** Paso por valor
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace procedure sumaUno(n in out numeric)
 is
@@ -103,6 +129,8 @@ end;
 * Estudiantes
 
 ** Estadística por nombre
+Crea un procedimiento que reciba un nombre o apellido, e imprima cuántos alumnos tienen ese nombre o apellido.
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace function cuantos_se_llaman(nombre_o_apellidos in varchar) return numeric
 as
@@ -134,6 +162,8 @@ end;
 
 ** Matricular un hermano
  Un hermano comparte todos los datos, excepto el nombre y el tratamiento
+
+*** Solución                                                       :noexport:
  #+begin_src sql
  create or replace 
  PROCEDURE MATRICULAR_HERMANO(student_id_existente number, saludo_hermano varchar, nombre_hermano varchar) AS 
@@ -152,7 +182,9 @@ end;
  #+end_src
 
 ** Calcular nota máxima y mínima
+Crea una función con dos parámetros out, que devuelvan la nota mínima y máxima entre las notas parciales (tabla =grade=)
 
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace function maxima_minima_nota(
   maximo out numeric,
@@ -175,6 +207,8 @@ end;
 #+end_src
 
 ** Calcular la media de notas por encima de cierto valor
+Crea una función que devuelva la media de las notas mayores que un umbral (tabla =grade=)
+*** Solución                                                       :noexport:
  #+begin_src sql
  create or replace 
  FUNCTION MEDIA_DE_GRADES(minimo number) RETURN number AS 
@@ -197,6 +231,9 @@ end;
  #+end_src
 
 ** Costes totales de los cursos
+Funcion que devuelve la suma de los precios de todos los cursos (table =course=)
+
+*** Solución                                                       :noexport:
  #+begin_src sql
  create or replace 
  FUNCTION SUMACOSTES RETURN NUMBER AS 
@@ -224,6 +261,9 @@ end;
  #+end_src
 
 ** Insertar un ID automático en un estudiante
+
+Crea un /trigger/ que añada un ID a los estudiantes insertados, en el caso de que no tengan un ID ya asignado. El ID saldrá de una secuencia.
+*** Solución                                                       :noexport:
  #+begin_src sql
  CREATE OR REPLACE TRIGGER "ALUMNO"."PONER_ID_A_STUDENT" 
     before insert on "ALUMNO"."STUDENT" 
@@ -239,6 +279,9 @@ end;
  #+end_src
 
 ** Actualizar campos de auditoría
+
+Crea  /triggers/ que actualicen los campos de auditoría =modified_by= y =modified_date= de todas las tablas de la base de datos.
+*** Solución                                                       :noexport:
 #+begin_src sql
 create or replace trigger actualiza_lo_de_modificado
 before update
@@ -254,23 +297,27 @@ end;
 * Sueldos y masa salarial (desnormalización)
 
 ** Tablas de masa salarial
+
 #+begin_src sql
 create table sueldos( sueldo numeric)
 create table masasalarialtotal(id integer, total numeric);
 #+end_src
 
 ** Limitar los sueldos por arriba y por abajo
+haz un /trigger/ que evite que asegure que los empleados no cobran menos de 100000€ ni más de 1000000€.
+
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 CREATE TRIGGER COMPROBAR_SUELDO
 BEFORE
-INSERT OR UPDATE OF SALARIO, PUESTO ON EMPLEADOS
+INSERT OR UPDATE OF sueldo ON sueldos
 FOR EACH ROW
-WHEN (NEW.PUESTO <> 'PRESIDENTE')
 DECLARE
 SUELDO_FUERA_RANGO EXCEPTION;
 BEGIN
-IF (:NEW.SALARIO < 100000 OR
-:NEW.SALARIO > 1000000) THEN
+IF (:NEW.sueldo < 100000 OR
+:NEW.sueldo > 1000000) THEN
 RAISE SUELDO_FUERA_RANGO;
 END IF;
 END;
@@ -278,6 +325,15 @@ END;
 
 
 ** Inicializar la masa salarial
+Crea una tabla =masasalarialtotal=. Tendrá una sola fila con la suma de todos los sueldos
+
+#+BEGIN_SRC sql
+create table masasalarialtotal( total numberic );
+#+END_SRC
+
+Crea un procedimiento que se asegure que solo hay una fila con la suma de todos los sueldos.
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 CREATE OR REPLACE PROCEDURE INICIALIZA_MASA_SALARIAL_TOTAL AS 
   t number;
@@ -292,6 +348,8 @@ END INICIALIZA_MASA_SALARIAL_TOTAL;
 
 
 ** Actualizar al borrar
+Crea un /trigger/ que actualice la masa salarial al borrar un sueldo
+*** Solución                                                       :noexport:
 #+begin_src sql
 CREATE OR REPLACE TRIGGER MASA_SALARIAL_BORRANDO 
 BEFORE DELETE ON SUELDOS 
@@ -304,6 +362,9 @@ END;
 
 
 ** Actualizar al modificar o insertar
+Crea un /trigger/ que actualice la masa salarial al modificar o insertar un sueldo
+
+*** Solución                                                       :noexport:
 #+begin_src sql
 CREATE OR REPLACE TRIGGER MENOR_DE_UN_MILLON 
 BEFORE INSERT or update ON SUELDOS
