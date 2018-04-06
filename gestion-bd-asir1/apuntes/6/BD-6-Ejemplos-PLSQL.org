@@ -54,7 +54,7 @@ end;
 /
 #+end_src
 
-
+Un número es primo si solo es divisible por 1 y por si mismo. Un número es divisible por otro si el resto de la división (función =mod=) es cero.
 ** Convertir boolean a char
 
 *** Solución                                                       :noexport:
