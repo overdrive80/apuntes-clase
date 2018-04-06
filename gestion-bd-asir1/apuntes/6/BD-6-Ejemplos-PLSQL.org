@@ -1,3 +1,4 @@
+#+title: Ejemplos y ejercicios PLSQL
 * Programación
 
 ** Tabla de multiplicar Del 7
@@ -26,6 +27,7 @@ Los números se tabulan alineándolos a la derecha
 ** Pasar de una base de 2 a 16 a decimal 
 ** Números primos menores de 1000
 ** Decidir si un número es capicúa
+Usa =to_char= para pasar el número a texto, y utiliza =substr= para extraer posiciones del texto y compararlas.
 ** Números primos capicúas menores de 100000
 
 ** Decidir si 1000003 es primo
@@ -328,7 +330,7 @@ END;
 Crea una tabla =masasalarialtotal=. Tendrá una sola fila con la suma de todos los sueldos
 
 #+BEGIN_SRC sql
-create table masasalarialtotal( total numberic );
+create table masasalarialtotal( total numeric );
 #+END_SRC
 
 Crea un procedimiento que se asegure que solo hay una fila con la suma de todos los sueldos.
