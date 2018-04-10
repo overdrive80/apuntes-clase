@@ -28,45 +28,93 @@ Router(config)#
 #+end_src
 
 ** Salvar la configuración
-#+begin_src java
+#+BEGIN_EXAMPLE
 Router# write memory
 Router# copy running-config startup-config
-#+end_src
+#+END_EXAMPLE
 
 * Direcciones IP
 
 ** Asignar IP
-#+begin_src java
-Router(config-if)# interface fa0/0
+#+BEGIN_EXAMPLE
+Router(config)# interface fa0/0
 Router(config-if)# ip address 192.168.6.1 255.255.255.0
 Router(config-if)# no shutdown
 Router(config-if)# exit
 Router(config)#
-#+end_src
+#+END_EXAMPLE
 
 ** Consultar IP
-#+begin_src java
+#+BEGIN_EXAMPLE
 Router> show ip interface
 Router> show ip interface brief
-#+end_src
+#+END_EXAMPLE
 
 * Enrutamiento
 ** Añadir ruta
-#+begin_src java
+#+BEGIN_EXAMPLE
 Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
-#+end_src
+#+END_EXAMPLE
 
 ** Borrar ruta
-#+begin_src java
+#+BEGIN_EXAMPLE
 Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
-#+end_src
+#+END_EXAMPLE
 
 
 ** Consultar rutas
-#+begin_src java
+#+BEGIN_EXAMPLE
 Router> show ip route
-#+end_src
+#+END_EXAMPLE
 
+* VLAN
+
+** Consultar VLANs
+#+BEGIN_EXAMPLE 
+Switch> show vlan brief
+Switch> show interfaces trunk
+#+END_EXAMPLE
+
+** Crear una VLAN
+#+BEGIN_EXAMPLE 
+Switch(config)#vlan 2
+Switch(config-vlan)#name nombredevlan
+Switch(config-vlan)#exit
+#+END_EXAMPLE
+
+** Asignar un puerto a una VLAN (access)
+#+BEGIN_EXAMPLE 
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport access vlan 2
+#+END_EXAMPLE
+
+** Asignar un puerto como trunk
+#+BEGIN_EXAMPLE 
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport mode trunk
+#+END_EXAMPLE
+
+** Permitir/denegar una VLAN en un puerto trunk
+#+BEGIN_EXAMPLE
+Switch(config)#interface FastEthernet0/1
+Switch(config-if)#switchport trunk allowed vlan remove 2
+Switch(config-if)#switchport trunk allowed vlan add 2
+#+END_EXAMPLE
+
+** Routers
+- Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.
+- Estas interfaces se configuran como las demás, y se añaden a la tabla de rutas de la misma forma
+
+#+caption: Crea la interfaz virtual =fa0/0.1= sobre la interfaz real =fa0/0=, que recibirá las tramas 802.1q de la VLAN 2.
+#+BEGIN_EXAMPLE
+Router(config)# interface fa0/0.1
+Router(config-if)# encap dot1q 2
+Router(config-if)# ip address 192.168.6.1 255.255.255.0
+Router(config-if)# exit
+Router(config)# interface fa0/0
+Router(config-if)# no shutdown
+Router(config-if)# exit
+#+END_EXAMPLE
 
 * Referencias
 - Formatos:
