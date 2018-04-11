@@ -27,8 +27,8 @@
 \section{Objetivo de la práctica}
 Los objetivos de la práctica son:
 \begin{itemize}
-\item Diseñar una red en la que se tenga en cuenta la seguridad
-\item Configurar VLAN 802.1Q y reglas de acceso de \textit{firewall}
+\item Diseñar una red en la que se tenga en cuenta la velocidad
+\item Configurar VLAN 802.1Q en routers y switches
 \item Conocer comandos IOS de Cisco
 \end{itemize}
 
@@ -40,28 +40,25 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \begin{itemize}
 \item En una empresa hay dos departamentos: \textbf{comerciales} y \textbf{soporte} al cliente.
 \item Todos los empleados acceden a internet a través del mismo router.
-\item Los comerciales guardan sus archivos importantes en una carpeta compartida en un servidor, localizado en el CPD del sótano. Este servidor no debe ser accedido por ningún empleado de soporte, y no tiene conexión con internet para eliminar posibles problemas.
-\item El departamento de soporte al cliente utiliza otro servidor con una base de datos de sus actividades, localizado también en el CPD. Tras detectar algunas malas prácticas por parte de un comercial, se quiere que los comerciales no tengan acceso a dicho servidor.
-\item El servidor de soporte tiene acceso a Internet.  
-\item Siguiendo el principio de \enlace{https://es.wikipedia.org/wiki/Lista_blanca}{lista blanca}, todo lo que no está permitido en este enunciado está prohibido.
+\item Hay un switch en el sistema troncal. Hay un switch por cada sistema horizontal (de planta).  
+\item Los comerciales están en la planta 3, y los de soporte en la planta 2.
+\item A pesar de la división general por plantas, hay un comercial en la planta 2, y un técnico de soporte en la 3.
+\item Hay dos servidores conectados al sistema troncal directamente. Uno es del departamento comercial, y otro de soporte.
 \end{itemize}
+Se desea reducir los \enlace{https://es.wikipedia.org/wiki/Dominio_de_difusi\%C3\%B3n}{dominios de difusión} de la red. Para ello, se utilizará una VLAN para comerciales y otra para soporte, con diferentes subredes IP.
+A pesar de ello, se desea que todos los equipos de la red puedan comunicarse entre sí a nivel IP.
 
 \section{Diseño de la red}
 \begin{itemize}
 \item Incluye al menos:
   \begin{itemize}
-  \item Dos ordenadores por departamento (comercial, soporte)
-  \item Un switch por departamento
-  \item Un switch para el CPD, donde se conectarán los servidores y el router con acceso a Internet.
+  \item Dos ordenadores por departamento en su planta.
+  \item Un ordenador por departamento en una planta que no es la suya.
+  \item Los switchs especificados.
+  \item Los servidores especificados.
   \end{itemize}
 \item Los equipos estarán en subredes de \texttt{10.N.0.0/16} (siendo \texttt{N} el número del ordenador del alumno usado en otras prácticas).
 \item Además de los pedidos en el enunciado, pueden añadirse los switches y routers adicionales que se necesiten.  
-\item Se pueden conseguir los requisitos de la red utilizando
-  \begin{itemize}
-  \item VLAN 802.1q
-  \item Subredes/enrutamiento
-  \item ACL 
-  \end{itemize}
 \end{itemize}
 
 \section{Documentación de la red}
@@ -85,23 +82,19 @@ Rellena una tabla como la siguiente con la configuración de tu red
   
 \item La entrega se realizará en el Áula Virtual
 \item Se entregará un fichero PKT que pueda abrirse con la versión 7.1 de Packet Tracer.
-\item Se entregará un fichero por cada switch/router, con los comandos usados para su configuración.
 \item Los equipos identificarán en su etiqueta su IP, y su pertenencia a algún departamento o función.
 \end{itemize}
 
 \section{Qué se valorará}
 \begin{itemize}
-\item Que los equipos que deban comunicarse se comuniquen (\textbf{1.5} puntos)
-\item Que los equipos que no tengan que comunicarse no se comuniquen, suponiendo que se cumple el punto anterior
+\item Que se respeten los dominios de difusión (\textbf{3} puntos)
   \begin{itemize}
-  \item Comerciales separados de soporte (\textbf{3} puntos)
-  \item Servidor de comerciales no tiene acesso a internet (\textbf{3} puntos)
-  \item Se entiende que dos equipos \textit{no se comunican} si un broadcast de Ethernet (por ejemplo, ARP) no consigue viajar entre ellos en ninguno de los sentidos.
+  \item Se entiende que dos equipos \textit{no comparten dominio de difusión} si un broadcast de Ethernet (por ejemplo, ARP) no consigue viajar entre ellos en ninguno de los sentidos.
   \end{itemize}
 \item Que se incluyan etiquetas identificativas en cada equipo (\textbf{1.5} puntos)  
-\item Que haya un fichero de configuración con el nombre de cada switch/router (\textbf{1} punto)
+\item Que los departamentos puedan comunicarse a través de la capa 3 (\textbf{2} puntos)
+\item Que se rellene correctamente la tabla de documentación de la red (\textbf{2} puntos)
 \item \textbf{No se valorará} el ejercicio si las direcciones IP no son de la subred \texttt{10.N.0.0/16}.
-\item \textbf{No se valorará} el ejercicio si no se incluye la tabla de documentación de la red
 \end{itemize}
 
 
