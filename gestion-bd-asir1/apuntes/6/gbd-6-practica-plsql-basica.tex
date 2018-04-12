@@ -96,7 +96,6 @@ end;
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure ENTRADA_PRODUCTO(
   idproducto IN number,
-  idproveedor IN number,
   cantidad IN number,
   preciopagado IN number,
   fecha IN timestamp default systimestamp)
@@ -107,7 +106,6 @@ end;
 
 create or replace procedure SALIDA_PRODUCTO(
   idproducto IN number,
-  idcliente IN number,
   cantidad IN number,
   preciocobrado IN number,
   fecha IN timestamp default systimestamp)
@@ -148,15 +146,14 @@ create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ult
 
 \begin{homeworkProblem}[: Salida del almacén respetando existencias (1 punto)]
 
-  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}
+  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
+  Si el producto no existe, se lanzará el error -20102.
 
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure SALIDA_PRODUCTO_CON_STOCK(
   idproducto IN number,
-  idcliente IN number,
   cantidad IN number,
-  preciocobrado IN number,
-  fecha IN timestamp default systimestamp)
+  preciocobrado IN number
 as
 begin
   ...
