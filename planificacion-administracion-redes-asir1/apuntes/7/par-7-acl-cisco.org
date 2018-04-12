@@ -10,7 +10,7 @@
     - Cada regla define una acción (=permit=, =deny=) a ejecutar sobre el paquete que cumpla su condición
     - Siempre hay una regla al final que desecha cualquier paquete
 
-  #+REVEAL: split
+#+REVEAL: split
   + Se identifican por un número
     - Estándar: 
       - =1= a =99=
@@ -32,7 +32,7 @@
        3. Si alguna acepta el paquete, se acepta
        4. Si ninguna se aplica al paquete, se rechaza
 
-  #+REVEAL: split
+#+REVEAL: split
   + Antes de enviar un paquete      
     1. Si la interfaz no tiene ACL de salida, se envía
     2. Si tiene ACL, se revisan las reglas de la lista
@@ -251,10 +251,10 @@
 
 * Práctica
 
-   
-   #+BEGIN_LATEX
-   \textattachfile{ACL-inicial.pkt}{Fichero PKT inicial (adjunto al PDF)}
-   #+END_LATEX
+
+
+#+LATEX: \textattachfile{ACL-inicial.pkt}{Fichero PKT inicial (adjunto al PDF)}
+
 
    [[file:ACL-inicial.pkt][Enlace al fichero PKT inicial]]
 
