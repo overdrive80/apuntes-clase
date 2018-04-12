@@ -67,7 +67,7 @@ Rellena una tabla como la siguiente con la configuración de tu red
 \begin{center}
   \begin{tabular}{|c|c|c|c|}
     \hline
-    Nombre de equipo & Interfaz & VLAN & IP Máscara \\
+    Nombre de equipo & Interfaz & VLAN & IP/Máscara \\
     \hline
                      & & & \\
                      & & & \\
@@ -76,6 +76,12 @@ Rellena una tabla como la siguiente con la configuración de tu red
     \hline
   \end{tabular}
 \end{center}
+
+Es posible que no todas las columnas deban usarse para todos los adaptadores de red:
+\begin{itemize}
+\item Los puertos de los switchs no tienen dirección IP
+\item Los puertos de los servidores y PCs no tienen VLAN
+\end{itemize}
 
 \section{Normas de entrega}
 \begin{itemize}
