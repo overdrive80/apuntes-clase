@@ -117,10 +117,10 @@ end;
 
 
   
-  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto en un momento concreto. Se tendrán en cuenta las entradas y salidas de producto hasta la fecha indicada (fecha incluida). Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
+  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
 
   \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
-create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number, fecha IN timestamp default sysdate) return number
+create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number) return number
 as
 begin
   ...
