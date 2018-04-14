@@ -131,12 +131,12 @@ end;
 
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Vista de existencias (1 punto)]
+\begin{homeworkProblem}[: Vista de existencias]
 
   Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock \textbf{en el momento actual}. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}.
 
   \begin{listadosql}{Vista de existencias}{lst:vista-existencias}
-create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
+create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
 ...
   \end{listadosql}  
   
@@ -144,7 +144,7 @@ create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ult
 
 
 
-\begin{homeworkProblem}[: Salida del almacén respetando existencias (1 punto)]
+\begin{homeworkProblem}[: Salida del almacén respetando existencias]
 
   Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
   Si el producto no existe, se lanzará el error -20102.
