@@ -60,11 +60,59 @@ Bucles lan
   -  Qué costes tiene cada uno de sus puertos para llegar a la raiz
 - Generalmente, se envían cada 2 segundos
 
-** Ejemplos
+** Ejemplo Wikipedia
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo1-final.svg]]
+
+** Ejemplo 2
+#+caption: Red inicial
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo2-1.svg]]
+
+#+reveal: split
+#+caption: Los RP son los puertos más cercanos a la raíz
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo2-2.svg]]
+
+#+reveal: split
+#+caption: Los DP son los que se conectan a algún RP
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo2-3.svg]]
+
+#+reveal: split
+#+caption: Los BP son los puertos que no son ni RP ni DP
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo2-4.svg]]
 
 
 
+** Ejemplo 3
+#+caption: Red inicial
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo3-1.svg]]
 
+#+reveal: split
+#+caption: Costes de los enlaces
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo3-2.svg]]
+
+#+reveal: split
+#+caption: Coste del camino hacia el raíz de cada puerto
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo3-3.svg]]
+
+#+reveal: split
+#+caption: Salidas hacia el raíz (RP)
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo3-4.svg]]
+
+#+reveal: split
+#+caption: Enlaces no usados
+#+ATTR_LaTeX: :placement [!htpb]
+[[file:media/stp-ejemplo3-5.svg]]
+
+
+#+latex: \clearpage
 * IEEE 802.3ad: [[https://en.wikipedia.org/wiki/Link_aggregation][Link Aggregation]]
 - Los switches no envían entre sí tramas ethernet estándar
 - Agrupan varios enlaces y los utilizan como uno solo
