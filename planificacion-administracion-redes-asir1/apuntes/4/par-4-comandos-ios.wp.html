@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-04-10 mar 09:57 -->
+<!-- 2018-04-17 mar 08:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Comandos IOS</title>
@@ -239,17 +239,17 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1391b5e">1. General</a></li>
-<li><a href="#org167356b">2. Direcciones IP</a></li>
-<li><a href="#org1195423">3. Enrutamiento</a></li>
-<li><a href="#org6f14148">4. VLAN</a></li>
-<li><a href="#orgaa78227">5. Referencias</a></li>
+<li><a href="#org7c7c318">1. General</a></li>
+<li><a href="#orgc951682">2. Direcciones IP</a></li>
+<li><a href="#orgf49d586">3. Enrutamiento</a></li>
+<li><a href="#org13967a9">4. VLAN</a></li>
+<li><a href="#org20a3d92">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1391b5e" class="outline-2">
-<h2 id="org1391b5e"><span class="section-number-2">1</span> General</h2>
+<div id="outline-container-org7c7c318" class="outline-2">
+<h2 id="org7c7c318"><span class="section-number-2">1</span> General</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><code>CTRL-ALT-6</code> para parar un comando incorrecto</li>
@@ -258,8 +258,8 @@ for the JavaScript code in this tag.
 <li>Un comando con <code>no</code> deshace el comando</li>
 </ul>
 </div>
-<div id="outline-container-org7c253cc" class="outline-3">
-<h3 id="org7c253cc"><span class="section-number-3">1.1</span> Modos</h3>
+<div id="outline-container-org3e1f8d5" class="outline-3">
+<h3 id="org3e1f8d5"><span class="section-number-3">1.1</span> Modos</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li><code>Press RETURN to get started.</code>
@@ -284,8 +284,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4cdd623" class="outline-3">
-<h3 id="org4cdd623"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
+<div id="outline-container-orgd8cc599" class="outline-3">
+<h3 id="orgd8cc599"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-java">Router&gt; enable
@@ -296,8 +296,8 @@ Router(config)#
 </div>
 </div>
 
-<div id="outline-container-orge457b9f" class="outline-3">
-<h3 id="orge457b9f"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
+<div id="outline-container-org05d49d9" class="outline-3">
+<h3 id="org05d49d9"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
 <div class="outline-text-3" id="text-1-3">
 <pre class="example">
 Router# write memory
@@ -307,12 +307,12 @@ Router# copy running-config startup-config
 </div>
 </div>
 
-<div id="outline-container-org167356b" class="outline-2">
-<h2 id="org167356b"><span class="section-number-2">2</span> Direcciones IP</h2>
+<div id="outline-container-orgc951682" class="outline-2">
+<h2 id="orgc951682"><span class="section-number-2">2</span> Direcciones IP</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org426e27a" class="outline-3">
-<h3 id="org426e27a"><span class="section-number-3">2.1</span> Asignar IP</h3>
+<div id="outline-container-org509799d" class="outline-3">
+<h3 id="org509799d"><span class="section-number-3">2.1</span> Asignar IP</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example">
 Router(config)# interface fa0/0
@@ -324,8 +324,8 @@ Router(config)#
 </div>
 </div>
 
-<div id="outline-container-org9b1021e" class="outline-3">
-<h3 id="org9b1021e"><span class="section-number-3">2.2</span> Consultar IP</h3>
+<div id="outline-container-orgd663ec0" class="outline-3">
+<h3 id="orgd663ec0"><span class="section-number-3">2.2</span> Consultar IP</h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="example">
 Router&gt; show ip interface
@@ -335,12 +335,12 @@ Router&gt; show ip interface brief
 </div>
 </div>
 
-<div id="outline-container-org1195423" class="outline-2">
-<h2 id="org1195423"><span class="section-number-2">3</span> Enrutamiento</h2>
+<div id="outline-container-orgf49d586" class="outline-2">
+<h2 id="orgf49d586"><span class="section-number-2">3</span> Enrutamiento</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgfb40b20" class="outline-3">
-<h3 id="orgfb40b20"><span class="section-number-3">3.1</span> Añadir ruta</h3>
+<div id="outline-container-org9add5b4" class="outline-3">
+<h3 id="org9add5b4"><span class="section-number-3">3.1</span> Añadir ruta</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -348,8 +348,8 @@ Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
 </div>
 </div>
 
-<div id="outline-container-org2f8b5c1" class="outline-3">
-<h3 id="org2f8b5c1"><span class="section-number-3">3.2</span> Borrar ruta</h3>
+<div id="outline-container-org67cdbe1" class="outline-3">
+<h3 id="org67cdbe1"><span class="section-number-3">3.2</span> Borrar ruta</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -358,8 +358,8 @@ Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
 </div>
 
 
-<div id="outline-container-org6a35956" class="outline-3">
-<h3 id="org6a35956"><span class="section-number-3">3.3</span> Consultar rutas</h3>
+<div id="outline-container-orgfb9f726" class="outline-3">
+<h3 id="orgfb9f726"><span class="section-number-3">3.3</span> Consultar rutas</h3>
 <div class="outline-text-3" id="text-3-3">
 <pre class="example">
 Router&gt; show ip route
@@ -368,12 +368,12 @@ Router&gt; show ip route
 </div>
 </div>
 
-<div id="outline-container-org6f14148" class="outline-2">
-<h2 id="org6f14148"><span class="section-number-2">4</span> VLAN</h2>
+<div id="outline-container-org13967a9" class="outline-2">
+<h2 id="org13967a9"><span class="section-number-2">4</span> VLAN</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org4f11f9c" class="outline-3">
-<h3 id="org4f11f9c"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
+<div id="outline-container-org561ffae" class="outline-3">
+<h3 id="org561ffae"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
 <div class="outline-text-3" id="text-4-1">
 <pre class="example">
 Switch&gt; show vlan brief
@@ -382,8 +382,8 @@ Switch&gt; show interfaces trunk
 </div>
 </div>
 
-<div id="outline-container-org3ed90ce" class="outline-3">
-<h3 id="org3ed90ce"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
+<div id="outline-container-orgd3261f4" class="outline-3">
+<h3 id="orgd3261f4"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
 <div class="outline-text-3" id="text-4-2">
 <pre class="example">
 Switch(config)#vlan 2
@@ -393,8 +393,8 @@ Switch(config-vlan)#exit
 </div>
 </div>
 
-<div id="outline-container-org20d79d1" class="outline-3">
-<h3 id="org20d79d1"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
+<div id="outline-container-orgdb03639" class="outline-3">
+<h3 id="orgdb03639"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
 <div class="outline-text-3" id="text-4-3">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -403,8 +403,8 @@ Switch(config-if)#switchport access vlan 2
 </div>
 </div>
 
-<div id="outline-container-org53cf6ef" class="outline-3">
-<h3 id="org53cf6ef"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
+<div id="outline-container-orgc88a8e4" class="outline-3">
+<h3 id="orgc88a8e4"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
 <div class="outline-text-3" id="text-4-4">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -413,8 +413,8 @@ Switch(config-if)#switchport mode trunk
 </div>
 </div>
 
-<div id="outline-container-org733c8f0" class="outline-3">
-<h3 id="org733c8f0"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
+<div id="outline-container-org52871b7" class="outline-3">
+<h3 id="org52871b7"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
 <div class="outline-text-3" id="text-4-5">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -424,8 +424,8 @@ Switch(config-if)#switchport trunk allowed vlan add 2
 </div>
 </div>
 
-<div id="outline-container-org0595749" class="outline-3">
-<h3 id="org0595749"><span class="section-number-3">4.6</span> Routers</h3>
+<div id="outline-container-org7c141c9" class="outline-3">
+<h3 id="org7c141c9"><span class="section-number-3">4.6</span> Routers</h3>
 <div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
 <li>Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.</li>
@@ -434,19 +434,23 @@ Switch(config-if)#switchport trunk allowed vlan add 2
 
 <pre class="example">
 Router(config)# interface fa0/0.1
-Router(config-if)# encap dot1q 2
-Router(config-if)# ip address 192.168.6.1 255.255.255.0
-Router(config-if)# exit
+Router(config-subif)# encap dot1q 2
+Router(config-subif)# ip address 192.168.6.1 255.255.255.0
+Router(config-subif)# exit
 Router(config)# interface fa0/0
 Router(config-if)# no shutdown
 Router(config-if)# exit
+</pre>
+
+<pre class="example">
+Router# show interfaces
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgaa78227" class="outline-2">
-<h2 id="orgaa78227"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org20a3d92" class="outline-2">
+<h2 id="org20a3d92"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -466,7 +470,7 @@ Router(config-if)# exit
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-04-10 mar 09:57</p>
+<p class="date">Created: 2018-04-17 mar 08:29</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

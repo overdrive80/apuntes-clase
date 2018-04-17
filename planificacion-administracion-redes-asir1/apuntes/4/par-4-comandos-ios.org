@@ -108,12 +108,18 @@ Switch(config-if)#switchport trunk allowed vlan add 2
 #+caption: Crea la interfaz virtual =fa0/0.1= sobre la interfaz real =fa0/0=, que recibirá las tramas 802.1q de la VLAN 2.
 #+BEGIN_EXAMPLE
 Router(config)# interface fa0/0.1
-Router(config-if)# encap dot1q 2
-Router(config-if)# ip address 192.168.6.1 255.255.255.0
-Router(config-if)# exit
+Router(config-subif)# encap dot1q 2
+Router(config-subif)# ip address 192.168.6.1 255.255.255.0
+Router(config-subif)# exit
 Router(config)# interface fa0/0
 Router(config-if)# no shutdown
 Router(config-if)# exit
+#+END_EXAMPLE
+
+#+reveal: split
+#+caption: Mostrar información de las interfaces (incluido VLAN) en un router
+#+BEGIN_EXAMPLE
+Router# show interfaces
 #+END_EXAMPLE
 
 * Referencias
