@@ -41,9 +41,8 @@ Una compañía necesita automatizar su almacén
   \end{itemize}
 \item De cada salida de producto del almacén se apunta
   \begin{itemize}
-  \item El cliente al que se envía
   \item La fecha de salida
-  \item El producto, cantidad de producto y precio por unidad que paga el proveedor
+  \item El producto, cantidad de producto y precio por unidad que paga el cliente
   \end{itemize}
 \end{itemize}
 
@@ -96,7 +95,6 @@ end;
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure ENTRADA_PRODUCTO(
   idproducto IN number,
-  idproveedor IN number,
   cantidad IN number,
   preciopagado IN number,
   fecha IN timestamp default systimestamp)
@@ -107,7 +105,6 @@ end;
 
 create or replace procedure SALIDA_PRODUCTO(
   idproducto IN number,
-  idcliente IN number,
   cantidad IN number,
   preciocobrado IN number,
   fecha IN timestamp default systimestamp)
@@ -119,10 +116,10 @@ end;
 
 
   
-  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto en un momento concreto. Se tendrán en cuenta las entradas y salidas de producto hasta la fecha indicada (fecha incluida). Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
+  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
 
   \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
-create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number, fecha IN timestamp default sysdate) return number
+create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number) return number
 as
 begin
   ...
@@ -133,12 +130,12 @@ end;
 
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Vista de existencias (1 punto)]
+\begin{homeworkProblem}[: Vista de existencias]
 
   Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock \textbf{en el momento actual}. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}.
 
   \begin{listadosql}{Vista de existencias}{lst:vista-existencias}
-create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
+create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
 ...
   \end{listadosql}  
   
@@ -146,17 +143,16 @@ create or replace view EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ult
 
 
 
-\begin{homeworkProblem}[: Salida del almacén respetando existencias (1 punto)]
+\begin{homeworkProblem}[: Salida del almacén respetando existencias]
 
-  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}
+  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
+  Si el producto no existe, se lanzará el error -20102.
 
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure SALIDA_PRODUCTO_CON_STOCK(
   idproducto IN number,
-  idcliente IN number,
   cantidad IN number,
-  preciocobrado IN number,
-  fecha IN timestamp default systimestamp)
+  preciocobrado IN number
 as
 begin
   ...
@@ -167,6 +163,9 @@ end;
   
 \end{homeworkProblem}
 
+\section{Entorno de pruebas}
+En clase hay accesible un servidor Oracle (\texttt{10.1.37.200}), con un usuario para cada alumno (usuario y contraseña es el apellido en minúsculas).
+El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.37.200}{http://10.1.37.200}.
 
 \section{Instrucciones de entrega}
 Se creará un único fichero SQL para todos los apartados.

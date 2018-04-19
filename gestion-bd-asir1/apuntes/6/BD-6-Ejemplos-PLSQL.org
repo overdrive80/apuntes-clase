@@ -162,29 +162,30 @@ end;
 Crea un procedimiento que reciba un nombre o apellido, e imprima cuántos alumnos tienen ese nombre o apellido.
 *** Solución                                                       :noexport:
 #+begin_src sql
-create or replace function cuantos_se_llaman(nombre_o_apellidos in varchar) return numeric
+create or replace function cuantos_con_nombre_o_apellido(
+  nombreoapellido in varchar
+)
+return number
 as
-  cuantosnombres numeric;
-  cuantosapellidos numeric;
-
+  contador number := 0;
 begin
-  select count(*) 
-     into cuantosnombres 
-     from student 
-     where first_name = nombre_o_apellidos;
-  
-  select count(*) 
-     into cuantosapellidos 
-     from student 
-     where last_name = nombre_o_apellidos;
-  
-  return cuantosnombres + cuantosapellidos;
-
+  for estudiante in (select * from student) loop
+    if( estudiante.first_name = nombreoapellido ) then
+      contador := contador + 1;
+    end if;
+    if( estudiante.last_name = nombreoapellido ) then
+      contador := contador + 1;
+    end if;
+  end loop;
+  return contador;
 end;
 /
 
+declare 
+  cuantos number;
 begin
-  dbms_output.put_line( cuantos_se_llaman('González') );
+   cuantos := cuantos_con_nombre_o_apellido('Allende');
+   dbms_output.put_line( cuantos );
 end;
 /
 #+end_src
@@ -195,24 +196,42 @@ end;
 
 *** Solución                                                       :noexport:
  #+begin_src sql
- create or replace 
- PROCEDURE MATRICULAR_HERMANO(student_id_existente number, saludo_hermano varchar, nombre_hermano varchar) AS 
-   alumno_existente student%ROWTYPE;
- BEGIN
-   select * into alumno_existente from student where student_id = student_id_existente;
+create or replace procedure matricular_hermano(
+  idqueyaexiste number,
+  nuevonombre varchar,
+  nuevotratamiento varchar,
+  iddelnuevohermano out number
+)
+as  
+  fila student%rowtype;
+begin
+  select  *
+  into fila
+  from student
+  where student_id = idqueyaexiste;
   
-   select max(student_id)+1 into alumno_existente.student_id from student;
-
-   alumno_existente.salutation := saludo_hermano;  
-   alumno_existente.first_name := nombre_hermano;
+  fila.first_name := nuevonombre;
+  fila.salutation := nuevotratamiento;
   
-   insert into student values alumno_existente;
+  select max(student_id)+1
+  into fila.student_id
+  from student;
   
- END MATRICULAR_HERMANO;
+  fila.registration_date := sysdate;
+  fila.created_by := user;
+  fila.created_date := sysdate;
+  fila.modified_by := user;
+  fila.modified_date := sysdate;
+  
+  insert into student values fila;
+  
+  iddelnuevohermano := fila.student_id;
+end;
+/
  #+end_src
 
 ** Calcular nota máxima y mínima
-Crea una función con dos parámetros out, que devuelvan la nota mínima y máxima entre las notas parciales (tabla =grade=)
+Crea un procedimiento con dos parámetros out, que devuelvan la nota mínima y máxima entre las notas parciales (tabla =grade=)
 
 *** Solución                                                       :noexport:
 #+begin_src sql

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ES" xml:lang="ES">
 <head>
-<!-- 2018-04-17 mar 08:29 -->
+<!-- 2018-04-17 mar 09:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Comandos IOS</title>
+<title>Ethernet. Bucles LAN</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
-<meta name="keywords" content=" IOS, Packet Tracer" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -234,229 +233,318 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Comandos IOS</h1>
+<h1 class="title">Ethernet. Bucles LAN</h1>
 <div id="table-of-contents">
-<h2>&Iacute;ndice</h2>
+<h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7c7c318">1. General</a></li>
-<li><a href="#orgc951682">2. Direcciones IP</a></li>
-<li><a href="#orgf49d586">3. Enrutamiento</a></li>
-<li><a href="#org13967a9">4. VLAN</a></li>
-<li><a href="#org20a3d92">5. Referencias</a></li>
+<li><a href="#orgce16817">1. Introducción</a></li>
+<li><a href="#org88e13af">2. Bucles LAN</a></li>
+<li><a href="#orgd433a5c">3. 802.1D: Spanning Tree</a></li>
+<li><a href="#orgb8184b3">4. IEEE 802.3ad: Link Aggregation</a></li>
+<li><a href="#orgabab082">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7c7c318" class="outline-2">
-<h2 id="org7c7c318"><span class="section-number-2">1</span> General</h2>
+<div id="outline-container-orgce16817" class="outline-2">
+<h2 id="orgce16817"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
+<p>
+Bucles lan
+</p>
 <ul class="org-ul">
-<li><code>CTRL-ALT-6</code> para parar un comando incorrecto</li>
-<li><code>?</code> para conseguir siguientes comandos</li>
-<li><code>TAB</code> para autocompletar</li>
-<li>Un comando con <code>no</code> deshace el comando</li>
-</ul>
-</div>
-<div id="outline-container-org3e1f8d5" class="outline-3">
-<h3 id="org3e1f8d5"><span class="section-number-3">1.1</span> Modos</h3>
-<div class="outline-text-3" id="text-1-1">
+<li>Generalmente, una LAN se configura de forma jerárquica
 <ul class="org-ul">
-<li><code>Press RETURN to get started.</code>
-<ul class="org-ul">
-<li>Desactivado</li>
+<li>Óptimo según el cableado estructurado</li>
+<li>Fácil de entender</li>
 </ul></li>
-<li><code>Router&gt;</code>
+<li>A veces conviene una topología en forma de malla
 <ul class="org-ul">
-<li><code>show</code> para mostrar información</li>
-<li><code>enable</code> para configurar (privileged commands)</li>
-</ul></li>
-<li><code>Router#</code>
-<ul class="org-ul">
-<li>Resto de comandos</li>
-<li><code>configure terminal</code> para cambiar la configuración</li>
-</ul></li>
-<li><code>Router(config)#</code>
-<ul class="org-ul">
-<li>Raíz de la configuración</li>
+<li>Mayor tolerancia a fallos</li>
+<li>A veces, mayor velocidad entre switches</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgd8cc599" class="outline-3">
-<h3 id="orgd8cc599"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
-<div class="outline-text-3" id="text-1-2">
-<div class="org-src-container">
-<pre class="src src-java">Router&gt; enable
-Router# configure terminal
-Router(config)#
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org05d49d9" class="outline-3">
-<h3 id="org05d49d9"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
-<div class="outline-text-3" id="text-1-3">
-<pre class="example">
-Router# write memory
-Router# copy running-config startup-config
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc951682" class="outline-2">
-<h2 id="orgc951682"><span class="section-number-2">2</span> Direcciones IP</h2>
+<div id="outline-container-org88e13af" class="outline-2">
+<h2 id="org88e13af"><span class="section-number-2">2</span> Bucles LAN</h2>
 <div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org509799d" class="outline-3">
-<h3 id="org509799d"><span class="section-number-3">2.1</span> Asignar IP</h3>
-<div class="outline-text-3" id="text-2-1">
-<pre class="example">
-Router(config)# interface fa0/0
-Router(config-if)# ip address 192.168.6.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router(config)#
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgd663ec0" class="outline-3">
-<h3 id="orgd663ec0"><span class="section-number-3">2.2</span> Consultar IP</h3>
-<div class="outline-text-3" id="text-2-2">
-<pre class="example">
-Router&gt; show ip interface
-Router&gt; show ip interface brief
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgf49d586" class="outline-2">
-<h2 id="orgf49d586"><span class="section-number-2">3</span> Enrutamiento</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org9add5b4" class="outline-3">
-<h3 id="org9add5b4"><span class="section-number-3">3.1</span> Añadir ruta</h3>
-<div class="outline-text-3" id="text-3-1">
-<pre class="example">
-Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org67cdbe1" class="outline-3">
-<h3 id="org67cdbe1"><span class="section-number-3">3.2</span> Borrar ruta</h3>
-<div class="outline-text-3" id="text-3-2">
-<pre class="example">
-Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
-</pre>
-</div>
-</div>
-
-
-<div id="outline-container-orgfb9f726" class="outline-3">
-<h3 id="orgfb9f726"><span class="section-number-3">3.3</span> Consultar rutas</h3>
-<div class="outline-text-3" id="text-3-3">
-<pre class="example">
-Router&gt; show ip route
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org13967a9" class="outline-2">
-<h2 id="org13967a9"><span class="section-number-2">4</span> VLAN</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org561ffae" class="outline-3">
-<h3 id="org561ffae"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
-<div class="outline-text-3" id="text-4-1">
-<pre class="example">
-Switch&gt; show vlan brief
-Switch&gt; show interfaces trunk
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgd3261f4" class="outline-3">
-<h3 id="orgd3261f4"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
-<div class="outline-text-3" id="text-4-2">
-<pre class="example">
-Switch(config)#vlan 2
-Switch(config-vlan)#name nombredevlan
-Switch(config-vlan)#exit
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgdb03639" class="outline-3">
-<h3 id="orgdb03639"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
-<div class="outline-text-3" id="text-4-3">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport access vlan 2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgc88a8e4" class="outline-3">
-<h3 id="orgc88a8e4"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
-<div class="outline-text-3" id="text-4-4">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport mode trunk
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org52871b7" class="outline-3">
-<h3 id="org52871b7"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
-<div class="outline-text-3" id="text-4-5">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport trunk allowed vlan remove 2
-Switch(config-if)#switchport trunk allowed vlan add 2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org7c141c9" class="outline-3">
-<h3 id="org7c141c9"><span class="section-number-3">4.6</span> Routers</h3>
-<div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
-<li>Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.</li>
-<li>Estas interfaces se configuran como las demás, y se añaden a la tabla de rutas de la misma forma</li>
+<li>Problema
+<ul class="org-ul">
+<li>Una trama podría estar <i>viajando</i> por la red por siempre (<a href="https://en.wikipedia.org/wiki/Switching_loop">Switching loop</a>)</li>
+</ul></li>
+<li>Solución 1: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">STP</a>
+<ul class="org-ul">
+<li>Ciertos enlaces de la red se deshabilitan, para volver a una topología jerárquica</li>
+<li>Estos enlaces se habilitan de nuevo cuando se modifican las condiciones</li>
+</ul></li>
+<li>Solución 2:  <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a>
+<ul class="org-ul">
+<li>Se modifica el comportamiento de los switches</li>
+<li>Utilizan varias conexiones como una sola, con más velocidad</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgd433a5c" class="outline-2">
+<h2 id="orgd433a5c"><span class="section-number-2">3</span> 802.1D: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">Spanning Tree</a></h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Es un protocolo de red para conseguir un árbol (red jerárquica) a base de deshabilitar enlaces de una malla
+<ul class="org-ul">
+<li>El administrador puede definir una <b>raíz</b> (centro de estrella)</li>
+<li>Los switches envían paquetes entre sí para calcular sus distancias a esa raíz</li>
+<li>El puerto más <b>cercano</b> de cada switch se convierte en el puerto raíz</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org34c6ced" class="outline-3">
+<h3 id="org34c6ced"><span class="section-number-3">3.1</span> Nomenclatura</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li><b>Root Port</b> (RP): es el puerto por el que se llega más “barato” a la raíz
+<ul class="org-ul">
+<li>Coste del enlace: un enlace lento es más costoso. Esta es la medida para decidir entre enlaces. Coste = 10000/Mbs</li>
+<li>nos quedamos con el más “barato”, que es el más rápido</li>
+</ul></li>
+<li><b>Designated Port</b> (DP): es el puerto conectado al RP de algún otro switch</li>
+<li><b>Bumped Port (BP)</b>: Un puerto enchufado a otro switch, que no es RP ni DP</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd5e0179" class="outline-3">
+<h3 id="orgd5e0179"><span class="section-number-3">3.2</span> Costes de un enlace</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Definidos por un estándar</li>
+<li>Nosotros los aproximaremos por 10000/velocidad</li>
 </ul>
 
-<pre class="example">
-Router(config)# interface fa0/0.1
-Router(config-subif)# encap dot1q 2
-Router(config-subif)# ip address 192.168.6.1 255.255.255.0
-Router(config-subif)# exit
-Router(config)# interface fa0/0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-</pre>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Data rate</th>
+<th scope="col" class="org-right">STP Cost (802.1D-1998)</th>
+<th scope="col" class="org-right">RSTP Cost (802.1W-2001)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">4 Mbit/s</td>
+<td class="org-right">250</td>
+<td class="org-right">5000000</td>
+</tr>
+
+<tr>
+<td class="org-left">10 Mbit/s</td>
+<td class="org-right">100</td>
+<td class="org-right">2000000</td>
+</tr>
+
+<tr>
+<td class="org-left">16 Mbit/s</td>
+<td class="org-right">62</td>
+<td class="org-right">1250000</td>
+</tr>
+
+<tr>
+<td class="org-left">100 Mbit/s</td>
+<td class="org-right">19</td>
+<td class="org-right">200000</td>
+</tr>
+
+<tr>
+<td class="org-left">1 Gbit/s</td>
+<td class="org-right">4</td>
+<td class="org-right">20000</td>
+</tr>
+
+<tr>
+<td class="org-left">2 Gbit/s</td>
+<td class="org-right">3</td>
+<td class="org-right">10000</td>
+</tr>
+
+<tr>
+<td class="org-left">10 Gbit/s</td>
+<td class="org-right">2</td>
+<td class="org-right">2000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org9e12591" class="outline-3">
+<h3 id="org9e12591"><span class="section-number-3">3.3</span> Bridge Protocol Data Units</h3>
+<div class="outline-text-3" id="text-3-3">
+<ul class="org-ul">
+<li>Cada switch viene de fábrica con un ID para ser root
+<ul class="org-ul">
+<li>Aunque el administrador lo puede cambiar</li>
+</ul></li>
+<li>Se envían tramas BPDU para comunicarse
+<ul class="org-ul">
+<li>Qué switch tiene el menor ID</li>
+<li>Qué costes tiene cada uno de sus puertos para llegar a la raiz</li>
+</ul></li>
+<li>Generalmente, se envían cada 2 segundos</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgca99f26" class="outline-3">
+<h3 id="orgca99f26"><span class="section-number-3">3.4</span> Ejemplo Wikipedia</h3>
+<div class="outline-text-3" id="text-3-4">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo1-final.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org640feac" class="outline-3">
+<h3 id="org640feac"><span class="section-number-3">3.5</span> Ejemplo 2</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo2-1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 2: </span>Red inicial</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo2-2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 3: </span>Los RP son los puertos más cercanos a la raíz</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo2-3.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 4: </span>Los DP son los que se conectan a algún RP</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo2-4.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 5: </span>Los BP son los puertos que no son ni RP ni DP</p>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0a1dde6" class="outline-3">
+<h3 id="org0a1dde6"><span class="section-number-3">3.6</span> Ejemplo 3</h3>
+<div class="outline-text-3" id="text-3-6">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo3-1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 6: </span>Red inicial</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo3-2.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 7: </span>Costes de los enlaces</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo3-3.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 8: </span>Coste del camino hacia el raíz de cada puerto</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo3-4.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 9: </span>Salidas hacia el raíz (RP)</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="media/stp-ejemplo3-5.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+<p><span class="figure-number">Figure 10: </span>Enlaces no usados</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb8184b3" class="outline-2">
+<h2 id="orgb8184b3"><span class="section-number-2">4</span> IEEE 802.3ad: <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a></h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Los switches no envían entre sí tramas ethernet estándar</li>
+<li>Agrupan varios enlaces y los utilizan como uno solo</li>
+<li>Sirve para eliminar cuellos de botella entre switches.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="media/802-3ad.png" alt="802-3ad.png" />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a061b7" class="outline-3">
+<h3 id="org9a061b7"><span class="section-number-3">4.1</span> Configuración en Cisco</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Los puertos que se quieren agregar se añaden al mismo <code>channel-group</code></li>
+</ul>
 <pre class="example">
-Router# show interfaces
+Switch(config)# interface fa0/1
+Switch(config-if)# channel-group 1 mode active
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org20a3d92" class="outline-2">
-<h2 id="org20a3d92"><span class="section-number-2">5</span> Referencias</h2>
+
+<div id="outline-container-orgabab082" class="outline-2">
+<h2 id="orgabab082"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="par-4-comandos-ios.html">Transparencias</a></li>
-<li><a href="par-4-comandos-ios.pdf">PDF</a></li>
+<li><a href="par-03-bucles-lan.reveal.html">Transparencias</a></li>
+<li><a href="par-03-bucles-lan.pdf">PDF</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
@@ -469,8 +557,8 @@ Router# show interfaces
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-04-17 mar 08:29</p>
+<p class="author">Author: Álvaro González Sotillo</p>
+<p class="date">Created: 2018-04-17 mar 09:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
