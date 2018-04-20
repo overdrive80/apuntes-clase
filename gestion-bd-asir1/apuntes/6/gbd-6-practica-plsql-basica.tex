@@ -58,12 +58,14 @@ Una compañía necesita automatizar su almacén
   Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
 
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
-create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar(255), idproducto OUT number)
+create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
 as 
 begin
   -- CONSIGUE EL NUEVO ID 
   -- INSERTA EL PRODUCTO CON ESE ID
+  -- DEVUELVO EL NUEVO ID EN idproducto
 end;
+/
 \end{listadosql}
 
   El procedimiento devolverá en su segundo parámetro el identificador del producto recién creado.
