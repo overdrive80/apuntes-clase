@@ -193,31 +193,31 @@
    [[file:./media/ejercicio-acl-ampliada.png]]
 
 ** Planteamiento
-   Interfaz Fa0/1 (LAN)
+
+   Interfaz Fa0/0 (LAN)
    
-   |---+-----+---------------------------------------------+-----+-------------------------------------------|
-   |   |     | Entrada                                     |     | Salida                                    |
-   |---+-----+---------------------------------------------+-----+-------------------------------------------|
-   | / | <   | >                                           | <   | >                                         |
-   |   | /X/ | PING (ICMP)                                 | /X/ | PING (ICMP)                               |
-   |   | /V/ | /DNS (UDP con destino 53)/                  | /V/ | /DNS (UDP con origen 53)/                 |
-   |   | /V/ | /TCP si se ha establecido desde la LAN/     | /V/ | /TCP si se ha establecido desde la LAN/   |
-   |   | /V/ | /TCP si es una conexión entrante de la DMZ/ | /X/ | TCP si es una conexión entranta de la DMZ |
-   |   | /X/ | UDP                                         | /X/ | UDP                                       |
-   |---+-----+---------------------------------------------+-----+-------------------------------------------|
+   |---+-----+-----------------------------------------+-----+-------------------------------------------|
+   |   |     | Entrada                                 |     | Salida                                    |
+   |---+-----+-----------------------------------------+-----+-------------------------------------------|
+   | / | <   | >                                       | <   | >                                         |
+   |   | /X/ | PING (ICMP)                             | /X/ | PING (ICMP)                               |
+   |   | /V/ | /DNS (UDP con destino 53)/              | /V/ | /DNS (UDP con origen 53)/                 |
+   |   | /V/ | /TCP si se ha establecido desde la LAN/ | /V/ | /TCP si se ha establecido desde la LAN/   |
+   |   |     |                                         | /X/ | TCP si es una conexión entrante de la DMZ |
+   |   | /X/ | Todo                                    | /X/ | Todo                                      |
+   |---+-----+-----------------------------------------+-----+-------------------------------------------|
    #+REVEAL: split
 
-   Interfaz Fa0/0 (DMZ)
-   |---+-----+-------------------------------------------+-----+-------------------------------------------|
-   |   |     | Entrada                                   |     | Salida                                    |
-   |---+-----+-------------------------------------------+-----+-------------------------------------------|
-   | / | <   | >                                         | <   | >                                         |
-   |   | /X/ | PING (ICMP)                               | /X/ | PING (ICMP)                               |
-   |   | /V/ | /DNS (UDP con origen 53)/                 | /V/ | /DNS (UDP con destino 53)/                |
-   |   | /V/ | /TCP si se ha establecido desde la LAN/   | /V/ | /TCP si se ha establecido desde la LAN/   |
-   |   | /X/ | TCP si es una conexión entranta de la DMZ | /X/ | TCP si es una conexión entrante de la DMZ |
-   |   | /X/ | UDP                                       | /X/ | UDP                                       |
-   |---+-----+-------------------------------------------+-----+-------------------------------------------|
+   Interfaz Fa0/1 (DMZ)
+   |---+-----+-----------------------------------------+-----+----------------------------|
+   |   |     | Entrada                                 |     | Salida                     |
+   |---+-----+-----------------------------------------+-----+----------------------------|
+   | / | <   | >                                       | <   | >                          |
+   |   | /X/ | PING (ICMP)                             | /X/ | PING (ICMP)                |
+   |   | /V/ | /DNS (UDP con origen 53)/               | /V/ | /DNS (UDP con destino 53)/ |
+   |   | /V/ | /TCP si se ha establecido desde la LAN/ | /V/ | /TCP/                      |
+   |   | /X/ | Todo                                    | /X/ | Todo                       |
+   |---+-----+-----------------------------------------+-----+----------------------------|
   
    #+REVEAL: split
    - En el planteamiento anterior hay bastante redundancia, así que pueden agruparse muchas de esas reglas.
@@ -228,7 +228,7 @@
 
 
 ** Solución propuesta
-
+   
    Esta ACL debe colocarse en la tarjeta de la LAN, sentido inbound.
    #+BEGIN_SRC sh
    access-list 100 deny icmp any any

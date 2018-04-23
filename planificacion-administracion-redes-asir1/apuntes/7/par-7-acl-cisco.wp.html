@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-04-23 lun 11:30 -->
+<!-- 2018-04-23 lun 13:48 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Listas de control de acceso en routers CISCO</title>
@@ -239,22 +239,22 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org407c900">1. LISTAS DE CONTROL DE ACCESO</a></li>
-<li><a href="#org5c9e45e">2. PROCESAMIENTO DE ACL</a></li>
-<li><a href="#orgcf37e8a">3. COMANDOS ÚTILES</a></li>
-<li><a href="#org51ea0ff">4. ACL ESTANDAR</a></li>
-<li><a href="#org4b4df81">5. ACL AMPLIADAS</a></li>
-<li><a href="#org048ce02">6. PROCESO DE DEFINICIÓN DE ACLs</a></li>
-<li><a href="#org745d2be">7. Práctica</a></li>
-<li><a href="#org1a63d30">8. Referencias</a></li>
+<li><a href="#orgfde82aa">1. LISTAS DE CONTROL DE ACCESO</a></li>
+<li><a href="#orgf908090">2. PROCESAMIENTO DE ACL</a></li>
+<li><a href="#org02292b0">3. COMANDOS ÚTILES</a></li>
+<li><a href="#orgecb2e59">4. ACL ESTANDAR</a></li>
+<li><a href="#org75898e1">5. ACL AMPLIADAS</a></li>
+<li><a href="#org23e3ce9">6. PROCESO DE DEFINICIÓN DE ACLs</a></li>
+<li><a href="#orge17c85a">7. Práctica</a></li>
+<li><a href="#org43378cf">8. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-org407c900" class="outline-2">
-<h2 id="org407c900"><span class="section-number-2">1</span> LISTAS DE CONTROL DE ACCESO</h2>
+<div id="outline-container-orgfde82aa" class="outline-2">
+<h2 id="orgfde82aa"><span class="section-number-2">1</span> LISTAS DE CONTROL DE ACCESO</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Las ACL son listas con reglas.
@@ -289,8 +289,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5c9e45e" class="outline-2">
-<h2 id="org5c9e45e"><span class="section-number-2">2</span> PROCESAMIENTO DE ACL</h2>
+<div id="outline-container-orgf908090" class="outline-2">
+<h2 id="orgf908090"><span class="section-number-2">2</span> PROCESAMIENTO DE ACL</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Al llegar un paquete
@@ -332,8 +332,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgcf37e8a" class="outline-2">
-<h2 id="orgcf37e8a"><span class="section-number-2">3</span> COMANDOS ÚTILES</h2>
+<div id="outline-container-org02292b0" class="outline-2">
+<h2 id="org02292b0"><span class="section-number-2">3</span> COMANDOS ÚTILES</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Una vez creada una ACL (más adelante) es necesario
@@ -344,8 +344,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orgcc5140a" class="outline-3">
-<h3 id="orgcc5140a"><span class="section-number-3">3.1</span> Borrar una ACL</h3>
+<div id="outline-container-org9bb495f" class="outline-3">
+<h3 id="org9bb495f"><span class="section-number-3">3.1</span> Borrar una ACL</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sh">no access-list &lt;numero&gt;
@@ -353,8 +353,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-<div id="outline-container-org9818a1e" class="outline-3">
-<h3 id="org9818a1e"><span class="section-number-3">3.2</span> Mostrar las ACL existentes</h3>
+<div id="outline-container-orgee3f5bb" class="outline-3">
+<h3 id="orgee3f5bb"><span class="section-number-3">3.2</span> Mostrar las ACL existentes</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sh">show ip access-list
@@ -362,8 +362,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-<div id="outline-container-org200cf25" class="outline-3">
-<h3 id="org200cf25"><span class="section-number-3">3.3</span> ACL asociadas a una interfaz</h3>
+<div id="outline-container-org9e5dcde" class="outline-3">
+<h3 id="org9e5dcde"><span class="section-number-3">3.3</span> ACL asociadas a una interfaz</h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-sh">show ip interface &lt;interfaz&gt;
@@ -374,18 +374,18 @@ Es necesario mirar el apartado Inbound y Outbound
 </p>
 </div>
 </div>
-<div id="outline-container-org347b2dc" class="outline-3">
-<h3 id="org347b2dc"><span class="section-number-3">3.4</span> Asociar una ACL a una interfaz</h3>
+<div id="outline-container-orge2d2ba1" class="outline-3">
+<h3 id="orge2d2ba1"><span class="section-number-3">3.4</span> Asociar una ACL a una interfaz</h3>
 <div class="outline-text-3" id="text-3-4">
 <div class="org-src-container">
 <pre class="src src-sh">interface &lt;interfaz&gt;
-ip access-group &lt;numero ACL&gt; &lt;out o<span style="color: #b9ca4a;"> in</span>&gt;
+ip access-group &lt;numero ACL&gt; &lt;out o<span style="color: #a020f0;"> in</span>&gt;
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org1be392c" class="outline-3">
-<h3 id="org1be392c"><span class="section-number-3">3.5</span> Eliminar una ACL de una interfaz</h3>
+<div id="outline-container-org4e290e6" class="outline-3">
+<h3 id="org4e290e6"><span class="section-number-3">3.5</span> Eliminar una ACL de una interfaz</h3>
 <div class="outline-text-3" id="text-3-5">
 <div class="org-src-container">
 <pre class="src src-sh">interface &lt;interfaz&gt;
@@ -396,12 +396,12 @@ no ip access-group &lt;numero ACL&gt; &lt;in o out&gt;
 </div>
 </div>
 
-<div id="outline-container-org51ea0ff" class="outline-2">
-<h2 id="org51ea0ff"><span class="section-number-2">4</span> ACL ESTANDAR</h2>
+<div id="outline-container-orgecb2e59" class="outline-2">
+<h2 id="orgecb2e59"><span class="section-number-2">4</span> ACL ESTANDAR</h2>
 <div class="outline-text-2" id="text-4">
 <div class="org-src-container">
 <pre class="src src-sh">access-list access-list-number {permit|deny} 
-{host|<span style="color: #c397d8;">source</span> source-wildcard|any}<span style="color: #c397d8;">.</span>
+{host|<span style="color: #483d8b;">source</span> source-wildcard|any}<span style="color: #483d8b;">.</span>
 </pre>
 </div>
 <ul class="org-ul">
@@ -428,8 +428,8 @@ no ip access-group &lt;numero ACL&gt; &lt;in o out&gt;
 </ul>
 </div>
 
-<div id="outline-container-org5519d31" class="outline-3">
-<h3 id="org5519d31"><span class="section-number-3">4.1</span> Ejercicio</h3>
+<div id="outline-container-orgbf5d1dd" class="outline-3">
+<h3 id="orgbf5d1dd"><span class="section-number-3">4.1</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-1">
 <p>
 Se desea que la red <code>10.0.0.0/15</code> no sea enrutada, excepto el equipo <code>10.0.1.1</code>, que es del administrador.
@@ -437,8 +437,8 @@ Se desea que la red <code>10.0.0.0/15</code> no sea enrutada, excepto el equipo 
 </div>
 </div>
 
-<div id="outline-container-orgf3f5efa" class="outline-3">
-<h3 id="orgf3f5efa"><span class="section-number-3">4.2</span> Solución propuesta al ejercicio</h3>
+<div id="outline-container-org0080900" class="outline-3">
+<h3 id="org0080900"><span class="section-number-3">4.2</span> Solución propuesta al ejercicio</h3>
 <div class="outline-text-3" id="text-4-2">
 <ol class="org-ol">
 <li>Se elige un número libre de ACL (en este caso, el 1).</li>
@@ -481,7 +481,7 @@ Asociar esta ACL a la interfaz de entrada de la red <code>10.0.0.0/15</code>
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">interface Fa0/0
-ip access-group 1<span style="color: #b9ca4a;"> in</span>
+ip access-group 1<span style="color: #a020f0;"> in</span>
 </pre>
 </div></li>
 </ul>
@@ -491,8 +491,8 @@ ip access-group 1<span style="color: #b9ca4a;"> in</span>
 
 
 
-<div id="outline-container-org4b4df81" class="outline-2">
-<h2 id="org4b4df81"><span class="section-number-2">5</span> ACL AMPLIADAS</h2>
+<div id="outline-container-org75898e1" class="outline-2">
+<h2 id="org75898e1"><span class="section-number-2">5</span> ACL AMPLIADAS</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Pueden hacer referencia a otras características del paquete: 
@@ -505,21 +505,21 @@ Pueden hacer referencia a otras características del paquete:
 </ul>
 </div>
 
-<div id="outline-container-org3cfb95b" class="outline-3">
-<h3 id="org3cfb95b"><span class="section-number-3">5.1</span> IP</h3>
+<div id="outline-container-orgc433167" class="outline-3">
+<h3 id="orgc433167"><span class="section-number-3">5.1</span> IP</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-sh">access-list access-list-number [dynamic dynamic-name [timeout minutes]]
 {deny | permit} protocol 
-<span style="color: #c397d8;">source</span> source-wildcard destination   destination-wildcard
+<span style="color: #483d8b;">source</span> source-wildcard destination   destination-wildcard
 [precedence precedence] [tos tos] [log | log-input]  
 [time-range time-range-name][fragments]
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgf3e80c9" class="outline-3">
-<h3 id="orgf3e80c9"><span class="section-number-3">5.2</span> Protocolo de mensajes de control de Internet (ICMP)</h3>
+<div id="outline-container-org3a35499" class="outline-3">
+<h3 id="org3a35499"><span class="section-number-3">5.2</span> Protocolo de mensajes de control de Internet (ICMP)</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-sh">access-list access-list-number [dynamic dynamic-name [timeout minutes]]
@@ -530,13 +530,13 @@ Pueden hacer referencia a otras características del paquete:
 </div>
 </div>
 </div>
-<div id="outline-container-org5469091" class="outline-3">
-<h3 id="org5469091"><span class="section-number-3">5.3</span> Protocolo de control de transporte (TCP)</h3>
+<div id="outline-container-org0a2ff41" class="outline-3">
+<h3 id="org0a2ff41"><span class="section-number-3">5.3</span> Protocolo de control de transporte (TCP)</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-sh">access-list access-list-number [dynamic dynamic-name [timeout minutes]]  
 {deny | permit} tcp   
-<span style="color: #c397d8;">source</span> source-wildcard [operator [port]] 
+<span style="color: #483d8b;">source</span> source-wildcard [operator [port]] 
 destination destination-wildcard   [operator [port]] [established] 
 [precedence precedence] [tos tos] [log |   log-input] 
 [time-range time-range-name][fragments]
@@ -544,13 +544,13 @@ destination destination-wildcard   [operator [port]] [established]
 </div>
 </div>
 </div>
-<div id="outline-container-org71a066f" class="outline-3">
-<h3 id="org71a066f"><span class="section-number-3">5.4</span> Protocolo de datagrama de usuario (UDP)</h3>
+<div id="outline-container-org13de11a" class="outline-3">
+<h3 id="org13de11a"><span class="section-number-3">5.4</span> Protocolo de datagrama de usuario (UDP)</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
 <pre class="src src-sh">access-list access-list-number [dynamic dynamic-name [timeout minutes]]   
 {deny | permit} udp   
-<span style="color: #c397d8;">source</span> source-wildcard [operator [port]] 
+<span style="color: #483d8b;">source</span> source-wildcard [operator [port]] 
 destination destination-wildcard   [operator [port]]
 [precedence precedence] [tos tos] [log | log-input] 
 [time-range time-range-name][fragments]
@@ -560,8 +560,8 @@ destination destination-wildcard   [operator [port]]
 </div>
 </div>
 
-<div id="outline-container-org048ce02" class="outline-2">
-<h2 id="org048ce02"><span class="section-number-2">6</span> PROCESO DE DEFINICIÓN DE ACLs</h2>
+<div id="outline-container-org23e3ce9" class="outline-2">
+<h2 id="org23e3ce9"><span class="section-number-2">6</span> PROCESO DE DEFINICIÓN DE ACLs</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Para definir las ACL de un router es necesario
@@ -581,8 +581,8 @@ destination destination-wildcard   [operator [port]]
 </ul>
 </div>
 
-<div id="outline-container-org2439702" class="outline-3">
-<h3 id="org2439702"><span class="section-number-3">6.1</span> Ejercicio</h3>
+<div id="outline-container-org81a1cb7" class="outline-3">
+<h3 id="org81a1cb7"><span class="section-number-3">6.1</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Un router une las redes <code>192.168.1.0/24</code> (LAN) y <code>172.16.1.0/24</code> (DMZ). Se desea que:
@@ -601,11 +601,11 @@ destination destination-wildcard   [operator [port]]
 </div>
 </div>
 
-<div id="outline-container-org387e367" class="outline-3">
-<h3 id="org387e367"><span class="section-number-3">6.2</span> Planteamiento</h3>
+<div id="outline-container-org403db60" class="outline-3">
+<h3 id="org403db60"><span class="section-number-3">6.2</span> Planteamiento</h3>
 <div class="outline-text-3" id="text-6-2">
 <p>
-Interfaz Fa0/1 (LAN)
+Interfaz Fa0/0 (LAN)
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -653,79 +653,72 @@ Interfaz Fa0/1 (LAN)
 </tr>
 
 <tr>
-<td class="org-left"><i>V</i></td>
-<td class="org-left"><i>TCP si es una conexión entrante de la DMZ</i></td>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">TCP si es una conexión entranta de la DMZ</td>
-</tr>
-
-<tr>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">UDP</td>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">UDP</td>
-</tr>
-</tbody>
-</table>
-<p>
-Interfaz Fa0/0 (DMZ)
-</p>
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">Entrada</th>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">Salida</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">PING (ICMP)</td>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">PING (ICMP)</td>
-</tr>
-
-<tr>
-<td class="org-left"><i>V</i></td>
-<td class="org-left"><i>DNS (UDP con origen 53)</i></td>
-<td class="org-left"><i>V</i></td>
-<td class="org-left"><i>DNS (UDP con destino 53)</i></td>
-</tr>
-
-<tr>
-<td class="org-left"><i>V</i></td>
-<td class="org-left"><i>TCP si se ha establecido desde la LAN</i></td>
-<td class="org-left"><i>V</i></td>
-<td class="org-left"><i>TCP si se ha establecido desde la LAN</i></td>
-</tr>
-
-<tr>
-<td class="org-left"><i>X</i></td>
-<td class="org-left">TCP si es una conexión entranta de la DMZ</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 <td class="org-left"><i>X</i></td>
 <td class="org-left">TCP si es una conexión entrante de la DMZ</td>
 </tr>
 
 <tr>
 <td class="org-left"><i>X</i></td>
-<td class="org-left">UDP</td>
+<td class="org-left">Todo</td>
 <td class="org-left"><i>X</i></td>
-<td class="org-left">UDP</td>
+<td class="org-left">Todo</td>
+</tr>
+</tbody>
+</table>
+<p>
+Interfaz Fa0/1 (DMZ)
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Entrada</th>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Salida</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><i>X</i></td>
+<td class="org-left">PING (ICMP)</td>
+<td class="org-left"><i>X</i></td>
+<td class="org-left">PING (ICMP)</td>
+</tr>
+
+<tr>
+<td class="org-left"><i>V</i></td>
+<td class="org-left"><i>DNS (UDP con origen 53)</i></td>
+<td class="org-left"><i>V</i></td>
+<td class="org-left"><i>DNS (UDP con destino 53)</i></td>
+</tr>
+
+<tr>
+<td class="org-left"><i>V</i></td>
+<td class="org-left"><i>TCP si se ha establecido desde la LAN</i></td>
+<td class="org-left"><i>V</i></td>
+<td class="org-left"><i>TCP</i></td>
+</tr>
+
+<tr>
+<td class="org-left"><i>X</i></td>
+<td class="org-left">Todo</td>
+<td class="org-left"><i>X</i></td>
+<td class="org-left">Todo</td>
 </tr>
 </tbody>
 </table>
@@ -743,8 +736,8 @@ Interfaz Fa0/0 (DMZ)
 
 
 
-<div id="outline-container-orgd816e1c" class="outline-3">
-<h3 id="orgd816e1c"><span class="section-number-3">6.3</span> Solución propuesta</h3>
+<div id="outline-container-org0c697f8" class="outline-3">
+<h3 id="org0c697f8"><span class="section-number-3">6.3</span> Solución propuesta</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Esta ACL debe colocarse en la tarjeta de la LAN, sentido inbound.
@@ -755,7 +748,7 @@ access-list 100 permit udp any any eq domain
 access-list 100 permit tcp any any
 access-list 100 deny ip any any
 interface Fa0/0
-ip access-group 100<span style="color: #b9ca4a;"> in</span>
+ip access-group 100<span style="color: #a020f0;"> in</span>
 </pre>
 </div>
 
@@ -775,8 +768,8 @@ ip access-group 101 out
 </div>
 
 
-<div id="outline-container-org745d2be" class="outline-2">
-<h2 id="org745d2be"><span class="section-number-2">7</span> Práctica</h2>
+<div id="outline-container-orge17c85a" class="outline-2">
+<h2 id="orge17c85a"><span class="section-number-2">7</span> Práctica</h2>
 <div class="outline-text-2" id="text-7">
 <p>
 <a href="pkt/ACL-inicial.pkt">Enlace al fichero PKT inicial</a>
@@ -816,8 +809,8 @@ ip access-group 101 out
 
 
 
-<div id="outline-container-org1a63d30" class="outline-2">
-<h2 id="org1a63d30"><span class="section-number-2">8</span> Referencias</h2>
+<div id="outline-container-org43378cf" class="outline-2">
+<h2 id="org43378cf"><span class="section-number-2">8</span> Referencias</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Formatos:
@@ -837,7 +830,7 @@ ip access-group 101 out
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-04-23 lun 11:30</p>
+<p class="date">Created: 2018-04-23 lun 13:48</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
