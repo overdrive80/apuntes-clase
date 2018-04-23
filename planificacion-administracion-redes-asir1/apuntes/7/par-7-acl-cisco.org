@@ -190,6 +190,7 @@
      - El tráfico UPD está permitido por el puerto =53= (DNS)
      - Las únicas conexiones TCP permitidas entre LAN y DMZ serán las que tengan origen en la LAN.
 
+[[file:pkt/ACL-ejercicio.pkt][(Fichero PKT)]]
    [[file:./media/ejercicio-acl-ampliada.png]]
 
 ** Planteamiento
