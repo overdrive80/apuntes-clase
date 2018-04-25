@@ -266,11 +266,15 @@
    [[file:./media/ACL.png]]
 
    #+REVEAL: split  
-   + La LAN puede acceder al servidor de la DMZ y a Internet al servicio HTTP y HTTPS.
-   + Todo internet puede acceder al servicio HTTP de servidor web de la DMZ.
+   + La LAN puede acceder completamente a los servidores de la DMZ 
+   + La LAN puede acceder a Internet al servicio HTTP, HTTPS y DNS.
+   + Todo internet puede acceder al servicio HTTP y HTTPS del servidor web de la DMZ.
    + El administrador remoto puede acceder a cualquier servicio de la LAN y la DMZ.
-   + Todo lo demás está prohibido.
+   + Todo lo demás está prohibido
+     + En particular, conexiones entrantes de Internet a la LAN o a Oracle
+     
 
+   #+REVEAL: split
    + Router
      - Internet: =Fa9/0 8.0.0.1/8=
      - DMZ: =Fa1/0 100.0.0.14/28=  
