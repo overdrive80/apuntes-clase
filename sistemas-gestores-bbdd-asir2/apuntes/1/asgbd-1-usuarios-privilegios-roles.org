@@ -20,6 +20,16 @@
   - Datos del sistema
   - Datos temporales
 
+** ¿Por qué tantas normas?
+- Disponibilidad
+  - ¿Es mejor garantizar el espacio para las tablas?
+  - ¿Es mejor ahorrar espacio mientras se pueda?
+- Velocidad
+  - Hacer crecer un fichero es lento
+  - Un fichero que ha crecido poco a poco está disperso en el disco (y es más lento)
+- Capacidad
+  - Cada sistema de ficheros tiene un tamaño de fichero máximo
+
 ** /Tablespaces/ por defecto
 - Por defecto, *Oracle* crea en una nueva base de datos
   - =users=: Tablespace asignado por defecto para los datos de todos los usuarios
@@ -122,7 +132,9 @@ grant select on alumnos to profesor;
 
 ** Ejercicio
 - Crea un usuario =LIMITADO=
+  - Que tenga privilegios de =connect= y =resource=
   - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
+  - Inserta datos (puede que necesite cuota)
 - Crea un usuario =CONPERMISOS=
 - Haz que =LIMITADO= de privilegios a =CONPERMISOS= para que:
   - Pueda leer todos los campos de la tabla =DATOS=

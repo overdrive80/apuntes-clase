@@ -33,7 +33,6 @@ Una compañía necesita automatizar su almacén
 \item De cada producto se almacena su identificador, su nombre y su \textit{stock}.
 \item En cada entrada de producto al almacén, se apunta
   \begin{itemize}
-  \item El proveedor de esta entrada
   \item La fecha de entrada
   \item El producto
   \item La cantidad de producto
@@ -41,9 +40,8 @@ Una compañía necesita automatizar su almacén
   \end{itemize}
 \item De cada salida de producto del almacén se apunta
   \begin{itemize}
-  \item El cliente al que se envía
   \item La fecha de salida
-  \item El producto, cantidad de producto y precio por unidad que paga el proveedor
+  \item El producto, cantidad de producto y precio por unidad que paga el cliente
   \end{itemize}
 \end{itemize}
 
@@ -60,12 +58,14 @@ Una compañía necesita automatizar su almacén
   Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
 
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
-create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar(255), idproducto OUT number)
+create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
 as 
 begin
   -- CONSIGUE EL NUEVO ID 
   -- INSERTA EL PRODUCTO CON ESE ID
+  -- DEVUELVO EL NUEVO ID EN idproducto
 end;
+/
 \end{listadosql}
 
   El procedimiento devolverá en su segundo parámetro el identificador del producto recién creado.
@@ -164,6 +164,9 @@ end;
   
 \end{homeworkProblem}
 
+\section{Entorno de pruebas}
+En clase hay accesible un servidor Oracle (\texttt{10.1.37.200}), con un usuario para cada alumno (usuario y contraseña es el apellido en minúsculas).
+El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.37.200}{http://10.1.37.200}.
 
 \section{Instrucciones de entrega}
 Se creará un único fichero SQL para todos los apartados.

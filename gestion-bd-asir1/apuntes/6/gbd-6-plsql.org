@@ -366,6 +366,7 @@ END;
 | ~INVALID_NUMBER~   | ~NO_DATA_FOUND~ | ~VALUE_ERROR~      |
 | ~ROWTYPE_MISMATCH~ | ~ZERO_DIVIDE~   |                    |
 
+https://www.techonthenet.com/oracle/exceptions/named_system.php
 
 ** =SQLCODE= y =SQLERRM=   
 - Funciones predefinidas

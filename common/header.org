@@ -26,6 +26,9 @@
 #+LATEX_HEADER_EXTRA: \LetLtxMacro{\originalincludesvg}{\includesvg}
 #+LATEX_HEADER_EXTRA: \renewcommand{\includesvg}[2][]{\IfFileExists{#2.pdf}{\originalincludegraphics[#1]{#2.pdf}}{\originalincludegraphics[#1]{#2.svg.pdf}}}
 
+# ADJUNTOS
+#+latex_header: \usepackage{attachfile}
+
 # IGNORO LAS NOTES DE REVEAL EN PDF
 #+LATEX_HEADER_EXTRA: \usepackage{comment}
 #+LATEX_HEADER_EXTRA: \excludecomment{NOTES}
