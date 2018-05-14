@@ -122,6 +122,17 @@ Router(config-if)# exit
 Router# show interfaces
 #+END_EXAMPLE
 
+
+* STP
+Consultar y poner la prioridad de un switch
+#+BEGIN_EXAMPLE
+Switch# show spanning-tree 
+#+END_EXAMPLE
+
+#+BEGIN_EXAMPLE
+Switch(config)# spanning-tree vlan 1 priority 1
+#+END_EXAMPLE
+
 * Referencias
 - Formatos:
   - [[file:par-4-comandos-ios.html][Transparencias]]
