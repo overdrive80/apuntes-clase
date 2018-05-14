@@ -113,6 +113,20 @@ Bucles lan
 
 
 #+latex: \clearpage
+
+** Ejercicio CISCO
+
+#+BEGIN_EXAMPLE
+Switch(config)# spanning-tree vlan 1 priority 1
+#+END_EXAMPLE
+
+
+[[file:media/stp-cisco.png]]
+
+
+[[file:./pkt/stp.pkt][Fichero PKT]]
+
+
 * IEEE 802.3ad: [[https://en.wikipedia.org/wiki/Link_aggregation][Link Aggregation]]
 - Los switches no envían entre sí tramas ethernet estándar
 - Agrupan varios enlaces y los utilizan como uno solo
@@ -127,6 +141,11 @@ Switch(config)# interface fa0/1
 Switch(config-if)# channel-group 1 mode active
 #+end_example
 
+** Ejercicio
+
+[[file:media/ejercicio-stp-port-aggregation.png]]
+
+[[file:pkt/stp-y-port-aggregation.pkt][Fichero PKT]]
 
 * Referencias
 - Formatos:
