@@ -11,8 +11,7 @@ Ya hemos estudiado muchas medidas de seguridad que ayudan a proteger la confiden
 
 En éste tema, ahondaremos en algunas medidas y sistemas cuyo objetivo primordial es la confidencialidad.
 - Hablaremos de la autenticación, el procedimiento por el cual una máquina puede reconocer al legítimo usuario de una determinada información.
-- Hablaremos de la criptografía, la ciencia y los procedimientos para enviar y recibir información cifrada. Además de sus fundamentos, también hablaremos de la técnica del
-desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos de resumen criptográfico, que son la base de la firma digital.
+- Hablaremos de la criptografía, la ciencia y los procedimientos para enviar y recibir información cifrada. Además de sus fundamentos, también hablaremos de la técnica del desafío/respuesta, para evitar que las contraseñas viajen, y de los algoritmos de resumen criptográfico, que son la base de la firma digital.
 - Hablaremos de la firma digital o electrónica, un procedimiento por el que se verifica el emisor de una información, y que contribuye al no repudio.
 - Por último, hablaremos de algunas aplicaciones comunes en el mundo real de la criptografía en:
   - Los almacenamientos
@@ -273,8 +272,7 @@ Un certificado es un fichero que contiene en su interior al menos uno de éstos 
 
 En cierto modo, x509 puede hacer lo mismo que PGP, sólo que con un propósito más general (PGP está orientado a los mensajes -nivel aplicación- y x509 es más multifuncional).
 
-Alrededor del sistema x509 se ha montado un sistema llamado la PKI (Public Key
-Infrastructure).
+Alrededor del sistema x509 se ha montado un sistema llamado la PKI (Public Key Infrastructure).
 
 En él, algunas entidades son EMISORAS DE CERTIFICADOS. Emiten certificados para otras entidades o personas. Generar un certificado es sencillo... pero además de eso, estas entidades FIRMAN el certificado que generan. A estas entidades se les denomina Autoridades de Certificación (CA).
 
@@ -528,13 +526,11 @@ Está íntimamente relacionado con el intercambio de certificados x509 y con el 
 - siempre cifrados
 - opcionalmente autenticados
 
-SSL proporciona autenticación y privacidad de la información entre extremos sobre Internet
-mediante el uso de criptografía. Habitualmente, sólo el servidor es autenticado (es decir, se
-garantiza su identidad) mientras que el cliente se mantiene sin autenticar.
+SSL proporciona autenticación y privacidad de la información entre extremos sobre Internet mediante el uso de criptografía. Habitualmente, sólo el servidor es autenticado (es decir, se garantiza su identidad) mientras que el cliente se mantiene sin autenticar.
 SSL implica una serie de fases y pasos:
 1. Negociación (HandShaking)
    - Negociar entre las partes un algoritmo asimétrico
-   - Intercambiar claves públicas y autenticación basada en certificados digitales
+   - Intercambiar claves públicas y autenticación basada en certificados digitales. El servidor siempre debe enviar un certificado, siendo opcional para el cliente.
    - Se comprueban las firmas de los certificados mediante la PKI hasta llegar al CA
    - Se negocia un algoritmo simétrico, y se pacta una clave para él, que se transmite utilizando el cifrado asimétrico con las claves públicas de los certificados.
 2. Cifrado del tráfico basado en cifrado simétrico
@@ -563,10 +559,11 @@ En una conexión https se utiliza el protocolo TLS/SSL sobre HTTP. El servidor d
 
 Pasos que se siguen, a grandes rasgos, al conectarse por https, (Ej: https://facebook.com)
 1. El servidor envia al navegador un certificado x509 con información de su identidad, una clave pública, y una firma digital.
-2. Si la firma digital corresponde a una CA de la cual tenemos su clave pública previamente almacenada en el navegador, entonces se puede comprobar la firma del certificado recibido de facebook, y tener seguridad de que el certificado es verdadero.
-3. Ahora se continúa la comunicación cifrada con un algoritmo asimétrico.
-4. El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía al servidor, pero cifra la comunicación con la clave pública del servidor.
-5. El servidor responde ya enviando la página con información cifrada con el algoritmo simétrico y la clave que le ha enviado el navegador.
+2. Si la firma digital corresponde a una CA de la cual tenemos su clave pública previamente almacenada en el navegador, entonces se puede comprobar la firma del certificado recibido de facebook, y tener seguridad de que el certificado es verdadero. En este punto, el servidor queda *autentificado*.
+3. Opcionalmente, el servidor puede requerir la autentificación del navegador. Para ello, el usuario puede tener instalados varios certificados en su navegador/sistema operativo, y elegir cuál de ellos enviar al servidor.
+4. Ahora se continúa la comunicación cifrada con un algoritmo asimétrico.
+5. El navegador escoge una clave al azar para un algoritmo simétrico, y se la envía al servidor, pero cifra la comunicación con la clave pública del servidor.
+6. El servidor responde ya enviando la página con información cifrada con el algoritmo simétrico y la clave que le ha enviado el navegador.
 
 Por supuesto, el proceso incluye muchos pasos intermedios no descritos aquí, por ejemplo, la negociación de qué protocolos van a utilizarse.
 
