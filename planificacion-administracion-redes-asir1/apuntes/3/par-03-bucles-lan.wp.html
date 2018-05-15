@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ES" xml:lang="ES">
 <head>
-<!-- 2018-05-14 lun 14:09 -->
+<!-- 2018-05-15 mar 09:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ethernet. Bucles LAN</title>
@@ -238,17 +238,18 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgccba27a">1. Introducción</a></li>
-<li><a href="#org8c36c0d">2. Bucles LAN</a></li>
-<li><a href="#orga214ef3">3. 802.1D: Spanning Tree</a></li>
-<li><a href="#org7b017a5">4. IEEE 802.3ad: Link Aggregation</a></li>
-<li><a href="#orge137f54">5. Referencias</a></li>
+<li><a href="#org6917b0a">1. Introducción</a></li>
+<li><a href="#org73cfd19">2. Bucles LAN</a></li>
+<li><a href="#orgfce1413">3. 802.1D: Spanning Tree</a></li>
+<li><a href="#org65993a6">4. IEEE 802.3ad: Link Aggregation</a></li>
+<li><a href="#org5bb6465">5. Redundancia a nivel de red</a></li>
+<li><a href="#org0a4747d">6. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgccba27a" class="outline-2">
-<h2 id="orgccba27a"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org6917b0a" class="outline-2">
+<h2 id="org6917b0a"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Bucles lan
@@ -268,8 +269,8 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-org8c36c0d" class="outline-2">
-<h2 id="org8c36c0d"><span class="section-number-2">2</span> Bucles LAN</h2>
+<div id="outline-container-org73cfd19" class="outline-2">
+<h2 id="org73cfd19"><span class="section-number-2">2</span> Bucles LAN</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Problema
@@ -291,8 +292,8 @@ Bucles lan
 </div>
 
 
-<div id="outline-container-orga214ef3" class="outline-2">
-<h2 id="orga214ef3"><span class="section-number-2">3</span> 802.1D: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">Spanning Tree</a></h2>
+<div id="outline-container-orgfce1413" class="outline-2">
+<h2 id="orgfce1413"><span class="section-number-2">3</span> 802.1D: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">Spanning Tree</a></h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Es un protocolo de red para conseguir un árbol (red jerárquica) a base de deshabilitar enlaces de una malla
@@ -304,8 +305,8 @@ Bucles lan
 </ul>
 </div>
 
-<div id="outline-container-org0fc0734" class="outline-3">
-<h3 id="org0fc0734"><span class="section-number-3">3.1</span> Nomenclatura</h3>
+<div id="outline-container-orgcf6bc39" class="outline-3">
+<h3 id="orgcf6bc39"><span class="section-number-3">3.1</span> Nomenclatura</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><b>Root Port</b> (RP): es el puerto por el que se llega más “barato” a la raíz
@@ -319,8 +320,8 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-org8e78350" class="outline-3">
-<h3 id="org8e78350"><span class="section-number-3">3.2</span> Costes de un enlace</h3>
+<div id="outline-container-org6cc41f6" class="outline-3">
+<h3 id="org6cc41f6"><span class="section-number-3">3.2</span> Costes de un enlace</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Definidos por un estándar</li>
@@ -392,8 +393,8 @@ Bucles lan
 </div>
 
 
-<div id="outline-container-orga24cedf" class="outline-3">
-<h3 id="orga24cedf"><span class="section-number-3">3.3</span> Bridge Protocol Data Units</h3>
+<div id="outline-container-org63ccd40" class="outline-3">
+<h3 id="org63ccd40"><span class="section-number-3">3.3</span> Bridge Protocol Data Units</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Cada switch viene de fábrica con un ID para ser root
@@ -410,8 +411,8 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-org5db1698" class="outline-3">
-<h3 id="org5db1698"><span class="section-number-3">3.4</span> Ejemplo Wikipedia</h3>
+<div id="outline-container-org6ea6cfa" class="outline-3">
+<h3 id="org6ea6cfa"><span class="section-number-3">3.4</span> Ejemplo Wikipedia</h3>
 <div class="outline-text-3" id="text-3-4">
 
 <div class="figure">
@@ -422,8 +423,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org92f21e1" class="outline-3">
-<h3 id="org92f21e1"><span class="section-number-3">3.5</span> Ejemplo 2</h3>
+<div id="outline-container-orgd35f779" class="outline-3">
+<h3 id="orgd35f779"><span class="section-number-3">3.5</span> Ejemplo 2</h3>
 <div class="outline-text-3" id="text-3-5">
 
 <div class="figure">
@@ -461,8 +462,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org86717b7" class="outline-3">
-<h3 id="org86717b7"><span class="section-number-3">3.6</span> Ejemplo 3</h3>
+<div id="outline-container-org677d6ff" class="outline-3">
+<h3 id="org677d6ff"><span class="section-number-3">3.6</span> Ejemplo 3</h3>
 <div class="outline-text-3" id="text-3-6">
 
 <div class="figure">
@@ -506,9 +507,14 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org11e2884" class="outline-3">
-<h3 id="org11e2884"><span class="section-number-3">3.7</span> Ejercicio CISCO</h3>
+<div id="outline-container-org9918515" class="outline-3">
+<h3 id="org9918515"><span class="section-number-3">3.7</span> Ejercicio CISCO</h3>
 <div class="outline-text-3" id="text-3-7">
+<pre class="example">
+Switch(config)# spanning-tree vlan 1 priority 1
+</pre>
+
+
 
 <div class="figure">
 <p><img src="media/stp-cisco.png" alt="stp-cisco.png" />
@@ -524,8 +530,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org7b017a5" class="outline-2">
-<h2 id="org7b017a5"><span class="section-number-2">4</span> IEEE 802.3ad: <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a></h2>
+<div id="outline-container-org65993a6" class="outline-2">
+<h2 id="org65993a6"><span class="section-number-2">4</span> IEEE 802.3ad: <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Los switches no envían entre sí tramas ethernet estándar</li>
@@ -540,8 +546,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orge26bfb9" class="outline-3">
-<h3 id="orge26bfb9"><span class="section-number-3">4.1</span> Configuración en Cisco</h3>
+<div id="outline-container-org35d62bb" class="outline-3">
+<h3 id="org35d62bb"><span class="section-number-3">4.1</span> Configuración en Cisco</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Los puertos que se quieren agregar se añaden al mismo <code>channel-group</code></li>
@@ -553,8 +559,8 @@ Switch(config-if)# channel-group 1 mode active
 </div>
 </div>
 
-<div id="outline-container-org4dbbc59" class="outline-3">
-<h3 id="org4dbbc59"><span class="section-number-3">4.2</span> Ejercicio</h3>
+<div id="outline-container-orge4147da" class="outline-3">
+<h3 id="orge4147da"><span class="section-number-3">4.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-2">
 
 <div class="figure">
@@ -569,9 +575,19 @@ Switch(config-if)# channel-group 1 mode active
 </div>
 </div>
 
-<div id="outline-container-orge137f54" class="outline-2">
-<h2 id="orge137f54"><span class="section-number-2">5</span> Referencias</h2>
+
+<div id="outline-container-org5bb6465" class="outline-2">
+<h2 id="org5bb6465"><span class="section-number-2">5</span> Redundancia a nivel de red</h2>
 <div class="outline-text-2" id="text-5">
+<p>
+<a href="pkt/redundancia-routers.pkt">Ejercicio de redundancia de routers</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0a4747d" class="outline-2">
+<h2 id="org0a4747d"><span class="section-number-2">6</span> Referencias</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -590,7 +606,7 @@ Switch(config-if)# channel-group 1 mode active
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-05-14 lun 14:09</p>
+<p class="date">Created: 2018-05-15 mar 09:45</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

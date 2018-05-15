@@ -147,6 +147,10 @@ Switch(config-if)# channel-group 1 mode active
 
 [[file:pkt/stp-y-port-aggregation.pkt][Fichero PKT]]
 
+
+* Redundancia a nivel de red
+[[file:pkt/redundancia-routers.pkt][Ejercicio de redundancia de routers]]
+
 * Referencias
 - Formatos:
   - [[file:./par-03-bucles-lan.reveal.html][Transparencias]]
