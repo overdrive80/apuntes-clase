@@ -123,6 +123,7 @@ Switch(config)# spanning-tree vlan 1 priority 1
 
 [[file:media/stp-cisco.png]]
 
+#+latex: \attachfile{./pkt/stp.pkt}
 
 [[file:./pkt/stp.pkt][Fichero PKT]]
 
@@ -143,15 +144,21 @@ Switch(config-if)# channel-group 1 mode active
 
 ** Ejercicio
 
-#+latex: \attachfile{./pkt/stp-y-port-aggregation.pkt}
+
 [[file:media/ejercicio-stp-port-aggregation.png]]
 
-[[file:pkt/stp-y-port-aggregation.pkt][Fichero PKT]]
+#+latex: \attachfile{./pkt/stp-y-port-aggregation.pkt}
+
+[[file:pkt/stp-y-port-aggregation.pkt][Enlace a fichero PKT]]
 
 
 * Redundancia a nivel de red
+
+[[file:./media/ejercicio-redundancia-routers.png]]
+
 #+latex: \attachfile{./pkt/redundancia-routers.pkt}
-[[file:pkt/redundancia-routers.pkt][Ejercicio de redundancia de routers]]
+
+[[file:pkt/redundancia-routers.pkt][Enlace a fichero PKT]]
 
 * Referencias
 - Formatos:
