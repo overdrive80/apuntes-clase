@@ -143,12 +143,14 @@ Switch(config-if)# channel-group 1 mode active
 
 ** Ejercicio
 
+#+latex: \attachfile{./pkt/stp-y-port-aggregation.pkt}
 [[file:media/ejercicio-stp-port-aggregation.png]]
 
 [[file:pkt/stp-y-port-aggregation.pkt][Fichero PKT]]
 
 
 * Redundancia a nivel de red
+#+latex: \attachfile{./pkt/redundancia-routers.pkt}
 [[file:pkt/redundancia-routers.pkt][Ejercicio de redundancia de routers]]
 
 * Referencias
