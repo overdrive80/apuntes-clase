@@ -1,11 +1,11 @@
-\input{../common/plantilla-ejercicio.tex}
+\input{../../../common/plantilla-ejercicio.tex}
 \usepackage{eurosym}
 \usepackage{needspace}
 
 
 
 
-\renewcommand{\hmwkTitle}{Práctica DBLinks}
+\renewcommand{\hmwkTitle}{Práctica DBLinks (simplificada)}
 \renewcommand{\hmwkClass}{Bases de datos}
 
 \usepackage{blindtext}
@@ -83,13 +83,13 @@ select ...;
   \item \texttt{saldo\_cuenta(idcuenta)}
 
     \begin{Indentado}
-      El saldo de una cuenta es la suma de los importes de sus movimientos. Una cuenta sin movimientos tiene saldo \texttt{0}. Si la cuenta no existe, se lanzará un error con el texto \texttt{CUENTANOEXISTE} 
+      El saldo de una cuenta es la suma de los importes de sus movimientos. Una cuenta sin movimientos tiene saldo \texttt{0}.
     \end{Indentado}
     
   \item \texttt{saldo\_cliente(idcliente)}
 
     \begin{Indentado}
-      El saldo de un cliente es la suma del saldo de todas las cuentas. Un cliente sin cuentas tiene saldo \texttt{0}. Si el cliente no existe, se lanzará el error \texttt{CLIENTENOEXISTE}
+      El saldo de un cliente es la suma del saldo de todas las cuentas. Un cliente sin cuentas tiene saldo \texttt{0}.
     \end{Indentado}
 
 
@@ -104,8 +104,7 @@ end;
 create or replace function SALDO_CLIENTE( idcliente IN number )
 return number as begin
   ...
-  RAISE_APPLICATION_ERROR(-20002, 'CLIENTENOEXISTE');
-  ...
+
 end; 
 
 \end{listadosql}
@@ -122,23 +121,19 @@ end;
 
     
     \begin{Indentado}
-      Añade un movimiento a una cuenta, con la hora actual del sistema. Si la cuenta no existe, se lanzará el error  \texttt{CUENTANOEXISTE}.
+      Añade un movimiento a una cuenta, con la hora actual del sistema.
     \end{Indentado}
     
-  \item \texttt{crear\_cuenta(idcliente,idcuenta)}
+  \item \texttt{crear\_cuenta(idcliente,out idcuenta)}
     
     \begin{Indentado}
-      Crea una cuenta cuyo titular es el cliente especificado. Si el cliente no existe se lanzará el error \texttt{CLIENTENOEXISTE}.  El identificador de cuenta será un \texttt{VARCHAR(20)}. Los 4 primeros indicarán el banco. Seguirá la cadena \texttt{0001DC}. Los últimos 10 seguirán una  secuencia.
+      Crea una cuenta cuyo titular es el cliente especificado.  El identificador de cuenta será un \texttt{VARCHAR(20)}. Los 4 primeros indicarán el banco. Seguirá la cadena \texttt{0001DC}. Los últimos 10 seguirán una secuencia.
     \end{Indentado}
     
-    % \texttt{crear\_cuenta2(idcliente,idcuenta)}
-    % Si \texttt{idcuenta} es \texttt{NULL}, crea una cuenta cuyo titular es el cliente especificado. Si el cliente no existe se lanzará el error \texttt{CLIENTENOEXISTE}. Si se especifica una cuenta, se añadirá el cliente a los titulares de esa cuenta. El identificador de cuenta será un \texttt{VARCHAR(20)}. Los 4 primeros caracteres indicarán el banco. Seguirá la cadena \texttt{0001DC}. Los últimos 10 seguirán una secuencia. \\
-
-
     
 
     
-  \item \texttt{crear\_cliente(nombre,idcliente)}
+  \item \texttt{crear\_cliente(nombre,out idcliente)}
     
     \begin{Indentado}
       Crea un nuevo cliente, devolviendo su identificador. \\
@@ -152,8 +147,6 @@ create or replace procedure NUEVO_MOVIMIENTO(
   euros IN number,
   descripcion IN varchar)
 as begin
-  ...
-  RAISE_APPLICATION_ERROR(-20002, 'CUENTANOEXISTE');
   ...
 end; 
 
@@ -197,29 +190,32 @@ Cada banco podrá hacer transferencias entre sus cuentas. También podrá transf
 \begin{itemize}
 \item En la cuenta de origen se hará un movimiento negativo (que reste dinero de la cuenta), usando el método \texttt{NUEVO\_MOVIMIENTO}.
 \item En la cuenta de destino se hará un movimiento positivo (que añada dinero a la cuenta), usando el método \texttt{NUEVO\_MOVIMIENTO} del banco de destino via \textit{dblink}, si es necesario.
-\item A la descripción de los movimientos se añadirá la cadena ``\texttt{cuentaorigen:\textit{la cuenta origen} cuentadestino:\textit{la cuenta destino}}''.
 \item Si la cuenta de destino no es del propio banco, se hará un cargo de una comisión en la cuenta de origen. Este cargo será de un 2\% de la transferencia, con un mínimo de 3\euro.
-\item El movimiento de la comisión tendrá como descripción ``\texttt{comision por transferencia de \textit{la cuenta origen} a \textit{la cuenta destino}}''  
+\item El movimiento de la comisión tendrá como descripción ``\texttt{comision por transferencia}''  
 \end{itemize}
+
+\begin{Aviso}
+  El procedimiento \texttt{TRANSFERENCIA} \textbf{no} llama a otros procedimientos \texttt{TRANSFERENCIA} de otros bancos.
+  El procedimiento \texttt{TRANSFERENCIA} usa solo los procedimientos \texttt{NUEVO\_MOVIMIENTO} de otros bancos.
+\end{Aviso}
+
 
 Se tendrán en cuenta los siguientes casos de error:
 \begin{itemize}
 \item El banco de destino no existe: \texttt{BANCONOEXISTE}
 \item La cuenta de origen no es del propio banco: \texttt{CUENTAAJENA}
-\item La cuenta origen o destino no existe: \texttt{CUENTANOEXISTE}
+\item La cuenta origen no existe: \texttt{CUENTANOEXISTE}
 \item La cuenta origen no tiene suficiente saldo: \texttt{SALDOINSUFICIENTE}
 \item La transferencia es de un importe de 0{\euro} o menor: \texttt{IMPORTEINCORRECTO}
 \end{itemize}
 
-  \begin{listadosql}{Procedimientos internos del banco}{lst:funciones}
+  \begin{listadosql}{Procedimiento de transferencia}{lst:funciones}
 create or replace procedure TRANSFERENCIA(
   idcuentaorigen IN varchar, 
   euros IN number,
   descripcion IN varchar,
   idcuentadestino IN varchar )
 as begin
-  ...
-  RAISE_APPLICATION_ERROR(-20002, 'IMPORTEINCORRECTO');
   ...
 end; 
 
