@@ -1,0 +1,161 @@
+\input{../../../common/plantilla-ejercicio.tex}
+\usepackage{eurosym}
+
+
+\renewcommand{\hmwkClass}{Planificación y Administración de Redes}
+\renewcommand{\hmwkTitle}{Práctica VLAN en Cisco}
+
+
+
+
+\begin{document}
+
+% \maketitle
+
+% ----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+% ----------------------------------------------------------------------------------------
+
+% \setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\primerapagina
+
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1em}
+
+
+\section{Objetivo de la práctica}
+Los objetivos de la práctica son:
+\begin{itemize}
+\item Comprender los conceptos necesarios para implantar una VLAN
+\item Configurar un router con NAT para exponer un servicio
+\item Configurar una VPN con SSH
+\item Ayudarse de un acceso remoto auxiliar
+\end{itemize}
+
+
+La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/8/par-8-vpn-ssh.pdf}{este enlace}.
+
+
+\section{Diagrama general}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{./media/practica-vpn-general.pdf}
+  \end{center}
+  \caption{Diagrama general de la práctica}\label{fig:diagrama-general}
+\end{figure}
+
+
+\begin{itemize}
+\item Se creará una VPN entre un ordenador del aula y un ordenador en el domicilio del estudiante.
+\item Se supone que el ordenador real del domicilio es Windows
+\item Las máquinas virtuales serán Linux
+\item El ordenador en el domicilio será una máquina virtual (para mayor seguridad)
+\item La práctica se puede realizar fuera de clase, utilizando un móvil como punto de acceso desde un ordenador  
+\end{itemize}
+
+\section{(Opcional) Team Viewer en el ordenador real de casa}
+Durante el desarrollo de la práctica, puede ser necesario reconfigurar los ordenadores de casa o el propio router. Para ello hay varias opciones
+\begin{enumerate}
+\item El alumno configura su casa y luego acude a clase a configurar el resto. Si tiene que hacer algún cambio en casa vuelve allí.
+\item La práctica se hace por parejas. Un alumno está en su casa y otro en el instituto.
+  
+\item Se configura solo el \textit{Remote Desktop} al ordenador real, y se abre el puerto \texttt{3389} para poder acceder desde Internet.
+\item \textbf{(Preferida)} Se instala Team Viewer en casa, que no necesita abrir ningún puerto, y se controla el PC real de casa en caso necesario. 
+\end{enumerate}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{./media/practica-vpn-teamviewer.pdf}
+  \end{center}
+  \caption{Diagrama general de la práctica}\label{fig:diagrama-general}
+\end{figure}
+
+\begin{Aviso}
+  \begin{itemize}
+  \item Si se opta por utilizar \texttt{Remote Desktop}, se debe utilizar una contraseña suficientemente segura.
+  \item Se recomienda que el puerto externo de \texttt{Remote Desktop} no sea \texttt{3389}, para evitar algunos ataques.
+  \end{itemize}
+\end{Aviso}
+
+\section{IP externa del router de casa}
+Hay varias opciones para conocer la IP externa del router de casa:
+\begin{enumerate}
+\item Desde un navegador de casa, visitar la página \url{http://www.cualesmiip.com/}. Dará la IP de ese momento, que puede cambiar en pocas horas.
+\item \textbf{(Preferida)} Crear una cuenta de un \enlace{https://es.wikipedia.org/wiki/DNS\_din\%C3\%A1mico}{DNS dinámico}, como \url{http://www.noip.com}. Después, ejecutar un programa en la LAN que comunique automáticamente al DNS vuestra dirección IP
+  \begin{itemize}
+  \item Algunos routers traen ya este programa instalado (\enlace{https://www.redeszone.net/redes/host-en-no-ip-manual-para-crear-un-dynamic-dns-con-no-ip/}{enlace a ejemplo})
+  \item También se puede instalar un \enlace{https://www.noip.com/download?page=win}{programa para actualizar la IP} en la máquina real Windows 
+  \end{itemize}
+\end{enumerate}
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{./media/practica-vpn-dyndns.pdf}
+  \end{center}
+  \caption{Funcionamiento DNS dinámico}\label{fig:dns-dinamico}
+\end{figure}
+
+
+\section{Servidor SSH}
+\begin{itemize}
+\item Se recomienda que sea una máquina virtual Linux
+\item Debe configurarse con IP fija dentro de la LAN de casa
+\item Se instalará openssh-server, con la configuración por defecto
+\item En el router, debe abrirse un puerto para el servidor SSH
+  \begin{itemize}
+  \item Cada router de cada compañía telefónica es distinto
+  \item Los clientes de telefónica utilizan el \enlace{https://comunidad.movistar.es/t5/Bienvenida-y-Noticias/C\%C3\%B3mo-abrir-los-puertos-de-tu-Router/td-p/1537794}{Portal Alejandra}.
+  \end{itemize}
+\item Para comprobar que se ha abierto correctamente, puede utilizarse una \enlace{https://play.google.com/store/apps/details?id=org.connectbot\&hl=en\_US}{aplicación de cliente SSH} desde el móvil, accediendo por 3G (sin wifi)
+\end{itemize}
+
+\begin{Aviso}
+  \begin{itemize}
+  \item Las contraseñas del servidor SSH deben ser \textbf{seguras}. Estará expuesto a Internet.
+  \item Se recomienda que el puerto abierto para SSH no sea el \texttt{22}, para evitar algunos ataques.
+  \item Se debe contar con el\textbf{permiso de los padres} para modificar el router de casa.
+  \end{itemize}
+\end{Aviso}
+
+
+\section{VPN}
+\begin{enumerate}
+\item Se creará una conexión VPN entre el ordenador del aula y el servidor SSH
+\item Se asignarán las siguientes direcciones IP en las interfaces TUN
+  \begin{itemize}
+  \item Aula: \texttt{10.2.37.1/24}
+  \item Servidor SSH: \texttt{10.2.37.2/24}
+  \end{itemize}
+\item El servidor SSH activará su enrutamiento
+  
+\item El ordenador de clase añadirá una ruta para acceder a la red \texttt{192.168.0.0/16} a través de \texttt{10.2.37.1}
+  
+\end{enumerate}
+
+Como resultado, el ordenador de clase debe acceder a todos los ordenadores de la LAN de casa.
+
+\section{Normas de entrega}
+\begin{itemize}
+  
+\item La entrega se realizará en el Áula Virtual
+\item Se entregará un fichero PKT que pueda abrirse con la versión 7.1 de Packet Tracer.
+\item Los equipos identificarán en su etiqueta su IP, y su pertenencia a algún departamento o función.
+\end{itemize}
+
+\section{Qué se valorará}
+\begin{itemize}
+\item Que se respeten los dominios de difusión (\textbf{3} puntos)
+  \begin{itemize}
+  \item Se entiende que dos equipos \textit{no comparten dominio de difusión} si un broadcast de Ethernet (por ejemplo, ARP) no consigue viajar entre ellos en ninguno de los sentidos.
+  \end{itemize}
+\item Que se incluyan etiquetas identificativas en cada equipo (\textbf{1.5} puntos)  
+\item Que los departamentos puedan comunicarse a través de la capa 3 (\textbf{2} puntos)
+\item Que se rellene correctamente la tabla de documentación de la red (\textbf{2} puntos)
+\item \textbf{No se valorará} el ejercicio si las direcciones IP no son de la subred \texttt{10.N.0.0/16}.
+\end{itemize}
+
+
+
+\end{document}
