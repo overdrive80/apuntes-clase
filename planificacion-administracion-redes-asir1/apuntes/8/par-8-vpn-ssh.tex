@@ -121,6 +121,13 @@ Hay varias opciones para conocer la IP externa del router de casa:
 
 
 \section{VPN}
+El servidor SSH se debe configurar con las siguientes opciones en su fichero \texttt{/etc/ssh/sshd\_config}:
+
+\begin{listadoshell}{Opciones para el servidor SSH}{lst:sshdconfig}
+  PermitRootLogin yes
+  PermitTunnel yes
+\end{listadoshell}
+
 \begin{enumerate}
 \item Se creará una conexión VPN entre el ordenador del aula y el servidor SSH
 \item Se asignarán las siguientes direcciones IP en las interfaces TUN
@@ -128,13 +135,36 @@ Hay varias opciones para conocer la IP externa del router de casa:
   \item Aula: \texttt{10.2.37.1/24}
   \item Servidor SSH: \texttt{10.2.37.2/24}
   \end{itemize}
-\item El servidor SSH activará su enrutamiento
-  
+\end{enumerate}
+
+Tras esto, debe haber comunicación directa (1 salto IP) entre el servidor SSH y el PC del centro.
+
+
+\section{Acceso a la LAN desde el centro}
+\begin{enumerate}
 \item El ordenador de clase añadirá una ruta para acceder a la red \texttt{192.168.0.0/16} a través de \texttt{10.2.37.1}
+
+  \begin{listadoshell}{Enrutamiento desde el aula a casa}{lst:enrutamiento}
+    route add -net 192.168.0.0/16 gw 10.2.37.2
+  \end{listadoshell}
   
+\item El servidor SSH realizará NAT, de forma que el PC de clase sea enmascarado por el servidor SSH, y el resto de PCs de la LAN de casa puedan responderle
+  
+  \begin{listadoshell}{NAT para acceder a la LAN}{lst:nat}
+    sudo iptables -t nat -A POSTROUTING -s 10.2.37.0/24 -o eth0 -j MASQUERADE
+  \end{listadoshell}
+  
+
 \end{enumerate}
 
 Como resultado, el ordenador de clase debe acceder a todos los ordenadores de la LAN de casa.
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics[width=.9\textwidth]{./media/practica-vpn-nat.pdf}
+  \end{center}
+  \caption{Enrutamiento y NAT para acceso a red de casa}\label{fig:enrutamiento-y-nat}
+\end{figure}
 
 \section{Normas de entrega}
 \begin{itemize}
