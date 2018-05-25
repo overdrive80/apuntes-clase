@@ -223,6 +223,15 @@ end;
 \end{listadosql}
 
 
+\begin{Aviso}[ORA-02020]
+  Es posible que aparezca el error \texttt{ORA-02020: too many database links in use}, ya que por defecto solo puede haber 4 conexiones abiertas con otras bases de datos. En ese caso hay dos opciones:
+  \begin{itemize}
+  \item Cerrar todas las sesiones están cerradas en SQLDeveloper
+  \item Aumentar el número posible de conexiones con \texttt{alter system set open\_links=8 scope=spfile} (como usuario \texttt{SYS}), y reiniciando el servidor.
+  \end{itemize}
+
+\end{Aviso}
+
 \end{homeworkProblem}
 
 
