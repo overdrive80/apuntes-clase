@@ -5,12 +5,26 @@
 
 
 * VPN
--  /Virtual Private Network/
-  - La interconexión entre dos sistemas se realiza a través de una red insegura
-  - Pero garantizando la seguridad de la comunicación
--  Confidencialidad
--  Integridad
+- /Virtual Private Network/
+- La interconexión entre dos sistemas se realiza a través de una red insegura
+- Pero garantizando la seguridad de la comunicación
+  - Confidencialidad
+  - Integridad
 
+** Encriptación
+- Consiste en ocultar la información que se envía
+- Sólo el receptor puede interpretar la información del emisor
+- Para el resto de sistemas intermedios los datos no significan nada
+- Esto aumenta la *confidencialidad*
+- Al dificultar la modificación de la información por sistemas intermedios, mejora la *integridad*
+
+** Autentificación
+- Consiste en saber con quién nos conectamos
+- El sistema remoto deben autentificarse
+  - Los clientes suelen usar contraseñas
+  - Los servidores suelen usar certificados
+- Aumenta la *confidencialidad*
+- Al evitar que otras personas operen en nuestra red mejora *integridad*
 
 * Tipos de VPN
 - Acceso remoto
