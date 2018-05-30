@@ -26,6 +26,17 @@
 - Aumenta la *confidencialidad*
 - Al evitar que otras personas operen en nuestra red mejora *integridad*
 
+** Datos sobre los datos (/metadatos/)
+- La encriptación oculta los datos que se transmitan
+  - Pero los routers intermedios siguen enrutando cada paquete
+  - Pueden saber 
+    - Cuántos paquetes se envían
+    - A qué horas
+    - Con cuántos datos
+- Para evitar este problema se puede usar [[https://es.wikipedia.org/wiki/Tr%25C3%25A1fico_de_relleno][tráfico de relleno]]
+  - No se podrá distinguir información real de la de relleno
+  - Problema: mayor consumo de ancho de banda
+
 * Tipos de VPN
 - Acceso remoto
 - Punto a punto

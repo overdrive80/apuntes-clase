@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-05-29 mar 11:33 -->
+<!-- 2018-05-30 mié 15:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Redes privadas virtuales</title>
@@ -239,21 +239,21 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgceb188e">1. VPN</a></li>
-<li><a href="#orged71379">2. Tipos de VPN</a></li>
-<li><a href="#org629443d">3. Tunnelling</a></li>
-<li><a href="#orgc46eafd">4. Tunnelling (ejemplo a nivel de red)</a></li>
-<li><a href="#org7e1c27d">5. Tunneling: Nivel</a></li>
-<li><a href="#orgacbd93a">6. VPN: Protocolos</a></li>
-<li><a href="#org7809fe0">7. Referencias</a></li>
+<li><a href="#org525466c">1. VPN</a></li>
+<li><a href="#orgc6c885e">2. Tipos de VPN</a></li>
+<li><a href="#orga47865b">3. Tunnelling</a></li>
+<li><a href="#orga386feb">4. Tunnelling (ejemplo a nivel de red)</a></li>
+<li><a href="#org90e3d3b">5. Tunneling: Nivel</a></li>
+<li><a href="#org78332d7">6. VPN: Protocolos</a></li>
+<li><a href="#orgf91327f">7. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
 
-<div id="outline-container-orgceb188e" class="outline-2">
-<h2 id="orgceb188e"><span class="section-number-2">1</span> VPN</h2>
+<div id="outline-container-org525466c" class="outline-2">
+<h2 id="org525466c"><span class="section-number-2">1</span> VPN</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><i>Virtual Private Network</i></li>
@@ -266,8 +266,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org0f49091" class="outline-3">
-<h3 id="org0f49091"><span class="section-number-3">1.1</span> Encriptación</h3>
+<div id="outline-container-orgeb85d12" class="outline-3">
+<h3 id="orgeb85d12"><span class="section-number-3">1.1</span> Encriptación</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Consiste en ocultar la información que se envía</li>
@@ -279,8 +279,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga0f0c71" class="outline-3">
-<h3 id="orga0f0c71"><span class="section-number-3">1.2</span> Autentificación</h3>
+<div id="outline-container-org762720f" class="outline-3">
+<h3 id="org762720f"><span class="section-number-3">1.2</span> Autentificación</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Consiste en saber con quién nos conectamos</li>
@@ -294,10 +294,33 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org85607cf" class="outline-3">
+<h3 id="org85607cf"><span class="section-number-3">1.3</span> Datos sobre los datos (<i>metadatos</i>)</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>La encriptación oculta los datos que se transmitan
+<ul class="org-ul">
+<li>Pero los routers intermedios siguen enrutando cada paquete</li>
+<li>Pueden saber 
+<ul class="org-ul">
+<li>Cuántos paquetes se envían</li>
+<li>A qué horas</li>
+<li>Con cuántos datos</li>
+</ul></li>
+</ul></li>
+<li>Para evitar este problema se puede usar <a href="https://es.wikipedia.org/wiki/Tr%C3%A1fico_de_relleno">tráfico de relleno</a>
+<ul class="org-ul">
+<li>No se podrá distinguir información real de la de relleno</li>
+<li>Problema: mayor consumo de ancho de banda</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orged71379" class="outline-2">
-<h2 id="orged71379"><span class="section-number-2">2</span> Tipos de VPN</h2>
+<div id="outline-container-orgc6c885e" class="outline-2">
+<h2 id="orgc6c885e"><span class="section-number-2">2</span> Tipos de VPN</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Acceso remoto</li>
@@ -306,8 +329,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgf379ed8" class="outline-3">
-<h3 id="orgf379ed8"><span class="section-number-3">2.1</span> Acceso remoto</h3>
+<div id="outline-container-orgdf7dffb" class="outline-3">
+<h3 id="orgdf7dffb"><span class="section-number-3">2.1</span> Acceso remoto</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Usuarios finales utilizan una VPN para conectarse a la LAN de su empresa</li>
@@ -331,8 +354,8 @@ By <a href="https://commons.wikimedia.org/wiki/User:Ludovic.ferre">Ludovic.ferre
 </div>
 </div>
 
-<div id="outline-container-orge8199a7" class="outline-3">
-<h3 id="orge8199a7"><span class="section-number-3">2.2</span> Punto a punto</h3>
+<div id="outline-container-org7cbf0ce" class="outline-3">
+<h3 id="org7cbf0ce"><span class="section-number-3">2.2</span> Punto a punto</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Los LAN de la misma empresa utilizan un enlace de VPN a modo de red local</li>
@@ -353,8 +376,8 @@ By <a href="https://commons.wikimedia.org/wiki/User:Ludovic.ferre">Ludovic.ferre
 </div>
 </div>
 
-<div id="outline-container-org77b4a30" class="outline-3">
-<h3 id="org77b4a30"><span class="section-number-3">2.3</span> VPN over LAN</h3>
+<div id="outline-container-org1d3474c" class="outline-3">
+<h3 id="org1d3474c"><span class="section-number-3">2.3</span> VPN over LAN</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Los accesos a la LAN pueden ser poco seguros
@@ -381,12 +404,12 @@ By <a href="https://commons.wikimedia.org/wiki/User:Ludovic.ferre">Ludovic.ferre
 </div>
 
 
-<div id="outline-container-org629443d" class="outline-2">
-<h2 id="org629443d"><span class="section-number-2">3</span> Tunnelling</h2>
+<div id="outline-container-orga47865b" class="outline-2">
+<h2 id="orga47865b"><span class="section-number-2">3</span> Tunnelling</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgf1b9731" class="outline-3">
-<h3 id="orgf1b9731"><span class="section-number-3">3.1</span> Encapsulación de protocolos</h3>
+<div id="outline-container-orge6a6234" class="outline-3">
+<h3 id="orge6a6234"><span class="section-number-3">3.1</span> Encapsulación de protocolos</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Según el modelo ISO/OSI, unos protocolos se encapsulan dentro de otros</li>
@@ -403,8 +426,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgd41461e" class="outline-3">
-<h3 id="orgd41461e"><span class="section-number-3">3.2</span> Encriptación de datos</h3>
+<div id="outline-container-org9d34901" class="outline-3">
+<h3 id="org9d34901"><span class="section-number-3">3.2</span> Encriptación de datos</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Cualquier capa puede encriptar los datos que envía</li>
@@ -413,8 +436,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgecb6ce8" class="outline-3">
-<h3 id="orgecb6ce8"><span class="section-number-3">3.3</span> Tunnelling</h3>
+<div id="outline-container-orgb4abffa" class="outline-3">
+<h3 id="orgb4abffa"><span class="section-number-3">3.3</span> Tunnelling</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Un nivel de red puede encriptarse y volver a meterse como datos a cualquier nivel</li>
@@ -436,8 +459,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-orgc46eafd" class="outline-2">
-<h2 id="orgc46eafd"><span class="section-number-2">4</span> Tunnelling (ejemplo a nivel de red)</h2>
+<div id="outline-container-orga386feb" class="outline-2">
+<h2 id="orga386feb"><span class="section-number-2">4</span> Tunnelling (ejemplo a nivel de red)</h2>
 <div class="outline-text-2" id="text-4">
 
 <div class="figure">
@@ -451,8 +474,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org7e1c27d" class="outline-2">
-<h2 id="org7e1c27d"><span class="section-number-2">5</span> Tunneling: Nivel</h2>
+<div id="outline-container-org90e3d3b" class="outline-2">
+<h2 id="org90e3d3b"><span class="section-number-2">5</span> Tunneling: Nivel</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>VPN a nivel de enlace (ethernet)
@@ -480,8 +503,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-orgacbd93a" class="outline-2">
-<h2 id="orgacbd93a"><span class="section-number-2">6</span> VPN: Protocolos</h2>
+<div id="outline-container-org78332d7" class="outline-2">
+<h2 id="org78332d7"><span class="section-number-2">6</span> VPN: Protocolos</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>PPTP
@@ -503,8 +526,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orge1985eb" class="outline-3">
-<h3 id="orge1985eb"><span class="section-number-3">6.1</span> Ejercicio: VPN en Windows</h3>
+<div id="outline-container-orgb1f13f3" class="outline-3">
+<h3 id="orgb1f13f3"><span class="section-number-3">6.1</span> Ejercicio: VPN en Windows</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Crea un servidor VPN Windows en la <i>red interna 1</i></li>
@@ -528,8 +551,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org504f609" class="outline-3">
-<h3 id="org504f609"><span class="section-number-3">6.2</span> Ejercicio: VPN con SSH</h3>
+<div id="outline-container-orgaa8f400" class="outline-3">
+<h3 id="orgaa8f400"><span class="section-number-3">6.2</span> Ejercicio: VPN con SSH</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Crea un servidor VPN SSH en la <i>red interna 1</i></li>
@@ -561,8 +584,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org7809fe0" class="outline-2">
-<h2 id="org7809fe0"><span class="section-number-2">7</span> Referencias</h2>
+<div id="outline-container-orgf91327f" class="outline-2">
+<h2 id="orgf91327f"><span class="section-number-2">7</span> Referencias</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
@@ -582,7 +605,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-05-29 mar 11:33</p>
+<p class="date">Created: 2018-05-30 mié 15:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
