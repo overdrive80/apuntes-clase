@@ -112,7 +112,7 @@ que internamente: los pendrives, las tarjetas de memoria y los discos de estado 
 #+caption: Memorias flash
 [[file:media/memorias-flash.png]]
 
-de los pendrives y las tarjetas podemos comentar que su característica principal es la portabilidad: están pensados para ser transportados, y utilizados de manera temporal.
+De los pendrives y las tarjetas podemos comentar que su característica principal es la portabilidad: están pensados para ser transportados, y utilizados de manera temporal.
 
 #+caption: Memorias usb
 [[file:media/memoria-usb.png]]
@@ -134,17 +134,17 @@ vulnerabilidades:
 uso:
 - quedan relegados casi exclusivamente al almacenamiento temporal a corto plazo y a transportar información poco relevante de un lado a otro.
 
-*** ssd
+*** SSD
 
 #+caption: Disco SSD
 [[file:media/ssd.png]]
 
 
-los ssd nacen con idea de sustituir con el tiempo a los discos duros, ya que no tienen uno de sus inconvenientes principales: no tienen partes móviles que se deterioren, lo que los hace algo menos “delicados”.
+Los ssd nacen con idea de sustituir con el tiempo a los discos duros, ya que no tienen uno de sus inconvenientes principales: no tienen partes móviles que se deterioren, lo que los hace algo menos “delicados”.
 
-tienen prácticamente las mismas características que pendrives y tarjetas, aunque en general alcanzan mayores tamaños. también tienen un coste elevado por gigabyte.
+Tienen prácticamente las mismas características que pendrives y tarjetas, aunque en general alcanzan mayores tamaños. también tienen un coste elevado por gigabyte.
 
-las velocidades de escritura y grabación son muy superiores a tarjetas y pendrives (internamente, son como un raid 0 de tarjetas). lo suficiente como para sustituir al disco duro en dispositivos portátiles.
+Las velocidades de escritura y grabación son muy superiores a tarjetas, pendrives y discos duros tradicionales (internamente, son como un raid 0 de tarjetas).
 
 ventajas
 - rápidos
@@ -153,7 +153,7 @@ ventajas
 inconvenientes
 - coste alto por gigabyte
 vulnerabilidades
-- no se conoce con exactitud su tiempo medio de vida antes de un fallo.
+- no se conoce con exactitud su tiempo medio de vida antes de un fallo, aunque cada vez es mejor
 
 * Unidades de medida de la información
 La unidad básica de medida de la información en memoria, tanto principal como secundaria es el byte. se pueden utilizar múltiplos del byte, utilizando un prefijo.  en el sistema internacional de magnitudes (iso/iec 80000) y también en la norma ieee 1541 se definen para su uso una serie de prefijos que pueden expresar potencias de 10 (kilo, mega...), o bien potencias de 2 (kibi, mebi,...)
@@ -441,7 +441,7 @@ En general, un clúster necesita de varios componentes de software y hardware pa
 - almacenamientos
 - sistemas operativos individuales para cada ordenador
 - conexiones de red, para conectar los nodos entre sí y los nodos con los almacenamientos
-- middleware: el software que unifica los nodos para que actúen todos como si fueran uno solo. Debe dar al usuario la impresión de que se enfrenta a un solo ordenador. (Ejemplos de middleware para clústeres: mosix, openSSI)
+- middleware: el software que unifica los nodos para que actúen todos como si fueran uno solo. Debe dar al usuario la impresión de que se enfrenta a un solo ordenador. (Ejemplos de middleware para clústeres: [[http://www.mosix.org/txt_about.html][mosix]], [[http://openssi.org/cgi-bin/view?page=openssi.html][openSSI]])
 - Aplicaciones a medida, programadas teniendo en cuenta la redundancia de servidores.
 
 

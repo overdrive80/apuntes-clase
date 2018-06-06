@@ -373,6 +373,13 @@ MYSID=
   - SID
 - Equivalen a la lista de conexiones de SQLDeveloper
 
+** Conexiones sin =tnsnames.ora=
+- No es necesario cambiar el fichero =tnsnames.ora= para conectarse a un servidor remoto
+- Aunque puede ser recomendable
+  - Ejemplo: varios scripts usan un nombre de conexión, de forma que pueda cambiarse fácilmente
+#+BEGIN_SRC shell
+sqlplus username/password@host:port/sid
+#+END_SRC
 
 * Ejecución de *SQL* desde la /shell/
 - El comando =sqlplus=  puede ejecutarse desde la shell

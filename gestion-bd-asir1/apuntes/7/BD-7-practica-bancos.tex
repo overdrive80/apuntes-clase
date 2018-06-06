@@ -197,7 +197,7 @@ Cada banco podrá hacer transferencias entre sus cuentas. También podrá transf
 \begin{itemize}
 \item En la cuenta de origen se hará un movimiento negativo (que reste dinero de la cuenta), usando el método \texttt{NUEVO\_MOVIMIENTO}.
 \item En la cuenta de destino se hará un movimiento positivo (que añada dinero a la cuenta), usando el método \texttt{NUEVO\_MOVIMIENTO} del banco de destino via \textit{dblink}, si es necesario.
-\item A la descripción de los momimientos se añadirá la cadena ``\texttt{cuentaorigen:\textit{la cuenta origen} cuentadestino:\textit{la cuenta destino}}''.
+\item A la descripción de los movimientos se añadirá la cadena ``\texttt{cuentaorigen:\textit{la cuenta origen} cuentadestino:\textit{la cuenta destino}}''.
 \item Si la cuenta de destino no es del propio banco, se hará un cargo de una comisión en la cuenta de origen. Este cargo será de un 2\% de la transferencia, con un mínimo de 3\euro.
 \item El movimiento de la comisión tendrá como descripción ``\texttt{comision por transferencia de \textit{la cuenta origen} a \textit{la cuenta destino}}''  
 \end{itemize}
