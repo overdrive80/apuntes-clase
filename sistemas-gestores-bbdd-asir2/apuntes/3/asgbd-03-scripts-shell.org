@@ -162,8 +162,24 @@ then
 else
   echo grep no lo ha encontrado, o ha habido errores
 fi
-
 #+end_src
+
+*** =return= en funciones
+- Las funciones también tienen código de retorno
+- Pueden simplificar =if= o bucles =while=
+
+#+BEGIN_SRC sh
+condicion(){
+  # AQUÍ SE PODRÍA DECIDIR EL RETORNO CON OTROS COMANDOS
+  # O CON IF's ENCADENADOS, PERO COMO EJEMPLO DEVOLVEMOS TRUE
+  return 0
+}
+
+while condicion
+do
+  echo Esto es un bucle infinito
+done
+#+END_SRC
 
 *** Comando =[=
 - =[= es un comando externo que ayuda a hacer condiciones con =if=
