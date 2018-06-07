@@ -549,6 +549,34 @@ systemctl stop SERVICIO
   - Este comando ejecuta todos los comandos de un directorio
   - Más información con =man run-parts=
 
+** Operaciones periódicas manuales
+
+- Se puede crear un bucle infinito con =sleep=
+- El bucle se interrumpe con alguna condición externa
+  - Por ejemplo, que exista o deje de existir un fichero
+
+#+BEGIN_SRC sh
+#!/bin/bash
+
+rm $HOME/elbucledebeparar
+hay_que_seguir(){
+    if [ -e $HOME/elbucledebeparar ]
+    then
+        return 1
+    else
+        return 0
+    fi
+}
+
+SEGUNDOS=3
+sleep $SEGUNDOS
+while hay_que_seguir
+do      
+    echo han pasado $SEGUNDOS segundos
+    sleep $SEGUNDOS
+done
+#+END_SRC
+
 
 
 * Referencias
