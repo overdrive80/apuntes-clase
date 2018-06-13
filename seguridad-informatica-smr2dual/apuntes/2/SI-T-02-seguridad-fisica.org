@@ -717,17 +717,22 @@ Los SAIs no fueron ideados para proporcionar energía a los equipos durante much
 Para poder hacerlo automáticamente, casi todos los SAI pueden conectarse al equipo mediante un cable USB (o un cable serie RS-232 en algunos casos). En el equipo se instala un software de control que puede realizar alguna tarea de salvaguarda cuando el SAI indica que está actuando porque no hay suministro.
 A través de ese cable también se suelen obtener otros datos, como la cantidad de carga de las baterías, o el tiempo que podrá suministrar energía el SAI si se va la corriente.
 Los fabricantes de SAI nos dan una idea de su capacidad utilizando una unidad de medida poco conocida: el Voltio-Amperio (VA). Esa unidad de medida tiene que ver con la potencia aparente que es capaz de proporcionar el SAI.
-Sin embargo, cuando compramos un ordenador (u otro equipo), los fabricantes nos acostumbran a hablarnos de su "consumo" en Watios... e incluso, en algunos casos, en Amperios. Sin meternos en divagaciones ¿Cómo saber si un SAI podrá dar corriente a un determinado equipo?... bueno... aplica estas reglas3:
+Sin embargo, cuando compramos un ordenador (u otro equipo), los fabricantes nos acostumbran a hablarnos de su "consumo" en Watios... e incluso, en algunos casos, en Amperios. ¿Cómo saber si un SAI podrá dar corriente a un determinado equipo? aplica estas reglas:
 - Si expresan la potencia en Watios, divide ese valor por 0.7. El resultado serán los Voltio-Amperios que deberá tener el SAI. Ej: Para un equipo de 450W se necesita un SAI de al menos 643VA (Sacado de dividir 450/0.7)
 - Si expresan la corriente que consumen en Amperios, multiplica por 230 (la tensión AC). El resultado serán los Voltio-Amperios que deberá tener el SAI. Ej.: Para un equipo que necesite 3A, se necesita un SAI de al menos 690VA (Sacado de multiplicar 3×230).
+
 Resumiendo:
 
-$$P_{watios} = V_{voltios} \times I_{amperios}$$
+$$P_{voltioamperio} = V_{voltios} \times I_{amperios}$$
 
 $$P_{voltioamperio} = \frac{P_{watios}}{0.7}$$
 
 
+La explicación es que, en el caso de corriente continua (y algunos aparatos de corriente alterna, como bombillas):
 
+$$P_{voltioamperio} = P_{watios}$$
+
+También hay veces que se llama $P_{voltioamperio}$ a la potencia aparente, y $P_{watios}$ a la potencia efectiva. El factor $0.7$ es debido al desfase entre la subida de tensión y la subida de intensidad. Cuanto menos desfase haya, más se parecerá a $1$, y más caro será el SAI.
 
 
 Hay SAIs de todos los tamaños, desde los muy muy pequeños para equipos domésticos y de pequeña oficina hasta los muy muy grandes, para grandes instalaciones y servidores, como éste de la foto, de 500000VA.
