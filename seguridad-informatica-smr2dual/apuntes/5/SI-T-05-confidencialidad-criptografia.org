@@ -575,6 +575,20 @@ Ambas sirven para identificarse ante las administraciones públicas, y firmar ac
 
 Fuera de las administraciones públicas, también lo utilizan algunas pocas empresas privadas, principalmente para autenticación (bancos, aseguradoras y otras entidades financieras principalmente).
 
+
+** Comunidad de Madrid: Camefirma
+1. Presolicitud de certificado
+   - https://www.camerfirma.com/certificados/certificado-de-ciudadano/
+2. Se recibe por email una contraseña de descarga y dónde confirmar la solicitud
+3. Se confirma presencialmente con DNI
+4. Se recibe un email el enlace de descarga
+5. Se descarga el certificado 
+6. Se recibe un email con la clave simétrica que protege la clave privada, y un pin de revocación
+7. Se instala el certificado
+8. Si se pierde el control del certificado, se revoca 
+   - http://www.camerfirma.com/camerfirmaPublic/index/Area-Usuario/Revocar-Certificado.html
+
+
 ** FNMT
 La Fábrica Nacional de Moneda y Timbre (FNMT) emite a cualquier ciudadano español un certificado x509 en la que ella es CA (Autoridad Certificadora) y que contiene nuestra identidad y una clave privada que permite firma electrónica.
 Se descarga en forma de fichero, y se puede instalar en el almacén de certificados de Windows, o de algunos navegadores, como FireFox.
