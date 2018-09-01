@@ -61,5 +61,7 @@ object A{
   }
 }
 
-A.doPage( new java.io.File("."), new java.io.FileWriter("index.html") )
+val out = new java.io.FileWriter("index.html")
+A.doPage( new java.io.File("."), out )
+out.close()
 println("Done")
