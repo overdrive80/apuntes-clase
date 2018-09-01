@@ -62,3 +62,4 @@ object A{
 }
 
 A.doPage( new java.io.File("."), new java.io.FileWriter("index.html") )
+println("Done")
