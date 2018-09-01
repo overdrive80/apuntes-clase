@@ -1,4 +1,4 @@
-#!/usr/bin/env amm
+#!/usr/bin/env scala
 // INSTALAR AMMONITE
 // sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/1.1.2/2.12-1.1.2) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' && amm
 
@@ -61,4 +61,7 @@ object A{
   }
 }
 
-A.doPage( new java.io.File("."), new java.io.FileWriter("index.html") )
+val out = new java.io.FileWriter("index.html")
+A.doPage( new java.io.File("."), out )
+out.close()
+println("Done")
