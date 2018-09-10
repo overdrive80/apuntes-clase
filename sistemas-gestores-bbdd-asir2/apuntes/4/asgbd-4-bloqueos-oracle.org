@@ -1,6 +1,5 @@
 #+include: "../../../common/header.org"
 #+Title: Concurrencia y bloqueos en Oracle
-# #+REVEAL_THEME: simple
 #+EXCLUDE_TAGS: no_export
 
 

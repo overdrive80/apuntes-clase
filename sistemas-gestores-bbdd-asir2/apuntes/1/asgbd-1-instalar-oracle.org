@@ -1,6 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
-#+REVEAL_THEME: simple
 
 
 
@@ -13,7 +12,7 @@
 - Será una máquina virtual de VirtualBox
 - El fichero =OVA= del profesor ya tiene:
   - *Centos 7* instalado (inglés)
-  - *Oracle 12c* descargado
+  - *Oracle 12c y 18c* descargado
 - En otros sistemas operativos (*Fedora*) hay un [[https://patrickhurley.wordpress.com/2015/11/30/freeze-of-oracle-dbca-and-startup-nomount-running-on-linux-on-virtualbox-5/][problema con Virtual Box y la paravirtualización]]
 
 
