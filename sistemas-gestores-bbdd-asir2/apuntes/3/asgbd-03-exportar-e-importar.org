@@ -1,6 +1,5 @@
 #+include: "../common/header.org"
 #+Title: Exportar e importar datos de Oracle
-#+REVEAL_THEME: simple
 #+EXCLUDE_TAGS: no_export
 
 * Introducción

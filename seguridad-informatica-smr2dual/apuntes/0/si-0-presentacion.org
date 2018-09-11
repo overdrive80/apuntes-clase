@@ -2,7 +2,6 @@
 #+Title: SEGURIDAD INFORMÁTICA (SMR fct ampliada)
 #+SUBTITLE: CÓDIGO: 0226
 #+KEYWORDS: 
-#+REVEAL_THEME: serif
 
 * Cómo serán las clases
 + Teoría

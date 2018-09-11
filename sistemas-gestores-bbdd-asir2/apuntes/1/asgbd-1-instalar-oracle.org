@@ -1,6 +1,5 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
-#+REVEAL_THEME: serif
 
 
 
@@ -13,7 +12,7 @@
 - Será una máquina virtual de VirtualBox
 - El fichero =OVA= del profesor ya tiene:
   - *Centos 7* instalado (inglés)
-  - *Oracle 12c* descargado
+  - *Oracle 12c y 18c* descargado
 - En otros sistemas operativos (*Fedora*) hay un [[https://patrickhurley.wordpress.com/2015/11/30/freeze-of-oracle-dbca-and-startup-nomount-running-on-linux-on-virtualbox-5/][problema con Virtual Box y la paravirtualización]]
 
 
@@ -31,14 +30,14 @@
 - Necesitamos varios componentes de Linux.
   - Su firma ([[https://docs.oracle.com/cd/E52668_01/E39381/html/ol_import_gpg.html]])
 
-#+begin_src
+#+begin_src sh
 wget http://public-yum.oracle.com/RPM-GPG-KEY-oracle-ol7
 rpm --import ./RPM-GPG-KEY-oracle-ol7
 #+end_src
 
   - Instalación
 
-#+begin_src
+#+begin_src sh
 cd /etc/yum.repos.d/
 wget http://public-yum.oracle.com/public-yum-ol7.repo
 yum install oracle-rdbms-server-11gR2-preinstall
@@ -58,72 +57,128 @@ sudo yum update #opcional, puede necesitar mucho tiempo
 #+end_src
 
 
-** Descomprimir el instalador
-- Descomprimiremos sus ficheros y borraremos los =zip= originales
-  - Directorio =$HOME/Donwloads/=
+** Oracle 18c
 
-** Arrancar el instalador
-1. Se arranca con =./runInstaller=
-2. Ignorar la dirección de /email/ 
-3. Instalar sólo el /software/ de la base de DATOS
-4. Elegir /Single instance database/
-5. Idiomas:
-   - Podemos dejar el inglés, o añadir el español
-6. Edición Enterprise
+*** Descomprimir el instalador
+ - Descomprimiremos sus ficheros en el directorio =$HOME/oracle-install-18c=
+   - Sugerencia: línea de comandos =unzip=
+   - Directorio =$HOME/oracle-install/=
+   - Fichero: =LINUX.X64_180000_db_home.zip= 
+ - Para hacer sitio, podemos borrar los ficheros =zip= una vez descomprimidos
 
-** Directorios de Oracle
-Dejamos los directorios por defecto:
-- Oracle Base: =/home/alumno/app/alumno=
-- /Software/ en =/home/alumno/app/alumno/product/12.1.0/dbhome_1=
-- /Inventory/ en =/home/alumno/app/oraInventory=
+*** Arrancar el instalador
+ 1. Se arranca con =./runInstaller=
+ 2. Instalar sólo el /software/ de la base de DATOS
+ 3. Elegir /Single instance database/
+ 5. Edición Enterprise
 
-** Grupos de /Linux/
+*** Directorios de Oracle
+ Dejamos los directorios por defecto:
+ - Oracle Base: =/home/alumno/oracle-18c=
+ - /Software/ en =/home/alumno/oracle-install-18c=
+ - /Inventory/ en =/home/alumno/oraInventory=
+   - Dejamos el grupo a =alumno=
 
-- Elegir =wheel= 
-  - Es un grupo administrador en *Centos* 
+*** Grupos de /Linux/
 
-** Comprobaciones
-- Ignoraremos el poco espacio en la partición de /swap/ y en /tmp/
-  - Solo se necesita para servidores con mucha carga
-- El instalador detectará algunos errores, pero genera unos /scripts/ de /fix/
-  - Son parámetros del /kernel/ de Linux
-  - Los /scripts/ se ejecutan como administrador
+ - Elegir =wheel= 
+   - Es un grupo administrador en *Centos*
+   - El usuario =alumno= ya pertenece a él 
 
-- Se necesitan instalar varios paquetes de software
-  - =sudo yum install= /=paquete=/
-  - Es necesario que la máquina virtual tenga acceso a internet (debería estar en /Bridged/, pero también funciona /NAT/)
+*** Comprobaciones
+ - Ignoramos la falta de memoria
+ - El instalador detectará algunos errores, pero genera unos /scripts/ de /fix/
+   - Son parámetros del /kernel/ de Linux
+   - Los /scripts/ se ejecutan como administrador
 
-#+BEGIN_NOTES
-sudo yum install compat-libcap1-1.10 compat-libstdc++-33-3.2.3 ksh libaio-devel-0.3.109
-#+END_NOTES
+ - Se necesitan instalar varios paquetes de software
+   - =sudo yum install= /=paquete=/
+   - Es necesario que la máquina virtual tenga acceso a internet (debería estar en /Bridged/, pero también funciona /NAT/)
 
-** Resumen
-- Se debe grabar la información de la hoja de resumen
+ #+BEGIN_NOTES
+sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33-3.2.3
 
-[[file:resumen-instalacion.png]]
+ #+END_NOTES
 
-** Finalización
-- Necesitamos definir algunas variables de entorno (ficheros =~/.profile=, =~/.bash_profile=, =~/.bashrc=)
-  - =ORACLE_HOME=: =/home/alumno/app/alumno/product/12.1.0/dbhome_1=
-  - Incluir =$ORACLE_HOME/bin= en el =PATH=
-- También se puede usar [[http://www.orafaq.com/wiki/Oraenv][el comando =oraenv=]] para definir estas variables
+*** Resumen
+ - Se debe grabar la información de la hoja de resumen
 
-** Reiniciar
-- En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
-- Después, podemos ver que los programas están, *pero no hacen nada*
-#+BEGIN_SRC sh
-[alumno@fedora-64-26 ~]$ sqlplus / as sysdba
+ [[file:media/response-file-18c.png]]
 
-SQL*Plus: Release 12.1.0.2.0 Production on Thu Sep 14 11:58:09 2017
+*** /scripts/ de configuración
+- /home/alumno/oraInventory/orainstRoot.sh
 
-Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+#+begin_src sh
+[alumno@centos7 oraInventory]$ sudo ./orainstRoot.sh 
+[sudo] password for alumno: 
+Changing permissions of /home/alumno/oraInventory.
+Adding read,write permissions for group.
+Removing read,write,execute permissions for world.
 
-ERROR:
-ORA-12162: TNS:net service name is incorrectly specified
+Changing groupname of /home/alumno/oraInventory to alumno.
+The execution of the script is complete.
+#+end_src
 
 
-Enter user-name: 
-#+END_SRC
+- /home/alumno/oracle-install-18c/root.sh
+
+#+begin_src sh
+[alumno@centos7 oracle-install-18c]$ sudo ./root.sh
+Performing root user operation.
+
+The following environment variables are set as:
+    ORACLE_OWNER= alumno
+    ORACLE_HOME=  /home/alumno/oracle-install-18c
+
+Enter the full pathname of the local bin directory: [/usr/local/bin]: 
+   Copying dbhome to /usr/local/bin ...
+   Copying oraenv to /usr/local/bin ...
+   Copying coraenv to /usr/local/bin ...
+
+
+Creating /etc/oratab file...
+Entries will be added to the /etc/oratab file as needed by
+Database Configuration Assistant when a database is created
+Finished running generic part of root script.
+Now product-specific root actions will be performed.
+Do you want to setup Oracle Trace File Analyzer (TFA) now ? yes|[no] : 
+
+Oracle Trace File Analyzer (TFA - Non Daemon Mode) is available at :
+    /home/alumno/oracle-install-18c/suptools/tfa/release/tfa_home/bin/tfactl
+
+Note :
+1. tfactl will use TFA Daemon Mode if TFA already running in Daemon Mode and user has access to TFA
+2. tfactl will configure TFA Non Daemon Mode only if user has no access to TFA Daemon mode or TFA Daemon mode is not installed
+
+OR
+
+Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this script :
+    /home/alumno/oracle-install-18c/suptools/tfa/release/tfa_home/install/roottfa.sh
+#+end_src
+
+
+*** Finalización
+ - Necesitamos definir algunas variables de entorno (ficheros =~/.profile=, =~/.bash_profile=, =~/.bashrc=)
+   - =ORACLE_HOME=: =/home/alumno/oracle-install-18c=
+   - Incluir =$ORACLE_HOME/bin= en el =PATH=
+ - También se puede usar [[http://www.orafaq.com/wiki/Oraenv][el comando =oraenv=]] para definir estas variables
+
+*** Reiniciar
+ - En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
+ - Después, podemos ver que los programas están, *pero no hacen nada*
+ #+BEGIN_SRC sh
+ [alumno@fedora-64-26 ~]$ sqlplus / as sysdba
+
+ SQL*Plus: Release 12.1.0.2.0 Production on Thu Sep 14 11:58:09 2017
+
+ Copyright (c) 1982, 2014, Oracle.  All rights reserved.
+
+ ERROR:
+ ORA-12162: TNS:net service name is incorrectly specified
+
+
+ Enter user-name: 
+ #+END_SRC
 
 
 * Instancia / /listener/ / base de datos
@@ -164,10 +219,16 @@ Enter user-name:
 - Utilizad la configuración típica
   - Nombre: =asir=
   - Que no sea una /container database/
+  - Recordad la contraseña 
 - Guardad la información de la página de resumen (por si acaso)
 
+** /Password management/
+- Lista de usuarios
+- Se puede
+  - Bloquearse o desbloquearse
+  - Cambiar su contraseña
 
-** Paravirtualización
+** Paravirtualización :noexport:
 - =dbca= se puede colgar si la paravirtualización está a algún valor que no sea =none=
 
     
@@ -175,6 +236,7 @@ Enter user-name:
 * Creación de un /listener/ 
 - Permiten las conexiones de clientes remotos
 - Comando =netca=
+  - /Listener configuration/
   - Nombre del listener: =LISTENER=
   - Protocolo /TCP/
   - Puerto =1521=
