@@ -415,7 +415,7 @@ http://www.chrisharrison.net/index.php/Visualizations/InternetMap
 
 * Referencias
 - Formatos:
-  - [[file:par-1-clasificacion-redes.html][Transparencias]] 
+  - [[file:par-1-clasificacion-redes.reveal.html][Transparencias]] 
   - [[file:par-1-clasificacion-redes.pdf][PDF]]
   - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
 - Creado con:
