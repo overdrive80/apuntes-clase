@@ -200,7 +200,7 @@ retardo en la transmisión (no en tiempo real).
   - Las uniones
 - Son iguales
   - Un círculo y un cuadrado 
-  - Una botella y un donut 
+  - Una taza y un donut 
 - Son distintos
   - Una botella y una taza (con asa)
 
