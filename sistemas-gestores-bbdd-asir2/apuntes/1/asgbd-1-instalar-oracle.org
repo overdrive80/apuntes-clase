@@ -524,3 +524,36 @@ Nada de esto es /directamente/ bases de datos...
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
+
+* Experimento
+#+BEGIN_SRC dot :file instalacion-oracle.png :exports results
+digraph {
+  Descomprimir -> Instalar
+  Instalar -> Paquetes_como_root
+  Instalar -> Scripts_como_root
+  Instalar -> Variables_en_bash
+
+  Paquetes_como_root -> Software_instalado
+  Scripts_como_root -> Software_instalado
+  Variables_en_bash -> Software_instalado
+
+  Software_instalado -> dbca
+  Software_instalado -> netca
+
+  netca -> Listener_creado
+  Listener_creado -> Listener_levantado [label="lsnrctl start"]
+
+  dbca -> Instancia_creada
+  Instancia_creada -> Instancia_levantada [label="startup open"]
+
+  Instancia_levantada -> Instancia_conectada [label="Automático"]
+
+  Listener_levantado -> Instancia_conectada
+
+  Instancia_conectada -> 😎 [label="lsnrctl status"]
+
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:instalacion-oracle.png]]
