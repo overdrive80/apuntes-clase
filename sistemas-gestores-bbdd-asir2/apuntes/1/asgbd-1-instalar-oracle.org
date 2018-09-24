@@ -308,6 +308,7 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 Se puede hacer /a mano/. Lo veremos en el próximo tema.
 
 #+begin_src sh
+[alumno@centos7 ~]$ export ORACLE_SID=asir
 [alumno@centos7 ~]$ sqlplus / as sysdba
 
 SQL*Plus: Release 12.1.0.2.0 Production on Tue Sep 19 10:40:54 2017
