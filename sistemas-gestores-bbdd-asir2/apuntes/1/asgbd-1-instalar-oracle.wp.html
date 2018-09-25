@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-09-07 vie 20:41 -->
+<!-- 2018-09-25 mar 08:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Instalación de Oracle</title>
@@ -238,37 +238,33 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd74c6ba">1. Instalación del software de base de datos</a></li>
-<li><a href="#org082761f">2. Instancia / <i>listener</i> / base de datos</a></li>
-<li><a href="#org8e01369">3. Creación de una instancia de base de datos</a></li>
-<li><a href="#org74e5d42">4. Creación de un <i>listener</i></a></li>
-<li><a href="#org9a415c3">5. Arrancar y parar la base de datos</a></li>
-<li><a href="#org4749d4b">6. Conexión en local</a></li>
-<li><a href="#org10eb81e">7. Conexión remota</a></li>
-<li><a href="#org869b9c3">8. Cosas que hemos aprendido <i>de pasada</i></a></li>
-<li><a href="#orge7e6c86">9. Referencias</a></li>
+<li><a href="#org4e27f15">1. Instalación del software de base de datos</a></li>
+<li><a href="#org9d22623">2. Instancia / <i>listener</i> / base de datos</a></li>
+<li><a href="#orgb89bcb6">3. Creación de una instancia de base de datos</a></li>
+<li><a href="#org73baf70">4. Creación de un <i>listener</i></a></li>
+<li><a href="#org8795b1e">5. Arrancar y parar la base de datos</a></li>
+<li><a href="#orgd424564">6. Conexión en local</a></li>
+<li><a href="#orgebcb027">7. Conexión remota</a></li>
+<li><a href="#org4b3ba54">8. Cosas que hemos aprendido <i>de pasada</i></a></li>
+<li><a href="#orgfec9fab">9. Diagrama resumen</a></li>
+<li><a href="#orgd7b7956">10. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-
-
-
-
-
-<div id="outline-container-orgd74c6ba" class="outline-2">
-<h2 id="orgd74c6ba"><span class="section-number-2">1</span> Instalación del software de base de datos</h2>
+<div id="outline-container-org4e27f15" class="outline-2">
+<h2 id="org4e27f15"><span class="section-number-2">1</span> Instalación del software de base de datos</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org795d6b9" class="outline-3">
-<h3 id="org795d6b9"><span class="section-number-3">1.1</span> Prerequisitos</h3>
+<div id="outline-container-orge657c14" class="outline-3">
+<h3 id="orge657c14"><span class="section-number-3">1.1</span> Prerequisitos</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Será una máquina virtual de VirtualBox</li>
 <li>El fichero <code>OVA</code> del profesor ya tiene:
 <ul class="org-ul">
 <li><b>Centos 7</b> instalado (inglés)</li>
-<li><b>Oracle 12c</b> descargado</li>
+<li><b>Oracle 12c y 18c</b> descargado</li>
 </ul></li>
 <li>En otros sistemas operativos (<b>Fedora</b>) hay un <a href="https://patrickhurley.wordpress.com/2015/11/30/freeze-of-oracle-dbca-and-startup-nomount-running-on-linux-on-virtualbox-5/">problema con Virtual Box y la paravirtualización</a></li>
 </ul>
@@ -276,8 +272,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgc7fa1c1" class="outline-3">
-<h3 id="orgc7fa1c1"><span class="section-number-3">1.2</span> Resolver el propio nombre</h3>
+<div id="outline-container-org4f7052c" class="outline-3">
+<h3 id="org4f7052c"><span class="section-number-3">1.2</span> Resolver el propio nombre</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Cambiar el nombre de la máquina 
@@ -295,12 +291,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9495ee4" class="outline-3">
-<h3 id="org9495ee4"><span class="section-number-3">1.3</span> Oracle 18c</h3>
+<div id="outline-container-orgaeed7a9" class="outline-3">
+<h3 id="orgaeed7a9"><span class="section-number-3">1.3</span> Oracle 18c</h3>
 <div class="outline-text-3" id="text-1-3">
 </div>
-<div id="outline-container-orge9c8661" class="outline-4">
-<h4 id="orge9c8661"><span class="section-number-4">1.3.1</span> Descomprimir el instalador</h4>
+<div id="outline-container-org8ce2531" class="outline-4">
+<h4 id="org8ce2531"><span class="section-number-4">1.3.1</span> Descomprimir el instalador</h4>
 <div class="outline-text-4" id="text-1-3-1">
 <ul class="org-ul">
 <li>Descomprimiremos sus ficheros en el directorio <code>$HOME/oracle-install-18c</code>
@@ -314,8 +310,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org583e301" class="outline-4">
-<h4 id="org583e301"><span class="section-number-4">1.3.2</span> Arrancar el instalador</h4>
+<div id="outline-container-org1857dde" class="outline-4">
+<h4 id="org1857dde"><span class="section-number-4">1.3.2</span> Arrancar el instalador</h4>
 <div class="outline-text-4" id="text-1-3-2">
 <ol class="org-ol">
 <li>Se arranca con <code>./runInstaller</code></li>
@@ -326,8 +322,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org443bfb2" class="outline-4">
-<h4 id="org443bfb2"><span class="section-number-4">1.3.3</span> Directorios de Oracle</h4>
+<div id="outline-container-org27720e7" class="outline-4">
+<h4 id="org27720e7"><span class="section-number-4">1.3.3</span> Directorios de Oracle</h4>
 <div class="outline-text-4" id="text-1-3-3">
 <p>
 Dejamos los directorios por defecto:
@@ -343,8 +339,8 @@ Dejamos los directorios por defecto:
 </div>
 </div>
 
-<div id="outline-container-org71d50f2" class="outline-4">
-<h4 id="org71d50f2"><span class="section-number-4">1.3.4</span> Grupos de <i>Linux</i></h4>
+<div id="outline-container-org9b73e91" class="outline-4">
+<h4 id="org9b73e91"><span class="section-number-4">1.3.4</span> Grupos de <i>Linux</i></h4>
 <div class="outline-text-4" id="text-1-3-4">
 <ul class="org-ul">
 <li>Elegir <code>wheel</code> 
@@ -356,8 +352,8 @@ Dejamos los directorios por defecto:
 </div>
 </div>
 
-<div id="outline-container-org083fa9e" class="outline-4">
-<h4 id="org083fa9e"><span class="section-number-4">1.3.5</span> Comprobaciones</h4>
+<div id="outline-container-orgf82cfc5" class="outline-4">
+<h4 id="orgf82cfc5"><span class="section-number-4">1.3.5</span> Comprobaciones</h4>
 <div class="outline-text-4" id="text-1-3-5">
 <ul class="org-ul">
 <li>Ignoramos la falta de memoria</li>
@@ -383,8 +379,8 @@ sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-
 </div>
 </div>
 
-<div id="outline-container-org86c52b1" class="outline-4">
-<h4 id="org86c52b1"><span class="section-number-4">1.3.6</span> Resumen</h4>
+<div id="outline-container-orgd181622" class="outline-4">
+<h4 id="orgd181622"><span class="section-number-4">1.3.6</span> Resumen</h4>
 <div class="outline-text-4" id="text-1-3-6">
 <ul class="org-ul">
 <li>Se debe grabar la información de la hoja de resumen</li>
@@ -398,8 +394,8 @@ sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-
 </div>
 </div>
 
-<div id="outline-container-orgf27dcf4" class="outline-4">
-<h4 id="orgf27dcf4"><span class="section-number-4">1.3.7</span> <i>scripts</i> de configuración</h4>
+<div id="outline-container-orgaf3fc6f" class="outline-4">
+<h4 id="orgaf3fc6f"><span class="section-number-4">1.3.7</span> <i>scripts</i> de configuración</h4>
 <div class="outline-text-4" id="text-1-3-7">
 <ul class="org-ul">
 <li>/home/alumno/oraInventory/orainstRoot.sh</li>
@@ -460,8 +456,8 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </div>
 
 
-<div id="outline-container-orgd1b0821" class="outline-4">
-<h4 id="orgd1b0821"><span class="section-number-4">1.3.8</span> Finalización</h4>
+<div id="outline-container-org3fee5d8" class="outline-4">
+<h4 id="org3fee5d8"><span class="section-number-4">1.3.8</span> Finalización</h4>
 <div class="outline-text-4" id="text-1-3-8">
 <ul class="org-ul">
 <li>Necesitamos definir algunas variables de entorno (ficheros <code>~/.profile</code>, <code>~/.bash_profile</code>, <code>~/.bashrc</code>)
@@ -474,8 +470,8 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </div>
 </div>
 
-<div id="outline-container-org235eea3" class="outline-4">
-<h4 id="org235eea3"><span class="section-number-4">1.3.9</span> Reiniciar</h4>
+<div id="outline-container-org0359ef2" class="outline-4">
+<h4 id="org0359ef2"><span class="section-number-4">1.3.9</span> Reiniciar</h4>
 <div class="outline-text-4" id="text-1-3-9">
 <ul class="org-ul">
 <li>En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno</li>
@@ -501,8 +497,8 @@ Enter user-name:
 </div>
 
 
-<div id="outline-container-org082761f" class="outline-2">
-<h2 id="org082761f"><span class="section-number-2">2</span> Instancia / <i>listener</i> / base de datos</h2>
+<div id="outline-container-org9d22623" class="outline-2">
+<h2 id="org9d22623"><span class="section-number-2">2</span> Instancia / <i>listener</i> / base de datos</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Instancia: 
@@ -526,8 +522,8 @@ Enter user-name:
 </ul>
 </div>
 
-<div id="outline-container-orga791fa0" class="outline-3">
-<h3 id="orga791fa0"><span class="section-number-3">2.1</span> Instancias y bases de DATOS</h3>
+<div id="outline-container-org3ca988a" class="outline-3">
+<h3 id="org3ca988a"><span class="section-number-3">2.1</span> Instancias y bases de DATOS</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <div class="figure">
@@ -537,8 +533,8 @@ Enter user-name:
 </div>
 </div>
 
-<div id="outline-container-orgddd8c78" class="outline-3">
-<h3 id="orgddd8c78"><span class="section-number-3">2.2</span> Ejemplo (I) de listener</h3>
+<div id="outline-container-orgfd73e59" class="outline-3">
+<h3 id="orgfd73e59"><span class="section-number-3">2.2</span> Ejemplo (I) de listener</h3>
 <div class="outline-text-3" id="text-2-2">
 
 <div class="figure">
@@ -549,8 +545,8 @@ Enter user-name:
 </div>
 
 
-<div id="outline-container-orgfe093ea" class="outline-3">
-<h3 id="orgfe093ea"><span class="section-number-3">2.3</span> Ejemplo (II) de listener</h3>
+<div id="outline-container-org2b0cae5" class="outline-3">
+<h3 id="org2b0cae5"><span class="section-number-3">2.3</span> Ejemplo (II) de listener</h3>
 <div class="outline-text-3" id="text-2-3">
 
 <div class="figure">
@@ -565,8 +561,8 @@ Enter user-name:
 
 
 
-<div id="outline-container-org8e01369" class="outline-2">
-<h2 id="org8e01369"><span class="section-number-2">3</span> Creación de una instancia de base de datos</h2>
+<div id="outline-container-orgb89bcb6" class="outline-2">
+<h2 id="orgb89bcb6"><span class="section-number-2">3</span> Creación de una instancia de base de datos</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Comando <code>dbca</code></li>
@@ -581,8 +577,8 @@ Enter user-name:
 </ul>
 </div>
 
-<div id="outline-container-org95b431b" class="outline-3">
-<h3 id="org95b431b"><span class="section-number-3">3.1</span> <i>Password management</i></h3>
+<div id="outline-container-org1fad880" class="outline-3">
+<h3 id="org1fad880"><span class="section-number-3">3.1</span> <i>Password management</i></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Lista de usuarios</li>
@@ -598,8 +594,8 @@ Enter user-name:
 
 
 
-<div id="outline-container-org74e5d42" class="outline-2">
-<h2 id="org74e5d42"><span class="section-number-2">4</span> Creación de un <i>listener</i></h2>
+<div id="outline-container-org73baf70" class="outline-2">
+<h2 id="org73baf70"><span class="section-number-2">4</span> Creación de un <i>listener</i></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Permiten las conexiones de clientes remotos</li>
@@ -616,12 +612,41 @@ Enter user-name:
 </ul></li>
 </ul>
 </div>
+
+<div id="outline-container-orgd0eefe3" class="outline-3">
+<h3 id="orgd0eefe3"><span class="section-number-3">4.1</span> Arrancar y parar el listener</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li><p>
+Arrancar:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lsnrctl start
+</pre>
+</div></li>
+<li><p>
+Parar:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lsnrctl stop
+</pre>
+</div></li>
+<li><p>
+Comprobar si la instancia se ha conectado
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">lsnrctl status
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
 </div>
 
 
 
-<div id="outline-container-org9a415c3" class="outline-2">
-<h2 id="org9a415c3"><span class="section-number-2">5</span> Arrancar y parar la base de datos</h2>
+<div id="outline-container-org8795b1e" class="outline-2">
+<h2 id="org8795b1e"><span class="section-number-2">5</span> Arrancar y parar la base de datos</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><p>
@@ -654,15 +679,16 @@ lsnrctl status
 </ul>
 </div>
 
-<div id="outline-container-org89af452" class="outline-3">
-<h3 id="org89af452"><span class="section-number-3">5.1</span> A mí <b>dbstart</b> y <b>dbshut</b> no me funcionan</h3>
+<div id="outline-container-orga4fe773" class="outline-3">
+<h3 id="orga4fe773"><span class="section-number-3">5.1</span> A mí <b>dbstart</b> y <b>dbshut</b> no me funcionan</h3>
 <div class="outline-text-3" id="text-5-1">
 <p>
 Se puede hacer <i>a mano</i>. Lo veremos en el próximo tema.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-sh">[alumno@centos7 ~]$ sqlplus / as sysdba
+<pre class="src src-sh">[alumno@centos7 ~]$ export <span style="color: #e7c547;">ORACLE_SID</span>=asir
+[alumno@centos7 ~]$ sqlplus / as sysdba
 
 SQL*Plus: Release 12.1.0.2.0 Production on Tue Sep 19 10:40:54 2017
 
@@ -689,8 +715,8 @@ SQL&gt;
 
 
 
-<div id="outline-container-org4749d4b" class="outline-2">
-<h2 id="org4749d4b"><span class="section-number-2">6</span> Conexión en local</h2>
+<div id="outline-container-orgd424564" class="outline-2">
+<h2 id="orgd424564"><span class="section-number-2">6</span> Conexión en local</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Después de la creación de un <i>listener</i> y una instancia, ya podemos conectarnos a la base de datos</li>
@@ -712,12 +738,12 @@ SQL&gt;
 
 
 
-<div id="outline-container-org10eb81e" class="outline-2">
-<h2 id="org10eb81e"><span class="section-number-2">7</span> Conexión remota</h2>
+<div id="outline-container-orgebcb027" class="outline-2">
+<h2 id="orgebcb027"><span class="section-number-2">7</span> Conexión remota</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div id="outline-container-orgc1193fc" class="outline-3">
-<h3 id="orgc1193fc"><span class="section-number-3">7.1</span> Acceso por redes</h3>
+<div id="outline-container-orgf26d63f" class="outline-3">
+<h3 id="orgf26d63f"><span class="section-number-3">7.1</span> Acceso por redes</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Es necesario conocer la IP de nuestro servidor
@@ -735,8 +761,8 @@ SQL&gt;
 </div>
 
 
-<div id="outline-container-org69b808f" class="outline-4">
-<h4 id="org69b808f"><span class="section-number-4">7.1.1</span> Conexión remota</h4>
+<div id="outline-container-org905f675" class="outline-4">
+<h4 id="org905f675"><span class="section-number-4">7.1.1</span> Conexión remota</h4>
 <div class="outline-text-4" id="text-7-1-1">
 <ul class="org-ul">
 <li>Es necesario conocer la IP o el nombre del ordenador remoto</li>
@@ -751,8 +777,8 @@ SQL&gt;
 </div>
 </div>
 
-<div id="outline-container-org80b4d23" class="outline-4">
-<h4 id="org80b4d23"><span class="section-number-4">7.1.2</span> avahi</h4>
+<div id="outline-container-org8c069dc" class="outline-4">
+<h4 id="org8c069dc"><span class="section-number-4">7.1.2</span> avahi</h4>
 <div class="outline-text-4" id="text-7-1-2">
 <ul class="org-ul">
 <li>Instalar <code>avahi</code> y <code>avahi-tools</code></li>
@@ -772,8 +798,8 @@ SQL&gt;
 </div>
 </div>
 
-<div id="outline-container-org9087ae8" class="outline-4">
-<h4 id="org9087ae8"><span class="section-number-4">7.1.3</span> Samba</h4>
+<div id="outline-container-org76c1781" class="outline-4">
+<h4 id="org76c1781"><span class="section-number-4">7.1.3</span> Samba</h4>
 <div class="outline-text-4" id="text-7-1-3">
 <ul class="org-ul">
 <li><a href="https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7">https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7</a>
@@ -793,8 +819,8 @@ SQL&gt;
 </div>
 
 
-<div id="outline-container-org4936efa" class="outline-3">
-<h3 id="org4936efa"><span class="section-number-3">7.2</span> Acceso via Web</h3>
+<div id="outline-container-orgcbc227a" class="outline-3">
+<h3 id="orgcbc227a"><span class="section-number-3">7.2</span> Acceso via Web</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Al crear la base de datos con <code>dbca</code> se configura el acceso <b>Enterprise Manager</b>
@@ -811,8 +837,8 @@ SQL&gt;
 </div>
 
 
-<div id="outline-container-orgfc63519" class="outline-3">
-<h3 id="orgfc63519"><span class="section-number-3">7.3</span> Instalación de <b>sqlplus</b></h3>
+<div id="outline-container-orgedf124c" class="outline-3">
+<h3 id="orgedf124c"><span class="section-number-3">7.3</span> Instalación de <b>sqlplus</b></h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>El cliente <b>sqlplus</b> viene en la instalación de <b>oracle</b></li>
@@ -892,8 +918,8 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 </div>
 </div>
 
-<div id="outline-container-org830cf41" class="outline-3">
-<h3 id="org830cf41"><span class="section-number-3">7.4</span> Instalación de <b>SQLDeveloper</b> en Centos</h3>
+<div id="outline-container-orgffb745e" class="outline-3">
+<h3 id="orgffb745e"><span class="section-number-3">7.4</span> Instalación de <b>SQLDeveloper</b> en Centos</h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>Se necesita <b>JDK 1.8</b></li>
@@ -910,8 +936,8 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 </div>
 </div>
 
-<div id="outline-container-orgde3b6d2" class="outline-3">
-<h3 id="orgde3b6d2"><span class="section-number-3">7.5</span> Instalación de <b>SQLDeveloper</b> en Ubuntu</h3>
+<div id="outline-container-org6934d77" class="outline-3">
+<h3 id="org6934d77"><span class="section-number-3">7.5</span> Instalación de <b>SQLDeveloper</b> en Ubuntu</h3>
 <div class="outline-text-3" id="text-7-5">
 <ul class="org-ul">
 <li>Se necesita <b>JDK 1.8</b></li>
@@ -925,8 +951,8 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 </div>
 </div>
 
-<div id="outline-container-org869b9c3" class="outline-2">
-<h2 id="org869b9c3"><span class="section-number-2">8</span> Cosas que hemos aprendido <i>de pasada</i></h2>
+<div id="outline-container-org4b3ba54" class="outline-2">
+<h2 id="org4b3ba54"><span class="section-number-2">8</span> Cosas que hemos aprendido <i>de pasada</i></h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Variables de entorno
@@ -954,8 +980,8 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 </p>
 </div>
 
-<div id="outline-container-org63123b9" class="outline-3">
-<h3 id="org63123b9"><span class="section-number-3">8.1</span> Comandos</h3>
+<div id="outline-container-org60838f4" class="outline-3">
+<h3 id="org60838f4"><span class="section-number-3">8.1</span> Comandos</h3>
 <div class="outline-text-3" id="text-8-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1025,8 +1051,8 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 </div>
 </div>
 
-<div id="outline-container-orgf3938f1" class="outline-3">
-<h3 id="orgf3938f1"><span class="section-number-3">8.2</span> Comandos, <i>shell</i> y variables</h3>
+<div id="outline-container-orgd455bb5" class="outline-3">
+<h3 id="orgd455bb5"><span class="section-number-3">8.2</span> Comandos, <i>shell</i> y variables</h3>
 <div class="outline-text-3" id="text-8-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1084,10 +1110,24 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 
 
 
-
-<div id="outline-container-orge7e6c86" class="outline-2">
-<h2 id="orge7e6c86"><span class="section-number-2">9</span> Referencias</h2>
+<div id="outline-container-orgfec9fab" class="outline-2">
+<h2 id="orgfec9fab"><span class="section-number-2">9</span> Diagrama resumen</h2>
 <div class="outline-text-2" id="text-9">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="diagrama-instalacion-oracle.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgd7b7956" class="outline-2">
+<h2 id="orgd7b7956"><span class="section-number-2">10</span> Referencias</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -1106,7 +1146,7 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-09-07 vie 20:41</p>
+<p class="date">Created: 2018-09-25 mar 08:50</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

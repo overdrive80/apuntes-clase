@@ -515,30 +515,23 @@ Nada de esto es /directamente/ bases de datos...
 
 
 
-
-* Referencias
-- Formatos:
-  - [[file:asgbd-1-instalar-oracle.html][Transparencias]] 
-  - [[file:asgbd-1-instalar-oracle.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
-
-* Experimento
-#+BEGIN_SRC dot :file instalacion-oracle.png :exports results
+* Diagrama resumen
+#+BEGIN_SRC dot :file diagrama-instalacion-oracle.svg :exports results :cmdline -Tsvg
 digraph {
   Descomprimir -> Instalar
   Instalar -> Paquetes_como_root
   Instalar -> Scripts_como_root
-  Instalar -> Variables_en_bash
 
   Paquetes_como_root -> Software_instalado
   Scripts_como_root -> Software_instalado
-  Variables_en_bash -> Software_instalado
+  Software_instalado -> Variables_en_bash
 
   Software_instalado -> dbca
   Software_instalado -> netca
+
+  Variables_en_bash -> dbca
+  Variables_en_bash -> netca
+
 
   netca -> Listener_creado
   Listener_creado -> Listener_levantado [label="lsnrctl start"]
@@ -556,4 +549,16 @@ digraph {
 #+END_SRC
 
 #+RESULTS:
-[[file:instalacion-oracle.png]]
+[[file:diagrama-instalacion-oracle.svg]]
+
+
+
+
+* Referencias
+- Formatos:
+  - [[file:asgbd-1-instalar-oracle.html][Transparencias]] 
+  - [[file:asgbd-1-instalar-oracle.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://github.com/yjwen/org-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
