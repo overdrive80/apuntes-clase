@@ -12,7 +12,7 @@
   - Si un proceso falla, los demás pueden intentar seguir trabajando
 
 #+attr_latex: :width 0.6\textwidth
-[[file:sga-procesos-usuario-sistema.png]]
+[[file:./media/sga-procesos-usuario-sistema.png]]
 
 
 ** Algunos procesos
@@ -35,14 +35,14 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
   - Memoria compartida entre todos los procesos de *Oracle*
 
 #+attr_latex: :width 0.6\textwidth
-[[file:pga-sga-muchos-procesos.png]]
+[[file:./media/pga-sga-muchos-procesos.png]]
 
 ** Procesos de usuario y procesos de sistema
 - Los procesos de usuario no se conectan directamente a la SGA
 - *Oracle* crea procesos /intermedios/ para aislarlos
 
 #+attr_latex: :width 0.6\textwidth
-[[file:procesos-usuario-sistema.png]]
+[[file:./media/procesos-usuario-sistema.png]]
 
 
 * Arranque y parada
@@ -55,10 +55,8 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 
 #+reveal: split
 
-#+attr_latex: :width 0.6\textwidth
-[[file:arranque-parada-oracle.svg]]
 
-#+begin_src dot :file arranque-parada-oracle.png :exports results :cmdline -Tpng
+#+begin_src dot :file ./media/arranque-parada-oracle.svg :exports results :cmdline -Tsvg
 digraph{
   graph [nodesep=0.5, ranksep=1]
   node [ shape="box"]
@@ -89,7 +87,7 @@ digraph{
 #+end_src
 
 #+RESULTS:
-[[file:arranque-parada-oracle.png]]
+[[file:./media/arranque-parada-oracle.svg]]
 
 ** ¿Por qué tantos modos?
 - *Shutdown* y *open* son los modos habituales
