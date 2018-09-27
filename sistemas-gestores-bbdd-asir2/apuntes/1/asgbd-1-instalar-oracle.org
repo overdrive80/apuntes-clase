@@ -543,13 +543,19 @@ digraph {
 
   Listener_levantado -> Instancia_conectada
 
-  Instancia_conectada -> 😎 [label="lsnrctl status"]
+  Instancia_conectada -> Conseguido [label="lsnrctl status"]
 
 }
 #+END_SRC
 
+
+#+attr_latex: :width 0.5\textwidth :placement [H]
 #+RESULTS:
 [[file:diagrama-instalacion-oracle.svg]]
+
+#+begin_src shell :exports none
+../../../bin/svg2pdf.sh *.svg
+#+end_src
 
 
 

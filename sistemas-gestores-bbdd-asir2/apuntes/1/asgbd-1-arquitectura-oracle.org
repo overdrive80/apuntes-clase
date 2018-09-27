@@ -58,6 +58,39 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 #+attr_latex: :width 0.6\textwidth
 [[file:arranque-parada-oracle.svg]]
 
+#+begin_src dot :file arranque-parada-oracle.png :exports results :cmdline -Tpng
+digraph{
+  graph [nodesep=0.5, ranksep=1]
+  node [ shape="box"]
+  splines=true
+  rankdir="LR"
+
+  Shutdown
+
+  {
+    rank=same
+  
+    Nomount [group=abajo]
+    Mount [group=abajo]
+    Open [group=abajo]
+  }
+
+  Shutdown -> Nomount [label="startup nomount"]
+  Shutdown -> Mount [label="startup mount"]
+  Shutdown -> Open [label="startup open"]
+
+  Nomount -> Mount [label="alter database mount     "]
+  Mount -> Open [label="alter database open   "]
+
+  Nomount -> Shutdown [label="shutdown"]
+  Mount -> Shutdown [label="shutdown"]
+  Open -> Shutdown [label="shutdown"]
+}
+#+end_src
+
+#+RESULTS:
+[[file:arranque-parada-oracle.png]]
+
 ** ¿Por qué tantos modos?
 - *Shutdown* y *open* son los modos habituales
 - *Nomount*:
