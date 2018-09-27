@@ -90,10 +90,10 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
 * Colección de cromos
   Realiza un diagrama E-R del siguiente supuesto acerca de un coleccionista de cromos:
 - De cada colección quiere saber el año de publicación inicial del álbum, editorial, nombre y número total de cromos.
-- Las colecciones se agrupan por temas: fútbol, series de televisión, películas \ldots
+- Las colecciones se agrupan por temas: fútbol, series de televisión, películas...
 - Cada cromo poseido pertenece a una colección, tiene un número, una descripción y un estado de conservación
 - Cada álbum poseido pertenece a una colección, y tiene un estado de conservación
-- También se desea almacenar información del cromos y álbums no poseidos, como en una \textit{lista de deseos}
+- También se desea almacenar información del cromos y álbums no poseidos, como en una lista de deseos
 - Algunos cromos son especialmente difíciles de conseguir. Hay que conocer qué cromos son especialmente difíciles de cada colección, se posean ya o no.
 - De los cromos especialmente difíciles de conseguir, se debe conocer su abundancia relativa respecto de los demás cromos de la colección y su precio de mercado.
   

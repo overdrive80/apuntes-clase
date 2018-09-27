@@ -304,7 +304,17 @@
   - Llegó antes
   - Corrigió errores antes
   - Tenía mayor /libertad/ (en teoría)
- 
+
+** Estándar /de iure/ y /de facto/ 
+- /De iure/: Reconocido por una autoridad competente
+- /De facto/: Lo que realmente es aceptado por los usuarios
+
+
+- A veces coinciden: [[https://es.wikipedia.org/wiki/Formato_de_papel][UNE-EN-ISO 216]]
+- A veces no coinciden: 
+  - Se promueve el DNI electrónico
+  - Pero generalmente se usa un [[http://www.madrid.org/cs/Satellite?c=CM_Tramite_FA&cid=1142570526216&language=es&pagename=ComunidadMadrid%252FEstructura&segmento=1][certificado software]]
+
 
 * Arquitectura Internet
 - La gran difusión de Internet, ha permitido que este modelo sea hoy en día un estándar de hecho. OSI ha quedado como arquitectura para el estudio teórico.
