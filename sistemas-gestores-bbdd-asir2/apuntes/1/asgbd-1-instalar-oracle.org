@@ -553,9 +553,6 @@ digraph {
 #+RESULTS:
 [[file:diagrama-instalacion-oracle.svg]]
 
-#+begin_src shell :exports none
-../../../bin/svg2pdf.sh *.svg
-#+end_src
 
 
 
