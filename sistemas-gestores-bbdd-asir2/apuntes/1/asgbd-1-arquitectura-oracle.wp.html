@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-09-28 vie 13:54 -->
+<!-- 2018-09-27 jue 14:09 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Arquitecturas de red</title>
+<title>Arquitectura de <b>Oracle</b></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
 <style type="text/css">
@@ -233,937 +233,416 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Arquitecturas de red</h1>
+<h1 class="title">Arquitectura de <b>Oracle</b></h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgab96d3d">1. Introducción</a></li>
-<li><a href="#org5f4bd4d">2. Factores a considerar en una comunicación</a></li>
-<li><a href="#org1996ec9">3. Modelo OSI</a></li>
-<li><a href="#org58dad9c">4. Capa física</a></li>
-<li><a href="#org84f83e9">5. Capa de enlace</a></li>
-<li><a href="#org1414549">6. Capa de red</a></li>
-<li><a href="#org591ea92">7. Capa de transporte</a></li>
-<li><a href="#orge54dd00">8. Capa de sesión</a></li>
-<li><a href="#orgb17c260">9. Capa de presentación</a></li>
-<li><a href="#orgf7dfb21">10. Capa de aplicación</a></li>
-<li><a href="#orgee41983">11. Aceptación del modelo ISO/OSI</a></li>
-<li><a href="#org37f913f">12. Arquitectura Internet</a></li>
-<li><a href="#orge773351">13. Otros ejemplos de arquitectura</a></li>
-<li><a href="#org65b25cb">14. Sistemas de interconexión</a></li>
-<li><a href="#org0698a3a">15. Referencias</a></li>
+<li><a href="#orgbf2fb73">1. Arquitectura</a></li>
+<li><a href="#org9531954">2. Arranque y parada</a></li>
+<li><a href="#org4e8b05f">3. Vistas</a></li>
+<li><a href="#orge0e087a">4. Bibliografía</a></li>
+<li><a href="#org7a7eefe">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgab96d3d" class="outline-2">
-<h2 id="orgab96d3d"><span class="section-number-2">1</span> Introducción</h2>
+
+
+
+<div id="outline-container-orgbf2fb73" class="outline-2">
+<h2 id="orgbf2fb73"><span class="section-number-2">1</span> Arquitectura</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li>Podemos considerar una arquitectura de red como un “plan” cuyo objetivo es establecer los mecanismos a implementar para que dos dispositivos se comuniquen.</li>
-<li>Veremos que las arquitecturas deben
+<li><b>Oracle</b> es un sistema complejo</li>
+<li>Para hacerlo más seguro, sus tareas se distribuyen entre muchos procesos
 <ul class="org-ul">
-<li>Facilitar la adición de nuevas funcionalidades</li>
-<li>Facilitar el cambio de tecnologías</li>
-<li>Facilitar la interoperabilidad entre diferentes proveedores</li>
+<li>Si un proceso falla, los demás pueden intentar seguir trabajando</li>
 </ul></li>
 </ul>
+
+
+<div class="figure">
+<p><img src="sga-procesos-usuario-sistema.png" alt="sga-procesos-usuario-sistema.png" />
+</p>
+</div>
 </div>
 
 
-
-
-
-
-<div id="outline-container-orgbf4a72a" class="outline-3">
-<h3 id="orgbf4a72a"><span class="section-number-3">1.1</span> Arquitectura monolítica</h3>
+<div id="outline-container-orga8ec3ec" class="outline-3">
+<h3 id="orga8ec3ec"><span class="section-number-3">1.1</span> Algunos procesos</h3>
 <div class="outline-text-3" id="text-1-1">
-<ul class="org-ul">
-<li>Inicialmente, cada empresa creaba su propia arquitectura sin tener en cuenta otras existentes, de forma que unas eran incompatibles con otras.</li>
-<li>Se solía crear un sistema único que se enfrentase a las necesidades de la comunicación en red abordando todos los aspectos al mismo tiempo.</li>
-<li>En entornos sencillos este enfoque funcionaba. En entornos más complejos no.</li>
-</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>PMON</code> (Process MONitor)</td>
+<td class="org-left">Monitor de procesos, se encarga controlar los otros procesos en background  y de recuperarlos cuando uno de ellos falla</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>SMON</code> (System MONitor process)</td>
+<td class="org-left">Recupera transacciones. Realiza tareas de limpieza: recuperar segmentos temporales, combinar extensiones contiguas y disponibles,&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>DBWn</code> (Database Writer Process)</td>
+<td class="org-left">Escribe el contenido de los buffers en los datafiles. <code>n</code> puede ser 0,1,&#x2026;,9,a,&#x2026;,j</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>LGWR</code> (Log Writer Process)</td>
+<td class="org-left">Gestión del buffer de <b>redo</b>, escribiendo su contenido en los archivos log.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>CKPT</code> (ChecKPoinT Process)</td>
+<td class="org-left">Actualiza  los datafiles y el fichero de control cuando se establece un punto de control (<i>checkpoint</i>).</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>RECO</code> (RECOverer Process)</td>
+<td class="org-left">Necesario ante fallos en transacciones distribuidas.</td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+<p>
+Más información en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/process.htm">https://docs.oracle.com/cd/B19306_01/server.102/b14220/process.htm</a>
+</p>
 </div>
 </div>
 
-
-<div id="outline-container-org2eef2c5" class="outline-3">
-<h3 id="org2eef2c5"><span class="section-number-3">1.2</span> Comunicación por niveles</h3>
+<div id="outline-container-org9e17e3b" class="outline-3">
+<h3 id="org9e17e3b"><span class="section-number-3">1.2</span> SGA y PGA</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li>Pronto se vió que la arquitectura monolítica no era funcional y se pasó al modelo por capas.</li>
-<li>Para hacer más sencilla la comunicación, se divide en varias capas o niveles.</li>
-<li>Cada capa proporciona servicios que las capas superiores pueden utilizar.</li>
+<li><b>PGA</b>: <i>Program Global Area</i>
+<ul class="org-ul">
+<li>Es la zona de memoria dedicada a un proceso</li>
+<li>Global: si admite más de una conexión, se comparte entre conexiones</li>
+</ul></li>
+<li><b>SGA</b>: <i>System Global Area</i>
+<ul class="org-ul">
+<li>Memoria compartida entre todos los procesos de <b>Oracle</b></li>
+</ul></li>
 </ul>
-</div>
-</div>
 
-
-
-
-<div id="outline-container-org46585ec" class="outline-3">
-<h3 id="org46585ec"><span class="section-number-3">1.3</span> Comunicación por niveles</h3>
-<div class="outline-text-3" id="text-1-3">
 
 <div class="figure">
-<p><img src="media/comunicacion-por-niveles.png" alt="comunicacion-por-niveles.png" width="50%" />
+<p><img src="pga-sga-muchos-procesos.png" alt="pga-sga-muchos-procesos.png" />
 </p>
 </div>
 </div>
 </div>
 
-
-
-<div id="outline-container-org825358f" class="outline-3">
-<h3 id="org825358f"><span class="section-number-3">1.4</span> Comunicación por niveles</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-org2531c0b" class="outline-3">
+<h3 id="org2531c0b"><span class="section-number-3">1.3</span> Procesos de usuario y procesos de sistema</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
-<li>Cada nivel tiene una <i>interfaz</i>. Dos niveles adyacentes utilizan esta interfaz para comunicar entre ellos.</li>
-<li>Interfaz: normas de comunicación entre dos capas.</li>
-<li>Cada capa en el host origen comunica (de forma virtual) con la capa homóloga del host destino. En realidad lo hacen a través de las capas inferiores.</li>
-<li>Cada capa conoce los <i>servicios</i> proporcionados por la capa de abajo y lo que tiene que proporcionar a la capa de arriba.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orge5ee207" class="outline-3">
-<h3 id="orge5ee207"><span class="section-number-3">1.5</span> Comunicación por niveles</h3>
-<div class="outline-text-3" id="text-1-5">
-<ul class="org-ul">
-<li>El nivel más alto suele llevar la <i>semántica</i> de la comunicación.
-<ul class="org-ul">
-<li>Los demás niveles sirven solamente para que éste funcione</li>
-</ul></li>
-<li>Cada nivel intermedio realiza unas determinadas funciones (presta servicios).</li>
-<li>El nivel más bajo realiza la comunicación real (transmisión de magnitudes físicas).</li>
-</ul>
-</div>
-</div>
-
-
-
-
-<div id="outline-container-org6720bd8" class="outline-3">
-<h3 id="org6720bd8"><span class="section-number-3">1.6</span> Protocolos y servicios</h3>
-<div class="outline-text-3" id="text-1-6">
-<ul class="org-ul">
-<li>Protocolos (comunicación horizontal): conjunto de reglas que permite la comunicación entre los participantes.
-<ol class="org-ol">
-<li>Todos los fabricantes que respeten las normas serán compatibles entre ellos.</li>
-<li>Regula aspectos concretos de la comunicación.</li>
-<li>Comunicación virtual excepto en el nivel más bajo.</li>
-</ol></li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgece46b0" class="outline-3">
-<h3 id="orgece46b0"><span class="section-number-3">1.7</span> Protocolos y servicios</h3>
-<div class="outline-text-3" id="text-1-7">
-<ul class="org-ul">
-<li>Servicios (comunicación vertical): funciones proporcionadas entre capas dentro del mismo equipo.
-<ol class="org-ol">
-<li>Las capas inferiores proporcionan servicios a las capas superiores.</li>
-<li>Cada capa debería usar únicamente los servicios proporcionados por la capa inmediatamente inferior.</li>
-<li>Cuando una capa hace uso de los servicios de la siguiente, la petición se realiza a través de los interfaces.</li>
-</ol></li>
-</ul>
-</div>
-
-
-
-<div id="outline-container-orge87f991" class="outline-4">
-<h4 id="orge87f991"><span class="section-number-4">1.7.1</span> Preguntas</h4>
-<div class="outline-text-4" id="text-1-7-1">
-<ul class="org-ul">
-<li>¿Qué ventajas tiene un modelo por capas?</li>
-<li>¿Qué diferencia hay entre un protocolo y un servicio?</li>
-<li>¿De qué debemos preocuparnos al crear un servicio?</li>
+<li>Los procesos de usuario no se conectan directamente a la SGA</li>
+<li><b>Oracle</b> crea procesos <i>intermedios</i> para aislarlos</li>
 </ul>
 
-<div class="notes">
-<ul class="org-ul">
-<li>Inventa un sistema de comunicación por niveles con al menos 3 capas.</li>
-<li>¿Cómo se solicita un servicio?</li>
-<li>¿El nivel 3 proporciona o recibe servicios del el nivel 1?</li>
-</ul>
 
-</div>
+<div class="figure">
+<p><img src="procesos-usuario-sistema.png" alt="procesos-usuario-sistema.png" />
+</p>
 </div>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org5f4bd4d" class="outline-2">
-<h2 id="org5f4bd4d"><span class="section-number-2">2</span> Factores a considerar en una comunicación</h2>
+<div id="outline-container-org9531954" class="outline-2">
+<h2 id="org9531954"><span class="section-number-2">2</span> Arranque y parada</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
-<li>¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?</li>
+<li><b>Oracle</b> tiene varios estados 
+<ul class="org-ul">
+<li><b>Shutdown</b>: Todo parado</li>
+<li><b>Nomount</b>: Memoria compartida reservada</li>
+<li><b>Mount</b>: Fichero de control abierto</li>
+<li><b>Open</b>: Ficheros de datos abiertos. Los clientes pueden conectarse.</li>
+</ul></li>
 </ul>
 
 
 <div class="figure">
-<p><img src="media/ejemplo-red.png" alt="ejemplo-red.png" />
+<p><object type="image/svg+xml" data="arranque-parada-oracle.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+
+
+<div class="figure">
+<p><object type="image/svg+xml" data="arranque-parada-oracle.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd68e672" class="outline-3">
-<h3 id="orgd68e672"><span class="section-number-3">2.1</span> ¿Qué hace falta?</h3>
+<div id="outline-container-orge19d63b" class="outline-3">
+<h3 id="orge19d63b"><span class="section-number-3">2.1</span> ¿Por qué tantos modos?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
-<li>Encaminamiento</li>
-<li>Direccionamiento</li>
-<li>Acceso al medio</li>
-<li>Saturación del receptor</li>
-<li>Mantenimiento del orden de envío</li>
-<li>Control de errores</li>
-<li>Multiplexación</li>
-<li>Segmentación y ensamblado</li>
-<li>Privacidad</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-org74f3eb6" class="outline-3">
-<h3 id="org74f3eb6"><span class="section-number-3">2.2</span> Encaminamiento</h3>
-<div class="outline-text-3" id="text-2-2">
+<li><b>Shutdown</b> y <b>open</b> son los modos habituales</li>
+<li><b>Nomount</b>:
 <ul class="org-ul">
-<li>Encaminamiento: buscar un camino entre el host origen y el host destino de la comunicación.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgfac4240" class="outline-3">
-<h3 id="orgfac4240"><span class="section-number-3">2.3</span> Direccionamiento</h3>
-<div class="outline-text-3" id="text-2-3">
-<ul class="org-ul">
-<li>Direccionamiento: identificar de forma univoca los hosts que participan a la comunicación.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org9418bd0" class="outline-3">
-<h3 id="org9418bd0"><span class="section-number-3">2.4</span> Acceso al medio</h3>
-<div class="outline-text-3" id="text-2-4">
-<ul class="org-ul">
-<li>Acceso al medio: determinar las normas con las que los host pueden tomar el control del medio compartido y comunicar.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org47e79c1" class="outline-3">
-<h3 id="org47e79c1"><span class="section-number-3">2.5</span> Saturación</h3>
-<div class="outline-text-3" id="text-2-5">
-<ul class="org-ul">
-<li>Saturación del receptor: si el receptor es más lento en procesar la información con respecto al emisor, hay que regular el flujo de información.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org6945d1b" class="outline-3">
-<h3 id="org6945d1b"><span class="section-number-3">2.6</span> Orden de envío</h3>
-<div class="outline-text-3" id="text-2-6">
-<ul class="org-ul">
-<li>Mantenimiento del orden de envío: es posible que ciertos paquetes enviados por caminos distintos lleguen con un orden diferente al que se enviaron.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org5d2bfbb" class="outline-3">
-<h3 id="org5d2bfbb"><span class="section-number-3">2.7</span> Control de errores</h3>
-<div class="outline-text-3" id="text-2-7">
-<ul class="org-ul">
-<li>Detección de errores: Determinar si la información recibida es correcta, ya que la información enviada por el medio podría verse afectada por factores como el ruido o la atenuación.</li>
-<li>Control de errores: Corregir los errores detectados</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org3e0c920" class="outline-3">
-<h3 id="org3e0c920"><span class="section-number-3">2.8</span> Multiplexación</h3>
-<div class="outline-text-3" id="text-2-8">
-<ul class="org-ul">
-<li>Multiplexación: un único canal puede ser usado en múltiples comunicaciones simultáneamente.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org0148fe3" class="outline-3">
-<h3 id="org0148fe3"><span class="section-number-3">2.9</span> Segmentación</h3>
-<div class="outline-text-3" id="text-2-9">
-<ul class="org-ul">
-<li>Segmentación: algunos bloques de información pueden ser demasiados grandes para ser enviados y hay que fraccionarlos.</li>
-<li>Ensamblado: si se ha segmentado la información hay que volver a reconstruirla en el destino.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgf534197" class="outline-3">
-<h3 id="orgf534197"><span class="section-number-3">2.10</span> Privacidad</h3>
-<div class="outline-text-3" id="text-2-10">
-<ul class="org-ul">
-<li>Los datos transmitidos no deberían poder ser
-<ul class="org-ul">
-<li>Vistos por terceras personas</li>
-<li>Modificados por terceras personas</li>
+<li>Para recuperar la base de datos de errores (si falta algún fichero)</li>
 </ul></li>
-<li>En el caso de saltos intermedios ¿cómo pueden los nodos intermedios pasar la información sin conocer los datos?</li>
+<li><b>Mount</b>: 
+<ul class="org-ul">
+<li>Para habilitar y deshabilitar el <i>redo log</i>.</li>
+<li>Para recuperar la base de datos de errores (sin usuarios)</li>
+</ul></li>
+<li>Conclusión: con suerte, solo <b>Shutdown</b> y <b>open</b></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org1996ec9" class="outline-2">
-<h2 id="org1996ec9"><span class="section-number-2">3</span> Modelo OSI</h2>
+
+<div id="outline-container-org4e8b05f" class="outline-2">
+<h2 id="org4e8b05f"><span class="section-number-2">3</span> Vistas</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>Modelo desarrollado por la ISO (International Standardization Organization).</li>
-<li>Modelo (principalmente teórico) que define 7 capas.</li>
-<li>Cada capa tiene una función perfectamente definida.</li>
-<li>Por cada capa se define un protocolo internacionalmente normalizado</li>
+<li>En un sistema relacional, toda la información se guarda en forma de <b>relaciones</b></li>
+<li>Las <b>vistas</b> son representaciones de otras vistas o relaciones
+<ul class="org-ul">
+<li>Quitando algunas filas o columnas</li>
+<li>Uniendo unas tablas con otras</li>
+</ul></li>
+<li>Tanto las tablas como las vistas son relaciones</li>
 </ul>
-
-
-
-<div class="figure">
-<p><img src="media/osi-usuario-conexion-red.png" alt="osi-usuario-conexion-red.png" width="35%" />
-</p>
 </div>
 
-
-<p>
-<a href="https://es.wikipedia.org/wiki/Modelo_OSI">Fuente: wikipedia</a>
-</p>
-</div>
-
-
-<div id="outline-container-org00ebccd" class="outline-3">
-<h3 id="org00ebccd"><span class="section-number-3">3.1</span> PDU (<i>protocol data unit</i>)</h3>
+<div id="outline-container-org4bfe590" class="outline-3">
+<h3 id="org4bfe590"><span class="section-number-3">3.1</span> Vistas de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>Encapsulación de datos.</li>
-<li>Es la unidad de información que cada protocolo gestiona.</li>
-<li>Normalmente está compuesta por dos partes: 
-<ol class="org-ol">
-<li>Cabecera</li>
-<li>Datos</li>
-</ol></li>
-<li>El protocolo superior envía solo datos
+<li>La información acerca de la base de datos también se almacena en relaciones de la base de datos</li>
+<li>Generalmente, en forma de vistas</li>
+<li>Ejemplos:
 <ul class="org-ul">
-<li>Los protocolos inferiores van añadiendo sus cabeceras</li>
+<li>Tablas: nombre, propietario,&#x2026;</li>
+<li>Campos de las tablas: nombre, tipo, longitud</li>
+<li>Restricciones</li>
+<li>Usuarios: nombre, contraseñas,&#x2026;</li>
+<li>Tablespaces</li>
 </ul></li>
 </ul>
-
-
-<div class="figure">
-<p><img src="media/encapsulacion-niveles-osi.png" alt="encapsulacion-niveles-osi.png" width="50%" />
-</p>
-</div>
 </div>
 </div>
 
 
-<div id="outline-container-org3c1b3c1" class="outline-3">
-<h3 id="org3c1b3c1"><span class="section-number-3">3.2</span> Servicios</h3>
+<div id="outline-container-org9e0c625" class="outline-3">
+<h3 id="org9e0c625"><span class="section-number-3">3.2</span> Tipos de vistas de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
-<li>Cada capa se dedica a prestar <i>servicios</i> a su capa superior
+<li>Estáticas 
 <ul class="org-ul">
-<li>Resuelve uno o varios problemas de la comunicación</li>
-<li>De los que las capas superiores ya no tienen que preocuparse</li>
+<li>Cambian solo si se produce un cambio en los objetos de la base de datos (tablas, vistas, usuarios,&#x2026;)</li>
+<li><code>create</code>, <code>alter</code>, <code>drop</code>, <code>grant</code>, <code>revoke</code>,&#x2026;</li>
+</ul></li>
+<li>Dinámicas: Actualizadas constantemente
+<ul class="org-ul">
+<li>Usuarios conectados, memoria disponible, consultas en curso,&#x2026;</li>
 </ul></li>
 </ul>
-</div>
 
-<div id="outline-container-orgee39d28" class="outline-4">
-<h4 id="orgee39d28"><span class="section-number-4">3.2.1</span> Conexión/Confiable</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>USER_xxxx</code></td>
+<td class="org-left">Estática</td>
+<td class="org-left">Acerca de los objetos propiedad del usuario</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>ALL_xxx</code></td>
+<td class="org-left">Estática</td>
+<td class="org-left">Objetos que puede acceder el usario</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>DBA_xxx</code></td>
+<td class="org-left">Estática</td>
+<td class="org-left"><a href="https://sqljana.wordpress.com/2016/12/21/oracle-data-dictionary-views-user-vs-all-vs-dba-views-100-level-basics/">Todos los objetos de la base de datos</a></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>V$xxxxx</code></td>
+<td class="org-left">Dinámica</td>
+<td class="org-left">Información dinámica de la instancia</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>GV$xxxx</code></td>
+<td class="org-left">Dinámica</td>
+<td class="org-left"><a href="https://docs.oracle.com/database/121/REFRN/GUID-884B21B1-7C87-41E1-8F97-C4668704AF30.htm#REFRN-GUID-884B21B1-7C87-41E1-8F97-C4668704AF30">Información dinámica del cluster</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
 <ul class="org-ul">
-<li>Cada servicio puede ser o no orientado a conexión</li>
-<li>¿Se establece conexión?:
-<ol class="org-ol">
-<li>Orientado a la conexión: crea una conexión, manda los datos, cierra la conexión. Esto garantiza la llegada en orden de los paquetes.</li>
-<li>Sin conexión: no crea una conexión, por lo tanto los paquetes pueden llegar desordenados.</li>
-</ol></li>
-<li>¿Se garantiza la entrega?:
-<ol class="org-ol">
-<li>Confiable: garantiza que la información llegará al destinatario.</li>
-<li>No confiable: la información se podría perder en la red.</li>
-</ol></li>
+<li>Vista <i>comodín</i>:
+<ul class="org-ul">
+<li><code>SELECT * FROM DICT</code></li>
+</ul></li>
 </ul>
+
+<div class="NOTES">
+<p>
+Para cambiar tamaños de columnas en <code>sqlplus</code>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">set</span> linesize 2000;
+<span style="color: #b9ca4a;">set</span> pagesize 2000;
+<span style="color: #b9ca4a;">column</span> <span style="color: #b9ca4a;">table_name</span> format a30
+<span style="color: #b9ca4a;">column</span> comments format a150 
+</pre>
 </div>
+
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org58dad9c" class="outline-2">
-<h2 id="org58dad9c"><span class="section-number-2">4</span> Capa física</h2>
+<div id="outline-container-orgf7ed415" class="outline-3">
+<h3 id="orgf7ed415"><span class="section-number-3">3.3</span> Ejemplo de vistas: ficheros</h3>
+<div class="outline-text-3" id="text-3-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Tipos de archivos</th>
+<th scope="col" class="org-left">Vista</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">De Datos (dbf) undo, system y users</td>
+<td class="org-left"><code>v$datafile</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Temporales (tmp)</td>
+<td class="org-left"><code>v$tempfile</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Rehacer o Redo Log (log)</td>
+<td class="org-left"><code>v$logfile,v$log</code></td>
+</tr>
+
+<tr>
+<td class="org-left">De control. Estructura física de la BD</td>
+<td class="org-left"><code>v$controlfile</code></td>
+</tr>
+
+<tr>
+<td class="org-left">De Log</td>
+<td class="org-left"><code>v$diag_info</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Información de la BD</td>
+<td class="org-left"><code>v$database</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8b8c330" class="outline-3">
+<h3 id="org8b8c330"><span class="section-number-3">3.4</span> Archivos</h3>
+<div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>Los datos de las tablas al final se almacenan en archivos</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Archivos de datos, de usuario y del sistema</td>
+<td class="org-left">En <i>tablespaces</i> (<code>dbf</code>)</td>
+</tr>
+
+<tr>
+<td class="org-left">Redo Log (registro de todas las transacciones)</td>
+<td class="org-left"><code>log</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Archivos de control</td>
+<td class="org-left"><code>ctl</code></td>
+</tr>
+</tbody>
+</table>
+
+<hr />
+<p>
+¿Dónde están los archivos de datos de nuestra instalación?
+¿Cómo encontrarlos?
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge0e087a" class="outline-2">
+<h2 id="orge0e087a"><span class="section-number-2">4</span> Bibliografía</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>Se encarga de la transmisión física de los datos. Indica como utilizar el medio físico para la transmisión de la información y como nos conectaremos a éste desde los equipos.</li>
-</ul>
-</div>
-
-<div id="outline-container-orga17f658" class="outline-3">
-<h3 id="orga17f658"><span class="section-number-3">4.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-4-1">
-<ul class="org-ul">
-<li>Especifica los medios de transmisión.</li>
-<li>Tipos de cableado y los conectores que utilizan</li>
-<li>Distribución y regulación del espectro electromagnético para las comunicaciones sin cable.</li>
-<li>Tipos de dispositivos y adaptadores de red.</li>
-<li>Especificaciones y procedimientos en la codificación de la información a señales utilizables en el canal.</li>
+<li><a href="https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit">https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit</a></li>
+<li><a href="https://docs.google.com/presentation/d/1pIrg5ZfTOr_j_MxBSMW3pl6jmabko_zvoAJ2ktXPis8/edit">https://docs.google.com/presentation/d/1pIrg5ZfTOr_j_MxBSMW3pl6jmabko_zvoAJ2ktXPis8/edit</a></li>
 </ul>
 </div>
 </div>
-</div>
 
-<div id="outline-container-org84f83e9" class="outline-2">
-<h2 id="org84f83e9"><span class="section-number-2">5</span> Capa de enlace</h2>
+<div id="outline-container-org7a7eefe" class="outline-2">
+<h2 id="org7a7eefe"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li>Su objetivo es convertir el medio de transmisión proporcionado por la capa física en un canal libre de errores (entre dos dispositivos conectados directamente).</li>
-<li>Enlace lógico fiable.</li>
-</ul>
-</div>
-
-<div id="outline-container-org5b18f02" class="outline-3">
-<h3 id="org5b18f02"><span class="section-number-3">5.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-5-1">
-<ul class="org-ul">
-<li>Sincronización entre el emisor y el receptor.</li>
-<li>Estructuración de los datos en tramas.</li>
-<li>Control de errores.</li>
-<li>Control de flujo.</li>
-<li>Determina el tamaño máximo y mínimo de trama.</li>
-<li>Direccionamiento físico.</li>
-<li>Gestión de control de acceso al medio.</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org1414549" class="outline-2">
-<h2 id="org1414549"><span class="section-number-2">6</span> Capa de red</h2>
-<div class="outline-text-2" id="text-6">
-<ul class="org-ul">
-<li>Define todos los aspectos necesarios para comunicar equipos de redes distintas.</li>
-<li>Utiliza los enlaces para llegar a ordenadores a más de un <i>salto</i></li>
-</ul>
-</div>
-
-<div id="outline-container-orga2c1668" class="outline-3">
-<h3 id="orga2c1668"><span class="section-number-3">6.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-6-1">
-<ul class="org-ul">
-<li>Direccionamiento lógico 
-<ul class="org-ul">
-<li>¿Por qué no valen las direcciones de la capa de enlace?</li>
-</ul></li>
-<li>Especificación de los tamaños máximos y mínimos de los paquetes.</li>
-<li>Definir si la comunicación se establece mediante circuitos virtuales o conmutación de paquetes (datagramas).</li>
-<li>Encaminamiento (enrutamiento): tiene que determinar el mejor camino para que la información llegue al destino.</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-org065f794" class="outline-3">
-<h3 id="org065f794"><span class="section-number-3">6.2</span> Funciones</h3>
-<div class="outline-text-3" id="text-6-2">
-<ul class="org-ul">
-<li>Tratamiento de la congestión de la red: debe intentar reducir al mínimo la congestión de la red evitando caminos que tienen demasiado tráfico.</li>
-<li>Interconexión de redes heterogéneas: tiene que resolver los problemas que surgen cuando el destino está en otra red que puede ser de tipo distinto a la red origen</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-org4f5738c" class="outline-3">
-<h3 id="org4f5738c"><span class="section-number-3">6.3</span> Nodos intermedios</h3>
-<div class="outline-text-3" id="text-6-3">
-
-<div class="figure">
-<p><img src="media/osi-niveles-nodos-intermedios.png" alt="osi-niveles-nodos-intermedios.png" width="50%" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org591ea92" class="outline-2">
-<h2 id="org591ea92"><span class="section-number-2">7</span> Capa de transporte</h2>
-<div class="outline-text-2" id="text-7">
-<ul class="org-ul">
-<li>Es la encargada de regular el flujo de información desde el origen hasta el destino de una manera sincronizada y precisa.</li>
-<li>Es la primera capa que tiene la ilusión de disponer de una comunicación directa entre origen y destino.</li>
-<li>Permite la interconexión extremo a extremo entre aplicaciones. 
-<ul class="org-ul">
-<li>Origen y destino no son <i>ordenadores</i>, son <i>procesos</i></li>
-</ul></li>
-</ul>
-</div>
-
-
-
-<div id="outline-container-orgffc7027" class="outline-3">
-<h3 id="orgffc7027"><span class="section-number-3">7.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-7-1">
-<ul class="org-ul">
-<li>Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.</li>
-<li>Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin perdidas o duplicados.</li>
-<li>Control de congestión entre origen y destino</li>
-<li>Direccionamiento</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orge54dd00" class="outline-2">
-<h2 id="orge54dd00"><span class="section-number-2">8</span> Capa de sesión</h2>
-<div class="outline-text-2" id="text-8">
-<ul class="org-ul">
-<li>Es la encargada de establecer, mantener y finalizar las sesiones de usuario entre dos ordenadores.</li>
-</ul>
-</div>
-
-<div id="outline-container-org98d2407" class="outline-3">
-<h3 id="org98d2407"><span class="section-number-3">8.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-8-1">
-<ul class="org-ul">
-<li>Mejora el servicio proporcionado por la capa de transporte permitiendo la reanudación de la conexión en caso de interrupción.
-<ul class="org-ul">
-<li>Ejemplo: permite que si en el envío de un fichero en múltiples datagramas, éste se corta. La conexión pueda ser reestablecida a partir del punto en que se paró.</li>
-</ul></li>
-<li>En canales half-duplex determina los turnos para controlar el diálogo.</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgb17c260" class="outline-2">
-<h2 id="orgb17c260"><span class="section-number-2">9</span> Capa de presentación</h2>
-<div class="outline-text-2" id="text-9">
-<ul class="org-ul">
-<li>Ofrece servicios para especificar el formato de los datos que se están enviando.</li>
-</ul>
-</div>
-
-<div id="outline-container-org38d5c47" class="outline-3">
-<h3 id="org38d5c47"><span class="section-number-3">9.1</span> Funciones</h3>
-<div class="outline-text-3" id="text-9-1">
-<ul class="org-ul">
-<li>Se encarga de la compresión y del cifrado de la información enviada.</li>
-<li>Se encarga de definir el <i>significado</i> de la información:
-<ul class="org-ul">
-<li>¿Qué fecha es 11/11/05?</li>
-<li>¿Qué número es 345,241?</li>
-</ul></li>
-<li>También puede definir formatos para informaciones más complejas:
-<ol class="org-ol">
-<li>Lenguajes de marcas: HTML, XML, …</li>
-<li>Formatos de imagen: JPEG, PNG, …</li>
-<li>Formatos de audio: MIDI, MP3, …</li>
-<li>Formatos de texto: ASCII, …</li>
-<li>Formatos de video: MPEG, AVI, …</li>
-</ol></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgf7dfb21" class="outline-2">
-<h2 id="orgf7dfb21"><span class="section-number-2">10</span> Capa de aplicación</h2>
-<div class="outline-text-2" id="text-10">
-<ul class="org-ul">
-<li>Es la razón por la que se monta la red</li>
-<li>Es la encargada de interactuar con el usuario final y de proporcionarle los servicios en red que éste necesita.</li>
-<li>Incluye los protocolos específicos de cada aplicación.</li>
-<li>Ejemplos: 
-<ul class="org-ul">
-<li>Protocolos de transferencia de archivos (<code>FTP</code>)</li>
-<li>Correo electrónico (<code>SMTP</code>, <code>IMAP</code>, <code>POP</code>)</li>
-<li>Conexión remota (<code>Telnet</code>, <code>SSH</code>)</li>
-<li>Gestión de nombres de dominio (<code>DNS</code>)…</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-orgee41983" class="outline-2">
-<h2 id="orgee41983"><span class="section-number-2">11</span> Aceptación del modelo ISO/OSI</h2>
-<div class="outline-text-2" id="text-11">
-<ul class="org-ul">
-<li>El modelo OSI es un gran modelo <i>teórico</i></li>
-<li>Se desarrolló con fines comerciales, pero
-<ul class="org-ul">
-<li>Era caro</li>
-<li>Tenía bastanes errores</li>
-<li>Demasiado <i>corporativo</i></li>
-</ul></li>
-<li>No pudo competir con TCP/IP porque
-<ul class="org-ul">
-<li>Era más barato (gratis)</li>
-<li>Llegó antes</li>
-<li>Corrigió errores antes</li>
-<li>Tenía mayor <i>libertad</i> (en teoría)</li>
-</ul></li>
-</ul>
-</div>
-
-<div id="outline-container-org86fbd5f" class="outline-3">
-<h3 id="org86fbd5f"><span class="section-number-3">11.1</span> Estándar <i>de iure</i> y <i>de facto</i></h3>
-<div class="outline-text-3" id="text-11-1">
-<ul class="org-ul">
-<li><i>De iure</i>: Reconocido por una autoridad competente</li>
-<li><i>De facto</i>: Lo que realmente es aceptado por los usuarios</li>
-</ul>
-
-
-<ul class="org-ul">
-<li>A veces coinciden: <a href="https://es.wikipedia.org/wiki/Formato_de_papel">UNE-EN-ISO 216</a></li>
-<li>A veces no coinciden: 
-<ul class="org-ul">
-<li>Se promueve el DNI electrónico</li>
-<li>Pero generalmente se usa un <a href="http://www.madrid.org/cs/Satellite?c=CM_Tramite_FA&amp;cid=1142570526216&amp;language=es&amp;pagename=ComunidadMadrid%2FEstructura&amp;segmento=1">certificado software</a></li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org37f913f" class="outline-2">
-<h2 id="org37f913f"><span class="section-number-2">12</span> Arquitectura Internet</h2>
-<div class="outline-text-2" id="text-12">
-<ul class="org-ul">
-<li>La gran difusión de Internet, ha permitido que este modelo sea hoy en día un estándar de hecho. OSI ha quedado como arquitectura para el estudio teórico.</li>
-<li>Se apoya sobre un modelo de red de conmutación de paquetes.</li>
-</ul>
-</div>
-
-
-
-<div id="outline-container-org2b23042" class="outline-3">
-<h3 id="org2b23042"><span class="section-number-3">12.1</span> TCP-IP Vs OSI</h3>
-<div class="outline-text-3" id="text-12-1">
-<ul class="org-ul">
-<li>OSI asignaba un protocolo por cada capa.</li>
-<li>TCP/IP plantea más de un protocolo por cada capa.</li>
-<li>En OSI cada capa puede usar SOLO los servicios de la capa inmediatamente inferior.</li>
-<li>En TCP/IP una capa puede utilizar servicios de capas inferiores no adyacentes.</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgb588383" class="outline-3">
-<h3 id="orgb588383"><span class="section-number-3">12.2</span> Capas en el modelo Internet</h3>
-<div class="outline-text-3" id="text-12-2">
-<ul class="org-ul">
-<li>La capa de acceso al medio recoge las especificaciones de las capas física y de enlace 
-<ul class="org-ul">
-<li>Por ejemplo, IEEE 802</li>
-<li>Pero puede usar otras</li>
-</ul></li>
-<li>TCP/IP cubre las de 
-<ul class="org-ul">
-<li>Red</li>
-<li>Transporte de OSI.</li>
-</ul></li>
-<li>La capa de aplicación implementa las capas de sesión, presentación y aplicación de OSI.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org3dda756" class="outline-3">
-<h3 id="org3dda756"><span class="section-number-3">12.3</span> Niveles TCP-IP</h3>
-<div class="outline-text-3" id="text-12-3">
-
-<div class="figure">
-<p><img src="media/niveles-tcpip.png" alt="niveles-tcpip.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org7df8e7e" class="outline-3">
-<h3 id="org7df8e7e"><span class="section-number-3">12.4</span> Protocolos TCP-IP</h3>
-<div class="outline-text-3" id="text-12-4">
-
-<div class="figure">
-<p><img src="media/protocolos-tcpip.png" alt="protocolos-tcpip.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org0e55f22" class="outline-3">
-<h3 id="org0e55f22"><span class="section-number-3">12.5</span> TCP vs UDP</h3>
-<div class="outline-text-3" id="text-12-5">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">&#xa0;</th>
-<th scope="col" class="org-left">TCP</th>
-<th scope="col" class="org-left">UDP</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Conexión</td>
-<td class="org-left">Sí</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Confiable</td>
-<td class="org-left">Sí</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Control de congestión</td>
-<td class="org-left">Sí</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">Velocidad</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Mayor</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge773351" class="outline-2">
-<h2 id="orge773351"><span class="section-number-2">13</span> Otros ejemplos de arquitectura</h2>
-<div class="outline-text-2" id="text-13">
-</div>
-<div id="outline-container-org0402f84" class="outline-3">
-<h3 id="org0402f84"><span class="section-number-3">13.1</span> Arquitectura RTC</h3>
-<div class="outline-text-3" id="text-13-1">
-<ul class="org-ul">
-<li>RTC (Red Telefónica Conmutada)</li>
-<li>Transmisión de voz por corriente eléctrica.</li>
-<li>Conmutación de circuitos</li>
-<li>Puede transmitir datos de ordenadores usando modulación.</li>
-<li>Protocolo PPP a nivel físico de TCP/IP</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-org1b2f193" class="outline-3">
-<h3 id="org1b2f193"><span class="section-number-3">13.2</span> Iberpac</h3>
-<div class="outline-text-3" id="text-13-2">
-<ul class="org-ul">
-<li>Red de datos extendida por toda España.</li>
-<li>Se basa sobre el estándar X.25</li>
-<li>Transmisión lenta. Redunda el control de errores.</li>
-<li>Usada para bancos.</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-org3d5d151" class="outline-3">
-<h3 id="org3d5d151"><span class="section-number-3">13.3</span> RDSI o ISDN</h3>
-<div class="outline-text-3" id="text-13-3">
-<ul class="org-ul">
-<li>Tiene su propio cableado y sus adaptadores específicos.</li>
-<li>Ofrece voz y datos a través de canales multiplexados.</li>
-<li>Un cliente puede contratar más canales si necesita más ancho de banda.</li>
-<li>Este tipo de red no es compatible con terminales analógicos.</li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org87f17bc" class="outline-3">
-<h3 id="org87f17bc"><span class="section-number-3">13.4</span> DSL (Digital Subcriber Line)</h3>
-<div class="outline-text-3" id="text-13-4">
-<ul class="org-ul">
-<li>Permite alta velocidad en cableado de baja calidad.</li>
-<li>Utiliza frecuencias que no se utilizan en la comunicación vocal
-<ul class="org-ul">
-<li>ADSL (Asymetric): el canal de bajada es mayor del canal de subida</li>
-<li>SDSL (Symetric): los canales tienen el mismo ancho de banda</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-
-
-<div id="outline-container-org65b25cb" class="outline-2">
-<h2 id="org65b25cb"><span class="section-number-2">14</span> Sistemas de interconexión</h2>
-<div class="outline-text-2" id="text-14">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Nivel</th>
-<th scope="col" class="org-left">Sistema de interconexión</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Transporte y superior</td>
-<td class="org-left">Pasarela (<i>proxy</i>)</td>
-</tr>
-
-<tr>
-<td class="org-left">Red</td>
-<td class="org-left">Enrutador (<i>router</i>)</td>
-</tr>
-
-<tr>
-<td class="org-left">Enlace</td>
-<td class="org-left">Puente (<i>bridge</i>), conmutador (<i>switch</i>), concentrador (<i>hub</i>)</td>
-</tr>
-
-<tr>
-<td class="org-left">Físico</td>
-<td class="org-left">Repetidor</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-<div id="outline-container-orgb8bca78" class="outline-3">
-<h3 id="orgb8bca78"><span class="section-number-3">14.1</span> Repetidor</h3>
-<div class="outline-text-3" id="text-14-1">
-<ul class="org-ul">
-<li>Conecta 2 segmentos de cable.</li>
-<li>Una señal que aparece en uno de ellos es amplificada y enviada al otro.</li>
-<li>Los repetidores no distinguen entre tramas, paquetes o encabezados. Manejan voltios.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-orgb9d5b21" class="outline-3">
-<h3 id="orgb9d5b21"><span class="section-number-3">14.2</span> Concentrador</h3>
-<div class="outline-text-3" id="text-14-2">
-<ul class="org-ul">
-<li>Un repetidor con más de dos conexiones</li>
-<li>Un concentrador tiene numerosos puertos de entrada que une de manera eléctrica. 
-<ul class="org-ul">
-<li>Sin retransmisión: Las tramas que llegan al mismo tiempo chocarán, provocando una colisión.</li>
-<li>Con retransmisión: Se almacena la trama completa antes de reenviarla</li>
-</ul></li>
-<li>Al igual que los repetidores, los concentradores no examinan ni las direcciones de las tramas ni ningún otro de campo de ellas</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgaae8ac9" class="outline-3">
-<h3 id="orgaae8ac9"><span class="section-number-3">14.3</span> Puente</h3>
-<div class="outline-text-3" id="text-14-3">
-<ul class="org-ul">
-<li>Un puente conecta 2  redes de área local.</li>
-<li>Cuando llega una trama, el software del puente extrae la dirección de destino del encabezado y la busca en una tabla para averiguar a donde se debe enviar.</li>
-<li>Un puente podría tener entradas de diferentes tipos de red y velocidades.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org7100222" class="outline-3">
-<h3 id="org7100222"><span class="section-number-3">14.4</span> Conmuntador</h3>
-<div class="outline-text-3" id="text-14-4">
-<ul class="org-ul">
-<li>Un puente de más de dos conexiones</li>
-<li>Examinan la dirección de destino.</li>
-<li>Aprenden las máquinas que están conectadas en cada boca.</li>
-<li>Redireccionan tramas, evitando gran parte de las colisiones.</li>
-<li>Pueden implementar caches de memoria, mejorando el flujo de comunicación entre dispositivos.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org94f8b2b" class="outline-3">
-<h3 id="org94f8b2b"><span class="section-number-3">14.5</span> Enrutador</h3>
-<div class="outline-text-3" id="text-14-5">
-<ul class="org-ul">
-<li>Enrutador: cuando un paquete llega a un enrutador el encabezado y el terminador de la trama se eliminan y el paquete contenido en el campo de datos de la trama se pasan al software de enrutamiento.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org284ccc0" class="outline-3">
-<h3 id="org284ccc0"><span class="section-number-3">14.6</span> Pasarela</h3>
-<div class="outline-text-3" id="text-14-6">
-<ul class="org-ul">
-<li>Pasarela de transporte y pasarela de aplicación.
-<ul class="org-ul">
-<li>Permiten la traducción de información en los niveles superiores.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-
-
-
-<div id="outline-container-org0698a3a" class="outline-2">
-<h2 id="org0698a3a"><span class="section-number-2">15</span> Referencias</h2>
-<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.html">Transparencias</a></li>
-<li><a href="http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.pdf">PDF</a></li>
-<li><a href="http://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-arquitecturas-de-red.org">Código fuente</a></li>
+<li><a href="asgbd-1-arquitectura-oracle.html">Transparencias</a></li>
+<li><a href="asgbd-1-arquitectura-oracle.pdf">PDF</a></li>
+<li><a href="asgbd-1-arquitectura-oracle.html">Código fuente</a></li>
+<li><a href="https://github.com/alvarogonzalezsotillo/apuntes-clase">Github</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
@@ -1171,13 +650,14 @@ for the JavaScript code in this tag.
 <li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
+<li><a href="mailto:alvaro.gonzalezsotillo@educa.madrid.org">Por Álvaro González</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-09-28 vie 13:54</p>
+<p class="date">Created: 2018-09-27 jue 14:09</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
