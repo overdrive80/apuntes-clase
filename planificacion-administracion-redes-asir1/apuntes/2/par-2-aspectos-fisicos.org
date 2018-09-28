@@ -70,8 +70,7 @@
 [[file:media/muestreo-analogico-digital.png]]
 
 
-[[https://wikitecno.wikispaces.com/file/view/Sennal_analogica_digital.png/364985066/967x394/Sennal_analogica_digital.png][
-Fuente: wikitecno]]
+[[https://wikitecno.wikispaces.com/file/view/Sennal_analogica_digital.png/364985066/967x394/Sennal_analogica_digital.png][Fuente: wikitecno]]
 
 
 ** Conversión de una señal analógica a digital
@@ -446,7 +445,7 @@ file:media/codificacion-ami.png
 
 * Referencias
 - Formatos:
-  - [[file:par-2-aspectos-fisicos.html][Transparencias]] 
+  - [[file:par-2-aspectos-fisicos.reveal.html][Transparencias]] 
   - [[file:par-2-aspectos-fisicos.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
