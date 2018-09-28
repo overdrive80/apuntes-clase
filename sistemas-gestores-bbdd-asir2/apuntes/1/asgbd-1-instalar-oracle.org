@@ -222,16 +222,16 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 
 ** Instancias y bases de DATOS
 
-[[file:diagrama-instancias-bbdd.png]]
+[[file:./media/diagrama-instancias-bbdd.png]]
 
 ** Ejemplo (I) de listener
 
-[[file:cliente-listener-instancia.png]]
+[[file:./media/cliente-listener-instancia.png]]
 
 
 ** Ejemplo (II) de listener
 
-[[file:cliente-listener-instancia-complejo.png]]
+[[file:./media/cliente-listener-instancia-complejo.png]]
 
 
 
@@ -559,7 +559,7 @@ digraph {
 
 * Referencias
 - Formatos:
-  - [[file:asgbd-1-instalar-oracle.html][Transparencias]] 
+  - [[file:asgbd-1-instalar-oracle.reveal.html][Transparencias]] 
   - [[file:asgbd-1-instalar-oracle.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]

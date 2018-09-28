@@ -60,6 +60,7 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 digraph{
   graph [nodesep=0.5, ranksep=1]
   node [ shape="box"]
+  edge [fontname="courier", fontsize="10"]
   splines=true
   rankdir="LR"
 
@@ -77,8 +78,8 @@ digraph{
   Shutdown -> Mount [label="startup mount"]
   Shutdown -> Open [label="startup open"]
 
-  Nomount -> Mount [label="alter database mount     "]
-  Mount -> Open [label="alter database open   "]
+  Nomount -> Mount [label="alter database mount      "]
+  Mount -> Open [label="alter database open     "]
 
   Nomount -> Shutdown [label="shutdown"]
   Mount -> Shutdown [label="shutdown"]
@@ -179,7 +180,7 @@ column comments format a150
 
 * Referencias
 - Formatos:
-  - [[file:asgbd-1-arquitectura-oracle.html][Transparencias]] 
+  - [[file:asgbd-1-arquitectura-oracle.reveal.html][Transparencias]] 
   - [[file:asgbd-1-arquitectura-oracle.pdf][PDF]]
   - [[file:asgbd-1-arquitectura-oracle.org][Código fuente]]
   - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
