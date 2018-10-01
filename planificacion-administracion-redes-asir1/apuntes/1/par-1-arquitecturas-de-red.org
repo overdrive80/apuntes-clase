@@ -252,6 +252,7 @@
 - Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.
 - Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin perdidas o duplicados.
 - Control de congestión entre origen y destino
+- Direccionamiento
 
 
 * Capa de sesión

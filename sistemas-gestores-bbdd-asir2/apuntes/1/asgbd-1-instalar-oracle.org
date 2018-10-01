@@ -543,6 +543,14 @@ digraph {
 
   Listener_levantado -> Instancia_conectada
 
+  Instalar_cliente_remoto -> Conectar_cliente_remoto
+
+  Quitar_firewall -> Conectar_cliente_remoto
+
+  Instancia_conectada -> Conectar_cliente_remoto
+
+  Conectar_cliente_remoto -> Conseguido
+
   Instancia_conectada -> Conseguido [label="lsnrctl status"]
 
 }
