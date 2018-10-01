@@ -38,6 +38,7 @@
   - =undo= (=undotbs1=): Datos para deshacer las transacciones (=rollback=)
   - =temp=: Operaciones temporales de usuarios que no caben en memoria
 
+#+reveal: split
 
 #+begin_src sql
 select tablespace_name from dba_tablespaces;
