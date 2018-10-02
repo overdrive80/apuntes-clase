@@ -67,6 +67,55 @@ CREATE TABLESPACE nombre
   - Que un /tablespace/ se localice en varios discos (rapidez, tamaño)
   - Mover /tablespaces/ una vez creados
 
+** Conceptos de almacenamiento
+#+begin_src dot :file ./media/conceptos-almacenamiento.svg :exports results :cmdline -Tsvg
+graph{
+  //graph [nodesep=0.5, ranksep=0.5]
+  node[ shape="box"]
+  edge[fontname="courier", fontsize="10"]
+  splines=true
+  rankdir="LR"
+
+  Database -- Tablespace [label="1    N"]
+  Tablespace -- File[label="1    N"]
+  File -- Segment [label="N    N"]
+  Segment -- Extent [label="1    N"]
+  Extent -- Oracle_block [label="1    N"]
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/conceptos-almacenamiento.svg]]
+
+Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/logical.htm][Oracle.com]]
+#+BEGIN_NOTES
+https://www.erpgreat.com/oracle-database/tablespace-datafile-data-block-segment-extent.htm
+Data Blocks
+
+At the finest level of granularity, Oracle stores data in data blocks (also called logical blocks, Oracle blocks, or pages). One data block corresponds to a specific number of bytes of physical database space on disk. You set the data block size for every Oracle database when you create the database. This data block size should be a multiple 
+of the operating system's block size within the maximum limit. Oracle data blocks are the smallest units of storage that Oracle can use or allocate.
+
+Extents
+
+The next level of logical database space is called an extent. An extent is a specific number of contiguous data blocks that is allocated for storing a specific type of information. 
+
+Segments
+
+The level of logical database storage above an extent is called a segment. A segment is a set of extents that have been allocated for a specific type of data structure, and that all are stored in the same tablespace. For example,each table's data is stored in its own data segment, while each index's datails stored in its own index segment. Oracle allocates space for segments in extents. Therefore, when the existing extents of a segment are full, Oracle allocates another extent for that segment. Because extents are allocated as needed, the extents of a segment may or may not be contiguous on disk. The segments also can span files, but the individual extents cannot. 
+
+Databases and tablespaces 
+
+An Oracle database is comprised of one or more logical storage units called tablespaces. The database's data is collectively stored in the database's tablespaces. 
+
+Tablespaces and datafiles 
+
+Each tablespace in an Oracle database is comprised of one or more operating system files called datafiles. A tablespace's datafiles physically store the associated database data on disk. 
+
+Databases and datafiles 
+
+A database's data is collectively stored in the datafiles that constitute each tablespace of the database. For example, the simplest Oracle database would have one tablespace and one datafile. A more complicated database might have three tablespaces, each comprised of two datafiles (for a total of six datafiles).  
+#+END_NOTES
+
 * Usuarios
 ¿Qué usuario hemos utilizado con =sqlplus= hasta ahora?
 

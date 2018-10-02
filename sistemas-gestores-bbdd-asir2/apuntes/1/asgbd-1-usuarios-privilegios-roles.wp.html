@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-10-02 mar 10:59 -->
+<!-- 2018-10-02 mar 10:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Arquitectura de <b>Oracle</b></title>
+<title>Usuarios, privilegios y roles de <b>Oracle</b></title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
 <style type="text/css">
@@ -233,408 +233,636 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Arquitectura de <b>Oracle</b></h1>
+<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8c56bcd">1. Arquitectura</a></li>
-<li><a href="#orgb7f795d">2. Arranque y parada</a></li>
-<li><a href="#org6005e9a">3. Vistas</a></li>
-<li><a href="#orgaa22628">4. Bibliografía</a></li>
-<li><a href="#org7409173">5. Referencias</a></li>
+<li><a href="#org892b83e">1. Introducción</a></li>
+<li><a href="#org3a94f7c">2. <i>Tablespaces</i></a></li>
+<li><a href="#orgb550666">3. Usuarios</a></li>
+<li><a href="#org1ccdaef">4. Privilegios</a></li>
+<li><a href="#org62a6003">5. Roles</a></li>
+<li><a href="#org6abd6f9">6. Perfiles</a></li>
+<li><a href="#orgc488021">7. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-
-
-
-<div id="outline-container-org8c56bcd" class="outline-2">
-<h2 id="org8c56bcd"><span class="section-number-2">1</span> Arquitectura</h2>
+<div id="outline-container-org892b83e" class="outline-2">
+<h2 id="org892b83e"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li><b>Oracle</b> es un sistema complejo</li>
-<li>Para hacerlo más seguro, sus tareas se distribuyen entre muchos procesos
+<li>Oracle puede utilizarse simultáneamente por varios procesos y clientes</li>
+<li>Cada uno puede tener distintos permisos y capacidades
 <ul class="org-ul">
-<li>Si un proceso falla, los demás pueden intentar seguir trabajando</li>
+<li>Espacio de disco disponible</li>
+<li>Gasto en CPU, red</li>
+<li>Acceso a diferentes tablas de datos</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3a94f7c" class="outline-2">
+<h2 id="org3a94f7c"><span class="section-number-2">2</span> <i>Tablespaces</i></h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li><b>Oracle</b> almacena datos en los <i>tablespaces</i>
+<ul class="org-ul">
+<li>Conjuntos de ficheros</li>
+<li>Normas para su tamaño: inicial, máximo, crecimiento</li>
+</ul></li>
+<li>Cada tablespace puede usarse para diferentes funciones
+<ul class="org-ul">
+<li>Datos de usuario</li>
+<li>Datos de recuperación</li>
+<li>Datos del sistema</li>
+<li>Datos temporales</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgc20ba77" class="outline-3">
+<h3 id="orgc20ba77"><span class="section-number-3">2.1</span> ¿Por qué tantas normas?</h3>
+<div class="outline-text-3" id="text-2-1">
+<ul class="org-ul">
+<li>Disponibilidad
+<ul class="org-ul">
+<li>¿Es mejor garantizar el espacio para las tablas?</li>
+<li>¿Es mejor ahorrar espacio mientras se pueda?</li>
+</ul></li>
+<li>Velocidad
+<ul class="org-ul">
+<li>Hacer crecer un fichero es lento</li>
+<li>Un fichero que ha crecido poco a poco está disperso en el disco (y es más lento)</li>
+</ul></li>
+<li>Capacidad
+<ul class="org-ul">
+<li>Cada sistema de ficheros tiene un tamaño de fichero máximo</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0619c49" class="outline-3">
+<h3 id="org0619c49"><span class="section-number-3">2.2</span> <i>Tablespaces</i> por defecto</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Por defecto, <b>Oracle</b> crea en una nueva base de datos
+<ul class="org-ul">
+<li><code>users</code>: Tablespace asignado por defecto para los datos de todos los usuarios</li>
+<li><code>system</code>: Datos acerca de la instancia y del diccionario de datos</li>
+<li><code>sysaux</code>: Operaciones temporales del administrador que no caben en memoria</li>
+<li><code>undo</code> (<code>undotbs1</code>): Datos para deshacer las transacciones (<code>rollback</code>)</li>
+<li><code>temp</code>: Operaciones temporales de usuarios que no caben en memoria</li>
 </ul></li>
 </ul>
 
-
-<div class="figure">
-<p><img src="./media/sga-procesos-usuario-sistema.png" alt="sga-procesos-usuario-sistema.png" />
-</p>
-</div>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> tablespace_name <span style="color: #b9ca4a;">from</span> dba_tablespaces;
+</pre>
 </div>
 
 
-<div id="outline-container-org13cddb0" class="outline-3">
-<h3 id="org13cddb0"><span class="section-number-3">1.1</span> Algunos procesos</h3>
-<div class="outline-text-3" id="text-1-1">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><code>PMON</code> (Process MONitor)</td>
-<td class="org-left">Monitor de procesos, se encarga controlar los otros procesos en background  y de recuperarlos cuando uno de ellos falla</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>SMON</code> (System MONitor process)</td>
-<td class="org-left">Recupera transacciones. Realiza tareas de limpieza: recuperar segmentos temporales, combinar extensiones contiguas y disponibles,&#x2026;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>DBWn</code> (Database Writer Process)</td>
-<td class="org-left">Escribe el contenido de los buffers en los datafiles. <code>n</code> puede ser 0,1,&#x2026;,9,a,&#x2026;,j</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>LGWR</code> (Log Writer Process)</td>
-<td class="org-left">Gestión del buffer de <b>redo</b>, escribiendo su contenido en los archivos log.</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>CKPT</code> (ChecKPoinT Process)</td>
-<td class="org-left">Actualiza  los datafiles y el fichero de control cuando se establece un punto de control (<i>checkpoint</i>).</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>RECO</code> (RECOverer Process)</td>
-<td class="org-left">Necesario ante fallos en transacciones distribuidas.</td>
-</tr>
-</tbody>
-</table>
 
 <hr />
 <p>
-Más información en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/process.htm">https://docs.oracle.com/cd/B19306_01/server.102/b14220/process.htm</a>
+Mas información en:
 </p>
+<ul class="org-ul">
+<li><a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm">https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm</a></li>
+<li><a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm">https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm</a></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-org1fa4510" class="outline-3">
-<h3 id="org1fa4510"><span class="section-number-3">1.2</span> SGA y PGA</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org159ea38" class="outline-3">
+<h3 id="org159ea38"><span class="section-number-3">2.3</span> Crear un <i>tablespace</i></h3>
+<div class="outline-text-3" id="text-2-3">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> TABLESPACE nombre 
+  DATAFILE <span style="color: #70c0b1;">'/camino/al/fichero.dbf'</span>
+  <span style="color: #b9ca4a;">SIZE</span> tamanoinicial
+  AUTOEXTEND <span style="color: #b9ca4a;">ON</span> <span style="color: #b9ca4a;">NEXT</span> 200k MAXSIZE 1400K
+  <span style="color: #b9ca4a;">DEFAULT</span> STORAGE (INITIAL 16k <span style="color: #b9ca4a;">NEXT</span> 16k MINEXTENTS 1 MAXEXTENTS 3);
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org986452f" class="outline-3">
+<h3 id="org986452f"><span class="section-number-3">2.4</span> ¿Por qué es tan complicado?</h3>
+<div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
-<li><b>PGA</b>: <i>Program Global Area</i>
+<li>Esta flexibilidad permite:
 <ul class="org-ul">
-<li>Es la zona de memoria dedicada a un proceso</li>
-<li>Global: si admite más de una conexión, se comparte entre conexiones</li>
-</ul></li>
-<li><b>SGA</b>: <i>System Global Area</i>
-<ul class="org-ul">
-<li>Memoria compartida entre todos los procesos de <b>Oracle</b></li>
+<li>Que cada usuario tenga sus <i>tablespaces</i></li>
+<li>Que cada <i>tablespace</i> esté en discos distintos (rapidez)</li>
+<li>Que un <i>tablespace</i> se localice en varios discos (rapidez, tamaño)</li>
+<li>Mover <i>tablespaces</i> una vez creados</li>
 </ul></li>
 </ul>
-
-<p>
-<img src="./media/pga-sga-muchos-procesos.png" alt="pga-sga-muchos-procesos.png" />
-<a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm#i8451">Fuente: Oracle</a>
-</p>
 </div>
 </div>
 
-<div id="outline-container-orgf4e0470" class="outline-3">
-<h3 id="orgf4e0470"><span class="section-number-3">1.3</span> Procesos de usuario y procesos de sistema</h3>
-<div class="outline-text-3" id="text-1-3">
-<ul class="org-ul">
-<li>Los procesos de usuario no se conectan directamente a la SGA</li>
-<li><b>Oracle</b> crea procesos <i>intermedios</i> para aislarlos</li>
-</ul>
-
+<div id="outline-container-org71ed8be" class="outline-3">
+<h3 id="org71ed8be"><span class="section-number-3">2.5</span> Conceptos de almacenamiento</h3>
+<div class="outline-text-3" id="text-2-5">
 
 <div class="figure">
-<p><img src="./media/procesos-usuario-sistema.png" alt="procesos-usuario-sistema.png" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgb7f795d" class="outline-2">
-<h2 id="orgb7f795d"><span class="section-number-2">2</span> Arranque y parada</h2>
-<div class="outline-text-2" id="text-2">
-<ul class="org-ul">
-<li><b>Oracle</b> tiene varios estados 
-<ul class="org-ul">
-<li><b>Shutdown</b>: Todo parado</li>
-<li><b>Nomount</b>: Memoria compartida reservada</li>
-<li><b>Mount</b>: Fichero de control abierto</li>
-<li><b>Open</b>: Ficheros de datos abiertos. Los clientes pueden conectarse.</li>
-</ul></li>
-</ul>
-
-
-<div class="figure">
-<p><object type="image/svg+xml" data="./media/arranque-parada-oracle.svg" class="org-svg">
+<p><object type="image/svg+xml" data="./media/conceptos-almacenamiento.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
 </div>
+
+<p>
+Más información en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/logical.htm">Oracle.com</a>
+</p>
+<div class="NOTES">
+<p>
+<a href="https://www.erpgreat.com/oracle-database/tablespace-datafile-data-block-segment-extent.htm">https://www.erpgreat.com/oracle-database/tablespace-datafile-data-block-segment-extent.htm</a>
+Data Blocks
+</p>
+
+<p>
+At the finest level of granularity, Oracle stores data in data blocks (also called logical blocks, Oracle blocks, or pages). One data block corresponds to a specific number of bytes of physical database space on disk. You set the data block size for every Oracle database when you create the database. This data block size should be a multiple 
+of the operating system's block size within the maximum limit. Oracle data blocks are the smallest units of storage that Oracle can use or allocate.
+</p>
+
+<p>
+Extents
+</p>
+
+<p>
+The next level of logical database space is called an extent. An extent is a specific number of contiguous data blocks that is allocated for storing a specific type of information. 
+</p>
+
+<p>
+Segments
+</p>
+
+<p>
+The level of logical database storage above an extent is called a segment. A segment is a set of extents that have been allocated for a specific type of data structure, and that all are stored in the same tablespace. For example,each table's data is stored in its own data segment, while each index's datails stored in its own index segment. Oracle allocates space for segments in extents. Therefore, when the existing extents of a segment are full, Oracle allocates another extent for that segment. Because extents are allocated as needed, the extents of a segment may or may not be contiguous on disk. The segments also can span files, but the individual extents cannot. 
+</p>
+
+<p>
+Databases and tablespaces 
+</p>
+
+<p>
+An Oracle database is comprised of one or more logical storage units called tablespaces. The database's data is collectively stored in the database's tablespaces. 
+</p>
+
+<p>
+Tablespaces and datafiles 
+</p>
+
+<p>
+Each tablespace in an Oracle database is comprised of one or more operating system files called datafiles. A tablespace's datafiles physically store the associated database data on disk. 
+</p>
+
+<p>
+Databases and datafiles 
+</p>
+
+<p>
+A database's data is collectively stored in the datafiles that constitute each tablespace of the database. For example, the simplest Oracle database would have one tablespace and one datafile. A more complicated database might have three tablespaces, each comprised of two datafiles (for a total of six datafiles).  
+</p>
+
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgb8eeab9" class="outline-3">
-<h3 id="orgb8eeab9"><span class="section-number-3">2.1</span> ¿Por qué tantos modos?</h3>
-<div class="outline-text-3" id="text-2-1">
-<ul class="org-ul">
-<li><b>Shutdown</b> y <b>open</b> son los modos habituales</li>
-<li><b>Nomount</b>:
-<ul class="org-ul">
-<li>Para recuperar la base de datos de errores (si falta algún fichero)</li>
-</ul></li>
-<li><b>Mount</b>: 
-<ul class="org-ul">
-<li>Para habilitar y deshabilitar el <i>redo log</i>.</li>
-<li>Para recuperar la base de datos de errores (sin usuarios)</li>
-</ul></li>
-<li>Conclusión: con suerte, solo <b>Shutdown</b> y <b>open</b></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org6005e9a" class="outline-2">
-<h2 id="org6005e9a"><span class="section-number-2">3</span> Vistas</h2>
+<div id="outline-container-orgb550666" class="outline-2">
+<h2 id="orgb550666"><span class="section-number-2">3</span> Usuarios</h2>
 <div class="outline-text-2" id="text-3">
+<p>
+¿Qué usuario hemos utilizado con <code>sqlplus</code> hasta ahora?
+</p>
+
 <ul class="org-ul">
-<li>En un sistema relacional, toda la información se guarda en forma de <b>relaciones</b></li>
-<li>Las <b>vistas</b> son representaciones de otras vistas o relaciones
+<li><b>Oracle</b> tiene dos modos de autentificar usuarios
 <ul class="org-ul">
-<li>Quitando algunas filas o columnas</li>
-<li>Uniendo unas tablas con otras</li>
+<li>Autentificación de sistema operativo</li>
+<li>Autentificación con seguridad nativa de <b>oracle</b></li>
 </ul></li>
-<li>Tanto las tablas como las vistas son relaciones</li>
+<li>Al instalarlo, elegimos que el grupo <code>wheel</code> era administrador</li>
 </ul>
 </div>
 
-<div id="outline-container-orgb3af5c4" class="outline-3">
-<h3 id="orgb3af5c4"><span class="section-number-3">3.1</span> Vistas de <b>Oracle</b></h3>
+<div id="outline-container-orgab55965" class="outline-3">
+<h3 id="orgab55965"><span class="section-number-3">3.1</span> Creación de usuarios</h3>
 <div class="outline-text-3" id="text-3-1">
-<ul class="org-ul">
-<li>La información acerca de la base de datos también se almacena en relaciones de la base de datos</li>
-<li>Generalmente, en forma de vistas</li>
-<li>Ejemplos:
-<ul class="org-ul">
-<li>Tablas: nombre, propietario,&#x2026;</li>
-<li>Campos de las tablas: nombre, tipo, longitud</li>
-<li>Restricciones</li>
-<li>Usuarios: nombre, contraseñas,&#x2026;</li>
-<li>Tablespaces</li>
-</ul></li>
-</ul>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> <span style="color: #c397d8;">USER</span> usuario IDENTIFIED <span style="color: #b9ca4a;">BY</span> contrasena
+  <span style="color: #b9ca4a;">DEFAULT</span> TABLESPACE tablespace
+  <span style="color: #b9ca4a;">TEMPORARY</span> TABLESPACE tablespace
+  QUOTA UNLIMITED <span style="color: #b9ca4a;">ON</span> tablespace
+  QUOTA tamano <span style="color: #b9ca4a;">ON</span> tablespace
+  ACCOUNT LOCK
+  ACCOUNT UNLOCK
+</pre>
+</div>
 </div>
 </div>
 
-
-<div id="outline-container-org05c129a" class="outline-3">
-<h3 id="org05c129a"><span class="section-number-3">3.2</span> Tipos de vistas de <b>Oracle</b></h3>
+<div id="outline-container-orgb00b209" class="outline-3">
+<h3 id="orgb00b209"><span class="section-number-3">3.2</span> Modificación de usuario</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
-<li>Estáticas 
+<li><p>
+Modificación de un usuario ya creado
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">ALTER</span> <span style="color: #c397d8;">USER</span> usuario
+  cualquier opcion valida al crear usuario
+</pre>
+</div></li>
+
+<li><p>
+Borrado de usuario
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">DROP</span> <span style="color: #c397d8;">USER</span> usuario
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-org1ccdaef" class="outline-2">
+<h2 id="org1ccdaef"><span class="section-number-2">4</span> Privilegios</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>Cambian solo si se produce un cambio en los objetos de la base de datos (tablas, vistas, usuarios,&#x2026;)</li>
-<li><code>create</code>, <code>alter</code>, <code>drop</code>, <code>grant</code>, <code>revoke</code>,&#x2026;</li>
-<li>Documentación de Oracle: <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2.htm">1</a>, <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_3.htm">2</a>, <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_4.htm">3</a></li>
+<li>Cada usuario puede tener unos permisos distintos</li>
+<li>Ya hemos visto dos permisos
+<ul class="org-ul">
+<li>En qué <i>tablespaces</i> se puede escribir</li>
+<li>Cuántos datos se pueden escribir en esos <i>tablespaces</i></li>
+<li>Si una cuenta está bloqueada</li>
 </ul></li>
-<li>Dinámicas: Actualizadas constantemente
+<li>Pero hay más permisos
 <ul class="org-ul">
-<li>Usuarios conectados, memoria disponible, consultas en curso,&#x2026;</li>
-<li><a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1.htm">Documentación de Oracle</a></li>
+<li>Veremos los <i>privilegios</i> de <b>Oracle</b></li>
 </ul></li>
 </ul>
+</div>
 
+
+
+<div id="outline-container-org6730ca4" class="outline-3">
+<h3 id="org6730ca4"><span class="section-number-3">4.1</span> Privilegios de <b>Oracle</b></h3>
+<div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
 <col  class="org-left" />
+</colgroup>
 
-<col  class="org-left" />
-
+<colgroup>
 <col  class="org-left" />
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Privilegio</th>
+<th scope="col" class="org-left">Objeto sobre el que se aplica</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="org-left"><code>USER_xxxx</code></td>
-<td class="org-left">Estática</td>
-<td class="org-left">Acerca de los objetos propiedad del usuario</td>
+<td class="org-left"><code>Create, alter, drop</code></td>
+<td class="org-left"><code>Table, sequence, view, user, synonym, session</code></td>
 </tr>
 
 <tr>
-<td class="org-left"><code>ALL_xxx</code></td>
-<td class="org-left">Estática</td>
-<td class="org-left">Objetos que puede acceder el usario</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>DBA_xxx</code></td>
-<td class="org-left">Estática</td>
-<td class="org-left"><a href="https://sqljana.wordpress.com/2016/12/21/oracle-data-dictionary-views-user-vs-all-vs-dba-views-100-level-basics/">Todos los objetos de la base de datos</a></td>
-</tr>
-
-<tr>
-<td class="org-left"><code>V$xxxxx</code></td>
-<td class="org-left">Dinámica</td>
-<td class="org-left">Información dinámica de la instancia</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>GV$xxxx</code></td>
-<td class="org-left">Dinámica</td>
-<td class="org-left"><a href="https://docs.oracle.com/database/121/REFRN/GUID-884B21B1-7C87-41E1-8F97-C4668704AF30.htm#REFRN-GUID-884B21B1-7C87-41E1-8F97-C4668704AF30">Información dinámica del cluster</a></td>
+<td class="org-left"><code>select, update, delete, insert</code></td>
+<td class="org-left">Sobre campos de tablas y filas</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 
-<hr />
+<div id="outline-container-org95b116d" class="outline-3">
+<h3 id="org95b116d"><span class="section-number-3">4.2</span> Sintaxis de <code>Grant</code></h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
+<span style="color: #b9ca4a;">on</span> OBJETO
+<span style="color: #b9ca4a;">to</span> USUARIO
+<span style="color: #b9ca4a;">with</span> <span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">option</span>;
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">alumnos</span>(...);
+<span style="color: #b9ca4a;">create</span> <span style="color: #c397d8;">user</span> profesor ...;
+<span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">select</span> <span style="color: #b9ca4a;">on</span> alumnos <span style="color: #b9ca4a;">to</span> profesor;
+</pre>
+</div>
+
+
+<p>
+<a href="https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339">Fuente: docs.oracle.com</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org23efa6e" class="outline-3">
+<h3 id="org23efa6e"><span class="section-number-3">4.3</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
-<li>Vista <i>comodín</i>:
+<li>Crea un usuario <code>LIMITADO</code>
 <ul class="org-ul">
-<li><code>SELECT * FROM DICT</code></li>
+<li>Que tenga privilegios de <code>connect</code> y <code>resource</code></li>
+<li>Utilízalo para crear una tabla <code>DATOS(TEXTO varchar2(255)),numero integer)</code></li>
+<li>Inserta datos (puede que necesite cuota)</li>
+</ul></li>
+<li>Crea un usuario <code>CONPERMISOS</code></li>
+<li>Haz que <code>LIMITADO</code> de privilegios a <code>CONPERMISOS</code> para que:
+<ul class="org-ul">
+<li>Pueda leer todos los campos de la tabla <code>DATOS</code></li>
+<li>Pueda actualizar el campo <code>NUMERO</code> de tabla <code>DATOS</code></li>
+<li>Pero no pueda modificar el campo <code>TEXTO</code>, ni borrar filas, ni insertar filas</li>
 </ul></li>
 </ul>
 
 <div class="NOTES">
 <p>
-Para cambiar tamaños de columnas en <code>sqlplus</code>:
+grant update(column-name) on table-name to user-name
 </p>
 
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd659ecc" class="outline-3">
+<h3 id="orgd659ecc"><span class="section-number-3">4.4</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>Haz que el usuario <code>LIMITADO</code> tenga una cuota de 100k en el tablespace <code>USERS</code></li>
+<li>Llena toda su cuota insertando filas en la tabla <code>DATOS</code></li>
+<li>¿Qué ocurre?</li>
+</ul>
+
+<div class="NOTES">
+<p>
+create user limitado identified by limitado;
+grant resource,connect to limitado;
+alter user limitado quota 100k on users;
+</p>
+
+<p>
+connect limitado/limitado
+</p>
+
+<p>
+create table datos(texto varchar2(255),numero integer);
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
+commit;
+</p>
+
+<p>
+ORA-01536: space quota exceeded for tablespace 'USERS'
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbccfb1b" class="outline-3">
+<h3 id="orgbccfb1b"><span class="section-number-3">4.5</span> Quitar privilegios</h3>
+<div class="outline-text-3" id="text-4-5">
+<ul class="org-ul">
+<li>Los privilegios se quitan con <code>revoke</code></li>
+<li>Cuando un usuario pierde un privilegio, los pierden también todos los que recibieron el mismo privilegio a través de él
+<ul class="org-ul">
+<li>Por la cláusula <code>with grant option</code></li>
+</ul></li>
+</ul>
+
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">set</span> linesize 2000;
-<span style="color: #b9ca4a;">set</span> pagesize 2000;
-<span style="color: #b9ca4a;">column</span> <span style="color: #b9ca4a;">table_name</span> format a30
-<span style="color: #b9ca4a;">column</span> comments format a150 
+<pre class="src src-sql"><span style="color: #b9ca4a;">connect</span> sys<span style="color: #969896; font-style: italic;">/*******</span>
+<span style="color: #969896; font-style: italic;">grant select on unatabla to unusuario with grant option;</span>
+
+<span style="color: #969896; font-style: italic;">connect unusuario/*******</span>
+<span style="color: #969896; font-style: italic;">grant select on unatabla to otrousuario;</span>
+
+<span style="color: #969896; font-style: italic;">connect sys/*******</span>
+<span style="color: #969896; font-style: italic;">revoke select on unatabla from unusuario;</span>
+
+<span style="color: #969896; font-style: italic;">-- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org62a6003" class="outline-2">
+<h2 id="org62a6003"><span class="section-number-2">5</span> Roles</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
+<li>¿Qué ocurre si tenemos que manejar a muchos usuario?</li>
+<li>Los <b>roles</b> permiten dar nombre a un grupo de privilegios
+<ul class="org-ul">
+<li>Se pueden asignar privilegios a un rol</li>
+<li>Y después asignar ese rol a varios usuarios</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgaacf5f5" class="outline-3">
+<h3 id="orgaacf5f5"><span class="section-number-3">5.1</span> Sintaxis de roles</h3>
+<div class="outline-text-3" id="text-5-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">role</span> NOMBREROL;
+<span style="color: #b9ca4a;">grant</span> PRIVILEGIOS <span style="color: #b9ca4a;">on</span> OBJETOS <span style="color: #b9ca4a;">to</span> NOMBREROL;
+<span style="color: #b9ca4a;">grant</span> NOMBREROL <span style="color: #b9ca4a;">to</span> USUARIO;
 </pre>
 </div>
 
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgd1789df" class="outline-3">
-<h3 id="orgd1789df"><span class="section-number-3">3.3</span> Ejemplo de vistas: ficheros</h3>
-<div class="outline-text-3" id="text-3-3">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Tipos de archivos</th>
-<th scope="col" class="org-left">Vista</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">De Datos (dbf) undo, system y users</td>
-<td class="org-left"><code>v$datafile</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Temporales (tmp)</td>
-<td class="org-left"><code>v$tempfile</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Rehacer o Redo Log (log)</td>
-<td class="org-left"><code>v$logfile,v$log</code></td>
-</tr>
-
-<tr>
-<td class="org-left">De control. Estructura física de la BD</td>
-<td class="org-left"><code>v$controlfile</code></td>
-</tr>
-
-<tr>
-<td class="org-left">De Log</td>
-<td class="org-left"><code>v$diag_info</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Información de la BD</td>
-<td class="org-left"><code>v$database</code></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org7bae253" class="outline-3">
-<h3 id="org7bae253"><span class="section-number-3">3.4</span> Archivos</h3>
-<div class="outline-text-3" id="text-3-4">
-<ul class="org-ul">
-<li>Los datos de las tablas al final se almacenan en archivos</li>
-</ul>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left">Archivos de datos, de usuario y del sistema</td>
-<td class="org-left">En <i>tablespaces</i> (<code>dbf</code>)</td>
-</tr>
-
-<tr>
-<td class="org-left">Redo Log (registro de todas las transacciones)</td>
-<td class="org-left"><code>log</code></td>
-</tr>
-
-<tr>
-<td class="org-left">Archivos de control</td>
-<td class="org-left"><code>ctl</code></td>
-</tr>
-</tbody>
-</table>
-
-<hr />
 <p>
-¿Dónde están los archivos de datos de nuestra instalación?
-¿Cómo encontrarlos?
+<a href="https://docs.oracle.com/cd/B10501_01/server.920/a96521/privs.htm">Fuente: docs.oracle.com</a>
 </p>
 </div>
 </div>
+
+<div id="outline-container-orge8bdff7" class="outline-3">
+<h3 id="orge8bdff7"><span class="section-number-3">5.2</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-5-2">
+<ul class="org-ul">
+<li>Imagina que
+<ol class="org-ol">
+<li>Creas un rol con sus permisos</li>
+<li>Le asignas privilegios</li>
+<li>Lo asignas al usuario <code>USUARIOANTES</code></li>
+<li>Quitas algún privilegio del rol</li>
+<li>Asignas el rol al usuario <code>USUARIODESPUES</code></li>
+</ol></li>
+<li>El usuario <code>USUARIODESPUES</code>, ¿tiene más, menos o los mismos privilegios que <code>USUARIOANTES</code>?
+<ul class="org-ul">
+<li>O lo que es lo mismo, ¿los permisos del rol se <i>copian</i> al usuario o se <i>enlazan</i>?</li>
+</ul></li>
+</ul>
+
+<div class="NOTES">
+<p>
+
+</p>
+
+<p>
+drop role ELROL;
+</p>
+
+<p>
+create role ELROL;
+grant resource, connect to ELROL;
+grant select on LIMITADO.DATOS to ELROL;
+</p>
+
+<p>
+drop user usuarioantes;
+create user usuarioantes identified by u;
+grant ELROL to usuarioantes;
+</p>
+
+<p>
+revoke select on LIMITADO.DATOS from ELROL;
+</p>
+
+<p>
+drop user usuariodespues;
+create user usuariodespues identified by u;
+grant ELROL to usuariodespues;
+</p>
+
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6abd6f9" class="outline-2">
+<h2 id="org6abd6f9"><span class="section-number-2">6</span> Perfiles</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Un <i>profile</i> es un conjunto de limitaciones sobre el sistema <b>Oracle</b></li>
+<li>No limita acceso a datos, sino al propio SGBD y sistema operativo</li>
+</ul>
 </div>
 
 
-<div id="outline-container-orgaa22628" class="outline-2">
-<h2 id="orgaa22628"><span class="section-number-2">4</span> Bibliografía</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org87e795b" class="outline-3">
+<h3 id="org87e795b"><span class="section-number-3">6.1</span> Creación de perfiles</h3>
+<div class="outline-text-3" id="text-6-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> PROFILE nombreperfil <span style="color: #b9ca4a;">LIMIT</span> 
+   SESSIONS_PER_USER          UNLIMITED 
+   CPU_PER_SESSION            UNLIMITED 
+   CPU_PER_CALL               3000 
+   CONNECT_TIME               45 
+   IDLE_TIME                 300
+   LOGICAL_READS_PER_SESSION  <span style="color: #b9ca4a;">DEFAULT</span> 
+   LOGICAL_READS_PER_CALL     1000 
+   PRIVATE_SGA                15K
+   COMPOSITE_LIMIT            5000000; 
+
+<span style="color: #b9ca4a;">ALTER</span> <span style="color: #b9ca4a;">SYSTEM</span> <span style="color: #b9ca4a;">SET</span> resource_limit = <span style="color: #b9ca4a;">TRUE</span> <span style="color: #7aa6da;">scope</span> = <span style="color: #b9ca4a;">BOTH</span> 
+</pre>
+</div>
+
 <ul class="org-ul">
-<li><a href="https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit">https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit</a></li>
-<li><a href="https://docs.google.com/presentation/d/1pIrg5ZfTOr_j_MxBSMW3pl6jmabko_zvoAJ2ktXPis8/edit">https://docs.google.com/presentation/d/1pIrg5ZfTOr_j_MxBSMW3pl6jmabko_zvoAJ2ktXPis8/edit</a></li>
+<li>Nota: Según la fuente, los tiempos se miden en días. Se pueden especificar fracciones de día.
+<ul class="org-ul">
+<li>Pero a mí me funcionan como minutos</li>
+</ul></li>
+</ul>
+
+<p>
+<a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm">Fuente: docs.oracle.com</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb155ce9" class="outline-3">
+<h3 id="orgb155ce9"><span class="section-number-3">6.2</span> Asignación de perfil a un usuario</h3>
+<div class="outline-text-3" id="text-6-2">
+<ul class="org-ul">
+<li><p>
+En la creación (<code>create user</code>), o posteriormente
+</p>
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">alter</span> <span style="color: #c397d8;">user</span> USUARIO profile NOMBREDEPERFIL
+</pre>
+</div></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org7409173" class="outline-2">
-<h2 id="org7409173"><span class="section-number-2">5</span> Referencias</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org1724536" class="outline-3">
+<h3 id="org1724536"><span class="section-number-3">6.3</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li>Haz que el usuario <code>LIMITADO</code> 
+<ul class="org-ul">
+<li>se quede sin sesión tras 1 minuto de inactividad</li>
+<li>se quede sin sesión a los 2 minutos de conectarse, aunque no haya estado inactivo</li>
+</ul></li>
+</ul>
+
+<div class="NOTES">
+<p>
+drop profile limitado cascade;
+create profile limitado limit idle<sub>time</sub> 1 connect<sub>time</sub> 2;
+alter user limitado profile limitado;
+</p>
+
+<p>
+ERROR at line 1:
+ORA-02396: exceeded maximum idle time, please connect again
+</p>
+
+<p>
+ERROR at line 1:
+ORA-02399: exceeded maximum connect time, you are being logged off
+</p>
+
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd8d9f20" class="outline-3">
+<h3 id="orgd8d9f20"><span class="section-number-3">6.4</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>Utiliza las vistas de <b>Oracle</b> para conocer los límites del profile por defecto.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgc488021" class="outline-2">
+<h2 id="orgc488021"><span class="section-number-2">7</span> Referencias</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="asgbd-1-arquitectura-oracle.reveal.html">Transparencias</a></li>
-<li><a href="asgbd-1-arquitectura-oracle.pdf">PDF</a></li>
+<li><a href="asgbd-1-usuarios-privilegios-roles.html">Transparencias</a></li>
+<li><a href="asgbd-1-usuarios-privilegios-roles.pdf">PDF</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
@@ -642,14 +870,13 @@ Para cambiar tamaños de columnas en <code>sqlplus</code>:
 <li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
-<li><a href="mailto:alvaro.gonzalezsotillo@educa.madrid.org">Por Álvaro González</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-10-02 mar 10:59</p>
+<p class="date">Created: 2018-10-02 mar 10:58</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

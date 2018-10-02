@@ -36,6 +36,7 @@ Más información en [[https://docs.oracle.com/cd/B19306_01/server.102/b14220/pr
 
 #+attr_latex: :width 0.6\textwidth
 [[file:./media/pga-sga-muchos-procesos.png]]
+[[https://docs.oracle.com/cd/B19306_01/server.102/b14220/memory.htm#i8451][Fuente: Oracle]]
 
 ** Procesos de usuario y procesos de sistema
 - Los procesos de usuario no se conectan directamente a la SGA
@@ -124,8 +125,10 @@ digraph{
 - Estáticas 
   - Cambian solo si se produce un cambio en los objetos de la base de datos (tablas, vistas, usuarios,...)
   - =create=, =alter=, =drop=, =grant=, =revoke=,...
+  - Documentación de Oracle: [[https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_2.htm][1]], [[https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_3.htm][2]], [[https://docs.oracle.com/cd/B19306_01/server.102/b14237/statviews_4.htm][3]]
 - Dinámicas: Actualizadas constantemente
   - Usuarios conectados, memoria disponible, consultas en curso,...
+  - [[https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_1.htm][Documentación de Oracle]]
 
 #+reveal: split
 
@@ -182,8 +185,6 @@ column comments format a150
 - Formatos:
   - [[file:asgbd-1-arquitectura-oracle.reveal.html][Transparencias]] 
   - [[file:asgbd-1-arquitectura-oracle.pdf][PDF]]
-  - [[file:asgbd-1-arquitectura-oracle.org][Código fuente]]
-  - [[https://github.com/alvarogonzalezsotillo/apuntes-clase][Github]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
