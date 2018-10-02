@@ -102,7 +102,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \end{multicols}
   {\small \textbf{Nota}: Son muchos usuarios, así que es aconsejable utilizar un \textit{script} en vez de crearlos manualmente.}
 
-  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto, con cuota ilimitada.
+  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto. Los usuarios de los otros alumnos tendrán una cuota de 1MByte.
   
   Cuando tengas listos los usuarios:
   \begin{itemize}
@@ -117,10 +117,10 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   Cambia la contraseña de tu usuario, si no lo has hecho ya, para que ningún compañero pueda utilizarlo (con \texttt{ALTER USER}).
 
   \begin{enumerate}
-  \item Crea un \textit{tablespace} de nombre \texttt{MULTAS}, con un \textit{datafile} en el directorio \texttt{/datos/multas}.
+  \item Crea un \textit{tablespace} de nombre \texttt{CARRERAS}, con un \textit{datafile} en el directorio \texttt{/datos/carreras}.
   \item Con tu propio usuario, crea las tablas en ese \textit{tablespace}
     \begin{itemize}
-    \item Utiliza el \enlace{https://alvarogonzalezsotillo.github.io/sistemas-gestores-bbdd-asir2/apuntes/1/sql/multas.sql}{\textit{script} \texttt{multas.sql}} para la creación de las tablas
+    \item Utiliza el \enlace{https://alvarogonzalezsotillo.github.io/sistemas-gestores-bbdd-asir2/apuntes/1/sql/carreras-coches.sql}{\textit{script} \texttt{carreras-coches.sql}} para la creación de las tablas
     \item Tendrás que modificar el \textit{script} para que tenga en cuenta tu \textit{tablespace}
     \item Tu usuario deberá tener cuota en el \textit{tablespace}
     \end{itemize}
@@ -133,13 +133,13 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \item Haz que el resto de usuarios pueda realizar \texttt{SELECT} sobre tus tablas.  
   \item Crea sinónimos en todos los usuarios para que puedan acceder a tus tablas sin problemas
     \begin{itemize}
-    \item Por ejemplo, el usuario \texttt{profesor} debería poder ejecutar \texttt{SELECT * FROM MULTAS}, puesto que habrás creado un sinónimo del tipo \seqsplit{\texttt{CREATE PUBLIC SYNONYM MULTAS FOR \textit{MIUSUARIO}.MULTAS}}.
+    \item Por ejemplo, el usuario \texttt{profesor} debería poder ejecutar \texttt{SELECT * FROM CIRCUITOS}, puesto que habrás creado un sinónimo del tipo \seqsplit{\texttt{CREATE PUBLIC SYNONYM CIRCUITOS FOR \textit{MIUSUARIO}.CIRCUITOS}}.
     \end{itemize}
   \end{itemize}
 
-  Después, haz que puedan escribir en un campo de la tabla \texttt{MULTAS}:
+  Después, haz que puedan escribir en un campo de la tabla \texttt{RESULTADOS}:
   \begin{itemize}
-  \item Crea un nuevo campo en la tabla \texttt{MULTAS}: \texttt{PAGADO}, de tipo \texttt{NUMBER(1,0)}. Tendrá el valor \texttt{1} si la multa ha sido pagada, y \texttt{0} en caso contrario (cláusula \texttt{DEFAULT} y \texttt{CHECK})
+  \item Crea un nuevo campo en la tabla \texttt{RESULTADOS}: \texttt{VALORACION}, de tipo \texttt{VARCHAR(20)}. Tendrá como únicos valores posibles \texttt{MALO}, \texttt{ACEPTABLE}, \texttt{BUENO} y \texttt{MUY BUENO}.
     
   \item Da permisos al resto de usuarios para poder escribir en este campo, con una orden \texttt{GRANT}
     \begin{itemize}
@@ -154,9 +154,9 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Llena el \textit{tablespace} \texttt{MULTAS}]
+\begin{homeworkProblem}[: Llena el \textit{tablespace} \texttt{CARRERAS}]
   \begin{itemize}
-  \item Llena de datos el \textit{tablespace} \texttt{MULTAS}
+  \item Llena de datos el \textit{tablespace} \texttt{CARRERAS}
   \item Indica el método que utilizas para llenarlo de datos y qué mensaje de error aparece
   \item Amplía el \textit{tablespace}  con un nuevo \textit{datafile} para se puedan insertar más datos
   \end{itemize}
