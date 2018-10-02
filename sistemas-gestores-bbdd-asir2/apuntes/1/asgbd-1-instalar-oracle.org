@@ -516,7 +516,7 @@ Nada de esto es /directamente/ bases de datos...
 
 
 * Diagrama resumen
-#+BEGIN_SRC dot :file diagrama-instalacion-oracle.svg :exports results :cmdline -Tsvg
+#+BEGIN_SRC dot :file ./media/diagrama-instalacion-oracle.svg :exports results :cmdline -Tsvg
 digraph {
   Descomprimir -> Instalar
   Instalar -> Paquetes_como_root
@@ -559,7 +559,7 @@ digraph {
 
 #+attr_latex: :width 0.5\textwidth :placement [H]
 #+RESULTS:
-[[file:diagrama-instalacion-oracle.svg]]
+[[file:./media/diagrama-instalacion-oracle.svg]]
 
 
 
