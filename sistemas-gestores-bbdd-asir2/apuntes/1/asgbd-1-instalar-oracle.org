@@ -7,23 +7,20 @@ Problema con Virtualbox
 - Instalo 5.2 -> instalo ova -> instalo 5.0
 - Hago ova y lo paso
 
+Si no arranca la máquina virtual:
+- Hace falta =build-essentials= para que poner y quitar módulos de kernel funcione.
+- Hay que quitar el virtualbox viejo. =virtualbox-dkms= se quita a mano, y así se ve si se quitan los módulos de kernel.
+
+
 #+begin_src sh
 
 sudo apt remove --purge virtualbox-*
 sudo apt remove --purge virtualbox
 sudo apt remove --purge virtualbox-5.2
+sudo apt install build-essentials
 sudo dpkg -P virtualbox-dkms
 sudo apt install virtualbox-5.2
 
-
-#wget http://download.virtualbox.org/virtualbox/5.2.18/virtualbox-5.2_5.2.18-124319~Ubuntu~trusty_amd64.deb
-#sudo dpkg -i virtualbox-5.2_5.2.18-124319~Ubuntu~trusty_amd64.deb 
-#/sbin/vboxconfig
-#sudo /etc/init.d/vboxdrv setup 
-
-
-#sudo apt update
-#sudo apt install virtualbox
 
 #+end_src
 
