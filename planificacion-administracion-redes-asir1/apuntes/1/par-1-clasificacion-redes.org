@@ -257,7 +257,7 @@ Características de redes en anillo:
 #+attr_latex: :width 0.6\textwidth
 [[file:media/topologia-arbol-niveles.svg]]
 
-*** Completa (malla completa)
+** Completa (malla completa)
 -  Todos los nodos se conectan entre ellos.
 -  Muy cara, pero muy tolerante a los fallos de nodos y enlaces
 
@@ -272,7 +272,7 @@ Características de redes en anillo:
 Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
 
 
-*** Irregular (malla)
+** Irregular (malla)
 -  Es parecida a la completa, pero sin la conexión total entre los nodos
 - Es la topología "por descarte"
 
@@ -282,7 +282,7 @@ Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
 
 
 
-*** Preguntas
+** Preguntas
 - ¿Qué topología tiene la red del aula?
 - ¿Qué topología tiene la red del instituto?
 - ¿Qué topología física tiene la wifi del instituto?
