@@ -19,6 +19,8 @@ Es posible que ya conozcas muchas cosas acerca de las redes. Veamos si sabes...
 - ¿Qué es un servidor /DNS/?
 - ¿Qué es un servidor /DHCP/?
 
+** Empieza la clase de redes
+[[file:media/clase-de-redes.jpg]]
 ** Un poco de historia
 - En los años 50, las empresas grandes tenían *un* (1) ordenador
   - Muy grande. Muy caro. 
