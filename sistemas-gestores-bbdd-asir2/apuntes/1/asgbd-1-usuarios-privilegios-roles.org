@@ -328,6 +328,7 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
   - se quede sin sesión a los 2 minutos de conectarse, aunque no haya estado inactivo
 
 #+BEGIN_NOTES
+alter system set resource_limit = true;
 drop profile limitado cascade;
 create profile limitado limit idle_time 1 connect_time 2;
 alter user limitado profile limitado;

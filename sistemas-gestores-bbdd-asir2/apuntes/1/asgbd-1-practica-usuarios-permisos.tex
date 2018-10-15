@@ -53,7 +53,17 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 
   \item Tu ordenador será accesible con el nombre \texttt{nombre-de-host.local} desde otros linux.
   \item Pide al profesor que añada el nombre de tu ordenador en la siguiente hoja de cálculo: \enlace{http://bit.ly/2y7u57I}{http://bit.ly/2y7u57I}
-    
+
+
+    \begin{comment}
+      Lo que hay que cambiar en /etc/sysconfig/network-scripts:
+      #BOOTPROTO=dhcp                                                    
+      BOOTPROTO=none
+      IPADDR=10.1.35.210
+      NETMASK=255.255.255.0
+      GATEWAY=10.1.0.1
+      DNS=8.8.8.8
+    \end{comment}
     
   \end{enumerate}
 
@@ -105,7 +115,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \end{multicols}
   {\small \textbf{Nota}: Son muchos usuarios, así que es aconsejable utilizar un \textit{script} en vez de crearlos manualmente.}
 
-  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto. Los usuarios de los otros alumnos tendrán una cuota de 1MByte.
+  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto. Los usuarios de los otros alumnos tendrán una cuota de 1MByte en \texttt{PARAOTROS}, y no podrán escribir nada en \texttt{USERS}.
   
   Cuando tengas listos los usuarios:
   \begin{itemize}
@@ -123,7 +133,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \item Crea un \textit{tablespace} de nombre \texttt{CARRERAS}, con un \textit{datafile} en el directorio \texttt{/datos/carreras}.
   \item Con tu propio usuario, crea las tablas en ese \textit{tablespace}
     \begin{itemize}
-    \item Utiliza el \enlace{https://alvarogonzalezsotillo.github.io/sistemas-gestores-bbdd-asir2/apuntes/1/sql/carreras-coches.sql}{\textit{script} \texttt{carreras-coches.sql}} para la creación de las tablas
+    \item Utiliza el \enlace{https://raw.githubusercontent.com/alvarogonzalezsotillo/apuntes-clase/gh-pages/sistemas-gestores-bbdd-asir2/apuntes/1/sql/carreras-coches.sql}{\textit{script} \texttt{carreras-coches.sql}} para la creación de las tablas
     \item Tendrás que modificar el \textit{script} para que tenga en cuenta tu \textit{tablespace}
     \item Tu usuario deberá tener cuota en el \textit{tablespace}
     \end{itemize}
