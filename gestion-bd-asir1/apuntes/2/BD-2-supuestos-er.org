@@ -452,3 +452,15 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
 - Al alquilar queremos saber el nombre del agente de la empresa que gestionó el alquiler así como a qué persona (solo una) estamos alquilando el inmueble.
 - Cada pago de cada alquiler será almacenado en la base de datos, llevando el año, el mes y el valor del mismo.
 
+
+* Frutería
+  Una frutería quiere crear una tienda online:
+  - Cada producto es de una categoría: Fruta, Hortaliza, Legumbre \ldots
+  - De cada producto interesa su nombre, el precio de venta, una descripción, y su lugar de cultivo.
+  - Hay productos que se venden por peso, y otros por unidades.
+  - De cada producto puede haber una versión ecológica, con un precio distinto  (y seguramente, un lugar de cultivo distinto). Los clientes pueden elegir en su cesta de la compra si desean cambiar de versión ecológica a no ecológica, y viceversa.
+  - De los clientes se conoce su nombre, DNI y dirección de entrega.
+  - Un cliente puede hacer varios pedidos. En cada pedido elegirá los productos deseados y su cantidad, y especificará el día de entrega, y si quiere que se entregue por la mañana o por la tarde.
+
+
+

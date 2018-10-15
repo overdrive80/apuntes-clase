@@ -1,4 +1,5 @@
-#+attr_latex: :width 1pt :placement [H]
+# MACROS UTILES
+#+MACRO: input-file-no-extension (eval (file-name-sans-extension  (file-name-nondirectory buffer-file-name)) )
 
 # IDIOMA
 #+latex_header: \usepackage[spanish]{babel}
