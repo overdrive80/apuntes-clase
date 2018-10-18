@@ -464,3 +464,48 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
 
 
 
+
+* Dragones y Mazmorras
+
+- Hay dos tipos de armas
+  - Magia
+  - Armas normales
+
+- La magia es de algún elemento (aire, tierra, fuego, agua)
+
+- Las armas normales pueden ser blancas (espadas, hachas, dagas) o de fuego (trabucos, pistolas)
+
+- Personajes:
+  - magos: solo armas de magia
+  - guerreros: armas normales
+  - paladines: todas las armas
+
+- Hay muchos personajes. Un usuario puede tener varios personajes.
+- Cada personaje tiene
+  - Un nivel (0..300)
+  - Unos puntos de experiencia, que cuando llegan a un umbral sube de nivel
+  - Raza (orco, elfo, humano)
+  - Un tipo: mago, guerrero, paladín
+  - Unas cuantas armas
+  - Estadísticas: fuerza, magia, resistencia, velocidad, defensa, agilidad, vida
+  - Un clan 
+
+- Los clanes tienen una zona de mapa asignada y un nombre.
+
+- Una cuenta de usuario premium deja tener hasta 10 personajes. Una gratis solo 2.  
+
+- Existen solo un mundo, con un mapa unificado. Un personaje tiene
+  - Una situación en el plano
+  - Un respawn
+
+
+* Empresa
+
+- Una empresa tiene varios empleados.
+- Cada empleado tiene asignado un despacho de una sede. De cada sede queremos saber su nombre, qué despachos tiene, y su dirección postal
+- Un despacho se localiza con la planta donde está en la sede, y un número único por planta
+- Hay despachos donde cabe más de un empleado
+- Cada empleado puede tener varios subordinados, pero un solo jefe. Puede ocurrir que el jefe de un empleado esté en otra sede.
+- Cada empleado tiene un puesto en la empresa. El puesto determina el rango mínimo y máximo de su sueldo.
+- De cada empleado hay que saber su DNI, nombre y sueldo.
+
