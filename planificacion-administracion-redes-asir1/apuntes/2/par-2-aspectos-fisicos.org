@@ -339,6 +339,10 @@ file:media/codificacion-ami.png
 - Se divide el rango de frecuencias que el medio soporta
 - Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
+[[file:media/multiplexacion-frecuencia.jpg]]
+
+Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/][comunication2011jeff]]
+
 
 
 ** Ejemplos de multiplexación en frecuencias
@@ -399,11 +403,11 @@ file:media/codificacion-ami.png
 * Problemas en la transmisión
 
 - En una transmisión, la señal recibida puede ser distinta de la emitida por culpa de perturbaciones:
--  Atenuación
--  Distorsión
--  Interferencia
--  Ruido
--  Diafonía
+  - Atenuación
+  - Distorsión
+  - Interferencia
+  - Ruido
+  - Diafonía
 
 ** Atenuación
 - Debilitamiento de la señal debido a la resistencia eléctrica del canal

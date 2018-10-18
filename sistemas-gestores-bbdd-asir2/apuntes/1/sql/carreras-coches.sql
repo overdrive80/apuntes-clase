@@ -1,5 +1,6 @@
 --Borrado de claves extranjeras:
 
+
 alter table pilotos drop constraint fk_id_escuderia;
 alter table prototipos drop constraint fk_id_escuderia2;
 alter table carreras drop constraint fk_id_circuito;
