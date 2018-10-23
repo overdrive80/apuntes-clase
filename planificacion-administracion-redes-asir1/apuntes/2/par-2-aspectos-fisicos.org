@@ -111,8 +111,8 @@
 
 * Señalización
 - La capa física debe generar las señales (inalámbricas, ópticas o eléctricas) que representan el "1" y el "0" en los medios. 
-- El método de representación de bits se denomina método de señalización.
-- La transmisión de la trama a través de los medios se realiza mediante una cadena o stream de bits. 
+- El método de sincronización de la comunicación de bits se denomina [[https://es.wikipedia.org/wiki/Se%25C3%25B1alizaci%25C3%25B3n][método de señalización]].
+- La transmisión de la trama a través de los medios se realiza mediante una cadena o /stream/ de bits. 
 - El tiempo de bit es el tiempo que ocupa el medio la transmisión de un bit. 
   - El tiempo de bit debe estar sincronizado entre el transmisor y el receptor (se utilizan señales de reloj para este fin).
   - Para sincronizar los relojes e identificar inicios/finales tramas (información a nivel de enlace), se utilizan combinaciones de bits preestablecidas (patrones).
