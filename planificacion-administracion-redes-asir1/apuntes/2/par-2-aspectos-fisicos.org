@@ -299,10 +299,10 @@ file:media/codificacion-ami.png
 
 ** Ejercicios
 - Codifica los dígitos =1011100010= en:
-  - NRZ
+  - NRZ-L
   - NRZI
   - AMI
-  - Bipolar con sustitución de 8 ceros
+  - Bipolar con sustitución de 8 ceros (B8ZS)
   - Manchester
   - Manchester diferencial.
 - Codifica los dígitos =100100000000001011= en las mismas codificaciones
