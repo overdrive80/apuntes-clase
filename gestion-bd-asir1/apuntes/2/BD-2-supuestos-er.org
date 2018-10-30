@@ -173,7 +173,7 @@ Por razones de contabilidad, se debe registrar la información de cada venta con
 
 * Carreteras
 Diseñar un esquema E/R que recoja la organización de una base de datos para contener la información sobre todas las carreteras del país, sabiendo que se deben cumplir las siguientes especificaciones:
-- Las carreteras están divididas en varias categorías (locales, comerciales, regionales, nacionales, autovías, etc).
+- Las carreteras están divididas en varias categorías (locales, comarcales, regionales, nacionales, autovías, etc).
 - Las carreteras se dividen en tramos. Un tramo siempre pertenece a una única carretera y no puede cambiar de carretera.
 - Un tramo puede pasar por varias poblaciones, interesando conocer el Km de la carretera y la población donde empieza el tramo y en donde termina.
 - Para los tramos que suponen principio o final de carretera, interesa saber si es que la carretera concluye físicamente o es que confluye en otra carretera. En este caso, interesa conocer con qué carretera confluye y en qué kilómetro, tramo y población.
@@ -201,7 +201,7 @@ i. De cada vuelo se quieren conocer las escalas técnicas ordenadas asignándole
 
 Explicar cómo se podría representar esta nueva situación.
 
-* Olimpíadas
+* Olimpiadas
 - Las sedes olímpicas se dividen en complejos deportivos.
 - Los complejos deportivos se subdividen en aquellos en los que se desarrolla un único deporte y en los polideportivos.
 - Los complejos polideportivos tienen áreas designadas para cada deporte con un indicador de localización (ejemplo: centro, esquina- NE, etc.).
@@ -463,4 +463,49 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
   - Un cliente puede hacer varios pedidos. En cada pedido elegirá los productos deseados y su cantidad, y especificará el día de entrega, y si quiere que se entregue por la mañana o por la tarde.
 
 
+
+
+* Dragones y Mazmorras
+
+- Hay dos tipos de armas
+  - Magia
+  - Armas normales
+
+- La magia es de algún elemento (aire, tierra, fuego, agua)
+
+- Las armas normales pueden ser blancas (espadas, hachas, dagas) o de fuego (trabucos, pistolas)
+
+- Personajes:
+  - magos: solo armas de magia
+  - guerreros: armas normales
+  - paladines: todas las armas
+
+- Hay muchos personajes. Un usuario puede tener varios personajes.
+- Cada personaje tiene
+  - Un nivel (0..300)
+  - Unos puntos de experiencia, que cuando llegan a un umbral sube de nivel
+  - Raza (orco, elfo, humano)
+  - Un tipo: mago, guerrero, paladín
+  - Unas cuantas armas
+  - Estadísticas: fuerza, magia, resistencia, velocidad, defensa, agilidad, vida
+  - Un clan 
+
+- Los clanes tienen una zona de mapa asignada y un nombre.
+
+- Una cuenta de usuario premium deja tener hasta 10 personajes. Una gratis solo 2.  
+
+- Existen solo un mundo, con un mapa unificado. Un personaje tiene
+  - Una situación en el plano
+  - Un respawn
+
+
+* Empresa
+
+- Una empresa tiene varios empleados.
+- Cada empleado tiene asignado un despacho de una sede. De cada sede queremos saber su nombre, qué despachos tiene, y su dirección postal
+- Un despacho se localiza con la planta donde está en la sede, y un número único por planta
+- Hay despachos donde cabe más de un empleado
+- Cada empleado puede tener varios subordinados, pero un solo jefe. Puede ocurrir que el jefe de un empleado esté en otra sede.
+- Cada empleado tiene un puesto en la empresa. El puesto determina el rango mínimo y máximo de su sueldo.
+- De cada empleado hay que saber su DNI, nombre y sueldo.
 
