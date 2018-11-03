@@ -509,3 +509,21 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
 - Cada empleado tiene un puesto en la empresa. El puesto determina el rango mínimo y máximo de su sueldo.
 - De cada empleado hay que saber su DNI, nombre y sueldo.
 
+
+* Diagrama ER
+Haz un diagrama ER para una base de datos que almacenará varios diagramas ER
+- Un diagrama ER tiene un nombre único y una fecha de creación
+- Cada diagrama tiene varias entidades e interrelaciones
+- De cada entidad se guarda su nombre y sus atributos
+- De un atributo hay que saber su nombre y si es clave primaria
+- De cada interrelación se guarda su nombre y sus atributos
+- Una interrelación une siempre dos entidades. Se guarda la cardinalidad (1 o N) de cada extremo de la interrelación
+
+Modificación:
+- Una interrelación puede unir más de dos entidades
+
+* Diagrama relacional
+Haz un diagrama ER para una base de datos que almacenará varios esquemas relacionales
+- Un esquema relacional tiene un nombre único y una fecha de creación
+- De cada tabla se guarda su nombre y sus columnas
+- De cada columna hay que saber su nombre, si es clave primaria y si es clave extranjera. Si es una clave extranjera, también hay que saber a qué tabla y columna referencia
