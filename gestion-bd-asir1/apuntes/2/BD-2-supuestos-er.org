@@ -68,10 +68,6 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
   - CCO: como copia oculta a otros destinatarios
 - Un email puede tener varios ficheros adjuntos
 - De cada usuario se guarda su nombre de usuario y su nombre real. Cada usuario tiene una agenda donde apunta sus contactos.
-  
-
-
-
 
 
 * Empresa
@@ -509,3 +505,18 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
 - Cada empleado tiene un puesto en la empresa. El puesto determina el rango mínimo y máximo de su sueldo.
 - De cada empleado hay que saber su DNI, nombre y sueldo.
 
+
+* Agencia de modelos
+Se desea diseñar una BD para una Agencia de Castings dedicada a buscar modelos y actores para sus clientes. Los supuestos semánticos que hay que recoger son:
+
+- Un casting se identifica por un código (CC) se caracteriza por un nombre (NC) y una fecha de contratación (FC).
+- Un casting es contratado por un único cliente, identificado por un código de cliente (NN) aunque un cliente puede tener contratados varios castings. Un casting tiene además un presupuesto (P) y es dirigido por un agente identificado por su código (AG)
+- Un casting se estructura en varias fases, identificadas dentro de cada casting por un número en secuencia (NF) y a su vez, cada fase se descompone en varias pruebas individuales identificadas por un número de prueba individual (NP) dentro de cada fase. Cada fase tiene una fecha de inicio (FI)
+- De cada prueba individual se guarda la fecha de realización (FR) y la hora de inicio (HI) y de finalización (HF) así como la sala (S) en la que se realiza.
+- En una sala solo se realizará una prueba en una determina fecha entre una hora de inicio y una hora de fin.
+- A cada casting se le asigna uno o varios perfiles identificados por un código de perfil (CP) y con una serie de atributos que denominaremos (AP).
+- Los candidatos de la agencia se identifican por un código (CM) y tienen además un nombre (M) y una dirección (D). Cada candidato tiene un único perfil, pero un perfil puede corresponder a varios candidatos.
+- Cada candidato que encaje con el perfil de un casting realizará una prueba individual y obtendrá un resultado (RP) que puede ser “apto” o “no apto”. Un candidato solo puede realizar pruebas de castings compatibles con su perfil.
+- Un candidato puede someterse como máximo a una prueba individual dentro de cada fase de un casting.
+- En cada prueba individual de una fase solo participa un único candidato. Cada prueba en la que participa un candidato pertenece sólo a una fase de un casting.
+- Un candidato no podrá realizar una prueba individual de una fase si en la fase anterior realizó una prueba cuyo resultado fue “no apto”.
