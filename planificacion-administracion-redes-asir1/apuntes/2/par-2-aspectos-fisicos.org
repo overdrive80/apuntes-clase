@@ -339,6 +339,7 @@ file:media/codificacion-ami.png
 - Se divide el rango de frecuencias que el medio soporta
 - Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/multiplexacion-frecuencia.jpg]]
 
 Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/][comunication2011jeff]]

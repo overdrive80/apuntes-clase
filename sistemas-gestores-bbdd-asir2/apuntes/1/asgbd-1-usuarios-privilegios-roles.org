@@ -15,10 +15,9 @@
   - Conjuntos de ficheros
   - Normas para su tamaño: inicial, máximo, crecimiento
 - Cada tablespace puede usarse para diferentes funciones
-  - Datos de usuario
-  - Datos de recuperación
-  - Datos del sistema
-  - Datos temporales
+  - Datos de usuario o del sistema: /permanent tablespace/
+  - Datos de recuperación: /undo tablespace/
+  - Datos temporales: /temporary tablespace/
 
 ** ¿Por qué tantas normas?
 - Disponibilidad
