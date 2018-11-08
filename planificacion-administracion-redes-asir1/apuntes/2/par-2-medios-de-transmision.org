@@ -193,6 +193,7 @@ https://es.wikipedia.org/wiki/TIA-568B
 | Cat 6        |               | Up to 250-400 Mhz   |
 | Cat 6e       |               | Up to 625 Mhz       |
 | Cat 7        | Class F       | Up to 600-700 Mhz   |
+| Cat 8        |               | Up to 2 GHz         |
 
 
 ** Categorías IEEE
