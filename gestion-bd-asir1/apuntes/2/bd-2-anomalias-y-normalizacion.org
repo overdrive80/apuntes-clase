@@ -87,10 +87,66 @@
 - Hay más dependencias, pero pueden deducirse de las anteriores
   - Por ejemplo (DNI, Fecha, Turno) \rightarrow DirecciónTienda
     
+#+reveal: split
+#+BEGIN_SRC dot :file ./media/ejemplo-formas-normales-1.svg :exports results :cmd dot :cmdline -Tsvg
+digraph {
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_dnifecha {
+                         style="rounded"
+                         DNI
+                         Fecha
+                }
+
+                DNI -> Turno
+
+                DNI -> Nombre
+
+                DNI -> CodigoTienda  [ltail=cluster_dnifecha]
+                CodigoTienda -> DireccionTienda
+                DireccionTienda -> CodigoTienda 
+                
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/ejemplo-formas-normales-1.svg]]
+
 ** Ejercicio
 - Se desea una base de datos que guarde los atributos =(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)=
 - Los empleados no tienen un turno fijo, y cada día pueden trabajar en una tienda en un turno
 - En una misma dirección puede haber varias tiendas
+
+*** Solución
+#+BEGIN_SRC dot :file ./media/ejercicio-formas-normales-1.svg :exports results :cmd dot :cmdline -Tsvg
+  digraph {
+                  compound=true
+                  label=""
+                  node [shape="ellipse",margin=0]
+
+
+                  subgraph cluster_dnifecha {
+                           style="rounded"
+                           DNI
+                           Fecha
+                  }
+
+                  DNI -> CodigoTienda [ltail=cluster_dnifecha]
+                  DNI -> Turno [ltail=cluster_dnifecha]
+
+                  DNI -> Nombre
+
+                  CodigoTienda -> DireccionTienda
+                
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:./media/ejercicio-formas-normales-1.svg]]
+
 
 
 * Normalización

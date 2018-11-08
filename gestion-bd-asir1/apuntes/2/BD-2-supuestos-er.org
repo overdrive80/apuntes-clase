@@ -514,7 +514,7 @@ Se desea diseñar una BD para una Agencia de Castings dedicada a buscar modelos 
 - Un casting se estructura en varias fases, identificadas dentro de cada casting por un número en secuencia (NF) y a su vez, cada fase se descompone en varias pruebas individuales identificadas por un número de prueba individual (NP) dentro de cada fase. Cada fase tiene una fecha de inicio (FI)
 - De cada prueba individual se guarda la fecha de realización (FR) y la hora de inicio (HI) y de finalización (HF) así como la sala (S) en la que se realiza.
 - En una sala solo se realizará una prueba en una determina fecha entre una hora de inicio y una hora de fin.
-- A cada casting se le asigna uno o varios perfiles identificados por un código de perfil (CP) y con una serie de atributos que denominaremos (AP).
+- A cada casting se le asigna un perfil identificado por un código de perfil (CP). El perfil tiene una serie de atributos que denominaremos (AP).
 - Los candidatos de la agencia se identifican por un código (CM) y tienen además un nombre (M) y una dirección (D). Cada candidato tiene un único perfil, pero un perfil puede corresponder a varios candidatos.
 - Cada candidato que encaje con el perfil de un casting realizará una prueba individual y obtendrá un resultado (RP) que puede ser “apto” o “no apto”. Un candidato solo puede realizar pruebas de castings compatibles con su perfil.
 - Un candidato puede someterse como máximo a una prueba individual dentro de cada fase de un casting.

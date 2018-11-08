@@ -19,18 +19,18 @@ Se pide:
 3. ¿En qué Forma Normal se encuentra la relación?
 
 ** Profesores y recursos
-Dada la siguiente relación UTILIZACIÓN(DNI_Prof, Nombre_Prof, Despacho_Prof, Recurso, Ubicación, Fecha_inicio, Fecha_fin,) que contiene información relativa a la utilización de los recursos de la universidad por parte de los profesores en periodos de tiempo:
+Dada la siguiente relación UTILIZACIÓN(=DNI_Prof=, =Nombre_Prof=, =Despacho_Prof=, =Recurso=, =Ubicación=, =Fecha_inicio=, =Fecha_fin=,) que contiene información relativa a la utilización de los recursos de la universidad por parte de los profesores en periodos de tiempo:
 
-| DNI_Prof | Nombre_Prof | Despacho_Prof | Recurso | Descripción  | Fecha_inicio | Fecha_fin |
-|----------+-------------+---------------+---------+--------------+--------------+-----------|
-| 33456456 | P.Martínez  | 2.2.B05       | R122    | Tablet    PC |     1-1-2007 | 15-1-2007 |
-| 44556689 | L.Moreno    | 2.2.A10       | R100    | Impresora    |     1-1-2007 | 15-1-2007 |
-| 33456456 | P.Martínez  | 2.2.B05       | R200    | Portátil     |    12-1-2007 | 22-1-2007 |
-| 11223344 | E.Castro    | 2.2.B23       | R122    | Tablet    PC |    16-1-2007 | 31-1-2007 |
-| 99771122 | D.Cuadra    | 2.1.B23       | R200    | Portátil     |    23-1-2007 | 26-1-2007 |
-| 33456456 | P.Martínez  | 2.2.B05       | R300    | Scaner       |     1-1-2007 | 15-1-2007 |
-| 99887766 | F.Calle     | 2.1.C11       | R300    | Scaner       |     1-2-2007 |  6-2-2007 |
-| 33456456 | P.Martínez  | 2.2.B05       | R122    | Tablet    PC |     1-2-2007 |  6-2-2007 |
+| =DNI_Prof= | =Nombre_Prof= | =Despacho_Prof= | =Recurso= | =Descripción= | =Fecha_inicio= | =Fecha_fin= |
+|------------+---------------+-----------------+-----------+---------------+----------------+-------------|
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-1-2007 |   15-1-2007 |
+|   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     |       1-1-2007 |   15-1-2007 |
+|   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      |      12-1-2007 |   22-1-2007 |
+|   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  |      16-1-2007 |   31-1-2007 |
+|   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      |      23-1-2007 |   26-1-2007 |
+|   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        |       1-1-2007 |   15-1-2007 |
+|   99887766 | F.Calle       | 2.1.C11         | R300      | Scaner        |       1-2-2007 |    6-2-2007 |
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-2-2007 |    6-2-2007 |
    
 Se pide, considerando únicamente la extensión de la relación mostrada en la tabla:
 1. Indicar un ejemplo de anomalía de modificación
@@ -62,20 +62,20 @@ Se pide, considerando únicamente la extensión de la relación mostrada en la t
 
 
 ** Actividades extraescolares
-Dada la siguiente relación SE REALIZA(Cod_Actividad, Nombre_Actividad, DNI_Monitor, Nombre_monitor, Sala, Fecha, Hora_I, Duración) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
+Dada la siguiente relación SE REALIZA(=Cod_Actividad=, =Nombre_Actividad=, =DNI_Monitor=, =Nombre_monitor=, =Sala=, =Fecha=, =Hora_I=, =Duración=) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
 Se pide:
-| Cod_Actividad | Nombre_Actividad | DNI_Monitor | Nombre_Monitor    | Sala                   | Fecha     | Hora_I | Duración |
-|---------------+------------------+-------------+-------------------+------------------------+-----------+--------+----------|
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |  10:00 |     1:00 |
-|            02 | Fitness          |    65434527 | P. García         | Pabellón polideportivo | 9/9/2007  |  10:00 |     1:30 |
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 11/9/2007 |   9:30 |     1:00 |
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 15/9/2007 |  12:00 |     1:00 |
-|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |   9:00 |     0:30 |
-|            04 | Gimnasia         |    54332221 | J. Luis Hernández | Sala Musculación       | 1/10/2007 |  12:00 |     1:00 |
-|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |  11:00 |     0:30 |
-|            04 | Gimnasia         |    45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |  12:00 |     1:00 |
-|            02 | Fitness          |    45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |  10:00 |     1:30 |
-|            01 | Pilates          |    65434527 | P. García         | Sala Multiusos         | 9/9/2007  |  10:00 |     1:00 |
+| =Cod_Actividad= | =Nombre_Actividad= | =DNI_Monitor= | =Nombre_Monitor=  | =Sala=                 | =Fecha=   | =Hora_I= | =Duración= |
+|-----------------+--------------------+---------------+-------------------+------------------------+-----------+----------+------------|
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |    10:00 |       1:00 |
+|              02 | Fitness            |      65434527 | P. García         | Pabellón polideportivo | 9/9/2007  |    10:00 |       1:30 |
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 11/9/2007 |     9:30 |       1:00 |
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 15/9/2007 |    12:00 |       1:00 |
+|              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |     9:00 |       0:30 |
+|              04 | Gimnasia           |      54332221 | J. Luis Hernández | Sala Musculación       | 1/10/2007 |    12:00 |       1:00 |
+|              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |    11:00 |       0:30 |
+|              04 | Gimnasia           |      45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |    12:00 |       1:00 |
+|              02 | Fitness            |      45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |    10:00 |       1:30 |
+|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    10:00 |       1:00 |
 
 Se pide, considerando que los nombres de los monitores no son únicos, ateniéndose a las tuplas de la relación SE REALIZA:
 a. Indicar un ejemplo de anomalía de borrado
@@ -85,20 +85,20 @@ d. Pasar a tercera forma normal
 
 
 ** Actividades extraescolares II
-Dada la siguiente relación SE REALIZA(Cod_Actividad, Nombre_Actividad, DNI_Monitor, Nombre_monitor, Sala, Fecha, Hora_I, Hora_F) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
+Dada la siguiente relación SE REALIZA(=Cod_Actividad=, =Nombre_Actividad=, =DNI_Monitor=, =Nombre_monitor=, =Sala=, =Fecha=, =Hora_I=, =Hora_F=) utilizada para almacenar información sobre la fecha y duración de las actividades deportivas que se organizan en un colegio.
  Se pide:
-| Cod_Actividad | Nombre_Actividad | DNI_Monitor | Nombre_Monitor    | Sala                   | Fecha     | Hora_I | Hora_F |
-|---------------+------------------+-------------+-------------------+------------------------+-----------+--------+--------|
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |  10:00 |  11:00 |
-|            02 | Fitness          |    65434527 | P. García         | Pabellón polideportivo | 9/9/2007  |  10:00 |  11:00 |
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 11/9/2007 |   9:30 |  11:00 |
-|            01 | Pilates          |    54332221 | J. Luis Hernández | Pabellón polideportivo | 15/9/2007 |  12:00 |  13:00 |
-|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |   9:00 |  10:00 |
-|            04 | Gimnasia         |    54332221 | J. Luis Hernández | Sala Musculación       | 1/10/2007 |  12:00 |  13:00 |
-|            03 | Yoga             |    65434527 | P. García         | Sala Multiusos         | 15/9/2007 |  11:00 |  12:00 |
-|            04 | Gimnasia         |    45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |  12:00 |  14:00 |
-|            02 | Fitness          |    45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |  10:00 |  11:00 |
-|            01 | Pilates          |    65434527 | P. García         | Sala Multiusos         | 9/9/2007  |  10:00 |  12:00 |
+| =Cod_Actividad= | =Nombre_Actividad= | =DNI_Monitor= | =Nombre_Monitor=  | =Sala=                 | =Fecha=   | =Hora_I= | =Hora_F= |
+|-----------------+--------------------+---------------+-------------------+------------------------+-----------+----------+----------|
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 9/9/2007  |    10:00 |    11:00 |
+|              02 | Fitness            |      65434527 | P. García         | Pabellón polideportivo | 9/9/2007  |    10:00 |    11:00 |
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 11/9/2007 |     9:30 |    11:00 |
+|              01 | Pilates            |      54332221 | J. Luis Hernández | Pabellón polideportivo | 15/9/2007 |    12:00 |    13:00 |
+|              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |     9:00 |    10:00 |
+|              04 | Gimnasia           |      54332221 | J. Luis Hernández | Sala Musculación       | 1/10/2007 |    12:00 |    13:00 |
+|              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |    11:00 |    12:00 |
+|              04 | Gimnasia           |      45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |    12:00 |    14:00 |
+|              02 | Fitness            |      45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |    10:00 |    11:00 |
+|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    10:00 |    12:00 |
 
 Se pide, considerando que los nombres de los monitores no son únicos y los nombres de las actividades tampoco y ateniéndose a las tuplas de la relación SE REALIZA:
 a. Indicar un ejemplo de anomalía de borrado
@@ -118,7 +118,7 @@ Se desea modelar la actividad de una empresa bursátil, quien maneja las cartera
 Además, se cumplen las DFs: 
 - A  → D
 - I  → B
-- IA → C
+- I,A → C
 - B  → E
 
 Se pide:
