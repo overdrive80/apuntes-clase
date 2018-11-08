@@ -205,6 +205,7 @@ https://es.wikipedia.org/wiki/TIA-568B
   - Categoría 5 (100 Mhz – 100 Mbps).
   - Categoría 6 (250 Mhz – 1 Gbps).
   - Categoría 7 (600 Mhz – 10 Gbps).
+  - Categoría 8 (en desarrollo)
 
 ** Ethernet
 | Tecnología | Velocidad de transmisión | Tipo de cable                           | Distancia máxima | Topología                                          |
@@ -358,12 +359,14 @@ https://es.wikipedia.org/wiki/TIA-568B
 [[file:media/wifi.png]]
 
 #+reveal: split
-| Estándar     | Frecuencia    | Velocidad | Alcance    |
-|--------------+---------------+-----------+------------|
-| IEEE 802.11a | 5GHz          | 54mbps    | 50 metros  |
-| IEEE 802.11b | 2.4GHz        | 11mbsp    | 100 metros |
-| IEEE 802.11g | 2.4GHz        | 54mbps    |            |
-| IEEE 802.11n | 2.4GHz y 5GHz | 600mbps   | 70 metros  |
+| Estándar      | Frecuencia    | Velocidad | Alcance    |
+|---------------+---------------+-----------+------------|
+| IEEE 802.11a  | 5GHz          | 54mbps    | 50 metros  |
+| IEEE 802.11b  | 2.4GHz        | 11mbsp    | 100 metros |
+| IEEE 802.11g  | 2.4GHz        | 54mbps    |            |
+| IEEE 802.11n  | 2.4GHz y 5GHz | 600mbps   | 70 metros  |
+| IEEE 802.11ac | 5GHz          | 1.3Gbs    |            |
+| IEEE 802.11ad | 60Gz          | 4.6GBs    |            |
 
 ** Canales wifi
 [[file:media/canales-wifi.png]]
