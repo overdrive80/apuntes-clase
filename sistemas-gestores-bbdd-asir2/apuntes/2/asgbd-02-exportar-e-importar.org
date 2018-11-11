@@ -2,7 +2,29 @@
 #+Title: Exportar e importar datos de Oracle
 #+EXCLUDE_TAGS: no_export
 
-* Introducción
+* =directory= de *Oracle*
+- Algunos comandos de *Oracle* necesitan trabajar sobre directorios del disco
+- A veces no interesa que los usuarios conozcan/decidan los directorios
+  - para no llenar una partición
+  - para no divulgar información de la base de datos
+  - para no acceder a directorios donde *Oracle* puede, pero el usuario no
+
+
+
+** Definir un directorio
+
+
+#+begin_src sql
+grant create any directory to unusuario; 
+create directory mi_directorio_de_backup as '/home/alumno/backups';
+#+end_src
+
+#+begin_src sql
+GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
+#+end_src
+
+
+  
 
 * Exportar datos
 - Se utiliza el comando =expdp=
@@ -277,19 +299,6 @@ Master table "ALUMNO"."SYS_EXPORT_SCHEMA_01" successfully loaded/unloaded
 Dump file set for ALUMNO.SYS_EXPORT_SCHEMA_01 is:
   /home/alumno/backups/alumno.dmp
 Job "ALUMNO"."SYS_EXPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:08:00 2016 elapsed 0 00:00:33
-#+end_src
-
-
-** Definir un directorio
-
-
-#+begin_src sql
-grant create any directory to myschema; 
-create directory mi_directorio_de_backup as '/home/alumno/backups';
-#+end_src
-
-#+begin_src sql
-GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
 #+end_src
 
 
@@ -585,6 +594,11 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 
 [[https://stackoverflow.com/questions/14397668/ora-39122-unprivileged-users-may-not-perform-remap-schema-remappings][Permiso para cambiar schema]]
 
+
+* Ejercicio
+- Crea la base de datos de multas en el usuario =multas= ([[../1/sql/multas.sql]])
+- Exporta la base de datos al fichero =/datos/exports/multas.dump=
+- Importa las tablas en el usuario =copiamultas=
 
 
 * Otras soluciones
