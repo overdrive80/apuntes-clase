@@ -1,0 +1,34 @@
+#+INCLUDE: "../../../common/header.org"
+
+
+* Roles
+Responde a las siguientes preguntas acerca de los roles definidos en tu sistema con una sentencia SQL ejecutada por el usuario indicado
+- ¿Cuáles son los nombres de los roles definidos en tu base de datos?
+- Lista de roles concedidos a otros roles (rol concedido, rol al que se le concede)
+- Lista de privilegios concedidos a roles (privilegio, tabla sobre la que se concede, rol al que se le concede)
+
+#+begin_comment
+DBA_ROLES
+ROLE_TAB_PRIVS
+ROLE_SYS_PRIVS
+ROLE_ROLE_PRIVS
+#+end_comment
+
+* Privilegios
+- Lista de privilegios de tabla otorgados entre los usuarios creados en tu base de datos para la práctica de permisos (propietario, tabla, usuario con privilegio concedidos)
+- Lista de privilegios de columna otorgados entre los usuarios creados en tu base de datos para la práctica de permisos (propietario, tabla, columna, usuario con privilegio concedido)
+#+begin_comment
+TABLE_PRIVILEGES
+dba_col_privs
+#+end_comment
+
+* /tablespaces/
+- Lista de ficheros de datos, con sus tablespaces (fichero,tablespace)
+- Lista de ficheros completa para realizar un  backup de la base de datos: datafiles y controlfiles
+
+#+begin_comment
+select * from dba_tablespaces;
+select * from dba_data_files;
+select * from dba_temp_files;
+select * from v$controlfile;
+#+end_comment

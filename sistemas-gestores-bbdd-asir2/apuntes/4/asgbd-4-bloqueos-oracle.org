@@ -302,7 +302,7 @@ ALTER SYSTEM KILL SESSION 'sid,serial#';
 
 * Referencias
 - Formatos:
-  - [[file:asgbd-4-bloqueos-oracle.html][Transparencias]] 
+  - [[file:asgbd-4-bloqueos-oracle.reveal.html][Transparencias]] 
   - [[file:asgbd-4-bloqueos-oracle.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
