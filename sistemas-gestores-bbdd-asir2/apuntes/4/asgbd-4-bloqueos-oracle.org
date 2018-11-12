@@ -295,7 +295,7 @@ ALTER SYSTEM KILL SESSION 'sid,serial#';
   - el =spid= es del proceso intermedio entre el cliente (/application code/) y el servidor (/system global area/)
   - Por tanto, el proceso a matar se encuentra en el mismo host que el servidor de base de datos
 
-[[file:procesos-usuario-sistema.png]]
+[[file:./media/procesos-usuario-sistema.png]]
 
   
 
