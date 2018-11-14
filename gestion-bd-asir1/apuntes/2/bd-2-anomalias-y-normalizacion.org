@@ -277,3 +277,41 @@ digraph {
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
 
+
+* NO INCLUIDO :noexport:
+
+    AB → C
+    BD → EF
+    AD → GH
+    A → I
+    H → J
+
+
+#+BEGIN_SRC dot :file ./media/ejercicio-normalizacion-abstracto.svg :exports results :cmd dot :cmdline -Tsvg :session *dot*
+digraph {
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                A -> I
+                H -> J
+
+                AB -> C 
+                BD -> E 
+                BD -> F 
+
+                AD -> G 
+                AD -> H 
+
+                A -> AD
+                A -> AB
+                B -> AB
+                B -> BD
+                D -> AD
+                D -> BD
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/ejercicio-normalizacion-abstracto.svg]]

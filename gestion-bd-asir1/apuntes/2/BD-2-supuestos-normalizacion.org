@@ -26,6 +26,7 @@ Dada la siguiente relación UTILIZACIÓN(=DNI_Prof=, =Nombre_Prof=, =Despacho_Pr
 |   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-1-2007 |   15-1-2007 |
 |   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     |       1-1-2007 |   15-1-2007 |
 |   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      |      12-1-2007 |   22-1-2007 |
+|  112233456 | A.González    | 2.2.B06         | R201      | Portátil      |      12-1-2018 |   22-1-2018 |
 |   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  |      16-1-2007 |   31-1-2007 |
 |   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      |      23-1-2007 |   26-1-2007 |
 |   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        |       1-1-2007 |   15-1-2007 |
