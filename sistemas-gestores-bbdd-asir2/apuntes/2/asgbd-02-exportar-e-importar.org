@@ -622,6 +622,19 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 - Desventajas
   - Es necesario parar Oracle para hacer la copia y la restauración
 
+*** Lista de ficheros a copiar
+
+#+BEGIN_SRC sql
+select datafile from v$datafile
+union
+select datafile from v$tempfile
+union
+select datafile from v$logfilexs
+union
+select datafile from v$controlfile
+#+END_SRC
+
+
 * Referencias
 - Formatos:
   - [[file:asgbd-02-importar-exportar.html][Transparencias]] 
