@@ -102,7 +102,7 @@ Dada la siguiente relación SE REALIZA(=Cod_Actividad=, =Nombre_Actividad=, =DNI
 
 Se pide, considerando que los nombres de los monitores no son únicos y los nombres de las actividades tampoco y ateniéndose a las tuplas de la relación SE REALIZA:
 a. Indicar un ejemplo de anomalía de borrado
-b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas:Cod_Actividad (A), Nombre_Actividad (N), DNI_Monitor (D), Nombre_Monitor(M), Sala (S), Fecha(F), Hora_I (I), Hora_F(E).
+b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas: =Cod_Actividad= (A), =Nombre_Actividad= (N), =DNI_Monitor= (D), =Nombre_Monitor= (M), =Sala= (S), =Fecha= (F), =Hora_I= (I), =Hora_F= (E).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
 
