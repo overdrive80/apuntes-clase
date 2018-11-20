@@ -2,30 +2,6 @@
 #+Title: Exportar e importar datos de Oracle
 #+EXCLUDE_TAGS: no_export
 
-* =directory= de *Oracle*
-- Algunos comandos de *Oracle* necesitan trabajar sobre directorios del disco
-- A veces no interesa que los usuarios conozcan/decidan los directorios
-  - para no llenar una partición
-  - para no divulgar información de la base de datos
-  - para no acceder a directorios donde *Oracle* puede, pero el usuario no
-
-
-
-** Definir un directorio
-
-
-#+begin_src sql
-grant create any directory to unusuario; 
-create directory mi_directorio_de_backup as '/home/alumno/backups';
-#+end_src
-
-#+begin_src sql
-GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
-#+end_src
-
-
-  
-
 * Exportar datos
 - Se utiliza el comando =expdp=
   - Ayuda con =expdp help=yes=
@@ -265,6 +241,28 @@ Orderly shutdown of job execution and exits the client.
 Valid keyword values are: IMMEDIATE.
 
 
+#+end_src
+
+
+** =directory= de *Oracle*
+- Algunos comandos de *Oracle* necesitan trabajar sobre directorios del disco
+- A veces no interesa que los usuarios conozcan/decidan los directorios
+  - para no llenar una partición
+  - para no divulgar información de la base de datos
+  - para no acceder a directorios donde *Oracle* puede, pero el usuario no
+
+
+
+** Definir un directorio
+
+
+#+begin_src sql
+grant create any directory to unusuario; 
+create directory mi_directorio_de_backup as '/home/alumno/backups';
+#+end_src
+
+#+begin_src sql
+GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
 #+end_src
 
 ** Ejemplo de exportación
@@ -622,17 +620,65 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 - Desventajas
   - Es necesario parar Oracle para hacer la copia y la restauración
 
+Fuente: [[https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup.htm#BRADV016][docs.oracle.com]]
+
 *** Lista de ficheros a copiar
 
 #+BEGIN_SRC sql
-select datafile from v$datafile
+select 'datos', name from v$datafile
 union
-select datafile from v$tempfile
+select 'temporal', name from v$tempfile
 union
-select datafile from v$logfilexs
+select 'redo', member from v$logfile
 union
-select datafile from v$controlfile
+select 'control', name from v$controlfile;
 #+END_SRC
+
+#+begin_comment
+SELECT   t.NAME "Tablespace", f.NAME "Datafile"
+FROM     V$TABLESPACE t, V$DATAFILE f
+WHERE    t.TS# = f.TS#
+ORDER BY t.NAME;
+#+end_comment
+
+*** Arrancar la base de datos
+Con todos los ficheros necesarios (datos, redo, control, pfile)
+
+#+begin_src sql
+SQL> startup mount
+ORACLE instance started.
+
+Total System Global Area  264241152 bytes
+Fixed Size                  1286916 bytes
+Variable Size             205524220 bytes
+Database Buffers           54525952 bytes
+Redo Buffers                2904064 bytes
+Database mounted.
+SQL> recover database until cancel;
+Media recovery complete.
+SQL> alter database open resetlogs;
+
+Database altered.
+
+SQL>
+#+end_src
+
+*** Si hay problemas
+
+- El fichero =pfile= o =spfile= indica dónde está el fichero de control
+- El fichero de control indica dónde están los ficheros de datos
+
+#+begin_src sql
+SQL> startup nomount;
+SQL> alter system set control_files = '/oracle/data/control.dbf';
+SQL> alter database mount;
+SQL> alter database rename file '/u01/data/sysaux.dbf'
+  to '/oracle/data/sysaux.dbf';
+SQL> alter database rename file '/u01/data/redo_1a.dbf'
+  to '/oracle/data/redo_1a.dbf';
+#+end_src
+
+https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-files-copied-from-a-previous-installation
 
 
 * Referencias
