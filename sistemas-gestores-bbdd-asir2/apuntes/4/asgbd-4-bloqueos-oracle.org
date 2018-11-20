@@ -76,7 +76,7 @@
 | Fila fantasma        |                                           |
 |                      | =Serializable=                            |
 
-** Datos para pruebas de bloqueos
+** Datos para pruebas
 #+begin_src sql
 create table ALUMNOS( DNI varchar(10), NOMBRE varchar(10));
 insert into ALUMNOS values ('1','Pepe');
@@ -115,17 +115,19 @@ insert into ALUMNOS values ('3','María');
 | =rollback=                                                                  |                                                  |
 
 
-* Bloqueos
+* Bloqueos y versiones
 - La orden =set isolation level= indica a la base de datos que *bloquee* filas, campos o tablas
 - Al bloquearse, los demás usuarios no pueden acceder hasta que la transacción no termine
   - =commit=
   - =rollback=
-- Los bloqueos garantizan que no se producen los problemas correspondientes al nivel de aislamiento:
+- Los *bloqueos* garantizan que no se producen los problemas correspondientes al nivel de aislamiento:
   - =Read commited=
   - =Serializable=
+- Las *versiones* hacen que una transacción vea solo una /fotografía/ del estado de la base de datos
+  - La transacción no se ve afectada por cambios posteriores a su inicio
 
 
-** Lectura no repetible bloqueada
+** Lectura no repetible evitada 
 #+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
 | Conexión 1                                       | Conexión 2                                      |
 |--------------------------------------------------+-------------------------------------------------|
@@ -141,7 +143,7 @@ insert into ALUMNOS values ('3','María');
 | =rollback=                                       |                                                 |
 
 
-** Fila fantasma bloqueada
+** Fila fantasma evitada
 #+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
 | Conexión 1                                               | Conexión 2                               |
 |----------------------------------------------------------+------------------------------------------|

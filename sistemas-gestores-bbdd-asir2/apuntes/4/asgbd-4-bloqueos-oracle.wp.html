@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-11-12 lun 10:17 -->
+<!-- 2018-11-20 mar 08:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Concurrencia y bloqueos en Oracle</title>
@@ -238,19 +238,19 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd686b8e">1. Introducción</a></li>
-<li><a href="#org7b862e1">2. Propiedades <b>ACID</b></a></li>
-<li><a href="#org43e7235">3. Problemas del uso concurrente</a></li>
-<li><a href="#org24f92ea">4. Bloqueos</a></li>
-<li><a href="#orgbd8ae91">5. Detección y solución de sesiones bloqueadas</a></li>
-<li><a href="#orga60f3f7">6. Referencias</a></li>
+<li><a href="#orgdebd5f8">1. Introducción</a></li>
+<li><a href="#org8087c39">2. Propiedades <b>ACID</b></a></li>
+<li><a href="#orgb2ef782">3. Problemas del uso concurrente</a></li>
+<li><a href="#orgebcc9f5">4. Bloqueos y versiones</a></li>
+<li><a href="#org3bc6990">5. Detección y solución de sesiones bloqueadas</a></li>
+<li><a href="#org2294b61">6. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-orgd686b8e" class="outline-2">
-<h2 id="orgd686b8e"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orgdebd5f8" class="outline-2">
+<h2 id="orgdebd5f8"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><b>Oracle</b> es un servidor de base de datos</li>
@@ -265,8 +265,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7b862e1" class="outline-2">
-<h2 id="org7b862e1"><span class="section-number-2">2</span> Propiedades <b>ACID</b></h2>
+<div id="outline-container-org8087c39" class="outline-2">
+<h2 id="org8087c39"><span class="section-number-2">2</span> Propiedades <b>ACID</b></h2>
 <div class="outline-text-2" id="text-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -300,8 +300,8 @@ for the JavaScript code in this tag.
 </table>
 </div>
 
-<div id="outline-container-org10d23a1" class="outline-3">
-<h3 id="org10d23a1"><span class="section-number-3">2.1</span> Atomicidad</h3>
+<div id="outline-container-orgd9541ee" class="outline-3">
+<h3 id="orgd9541ee"><span class="section-number-3">2.1</span> Atomicidad</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Algunos cambios deben producirse juntos:
@@ -322,8 +322,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf363317" class="outline-3">
-<h3 id="orgf363317"><span class="section-number-3">2.2</span> Consistencia</h3>
+<div id="outline-container-org3c7c918" class="outline-3">
+<h3 id="org3c7c918"><span class="section-number-3">2.2</span> Consistencia</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Los datos deben ser coherentes con el modelo de datos</li>
@@ -344,8 +344,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga179225" class="outline-3">
-<h3 id="orga179225"><span class="section-number-3">2.3</span> Aislamiento (<i>isolation</i>)</h3>
+<div id="outline-container-org7489a36" class="outline-3">
+<h3 id="org7489a36"><span class="section-number-3">2.3</span> Aislamiento (<i>isolation</i>)</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Objetivos:
@@ -364,8 +364,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org82de341" class="outline-3">
-<h3 id="org82de341"><span class="section-number-3">2.4</span> Durabilidad</h3>
+<div id="outline-container-org77e09f5" class="outline-3">
+<h3 id="org77e09f5"><span class="section-number-3">2.4</span> Durabilidad</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Las bases de datos garantizan tras la vuelta de <code>commit</code> que
@@ -378,8 +378,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org43e7235" class="outline-2">
-<h2 id="org43e7235"><span class="section-number-2">3</span> Problemas del uso concurrente</h2>
+<div id="outline-container-orgb2ef782" class="outline-2">
+<h2 id="orgb2ef782"><span class="section-number-2">3</span> Problemas del uso concurrente</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Idealmente, cada usuario debería poder trabajar sin notar que otros usuarios usan a la vez la base de datos</li>
@@ -418,8 +418,8 @@ for the JavaScript code in this tag.
 </table>
 </div>
 
-<div id="outline-container-org4ccd73b" class="outline-3">
-<h3 id="org4ccd73b"><span class="section-number-3">3.1</span> Nivel de aislamiento/concurrencia</h3>
+<div id="outline-container-orgd11ab57" class="outline-3">
+<h3 id="orgd11ab57"><span class="section-number-3">3.1</span> Nivel de aislamiento/concurrencia</h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -475,8 +475,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org35e1a47" class="outline-3">
-<h3 id="org35e1a47"><span class="section-number-3">3.2</span> Datos para pruebas de bloqueos</h3>
+<div id="outline-container-org5f0c02d" class="outline-3">
+<h3 id="org5f0c02d"><span class="section-number-3">3.2</span> Datos para pruebas</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">ALUMNOS</span>( DNI <span style="color: #7aa6da;">varchar</span>(10), NOMBRE <span style="color: #7aa6da;">varchar</span>(10));
@@ -490,8 +490,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org95edd55" class="outline-3">
-<h3 id="org95edd55"><span class="section-number-3">3.3</span> Lectura no repetible</h3>
+<div id="outline-container-org3c827f2" class="outline-3">
+<h3 id="org3c827f2"><span class="section-number-3">3.3</span> Lectura no repetible</h3>
 <div class="outline-text-3" id="text-3-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -559,8 +559,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org730db55" class="outline-3">
-<h3 id="org730db55"><span class="section-number-3">3.4</span> Fila fantasma</h3>
+<div id="outline-container-orgae33932" class="outline-3">
+<h3 id="orgae33932"><span class="section-number-3">3.4</span> Fila fantasma</h3>
 <div class="outline-text-3" id="text-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -618,8 +618,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org24f92ea" class="outline-2">
-<h2 id="org24f92ea"><span class="section-number-2">4</span> Bloqueos</h2>
+<div id="outline-container-orgebcc9f5" class="outline-2">
+<h2 id="orgebcc9f5"><span class="section-number-2">4</span> Bloqueos y versiones</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>La orden <code>set isolation level</code> indica a la base de datos que <b>bloquee</b> filas, campos o tablas</li>
@@ -628,17 +628,21 @@ for the JavaScript code in this tag.
 <li><code>commit</code></li>
 <li><code>rollback</code></li>
 </ul></li>
-<li>Los bloqueos garantizan que no se producen los problemas correspondientes al nivel de aislamiento:
+<li>Los <b>bloqueos</b> garantizan que no se producen los problemas correspondientes al nivel de aislamiento:
 <ul class="org-ul">
 <li><code>Read commited</code></li>
 <li><code>Serializable</code></li>
+</ul></li>
+<li>Las <b>versiones</b> hacen que una transacción vea solo una <i>fotografía</i> del estado de la base de datos
+<ul class="org-ul">
+<li>La transacción no se ve afectada por cambios posteriores a su inicio</li>
 </ul></li>
 </ul>
 </div>
 
 
-<div id="outline-container-org3b24c51" class="outline-3">
-<h3 id="org3b24c51"><span class="section-number-3">4.1</span> Lectura no repetible bloqueada</h3>
+<div id="outline-container-org247315f" class="outline-3">
+<h3 id="org247315f"><span class="section-number-3">4.1</span> Lectura no repetible evitada</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -710,8 +714,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgfc1774c" class="outline-3">
-<h3 id="orgfc1774c"><span class="section-number-3">4.2</span> Fila fantasma bloqueada</h3>
+<div id="outline-container-orgd523d87" class="outline-3">
+<h3 id="orgd523d87"><span class="section-number-3">4.2</span> Fila fantasma evitada</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -773,8 +777,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org8bb07f1" class="outline-3">
-<h3 id="org8bb07f1"><span class="section-number-3">4.3</span> Bloqueos no automáticos</h3>
+<div id="outline-container-orgf64e11b" class="outline-3">
+<h3 id="orgf64e11b"><span class="section-number-3">4.3</span> Bloqueos no automáticos</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Los niveles de aislamiento bloquean automáticamente filas, campos o tablas</li>
@@ -795,8 +799,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgbd8ae91" class="outline-2">
-<h2 id="orgbd8ae91"><span class="section-number-2">5</span> Detección y solución de sesiones bloqueadas</h2>
+<div id="outline-container-org3bc6990" class="outline-2">
+<h2 id="org3bc6990"><span class="section-number-2">5</span> Detección y solución de sesiones bloqueadas</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Si un usuario/aplicación se comporta de manera inadecuada, puede bloquear la base de datos</li>
@@ -809,8 +813,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org8e75a59" class="outline-3">
-<h3 id="org8e75a59"><span class="section-number-3">5.1</span> Vistas de sesiones</h3>
+<div id="outline-container-orgfc85602" class="outline-3">
+<h3 id="orgfc85602"><span class="section-number-3">5.1</span> Vistas de sesiones</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Contienen información de las sesiones 
@@ -851,8 +855,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org0f83862" class="outline-3">
-<h3 id="org0f83862"><span class="section-number-3">5.2</span> Usuarios conectados (1)</h3>
+<div id="outline-container-org9db0d82" class="outline-3">
+<h3 id="org9db0d82"><span class="section-number-3">5.2</span> Usuarios conectados (1)</h3>
 <div class="outline-text-3" id="text-5-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span>
@@ -872,8 +876,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org80e1f22" class="outline-3">
-<h3 id="org80e1f22"><span class="section-number-3">5.3</span> Usuarios conectados (2)</h3>
+<div id="outline-container-org1dec43c" class="outline-3">
+<h3 id="org1dec43c"><span class="section-number-3">5.3</span> Usuarios conectados (2)</h3>
 <div class="outline-text-3" id="text-5-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">SELECT</span> s.username, s.program, s.logon_time
@@ -886,8 +890,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org1590a0e" class="outline-3">
-<h3 id="org1590a0e"><span class="section-number-3">5.4</span> Bloqueos de la base de datos</h3>
+<div id="outline-container-orgd4c8afb" class="outline-3">
+<h3 id="orgd4c8afb"><span class="section-number-3">5.4</span> Bloqueos de la base de datos</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span> session_id "sid",SERIAL#  "Serial",
@@ -915,8 +919,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 </div>
 
-<div id="outline-container-orgeba7e7f" class="outline-3">
-<h3 id="orgeba7e7f"><span class="section-number-3">5.5</span> Descripción de usuarios bloqueados y bloqueantes</h3>
+<div id="outline-container-org5214a20" class="outline-3">
+<h3 id="org5214a20"><span class="section-number-3">5.5</span> Descripción de usuarios bloqueados y bloqueantes</h3>
 <div class="outline-text-3" id="text-5-5">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span> s1.username || <span style="color: #70c0b1;">'@'</span> || s1.machine
@@ -933,8 +937,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 
 
-<div id="outline-container-org57ac6ca" class="outline-3">
-<h3 id="org57ac6ca"><span class="section-number-3">5.6</span> Sentencia <code>SQL</code> bloqueada (de un <code>SID</code>)</h3>
+<div id="outline-container-orgc030d78" class="outline-3">
+<h3 id="orgc030d78"><span class="section-number-3">5.6</span> Sentencia <code>SQL</code> bloqueada (de un <code>SID</code>)</h3>
 <div class="outline-text-3" id="text-5-6">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span> s.sid, q.sql_text <span style="color: #b9ca4a;">from</span> v_$sqltext q, v_$<span style="color: #b9ca4a;">session</span> s
@@ -946,8 +950,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 </div>
 
-<div id="outline-container-org35bb7d2" class="outline-3">
-<h3 id="org35bb7d2"><span class="section-number-3">5.7</span> Sentencias <code>SQL</code> bloqueadas</h3>
+<div id="outline-container-orgcaed2bf" class="outline-3">
+<h3 id="orgcaed2bf"><span class="section-number-3">5.7</span> Sentencias <code>SQL</code> bloqueadas</h3>
 <div class="outline-text-3" id="text-5-7">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span> s.sid, q.sql_text <span style="color: #b9ca4a;">from</span> v_$sqltext q, v_$<span style="color: #b9ca4a;">session</span> s
@@ -966,8 +970,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 </div>
 
-<div id="outline-container-org9bbd517" class="outline-3">
-<h3 id="org9bbd517"><span class="section-number-3">5.8</span> Terminar una sesión</h3>
+<div id="outline-container-org818c286" class="outline-3">
+<h3 id="org818c286"><span class="section-number-3">5.8</span> Terminar una sesión</h3>
 <div class="outline-text-3" id="text-5-8">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">SELECT</span> s.inst_id,
@@ -989,8 +993,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 </div>
 
-<div id="outline-container-orgb92eaad" class="outline-3">
-<h3 id="orgb92eaad"><span class="section-number-3">5.9</span> Terminar una sesión (sistema operativo)</h3>
+<div id="outline-container-org208676a" class="outline-3">
+<h3 id="org208676a"><span class="section-number-3">5.9</span> Terminar una sesión (sistema operativo)</h3>
 <div class="outline-text-3" id="text-5-9">
 <ul class="org-ul">
 <li>Solo como último recurso, mejor <code>KILL SESSION</code></li>
@@ -1004,7 +1008,7 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 
 
 <div class="figure">
-<p><img src="procesos-usuario-sistema.png" alt="procesos-usuario-sistema.png" />
+<p><img src="./media/procesos-usuario-sistema.png" alt="procesos-usuario-sistema.png" />
 </p>
 </div>
 </div>
@@ -1014,8 +1018,8 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 
 
 
-<div id="outline-container-orga60f3f7" class="outline-2">
-<h2 id="orga60f3f7"><span class="section-number-2">6</span> Referencias</h2>
+<div id="outline-container-org2294b61" class="outline-2">
+<h2 id="org2294b61"><span class="section-number-2">6</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Formatos:
@@ -1035,7 +1039,7 @@ substr(object_name,1,20) "<span style="color: #7aa6da;">Object</span>",
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-11-12 lun 10:17</p>
+<p class="date">Created: 2018-11-20 mar 08:38</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
