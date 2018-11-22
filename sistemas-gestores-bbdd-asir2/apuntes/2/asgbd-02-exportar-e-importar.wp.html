@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-11-20 mar 19:57 -->
+<!-- 2018-11-21 mié 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exportar e importar datos de Oracle</title>
@@ -238,17 +238,17 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org31d0c90">1. Exportar datos</a></li>
-<li><a href="#orgb503d2d">2. Importar datos</a></li>
-<li><a href="#org258378f">3. Ejercicio</a></li>
-<li><a href="#orge0ee583">4. Otras soluciones</a></li>
-<li><a href="#orgd50f95f">5. Referencias</a></li>
+<li><a href="#org4b6c560">1. Exportar datos</a></li>
+<li><a href="#orgfa53cf9">2. Importar datos</a></li>
+<li><a href="#org9c81367">3. Ejercicio</a></li>
+<li><a href="#org9401c60">4. Otras soluciones</a></li>
+<li><a href="#org31611af">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org31d0c90" class="outline-2">
-<h2 id="org31d0c90"><span class="section-number-2">1</span> Exportar datos</h2>
+<div id="outline-container-org4b6c560" class="outline-2">
+<h2 id="org4b6c560"><span class="section-number-2">1</span> Exportar datos</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>expdp</code>
@@ -497,8 +497,8 @@ Valid keyword values are: IMMEDIATE.
 </div>
 
 
-<div id="outline-container-org06b4f47" class="outline-3">
-<h3 id="org06b4f47"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
+<div id="outline-container-orgfdc08be" class="outline-3">
+<h3 id="orgfdc08be"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Algunos comandos de <b>Oracle</b> necesitan trabajar sobre directorios del disco</li>
@@ -514,8 +514,8 @@ Valid keyword values are: IMMEDIATE.
 
 
 
-<div id="outline-container-org04e411c" class="outline-3">
-<h3 id="org04e411c"><span class="section-number-3">1.2</span> Definir un directorio</h3>
+<div id="outline-container-org177ce3e" class="outline-3">
+<h3 id="org177ce3e"><span class="section-number-3">1.2</span> Definir un directorio</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">any</span> directory <span style="color: #b9ca4a;">to</span> unusuario; 
@@ -530,8 +530,8 @@ Valid keyword values are: IMMEDIATE.
 </div>
 </div>
 
-<div id="outline-container-orgd09852c" class="outline-3">
-<h3 id="orgd09852c"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
+<div id="outline-container-org3374ab2" class="outline-3">
+<h3 id="org3374ab2"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-shell">
@@ -570,8 +570,8 @@ Job <span style="color: #70c0b1;">"ALUMNO"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-orgb503d2d" class="outline-2">
-<h2 id="orgb503d2d"><span class="section-number-2">2</span> Importar datos</h2>
+<div id="outline-container-orgfa53cf9" class="outline-2">
+<h2 id="orgfa53cf9"><span class="section-number-2">2</span> Importar datos</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>impdp</code>
@@ -831,8 +831,8 @@ Valid keywords are: IMMEDIATE.
 </div>
 </div>
 
-<div id="outline-container-orgac7c34f" class="outline-3">
-<h3 id="orgac7c34f"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
+<div id="outline-container-org211b1fd" class="outline-3">
+<h3 id="org211b1fd"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Importar un fichero del usuario <code>profesor</code> en el usuario <code>alumno</code></li>
@@ -881,8 +881,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org258378f" class="outline-2">
-<h2 id="org258378f"><span class="section-number-2">3</span> Ejercicio</h2>
+<div id="outline-container-org9c81367" class="outline-2">
+<h2 id="org9c81367"><span class="section-number-2">3</span> Ejercicio</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Crea la base de datos de multas en el usuario <code>multas</code> (<a href="../1/sql/multas.sql">../1/sql/multas.sql</a>)</li>
@@ -893,8 +893,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-orge0ee583" class="outline-2">
-<h2 id="orge0ee583"><span class="section-number-2">4</span> Otras soluciones</h2>
+<div id="outline-container-org9401c60" class="outline-2">
+<h2 id="org9401c60"><span class="section-number-2">4</span> Otras soluciones</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>RMAN</li>
@@ -902,8 +902,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </ul>
 </div>
 
-<div id="outline-container-org24deee4" class="outline-3">
-<h3 id="org24deee4"><span class="section-number-3">4.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
+<div id="outline-container-orgd55181c" class="outline-3">
+<h3 id="orgd55181c"><span class="section-number-3">4.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Solución de <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmquick.htm#BRADV89346">Oracle para backups</a></li>
@@ -921,8 +921,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org518f74c" class="outline-3">
-<h3 id="org518f74c"><span class="section-number-3">4.2</span> Copias de <i>tablespaces</i></h3>
+<div id="outline-container-org51190b2" class="outline-3">
+<h3 id="org51190b2"><span class="section-number-3">4.2</span> Copias de <i>tablespaces</i></h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Los datos están en ficheros <code>dbf</code></li>
@@ -933,7 +933,7 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </ul></li>
 <li>Desventajas
 <ul class="org-ul">
-<li>Es necesario parar Oracle para hacer la copia y la restauración</li>
+<li>Muchas veces es necesario parar Oracle para hacer la copia y la restauración</li>
 </ul></li>
 </ul>
 
@@ -942,9 +942,19 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 </p>
 </div>
 
-<div id="outline-container-org50116ae" class="outline-4">
-<h4 id="org50116ae"><span class="section-number-4">4.2.1</span> Lista de ficheros a copiar</h4>
+<div id="outline-container-org5e39778" class="outline-4">
+<h4 id="org5e39778"><span class="section-number-4">4.2.1</span> Lista de ficheros a copiar</h4>
 <div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>El fichero <code>pfile</code> o <code>spfile</code> indica dónde está el fichero de control
+<ul class="org-ul">
+<li>Generalmente en <code>$ORACLE_HOME/dbs/spfile.ora</code></li>
+<li><code>SHOW PARAMETER spfile;</code></li>
+</ul></li>
+<li>El fichero de control indica dónde están los ficheros de datos</li>
+<li>Los tablespaces <code>system</code> tienen los metadatos necesarios para entender los tablespaces de datos</li>
+</ul>
+
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">select</span> <span style="color: #70c0b1;">'datos'</span>, <span style="color: #b9ca4a;">name</span> <span style="color: #b9ca4a;">from</span> v$datafile
 <span style="color: #b9ca4a;">union</span>
@@ -952,71 +962,19 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 <span style="color: #b9ca4a;">union</span>
 <span style="color: #b9ca4a;">select</span> <span style="color: #70c0b1;">'redo'</span>, member <span style="color: #b9ca4a;">from</span> v$logfile
 <span style="color: #b9ca4a;">union</span>
-<span style="color: #b9ca4a;">select</span> <span style="color: #70c0b1;">'control'</span>, <span style="color: #b9ca4a;">name</span> <span style="color: #b9ca4a;">from</span> v$controlfile;
+<span style="color: #b9ca4a;">select</span> <span style="color: #70c0b1;">'control'</span>, <span style="color: #b9ca4a;">name</span> <span style="color: #b9ca4a;">from</span> v$controlfile
+<span style="color: #b9ca4a;">union</span>
+<span style="color: #b9ca4a;">select</span> <span style="color: #70c0b1;">'spfile'</span>, <span style="color: #b9ca4a;">value</span> <span style="color: #b9ca4a;">from</span> v$<span style="color: #b9ca4a;">parameter</span> <span style="color: #b9ca4a;">where</span> <span style="color: #b9ca4a;">name</span>=<span style="color: #70c0b1;">'spfile'</span>;
 </pre>
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgef26c8c" class="outline-4">
-<h4 id="orgef26c8c"><span class="section-number-4">4.2.2</span> Arrancar la base de datos</h4>
-<div class="outline-text-4" id="text-4-2-2">
-<p>
-Con todos los ficheros necesarios (datos, redo, control, pfile)
-</p>
-
-<div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">SQL</span>&gt; startup mount
-ORACLE <span style="color: #b9ca4a;">instance</span> started.
-
-Total <span style="color: #b9ca4a;">System</span> <span style="color: #b9ca4a;">Global</span> Area  264241152 bytes
-Fixed <span style="color: #b9ca4a;">Size</span>                  1286916 bytes
-<span style="color: #b9ca4a;">Variable</span> <span style="color: #b9ca4a;">Size</span>             205524220 bytes
-Database Buffers           54525952 bytes
-Redo Buffers                2904064 bytes
-Database mounted.
-<span style="color: #b9ca4a;">SQL</span>&gt; recover database until cancel;
-Media recovery complete.
-<span style="color: #b9ca4a;">SQL</span>&gt; <span style="color: #b9ca4a;">alter</span> database <span style="color: #b9ca4a;">open</span> resetlogs;
-
-Database altered.
-
-<span style="color: #b9ca4a;">SQL</span>&gt;
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org3d2a977" class="outline-4">
-<h4 id="org3d2a977"><span class="section-number-4">4.2.3</span> Si hay problemas</h4>
-<div class="outline-text-4" id="text-4-2-3">
-<ul class="org-ul">
-<li>El fichero <code>pfile</code> o <code>spfile</code> indica dónde está el fichero de control</li>
-<li>El fichero de control indica dónde están los ficheros de datos</li>
-</ul>
-
-<div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">SQL</span>&gt; startup nomount;
-<span style="color: #b9ca4a;">SQL</span>&gt; <span style="color: #b9ca4a;">alter</span> <span style="color: #b9ca4a;">system</span> <span style="color: #b9ca4a;">set</span> control_files = <span style="color: #70c0b1;">'/oracle/data/control.dbf'</span>;
-<span style="color: #b9ca4a;">SQL</span>&gt; <span style="color: #b9ca4a;">alter</span> database mount;
-<span style="color: #b9ca4a;">SQL</span>&gt; <span style="color: #b9ca4a;">alter</span> database rename file <span style="color: #70c0b1;">'/u01/data/sysaux.dbf'</span>
-  <span style="color: #b9ca4a;">to</span> <span style="color: #70c0b1;">'/oracle/data/sysaux.dbf'</span>;
-<span style="color: #b9ca4a;">SQL</span>&gt; <span style="color: #b9ca4a;">alter</span> database rename file <span style="color: #70c0b1;">'/u01/data/redo_1a.dbf'</span>
-  <span style="color: #b9ca4a;">to</span> <span style="color: #70c0b1;">'/oracle/data/redo_1a.dbf'</span>;
-</pre>
-</div>
-
-<p>
-<a href="https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-files-copied-from-a-previous-installation">https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-files-copied-from-a-previous-installation</a>
-</p>
-</div>
-</div>
 </div>
 </div>
 
 
-<div id="outline-container-orgd50f95f" class="outline-2">
-<h2 id="orgd50f95f"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org31611af" class="outline-2">
+<h2 id="org31611af"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -1036,7 +994,7 @@ Database altered.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-11-20 mar 19:57</p>
+<p class="date">Created: 2018-11-21 mié 10:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,6 +1,5 @@
 #+include: "../../../common/header.org"
 #+Title: Exportar e importar datos de Oracle
-#+EXCLUDE_TAGS: no_export
 
 * Exportar datos
 - Se utiliza el comando =expdp=
@@ -618,11 +617,16 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 - Ventajas
   - Fácil, no se necesitan herramientas especiales
 - Desventajas
-  - Es necesario parar Oracle para hacer la copia y la restauración
+  - Muchas veces es necesario parar Oracle para hacer la copia y la restauración
 
 Fuente: [[https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup.htm#BRADV016][docs.oracle.com]]
 
 *** Lista de ficheros a copiar
+- El fichero =pfile= o =spfile= indica dónde está el fichero de control
+  - Generalmente en =$ORACLE_HOME/dbs/spfile.ora=
+  - =SHOW PARAMETER spfile;=
+- El fichero de control indica dónde están los ficheros de datos
+- Los tablespaces =system= tienen los metadatos necesarios para entender los tablespaces de datos
 
 #+BEGIN_SRC sql
 select 'datos', name from v$datafile
@@ -631,17 +635,33 @@ select 'temporal', name from v$tempfile
 union
 select 'redo', member from v$logfile
 union
-select 'control', name from v$controlfile;
+select 'control', name from v$controlfile
+union
+select 'spfile', value from v$parameter where name='spfile';
 #+END_SRC
 
+
 #+begin_comment
+
+| control  | /var/oracle/fast_recovery_area/asir/control02.ctl       |
+| control  | /var/oracle/oradata/asir/control01.ctl                  |
+| datos    | /var/oracle/oradata/asir/sysaux01.dbf                   |
+| datos    | /var/oracle/oradata/asir/system01.dbf                   |
+| datos    | /var/oracle/oradata/asir/undotbs01.dbf                  |
+| datos    | /var/oracle/oradata/asir/users01.dbf                    |
+| redo     | /var/oracle/oradata/asir/redo01.log                     |
+| redo     | /var/oracle/oradata/asir/redo02.log                     |
+| redo     | /var/oracle/oradata/asir/redo03.log                     |
+| spfile   | /var/oracle/product/12.1.0/asir_bbdd/dbs/spfileasir.ora |
+| temporal | /var/oracle/oradata/asir/temp01.dbf                     |
+
 SELECT   t.NAME "Tablespace", f.NAME "Datafile"
 FROM     V$TABLESPACE t, V$DATAFILE f
 WHERE    t.TS# = f.TS#
 ORDER BY t.NAME;
 #+end_comment
 
-*** Arrancar la base de datos
+*** Arrancar la base de datos :noexport:
 Con todos los ficheros necesarios (datos, redo, control, pfile)
 
 #+begin_src sql
@@ -663,10 +683,7 @@ Database altered.
 SQL>
 #+end_src
 
-*** Si hay problemas
-
-- El fichero =pfile= o =spfile= indica dónde está el fichero de control
-- El fichero de control indica dónde están los ficheros de datos
+*** Cambiar nombres de fichero :noexport:
 
 #+begin_src sql
 SQL> startup nomount;
