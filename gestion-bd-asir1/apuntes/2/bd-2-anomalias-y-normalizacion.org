@@ -87,10 +87,66 @@
 - Hay más dependencias, pero pueden deducirse de las anteriores
   - Por ejemplo (DNI, Fecha, Turno) \rightarrow DirecciónTienda
     
+#+reveal: split
+#+BEGIN_SRC dot :file ./media/ejemplo-formas-normales-1.svg :exports results :cmd dot :cmdline -Tsvg
+digraph {
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_dnifecha {
+                         style="rounded"
+                         DNI
+                         Fecha
+                }
+
+                DNI -> Turno
+
+                DNI -> Nombre
+
+                DNI -> CodigoTienda  [ltail=cluster_dnifecha]
+                CodigoTienda -> DireccionTienda
+                DireccionTienda -> CodigoTienda 
+                
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/ejemplo-formas-normales-1.svg]]
+
 ** Ejercicio
 - Se desea una base de datos que guarde los atributos =(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)=
 - Los empleados no tienen un turno fijo, y cada día pueden trabajar en una tienda en un turno
 - En una misma dirección puede haber varias tiendas
+
+*** Solución
+#+BEGIN_SRC dot :file ./media/ejercicio-formas-normales-1.svg :exports results :cmd dot :cmdline -Tsvg
+  digraph {
+                  compound=true
+                  label=""
+                  node [shape="ellipse",margin=0]
+
+
+                  subgraph cluster_dnifecha {
+                           style="rounded"
+                           DNI
+                           Fecha
+                  }
+
+                  DNI -> CodigoTienda [ltail=cluster_dnifecha]
+                  DNI -> Turno [ltail=cluster_dnifecha]
+
+                  DNI -> Nombre
+
+                  CodigoTienda -> DireccionTienda
+                
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:./media/ejercicio-formas-normales-1.svg]]
+
 
 
 * Normalización
@@ -215,10 +271,47 @@
 
 * Referencias
 - Formatos:
-  - [[file:bd-2-anomalias-y-normalizacion.html][Transparencias]] 
+  - [[file:bd-2-anomalias-y-normalizacion.reveal.html][Transparencias]] 
   - [[file:bd-2-anomalias-y-normalizacion.pdf][PDF]]
 - Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
 
+
+* NO INCLUIDO :noexport:
+
+    AB → C
+    BD → EF
+    AD → GH
+    A → I
+    H → J
+
+
+#+BEGIN_SRC dot :file ./media/ejercicio-normalizacion-abstracto.svg :exports results :cmd dot :cmdline -Tsvg :session *dot*
+digraph {
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                A -> I
+                H -> J
+
+                AB -> C 
+                BD -> E 
+                BD -> F 
+
+                AD -> G 
+                AD -> H 
+
+                A -> AD
+                A -> AB
+                B -> AB
+                B -> BD
+                D -> AD
+                D -> BD
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/ejercicio-normalizacion-abstracto.svg]]

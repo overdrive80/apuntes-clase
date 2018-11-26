@@ -46,6 +46,7 @@
 \usepackage{alltt}
 \usepackage{framed}
 \usepackage{caption}
+\usepackage{eurosym}
 \usepackage{seqsplit}
 
 \hypersetup{
@@ -195,9 +196,10 @@ stepnumber=0 % Line numbers go in steps of 5
 
 % CUADRITO
 \newsavebox{\fmboxx}
-\newenvironment{cuadrito}[1][14cm]
+\newenvironment{cuadritoantiguo}[1][14cm]
 {\noindent \begin{center} \begin{lrbox}{\fmboxx}\noindent\begin{minipage}{#1}}
 {\end{minipage}\end{lrbox}\noindent\shadowbox{\usebox{\fmboxx}} \end{center}}
+
 
 
 
@@ -396,6 +398,11 @@ subject={#1}]%
   title=#1
 }
 
+\newtcolorbox{cuadrito}[1][Ignorado]{
+  %drop shadow southeast,
+  enhanced jigsaw,
+  colback=white,
+}
 
 \newcommand{\StudentData}{
   \begin{cuadrito}[1\textwidth]
@@ -405,6 +412,6 @@ subject={#1}]%
       \textbf{Nombre:} \hrulefill \\
       \textbf{Fecha:} \hrulefill \hspace{1cm} \textbf{Grupo:} \hrulefill \\
     }
-    %\vspace{0.2cm}
+    \vspace{-0.2cm}
   \end{cuadrito}
 }

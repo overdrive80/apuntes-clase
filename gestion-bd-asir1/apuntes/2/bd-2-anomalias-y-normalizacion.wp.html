@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-11-09 vie 13:32 -->
+<!-- 2018-11-08 jue 19:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Medios de transmisión</title>
+<title>Anomalías y formas normales</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
 <style type="text/css">
@@ -233,516 +233,437 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Medios de transmisión</h1>
+<h1 class="title">Anomalías y formas normales</h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org37c7b52">1. Introducción</a></li>
-<li><a href="#org7364ed7">2. Medios guiados</a></li>
-<li><a href="#org14ef3f2">3. Cables de pares trenzados</a></li>
-<li><a href="#orge1cd091">4. Estándares</a></li>
-<li><a href="#org147fe88">5. Coaxial</a></li>
-<li><a href="#org542f02a">6. Fibra óptica</a></li>
-<li><a href="#orgbcca220">7. Medios no guiados</a></li>
-<li><a href="#org9929d41">8. Referencias</a></li>
+<li><a href="#orga1d4615">1. Introducción</a></li>
+<li><a href="#orga40f0ac">2. Anomalías</a></li>
+<li><a href="#orgef2bf87">3. Dependencias funcionales</a></li>
+<li><a href="#org1e96dc9">4. Normalización</a></li>
+<li><a href="#orge8b040c">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org37c7b52" class="outline-2">
-<h2 id="org37c7b52"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orga1d4615" class="outline-2">
+<h2 id="orga1d4615"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
-<p>
-Los medios de transmisión son el medio físico que facilita el transporte de la información.  La calidad de la transmisión dependerá de sus características.  
-</p>
-
 <ul class="org-ul">
-<li>Medios guiados
+<li>El diseño de base de datos es necesario para evitar anomalías
 <ul class="org-ul">
-<li>Cable de pares trenzados</li>
-<li>Cable coaxial</li>
-<li>Fibra óptica</li>
+<li>De inserción</li>
+<li>De modificación</li>
+<li>De borrado</li>
 </ul></li>
-</ul>
-
-
+<li>Las anomalías hacen el uso de una base de datos
 <ul class="org-ul">
-<li>Medios no guiados
-<ul class="org-ul">
-<li>Ondas de radio</li>
-<li>Microondas</li>
-<li>Infrarrojos</li>
-<li>Ondas de luz</li>
+<li>Engorroso</li>
+<li>Lento</li>
+<li>Propenso a errores</li>
 </ul></li>
+<li>A medio plazo, las anomalías hacen <i>fracasar</i> una base de datos</li>
 </ul>
 </div>
 </div>
 
 
-
-
-<div id="outline-container-org7364ed7" class="outline-2">
-<h2 id="org7364ed7"><span class="section-number-2">2</span> Medios guiados</h2>
+<div id="outline-container-orga40f0ac" class="outline-2">
+<h2 id="orga40f0ac"><span class="section-number-2">2</span> Anomalías</h2>
 <div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-orgfc5abd3" class="outline-3">
+<h3 id="orgfc5abd3"><span class="section-number-3">2.1</span> Cambios de la BD (diseño E-R)</h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
-<li>Transmiten impulsos eléctricos o lumínicos.  Los bits se “transforman” en la tarjeta de red. Ésta los convierte en señales eléctricas o lumínicas respetando ciertos criterios definidos por el protocolo usado en esa red.</li>
-
-<li>Cada cable tiene unas características propias:
+<li>Desde el punto de vista del diseño E-R, un <b>cambio</b> en la base de datos es:
 <ul class="org-ul">
-<li>Velocidad de transmisión</li>
-<li>Alcance</li>
-<li>Calidad (ausencia de ruido/interferencias)</li>
-<li>Tipo de transmisión (digital, analógica)</li>
+<li>Modificación de atributos de una instancia de entidad</li>
+<li>Modificación de atributos de una instancia de interrelación</li>
+<li>Creación/borrado de una nueva instancia de entidad</li>
+<li>Creación/borrado de una nueva instancia de interrelación</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
+<div id="outline-container-org99a35ef" class="outline-3">
+<h3 id="org99a35ef"><span class="section-number-3">2.2</span> Cambios de la BD (relaciones)</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>Desde el punto de vista del diseño relacional, un <b>cambio</b> en la base de datos es:
+<ul class="org-ul">
+<li>Modificación de atributos de una fila</li>
+<li>Creación de una fila</li>
+<li>Borrado de una fila</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7aa46b5" class="outline-3">
+<h3 id="org7aa46b5"><span class="section-number-3">2.3</span> Anomalía</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>Decimos que hay una anomalía cuando <b>un</b> cambio desde el punto de vista E-R implica <b>más de un</b> cambio en la base de datos relacional
+<ul class="org-ul">
+<li>Anomalía de inserción</li>
+<li>Anomalía de borrado</li>
+<li>Anomalía de modificación</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org83cc778" class="outline-4">
+<h4 id="org83cc778"><span class="section-number-4">2.3.1</span> Anomalía de inserción/borrado</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Idempleado</code></th>
+<th scope="col" class="org-left"><code>NombreP</code></th>
+<th scope="col" class="org-left"><code>Puesto</code></th>
+<th scope="col" class="org-right"><code>Salario</code></th>
+<th scope="col" class="org-left"><code>Centro</code></th>
+<th scope="col" class="org-left"><code>DirecciónC</code></th>
+<th scope="col" class="org-right"><code>Teléfono</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">123A</td>
+<td class="org-left">Ana Almansa</td>
+<td class="org-left">Profesor</td>
+<td class="org-right">20.000</td>
+<td class="org-left">Informática</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">123</td>
+</tr>
+
+<tr>
+<td class="org-left">456B</td>
+<td class="org-left">Bernardo Botín</td>
+<td class="org-left">Administrativo</td>
+<td class="org-right">15.000</td>
+<td class="org-left">Matemáticas</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">456</td>
+</tr>
+
+<tr>
+<td class="org-left">789C</td>
+<td class="org-left">Carlos Crespo</td>
+<td class="org-left">Catedrático</td>
+<td class="org-right">30.000</td>
+<td class="org-left">CC . Empresariales</td>
+<td class="org-left">Somosaguas</td>
+<td class="org-right">789</td>
+</tr>
+
+<tr>
+<td class="org-left">012D</td>
+<td class="org-left">David Díaz</td>
+<td class="org-left">Ayudante</td>
+<td class="org-right">10.000</td>
+<td class="org-left">Informática</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">123</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>¿Cómo inserto un empleado que aún no tiene centro de trabajo?</li>
+<li>¿Cómo inserto un centro de trabajo que aún no tiene empleados?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org5c906a0" class="outline-4">
+<h4 id="org5c906a0"><span class="section-number-4">2.3.2</span> Anomalía de modificación</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<div id="outline-container-org14ef3f2" class="outline-2">
-<h2 id="org14ef3f2"><span class="section-number-2">3</span> Cables de pares trenzados</h2>
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Idempleado</code></th>
+<th scope="col" class="org-left"><code>NombreP</code></th>
+<th scope="col" class="org-left"><code>Puesto</code></th>
+<th scope="col" class="org-right"><code>Salario</code></th>
+<th scope="col" class="org-left"><code>Centro</code></th>
+<th scope="col" class="org-left"><code>DirecciónC</code></th>
+<th scope="col" class="org-right"><code>Teléfono</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">123A</td>
+<td class="org-left">Ana Almansa</td>
+<td class="org-left">Profesor</td>
+<td class="org-right">20.000</td>
+<td class="org-left">Informática</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">123</td>
+</tr>
+
+<tr>
+<td class="org-left">456B</td>
+<td class="org-left">Bernardo Botín</td>
+<td class="org-left">Administrativo</td>
+<td class="org-right">15.000</td>
+<td class="org-left">Matemáticas</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">456</td>
+</tr>
+
+<tr>
+<td class="org-left">789C</td>
+<td class="org-left">Carlos Crespo</td>
+<td class="org-left">Catedrático</td>
+<td class="org-right">30.000</td>
+<td class="org-left">CC . Empresariales</td>
+<td class="org-left">Somosaguas</td>
+<td class="org-right">789</td>
+</tr>
+
+<tr>
+<td class="org-left">012D</td>
+<td class="org-left">David Díaz</td>
+<td class="org-left">Ayudante</td>
+<td class="org-right">10.000</td>
+<td class="org-left">Informática</td>
+<td class="org-left">Complutense</td>
+<td class="org-right">123</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>¿Cómo muevo la facultad de informática a Somosaguas?</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org762a271" class="outline-4">
+<h4 id="org762a271"><span class="section-number-4">2.3.3</span> Origen de las anomalías</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<ul class="org-ul">
+<li>Redundancia de las interrelaciones</li>
+<li>Mala elección de la clave</li>
+<li>Mala elección de la cardinalidad de las interrelaciones</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgef2bf87" class="outline-2">
+<h2 id="orgef2bf87"><span class="section-number-2">3</span> Dependencias funcionales</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li>El trenzado se comporta como un apantallamiento (la interferencia se anula a sí misma en la siguiente vuelta)</li>
-<li>El más común consta de 8 hilos trenzados dos a dos identificados por colores.</li>
-<li>Fabricados en cobre.</li>
-<li>Transmiten la información en modo de impulsos eléctricos.</li>
-<li>Se clasifican en categorías, por el número de trenzas por unidad de longitud. 
+<li>Decimos que un campo B depende funcionalmente de otro A si, al conocer el valor de A, conocemos el valor de B.</li>
+<li>Las dependencias pueden ser
 <ul class="org-ul">
-<li>A mayor trenzado, menos interferencias y mayor velocidad de transferencia.</li>
+<li>Solo de un campo a otro campo: <code>A</code> &rarr; <code>B</code></li>
+<li>De varios campos a un campo: <code>(A,B)</code> &rarr; <code>C</code></li>
 </ul></li>
-<li>Afectado por la atenuación
+<li>Las dependencias se extraen del <b>significado</b> de los datos
 <ul class="org-ul">
-<li>Para aumentar ésta, se hace uso de repetidores.</li>
+<li>Sólo el cliente/usuario final conoce dicho significado</li>
+<li>El diseñador de bases de datos debe extraer dicho conocimiento y formalizarlo</li>
 </ul></li>
 </ul>
 </div>
 
-
-
-
-<div id="outline-container-org8970620" class="outline-3">
-<h3 id="org8970620"><span class="section-number-3">3.1</span> Cables de pares trenzados</h3>
+<div id="outline-container-orgbc2a24d" class="outline-3">
+<h3 id="orgbc2a24d"><span class="section-number-3">3.1</span> Ejemplo</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
-<li>UTP (Unshielded Twisted Pair): 
+<li>Se desea una base de datos que guarde los atributos <code>(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)</code></li>
+<li>Los empleados tienen un turno, y cada día pueden trabajar en una tienda.</li>
+<li>No hay dos tiendas en la misma dirección</li>
+<li>Dependencias:
 <ul class="org-ul">
-<li>Pares trenzados sin apantallar</li>
-<li>Más barato</li>
-<li>Más fáciles de instalar</li>
+<li>DNI &rarr; Nombre</li>
+<li>DNI &rarr; Turno</li>
+<li>CódigoTienda &rarr; DirecciónTienda</li>
+<li>DirecciónTienda &rarr; CódigoTienda</li>
+<li>(DNI, Fecha) &rarr; CódigoTienda</li>
+</ul></li>
+<li>Hay más dependencias, pero pueden deducirse de las anteriores
+<ul class="org-ul">
+<li>Por ejemplo (DNI, Fecha, Turno) &rarr; DirecciónTienda</li>
 </ul></li>
 </ul>
 
 
-<ul class="org-ul">
-<li>STP (Shielded Twisted Pair): 
-<ul class="org-ul">
-<li>Apantallamiento cada par de hilos.</li>
-<li>Mayor calidad, resistencia a interferencias</li>
-<li>Mayor grosor</li>
-</ul></li>
-</ul>
-
-
-<ul class="org-ul">
-<li>FTP (Foiled Twisted Pair): 
-<ul class="org-ul">
-<li>Pantalla común a todos los pares</li>
-</ul></li>
-</ul>
-
-
-
 <div class="figure">
-<p><img src="media/utp-stp-ftp.png" alt="utp-stp-ftp.png" />
-</p>
-</div>
-</div>
-
-
-
-<div id="outline-container-org9601ca4" class="outline-4">
-<h4 id="org9601ca4"><span class="section-number-4">3.1.1</span> UTP</h4>
-<div class="outline-text-4" id="text-3-1-1">
-<ul class="org-ul">
-<li>Cuatro pares de alambres codificados por color que han sido trenzados y cubiertos por un revestimiento de plástico flexible.</li>
-<li>Se utiliza en las LAN Ethernet.</li>
-<li>Barato y fácil de instalar.</li>
-</ul>
-
-
-<div class="figure">
-<p><img src="media/utp.png" alt="utp.png" />
+<p><object type="image/svg+xml" data="./media/ejemplo-formas-normales-1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-org3569332" class="outline-4">
-<h4 id="org3569332"><span class="section-number-4">3.1.2</span> TIA/EIA-568A y TIA/EIA-568B</h4>
-<div class="outline-text-4" id="text-3-1-2">
-<ul class="org-ul">
-<li>Definen características del cableado LAN:
-<ul class="org-ul">
-<li>Tipos de cables</li>
-<li>Longitudes del cable</li>
-<li>Conectores</li>
-<li>Terminación de los cables</li>
-<li>Métodos para realizar pruebas de cable</li>
-</ul></li>
-</ul>
-
-<ul class="org-ul">
-<li>UTP Categoria 6</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/categoria6-utp.png" alt="categoria6-utp.png" />
-</p>
-</div>
-<ol class="org-ol">
-<li>Cubierta</li>
-<li>Par trenzado</li>
-<li>Separador de pares en forma de cruz.</li>
-</ol>
-
-<ul class="org-ul">
-<li>FTP Categoría 5</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/categoria5e-ftp.png" alt="categoria5e-ftp.png" />
-</p>
-</div>
-
-<ol class="org-ol">
-<li>Cubierta exterior</li>
-<li>Pantalla de protección ext.</li>
-<li>Hilo de drenaje.</li>
-<li>Pantalla de aluminio ext.</li>
-<li>Hilos, incluye aislante con código de color.</li>
-</ol>
-
-<ul class="org-ul">
-<li>STP Categoría 6</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/categoria6-stp.png" alt="categoria6-stp.png" />
-</p>
-</div>
-<ol class="org-ol">
-<li>Cubierta exterior</li>
-<li>Pantalla de aluminio (1 por cada par)</li>
-<li>Hilo de drenaje</li>
-<li>Hilos, incluye aislante con código de color.</li>
-</ol>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgdf990d1" class="outline-3">
-<h3 id="orgdf990d1"><span class="section-number-3">3.2</span> Conectores típicos</h3>
+<div id="outline-container-orgcd92391" class="outline-3">
+<h3 id="orgcd92391"><span class="section-number-3">3.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Se desea una base de datos que guarde los atributos <code>(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)</code></li>
+<li>Los empleados no tienen un turno fijo, y cada día pueden trabajar en una tienda en un turno</li>
+<li>En una misma dirección puede haber varias tiendas</li>
+</ul>
 </div>
-<div id="outline-container-orgf9a5def" class="outline-4">
-<h4 id="orgf9a5def"><span class="section-number-4">3.2.1</span> RJ11</h4>
+
+<div id="outline-container-org599a646" class="outline-4">
+<h4 id="org599a646"><span class="section-number-4">3.2.1</span> Solución</h4>
 <div class="outline-text-4" id="text-3-2-1">
-<ul class="org-ul">
-<li>Típico de conexiones telefónicas</li>
-</ul>
 
 <div class="figure">
-<p><img src="media/rj11.png" alt="rj11.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org4ad87e8" class="outline-4">
-<h4 id="org4ad87e8"><span class="section-number-4">3.2.2</span> RJ45</h4>
-<div class="outline-text-4" id="text-3-2-2">
-<ul class="org-ul">
-<li>Ethernet</li>
-<li>El conector RJ11 es compatible con puertos RJ45</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/rj45.png" alt="rj45.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org36d19ba" class="outline-4">
-<h4 id="org36d19ba"><span class="section-number-4">3.2.3</span> DB9</h4>
-<div class="outline-text-4" id="text-3-2-3">
-<ul class="org-ul">
-<li>Típico de puerto serie</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/db9.png" alt="db9.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org794719b" class="outline-4">
-<h4 id="org794719b"><span class="section-number-4">3.2.4</span> DB25</h4>
-<div class="outline-text-4" id="text-3-2-4">
-<ul class="org-ul">
-<li>Puerto paralelo (antes, el de impresora)</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/db25.png" alt="db25.png" />
+<p><object type="image/svg+xml" data="./media/ejercicio-formas-normales-1.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 </div>
 </div>
 </div>
-
-<div id="outline-container-org359aed9" class="outline-3">
-<h3 id="org359aed9"><span class="section-number-3">3.3</span> RJ45</h3>
-<div class="outline-text-3" id="text-3-3">
-<ul class="org-ul">
-<li>Conector RJ45 Usada para conectar redes de cableado estructurado, (categorías 4, 5, 5e, 6 y 6a).</li>
-<li>RJ es un acrónimo inglés de “Registered Jack”.</li>
-<li>Posee ocho "pines" o conexiones eléctricas, que normalmente se usan como extremos de cables de par trenzado.</li>
-<li>La especificación EIA-TIA 568, describe los códigos de color de los cables para colocar pines a las asignaciones (diagrama de pines o contactos) para 
-<ul class="org-ul">
-<li>Cable directo de Ethernet</li>
-<li>Cable de conexión cruzada.</li>
-</ul></li>
-</ul>
-</div>
-
-<div id="outline-container-orgb5299fa" class="outline-4">
-<h4 id="orgb5299fa"><span class="section-number-4">3.3.1</span> Cable recto</h4>
-<div class="outline-text-4" id="text-3-3-1">
-<ul class="org-ul">
-<li>Se utiliza para conectar equipos de nivel 3 con equipos de nivel 1-2</li>
-</ul>
-<p>
-<img src="media/recto.png" alt="recto.png" />
-<a href="http://bignewsoftware.blogspot.com.es/2011/04/norma-eia-tia-568a-568b.html">Fuente: bignewsoftware</a>
-</p>
-
-<p>
-<a href="https://es.wikipedia.org/wiki/TIA-568B">https://es.wikipedia.org/wiki/TIA-568B</a>
-</p>
-</div>
-</div>
-
-<div id="outline-container-org71a08d0" class="outline-4">
-<h4 id="org71a08d0"><span class="section-number-4">3.3.2</span> Cable cruzado</h4>
-<div class="outline-text-4" id="text-3-3-2">
-<ul class="org-ul">
-<li>Se utiliza para conectar equipos de niveles equivalentes (3 con 3, 2 con 2)</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/cruzado.png" alt="cruzado.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgaeac859" class="outline-4">
-<h4 id="orgaeac859"><span class="section-number-4">3.3.3</span> Cable PoE</h4>
-<div class="outline-text-4" id="text-3-3-3">
-<ul class="org-ul">
-<li><i><a href="https://es.wikipedia.org/wiki/Power_over_Ethernet">Power over Ehternet</a></i></li>
-</ul>
-
-<div class="figure">
-<p><img src="media/recto-cruzado-poe.png" alt="recto-cruzado-poe.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgcd4458b" class="outline-4">
-<h4 id="orgcd4458b"><span class="section-number-4">3.3.4</span> ¿Se necesitan todos estos cables?</h4>
-<div class="outline-text-4" id="text-3-3-4">
-<ul class="org-ul">
-<li>La mayoría de equipos modernos detectan automáticamente al otro equipo</li>
-<li>Se <i>cruzan</i> ellos mismos si es necesario</li>
-<li>Hay algunas excepciones, como Cisco</li>
-</ul>
-</div>
 </div>
 
 
-<div id="outline-container-org7b65c80" class="outline-4">
-<h4 id="org7b65c80"><span class="section-number-4">3.3.5</span> Construcción de cables</h4>
-<div class="outline-text-4" id="text-3-3-5">
-<ul class="org-ul">
-<li>Conector (macho): <a href="https://www.youtube.com/watch?v=Wywi_J6NUeg">https://www.youtube.com/watch?v=Wywi_J6NUeg</a></li>
-<li>Roseta (hembra): <a href="https://www.youtube.com/watch?v=0gxNZoPcnP4">https://www.youtube.com/watch?v=0gxNZoPcnP4</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 
-
-<div id="outline-container-orge1cd091" class="outline-2">
-<h2 id="orge1cd091"><span class="section-number-2">4</span> Estándares</h2>
+<div id="outline-container-org1e96dc9" class="outline-2">
+<h2 id="org1e96dc9"><span class="section-number-2">4</span> Normalización</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
-<li>TIA/EIA 568B
-<ul class="org-ul">
-<li>Define características del cableado completo (junto con rosetas, conectores,…)</li>
-</ul></li>
-<li>ISO/IEC 11801
-<ul class="org-ul">
-<li>Define características del cable (MHz soportados e impedancia)</li>
-</ul></li>
-<li>Ethernet
-<ul class="org-ul">
-<li>Define características del cableado, aplicadas a un protocolo físico y de enlace concretos (distancias máximas, retardos máximos,…)</li>
-</ul></li>
+<li>Procedimiento para eliminar anomalías en la base de datos</li>
+<li>Es formal: a partir de las <i>dependencias funcionales</i> es un procedimiento automático</li>
 </ul>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">TIA/EIA 568B</th>
-<th scope="col" class="org-left">ISO/IEC 11801</th>
-<th scope="col" class="org-left">Maximum Data Rate</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Class A</td>
-<td class="org-left">100 khz</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 1</td>
-<td class="org-left">Class B</td>
-<td class="org-left">Up to 1 Mbps (1Mhz)</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 2</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">4 Mbps</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 3</td>
-<td class="org-left">Class C</td>
-<td class="org-left">16 Mbps</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 4</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">20 Mbps</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 5</td>
-<td class="org-left">Class D</td>
-<td class="org-left">100 Mbps (100 Mhz)</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 5e</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">1000 Mbps (100 Mhz)</td>
-</tr>
-
-<tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Class E</td>
-<td class="org-left">200 Mhz</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 6</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Up to 250-400 Mhz</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 6e</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Up to 625 Mhz</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 7</td>
-<td class="org-left">Class F</td>
-<td class="org-left">Up to 600-700 Mhz</td>
-</tr>
-
-<tr>
-<td class="org-left">Cat 8</td>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">Up to 2 GHz</td>
-</tr>
-</tbody>
-</table>
 </div>
 
-
-<div id="outline-container-org67eb64e" class="outline-3">
-<h3 id="org67eb64e"><span class="section-number-3">4.1</span> Categorías IEEE</h3>
+<div id="outline-container-org5dbff91" class="outline-3">
+<h3 id="org5dbff91"><span class="section-number-3">4.1</span> Clave de una relación</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
-<li>De acuerdo a su rendimiento (velocidades / uso) 
+<li>La clave de una relación es el conjunto mínimo de campos que es imposible que se repitan en la relación
 <ul class="org-ul">
-<li>Categoría 1 (1 Mhz). Hilo telefónico para voz.</li>
-<li>Categoría 2 (4 Mhz). Par trenzado sin apantallar de cobre.</li>
-<li>Categoría 3 (16 Mhz – 10 Mbps).</li>
-<li>Categoría 4 (20 Mhz – 20 Mbps).</li>
-<li>Categoría 5 (100 Mhz – 100 Mbps).</li>
-<li>Categoría 6 (250 Mhz – 1 Gbps).</li>
-<li>Categoría 7 (600 Mhz – 10 Gbps).</li>
-<li>Categoría 8 (en desarrollo)</li>
+<li>Coinciden con los campos de los que depende funcionalmente el resto de campos</li>
+</ul></li>
+<li>Sirven para <i>localizar</i> cada fila de la relación</li>
+<li>Si hay varias claves posibles
+<ul class="org-ul">
+<li>Todas ellas son <b>claves candidatas</b></li>
+<li>Se elige una como <b>clave primaria</b></li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org3c65496" class="outline-3">
-<h3 id="org3c65496"><span class="section-number-3">4.2</span> Ethernet</h3>
+<div id="outline-container-orgc359146" class="outline-3">
+<h3 id="orgc359146"><span class="section-number-3">4.2</span> Primera forma normal (1FN)</h3>
 <div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>Una relación está en <a href="https://es.wikipedia.org/wiki/Primera_forma_normal">1FN</a> si no tiene atributos multivaluados</li>
+</ul>
+</div>
+
+<div id="outline-container-orga3bcbfa" class="outline-4">
+<h4 id="orga3bcbfa"><span class="section-number-4">4.2.1</span> Ejemplo 1FN</h4>
+<div class="outline-text-4" id="text-4-2-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="org-right" />
 
 <col  class="org-left" />
 
 <col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><code>IDCliente</code></th>
+<th scope="col" class="org-left"><code>Nombre</code></th>
+<th scope="col" class="org-left"><code>Apellido</code></th>
+<th scope="col" class="org-right"><code>Teléfono</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">123</td>
+<td class="org-left">Rachel</td>
+<td class="org-left">Ingram</td>
+<td class="org-right">555-861-2025</td>
+</tr>
+
+<tr>
+<td class="org-right">456</td>
+<td class="org-left">James</td>
+<td class="org-left">Wright</td>
+<td class="org-right">555-403-1659, 555-776-4100</td>
+</tr>
+
+<tr>
+<td class="org-right">789</td>
+<td class="org-left">Cesar</td>
+<td class="org-left">Dure</td>
+<td class="org-right">555-808-9633</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>La clave es <code>IDCLIENTE</code></li>
+<li>La relación se parte en dos:
+<ul class="org-ul">
+<li>Una con todos los atributos que respetan 1FN</li>
+<li>Otra con la clave <code>IDCLIENTE</code> y el atributo que no respeta 1FN</li>
+</ul></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
 
 <col  class="org-left" />
 
@@ -750,375 +671,89 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Tecnología</th>
-<th scope="col" class="org-left">Velocidad de transmisión</th>
-<th scope="col" class="org-left">Tipo de cable</th>
-<th scope="col" class="org-left">Distancia máxima</th>
-<th scope="col" class="org-left">Topología</th>
+<th scope="col" class="org-right"><code>IDCliente</code></th>
+<th scope="col" class="org-left"><code>Nombre</code></th>
+<th scope="col" class="org-left"><code>Apellido</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">10Base2</td>
-<td class="org-left">10 Mbps</td>
-<td class="org-left">Coaxial</td>
-<td class="org-left">185 m</td>
-<td class="org-left">Bus (Conector T)</td>
+<td class="org-right">123</td>
+<td class="org-left">Rachel</td>
+<td class="org-left">Ingram</td>
 </tr>
 
 <tr>
-<td class="org-left">10BaseT</td>
-<td class="org-left">10 Mbps</td>
-<td class="org-left">Par Trenzado</td>
-<td class="org-left">100 m</td>
-<td class="org-left">Estrella (Hub o Switch)</td>
+<td class="org-right">456</td>
+<td class="org-left">James</td>
+<td class="org-left">Wright</td>
 </tr>
 
 <tr>
-<td class="org-left">10BaseF</td>
-<td class="org-left">10 Mbps</td>
-<td class="org-left">Fibra óptica</td>
-<td class="org-left">2000 m</td>
-<td class="org-left">Estrella (Hub o Switch)</td>
+<td class="org-right">789</td>
+<td class="org-left">Cesar</td>
+<td class="org-left">Dure</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"><code>IDCliente</code></th>
+<th scope="col" class="org-right"><code>Teléfono</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">123</td>
+<td class="org-right">555-861-2025</td>
 </tr>
 
 <tr>
-<td class="org-left">100BaseT4</td>
-<td class="org-left">100Mbps</td>
-<td class="org-left">Par Trenzado (categoría 3UTP)</td>
-<td class="org-left">100 m</td>
-<td class="org-left">Estrella. Half Duplex (hub) y Full Duplex (switch)</td>
+<td class="org-right">456</td>
+<td class="org-right">555-403-1659</td>
 </tr>
 
 <tr>
-<td class="org-left">100BaseTX</td>
-<td class="org-left">100Mbps</td>
-<td class="org-left">Par Trenzado (categoría 5UTP)</td>
-<td class="org-left">100 m</td>
-<td class="org-left">Estrella. Half Duplex (hub) y Full Duplex (switch)</td>
+<td class="org-right">456</td>
+<td class="org-right">555-776-4100</td>
 </tr>
 
 <tr>
-<td class="org-left">100BaseFX</td>
-<td class="org-left">100Mbps</td>
-<td class="org-left">Fibra óptica</td>
-<td class="org-left">2000 m</td>
-<td class="org-left">No permite el uso de hubs</td>
-</tr>
-
-<tr>
-<td class="org-left">1000BaseT</td>
-<td class="org-left">1000Mbps</td>
-<td class="org-left">4 pares trenzado (categoría 5e ó 6UTP )</td>
-<td class="org-left">100 m</td>
-<td class="org-left">Estrella. Full Duplex (switch)</td>
-</tr>
-
-<tr>
-<td class="org-left">1000BaseSX</td>
-<td class="org-left">1000Mbps</td>
-<td class="org-left">Fibra óptica (multimodo)</td>
-<td class="org-left">550 m</td>
-<td class="org-left">Estrella. Full Duplex (switch)</td>
-</tr>
-
-<tr>
-<td class="org-left">1000BaseLX</td>
-<td class="org-left">1000Mbps</td>
-<td class="org-left">Fibra óptica (monomodo)</td>
-<td class="org-left">5000 m</td>
-<td class="org-left">Estrella. Full Duplex (switch)</td>
+<td class="org-right">789</td>
+<td class="org-right">555-808-9633</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgeb54bad" class="outline-3">
-<h3 id="orgeb54bad"><span class="section-number-3">4.3</span> Categoría vs Clase</h3>
+
+<div id="outline-container-org4809616" class="outline-3">
+<h3 id="org4809616"><span class="section-number-3">4.3</span> Segunda forma normal (2FN)</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
-<li>La categoría es un estándar de la calidad del cable</li>
-<li>La clase es un estándar de la calidad de la red completa
+<li>Una relación está en <a href="https://es.wikipedia.org/wiki/Segunda_forma_normal">2FN</a> si
 <ul class="org-ul">
-<li>Cable</li>
-<li>Rosetas/conectores</li>
-<li>Equipos de interconexión</li>
+<li>Está en 1FN</li>
+<li>Todos los atributos que no son parte de una clave candidata dependen de la totalidad de las claves candidatas</li>
 </ul></li>
-<li>Lo interesante es conseguir una buena <b>clase</b>
-<ul class="org-ul">
-<li>Para lo que es necesario usar materiales de una buena <b>categoría</b></li>
-</ul></li>
-</ul>
-
-
-<div class="figure">
-<p><img src="media/categorias.png" alt="categorias.png" />
-</p>
-</div>
-</div>
-</div>
-</div>
-
-
-
-<div id="outline-container-org147fe88" class="outline-2">
-<h2 id="org147fe88"><span class="section-number-2">5</span> Coaxial</h2>
-<div class="outline-text-2" id="text-5">
-<ul class="org-ul">
-<li>Conductor de cobre rodeado de una capa de aislante flexible,</li>
-<li>Sobre este material aislante hay una malla de cobre que actúa como
-<ul class="org-ul">
-<li>segundo alambre del circuito</li>
-<li>apantallamiento para el conductor interno</li>
-</ul></li>
-<li>La envoltura del cable recubre el blindaje</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/coaxial.png" alt="coaxial.png" />
-</p>
-</div>
-
-<ul class="org-ul">
-<li>Hoy en día ha caído en <i>desuso</i> en la redes de área local.</li>
-<li>Aún se usa en televisión
-<ul class="org-ul">
-<li>Tiene un gran ancho de banda con muy pocas interferencias</li>
-</ul></li>
-<li>Tipos
-<ul class="org-ul">
-<li>Thicknet: original</li>
-<li>Thinnet: más barato y manejable</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-
-<div id="outline-container-org542f02a" class="outline-2">
-<h2 id="org542f02a"><span class="section-number-2">6</span> Fibra óptica</h2>
-<div class="outline-text-2" id="text-6">
-<ul class="org-ul">
-<li>La información se transmite en forma de pulsos de luz.</li>
-<li>En cada instante se hay presencia o ausencia de señal luminosa.
-<ul class="org-ul">
-<li>Se pueden usar diferentes colores para una multiplexación por fecuencia</li>
-</ul></li>
-<li>En un extremo se coloca un LED emisor de luz o un láser</li>
-<li>En el extremo opuesto se sitúa un detector de luz.</li>
+<li>Como consecuencia, si está en 1FN y la clave candidata es de un atributo, está en 2FN</li>
 </ul>
 </div>
 
-<div id="outline-container-orga3e22ef" class="outline-3">
-<h3 id="orga3e22ef"><span class="section-number-3">6.1</span> Ventajas de la fibra óptica</h3>
-<div class="outline-text-3" id="text-6-1">
-<ul class="org-ul">
-<li>Gran ancho de banda.</li>
-<li>La atenuación es mínima.</li>
-<li>No hay interferencias, no se producen campos magnéticos.</li>
-<li>Longitud del cable, capacidad y velocidad son muy altas.</li>
-<li>Seguridad de datos: sólo se puede acceder (pinchar) el cable por medios destructivos.</li>
-<li>Seguridad frente a accidentes: no hay corriente eléctrica alguna, no es peligroso.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org53a8347" class="outline-3">
-<h3 id="org53a8347"><span class="section-number-3">6.2</span> Inconvenientes de la fibra óptica</h3>
-<div class="outline-text-3" id="text-6-2">
-<ul class="org-ul">
-<li>Las fibras son frágiles</li>
-<li>Los transmisores y receptores son caros.</li>
-<li>Empalmar un cable es difícil.</li>
-<li>Necesitan un conversor eléctrico para conectar al ordenador
-<ul class="org-ul">
-<li>No hay chips ópticos.</li>
-</ul></li>
-</ul>
-</div>
-</div>
-
-
-
-
-<div id="outline-container-org4a386b3" class="outline-3">
-<h3 id="org4a386b3"><span class="section-number-3">6.3</span> Principio físico</h3>
-<div class="outline-text-3" id="text-6-3">
-<ul class="org-ul">
-<li>Consiste en dos cilindros coaxiales de vidrios transparentes y de diámetros muy pequeños.</li>
-<li>El cilindro interior se llama núcleo y el exterior envoltura.</li>
-<li>El índice de refracción del núcleo es mayor que el de la envoltura</li>
-<li>En el límite entre núcleo y envoltura se produce una reflexión total de la luz, 
-<ul class="org-ul">
-<li>Como consecuencia la luz no puede escapar del núcleo, quedando guiada dentro de él.</li>
-</ul></li>
-</ul>
-
-
-<div class="figure">
-<p><img src="media/fibra-optica-funcionamiento.png" alt="fibra-optica-funcionamiento.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orga14f2d3" class="outline-3">
-<h3 id="orga14f2d3"><span class="section-number-3">6.4</span> Tipos</h3>
-<div class="outline-text-3" id="text-6-4">
-<ul class="org-ul">
-<li>Multimodo
-<ul class="org-ul">
-<li>El diámetro del núcleo es muy superior a la longitud de onda de la luz:</li>
-<li>De índice <b>escalonado</b>: el índice de refracción es constante en el núcleo.</li>
-<li>De índice <b>gradual</b>: el índice de refracción varía dentro del núcleo hasta igualar al del revestimiento.</li>
-</ul></li>
-
-<li>Monomodo: 
-<ul class="org-ul">
-<li>El diámetro del núcleo es poco mayor que la longitud de onda.</li>
-<li>Únicamente se propaga un rayo de luz.</li>
-<li>Necesita un diodo láser de elevado coste.</li>
-</ul></li>
-</ul>
-
-
-<div class="figure">
-<p><img src="media/multimodo-monomodo.png" alt="multimodo-monomodo.png" />
-</p>
-</div>
-
-
-<div class="figure">
-<p><img src="media/multimodo-monomodo-ii.png" alt="multimodo-monomodo-ii.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgaba181e" class="outline-3">
-<h3 id="orgaba181e"><span class="section-number-3">6.5</span> Conectores</h3>
-<div class="outline-text-3" id="text-6-5">
-
-<div class="figure">
-<p><img src="media/conectores-opticos.png" alt="conectores-opticos.png" />
-</p>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgbfe55e7" class="outline-3">
-<h3 id="orgbfe55e7"><span class="section-number-3">6.6</span> Cables de fibra óptica</h3>
-<div class="outline-text-3" id="text-6-6">
-
-<div class="figure">
-<p><img src="media/fibra-optica-interior.png" alt="fibra-optica-interior.png" />
-</p>
-</div>
-
-
-<p>
-<a href="https://sites.google.com/site/desarrollosticaura/proyecto-de-ict/stdp-y-tba/4-fibra-optica">Fuente</a>
-</p>
-
-
-<div class="figure">
-<p><img src="media/cable-submarino-corte.png" alt="cable-submarino-corte.png" />
-</p>
-</div>
-
-
-<p>
-<a href="http://omicrono.elespanol.com/2016/09/cables-submarinos/">Fuente</a>
-</p>
-</div>
-</div>
-</div>
-
-
-
-
-
-
-<div id="outline-container-orgbcca220" class="outline-2">
-<h2 id="orgbcca220"><span class="section-number-2">7</span> Medios no guiados</h2>
-<div class="outline-text-2" id="text-7">
-<ul class="org-ul">
-<li>Las señales no viajan por un canal cerrado</li>
-<li>Ventajas
-<ul class="org-ul">
-<li>Bajo coste</li>
-<li>Comodidad</li>
-</ul></li>
-<li>Desventajas</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/probemas-medios-no-guiados.png" alt="probemas-medios-no-guiados.png" />
-</p>
-</div>
-</div>
-
-<div id="outline-container-org94091a3" class="outline-3">
-<h3 id="org94091a3"><span class="section-number-3">7.1</span> Espectro electromagnético</h3>
-<div class="outline-text-3" id="text-7-1">
-
-<div class="figure">
-<p><img src="media/espectro-electromagenico-medios-no-guiados.png" alt="espectro-electromagenico-medios-no-guiados.png" />
-</p>
-</div>
-
-
-<div class="figure">
-<p><img src="media/espectro-electromagnetico-uhf-vhf.png" alt="espectro-electromagnetico-uhf-vhf.png" />
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org03ea9f5" class="outline-3">
-<h3 id="org03ea9f5"><span class="section-number-3">7.2</span> Bluetooth</h3>
-<div class="outline-text-3" id="text-7-2">
-<ul class="org-ul">
-<li>IEEE 802.15</li>
-<li>Baja velocidad</li>
-<li>Bajo gasto de energía</li>
-<li>Corto alcance (PAN)</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org179a27c" class="outline-3">
-<h3 id="org179a27c"><span class="section-number-3">7.3</span> Wimax</h3>
-<div class="outline-text-3" id="text-7-3">
-<ul class="org-ul">
-<li>IEEE 802.16</li>
-<li><i>Worldwide Interoperability for Microwave Access</i></li>
-<li>Utiliza ondas de radio en las frecuencias de 2,5 a 3,5 Ghz.</li>
-<li>Se usa en zonas de difícil acceso para medios guiados (por terreno o por número de usuarios).</li>
-</ul>
-</div>
-</div>
-
-
-
-<div id="outline-container-orgd670047" class="outline-3">
-<h3 id="orgd670047"><span class="section-number-3">7.4</span> Wifi</h3>
-<div class="outline-text-3" id="text-7-4">
-<ul class="org-ul">
-<li>IEEE 802.11</li>
-<li>Destinada a LAN</li>
-<li>Microondas y radiofrecencia</li>
-</ul>
-
-<div class="figure">
-<p><img src="media/wifi.png" alt="wifi.png" />
-</p>
-</div>
-
+<div id="outline-container-orgac1876f" class="outline-4">
+<h4 id="orgac1876f"><span class="section-number-4">4.3.1</span> Ejemplo 2FN</h4>
+<div class="outline-text-4" id="text-4-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1128,88 +763,335 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
 <col  class="org-left" />
 
 <col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Empleado</code></th>
+<th scope="col" class="org-left"><code>Habilidad</code></th>
+<th scope="col" class="org-left"><code>Lugardetrabajo</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Jones</td>
+<td class="org-left">Mecanografía</td>
+<td class="org-left">114 Main Street</td>
+</tr>
+
+<tr>
+<td class="org-left">Jones</td>
+<td class="org-left">Taquigrafía</td>
+<td class="org-left">114 Main Street</td>
+</tr>
+
+<tr>
+<td class="org-left">Jones</td>
+<td class="org-left">Tallado</td>
+<td class="org-left">114 Main Street</td>
+</tr>
+
+<tr>
+<td class="org-left">Bravo</td>
+<td class="org-left">Limpieza ligera</td>
+<td class="org-left">73 Industrial Way</td>
+</tr>
+
+<tr>
+<td class="org-left">Ellis</td>
+<td class="org-left">Alquimia</td>
+<td class="org-left">73 Industrial Way</td>
+</tr>
+
+<tr>
+<td class="org-left">Ellis</td>
+<td class="org-left">Malabarismo</td>
+<td class="org-left">73 Industrial Way</td>
+</tr>
+
+<tr>
+<td class="org-left">Harrison</td>
+<td class="org-left">Limpieza ligera</td>
+<td class="org-left">73 Industrial Way</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>La clave es <code>(Empleado,Habilidad)</code></li>
+<li><code>Lugardetrabajo</code> depende de <code>Empleado</code></li>
+<li>Hay anomalías de modificación</li>
+<li>Hay redundancias de datos</li>
+</ul>
+
+<ul class="org-ul">
+<li>Para conseguir 2FN se parte la relación en dos
+<ul class="org-ul">
+<li>Se deja la clave y todos los atributos que dependen totalmente de ella</li>
+<li>Se crea una relación con el atributo que depende de una parte de la clave, con esa parte de la clave</li>
+</ul></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
 
 <col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Estándar</th>
-<th scope="col" class="org-left">Frecuencia</th>
-<th scope="col" class="org-left">Velocidad</th>
-<th scope="col" class="org-left">Alcance</th>
+<th scope="col" class="org-left"><code>Empleado</code></th>
+<th scope="col" class="org-left"><code>Lugaractualdetrabajo</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">IEEE 802.11a</td>
-<td class="org-left">5GHz</td>
-<td class="org-left">54mbps</td>
-<td class="org-left">50 metros</td>
+<td class="org-left">Jones</td>
+<td class="org-left">114 Main Street</td>
 </tr>
 
 <tr>
-<td class="org-left">IEEE 802.11b</td>
-<td class="org-left">2.4GHz</td>
-<td class="org-left">11mbsp</td>
-<td class="org-left">100 metros</td>
+<td class="org-left">Bravo</td>
+<td class="org-left">73 Industrial Way</td>
 </tr>
 
 <tr>
-<td class="org-left">IEEE 802.11g</td>
-<td class="org-left">2.4GHz</td>
-<td class="org-left">54mbps</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Ellis</td>
+<td class="org-left">73 Industrial Way</td>
 </tr>
 
 <tr>
-<td class="org-left">IEEE 802.11n</td>
-<td class="org-left">2.4GHz y 5GHz</td>
-<td class="org-left">600mbps</td>
-<td class="org-left">70 metros</td>
+<td class="org-left">Harrison</td>
+<td class="org-left">73 Industrial Way</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Empleado</code></th>
+<th scope="col" class="org-left"><code>Habilidad</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Jones</td>
+<td class="org-left">Mecanografía</td>
 </tr>
 
 <tr>
-<td class="org-left">IEEE 802.11ac</td>
-<td class="org-left">5GHz</td>
-<td class="org-left">1.3Gbs</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Jones</td>
+<td class="org-left">Taquigrafía</td>
 </tr>
 
 <tr>
-<td class="org-left">IEEE 802.11ad</td>
-<td class="org-left">60Gz</td>
-<td class="org-left">4.6GBs</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left">Jones</td>
+<td class="org-left">Tallado</td>
+</tr>
+
+<tr>
+<td class="org-left">Bravo</td>
+<td class="org-left">Limpieza ligera</td>
+</tr>
+
+<tr>
+<td class="org-left">Ellis</td>
+<td class="org-left">Alquimia</td>
+</tr>
+
+<tr>
+<td class="org-left">Ellis</td>
+<td class="org-left">Malabarismo</td>
+</tr>
+
+<tr>
+<td class="org-left">Harrison</td>
+<td class="org-left">Limpieza ligera</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-
-<div id="outline-container-org681997a" class="outline-3">
-<h3 id="org681997a"><span class="section-number-3">7.5</span> Canales wifi</h3>
-<div class="outline-text-3" id="text-7-5">
-
-<div class="figure">
-<p><img src="media/canales-wifi.png" alt="canales-wifi.png" />
-</p>
-</div>
-</div>
-</div>
 </div>
 
-<div id="outline-container-org9929d41" class="outline-2">
-<h2 id="org9929d41"><span class="section-number-2">8</span> Referencias</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgbee22b7" class="outline-3">
+<h3 id="orgbee22b7"><span class="section-number-3">4.4</span> Tercera forma normal (3FN)</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>Una relación está en <a href="https://es.wikipedia.org/wiki/Tercera_forma_normal">3FN</a> si
+<ul class="org-ul">
+<li>Está en 2FN</li>
+<li>No hay dependencias transitivas de la clave</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orge20ed37" class="outline-4">
+<h4 id="orge20ed37"><span class="section-number-4">4.4.1</span> Ejemplo 3FN</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Torneo</code></th>
+<th scope="col" class="org-right"><code>Año</code></th>
+<th scope="col" class="org-left"><code>Ganador</code></th>
+<th scope="col" class="org-left"><code>Fechadenacimientodelganador</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Indiana Invitational</td>
+<td class="org-right">1998</td>
+<td class="org-left">Al Fredrickson</td>
+<td class="org-left">21 de julio de 1975</td>
+</tr>
+
+<tr>
+<td class="org-left">Cleveland Open</td>
+<td class="org-right">1999</td>
+<td class="org-left">Bob Albertson</td>
+<td class="org-left">28 de septiembre de 1968</td>
+</tr>
+
+<tr>
+<td class="org-left">Des Moines Masters</td>
+<td class="org-right">1999</td>
+<td class="org-left">Al Fredrickson</td>
+<td class="org-left">21 de julio de 1975</td>
+</tr>
+
+<tr>
+<td class="org-left">Indiana Invitational</td>
+<td class="org-right">1999</td>
+<td class="org-left">Chip Masterson</td>
+<td class="org-left">14 de marzo de 1977</td>
+</tr>
+</tbody>
+</table>
+<ul class="org-ul">
+<li>La clave es <code>(Torneo,Año)</code></li>
+<li><code>Fecha de nacimiento</code> depende de <code>Ganador</code>, que depende de la clave</li>
+<li>Hay anomalías de modificación</li>
+</ul>
+
+<ul class="org-ul">
+<li>Para conseguir 3FN se parte la relación en 2
+<ul class="org-ul">
+<li>Se deja la clave y los atributos sin dependencia transitiva</li>
+<li>Se crea una relación que tiene como clave y campos la dependencia transitiva</li>
+</ul></li>
+</ul>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Torneo</code></th>
+<th scope="col" class="org-right"><code>Año</code></th>
+<th scope="col" class="org-left"><code>Ganador</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Indiana Invitational</td>
+<td class="org-right">1998</td>
+<td class="org-left">Al Fredrickson</td>
+</tr>
+
+<tr>
+<td class="org-left">Cleveland Open</td>
+<td class="org-right">1999</td>
+<td class="org-left">Bob Albertson</td>
+</tr>
+
+<tr>
+<td class="org-left">Des Moines Masters</td>
+<td class="org-right">1999</td>
+<td class="org-left">Al Fredrickson</td>
+</tr>
+
+<tr>
+<td class="org-left">Indiana Invitational</td>
+<td class="org-right">1999</td>
+<td class="org-left">Chip Masterson</td>
+</tr>
+</tbody>
+</table>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>Ganador</code></th>
+<th scope="col" class="org-left"><code>Fechadenacimiento</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Chip Masterson</td>
+<td class="org-left">14 de marzo de 1977</td>
+</tr>
+
+<tr>
+<td class="org-left">Al Fredrickson</td>
+<td class="org-left">21 de julio de 1975</td>
+</tr>
+
+<tr>
+<td class="org-left">Bob Albertson</td>
+<td class="org-left">28 de septiembre de 1968</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge8b040c" class="outline-2">
+<h2 id="orge8b040c"><span class="section-number-2">5</span> Referencias</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="par-2-medios-de-transmision.html">Transparencias</a></li>
-<li><a href="par-2-medios-de-transmision.pdf">PDF</a></li>
+<li><a href="bd-2-anomalias-y-normalizacion.reveal.html">Transparencias</a></li>
+<li><a href="bd-2-anomalias-y-normalizacion.pdf">PDF</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
-<li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
 <li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
@@ -1219,7 +1101,7 @@ Los medios de transmisión son el medio físico que facilita el transporte de la
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-11-09 vie 13:32</p>
+<p class="date">Created: 2018-11-08 jue 19:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

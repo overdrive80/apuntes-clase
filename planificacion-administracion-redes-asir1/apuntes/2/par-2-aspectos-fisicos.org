@@ -299,10 +299,10 @@ file:media/codificacion-ami.png
 
 ** Ejercicios
 - Codifica los dígitos =1011100010= en:
-  - NRZ
+  - NRZ-L
   - NRZI
   - AMI
-  - Bipolar con sustitución de 8 ceros
+  - Bipolar con sustitución de 8 ceros (B8ZS)
   - Manchester
   - Manchester diferencial.
 - Codifica los dígitos =100100000000001011= en las mismas codificaciones
@@ -339,6 +339,7 @@ file:media/codificacion-ami.png
 - Se divide el rango de frecuencias que el medio soporta
 - Se reparte dicho rango entre varios canales ([[#banda-ancha][banda ancha]])
 
+#+attr_latex: :width 0.6\textwidth
 [[file:media/multiplexacion-frecuencia.jpg]]
 
 Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/][comunication2011jeff]]
