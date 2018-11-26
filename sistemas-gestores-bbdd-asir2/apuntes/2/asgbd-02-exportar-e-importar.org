@@ -661,8 +661,8 @@ WHERE    t.TS# = f.TS#
 ORDER BY t.NAME;
 #+end_comment
 
-*** Arrancar la base de datos :noexport:
-Con todos los ficheros necesarios (datos, redo, control, pfile)
+*** Arrancar la base de datos
+Si solo se restauran los ficheros de datos (y se tienen suficientes ficheros de =log=)
 
 #+begin_src sql
 SQL> startup mount
