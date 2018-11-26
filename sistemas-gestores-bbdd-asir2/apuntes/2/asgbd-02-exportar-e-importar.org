@@ -683,6 +683,9 @@ Database altered.
 SQL>
 #+end_src
 
+*** ora-00152 :noexport:
+http://www.dba-oracle.com/t_ora_01152_file_1_not_restored_from_sufficiently_old_backup.htm
+
 *** Cambiar nombres de fichero :noexport:
 
 #+begin_src sql
