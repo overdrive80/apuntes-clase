@@ -698,9 +698,17 @@ SQL> alter database rename file '/u01/data/redo_1a.dbf'
 https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-files-copied-from-a-previous-installation
 
 
+** Ejercicio
+1. Localiza los ficheros de datos de tu instancia
+2. Apaga la instancia y haz una copia de los ficheros
+3. Arranca la instancia, y realiza cambios en la base de datos
+4. Apaga la instancia e intenta recuperar los ficheros de datos
+5. Arranca la instancia, y comprueba que todo sigue como antes del paso 1
+
+
 * Referencias
 - Formatos:
-  - [[file:asgbd-02-importar-exportar.html][Transparencias]] 
+  - [[file:asgbd-02-importar-exportar.reveal.html][Transparencias]] 
   - [[file:asgbd-02-importar-exportar.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
