@@ -712,7 +712,7 @@ https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-
 * Referencias
 - Formatos:
   - [[file:asgbd-02-importar-exportar.reveal.html][Transparencias]] 
-  - [[file:asgbd-02-importar-exportar.pdf][PDF]]
+  - [[file:asgbd-02-exportar-e-importar.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
