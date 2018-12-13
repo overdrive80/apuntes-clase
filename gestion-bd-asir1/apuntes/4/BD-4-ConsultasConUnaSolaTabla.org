@@ -26,11 +26,12 @@ where salutation='Ms.'
 select count(*)
 from student
 where salutation in( 'Ms.', 'Mr.');
+** Número de alumnos que no son ni 'Ms' ni 'Mr'
 ** ¿Cuántos tratamientos (Ms, Mr...) hay en la base de datos?
 select count(distinct salutation) from student;
 ** ¿Cuáles son los tratamientos (Ms, Mr...) que hay en la base de datos?
 select distinct salutation from student;
-** Alumnos cuyo nombre comience por 'o' (mayúscula o minúscula)
+** Alumnos cuyo apellido comience por 'a' (mayúscula o minúscula)
 select * from student
 where lower(first_name) like 'o%';
 
