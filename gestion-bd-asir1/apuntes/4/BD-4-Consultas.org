@@ -427,3 +427,22 @@ where
   e.zip = z.zip
 group by
 state;
+** Lista de alumnos del código postal con más alumnos
+create view alumnosporzip(cuantos,zip) as
+select 
+  count(first_name), zip 
+from
+  student
+group by zip
+order by 1 desc;
+
+
+select * from student where zip=
+(
+select 
+  zip 
+from 
+  alumnosporzip 
+where 
+  cuantos=(select max(cuantos) from alumnosporzip)
+);

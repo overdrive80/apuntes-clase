@@ -200,3 +200,5 @@ select * from course where not(prerequisite is null);
 
 
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
+** Listado de alumnos ordenado por apellido y nombre.
+** Número de alumnos matriculado en cada sección
