@@ -180,7 +180,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 | Bits de red | Bits de host | Significado                              |
 |-------------+--------------+------------------------------------------|
 |           0 |            0 | El propio host ~*~                       |
-|           0 |         host | Host indicado dentro de mi red~*~        |
+|           0 |         host | Host indicado dentro de mi red ~*~       |
 |         red |            0 | Dirección de la red                      |
 |           1 |            1 | Difusión a mi red ~*~                    |
 |         red |            1 | Difusión a la red indicada (/broadcast/) |
