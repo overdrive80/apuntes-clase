@@ -180,7 +180,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 | Bits de red | Bits de host | Significado                              |
 |-------------+--------------+------------------------------------------|
 |           0 |            0 | El propio host ~*~                       |
-|           0 |         host | Host indicado dentro de mi red~*~        |
+|           0 |         host | Host indicado dentro de mi red ~*~       |
 |         red |            0 | Dirección de la red                      |
 |           1 |            1 | Difusión a mi red ~*~                    |
 |         red |            1 | Difusión a la red indicada (/broadcast/) |
@@ -254,7 +254,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
   - La red a la que pertenece es ~192.168.20.64/26~
 
 ** Ejercicio
-- ¿A qué red perteneces las siguientes direcciones IP?
+- ¿A qué red pertenecen las siguientes direcciones IP?
    - ~172.46.25.1/12~
    - ~198.30.18.18/15~
    - ~198.30.18.18/30~

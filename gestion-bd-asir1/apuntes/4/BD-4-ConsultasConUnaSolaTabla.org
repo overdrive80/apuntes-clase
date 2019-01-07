@@ -54,14 +54,12 @@ where
   first_name like '____';
 
 ** ¿Cuál es la mejor nota parcial del alumno con identificador 102?
-select 
-  first_name
-from
-  student
-where
-  first_name like '____';
-
 ** ¿Cuál es el identificador del alumno con la mejor nota parcial en la sección con identificador 86?
+
+   1. Cuál es la mejor nota parcial de la seccion 86
+   2. Alumnos que han sacado 99 en la sección 86
+
+*** a
 select 
   student_id
 from
@@ -70,6 +68,7 @@ where
   section_id = 86 and
   numeric_grade = (select max(numeric_grade) from grade where section_id = 86);
 
+** ¿Cuál es el identificador del alumno con la peor nota parcial en la sección con identificador 86?
 ** ¿En qué fecha comienza la sección que primero empieza sus clases?
 select min(start_date_time) from section;
 ** ¿En qué fecha comienza la sección que primero empieza en Junio?
@@ -201,3 +200,5 @@ select * from course where not(prerequisite is null);
 
 
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
+** Listado de alumnos ordenado por apellido y nombre.
+** Número de alumnos matriculado en cada sección

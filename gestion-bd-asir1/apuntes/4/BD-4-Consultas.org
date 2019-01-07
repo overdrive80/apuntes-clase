@@ -2,7 +2,7 @@
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** ¿Cuáles son las descripciones de los cursos que son requisito para otro curso?
-
+#+begin_src sql
 select distinct pre.DESCRIPTION
 from course c, course pre
 where c.PREREQUISITE = pre.course_no;
@@ -13,6 +13,8 @@ from
   course c, course p
 where
   c.prerequisite = p.course_no;
+#+end_src
+
 ** Lista de alumnos, ordenados por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 ** Lista de los 20 primeros alumnos, ordenados (ascendente) por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 #+begin_src sql
@@ -67,6 +69,7 @@ where capacity = (select count(*)
                    section_id=s.section_id)
 #+end_src
 
+#+begin_src sql
 select * from  
   
     (select 
@@ -88,8 +91,9 @@ select * from
 where
   seccion_matriculados = seccion_capacidad
   and matriculados = capacity;
+#+end_src
 
-
+#+begin_src sql
 select * from ( 
     select 
       s.section_id,
@@ -104,7 +108,9 @@ select * from (
 )
 where
   total = capacity;
-  
+  #+end_src
+
+#+begin_src sql
 select 
   s.section_id,
   s.capacity,
@@ -117,19 +123,24 @@ group by
   s.section_id, s.capacity
 having
   count(e.student_id) = capacity;
+#+end_src
 
 
 
 ** Nombres que tiene algún profesor pero que no tiene ningún alumno
+#+begin_src sql
 select distinct first_name from instructor
 minus
 select distinct first_name from student;
+#+end_src
 
 
 ** Nombres que tiene algún profesor y algún alumno
+#+begin_src sql
 select distinct first_name from instructor
 intersect
 select distinct first_name from student;
+#+end_src
 
 
 ** Lista de todos los usuarios de la base de datos (sin duplicados) que han creado o modificado filas
@@ -180,6 +191,7 @@ from
 #+end_src
 
 ** Lista de las notas parciales obtenidas por los reverendos (nombre y apellidos del alumno, nota numérica, curso, tipo de nota)
+#+begin_src sql
 -- quiero el nombre, apellidos, nota, curso y tipo de nota 
 select
   first_name, last_name, numeric_grade, course_no, grade_type_code
@@ -196,7 +208,10 @@ where
   -- unión de enrollment con section
   e.section_id = se.section_id and
   salutation = 'Rev';
+#+end_src
+
 ** Lista de las notas parciales otorgadas por los reverendos (nombre y apellidos del alumno, nota numérica, curso, tipo de nota)
+#+begin_src sql
 -- quiero el nombre, apellidos, nota, curso y tipo de nota 
 select
   st.first_name, st.last_name, 
@@ -217,6 +232,8 @@ where
   -- unión de instructor con section
   se.instructor_id = i.instructor_id and
   i.salutation = 'Rev';
+#+end_src
+
 
 ** Lista del número de alumnos de cada estado que asisten al curso "Operating Systems"
 
@@ -227,6 +244,7 @@ where
 ** ¿Qué profesor o profesores imparten más cursos? (nombre y apellidos)
 ** ¿Qué profesor o profesores imparten más secciones? (nombre y apellidos)
 
+#+begin_src sql
 create view secciones_por_profesor(numerosecciones,instructor_id) as
 select 
   count(section_id), instructor_id
@@ -240,6 +258,8 @@ from secciones_por_profesor s, instructor i
 where 
   i.instructor_id = s.instructor_id and
   numerosecciones = (select max(numerosecciones) from secciones_por_profesor);
+#+end_src
+
 ** ¿Qué profesor o profesores imparten en menos secciones?
 
 ** Lista de profesores y número de alumnos a los que imparten algún curso (nombre, apellidos, número de alumnos)
@@ -295,6 +315,7 @@ Nota: ignoramos el criterio de no contar la más baja
 ** Lista de secciones con menos de 15 alumnos matriculados (descripción del curso, identificador de sección, número de alumnos)
 
 ** Facturación desde que se creó la academia
+#+begin_src sql
 select 
   -- course.course_no, cost, enrollment.student_id
   sum(cost)
@@ -303,12 +324,15 @@ from
 where
   enrollment.section_id = section.section_id and
   section.course_no = course.course_no;
+#+end_src
+
 ** Lista de ingresos por curso (descripción de curso, ingresos)
 
 ** Lista de ingresos por profesor (nombre, apellidos, ingresos)
 
 ** Lista de ingresos por alumno (nombre, apellidos, ingresos)
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito 'SIN PRERREQUISITO'.
+#+begin_src sql
 select 
   c.description, p.description
 from 
@@ -322,16 +346,21 @@ from
   course c
 where
   c.prerequisite is null;
+#+end_src
   
 
+#+begin_src sql
 select 
   c.description, p.description
 from 
   course c left join course p on c.prerequisite = p.course_no;
+#+end_src
+
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito NULL.
 ** Lista de las secciones con mas de 12 alumnos matriculados
 ** Lista de estados y el número de alumnos matriculados de ese estado
 ** Lista de los estados con más de 10 alumnos matriculados
+#+begin_src sql
 select
   z.state, count(student_id)
 from
@@ -342,9 +371,11 @@ group by
   z.state
 having
   count(student_id) >= 10;
+#+end_src
 
 ** Lista de los estados con menos de 11 alumnos matriculados
 ** Estado(s) con más alumnos matriculados
+#+begin_src sql
 create view estado_de_estudiante(estudiante,estado) as
 select
   student_id, state
@@ -368,9 +399,11 @@ from
   estudiantes_por_estado 
 where
   estudiantes=(select max(estudiantes) from estudiantes_por_estado);
+#+end_src
  
   
   
+#+begin_src sql
 select
   z.state, count(student_id)
 from
@@ -386,8 +419,10 @@ where
   s.zip = z.zip
 group by
   z.state);
+#+end_src
 
 ** Qué curso (descripción) tiene más profesores
+#+begin_src sql
 create view profesores_por_curso as
 select c.description, c.course_no, count(*) as numeroprofes
 from 
@@ -404,9 +439,12 @@ where numeroprofes = (
   select max(numeroprofes) 
   from profesores_por_curso  
 );
+#+end_src
+
 
 ** Estado cuyos alumnos tienen mejor nota media (de sus notas parciales)
 ** Número de alumnos por estado que ha sacado más de un 85 en la media de tareas de "homework" (HM)
+#+begin_src sql
 select state, count(*) alumnosconmasde85
 from (
   select z.zip, s.student_id, avg(g.numeric_grade)
@@ -427,3 +465,29 @@ where
   e.zip = z.zip
 group by
 state;
+#+end_src
+
+** Lista de alumnos del código postal con más alumnos
+#+begin_src sql
+create view alumnosporzip(cuantos,zip) as
+select 
+  count(first_name), zip 
+from
+  student
+group by zip
+order by 1 desc;
+
+
+select * from student where zip=
+(
+select 
+  zip 
+from 
+  alumnosporzip 
+where 
+  cuantos=(select max(cuantos) from alumnosporzip)
+);
+#+end_src
+
+** Nombre y apellidos del profesor que ha dado las peores notas (media de sus notas más baja)
+** Nombre y apellidos del alumno con la nota media más alta.
