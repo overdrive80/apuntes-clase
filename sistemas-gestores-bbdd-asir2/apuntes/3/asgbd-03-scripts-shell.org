@@ -564,24 +564,27 @@ systemctl stop SERVICIO
 
 
 *** /Runlevels/ y /targets/
-| Runlevel | Target            | Alias            |
-|----------+-------------------+------------------|
-|        0 | poweroff.target   | runlevel0.target |
-|        1 | rescue.target     | runlevel1.target |
-|        3 | multi-user.target | runlevel3.target |
-|        5 | graphical.target  | runlevel5.target |
-|        6 | reboot.target     | runlevel6.target |
+| Runlevel | Target              | Alias              |
+|----------+---------------------+--------------------|
+|        0 | ~poweroff.target~   | =runlevel0.target= |
+|        1 | ~rescue.target~     | =runlevel1.target= |
+|        3 | ~multi-user.target~ | =runlevel3.target= |
+|        5 | ~graphical.target~  | =runlevel5.target= |
+|        6 | ~reboot.target~     | =runlevel6.target= |
 
 *** Utilidades *systemd*
 - =systemd-analyze plot=: Tiempo de carga de cada servicio
 - =systemctl list-dependencies=: Servicios necesarios para cargar un servicio
+
+*** Systemd de usuario :noexport:
+loginctl enable-linger $USUARIO
 
 
 * Operaciones periódicas
 
 - Los sistemas operativos aportan formas para ejecutar tareas periódicamente
   - *Windows* tiene las *tareas programadas*
-  - *Linux* tiene el sistema =cron=
+  - *Linux* tiene el sistema =cron= y =systemd=
 
 ** =cron=
 - Es un servicio que 
@@ -605,7 +608,7 @@ Type=oneshot
 ExecStart=/usr/bin/sh -c '/usr/bin/date >> /tmp/date'
 #+end_src
 
-#+caption: etc/systemd/system/date.timer:
+#+caption: etc/systemd/system/date.timer
 #+begin_src sh
 [Unit]
 Description=Run date.service every 10 minutes
