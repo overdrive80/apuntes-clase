@@ -82,6 +82,7 @@ where
 select max(start_date_time) from section;
 
 ** Datos de la sección que empieza la última
+#+begin_src sql
 select * 
 from section
 where start_date_time=(
@@ -92,6 +93,7 @@ select
   max( start_date_time )
 from
   section;
+#+end_src
 
 ** Lista de alumnos ordenados por apellido (sin importar minúsculas)
 select first_name,last_name,student_id, lower(last_name) as paraordenar 
@@ -134,16 +136,42 @@ order by last_name;
 ** ¿Cuántas secciones hay?
 
 ** ¿Cuál es la media de capacidad de las secciones?
-
+#+BEGIN_SRC sql
+select avg(capacity) from section;
+#+END_SRC
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
-** ¿Cuáles son las aulas (location) en las que se imparten secciones con más de 20 alumnos?
+** ¿Cuáles son las aulas sin duplicados (location) en las que se imparten secciones con más de 20 alumnos?
+#+begin_src sql
 select distinct location from section
 where capacity>20;
+#+end_src
 
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como máximo?
 
-** ¿Cuáles son los identificadores de las secciones con menos de 15 alumnos matriculados?
+** ¿Cuáles son los identificadores de las secciones con menos de 10 alumnos matriculados?
+#+BEGIN_SRC sql
+select * 
+from 
+(select 
+  count(student_id) as alumnos, section_id 
+from
+  enrollment 
+group by
+  section_id)
+where alumnos < 10;
+
+
+select 
+  count(student_id) as alumnos, section_id 
+from
+  enrollment 
+group by
+  section_id  
+having 
+  count(student_id) < 10;
+#+END_SRC
 ** Lista de identificadores de secciones y número de alumnos matriculados en cada una
+#+begin_src sql
 select 
   section_id, 
   count(section_id)
@@ -151,6 +179,8 @@ from
   ENROLLMENT
 group by
   section_id;
+#+end_src
+
 ** ¿Qué nota alfabética consigo con un 72 numérico?
 
 select letter_grade from GRADE_CONVERSION
@@ -201,4 +231,3 @@ select * from course where not(prerequisite is null);
 
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
 ** Listado de alumnos ordenado por apellido y nombre.
-** Número de alumnos matriculado en cada sección
