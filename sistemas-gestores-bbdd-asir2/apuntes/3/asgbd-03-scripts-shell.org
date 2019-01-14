@@ -324,6 +324,12 @@ DESCRIPTION
 #+end_src
 
 
+** Comandos útiles
+- Enviar un email
+#+begin_src sh
+echo Cuerpo del mensaje | mail -s "Asunto del mensaje" -a ficheroadjunto alvarogonzalezprofesor@gmail.com
+#+end_src
+
 
 * Prerrequisitos
 
