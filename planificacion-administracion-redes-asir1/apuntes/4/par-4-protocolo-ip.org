@@ -180,7 +180,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 | Bits de red | Bits de host | Significado                              |
 |-------------+--------------+------------------------------------------|
 |           0 |            0 | El propio host ~*~                       |
-|           0 |         host | Host indicado dentro de mi red~*~        |
+|           0 |         host | Host indicado dentro de mi red ~*~       |
 |         red |            0 | Dirección de la red                      |
 |           1 |            1 | Difusión a mi red ~*~                    |
 |         red |            1 | Difusión a la red indicada (/broadcast/) |
@@ -254,7 +254,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
   - La red a la que pertenece es ~192.168.20.64/26~
 
 ** Ejercicio
-- ¿A qué red perteneces las siguientes direcciones IP?
+- ¿A qué red pertenecen las siguientes direcciones IP?
    - ~172.46.25.1/12~
    - ~198.30.18.18/15~
    - ~198.30.18.18/30~
@@ -324,12 +324,14 @@ Una organización tiene 5 departamentos independientes. En cada uno de ellos se 
 - ¿Qué clase deberá solicitar el administrador de la empresa?.
 - Establece la máscara necesaria para que la organización subdivida la red en redes a razón de una subred por cada departamento.
 - Indica las direcciones de subred, broadcast y rangos de direcciones IP de los host para cada departamento.
+- Las redes libres, si las hay, deben quedar lo más compactas posible
 
 ** Subnetting
 Una organización tiene asignada la red 192.168.2.0/24 y desea agrupar a su personal en grupos de trabajo de 140 empleados. El conjunto de trabajadores de cada grupo, comparte una subred diferente a la de los otros grupos.
 - ¿Cuántos grupos de trabajo se pueden hacer?.
 - Establece la máscara necesaria para que la organización subdivida la red en redes a razón de una subred por cada grupo.
 - Indica las direcciones de subred, broadcast y rangos de direcciones IP de los host para cada departamento.
+- Las redes libres, si las hay, deben quedar lo más compactas posible
 
 ------
 El ejercicio se puede repetir con 
@@ -343,6 +345,7 @@ Una empresa recibe la dirección 132.33.0.0 para su red. Asigna a cada uno de lo
 - C,D: 1020 ordenadores
 - E,F: 4000 ordenadores
 - G: 500 ordenadores
+Las redes libres, si las hay, deben quedar lo más compactas posible
 
 
 * Redes reservadas

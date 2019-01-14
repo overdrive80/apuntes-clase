@@ -518,7 +518,7 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
     - *rc init*: Se basaba en /scripts/ en los directorios =/etc/rc.*=. Se está reemplazando por *systemd*
 
 ** *systemd*
-- Los servicios se crean con ficheros en =/etc/systemd/system=
+- Los servicios se crean con ficheros en =/etc/systemd/system= (entre otros)
   - Dependen de otros servicios (=After=)
   - Otros servicios dependen de ellos (=WantedBy=)
   - Se puede elegir el usuario que lo lanza (=User=)
@@ -541,7 +541,7 @@ WantedBy=multi-user.target
 
 Más información con =man systemd.service= y =man systemd.unit=
 
-#+reveal: split
+*** Controlar el arranque de servicios
 
 - Habilitar/Deshabilitar un servicio al inicio del sistema
 #+begin_src sh
@@ -556,11 +556,41 @@ systemctl stop SERVICIO
 #+end_src
 
 
+*** Recargar ficheros
+- Si se crean nuevas unidades, no se tienen en cuenta automáticamente
+- Se necesita =systemctl daemon-reload=
+
+
+*** Servicios de usuario
+- El comando =systemctl= se ejecuta con el parámetro =--system= por defecto
+  - Servicios de sistema
+- Si se ejecuta con =--user= se utilizan los servicios del usuario llamante
+  - Sus unidades están en =$HOME/.config/systemd/user/=
+
+
+
+*** /Runlevels/ y /targets/
+| Runlevel | Target              | Alias              |
+|----------+---------------------+--------------------|
+|        0 | ~poweroff.target~   | =runlevel0.target= |
+|        1 | ~rescue.target~     | =runlevel1.target= |
+|        3 | ~multi-user.target~ | =runlevel3.target= |
+|        5 | ~graphical.target~  | =runlevel5.target= |
+|        6 | ~reboot.target~     | =runlevel6.target= |
+
+*** Utilidades *systemd*
+- =systemd-analyze plot=: Tiempo de carga de cada servicio
+- =systemctl list-dependencies=: Servicios necesarios para cargar un servicio
+
+*** Systemd de usuario :noexport:
+loginctl enable-linger $USUARIO
+
+
 * Operaciones periódicas
 
 - Los sistemas operativos aportan formas para ejecutar tareas periódicamente
   - *Windows* tiene las *tareas programadas*
-  - *Linux* tiene el sistema =cron=
+  - *Linux* tiene el sistema =cron= y =systemd=
 
 ** =cron=
 - Es un servicio que 
@@ -570,6 +600,29 @@ systemctl stop SERVICIO
 - Suele utilizar el comando =run-parts=
   - Este comando ejecuta todos los comandos de un directorio
   - Más información con =man run-parts=
+
+** =systemd=
+# https://coreos.com/os/docs/latest/scheduling-tasks-with-systemd-timers.html
+Más información en =man systemd.timer=
+#+caption: /etc/systemd/system/date.service
+#+begin_src sh
+[Unit]
+Description=Prints date into /tmp/date file
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/sh -c '/usr/bin/date >> /tmp/date'
+#+end_src
+
+#+caption: etc/systemd/system/date.timer
+#+begin_src sh
+[Unit]
+Description=Run date.service every 10 minutes
+
+[Timer]
+OnCalendar=*:0/10
+#+end_src
+
 
 ** Operaciones periódicas manuales
 
