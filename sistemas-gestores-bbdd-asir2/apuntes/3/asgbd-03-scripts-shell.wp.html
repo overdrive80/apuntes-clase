@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-01-06 dom 19:39 -->
+<!-- 2019-01-11 vie 10:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scripts de shell para Oracle</title>
@@ -238,20 +238,20 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org44d8ae0">1. Introducción</a></li>
-<li><a href="#orgf2c424c">2. Scripts de <i>shell</i></a></li>
-<li><a href="#org86fc347">3. Prerrequisitos</a></li>
-<li><a href="#org426784b">4. Ejecución de <b>SQL</b> desde la <i>shell</i></a></li>
-<li><a href="#orgc6d3647">5. Arranque y parada</a></li>
-<li><a href="#orgaf36e70">6. Operaciones periódicas</a></li>
-<li><a href="#org2568a6e">7. Referencias</a></li>
+<li><a href="#orge22c5c2">1. Introducción</a></li>
+<li><a href="#orgc9c3bc3">2. Scripts de <i>shell</i></a></li>
+<li><a href="#orgf7e2189">3. Prerrequisitos</a></li>
+<li><a href="#org0f51e20">4. Ejecución de <b>SQL</b> desde la <i>shell</i></a></li>
+<li><a href="#org8e69c9d">5. Arranque y parada</a></li>
+<li><a href="#org1172af1">6. Operaciones periódicas</a></li>
+<li><a href="#org298d361">7. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org44d8ae0" class="outline-2">
-<h2 id="org44d8ae0"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orge22c5c2" class="outline-2">
+<h2 id="orge22c5c2"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Muchas tareas del mantenimiento de una base de datos <b>Oracle</b> se llevan a cabo desde la línea de comandos</li>
@@ -268,12 +268,12 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgf2c424c" class="outline-2">
-<h2 id="orgf2c424c"><span class="section-number-2">2</span> Scripts de <i>shell</i></h2>
+<div id="outline-container-orgc9c3bc3" class="outline-2">
+<h2 id="orgc9c3bc3"><span class="section-number-2">2</span> Scripts de <i>shell</i></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgd95703a" class="outline-3">
-<h3 id="orgd95703a"><span class="section-number-3">2.1</span> <i>shebang</i></h3>
+<div id="outline-container-orgb00194c" class="outline-3">
+<h3 id="orgb00194c"><span class="section-number-3">2.1</span> <i>shebang</i></h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Los scripts empiezan con una línea indicando el intérprete que los ejecutará, con un comentario <code>#!</code></li>
@@ -295,8 +295,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org1dc6a5e" class="outline-3">
-<h3 id="org1dc6a5e"><span class="section-number-3">2.2</span> Variables</h3>
+<div id="outline-container-org87161d5" class="outline-3">
+<h3 id="org87161d5"><span class="section-number-3">2.2</span> Variables</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #969896; font-style: italic;"># </span><span style="color: #969896; font-style: italic;">Variable local a esta shell</span>
@@ -313,8 +313,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org47e690e" class="outline-3">
-<h3 id="org47e690e"><span class="section-number-3">2.3</span> Entrada/salida</h3>
+<div id="outline-container-org609e703" class="outline-3">
+<h3 id="org609e703"><span class="section-number-3">2.3</span> Entrada/salida</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Los programas comienzan su ejecución con una salida y una entrada</li>
@@ -327,8 +327,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orge03b915" class="outline-4">
-<h4 id="orge03b915"><span class="section-number-4">2.3.1</span> Redirigir entrada/salida a fichero</h4>
+<div id="outline-container-orgc095290" class="outline-4">
+<h4 id="orgc095290"><span class="section-number-4">2.3.1</span> Redirigir entrada/salida a fichero</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <div class="org-src-container">
 <pre class="src src-sh"><span style="color: #969896; font-style: italic;"># </span><span style="color: #969896; font-style: italic;">La entrada sale de un fichero en vez del teclado</span>
@@ -348,8 +348,8 @@ sort &lt; fichero | less
 </div>
 </div>
 
-<div id="outline-container-org54c25d3" class="outline-4">
-<h4 id="org54c25d3"><span class="section-number-4">2.3.2</span> <i>HEREDOCS</i></h4>
+<div id="outline-container-orgc3b2f8e" class="outline-4">
+<h4 id="orgc3b2f8e"><span class="section-number-4">2.3.2</span> <i>HEREDOCS</i></h4>
 <div class="outline-text-4" id="text-2-3-2">
 <div class="org-src-container">
 <pre class="src src-sh">
@@ -367,8 +367,8 @@ sort &lt;&lt;FINDEFICHERO
 </div>
 </div>
 
-<div id="outline-container-org7705795" class="outline-4">
-<h4 id="org7705795"><span class="section-number-4">2.3.3</span> Salida como parámetro</h4>
+<div id="outline-container-org1c235d4" class="outline-4">
+<h4 id="org1c235d4"><span class="section-number-4">2.3.3</span> Salida como parámetro</h4>
 <div class="outline-text-4" id="text-2-3-3">
 <ul class="org-ul">
 <li>Se puede capturar la salida de un comando en una cadena</li>
@@ -390,8 +390,8 @@ sort &lt;&lt;FINDEFICHERO
 
 
 
-<div id="outline-container-org8d9ab01" class="outline-3">
-<h3 id="org8d9ab01"><span class="section-number-3">2.4</span> Parámetros del <i>script</i></h3>
+<div id="outline-container-org68cf26c" class="outline-3">
+<h3 id="org68cf26c"><span class="section-number-3">2.4</span> Parámetros del <i>script</i></h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><code>$0</code>: El nombre del <i>script</i></li>
@@ -402,8 +402,8 @@ sort &lt;&lt;FINDEFICHERO
 </div>
 </div>
 
-<div id="outline-container-orgac776d6" class="outline-3">
-<h3 id="orgac776d6"><span class="section-number-3">2.5</span> Funciones</h3>
+<div id="outline-container-orgca58d78" class="outline-3">
+<h3 id="orgca58d78"><span class="section-number-3">2.5</span> Funciones</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Son conjuntos agrupados de órdenes con un nombre</li>
@@ -426,8 +426,8 @@ importante <span style="color: #70c0b1;">"Asi se define una funcion en bash"</sp
 </div>
 
 
-<div id="outline-container-org08ba414" class="outline-3">
-<h3 id="org08ba414"><span class="section-number-3">2.6</span> Código de error (<i>exit code</i>)</h3>
+<div id="outline-container-org62a911f" class="outline-3">
+<h3 id="org62a911f"><span class="section-number-3">2.6</span> Código de error (<i>exit code</i>)</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Al terminar, un programa devuelve un valor numérico</li>
@@ -448,8 +448,8 @@ importante <span style="color: #70c0b1;">"Asi se define una funcion en bash"</sp
 </div>
 </div>
 
-<div id="outline-container-orgb064560" class="outline-3">
-<h3 id="orgb064560"><span class="section-number-3">2.7</span> Bucles</h3>
+<div id="outline-container-org2de14a1" class="outline-3">
+<h3 id="org2de14a1"><span class="section-number-3">2.7</span> Bucles</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Con <code>for</code> se pueden hacer bucles sobre una lista de parámetros</li>
@@ -474,8 +474,8 @@ importante <span style="color: #70c0b1;">"Asi se define una funcion en bash"</sp
 
 
 
-<div id="outline-container-orgda8de56" class="outline-3">
-<h3 id="orgda8de56"><span class="section-number-3">2.8</span> Condicionales</h3>
+<div id="outline-container-org83abdd2" class="outline-3">
+<h3 id="org83abdd2"><span class="section-number-3">2.8</span> Condicionales</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li><code>if</code> utiliza los códigos de error de los programas
@@ -496,8 +496,8 @@ importante <span style="color: #70c0b1;">"Asi se define una funcion en bash"</sp
 </div>
 </div>
 
-<div id="outline-container-org32dcf1a" class="outline-4">
-<h4 id="org32dcf1a"><span class="section-number-4">2.8.1</span> <code>return</code> en funciones</h4>
+<div id="outline-container-orgf7b02a5" class="outline-4">
+<h4 id="orgf7b02a5"><span class="section-number-4">2.8.1</span> <code>return</code> en funciones</h4>
 <div class="outline-text-4" id="text-2-8-1">
 <ul class="org-ul">
 <li>Las funciones también tienen código de retorno</li>
@@ -520,8 +520,8 @@ importante <span style="color: #70c0b1;">"Asi se define una funcion en bash"</sp
 </div>
 </div>
 
-<div id="outline-container-org8f897c6" class="outline-4">
-<h4 id="org8f897c6"><span class="section-number-4">2.8.2</span> Comando <code>[</code></h4>
+<div id="outline-container-org6c62ff4" class="outline-4">
+<h4 id="org6c62ff4"><span class="section-number-4">2.8.2</span> Comando <code>[</code></h4>
 <div class="outline-text-4" id="text-2-8-2">
 <ul class="org-ul">
 <li><code>[</code> es un comando externo que ayuda a hacer condiciones con <code>if</code>
@@ -675,8 +675,8 @@ DESCRIPTION
 
 
 
-<div id="outline-container-org86fc347" class="outline-2">
-<h2 id="org86fc347"><span class="section-number-2">3</span> Prerrequisitos</h2>
+<div id="outline-container-orgf7e2189" class="outline-2">
+<h2 id="orgf7e2189"><span class="section-number-2">3</span> Prerrequisitos</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Los comandos de <b>Oracle</b> necesitan conocer a qué instancia hacen referencia</li>
@@ -697,8 +697,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-orgb219ea1" class="outline-3">
-<h3 id="orgb219ea1"><span class="section-number-3">3.1</span> Autenticación de <b>SQLPlus</b></h3>
+<div id="outline-container-orgc3f9e0c" class="outline-3">
+<h3 id="orgc3f9e0c"><span class="section-number-3">3.1</span> Autenticación de <b>SQLPlus</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><b>SQLPlus</b> se autentica/autentifica de varias formas
@@ -726,8 +726,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-orgc8ba88d" class="outline-3">
-<h3 id="orgc8ba88d"><span class="section-number-3">3.2</span> Conexiones de <b>SQLPlus</b></h3>
+<div id="outline-container-org9c799e9" class="outline-3">
+<h3 id="org9c799e9"><span class="section-number-3">3.2</span> Conexiones de <b>SQLPlus</b></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Hasta ahora
@@ -748,8 +748,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-org5e2e535" class="outline-3">
-<h3 id="org5e2e535"><span class="section-number-3">3.3</span> <code>tnsnames.ora</code></h3>
+<div id="outline-container-org7924595" class="outline-3">
+<h3 id="org7924595"><span class="section-number-3">3.3</span> <code>tnsnames.ora</code></h3>
 <div class="outline-text-3" id="text-3-3">
 <div class="org-src-container">
 <pre class="src src-lisp">MYSID=
@@ -777,8 +777,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-orgb47c9f2" class="outline-3">
-<h3 id="orgb47c9f2"><span class="section-number-3">3.4</span> Conexiones sin <code>tnsnames.ora</code></h3>
+<div id="outline-container-org8f2e03b" class="outline-3">
+<h3 id="org8f2e03b"><span class="section-number-3">3.4</span> Conexiones sin <code>tnsnames.ora</code></h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>No es necesario cambiar el fichero <code>tnsnames.ora</code> para conectarse a un servidor remoto</li>
@@ -795,8 +795,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-org426784b" class="outline-2">
-<h2 id="org426784b"><span class="section-number-2">4</span> Ejecución de <b>SQL</b> desde la <i>shell</i></h2>
+<div id="outline-container-org0f51e20" class="outline-2">
+<h2 id="org0f51e20"><span class="section-number-2">4</span> Ejecución de <b>SQL</b> desde la <i>shell</i></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>El comando <code>sqlplus</code>  puede ejecutarse desde la shell</li>
@@ -808,8 +808,8 @@ DESCRIPTION
 </ul>
 </div>
 
-<div id="outline-container-orgd4f937b" class="outline-3">
-<h3 id="orgd4f937b"><span class="section-number-3">4.1</span> Ejemplo <i>heredoc</i></h3>
+<div id="outline-container-org547601d" class="outline-3">
+<h3 id="org547601d"><span class="section-number-3">4.1</span> Ejemplo <i>heredoc</i></h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-sh">sqlplus -S alumno/alumno &lt;&lt;HEREDOC
@@ -825,8 +825,8 @@ DESCRIPTION
 </div>
 </div>
 
-<div id="outline-container-orgfeaee71" class="outline-3">
-<h3 id="orgfeaee71"><span class="section-number-3">4.2</span> Consultas a fichero</h3>
+<div id="outline-container-orge535959" class="outline-3">
+<h3 id="orge535959"><span class="section-number-3">4.2</span> Consultas a fichero</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Puede enviarse la salida a un fichero</li>
@@ -849,8 +849,8 @@ less prueba.txt
 </div>
 </div>
 
-<div id="outline-container-org18420c4" class="outline-3">
-<h3 id="org18420c4"><span class="section-number-3">4.3</span> Formateo básico de la salida</h3>
+<div id="outline-container-orgdbab52b" class="outline-3">
+<h3 id="orgdbab52b"><span class="section-number-3">4.3</span> Formateo básico de la salida</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros <b>CSV</b>)</li>
@@ -878,8 +878,8 @@ less prueba.txt
 </div>
 </div>
 
-<div id="outline-container-org8f78304" class="outline-3">
-<h3 id="org8f78304"><span class="section-number-3">4.4</span> <i>Scripts</i> <b>SQL</b> para <code>sqlplus</code></h3>
+<div id="outline-container-org623e65d" class="outline-3">
+<h3 id="org623e65d"><span class="section-number-3">4.4</span> <i>Scripts</i> <b>SQL</b> para <code>sqlplus</code></h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li><code>sqlplus</code> también puede leer scripts de <code>SQL</code> con <b><code>@</code></b></li>
@@ -898,12 +898,12 @@ sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
 </div>
 
 
-<div id="outline-container-orgc6d3647" class="outline-2">
-<h2 id="orgc6d3647"><span class="section-number-2">5</span> Arranque y parada</h2>
+<div id="outline-container-org8e69c9d" class="outline-2">
+<h2 id="org8e69c9d"><span class="section-number-2">5</span> Arranque y parada</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-org8e3c5c4" class="outline-3">
-<h3 id="org8e3c5c4"><span class="section-number-3">5.1</span> <code>dbstart</code> y <code>/etc/oratab</code></h3>
+<div id="outline-container-org301d066" class="outline-3">
+<h3 id="org301d066"><span class="section-number-3">5.1</span> <code>dbstart</code> y <code>/etc/oratab</code></h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li><b>Oracle</b> proporciona el <i>script</i> <code>dbstart</code> para arrancar instancias de base de datos</li>
@@ -943,8 +943,8 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 
 
 
-<div id="outline-container-org0a660f5" class="outline-3">
-<h3 id="org0a660f5"><span class="section-number-3">5.2</span> Ejecutar <b>Oracle</b> al iniciar el sistema</h3>
+<div id="outline-container-org7ecc914" class="outline-3">
+<h3 id="org7ecc914"><span class="section-number-3">5.2</span> Ejecutar <b>Oracle</b> al iniciar el sistema</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Cada sitema operativo tiene sus formas de arrancar servicios/demonios al inicio
@@ -960,8 +960,8 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 </div>
 </div>
 
-<div id="outline-container-orgcdb5ce9" class="outline-3">
-<h3 id="orgcdb5ce9"><span class="section-number-3">5.3</span> <b>systemd</b></h3>
+<div id="outline-container-orgeb935d3" class="outline-3">
+<h3 id="orgeb935d3"><span class="section-number-3">5.3</span> <b>systemd</b></h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Los servicios se crean con ficheros en <code>/etc/systemd/system</code> (entre otros)
@@ -992,7 +992,11 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 <p>
 Más información con <code>man systemd.service</code> y <code>man systemd.unit</code>
 </p>
+</div>
 
+<div id="outline-container-orgee5ab41" class="outline-4">
+<h4 id="orgee5ab41"><span class="section-number-4">5.3.1</span> Controlar el arranque de servicios</h4>
+<div class="outline-text-4" id="text-5-3-1">
 <ul class="org-ul">
 <li>Habilitar/Deshabilitar un servicio al inicio del sistema</li>
 </ul>
@@ -1011,10 +1015,41 @@ systemctl stop SERVICIO
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orgee75dab" class="outline-4">
-<h4 id="orgee75dab"><span class="section-number-4">5.3.1</span> <i>Runlevels</i> y <i>targets</i></h4>
-<div class="outline-text-4" id="text-5-3-1">
+
+<div id="outline-container-org26da2dd" class="outline-4">
+<h4 id="org26da2dd"><span class="section-number-4">5.3.2</span> Recargar ficheros</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li>Si se crean nuevas unidades, no se tienen en cuenta automáticamente</li>
+<li>Se necesita <code>systemctl daemon-reload</code></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org11ac73a" class="outline-4">
+<h4 id="org11ac73a"><span class="section-number-4">5.3.3</span> Servicios de usuario</h4>
+<div class="outline-text-4" id="text-5-3-3">
+<ul class="org-ul">
+<li>El comando <code>systemctl</code> se ejecuta con el parámetro <code>--system</code> por defecto
+<ul class="org-ul">
+<li>Servicios de sistema</li>
+</ul></li>
+<li>Si se ejecuta con <code>--user</code> se utilizan los servicios del usuario llamante
+<ul class="org-ul">
+<li>Sus unidades están en <code>$HOME/.config/systemd/user/</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-org029686d" class="outline-4">
+<h4 id="org029686d"><span class="section-number-4">5.3.4</span> <i>Runlevels</i> y <i>targets</i></h4>
+<div class="outline-text-4" id="text-5-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1035,65 +1070,74 @@ systemctl stop SERVICIO
 <tbody>
 <tr>
 <td class="org-right">0</td>
-<td class="org-left">poweroff.target</td>
-<td class="org-left">runlevel0.target</td>
+<td class="org-left"><code>poweroff.target</code></td>
+<td class="org-left"><code>runlevel0.target</code></td>
 </tr>
 
 <tr>
 <td class="org-right">1</td>
-<td class="org-left">rescue.target</td>
-<td class="org-left">runlevel1.target</td>
+<td class="org-left"><code>rescue.target</code></td>
+<td class="org-left"><code>runlevel1.target</code></td>
 </tr>
 
 <tr>
 <td class="org-right">3</td>
-<td class="org-left">multi-user.target</td>
-<td class="org-left">runlevel3.target</td>
+<td class="org-left"><code>multi-user.target</code></td>
+<td class="org-left"><code>runlevel3.target</code></td>
 </tr>
 
 <tr>
 <td class="org-right">5</td>
-<td class="org-left">graphical.target</td>
-<td class="org-left">runlevel5.target</td>
+<td class="org-left"><code>graphical.target</code></td>
+<td class="org-left"><code>runlevel5.target</code></td>
 </tr>
 
 <tr>
 <td class="org-right">6</td>
-<td class="org-left">reboot.target</td>
-<td class="org-left">runlevel6.target</td>
+<td class="org-left"><code>reboot.target</code></td>
+<td class="org-left"><code>runlevel6.target</code></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 
-<div id="outline-container-org62171f0" class="outline-4">
-<h4 id="org62171f0"><span class="section-number-4">5.3.2</span> Utilidades <b>systemd</b></h4>
-<div class="outline-text-4" id="text-5-3-2">
+<div id="outline-container-org00efbe2" class="outline-4">
+<h4 id="org00efbe2"><span class="section-number-4">5.3.5</span> Utilidades <b>systemd</b></h4>
+<div class="outline-text-4" id="text-5-3-5">
 <ul class="org-ul">
 <li><code>systemd-analyze plot</code>: Tiempo de carga de cada servicio</li>
 <li><code>systemctl list-dependencies</code>: Servicios necesarios para cargar un servicio</li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org873c979" class="outline-4">
+<h4 id="org873c979"><span class="section-number-4">5.3.6</span> Systemd de usuario&#xa0;&#xa0;&#xa0;<span class="tag"><span class="noexport">noexport</span></span></h4>
+<div class="outline-text-4" id="text-5-3-6">
+<p>
+loginctl enable-linger $USUARIO
+</p>
+</div>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-orgaf36e70" class="outline-2">
-<h2 id="orgaf36e70"><span class="section-number-2">6</span> Operaciones periódicas</h2>
+<div id="outline-container-org1172af1" class="outline-2">
+<h2 id="org1172af1"><span class="section-number-2">6</span> Operaciones periódicas</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Los sistemas operativos aportan formas para ejecutar tareas periódicamente
 <ul class="org-ul">
 <li><b>Windows</b> tiene las <b>tareas programadas</b></li>
-<li><b>Linux</b> tiene el sistema <code>cron</code></li>
+<li><b>Linux</b> tiene el sistema <code>cron</code> y <code>systemd</code></li>
 </ul></li>
 </ul>
 </div>
 
-<div id="outline-container-org26612ef" class="outline-3">
-<h3 id="org26612ef"><span class="section-number-3">6.1</span> <code>cron</code></h3>
+<div id="outline-container-orga951195" class="outline-3">
+<h3 id="orga951195"><span class="section-number-3">6.1</span> <code>cron</code></h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Es un servicio que 
@@ -1111,9 +1155,12 @@ systemctl stop SERVICIO
 </div>
 </div>
 
-<div id="outline-container-org41072a1" class="outline-3">
-<h3 id="org41072a1"><span class="section-number-3">6.2</span> <code>systemd</code></h3>
+<div id="outline-container-orgff9e326" class="outline-3">
+<h3 id="orgff9e326"><span class="section-number-3">6.2</span> <code>systemd</code></h3>
 <div class="outline-text-3" id="text-6-2">
+<p>
+Más información en <code>man systemd.timer</code>
+</p>
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listado de programa 1 </span>/etc/systemd/system/date.service</label><pre class="src src-sh">[Unit]
 <span style="color: #e7c547;">Description</span>=Prints date into /tmp/date file
@@ -1125,7 +1172,7 @@ systemctl stop SERVICIO
 </div>
 
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listado de programa 2 </span>etc/systemd/system/date.timer:</label><pre class="src src-sh">[Unit]
+<label class="org-src-name"><span class="listing-number">Listado de programa 2 </span>etc/systemd/system/date.timer</label><pre class="src src-sh">[Unit]
 <span style="color: #e7c547;">Description</span>=Run date.service every 10 minutes
 
 [Timer]
@@ -1136,9 +1183,8 @@ systemctl stop SERVICIO
 </div>
 
 
-
-<div id="outline-container-orged5e38a" class="outline-3">
-<h3 id="orged5e38a"><span class="section-number-3">6.3</span> Operaciones periódicas manuales</h3>
+<div id="outline-container-orgd7f5461" class="outline-3">
+<h3 id="orgd7f5461"><span class="section-number-3">6.3</span> Operaciones periódicas manuales</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Se puede crear un bucle infinito con <code>sleep</code></li>
@@ -1176,8 +1222,8 @@ sleep $<span style="color: #e7c547;">SEGUNDOS</span>
 
 
 
-<div id="outline-container-org2568a6e" class="outline-2">
-<h2 id="org2568a6e"><span class="section-number-2">7</span> Referencias</h2>
+<div id="outline-container-org298d361" class="outline-2">
+<h2 id="org298d361"><span class="section-number-2">7</span> Referencias</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
@@ -1197,7 +1243,7 @@ sleep $<span style="color: #e7c547;">SEGUNDOS</span>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-01-06 dom 19:39</p>
+<p class="date">Created: 2019-01-11 vie 10:22</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
