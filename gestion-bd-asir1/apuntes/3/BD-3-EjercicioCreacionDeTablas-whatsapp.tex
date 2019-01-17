@@ -135,7 +135,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
     \hline
     Cosas de Asir & Pepe & Hoy el profesor no viene & Recibido por todos & Leído por todos \\
     Cosas de Asir & María & Pues ya estoy en el insti :( & Recibido por todos & Nadie lo ha leído \\
-    Viaje a la nieve & Pepe & El sábado no puedo & Recibido solo por Pepe & Leido solo por Pepe \\
+    Viaje a la nieve & Juan & El sábado no puedo & Recibido solo por Pepe & Leido solo por Pepe \\
     \hline
   \end{tabular}
   
@@ -151,6 +151,21 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
   \item \texttt{V\_MENSAJESPORGRUPO(nombrechat,nombreemisor,textomensaje,cuantosrecibido,cuantosleido)}: Mensajes enviados a un grupo de \textit{chat}
     
   \item \texttt{V\_GRUPOSDECHAT(nombrechat,integrantes)}: Número de integrantes de un chat, incluido el creador
+
+  \begin{listadosql}{Vistas a crear}{lst:vistas}
+  create view V_CONTACTOS(nombreusuario, nombrecontacto) as
+  select ...
+  
+  create view V_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,entregado,leido) as
+  select ...
+  
+  create view V_MENSAJESPORGRUPO(nombrechat,nombreemisor,textomensaje,cuantosrecibido,cuantosleido) as
+  select ...
+    
+  create view V_GRUPOSDECHAT(nombrechat,integrantes) as
+  select ...
+\end{listadosql}
+    
 \end{itemize}
 
 \end{homeworkProblem}
