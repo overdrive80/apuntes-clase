@@ -1,4 +1,6 @@
 #+include: "../../../common/header.org"
+#+OPTIONS:   toc:2
+
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** ¿Cuáles son las descripciones de los cursos que son requisito para otro curso?
@@ -568,6 +570,7 @@ where
 ** Nombre y apellidos del alumno con la nota media más alta.
 
 ** Listado de nombre y apellido de profesores junto con los nombres de los cursos que imparten
+
 #+BEGIN_SRC sql
 select distinct
   first_name, last_name, description
