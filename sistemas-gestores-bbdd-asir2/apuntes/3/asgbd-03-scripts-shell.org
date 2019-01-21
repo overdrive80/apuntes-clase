@@ -541,6 +541,26 @@ WantedBy=multi-user.target
 
 Más información con =man systemd.service= y =man systemd.unit=
 
+
+*** Dependencias de la sección =Unit=
+
+#+ATTR_LATEX: :align |l|p{3cm}|p{3cm}|p{3cm}|p{3cm}|
+| Si el servicio ~A~ ... | ~A~ arranca ~S~ | Si se apaga ~S~, ~A~ también | ~A~ arranca si ~S~ está apagado | Si no arranca ~S~, no arranca ~A~ |
+|------------------------+-----------------+------------------------------+---------------------------------+-----------------------------------|
+| ~BindsTo=S~            | Sí              | Sí                           |                                 | si                                |
+| ~Requires=S~           | Si              | No                           |                                 | si                                |
+| ~Requisite=S~          | No              | No                           | No                              | no                                |
+| ~Wants=S~              | Si              | No                           |                                 | no                                |
+
+Fuente: [[https://www.freedesktop.org/software/systemd/man/systemd.unit.html][freedesktop]]
+
+
+*** Dependencias de la sección =Install=
+| Si el servicio ~A~ |                                            |
+|--------------------+--------------------------------------------|
+| ~WantedBy=S~       | Equivalente a que ~S~ indique ~Wants=A~    |
+| ~RequiredBy=S~     | Equivalente a que ~S~ indique ~Required=A~ |
+
 *** Controlar el arranque de servicios
 
 - Habilitar/Deshabilitar un servicio al inicio del sistema

@@ -615,8 +615,8 @@ El sitio web https://valide.redsara.es/valide/ permite validar firmas en documen
 
 
 * Referencias
-[[file:SI-T-05-confidencialidad-criptografia.pdf][Versión en PDF]]
-
+- Adaptado de [[https://www.linkedin.com/in/victorjfernandez/][Víctor J. Fernández]]
+- [[file:SI-T-05-confidencialidad-criptografia.pdf][Versión en PDF]]
 
 
 
