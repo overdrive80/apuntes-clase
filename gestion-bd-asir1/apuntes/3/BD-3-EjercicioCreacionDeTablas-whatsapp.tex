@@ -106,7 +106,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
     \hline
     \multicolumn{5}{|c|}{Mensajes} \\
     \hline
-    Remitente & Destinatario & Entregado & Leído & Mensaje \\
+    Remitente & Destinatario & Recibido & Leído & Mensaje \\
     \hline
     Pepe & María & Sí & Sí & Vamos a hacer un grupo de ASIR \\
     María & Pepe & Sí & Sí & Vale \\
@@ -139,7 +139,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
     \hline
   \end{tabular}
   
-
+  Es importante que los datos coincidan con los especificados. Los valores \textit{cierto} y \textit{falso} se pondrán como una cadena con \texttt{si} y \texttt{no}.
   
 
   Para comprobar los nuevos datos introducidos, se consultarán las siguientes vistas:
@@ -147,7 +147,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
   \begin{itemize}
   \item \texttt{V\_CONTACTOS(nombreusuario, nombrecontacto)}
   
-  \item \texttt{V\_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,entregado,leido)}: Todos los mensajes recibidos por un destinatario, sean directos o dentro de un grupo de \texttt{chat}
+  \item \texttt{V\_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,recibido,leido)}: Todos los mensajes recibidos por un destinatario, sean directos o dentro de un grupo de \texttt{chat}
   \item \texttt{V\_MENSAJESPORGRUPO(nombrechat,nombreemisor,textomensaje,cuantosrecibido,cuantosleido)}: Mensajes enviados a un grupo de \textit{chat}
     
   \item \texttt{V\_GRUPOSDECHAT(nombrechat,integrantes)}: Número de integrantes de un chat, incluido el creador
@@ -156,7 +156,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
   create view V_CONTACTOS(nombreusuario, nombrecontacto) as
   select ...
   
-  create view V_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,entregado,leido) as
+  create view V_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,recibido,leido) as
   select ...
   
   create view V_MENSAJESPORGRUPO(nombrechat,nombreemisor,textomensaje,cuantosrecibido,cuantosleido) as
@@ -184,6 +184,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
   \item El script de creación de vistas: \texttt{\textbf{4.vistas.sql}}
   \end{itemize}
 \item Los nombres de los ficheros incluyen un número (para que estén ordenados). No incluyas mayúsculas. No incluyas acentos. No pongas espacios. No añadas palabras, letras ni números a los nombres.
+  \item La corrección se realizará de forma semiautomática. Es \textbf{importante} que los nombres de ficheros, vistas y atributos de vistas sean los especificados.
 \item Sube el documento a \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/mod/assign/view.php?id=12774}{la tarea correspondiente en el aula virtual}
 \item Presta atención al plazo de entrega (con fecha y hora).
   
