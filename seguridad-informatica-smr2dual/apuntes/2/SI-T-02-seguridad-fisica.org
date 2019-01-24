@@ -755,6 +755,7 @@ Requieren mucho mantenimiento.
 
 
 * Referencias
-[[file:SI-T-02-seguridad-fisica.pdf][Versión en PDF]]
+- Adaptado de [[https://www.linkedin.com/in/victorjfernandez/][Víctor J. Fernández]]
+- [[file:SI-T-02-seguridad-fisica.pdf][Versión en PDF]]
 
 

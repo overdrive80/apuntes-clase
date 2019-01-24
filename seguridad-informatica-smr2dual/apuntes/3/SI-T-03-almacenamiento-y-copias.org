@@ -537,8 +537,8 @@ Es importante plasmar por escrito las políticas de respaldo, junto con otras po
 
 Muchos de los incidentes de seguridad relacionados con pérdidas de datos por problemas en las copias de seguridad han sido consecuencia directa o indirecta de no tener políticas de respaldo o de no ceñirse a ellas, mucho más que de un diseño pobre de las políticas de respaldo.
 
-
 * Referencias
-[[file:SI-T-03-almacenamiento-y-copias.pdf][Versión en PDF]]
+- Adaptado de [[https://www.linkedin.com/in/victorjfernandez/][Víctor J. Fernández]]
+- [[file:SI-T-03-almacenamiento-y-copias.pdf][Versión en PDF]]
 
 

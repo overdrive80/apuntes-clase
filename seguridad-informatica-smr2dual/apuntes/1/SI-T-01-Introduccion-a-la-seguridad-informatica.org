@@ -136,3 +136,7 @@ Quizá estés pensando en el hecho de que el hardware, a veces es soporte del so
 En general, el hardware en sí no es un recurso demasiado valioso. Hay medidas de seguridad física dirigidas a él porque prácticamente siempre es el soporte de los datos.
 
 
+
+* Referencias
+- Adaptado de [[https://www.linkedin.com/in/victorjfernandez/][Víctor J. Fernández]]
+- [[file:SI-T-01-Introduccion-a-la-seguridad-informatica.pdf][Versión en PDF]]
