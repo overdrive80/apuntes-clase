@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="65734620-683C-93C0-A860-05631DC1D73B">
-<createdBy>alvaro</createdBy>
-<createdTime>2019-01-24 10:39:52 UTC</createdTime>
-<ownerDesignName>practica-whatsapp</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</BusinessInfoDesign>

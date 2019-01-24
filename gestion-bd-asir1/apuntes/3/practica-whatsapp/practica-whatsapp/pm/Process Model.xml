@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="A71994D0-E102-9AFA-5453-18CCBC3CEAE8">
-<createdBy>alvaro</createdBy>
-<createdTime>2019-01-24 10:39:52 UTC</createdTime>
-<ownerDesignName>practica-whatsapp</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>
