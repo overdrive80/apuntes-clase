@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_8" directorySegmentName="seg_0" id="679F604B-2166-5DBC-2452-8BE1C0AEE23D">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:58:31 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<targetPk>212A24FB-8A2E-F136-8A70-F3B5CB53D5D7</targetPk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>60BFE88D-7E6D-44B4-79BB-64F8C7ADC1FE</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>DB30B38D-D527-BF02-8C13-675B7E35AC0F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

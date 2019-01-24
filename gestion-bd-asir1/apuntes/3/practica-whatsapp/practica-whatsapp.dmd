@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="practica-whatsapp" id="2C3F5D1C-3297-3284-EA5D-36FAD7A807D1" version="3.5">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:39:51 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>2C3F5D1C-3297-3284-EA5D-36FAD7A807D1</designId>
+</OSDM_Design>

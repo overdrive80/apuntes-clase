@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="1EF94890-1426-EE41-1A47-B36B6C39D875" mainViewID="540DC59A-2D94-D7F9-77BA-D660FAF49E36">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:39:51 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

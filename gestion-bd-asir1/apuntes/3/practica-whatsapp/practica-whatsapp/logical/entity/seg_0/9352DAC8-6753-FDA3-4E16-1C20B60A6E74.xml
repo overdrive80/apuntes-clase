@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9352DAC8-6753-FDA3-4E16-1C20B60A6E74" name="MensajeGrupo">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:45:36 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="idmensajegrupo" id="9F243435-27FB-899E-614A-414CE65630AA">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:45:55 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="texto" id="1E4CECD2-4BC3-E887-08B0-068D965DDEEE">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:46:18 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1024</dataTypeSize>
+<ownDataTypeParameters>1024,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="idgrupo" id="81544F99-C29F-7432-97AE-5134BCFD9718">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:49:47 UTC</createdTime>
+<generatorID>C10A5DA8-0106-DFD9-3BDC-7EAFA326E3CB</generatorID>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>1AC12A68-C890-94B6-7D4D-D7456E86CD93</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefono" id="5E839DE1-BB3A-0112-F433-D2445D76CD0C">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:53:03 UTC</createdTime>
+<generatorID>C9C4737C-0856-D688-D384-0108EC99A608</generatorID>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<referedAttribute>80C30A8F-877C-233B-E097-89F6DE28BDE5</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F3401E29-8077-1A5F-AEC9-2AE7E538AA82" name="MensajeGrupo PK">
+<createdBy>alvaro</createdBy>
+<createdTime>2019-01-24 10:45:59 UTC</createdTime>
+<ownerDesignName>practica-whatsapp</ownerDesignName>
+<engineerTo>
+<item key="393ECC27-AE95-B5FE-5E27-27DF00ACCC72" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9F243435-27FB-899E-614A-414CE65630AA</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
