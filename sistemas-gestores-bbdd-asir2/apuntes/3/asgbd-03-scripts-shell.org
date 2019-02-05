@@ -548,9 +548,9 @@ Más información con =man systemd.service= y =man systemd.unit=
 | Si el servicio ~A~ ... | ~A~ arranca ~S~ | Si se apaga ~S~, ~A~ también | ~A~ arranca si ~S~ está apagado | Si no arranca ~S~, no arranca ~A~ |
 |------------------------+-----------------+------------------------------+---------------------------------+-----------------------------------|
 | ~BindsTo=S~            | Sí              | Sí                           |                                 | si                                |
-| ~Requires=S~           | Si              | No                           |                                 | si                                |
+| ~Requires=S~           | Si              | No                           |                                 | no                                |
 | ~Requisite=S~          | No              | No                           | No                              | no                                |
-| ~Wants=S~              | Si              | No                           |                                 | no                                |
+| ~Wants=S~              | Si              | No                           |                                 | si                                |
 
 Fuente: [[https://www.freedesktop.org/software/systemd/man/systemd.unit.html][freedesktop]]
 
