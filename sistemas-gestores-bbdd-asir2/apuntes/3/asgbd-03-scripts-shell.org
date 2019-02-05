@@ -545,14 +545,16 @@ Más información con =man systemd.service= y =man systemd.unit=
 *** Dependencias de la sección =Unit=
 
 #+ATTR_LATEX: :align |l|p{3cm}|p{3cm}|p{3cm}|p{3cm}|
-| Si el servicio ~A~ ... | ~A~ arranca ~S~ | Si se apaga ~S~, ~A~ también | ~A~ arranca si ~S~ está apagado | Si no arranca ~S~, no arranca ~A~ |
-|------------------------+-----------------+------------------------------+---------------------------------+-----------------------------------|
-| ~BindsTo=S~            | Sí              | Sí                           |                                 | si                                |
-| ~Requires=S~           | Si              | No                           |                                 | no                                |
-| ~Requisite=S~          | No              | No                           | No                              | no                                |
-| ~Wants=S~              | Si              | No                           |                                 | si                                |
+| Si el servicio ~A~ ... | ~A~ intenta arrancar ~B~ | Si se apaga ~B~, ~A~ también | ~A~ arranca si ~B~ está inicialmente apagado | Si falla arranque de ~S~, arranca ~A~ |
+|------------------------+--------------------------+------------------------------+----------------------------------------------+---------------------------------------|
+| ~BindsTo=B~            | Sí                       | Sí                           | Sí                                           | No                                    |
+| ~Requires=B~           | Sí                       | No*                          | Sí                                           | No                                    |
+| ~Requisite=B~          | No                       | No                           | No                                           | No                                    |
+| ~Wants=B~              | Sí                       | No                           | Sí                                           | Sí                                    |
 
 Fuente: [[https://www.freedesktop.org/software/systemd/man/systemd.unit.html][freedesktop]]
+
+[*] Si ~B~ se apaga explícitamente, se apaga ~A~. Si el servicio ~B~ termina sin error, no se apaga ~A~
 
 
 *** Dependencias de la sección =Install=
