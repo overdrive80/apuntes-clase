@@ -1,6 +1,14 @@
 * Student
 - "Fred Crocitto" vive en "New Milford" 
 
+#+begin_src sql
+update
+  student
+set
+  zip=(select zip from zipcode where city='New Milford')
+where
+  first_name like '%Fred%' and last_name like '%Crocitto%';
+#+end_src
 - Pasa =grade_type= a español
 
 - Todos los cursos de Java empiezan el 3 de septiembre del 2007.
