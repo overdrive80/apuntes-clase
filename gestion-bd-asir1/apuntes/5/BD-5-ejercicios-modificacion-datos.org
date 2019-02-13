@@ -10,8 +10,35 @@ where
   first_name like '%Fred%' and last_name like '%Crocitto%';
 #+end_src
 - Pasa =grade_type= a español
+#+begin_src sql
+update grade_type 
+set description='Proyecto'
+where grade_type_code='PJ';
 
-- Todos los cursos de Java empiezan el 3 de septiembre del 2007.
+update grade_type 
+set description='Deberes'
+where grade_type_code='HM';
+
+update grade_type 
+set description='Parcial'
+where grade_type_code='MT';
+#+end_src
+
+
+- Todos las secciones de  cursos de Java empiezan el 3 de septiembre del 2007.
+#+begin_src sql
+update section
+set start_date_time=to_date('03-09-2007','DD/MM/YYYY')
+where
+  section_id = any(
+    select s.section_id
+    from 
+      course c, section s
+    where
+     lower(c.description) like '%java%' and
+     s.course_no = c.course_no);
+#+end_src
+
 
 - Los teléfonos de estudiantes y profesores se amplían para incluir el prefijo internacional, de 15 a 20 caracteres. El prefijo de todos los teléfonos *conocidos* es '+1' (Estados Unidos).
 
