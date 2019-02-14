@@ -123,12 +123,11 @@ where
 
 - Asigna las notas a los alumnos de "Nina Schorin", teniendo en cuenta que es directamente la nota del examen final de sus secciones.
 #+begin_src sql
-create or replace view secciones_de_schori as
+create or replace view secciones_de_schorin as
     select section_id
     from 
       section s 
       join instructor i on s.instructor_id=i.instructor_id
-      join course c on s.course_no=c.course_no
     where
       lower(i.first_name) like '%nina%' and 
       lower(i.last_name) like '%schorin%';
@@ -139,7 +138,7 @@ select *
 from grade
 where grade_type_code='FI';
       
-select * from nota_de_examen_final where section_id in (select section_id from secciones_de_schori);      
+select * from nota_de_examen_final where section_id in (select section_id from secciones_de_schorin);      
       
 update enrollment
 set final_grade=(

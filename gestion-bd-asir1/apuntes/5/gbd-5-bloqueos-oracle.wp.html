@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-02-27 mar 08:55 -->
+<!-- 2019-02-14 jue 13:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Concurrencia y bloqueos en Oracle</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -189,7 +202,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -238,11 +251,11 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc06199a">1. Introducción</a></li>
-<li><a href="#orgab29c7a">2. Propiedades <b>ACID</b></a></li>
-<li><a href="#org80f4511">3. Problemas del uso concurrente</a></li>
-<li><a href="#org57a5d2d">4. Bloqueos</a></li>
-<li><a href="#org8c3713e">5. Referencias</a></li>
+<li><a href="#org4b30ad9">1. Introducción</a></li>
+<li><a href="#org6c231b0">2. Propiedades <b>ACID</b></a></li>
+<li><a href="#org5835b25">3. Problemas del uso concurrente</a></li>
+<li><a href="#orgca31503">4. Bloqueos</a></li>
+<li><a href="#org9d9740b">5. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -250,8 +263,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgc06199a" class="outline-2">
-<h2 id="orgc06199a"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org4b30ad9" class="outline-2">
+<h2 id="org4b30ad9"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><b>Oracle</b> es un servidor de base de datos</li>
@@ -262,8 +275,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgab29c7a" class="outline-2">
-<h2 id="orgab29c7a"><span class="section-number-2">2</span> Propiedades <b>ACID</b></h2>
+<div id="outline-container-org6c231b0" class="outline-2">
+<h2 id="org6c231b0"><span class="section-number-2">2</span> Propiedades <b>ACID</b></h2>
 <div class="outline-text-2" id="text-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -297,8 +310,8 @@ for the JavaScript code in this tag.
 </table>
 </div>
 
-<div id="outline-container-org8a534ea" class="outline-3">
-<h3 id="org8a534ea"><span class="section-number-3">2.1</span> Atomicidad</h3>
+<div id="outline-container-orgd9a0558" class="outline-3">
+<h3 id="orgd9a0558"><span class="section-number-3">2.1</span> Atomicidad</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Algunos cambios deben producirse juntos:
@@ -319,8 +332,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org14d7e5c" class="outline-3">
-<h3 id="org14d7e5c"><span class="section-number-3">2.2</span> Consistencia</h3>
+<div id="outline-container-org264fbef" class="outline-3">
+<h3 id="org264fbef"><span class="section-number-3">2.2</span> Consistencia</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Los datos deben ser coherentes con el modelo de datos</li>
@@ -328,8 +341,9 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li><code>primary key</code></li>
 <li><code>unique</code></li>
+<li><code>not null</code></li>
 <li><code>foreign key</code></li>
-<li><code>ckeck</code></li>
+<li><code>check</code></li>
 <li>Incluso <code>triggers</code> (scripts del gestor de base de datos)</li>
 </ul></li>
 <li>No hay forma de <b><i>saltarse</i></b> una <i>constraint</i>
@@ -341,8 +355,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org3283759" class="outline-3">
-<h3 id="org3283759"><span class="section-number-3">2.3</span> Aislamiento (<i>isolation</i>)</h3>
+<div id="outline-container-org639187e" class="outline-3">
+<h3 id="org639187e"><span class="section-number-3">2.3</span> Aislamiento (<i>isolation</i>)</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Objetivos:
@@ -361,8 +375,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org53bfd72" class="outline-3">
-<h3 id="org53bfd72"><span class="section-number-3">2.4</span> Durabilidad</h3>
+<div id="outline-container-org980a1c2" class="outline-3">
+<h3 id="org980a1c2"><span class="section-number-3">2.4</span> Durabilidad</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Las bases de datos garantizan tras la vuelta de <code>commit</code> que
@@ -375,8 +389,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org80f4511" class="outline-2">
-<h2 id="org80f4511"><span class="section-number-2">3</span> Problemas del uso concurrente</h2>
+<div id="outline-container-org5835b25" class="outline-2">
+<h2 id="org5835b25"><span class="section-number-2">3</span> Problemas del uso concurrente</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Idealmente, cada usuario debería poder trabajar sin notar que otros usuarios usan a la vez la base de datos</li>
@@ -415,8 +429,8 @@ for the JavaScript code in this tag.
 </table>
 </div>
 
-<div id="outline-container-orgc1f971b" class="outline-3">
-<h3 id="orgc1f971b"><span class="section-number-3">3.1</span> Nivel de aislamiento/concurrencia</h3>
+<div id="outline-container-org6a6c3a4" class="outline-3">
+<h3 id="org6a6c3a4"><span class="section-number-3">3.1</span> Nivel de aislamiento/concurrencia</h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -476,8 +490,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 </div>
 
-<div id="outline-container-org0e010e5" class="outline-3">
-<h3 id="org0e010e5"><span class="section-number-3">3.2</span> Datos para pruebas de bloqueos</h3>
+<div id="outline-container-org096791c" class="outline-3">
+<h3 id="org096791c"><span class="section-number-3">3.2</span> Datos para pruebas de bloqueos</h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">ALUMNOS</span>( DNI <span style="color: #7aa6da;">varchar</span>(10), NOMBRE <span style="color: #7aa6da;">varchar</span>(10));
@@ -491,8 +505,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 
 
 
-<div id="outline-container-org7973094" class="outline-3">
-<h3 id="org7973094"><span class="section-number-3">3.3</span> Lectura no repetible</h3>
+<div id="outline-container-org0c55474" class="outline-3">
+<h3 id="org0c55474"><span class="section-number-3">3.3</span> Lectura no repetible</h3>
 <div class="outline-text-3" id="text-3-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -560,8 +574,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 
 
 
-<div id="outline-container-org7630b61" class="outline-3">
-<h3 id="org7630b61"><span class="section-number-3">3.4</span> Fila fantasma</h3>
+<div id="outline-container-org7f876c0" class="outline-3">
+<h3 id="org7f876c0"><span class="section-number-3">3.4</span> Fila fantasma</h3>
 <div class="outline-text-3" id="text-3-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -619,8 +633,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 
 
-<div id="outline-container-org57a5d2d" class="outline-2">
-<h2 id="org57a5d2d"><span class="section-number-2">4</span> Bloqueos</h2>
+<div id="outline-container-orgca31503" class="outline-2">
+<h2 id="orgca31503"><span class="section-number-2">4</span> Bloqueos</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>La orden <code>set isolation level</code> indica a la base de datos que <b>bloquee</b> filas, campos o tablas</li>
@@ -638,8 +652,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 
 
-<div id="outline-container-org9abc7a8" class="outline-3">
-<h3 id="org9abc7a8"><span class="section-number-3">4.1</span> Lectura no repetible bloqueada</h3>
+<div id="outline-container-org090be9b" class="outline-3">
+<h3 id="org090be9b"><span class="section-number-3">4.1</span> Lectura no repetible bloqueada</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -711,8 +725,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 
 
-<div id="outline-container-orge31ac35" class="outline-3">
-<h3 id="orge31ac35"><span class="section-number-3">4.2</span> Fila fantasma bloqueada</h3>
+<div id="outline-container-orgc6c4bda" class="outline-3">
+<h3 id="orgc6c4bda"><span class="section-number-3">4.2</span> Fila fantasma bloqueada</h3>
 <div class="outline-text-3" id="text-4-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -774,8 +788,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 
 
-<div id="outline-container-org5798ab8" class="outline-3">
-<h3 id="org5798ab8"><span class="section-number-3">4.3</span> Bloqueos no automáticos</h3>
+<div id="outline-container-org142e471" class="outline-3">
+<h3 id="org142e471"><span class="section-number-3">4.3</span> Bloqueos no automáticos</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Los niveles de aislamiento bloquean automáticamente filas, campos o tablas</li>
@@ -796,8 +810,8 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 
 
-<div id="outline-container-org8c3713e" class="outline-2">
-<h2 id="org8c3713e"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org9d9740b" class="outline-2">
+<h2 id="org9d9740b"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -817,7 +831,7 @@ Nota: Un nivel de aislamiento soluciona todos los problemas que quedan por encim
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-02-27 mar 08:55</p>
+<p class="date">Created: 2019-02-14 jue 13:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

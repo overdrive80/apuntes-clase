@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-02-27 mar 08:40 -->
+<!-- 2019-02-14 jue 13:43 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Usuarios, privilegios y roles de <b>Oracle</b></title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -189,7 +202,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -238,18 +251,19 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org99f1140">1. Introducción</a></li>
-<li><a href="#orgf908cce">2. Usuarios</a></li>
-<li><a href="#org7c44d2b">3. Privilegios</a></li>
-<li><a href="#orgd550343">4. Roles</a></li>
-<li><a href="#org4044839">5. Referencias</a></li>
+<li><a href="#org0954f92">1. Introducción</a></li>
+<li><a href="#org42bb33a">2. Usuarios</a></li>
+<li><a href="#orgd12b7ee">3. Privilegios</a></li>
+<li><a href="#org54af8f4">4. Roles</a></li>
+<li><a href="#org64d47ec">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org99f1140" class="outline-2">
-<h2 id="org99f1140"><span class="section-number-2">1</span> Introducción</h2>
+
+<div id="outline-container-org0954f92" class="outline-2">
+<h2 id="org0954f92"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Oracle puede utilizarse simultáneamente por varios procesos y clientes
@@ -265,8 +279,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgf908cce" class="outline-2">
-<h2 id="orgf908cce"><span class="section-number-2">2</span> Usuarios</h2>
+<div id="outline-container-org42bb33a" class="outline-2">
+<h2 id="org42bb33a"><span class="section-number-2">2</span> Usuarios</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><p>
@@ -297,8 +311,8 @@ Borrado de usuario
 </div>
 </div>
 
-<div id="outline-container-org7c44d2b" class="outline-2">
-<h2 id="org7c44d2b"><span class="section-number-2">3</span> Privilegios</h2>
+<div id="outline-container-orgd12b7ee" class="outline-2">
+<h2 id="orgd12b7ee"><span class="section-number-2">3</span> Privilegios</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Cada usuario puede tener unos permisos distintos</li>
@@ -309,8 +323,8 @@ Borrado de usuario
 </ul>
 </div>
 
-<div id="outline-container-org3e9191d" class="outline-3">
-<h3 id="org3e9191d"><span class="section-number-3">3.1</span> Privilegios de <b>Oracle</b></h3>
+<div id="outline-container-org1a8850b" class="outline-3">
+<h3 id="org1a8850b"><span class="section-number-3">3.1</span> Privilegios de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -345,8 +359,8 @@ Borrado de usuario
 
 
 
-<div id="outline-container-org80323e7" class="outline-3">
-<h3 id="org80323e7"><span class="section-number-3">3.2</span> Sintaxis de <code>Grant</code></h3>
+<div id="outline-container-org4de168d" class="outline-3">
+<h3 id="org4de168d"><span class="section-number-3">3.2</span> Sintaxis de <code>Grant</code></h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
@@ -371,13 +385,13 @@ Borrado de usuario
 
 
 
-<div id="outline-container-orgcf3b93d" class="outline-3">
-<h3 id="orgcf3b93d"><span class="section-number-3">3.3</span> Ejercicio</h3>
+<div id="outline-container-org1e5dc71" class="outline-3">
+<h3 id="org1e5dc71"><span class="section-number-3">3.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Crea un usuario <code>LIMITADO</code>
 <ul class="org-ul">
-<li>Utilízalo para crear una tabla <code>DATOS(TEXTO varchar2(255)),numero integer)</code></li>
+<li>Utilízalo para crear una tabla <code>DATOS(TEXTO varchar2(255),numero integer)</code></li>
 </ul></li>
 <li>Crea un usuario <code>CONPERMISOS</code></li>
 <li>Haz que <code>LIMITADO</code> de privilegios a <code>CONPERMISOS</code> para que:
@@ -401,8 +415,8 @@ grant update(column-name) on table-name to user-name
 
 
 
-<div id="outline-container-org47c7295" class="outline-3">
-<h3 id="org47c7295"><span class="section-number-3">3.4</span> Quitar privilegios</h3>
+<div id="outline-container-orgcad010a" class="outline-3">
+<h3 id="orgcad010a"><span class="section-number-3">3.4</span> Quitar privilegios</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Los privilegios se quitan con <code>revoke</code></li>
@@ -413,16 +427,16 @@ grant update(column-name) on table-name to user-name
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">connect</span> sys<span style="color: #cd853f; font-style: italic;">/*******</span>
-<span style="color: #cd853f; font-style: italic;">grant select on unatabla to unusuario with grant option;</span>
+<pre class="src src-sql"><span style="color: #b9ca4a;">connect</span> sys<span style="color: #969896; font-style: italic;">/*******</span>
+<span style="color: #969896; font-style: italic;">grant select on unatabla to unusuario with grant option;</span>
 
-<span style="color: #cd853f; font-style: italic;">connect unusuario/*******</span>
-<span style="color: #cd853f; font-style: italic;">grant select on unatabla to otrousuario;</span>
+<span style="color: #969896; font-style: italic;">connect unusuario/*******</span>
+<span style="color: #969896; font-style: italic;">grant select on unatabla to otrousuario;</span>
 
-<span style="color: #cd853f; font-style: italic;">connect sys/*******</span>
-<span style="color: #cd853f; font-style: italic;">revoke select on unatabla from unusuario;</span>
+<span style="color: #969896; font-style: italic;">connect sys/*******</span>
+<span style="color: #969896; font-style: italic;">revoke select on unatabla from unusuario;</span>
 
-<span style="color: #cd853f; font-style: italic;">-- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla</span>
+<span style="color: #969896; font-style: italic;">-- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla</span>
 </pre>
 </div>
 </div>
@@ -430,8 +444,8 @@ grant update(column-name) on table-name to user-name
 </div>
 
 
-<div id="outline-container-orgd550343" class="outline-2">
-<h2 id="orgd550343"><span class="section-number-2">4</span> Roles</h2>
+<div id="outline-container-org54af8f4" class="outline-2">
+<h2 id="org54af8f4"><span class="section-number-2">4</span> Roles</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
@@ -444,8 +458,8 @@ grant update(column-name) on table-name to user-name
 </ul>
 </div>
 
-<div id="outline-container-org92521e3" class="outline-3">
-<h3 id="org92521e3"><span class="section-number-3">4.1</span> Sintaxis de roles</h3>
+<div id="outline-container-orgbed3731" class="outline-3">
+<h3 id="orgbed3731"><span class="section-number-3">4.1</span> Sintaxis de roles</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">role</span> NOMBREROL;
@@ -460,8 +474,8 @@ grant update(column-name) on table-name to user-name
 </div>
 </div>
 
-<div id="outline-container-org73fe740" class="outline-3">
-<h3 id="org73fe740"><span class="section-number-3">4.2</span> Ejercicio</h3>
+<div id="outline-container-org3b02f92" class="outline-3">
+<h3 id="org3b02f92"><span class="section-number-3">4.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Imagina que
@@ -514,8 +528,8 @@ grant ELROL to usuariodespues;
 </div>
 </div>
 
-<div id="outline-container-org4044839" class="outline-2">
-<h2 id="org4044839"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org64d47ec" class="outline-2">
+<h2 id="org64d47ec"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -535,7 +549,7 @@ grant ELROL to usuariodespues;
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-02-27 mar 08:40</p>
+<p class="date">Created: 2019-02-14 jue 13:43</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
