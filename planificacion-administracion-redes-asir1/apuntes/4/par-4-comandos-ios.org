@@ -133,6 +133,15 @@ Switch# show spanning-tree
 Switch(config)# spanning-tree vlan 1 priority 1
 #+END_EXAMPLE
 
+* Link agregation
+
+Se añader a un mismo =channel-group= todos los enlaces conectados al mismo switch.
+
+#+begin_example
+Switch(config)# interface fa0/1
+Switch(config-if)# channel-group 1 mode active
+#+end_example
+
 * Referencias
 - Formatos:
   - [[file:par-4-comandos-ios.html][Transparencias]]

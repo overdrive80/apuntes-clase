@@ -3,13 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-02-22 vie 13:52 -->
+<!-- 2019-03-05 mar 08:14 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Comandos IOS</title>
+<title>Ficheros y bases de datos</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
-<meta name="keywords" content=" IOS, Packet Tracer" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -247,262 +246,928 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Comandos IOS</h1>
+<h1 class="title">Ficheros y bases de datos</h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgba3b13f">1. General</a></li>
-<li><a href="#orge01e1db">2. Direcciones IP</a></li>
-<li><a href="#org29f76ee">3. Enrutamiento</a></li>
-<li><a href="#orgb6352a7">4. VLAN</a></li>
-<li><a href="#org0d8d262">5. STP</a></li>
-<li><a href="#org30cc79a">6. Link agregation</a></li>
-<li><a href="#org5375ddd">7. Referencias</a></li>
+<li><a href="#org71459b3">1. Introducción</a></li>
+<li><a href="#orgf9b2c62">2. Discos de datos</a></li>
+<li><a href="#orgf795296">3. Ficheros (archivos)</a></li>
+<li><a href="#org9e72782">4. Tipos de archivos</a></li>
+<li><a href="#org712829e">5. Acceso a ficheros</a></li>
+<li><a href="#org7fbf1e5">6. Bases de datos</a></li>
+<li><a href="#org7fa2013">7. Estándar ANSI/SPARC</a></li>
+<li><a href="#orge0fce78">8. Diseño de bases de datos</a></li>
+<li><a href="#orgefeb19b">9. SGBD</a></li>
+<li><a href="#orgd86ee77">10. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgba3b13f" class="outline-2">
-<h2 id="orgba3b13f"><span class="section-number-2">1</span> General</h2>
+<div id="outline-container-org71459b3" class="outline-2">
+<h2 id="org71459b3"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
-<li><code>CTRL-ALT-6</code> para parar un comando incorrecto</li>
-<li><code>?</code> para conseguir siguientes comandos</li>
-<li><code>TAB</code> para autocompletar</li>
-<li>Un comando con <code>no</code> deshace el comando</li>
+<li>Se manejan grandes cantidades de datos desde hace mucho tiempo
+<ul class="org-ul">
+<li>Censos romanos</li>
+<li>Bancos medievales</li>
+<li>Información fiscal de cada país</li>
+<li>Empresas de todo tipo</li>
+</ul></li>
+<li>Tradicionalmente, se han usado
+<ul class="org-ul">
+<li>Fichas, informes, expedientes archivadores, carpetas…</li>
+</ul></li>
 </ul>
 </div>
-<div id="outline-container-org1e6dccc" class="outline-3">
-<h3 id="org1e6dccc"><span class="section-number-3">1.1</span> Modos</h3>
+
+<div id="outline-container-org929080d" class="outline-3">
+<h3 id="org929080d"><span class="section-number-3">1.1</span> Antes de la informática</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
-<li><code>Press RETURN to get started.</code>
+<li>Tradicionalmente
 <ul class="org-ul">
-<li>Desactivado</li>
+<li>Manejados por personas</li>
+<li>De forma manual</li>
+<li>Gran componente subjetivo</li>
 </ul></li>
-<li><code>Router&gt;</code>
+<li>Algunos sistemas intentan eliminar el componente subjetivo
 <ul class="org-ul">
-<li><code>show</code> para mostrar información</li>
-<li><code>enable</code> para configurar (privileged commands)</li>
-</ul></li>
-<li><code>Router#</code>
-<ul class="org-ul">
-<li>Resto de comandos</li>
-<li><code>configure terminal</code> para cambiar la configuración</li>
-</ul></li>
-<li><code>Router(config)#</code>
-<ul class="org-ul">
-<li>Raíz de la configuración</li>
+<li>Sistemas burocráticos</li>
 </ul></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org69dec01" class="outline-3">
-<h3 id="org69dec01"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
+<div id="outline-container-org69c2628" class="outline-3">
+<h3 id="org69c2628"><span class="section-number-3">1.2</span> Informática</h3>
 <div class="outline-text-3" id="text-1-2">
-<div class="org-src-container">
-<pre class="src src-java">Router&gt; enable
-Router# configure terminal
-Router(config)#
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org5dc638e" class="outline-3">
-<h3 id="org5dc638e"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
-<div class="outline-text-3" id="text-1-3">
-<pre class="example">
-Router# write memory
-Router# copy running-config startup-config
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge01e1db" class="outline-2">
-<h2 id="orge01e1db"><span class="section-number-2">2</span> Direcciones IP</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-orgaf9d92a" class="outline-3">
-<h3 id="orgaf9d92a"><span class="section-number-3">2.1</span> Asignar IP</h3>
-<div class="outline-text-3" id="text-2-1">
-<pre class="example">
-Router(config)# interface fa0/0
-Router(config-if)# ip address 192.168.6.1 255.255.255.0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-Router(config)#
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgf6c83fc" class="outline-3">
-<h3 id="orgf6c83fc"><span class="section-number-3">2.2</span> Consultar IP</h3>
-<div class="outline-text-3" id="text-2-2">
-<pre class="example">
-Router&gt; show ip interface
-Router&gt; show ip interface brief
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org29f76ee" class="outline-2">
-<h2 id="org29f76ee"><span class="section-number-2">3</span> Enrutamiento</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-orgd539bae" class="outline-3">
-<h3 id="orgd539bae"><span class="section-number-3">3.1</span> Añadir ruta</h3>
-<div class="outline-text-3" id="text-3-1">
-<pre class="example">
-Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orga554490" class="outline-3">
-<h3 id="orga554490"><span class="section-number-3">3.2</span> Borrar ruta</h3>
-<div class="outline-text-3" id="text-3-2">
-<pre class="example">
-Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
-</pre>
-</div>
-</div>
-
-
-<div id="outline-container-orgce206c7" class="outline-3">
-<h3 id="orgce206c7"><span class="section-number-3">3.3</span> Consultar rutas</h3>
-<div class="outline-text-3" id="text-3-3">
-<pre class="example">
-Router&gt; show ip route
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgb6352a7" class="outline-2">
-<h2 id="orgb6352a7"><span class="section-number-2">4</span> VLAN</h2>
-<div class="outline-text-2" id="text-4">
-</div>
-<div id="outline-container-org0da3f58" class="outline-3">
-<h3 id="org0da3f58"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
-<div class="outline-text-3" id="text-4-1">
-<pre class="example">
-Switch&gt; show vlan brief
-Switch&gt; show interfaces trunk
-</pre>
-</div>
-</div>
-
-<div id="outline-container-orgf1ef872" class="outline-3">
-<h3 id="orgf1ef872"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
-<div class="outline-text-3" id="text-4-2">
-<pre class="example">
-Switch(config)#vlan 2
-Switch(config-vlan)#name nombredevlan
-Switch(config-vlan)#exit
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org683b01f" class="outline-3">
-<h3 id="org683b01f"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
-<div class="outline-text-3" id="text-4-3">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport access vlan 2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org6e8cb19" class="outline-3">
-<h3 id="org6e8cb19"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
-<div class="outline-text-3" id="text-4-4">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport mode trunk
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org2cfc818" class="outline-3">
-<h3 id="org2cfc818"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
-<div class="outline-text-3" id="text-4-5">
-<pre class="example">
-Switch(config)#interface FastEthernet0/1
-Switch(config-if)#switchport trunk allowed vlan remove 2
-Switch(config-if)#switchport trunk allowed vlan add 2
-</pre>
-</div>
-</div>
-
-<div id="outline-container-org3094adb" class="outline-3">
-<h3 id="org3094adb"><span class="section-number-3">4.6</span> Routers</h3>
-<div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
-<li>Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.</li>
-<li>Estas interfaces se configuran como las demás, y se añaden a la tabla de rutas de la misma forma</li>
+<li>Tratamiento automatizado de la información</li>
+<li>Se elimina el componente subjetivo</li>
+<li>Las operaciones con los datos se vuelven
+<ul class="org-ul">
+<li>Precisas</li>
+<li>Rápidas</li>
+</ul></li>
+<li>Permite un mayor volumen de datos</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgf9b2c62" class="outline-2">
+<h2 id="orgf9b2c62"><span class="section-number-2">2</span> Discos de datos</h2>
+<div class="outline-text-2" id="text-2">
+<ul class="org-ul">
+<li>Originalmente, los programas de ordenador utilizaban directamente los soportes de memoria (cinta, disco)
+<ul class="org-ul">
+<li>Ventaja: No se depende de otros sistemas</li>
+<li>Pero&#x2026;</li>
+</ul></li>
+<li>Un programa :arrow ⇔ Un disco de datos
+<ul class="org-ul">
+<li>Un cambio de datos hacía inútil el programa</li>
+<li>Un cambio de programa hacía inútiles los datos anteriores</li>
+</ul></li>
+<li>Cada programa debe aprender a manejar los discos</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf795296" class="outline-2">
+<h2 id="orgf795296"><span class="section-number-2">3</span> Ficheros (archivos)</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>El sistema operativo crea archivos</li>
+<li>Los programas se simplifican</li>
+<li>Los programas pueden compartir los discos</li>
+<li>Más de un programa puede usar los mismos ficheros de datos
+<ul class="org-ul">
+<li>Es necesaria una coordinación para acceder y modificar ficheros</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-orgb91fe39" class="outline-3">
+<h3 id="orgb91fe39"><span class="section-number-3">3.1</span> ¿Qué es un archivo?</h3>
+<div class="outline-text-3" id="text-3-1">
+<ul class="org-ul">
+<li>Un archivo se compone de registros
+<ul class="org-ul">
+<li>Un registro son los datos agrupados de alguna entidad</li>
+</ul></li>
+<li>Un registro contiene campos de datos</li>
+<li>Cada campo tiene un nombre y un valor
+<ul class="org-ul">
+<li>Por simplicidad, supondremos que todos los registros tienen los mismos campos</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e2ecf6" class="outline-3">
+<h3 id="org2e2ecf6"><span class="section-number-3">3.2</span> Ejemplo de archivo</h3>
+<div class="outline-text-3" id="text-3-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Identificador</td>
+<td class="org-left">Nombre</td>
+<td class="org-right">Deuda</td>
+<td class="org-left">Dirección</td>
+</tr>
+
+<tr>
+<td class="org-right">987</td>
+<td class="org-left">juan</td>
+<td class="org-right">87345</td>
+<td class="org-left">10 norte 342</td>
+</tr>
+
+<tr>
+<td class="org-right">876</td>
+<td class="org-left">pedro</td>
+<td class="org-right">43649</td>
+<td class="org-left">8 oriente 342</td>
+</tr>
+
+<tr>
+<td class="org-right">123</td>
+<td class="org-left">jorge</td>
+<td class="org-right">03342</td>
+<td class="org-left">av. libertad 23</td>
+</tr>
+
+<tr>
+<td class="org-right">69</td>
+<td class="org-left">vicente</td>
+<td class="org-right">61560</td>
+<td class="org-left">valencia nº183</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-left">lorenzo</td>
+<td class="org-right">06490</td>
+<td class="org-left">sol nº18</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-left">lucía</td>
+<td class="org-right">06480</td>
+<td class="org-left">luna nº8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+
+<div id="outline-container-org6de8b8d" class="outline-3">
+<h3 id="org6de8b8d"><span class="section-number-3">3.3</span> Nombres de los campos</h3>
+<div class="outline-text-3" id="text-3-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right"><b>Identificador</b></td>
+<td class="org-left"><b>Nombre</b></td>
+<td class="org-right"><b>Deuda</b></td>
+<td class="org-left"><b>Dirección</b></td>
+</tr>
+
+<tr>
+<td class="org-right">987</td>
+<td class="org-left">juan</td>
+<td class="org-right">87345</td>
+<td class="org-left">10 norte 342</td>
+</tr>
+
+<tr>
+<td class="org-right">876</td>
+<td class="org-left">pedro</td>
+<td class="org-right">43649</td>
+<td class="org-left">8 oriente 342</td>
+</tr>
+
+<tr>
+<td class="org-right">123</td>
+<td class="org-left">jorge</td>
+<td class="org-right">03342</td>
+<td class="org-left">av. libertad 23</td>
+</tr>
+
+<tr>
+<td class="org-right">69</td>
+<td class="org-left">vicente</td>
+<td class="org-right">61560</td>
+<td class="org-left">valencia nº183</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-left">lorenzo</td>
+<td class="org-right">06490</td>
+<td class="org-left">sol nº18</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-left">lucía</td>
+<td class="org-right">06480</td>
+<td class="org-left">luna nº8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+<div id="outline-container-org8e8a8f4" class="outline-3">
+<h3 id="org8e8a8f4"><span class="section-number-3">3.4</span> Un registro</h3>
+<div class="outline-text-3" id="text-3-4">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Identificador</td>
+<td class="org-left">Nombre</td>
+<td class="org-right">Deuda</td>
+<td class="org-left">Dirección</td>
+</tr>
+
+<tr>
+<td class="org-right">987</td>
+<td class="org-left">juan</td>
+<td class="org-right">87345</td>
+<td class="org-left">10 norte 342</td>
+</tr>
+
+<tr>
+<td class="org-right">876</td>
+<td class="org-left">pedro</td>
+<td class="org-right">43649</td>
+<td class="org-left">8 oriente 342</td>
+</tr>
+
+<tr>
+<td class="org-right"><b>123</b></td>
+<td class="org-left"><b>jorge</b></td>
+<td class="org-right"><b>03342</b></td>
+<td class="org-left"><b>av. libertad 23</b></td>
+</tr>
+
+<tr>
+<td class="org-right">69</td>
+<td class="org-left">vicente</td>
+<td class="org-right">61560</td>
+<td class="org-left">valencia nº183</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-left">lorenzo</td>
+<td class="org-right">06490</td>
+<td class="org-left">sol nº18</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-left">lucía</td>
+<td class="org-right">06480</td>
+<td class="org-left">luna nº8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org90e5b53" class="outline-3">
+<h3 id="org90e5b53"><span class="section-number-3">3.5</span> Una columna</h3>
+<div class="outline-text-3" id="text-3-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-right">Identificador</td>
+<td class="org-left"><b>Nombre</b></td>
+<td class="org-right">Deuda</td>
+<td class="org-left">Dirección</td>
+</tr>
+
+<tr>
+<td class="org-right">987</td>
+<td class="org-left"><b>juan</b></td>
+<td class="org-right">87345</td>
+<td class="org-left">10 norte 342</td>
+</tr>
+
+<tr>
+<td class="org-right">876</td>
+<td class="org-left"><b>pedro</b></td>
+<td class="org-right">43649</td>
+<td class="org-left">8 oriente 342</td>
+</tr>
+
+<tr>
+<td class="org-right">123</td>
+<td class="org-left"><b>jorge</b></td>
+<td class="org-right">03342</td>
+<td class="org-left">av. libertad 23</td>
+</tr>
+
+<tr>
+<td class="org-right">69</td>
+<td class="org-left"><b>vicente</b></td>
+<td class="org-right">61560</td>
+<td class="org-left">valencia nº183</td>
+</tr>
+
+<tr>
+<td class="org-right">18</td>
+<td class="org-left"><b>lorenzo</b></td>
+<td class="org-right">06490</td>
+<td class="org-left">sol nº18</td>
+</tr>
+
+<tr>
+<td class="org-right">19</td>
+<td class="org-left"><b>lucía</b></td>
+<td class="org-right">06480</td>
+<td class="org-left">luna nº8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org9e72782" class="outline-2">
+<h2 id="org9e72782"><span class="section-number-2">4</span> Tipos de archivos</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Según su uso</li>
+<li>Según formato</li>
+<li>Según su organización</li>
+</ul>
+</div>
+
+<div id="outline-container-orgb67b4da" class="outline-3">
+<h3 id="orgb67b4da"><span class="section-number-3">4.1</span> Tipos según su uso</h3>
+<div class="outline-text-3" id="text-4-1">
+<ul class="org-ul">
+<li>Permanentes
+<ul class="org-ul">
+<li>Datos que deben ser guardados</li>
+<li>Ejemplo: Empleados contratados, nóminas pagadas, declaraciones de impuestos,…</li>
+</ul></li>
+<li>De movimiento
+<ul class="org-ul">
+<li>Cambios que deben ser incluidos en archivos permanentes</li>
+<li>Ejemplo: un puesto de peaje debe guardar todos los pagos con tarjeta, y enviarlos juntos</li>
+</ul></li>
+<li>De maniobra
+<ul class="org-ul">
+<li>Se utilizan como extensión a la RAM de un ordenador, se borran cuando el proceso termina</li>
+<li>Ejemplo: caché de disco de los navegadores</li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org008ea63" class="outline-3">
+<h3 id="org008ea63"><span class="section-number-3">4.2</span> Según formato</h3>
+<div class="outline-text-3" id="text-4-2">
+<ul class="org-ul">
+<li>De texto (o planos, o ASCII, o UNICODE)
+<ul class="org-ul">
+<li>Pueden editarse con el bloc de notas</li>
+<li>Son teóricamente legibles directamente por las personas</li>
+</ul></li>
+<li>Binarios
+<ul class="org-ul">
+<li>La información se guarda en un formato numérico (binario), no legible directamente</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org5979642" class="outline-4">
+<h4 id="org5979642"><span class="section-number-4">4.2.1</span> Ficheros binarios</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li><code>exe</code>, <code>dll</code> : Ficheros ejecutables</li>
+<li><code>png</code>, <code>jpg</code>, <code>gif</code> : Ficheros de imagen</li>
+<li><code>zip</code>, <code>rar</code> : Ficheros comprimidos</li>
+<li><code>docx</code>, <code>pptx</code>, <code>xlsx</code>, <code>pdf</code> : Documentos ofimáticos</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgfd04270" class="outline-4">
+<h4 id="orgfd04270"><span class="section-number-4">4.2.2</span> Ficheros de texto</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<ul class="org-ul">
+<li><code>txt</code>: Texto</li>
+<li><code>html</code>, <code>rtf</code>, <code>ps</code>: Texto con formato</li>
+<li><code>ini</code>, <code>inf</code>, <code>conf</code>, <code>xml</code>: configuración de programas</li>
+<li><code>sql</code>, <code>java</code>, <code>php</code>, <code>c</code>, <code>bat</code>, <code>sh</code>: instrucciones de programas informáticos</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgff872a8" class="outline-4">
+<h4 id="orgff872a8"><span class="section-number-4">4.2.3</span> Ficheros de texto como binarios</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<ul class="org-ul">
+<li>Al final, todos los ficheros son solo <b>números</b> almacenados en disco
+<ul class="org-ul">
+<li>Los programas o personas <i>interpretan</i> los números</li>
+</ul></li>
+<li>Un fichero de texto es en el fondo un fichero binario</li>
+<li>La traducción a “humano” es el estándar ASCII (o UNICODE), que asigna a cada byte una letra</li>
 </ul>
 
-<pre class="example">
-Router(config)# interface fa0/0.1
-Router(config-subif)# encap dot1q 2
-Router(config-subif)# ip address 192.168.6.1 255.255.255.0
-Router(config-subif)# exit
-Router(config)# interface fa0/0
-Router(config-if)# no shutdown
-Router(config-if)# exit
-</pre>
+<div class="figure">
+<p><img src="tabla-ascii-hexadecimal.jpg" alt="tabla-ascii-hexadecimal.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>
 
-<pre class="example">
-Router# show interfaces
-</pre>
+<div id="outline-container-orgb4e321b" class="outline-3">
+<h3 id="orgb4e321b"><span class="section-number-3">4.3</span> Tipos de ficheros según organización</h3>
+<div class="outline-text-3" id="text-4-3">
+<ul class="org-ul">
+<li>Organización secuencial
+<ul class="org-ul">
+<li>Los registros se colocan unos detrás de otros</li>
+<li>Pueden estar ordenados por algún criterio
+<ul class="org-ul">
+<li>Orden de llegada</li>
+<li>Alfabético por algún campo</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<ul class="org-ul">
+<li>Organización indexada
+<ul class="org-ul">
+<li>Cada fichero secuencial puede tener otros ficheros de índice</li>
+<li>El índice está ordenado por algún criterio</li>
+<li>En el índice aparece
+<ul class="org-ul">
+<li>Identificador de cada registro</li>
+<li>En qué línea (posición) está ese registro</li>
+</ul></li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="fichero-indexado.gif" alt="fichero-indexado.gif" />
+</p>
+</div>
+
+<p>
+<a href="https://www.dlsweb.rmit.edu.au/toolbox/knowmang/content/physical/file_organisation.htm">Crédito: www.dlsweb.rmit.edu.au</a>
+</p>
+</div>
+
+<div id="outline-container-org9ea0fb9" class="outline-4">
+<h4 id="org9ea0fb9"><span class="section-number-4">4.3.1</span> Ficheros indexados</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li>El fichero secuencial con datos es el fichero principal</li>
+<li>Cada fichero principal puede tener otros ficheros de índice
+<ul class="org-ul">
+<li>Uno por cada criterio que se desee buscar rápidamente</li>
+</ul></li>
+<li>Cada fichero de índice es a su vez un fichero secuencial
+<ul class="org-ul">
+<li>Podría indexarse, con un índice de segundo nivel</li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="fichero-indexado-multinivel.png" alt="fichero-indexado-multinivel.png" />
+</p>
+</div>
+
+<p>
+<a href="https://www.tutorialspoint.com/dbms/dbms_indexing.htm">Créditos: www.tutorialspoint.com</a>
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb52fe31" class="outline-4">
+<h4 id="orgb52fe31"><span class="section-number-4">4.3.2</span> Área de desbordamiento (<i>overflow</i>)</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<ul class="org-ul">
+<li>Los criterios de un índice pueden no ser únicos
+<ul class="org-ul">
+<li>Por ejemplo, código postal en un fichero de alumnos</li>
+</ul></li>
+<li>Si hay un <i>conflicto</i>, los datos se almacenan en un área de <i>overflow</i></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="fichero-indexado-overflow.png" alt="fichero-indexado-overflow.png" />
+</p>
+</div>
+
+<p>
+<a href="http://kpvxy.blogspot.com.es/2011/10/ficheros-con-organizacion-secuencial.html">Créditos: kpvxy.blogspot.com.es</a>
+</p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-org0d8d262" class="outline-2">
-<h2 id="org0d8d262"><span class="section-number-2">5</span> STP</h2>
+<div id="outline-container-org435e1ec" class="outline-3">
+<h3 id="org435e1ec"><span class="section-number-3">4.4</span> Secuencial vs Indexado (escritura)</h3>
+<div class="outline-text-3" id="text-4-4">
+<ul class="org-ul">
+<li>Organización secuencial:
+<ul class="org-ul">
+<li>Si no se ordena, basta con añadir: rápido</li>
+<li>Si se ordena, se puede necesitar cambiar todo el fichero: <i>muy</i> lento</li>
+</ul></li>
+<li>Organización indexada:
+<ul class="org-ul">
+<li>Si no hay colisiones, dos escrituras (índice y fichero principal)</li>
+<li>Si hay colisiones (la clave ya está usada)
+<ul class="org-ul">
+<li>Usar un fichero de <i>overflow</i> (y reorganizar con el fichero principal en un futuro)</li>
+<li>Reorganizar el fichero principal <i>muy</i> lento</li>
+</ul></li>
+</ul></li>
+<li>Para lectura, ver <a href="#acceso-vs-organizacion">acceso vs organización</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org712829e" class="outline-2">
+<h2 id="org712829e"><span class="section-number-2">5</span> Acceso a ficheros</h2>
 <div class="outline-text-2" id="text-5">
-<p>
-Consultar y poner la prioridad de un switch
-</p>
-<pre class="example">
-Switch# show spanning-tree 
-</pre>
+<ul class="org-ul">
+<li>Acceso secuencial
+<ul class="org-ul">
+<li>Para llegar a un registro, es necesario pasar por todos los anteriores</li>
+<li><i>Obligatorio</i> en
+<ul class="org-ul">
+<li>cintas</li>
+<li>ficheros sin indexar con campos de longitud variable (csv, xml,…)</li>
+</ul></li>
+</ul></li>
+<li>Acceso directo (aleatorio)
+<ul class="org-ul">
+<li>Se puede leer directamente un registro sin tener que pasar por los anteriores</li>
+<li>Se necesita saber su posición (por un índice)</li>
+</ul></li>
+</ul>
+</div>
 
-<pre class="example">
-Switch(config)# spanning-tree vlan 1 priority 1
-</pre>
+<div id="outline-container-org71a127c" class="outline-3">
+<h3 id="acceso-vs-organizacion"><span class="section-number-3">5.1</span> <a id="orgc9a3827"></a> Acceso vs organización (lectura)</h3>
+<div class="outline-text-3" id="text-acceso-vs-organizacion">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">&#xa0;</th>
+<th scope="col" class="org-left">Acceso secuencial</th>
+<th scope="col" class="org-left">Acceso directo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Organización secuencial</td>
+<td class="org-left">Fácil y rápido</td>
+<td class="org-left">Deben leerse los registros anteriores, o estar ordenado</td>
+</tr>
+
+<tr>
+<td class="org-left">Organización indexada</td>
+<td class="org-left">Algo más lento (dos lecturas mínimo)</td>
+<td class="org-left">Más rápido (dos lecturas)</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org30cc79a" class="outline-2">
-<h2 id="org30cc79a"><span class="section-number-2">6</span> Link agregation</h2>
+
+
+
+
+<div id="outline-container-org7fbf1e5" class="outline-2">
+<h2 id="org7fbf1e5"><span class="section-number-2">6</span> Bases de datos</h2>
 <div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>En una empresa, los datos pueden estar dispersos y duplicados</li>
+<li>Hay que actualizar todas las copias a la vez
+<ul class="org-ul">
+<li>centralización de los datos</li>
+</ul></li>
+<li>Puede haber datos confidenciales
+<ul class="org-ul">
+<li>permisos por fichero</li>
+</ul></li>
+<li>Se puede necesitar más de un programa accediendo a los mismos registros</li>
+<li>Pero no a los mismos campos
+<ul class="org-ul">
+<li>permisos por campo,</li>
+</ul></li>
+<li>Diferentes departamentos pueden tener nombres distintos para los ficheros, o los campos
+<ul class="org-ul">
+<li>diferentes formas de ver los registros</li>
+</ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org37d76e1" class="outline-3">
+<h3 id="org37d76e1"><span class="section-number-3">6.1</span> Definición (I)</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
-Se añader a un mismo <code>channel-group</code> todos los enlaces conectados al mismo switch.
+Una colección de datos que están lógicamente relacionados entre sí, que tiene una definición y una descripción comunes y que están estructurados de una forma particular
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44f83a0" class="outline-3">
+<h3 id="org44f83a0"><span class="section-number-3">6.2</span> Definición (II)</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Una base de datos es una colección de datos estructurados según un modelo que refleje las relaciones y restricciones existentes en el mundo real. Los datos, que han de ser compartidos por diferentes usuarios y aplicaciones, deben mantenerse independientes de ésta, y su definición y descripción han de ser únicas estando almacenados junto a los mismos. Por último, los tratamientos que sufran estos datos tendrán que conservar la integridad y seguridad de éstos
 </p>
 
-<pre class="example">
-Switch(config)# interface fa0/1
-Switch(config-if)# channel-group 1 mode active
-</pre>
+
+<div class="figure">
+<p><img src="ejemplo-base-de-datos.png" alt="ejemplo-base-de-datos.png" />
+</p>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org5375ddd" class="outline-2">
-<h2 id="org5375ddd"><span class="section-number-2">7</span> Referencias</h2>
+<div id="outline-container-orgb30becc" class="outline-3">
+<h3 id="orgb30becc"><span class="section-number-3">6.3</span> Ventajas de las bases de datos</h3>
+<div class="outline-text-3" id="text-6-3">
+<ul class="org-ul">
+<li><b>Independencia de los datos y los programas y procesos</b>. Esto permite modificar los datos sin modificar el código de las aplicaciones.</li>
+<li><b>Menor redundancia</b>. Aunque, sólo los buenos diseños de datos tienen poca redundancia.</li>
+<li><b>Integridad</b>. Mayor dificultad de perder los datos o de realizar incoherencias con ellos.</li>
+<li><b>Mayor seguridad</b>. Al limitar el acceso a ciertos usuarios.</li>
+<li><b>Datos más documentados</b>. Gracias a los metadatos que permiten describir la información de la base de datos.</li>
+<li><b>Acceso a los datos más eficiente</b>. La organización de los datos produce un resultado más óptimo en rendimiento.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org63cd005" class="outline-3">
+<h3 id="org63cd005"><span class="section-number-3">6.4</span> Inconvenientes</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>Instalación costosa
+<ul class="org-ul">
+<li>El control y administración de bases de datos requiere de un software y hardware poderoso</li>
+</ul></li>
+<li>Requiere personal cualificado
+<ul class="org-ul">
+<li>Debido a la dificultad de manejo de este tipo de sistemas.</li>
+</ul></li>
+<li>De todas formas, <b>las ventajas superan ampliamente los inconvenientes</b></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org7fa2013" class="outline-2">
+<h2 id="org7fa2013"><span class="section-number-2">7</span> Estándar ANSI/SPARC</h2>
 <div class="outline-text-2" id="text-7">
+<ul class="org-ul">
+<li>Define tres niveles, para ayudar a conseguir los <a href="#objetivos-sgbd">objetivos de un SGBD</a>
+<ul class="org-ul">
+<li><b>Interno</b>: es como se almacena la información realmente. Por lo general, en ficheros en disco</li>
+<li><b>Conceptual</b>: incluye la estructura de la base de datos total
+<ul class="org-ul">
+<li>Entidades</li>
+<li>Campos de las entidades</li>
+<li>Relaciones entre entidades</li>
+</ul></li>
+<li><b>Externo</b>: Cada tipo de usuario/aplicación puede operar con una parte del nivel conceptual, a veces con una transformación intermedia</li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="ansi-sparc.png" alt="ansi-sparc.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge0fce78" class="outline-2">
+<h2 id="orge0fce78"><span class="section-number-2">8</span> Diseño de bases de datos</h2>
+<div class="outline-text-2" id="text-8">
+<ul class="org-ul">
+<li>No es evidente abstraer, a partir de datos en bruto, la estructura de una base de datos</li>
+<li>Las bases de datos se diseñan en tres pasos
+<ul class="org-ul">
+<li>Nivel conceptual</li>
+<li>Nivel lógico</li>
+<li>Nivel físico</li>
+</ul></li>
+</ul>
+
+<hr />
+<p>
+Nota: estos niveles son del <b>diseño</b>, no confundir con los niveles de la implementación Ansi/SPARC
+</p>
+</div>
+
+
+<div id="outline-container-org1fd26b1" class="outline-3">
+<h3 id="org1fd26b1"><span class="section-number-3">8.1</span> Nivel conceptual</h3>
+<div class="outline-text-3" id="text-8-1">
+<ul class="org-ul">
+<li>Un usuario no informático debe poder entenderlo</li>
+<li>Trata sobre 
+<ul class="org-ul">
+<li>entidades</li>
+<li>relaciones entre ellas</li>
+<li>datos a almacenar por cada entidad y relación</li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="ejemplo-entidad-relacion.png" alt="ejemplo-entidad-relacion.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5dac09d" class="outline-3">
+<h3 id="org5dac09d"><span class="section-number-3">8.2</span> Nivel lógico</h3>
+<div class="outline-text-3" id="text-8-2">
+<ul class="org-ul">
+<li>El modelo conceptual debe ser sistematizado y simplificado, para que un ordenador pueda manejarlo</li>
+<li>No se decide cómo se guardarán los datos, pero sí qué forma tendrán
+<ul class="org-ul">
+<li>Generalmente, en forma de tabla</li>
+</ul></li>
+</ul>
+
+
+<div class="figure">
+<p><img src="ejemplo-logico.png" alt="ejemplo-logico.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdefe7f1" class="outline-3">
+<h3 id="orgdefe7f1"><span class="section-number-3">8.3</span> Nivel físico</h3>
+<div class="outline-text-3" id="text-8-3">
+<ul class="org-ul">
+<li>Se describe de qué forma el nivel lógico será almacenado en ficheros
+<ul class="org-ul">
+<li>CSV</li>
+<li>Excel</li>
+<li>XML</li>
+<li>Utilizando un Sistema Gestor de Bases de Datos</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgefeb19b" class="outline-2">
+<h2 id="orgefeb19b"><span class="section-number-2">9</span> SGBD</h2>
+<div class="outline-text-2" id="text-9">
+</div>
+<div id="outline-container-orgb07534d" class="outline-3">
+<h3 id="orgb07534d"><span class="section-number-3">9.1</span> SGBD: Componentes</h3>
+<div class="outline-text-3" id="text-9-1">
+<ul class="org-ul">
+<li>Hardware: Servidores, discos, componentes de red,…</li>
+<li>Software: Incluye un software de base de datos y las aplicaciones que los manejan</li>
+<li>Datos: Tanto los datos originales como los metadatos</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org6d47d41" class="outline-3">
+<h3 id="org6d47d41"><span class="section-number-3">9.2</span> SGBD: Funciones</h3>
+<div class="outline-text-3" id="text-9-2">
+<ul class="org-ul">
+<li>Almacenar datos en la base de datos, acceder a ellos y actualizarlos</li>
+<li>Mantener descripciones de los datos accesibles por los usuarios (metadatos)</li>
+<li>Integridad: una transacción debe realizarse en su totalidad o no realizarse</li>
+<li>Integridad: los cambios deben poder ser realizados por varios usuarios a la vez</li>
+<li>Integridad: Se deben poder recuperar los datos si se pierden (backup)</li>
+<li>Integridad y confidencialidad: sólo usuarios autorizados pueden ver/modificar datos</li>
+<li>Integridad: sólo los datos que sigan el diseño lógico pueden ser almacenados</li>
+<li>Comunicación: Datos y operaciones están disponibles para usuarios y aplicaciones</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4daa093" class="outline-3">
+<h3 id="objetivos-sgbd"><span class="section-number-3">9.3</span> <a id="orgbc9d768"></a>SGBD: Objetivos</h3>
+<div class="outline-text-3" id="text-objetivos-sgbd">
+<ul class="org-ul">
+<li>Independencia física de datos
+<ul class="org-ul">
+<li>Un programa debería poder seguir funcionando aunque el diseño físico (cómo se almacenan los datos en disco) cambie</li>
+<li>Basta con que el SGBD ofrezca sólo un nivel conceptual que pueda usar diferentes niveles físicos</li>
+</ul></li>
+<li>Independencia lógica de datos
+<ul class="org-ul">
+<li>Un programa debería poder seguir funcionando aunque el diseño lógico (cómo se relacionan los datos) cambie</li>
+<li>Es más difícil, pero teóricamente son suficientes las vistas (niveles externos)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd86ee77" class="outline-2">
+<h2 id="orgd86ee77"><span class="section-number-2">10</span> Referencias</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="par-4-comandos-ios.html">Transparencias</a></li>
-<li><a href="par-4-comandos-ios.pdf">PDF</a></li>
+<li><a href="gbd-1-ficheros-y-bases-de-datos.html">Transparencias</a></li>
+<li><a href="gbd-1-ficheros-y-bases-de-datos.pdf">PDF</a></li>
+<li><a href="https://github.com/alvarogonzalezsotillo/apuntes-clase">Github</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
@@ -510,13 +1175,14 @@ Switch(config-if)# channel-group 1 mode active
 <li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
+<li><a href="mailto:alvaro.gonzalezsotillo@educa.madrid.org">Por Álvaro González</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-02-22 vie 13:52</p>
+<p class="date">Created: 2019-03-05 mar 08:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
