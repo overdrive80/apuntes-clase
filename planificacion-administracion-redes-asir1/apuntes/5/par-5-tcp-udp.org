@@ -23,7 +23,7 @@
 
 ** Formato de trama UDP
 
-[[file:par-5-tcp-udp.org_20180209_085112_12356zqb.png]]
+[[file:./media/trama-udp.png]]
 
 ** Características de UDP
 - Los datagramas pueden llegar en un orden diferente al enviado (si IP elige rutas distintas para ellos)
@@ -41,7 +41,7 @@
 - Por tanto, es orientado a *conexión* y *confiable*.
 
 #+reveal: split
-[[file:par-5-tcp-udp.org_20180209_091000_12356BER.png]]
+[[file:./media/trama-tcp.png]]
 
 
 ** Ventana y corrección de errores
@@ -213,6 +213,25 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
 *** Gmail, 1990
 =telnet bbs.fozztexx.com=
 
+
+
+* Direcciones de escucha
+
+- Cuando un proceso escucha en un puerto, también elige en qué dirección de red escucha
+- La dirección IP se puede utilizar como un /firewall/ rudimentario
+  | Dirección   | Efecto                                         |
+  |-------------+------------------------------------------------|
+  | =0.0.0.0=   | Escucha en todas las direcciones IP accesibles |
+  | =127.X.X.X= | Escucha en una dirección local                 |
+  | =X.X.X.X=   | Escucha en una interfaz de red concreta        |
+- No todas las combinaciones son posibles
+  - Es posible escuchar en el mismo puerto en =127.X.X.X= y en =X.X.X.X=
+  - =0.0.0.0= no es compatible con ningún otro
+** Posibilidades
+- El servidor está accesible a todo el mundo
+- El servidor solo está disponible desde la máquina local (por ejemplo email local)
+- El servidor solo está disponible por una de las interfaces de red
+- Diferentes servidores en diferentes interfaces de red
 
 
 * TCP vs UDP
