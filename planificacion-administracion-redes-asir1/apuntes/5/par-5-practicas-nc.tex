@@ -67,14 +67,14 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 
 \begin{homeworkProblem}[Envía información de tus ficheros (2 puntos)]
-  Envía información de tu disco a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
+  Envía información de los directorios de tu directorio \texttt{\$HOME} a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
 
   
   \begin{listadoshell}{Enviar la salida de un comando a \texttt{nc}}{lst:tuberias}
     ls -la | nc ipdelservidor puertolibre
   \end{listadoshell}
 
-  Después, envía una imagen a un compañero. El compañero debe grabar dicha imagen y visualizarla.
+  Después, envía una imagen (JPG, PNG...) a un compañero. El compañero debe grabar dicha imagen y visualizarla.
 
   \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
     nc ipdelservidor puertolibre < imagen
@@ -84,7 +84,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 \begin{homeworkProblem}[Envía una máquina virtual a un compañero (2 puntos)]
   \begin{itemize}
-  \item Empaqueta una máquina virtual (fichero \texttt{OVA}, \texttt{ZIP}, \texttt{VMDK} o \texttt{DVI}).
+  \item Empaqueta una máquina virtual (fichero \texttt{OVA}, \texttt{ISO}, \texttt{ZIP}, \texttt{VMDK} o \texttt{DVI}).
   \item Envía el fichero a un compañero usando \texttt{netcat}. Mide el tiempo total de transmisión con el comando \texttt{time}
 
     \begin{listadoshell}{Medir el tiempo de ejecución con  \texttt{time}}{lst:time}
