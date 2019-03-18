@@ -37,8 +37,7 @@ Los objetivos  de la práctica son:
 La última versión de esta práctica está disponible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/5/par-5-practicas-nc.pdf}{este enlace}.
 
 
-
-\begin{homeworkProblem}[: Crea un chat con otros ordenadores del aula (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Crea un chat con otros ordenadores del aula (2 puntos)}]
   Crea un chat con otro compañero del aula. Para ello:
   \begin{itemize}
   \item Deberás localizar un puerto libre para escuchar
@@ -56,20 +55,21 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   En las salidas de \texttt{netstat}, incluye tus conexiones y las de tus compañeros, identificando las conexiones de la práctica en cada máquina.
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[Protege un servidor de chat (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Protege un servidor de chat (2 puntos)}]
   \begin{itemize}
   \item Crea un servidor de chat que escuche en la dirección IP de tu ordenador.
   \item Crea otro servidor de chat que escuche en la dirección \texttt{127.0.0.1}, \textbf{en el mismo puerto} que el servidor anterior.
   \item Explica por qué los dos servidores pueden funcionar a la vez en el mismo puerto. Explica también qué clientes pueden conectarse a cada uno de los servidores.
-\end{itemize}
+  \end{itemize}
 \end{homeworkProblem}
 
 
 
-\begin{homeworkProblem}[Envía información de tus ficheros (2 puntos)]
-  Envía información de los directorios de tu directorio \texttt{\$HOME} a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
+\begin{homeworkProblem}[: \imenu{Envía información de tus ficheros (2 puntos)}]
+   Envía información de los ficheros y directorios de tu directorio \texttt{\$HOME} a otro ordenador del aula, usando tuberías (pipes). Después, cambia los roles de cliente y servidor enviando la ayuda del comando nc (\texttt{man nc}).
 
-  
+
+
   \begin{listadoshell}{Enviar la salida de un comando a \texttt{nc}}{lst:tuberias}
     ls -la | nc ipdelservidor puertolibre
   \end{listadoshell}
@@ -82,26 +82,26 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[Envía una máquina virtual a un compañero (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Envía una máquina virtual a un compañero (2 puntos)}]
   \begin{itemize}
   \item Empaqueta una máquina virtual (fichero \texttt{OVA}, \texttt{ISO}, \texttt{ZIP}, \texttt{VMDK} o \texttt{DVI}).
   \item Envía el fichero a un compañero usando \texttt{netcat}. Mide el tiempo total de transmisión con el comando \texttt{time}
 
     \begin{listadoshell}{Medir el tiempo de ejecución con  \texttt{time}}{lst:time}
-    time nc ....
-  \end{listadoshell}
+      time nc ....
+    \end{listadoshell}
     
   \item Monitoriza el progreso en el ordenador cliente, vigilando el directorio de destino con
 
-  \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
-    watch -d ls -l
-  \end{listadoshell}
+    \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
+      watch -d ls -l
+    \end{listadoshell}
 
     
   \end{itemize}
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[Simulación de servidor web (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Simulación de servidor web (2 puntos)}]
 
   Utiliza \texttt{netcat} para crear un servidor en el puerto \texttt{8080} (u otro que esté libre). Utiliza un navegador web para visitar el servidor, en \url{http://localhost:8080}. Consigue que el navegador vea una página como la siguiente:
 
@@ -116,7 +116,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[Simulación de cliente web (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Simulación de cliente web (2 puntos)}]
   Utilizaremos el protocolo HTTP directamente para pedir una página a un servidor
   \begin{itemize}
   \item Ejecuta NetCat conectándote al puerto 80 de \url{www.dgt.es}
