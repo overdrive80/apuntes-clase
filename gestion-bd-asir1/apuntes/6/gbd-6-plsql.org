@@ -166,6 +166,28 @@ END;
 #+END_SRC
 
 
+** Ejercicios
+- Imprime un rectángulo de tamaño 8x6
+  #+begin_example
+  ########
+  ########
+  ########
+  ########
+  ########
+  ########
+  #+end_example
+- Imprime un tablero de ajedrez de tamaño NxM (con la función =MOD=)
+  #+begin_example
+  # # # #
+   # # # #
+  # # # #
+   # # # #
+  # # # #
+   # # # #
+  #+end_example
+
+
+
 * Funciones y procedimientos
 - Son bloques de código identificados con un nombre
 - Pueden invocarse desde otros bloques de código
@@ -209,7 +231,16 @@ select empno, es_par(empno) from empleados;
 | ~lower~   | ~to_char~   | ~decode~ |          |
 | ~rpad~    | ~to_number~ |          |          |
 
-               
+
+*** Ejercicios               
+- Imprime un listado con la inicial de los empleados y sus apellidos
+  #+begin_example
+  A. Pérez
+  F. González
+  M. Ruiz
+  #+end_example
+- Convierte la cadena =11/MAY/20= a fecha, e imprímela como =11 de Mayo de 2020=
+- Imprime el número PI con 0,3 y 4 decimales.
 
 ** Procedimientos
 - Los procedimentos no devuelven un valor
