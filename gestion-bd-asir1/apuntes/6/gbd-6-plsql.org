@@ -6,7 +6,6 @@
 
 
 
-
 * Introducción
 - PLSQL es un lenguaje de programación ejecutado en los servidores Oracle
   - Con acceso a todas las sentencias SQL
