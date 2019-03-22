@@ -240,6 +240,9 @@ select empno, es_par(empno) from empleados;
 | ~lower~   | ~to_char~   | ~decode~ |          |
 | ~rpad~    | ~to_number~ |          |          |
 
+[[https://ss64.com/ora/syntax-numfmt.html][Formatos de ~to_number~]]
+
+[[https://ss64.com/ora/syntax-fmt.html][Formatos de ~to_date~]]
 
 *** Ejercicios               
 - Imprime un listado con la inicial de los empleados y sus apellidos
