@@ -78,6 +78,22 @@ rpm -ihv epel-release-7-10.noarch.rpm # instalamos ese repositorio
 sudo yum update #opcional, puede necesitar mucho tiempo
 #+end_src
 
+** Entorno gráfico
+- El instalador más cómodo de Oracle necesita un sistema de ventanas
+- Hay varias opciones:
+  - Arrancar el modo gráfico en la máquina virtual
+    #+begin_src sh
+    startx
+    #+end_src
+  - Conexión *ssh* con redirección de protocolo *X11*
+    #+begin_src sh
+    ssh -X alumno@servidor
+    #+end_src
+  - Arrancar un servidor *vnc* en *Centos*
+    #+begin_src sh
+    sudo yum install vnc-server
+    vncserver :0
+    #+end_src
 
 ** Oracle 18c
 
