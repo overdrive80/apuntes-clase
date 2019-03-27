@@ -434,7 +434,6 @@ end;
 
 
 
-
 * Sentencias SQL en PLSQL
 
 ** Variables en =select=
