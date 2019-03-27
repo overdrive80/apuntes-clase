@@ -25,7 +25,37 @@ Los números se tabulan alineándolos a la derecha
 ** Pasar de decimal a binario
 ** Pasar de decimal a una base entre 2 y 16
 ** Pasar de una base de 2 a 16 a decimal 
-** Números primos menores de 1000
+** Imprimir los números primos menores de 1000
+
+*** Solución                                                       :noexport:
+#+begin_src sql
+create or replace function es_primo(posibleprimo IN number) return char
+is
+  esprimo boolean := true;
+begin
+  for posibledivisor in 2..(sqrt(posibleprimo)) loop
+     esprimo := mod(posibleprimo,posibledivisor) <> 0;
+     exit when not esprimo;
+  end loop;
+  return case esprimo
+    when true then 's'
+    else 'n' 
+  end;  
+end;
+/
+#+end_src
+
+#+begin_src sql
+begin
+  for i in 2 .. 1000 loop
+    if( es_primo(i) = 's' ) then
+      dbms_output.put_line( 'Es primo:' || i );
+    end if;
+  end loop;
+end;
+/
+#+end_src
+
 ** Decidir si un número es capicúa
 Usa =to_char= para pasar el número a texto, y utiliza =substr= para extraer posiciones del texto y compararlas.
 
@@ -56,7 +86,7 @@ begin
 end;
 /
 #+END_SRC
-** Números primos capicúas menores de 100000
+** Imprimir los Números primos capicúas menores de 100000
 
 ** Decidir si 1000003 es primo
 
@@ -97,39 +127,8 @@ end;
 #+end_src
 
 
-** Primos
 
-*** Solución                                                       :noexport:
-#+begin_src sql
-create or replace function es_primo(posibleprimo IN number) return char
-is
-  esprimo boolean := true;
-begin
-  for posibledivisor in 2..(sqrt(posibleprimo)) loop
-     esprimo := mod(posibleprimo,posibledivisor) <> 0;
-     exit when not esprimo;
-  end loop;
-  return case esprimo
-    when true then 's'
-    else 'n' 
-  end;  
-end;
-/
-#+end_src
-
-#+begin_src sql
-begin
-  for i in 2 .. 1000 loop
-    if( es_primo(i) = 's' ) then
-      dbms_output.put_line( 'Es primo:' || i );
-    end if;
-  end loop;
-end;
-/
-#+end_src
-
-
-** Paso por valor
+** Paso por valor :noexport:
 
 *** Solución                                                       :noexport:
 #+begin_src sql
