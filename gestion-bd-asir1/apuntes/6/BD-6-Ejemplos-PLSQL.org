@@ -22,6 +22,9 @@ Los números se tabulan alineándolos a la derecha
 7 x  9 = 14
 7 x 10 = 14
 #+end_src
+
+** Nota cualitativa
+Haz una función que reciba una nota numérica sobre 10 y devuelva su nota cualitativa. Por ejemplo, para =7.3= es =notable=.
 ** Pasar de decimal a binario
 ** Pasar de decimal a una base entre 2 y 16
 ** Pasar de una base de 2 a 16 a decimal 

@@ -351,8 +351,6 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 
 * Redes reservadas
 - IANA, por medio de RFC’s, ha reservado varias redes para usos concretos. Algunos ejemplos son:
-
-
 | Red              | Uso                                                                                 |
 |------------------+-------------------------------------------------------------------------------------|
 | ~127.0.0.0/8~    | "loopback", utilizado para enviar paquetes IP al propio host                        |
@@ -360,6 +358,7 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 | ~172.16.0.0/12~  | Red privada (RFC 1918)                                                              |
 | ~192.168.0.0/16~ | Red privada (RFC 1918)                                                              |
 | ~169.254.0.0/16~ | /Link Local/ o /APIPA/. Direcciones automáticas en redes pequeñas sin servidor DHCP |
+- Más ejemplos en la [[https://en.wikipedia.org/wiki/Reserved_IP_addresses][Wikipedia]]
 
 ** ¿Qué es una red privada?
 - Una red privada (RFC 1918) son direciones inválidas en Internet

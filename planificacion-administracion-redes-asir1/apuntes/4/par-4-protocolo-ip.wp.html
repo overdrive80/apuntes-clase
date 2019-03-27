@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-01-08 mar 09:59 -->
+<!-- 2019-01-26 sáb 20:32 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Protocolo IP</title>
@@ -238,20 +238,20 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org8bb2e20">1. Introducción</a></li>
-<li><a href="#orgcafdf97">2. Protocolo IP</a></li>
-<li><a href="#org6d1734b">3. Direcciones IP</a></li>
-<li><a href="#org468eb33">4. Clases IP</a></li>
-<li><a href="#orgb6ec8b8">5. CIDR</a></li>
-<li><a href="#org8de7a56">6. Ejercicios</a></li>
-<li><a href="#orga1af91c">7. Redes reservadas</a></li>
-<li><a href="#org1c16d72">8. Referencias</a></li>
+<li><a href="#org43b927b">1. Introducción</a></li>
+<li><a href="#orgc3913d1">2. Protocolo IP</a></li>
+<li><a href="#org139e495">3. Direcciones IP</a></li>
+<li><a href="#org8582070">4. Clases IP</a></li>
+<li><a href="#org21a7ae7">5. CIDR</a></li>
+<li><a href="#org3fe2aec">6. Ejercicios</a></li>
+<li><a href="#org9b09b83">7. Redes reservadas</a></li>
+<li><a href="#org5944155">8. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org8bb2e20" class="outline-2">
-<h2 id="org8bb2e20"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org43b927b" class="outline-2">
+<h2 id="org43b927b"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>En Internet, el protocolo IP corresponde con el nivel de red de ISO/OSI</li>
@@ -269,8 +269,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgcafdf97" class="outline-2">
-<h2 id="orgcafdf97"><span class="section-number-2">2</span> Protocolo IP</h2>
+<div id="outline-container-orgc3913d1" class="outline-2">
+<h2 id="orgc3913d1"><span class="section-number-2">2</span> Protocolo IP</h2>
 <div class="outline-text-2" id="text-2">
 
 <div class="figure">
@@ -279,8 +279,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org2dc9654" class="outline-3">
-<h3 id="org2dc9654"><span class="section-number-3">2.1</span> Protocolo IP</h3>
+<div id="outline-container-org2c366bd" class="outline-3">
+<h3 id="org2c366bd"><span class="section-number-3">2.1</span> Protocolo IP</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Internet Protocol (RFC 791)</li>
@@ -295,8 +295,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org22dde44" class="outline-3">
-<h3 id="org22dde44"><span class="section-number-3">2.2</span> Estructura paquete IP</h3>
+<div id="outline-container-org0f0dec3" class="outline-3">
+<h3 id="org0f0dec3"><span class="section-number-3">2.2</span> Estructura paquete IP</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 <img src="media/cabecera-ip.png" alt="cabecera-ip.png" />
@@ -305,8 +305,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org02ac3a2" class="outline-3">
-<h3 id="org02ac3a2"><span class="section-number-3">2.3</span> Longitud de la cabecera</h3>
+<div id="outline-container-org2fc5009" class="outline-3">
+<h3 id="org2fc5009"><span class="section-number-3">2.3</span> Longitud de la cabecera</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>IP no tiene un tamaño de cabecera fijo</li>
@@ -316,8 +316,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org2431c89" class="outline-3">
-<h3 id="org2431c89"><span class="section-number-3">2.4</span> Código de redundancia</h3>
+<div id="outline-container-orgebc8d6d" class="outline-3">
+<h3 id="orgebc8d6d"><span class="section-number-3">2.4</span> Código de redundancia</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>El <i>checksum</i> se calcula como la suma (sin acarreo) de todas las palabras de 32 bits de la cabecera
@@ -330,8 +330,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org93e9cb4" class="outline-3">
-<h3 id="org93e9cb4"><span class="section-number-3">2.5</span> Identificación del paquete y <i>fragment offset</i></h3>
+<div id="outline-container-org6163fad" class="outline-3">
+<h3 id="org6163fad"><span class="section-number-3">2.5</span> Identificación del paquete y <i>fragment offset</i></h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Todos los paquetes IP tienen un identificador único: <i>identification</i> y <i>fragment offset</i></li>
@@ -350,8 +350,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org907a07b" class="outline-3">
-<h3 id="org907a07b"><span class="section-number-3">2.6</span> <i>Flags</i></h3>
+<div id="outline-container-org551a024" class="outline-3">
+<h3 id="org551a024"><span class="section-number-3">2.6</span> <i>Flags</i></h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>El primero es para usos futuros.</li>
@@ -360,8 +360,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd65ecf5" class="outline-3">
-<h3 id="orgd65ecf5"><span class="section-number-3">2.7</span> TTL (tiempo de vida)</h3>
+<div id="outline-container-orgde42f72" class="outline-3">
+<h3 id="orgde42f72"><span class="section-number-3">2.7</span> TTL (tiempo de vida)</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>El enrutamiento IP puede tener problemas
@@ -382,8 +382,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orgbb32790" class="outline-3">
-<h3 id="orgbb32790"><span class="section-number-3">2.8</span> Protocolo de nivel superior</h3>
+<div id="outline-container-org7b4f416" class="outline-3">
+<h3 id="org7b4f416"><span class="section-number-3">2.8</span> Protocolo de nivel superior</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>Indica qué protocolo está encapsulado en los datos
@@ -482,8 +482,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orga235a94" class="outline-3">
-<h3 id="orga235a94"><span class="section-number-3">2.9</span> Dirección de origen y destino</h3>
+<div id="outline-container-org74808d8" class="outline-3">
+<h3 id="org74808d8"><span class="section-number-3">2.9</span> Dirección de origen y destino</h3>
 <div class="outline-text-3" id="text-2-9">
 <ul class="org-ul">
 <li>Son números de 32 bits</li>
@@ -498,8 +498,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org6d1734b" class="outline-2">
-<h2 id="org6d1734b"><span class="section-number-2">3</span> Direcciones IP</h2>
+<div id="outline-container-org139e495" class="outline-2">
+<h2 id="org139e495"><span class="section-number-2">3</span> Direcciones IP</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Una dirección IP consta de 32 bits</li>
@@ -524,8 +524,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </table>
 </div>
 
-<div id="outline-container-org042cb66" class="outline-3">
-<h3 id="org042cb66"><span class="section-number-3">3.1</span> Direcciones IP ¿qué identifican?</h3>
+<div id="outline-container-orgc45cacb" class="outline-3">
+<h3 id="orgc45cacb"><span class="section-number-3">3.1</span> Direcciones IP ¿qué identifican?</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Las direcciones no se asignan por host.</li>
@@ -545,8 +545,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orga19a27a" class="outline-3">
-<h3 id="orga19a27a"><span class="section-number-3">3.2</span> Red y Host</h3>
+<div id="outline-container-orgb10f9bd" class="outline-3">
+<h3 id="orgb10f9bd"><span class="section-number-3">3.2</span> Red y Host</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Las direcciones IP se asignan al montar la red, nocomo las MAC
@@ -594,8 +594,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org468eb33" class="outline-2">
-<h2 id="org468eb33"><span class="section-number-2">4</span> Clases IP</h2>
+<div id="outline-container-org8582070" class="outline-2">
+<h2 id="org8582070"><span class="section-number-2">4</span> Clases IP</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>En las primeras versiones de IP había unas normas fijas para definir qué parte de la dirección era host y qué parte red</li>
@@ -609,8 +609,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org0aa03dd" class="outline-3">
-<h3 id="org0aa03dd"><span class="section-number-3">4.1</span> Ejercicio de clases IP</h3>
+<div id="outline-container-org5d18bb0" class="outline-3">
+<h3 id="org5d18bb0"><span class="section-number-3">4.1</span> Ejercicio de clases IP</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Ejemplo: 
@@ -634,8 +634,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orga1ea6ff" class="outline-3">
-<h3 id="orga1ea6ff"><span class="section-number-3">4.2</span> Parte de red y host</h3>
+<div id="outline-container-org02272e8" class="outline-3">
+<h3 id="org02272e8"><span class="section-number-3">4.2</span> Parte de red y host</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>La clase define qué bits de la dirección son parte de la red y qué parte es del host</li>
@@ -670,8 +670,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orgc9b3840" class="outline-3">
-<h3 id="orgc9b3840"><span class="section-number-3">4.3</span> Ejercicio de parte de red y host</h3>
+<div id="outline-container-orgc527d47" class="outline-3">
+<h3 id="orgc527d47"><span class="section-number-3">4.3</span> Ejercicio de parte de red y host</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>¿Cuáles son las direcciones de red y de host de las siguientes direcciones IP?
@@ -688,8 +688,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org7a80d00" class="outline-3">
-<h3 id="org7a80d00"><span class="section-number-3">4.4</span> Dirección de red</h3>
+<div id="outline-container-org277fd90" class="outline-3">
+<h3 id="org277fd90"><span class="section-number-3">4.4</span> Dirección de red</h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li>La red IP tiene una dirección propia
@@ -732,8 +732,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 
 
-<div id="outline-container-orga3dfb86" class="outline-3">
-<h3 id="orga3dfb86"><span class="section-number-3">4.5</span> Dirección de host</h3>
+<div id="outline-container-org6008b91" class="outline-3">
+<h3 id="org6008b91"><span class="section-number-3">4.5</span> Dirección de host</h3>
 <div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>El host tiene una dirección propia dentro de la red
@@ -779,8 +779,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org13a4bae" class="outline-3">
-<h3 id="org13a4bae"><span class="section-number-3">4.6</span> Resumen de direcciones de red y host</h3>
+<div id="outline-container-orgf3d51de" class="outline-3">
+<h3 id="orgf3d51de"><span class="section-number-3">4.6</span> Resumen de direcciones de red y host</h3>
 <div class="outline-text-3" id="text-4-6">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -839,8 +839,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 
 
-<div id="outline-container-orgb40bc6f" class="outline-3">
-<h3 id="orgb40bc6f"><span class="section-number-3">4.7</span> Ejercicio de clases IP</h3>
+<div id="outline-container-orgc9625ab" class="outline-3">
+<h3 id="orgc9625ab"><span class="section-number-3">4.7</span> Ejercicio de clases IP</h3>
 <div class="outline-text-3" id="text-4-7">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -883,8 +883,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 
 
-<div id="outline-container-orgbaa66ae" class="outline-3">
-<h3 id="orgbaa66ae"><span class="section-number-3">4.8</span> ¿Para qué sirve la red y el host?</h3>
+<div id="outline-container-org4be6ac6" class="outline-3">
+<h3 id="org4be6ac6"><span class="section-number-3">4.8</span> ¿Para qué sirve la red y el host?</h3>
 <div class="outline-text-3" id="text-4-8">
 <ul class="org-ul">
 <li>Cuando un host va a enviar un paquete
@@ -899,8 +899,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 
 
-<div id="outline-container-org797b62d" class="outline-3">
-<h3 id="org797b62d"><span class="section-number-3">4.9</span> Problemas de las clases IP</h3>
+<div id="outline-container-orga77aabd" class="outline-3">
+<h3 id="orga77aabd"><span class="section-number-3">4.9</span> Problemas de las clases IP</h3>
 <div class="outline-text-3" id="text-4-9">
 <ul class="org-ul">
 <li>En un principio, IP tenía suficientes direcciones y redes para todo el mundo</li>
@@ -915,8 +915,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orgb6ec8b8" class="outline-2">
-<h2 id="orgb6ec8b8"><span class="section-number-2">5</span> CIDR</h2>
+<div id="outline-container-org21a7ae7" class="outline-2">
+<h2 id="org21a7ae7"><span class="section-number-2">5</span> CIDR</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><i>Classles Internet Domain Routing</i></li>
@@ -929,8 +929,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </ul>
 </div>
 
-<div id="outline-container-org96a2cdd" class="outline-3">
-<h3 id="org96a2cdd"><span class="section-number-3">5.1</span> Máscara de red</h3>
+<div id="outline-container-org769477e" class="outline-3">
+<h3 id="org769477e"><span class="section-number-3">5.1</span> Máscara de red</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Con CIDR las parte de la dirección red y host se calcula mediante las máscaras de red</li>
@@ -944,8 +944,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-orga53cd53" class="outline-3">
-<h3 id="orga53cd53"><span class="section-number-3">5.2</span> Ejercicio</h3>
+<div id="outline-container-org9ea1c0e" class="outline-3">
+<h3 id="org9ea1c0e"><span class="section-number-3">5.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>¿Qué máscaras de red tienen las siguientes redes?
@@ -960,8 +960,8 @@ Intenta hacer <code>ping</code> a Google con un TTL de 10. ¿es suficiente? ¿y 
 </div>
 </div>
 
-<div id="outline-container-org069782b" class="outline-3">
-<h3 id="org069782b"><span class="section-number-3">5.3</span> Dirección de red</h3>
+<div id="outline-container-org68436cd" class="outline-3">
+<h3 id="org68436cd"><span class="section-number-3">5.3</span> Dirección de red</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Con CIDR, la dirección de red sigue siendo la que tiene todos los bits del host a 0, y la de broadcast a 1.</li>
@@ -995,8 +995,8 @@ AND 192.168.020.100
 </div>
 </div>
 
-<div id="outline-container-orgaafdcb4" class="outline-3">
-<h3 id="orgaafdcb4"><span class="section-number-3">5.4</span> Ejercicio</h3>
+<div id="outline-container-orge05df45" class="outline-3">
+<h3 id="orge05df45"><span class="section-number-3">5.4</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>¿A qué red pertenecen las siguientes direcciones IP?
@@ -1012,8 +1012,8 @@ AND 192.168.020.100
 </div>
 
 
-<div id="outline-container-org7992e12" class="outline-3">
-<h3 id="org7992e12"><span class="section-number-3">5.5</span> <i>Subnetting</i> y <i>supernetting</i></h3>
+<div id="outline-container-org5eafe43" class="outline-3">
+<h3 id="org5eafe43"><span class="section-number-3">5.5</span> <i>Subnetting</i> y <i>supernetting</i></h3>
 <div class="outline-text-3" id="text-5-5">
 <ul class="org-ul">
 <li>Utilizando máscaras de red pueden saltarse los límites de las clases IP
@@ -1025,8 +1025,8 @@ AND 192.168.020.100
 </div>
 </div>
 
-<div id="outline-container-orge84f631" class="outline-3">
-<h3 id="orge84f631"><span class="section-number-3">5.6</span> Subnetting</h3>
+<div id="outline-container-org4d2e77e" class="outline-3">
+<h3 id="org4d2e77e"><span class="section-number-3">5.6</span> Subnetting</h3>
 <div class="outline-text-3" id="text-5-6">
 <ul class="org-ul">
 <li>Consiste en crear subredes pequeñas dentro de una red de clase A, B o C</li>
@@ -1114,12 +1114,13 @@ AND 192.168.020.100
 
 <p>
 <a href="http://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi">http://www.aprendaredes.com/cgi-bin/ipcalc/ipcalc_cgi</a>
+<a href="http://vlsm-calc.net/">http://vlsm-calc.net/</a>
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5ef8ab9" class="outline-3">
-<h3 id="org5ef8ab9"><span class="section-number-3">5.7</span> Supernetting</h3>
+<div id="outline-container-org23bf3d8" class="outline-3">
+<h3 id="org23bf3d8"><span class="section-number-3">5.7</span> Supernetting</h3>
 <div class="outline-text-3" id="text-5-7">
 <ul class="org-ul">
 <li>A partir de varias redes pequeñas (generalmente clase C), conseguir una más grande</li>
@@ -1168,12 +1169,12 @@ AND 192.168.020.100
 </div>
 
 
-<div id="outline-container-org8de7a56" class="outline-2">
-<h2 id="org8de7a56"><span class="section-number-2">6</span> Ejercicios</h2>
+<div id="outline-container-org3fe2aec" class="outline-2">
+<h2 id="org3fe2aec"><span class="section-number-2">6</span> Ejercicios</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-org0fcadf6" class="outline-3">
-<h3 id="org0fcadf6"><span class="section-number-3">6.1</span> Tabla de redes IP</h3>
+<div id="outline-container-orgf62ac9f" class="outline-3">
+<h3 id="orgf62ac9f"><span class="section-number-3">6.1</span> Tabla de redes IP</h3>
 <div class="outline-text-3" id="text-6-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1262,8 +1263,8 @@ AND 192.168.020.100
 
 
 
-<div id="outline-container-org8ea252c" class="outline-3">
-<h3 id="org8ea252c"><span class="section-number-3">6.2</span> Tabla de redes IP</h3>
+<div id="outline-container-org4651787" class="outline-3">
+<h3 id="org4651787"><span class="section-number-3">6.2</span> Tabla de redes IP</h3>
 <div class="outline-text-3" id="text-6-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1332,8 +1333,8 @@ AND 192.168.020.100
 </div>
 </div>
 
-<div id="outline-container-org441be39" class="outline-3">
-<h3 id="org441be39"><span class="section-number-3">6.3</span> Subnetting</h3>
+<div id="outline-container-org3b2f6dc" class="outline-3">
+<h3 id="org3b2f6dc"><span class="section-number-3">6.3</span> Subnetting</h3>
 <div class="outline-text-3" id="text-6-3">
 <p>
 Una organización tiene 5 departamentos independientes. En cada uno de ellos se van a instalar 3000 hosts.  Si todas las máquinas disponen de una direccion IP única en internet:
@@ -1347,8 +1348,8 @@ Una organización tiene 5 departamentos independientes. En cada uno de ellos se 
 </div>
 </div>
 
-<div id="outline-container-orgdc10d75" class="outline-3">
-<h3 id="orgdc10d75"><span class="section-number-3">6.4</span> Subnetting</h3>
+<div id="outline-container-orgf7f3a0b" class="outline-3">
+<h3 id="orgf7f3a0b"><span class="section-number-3">6.4</span> Subnetting</h3>
 <div class="outline-text-3" id="text-6-4">
 <p>
 Una organización tiene asignada la red 192.168.2.0/24 y desea agrupar a su personal en grupos de trabajo de 140 empleados. El conjunto de trabajadores de cada grupo, comparte una subred diferente a la de los otros grupos.
@@ -1371,8 +1372,8 @@ El ejercicio se puede repetir con
 </div>
 </div>
 
-<div id="outline-container-org51b008c" class="outline-3">
-<h3 id="org51b008c"><span class="section-number-3">6.5</span> Subnetting</h3>
+<div id="outline-container-org7d693a5" class="outline-3">
+<h3 id="org7d693a5"><span class="section-number-3">6.5</span> Subnetting</h3>
 <div class="outline-text-3" id="text-6-5">
 <p>
 Una empresa recibe la dirección 132.33.0.0 para su red. Asigna a cada uno de los siete departamentos una subred, teniendo en cuenta el número de ordenadores de cada uno:
@@ -1392,14 +1393,12 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 </div>
 
 
-<div id="outline-container-orga1af91c" class="outline-2">
-<h2 id="orga1af91c"><span class="section-number-2">7</span> Redes reservadas</h2>
+<div id="outline-container-org9b09b83" class="outline-2">
+<h2 id="org9b09b83"><span class="section-number-2">7</span> Redes reservadas</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>IANA, por medio de RFC’s, ha reservado varias redes para usos concretos. Algunos ejemplos son:</li>
 </ul>
-
-
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1441,10 +1440,13 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 </tr>
 </tbody>
 </table>
+<ul class="org-ul">
+<li>Más ejemplos en la <a href="https://en.wikipedia.org/wiki/Reserved_IP_addresses">Wikipedia</a></li>
+</ul>
 </div>
 
-<div id="outline-container-org6b7ac8c" class="outline-3">
-<h3 id="org6b7ac8c"><span class="section-number-3">7.1</span> ¿Qué es una red privada?</h3>
+<div id="outline-container-org1a96c7b" class="outline-3">
+<h3 id="org1a96c7b"><span class="section-number-3">7.1</span> ¿Qué es una red privada?</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Una red privada (RFC 1918) son direciones inválidas en Internet
@@ -1466,8 +1468,8 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 </div>
 
 
-<div id="outline-container-org0c748d6" class="outline-3">
-<h3 id="org0c748d6"><span class="section-number-3">7.2</span> CIDR: Redes reservadas</h3>
+<div id="outline-container-org34704a8" class="outline-3">
+<h3 id="org34704a8"><span class="section-number-3">7.2</span> CIDR: Redes reservadas</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>En el estándar CIDR se reserva la primera y última red de cada partición
@@ -1481,8 +1483,8 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 </div>
 
 
-<div id="outline-container-org1c16d72" class="outline-2">
-<h2 id="org1c16d72"><span class="section-number-2">8</span> Referencias</h2>
+<div id="outline-container-org5944155" class="outline-2">
+<h2 id="org5944155"><span class="section-number-2">8</span> Referencias</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Formatos:
@@ -1502,7 +1504,7 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-01-08 mar 09:59</p>
+<p class="date">Created: 2019-01-26 sáb 20:32</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

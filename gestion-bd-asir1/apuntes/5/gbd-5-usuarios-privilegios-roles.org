@@ -63,7 +63,7 @@ grant select on alumnos to profesor;
 
 ** Ejercicio
 - Crea un usuario =LIMITADO=
-  - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255)),numero integer)=
+  - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255),numero integer)=
 - Crea un usuario =CONPERMISOS=
 - Haz que =LIMITADO= de privilegios a =CONPERMISOS= para que:
   - Pueda leer todos los campos de la tabla =DATOS=

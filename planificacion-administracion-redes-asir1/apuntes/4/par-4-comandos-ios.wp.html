@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-05-15 mar 08:55 -->
+<!-- 2019-02-22 vie 13:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Comandos IOS</title>
@@ -162,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -190,7 +203,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -239,18 +252,19 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org35cec83">1. General</a></li>
-<li><a href="#org93a6a2f">2. Direcciones IP</a></li>
-<li><a href="#orgb96d35b">3. Enrutamiento</a></li>
-<li><a href="#orgff086b2">4. VLAN</a></li>
-<li><a href="#org96d16d3">5. STP</a></li>
-<li><a href="#org3fefbef">6. Referencias</a></li>
+<li><a href="#orgba3b13f">1. General</a></li>
+<li><a href="#orge01e1db">2. Direcciones IP</a></li>
+<li><a href="#org29f76ee">3. Enrutamiento</a></li>
+<li><a href="#orgb6352a7">4. VLAN</a></li>
+<li><a href="#org0d8d262">5. STP</a></li>
+<li><a href="#org30cc79a">6. Link agregation</a></li>
+<li><a href="#org5375ddd">7. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org35cec83" class="outline-2">
-<h2 id="org35cec83"><span class="section-number-2">1</span> General</h2>
+<div id="outline-container-orgba3b13f" class="outline-2">
+<h2 id="orgba3b13f"><span class="section-number-2">1</span> General</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><code>CTRL-ALT-6</code> para parar un comando incorrecto</li>
@@ -259,8 +273,8 @@ for the JavaScript code in this tag.
 <li>Un comando con <code>no</code> deshace el comando</li>
 </ul>
 </div>
-<div id="outline-container-org60f5ec0" class="outline-3">
-<h3 id="org60f5ec0"><span class="section-number-3">1.1</span> Modos</h3>
+<div id="outline-container-org1e6dccc" class="outline-3">
+<h3 id="org1e6dccc"><span class="section-number-3">1.1</span> Modos</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li><code>Press RETURN to get started.</code>
@@ -285,8 +299,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org20cc4ca" class="outline-3">
-<h3 id="org20cc4ca"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
+<div id="outline-container-org69dec01" class="outline-3">
+<h3 id="org69dec01"><span class="section-number-3">1.2</span> Para activar la configuración</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-java">Router&gt; enable
@@ -297,8 +311,8 @@ Router(config)#
 </div>
 </div>
 
-<div id="outline-container-org9db4ce6" class="outline-3">
-<h3 id="org9db4ce6"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
+<div id="outline-container-org5dc638e" class="outline-3">
+<h3 id="org5dc638e"><span class="section-number-3">1.3</span> Salvar la configuración</h3>
 <div class="outline-text-3" id="text-1-3">
 <pre class="example">
 Router# write memory
@@ -308,12 +322,12 @@ Router# copy running-config startup-config
 </div>
 </div>
 
-<div id="outline-container-org93a6a2f" class="outline-2">
-<h2 id="org93a6a2f"><span class="section-number-2">2</span> Direcciones IP</h2>
+<div id="outline-container-orge01e1db" class="outline-2">
+<h2 id="orge01e1db"><span class="section-number-2">2</span> Direcciones IP</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org702ce64" class="outline-3">
-<h3 id="org702ce64"><span class="section-number-3">2.1</span> Asignar IP</h3>
+<div id="outline-container-orgaf9d92a" class="outline-3">
+<h3 id="orgaf9d92a"><span class="section-number-3">2.1</span> Asignar IP</h3>
 <div class="outline-text-3" id="text-2-1">
 <pre class="example">
 Router(config)# interface fa0/0
@@ -325,8 +339,8 @@ Router(config)#
 </div>
 </div>
 
-<div id="outline-container-org79706ea" class="outline-3">
-<h3 id="org79706ea"><span class="section-number-3">2.2</span> Consultar IP</h3>
+<div id="outline-container-orgf6c83fc" class="outline-3">
+<h3 id="orgf6c83fc"><span class="section-number-3">2.2</span> Consultar IP</h3>
 <div class="outline-text-3" id="text-2-2">
 <pre class="example">
 Router&gt; show ip interface
@@ -336,12 +350,12 @@ Router&gt; show ip interface brief
 </div>
 </div>
 
-<div id="outline-container-orgb96d35b" class="outline-2">
-<h2 id="orgb96d35b"><span class="section-number-2">3</span> Enrutamiento</h2>
+<div id="outline-container-org29f76ee" class="outline-2">
+<h2 id="org29f76ee"><span class="section-number-2">3</span> Enrutamiento</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org78b6bba" class="outline-3">
-<h3 id="org78b6bba"><span class="section-number-3">3.1</span> Añadir ruta</h3>
+<div id="outline-container-orgd539bae" class="outline-3">
+<h3 id="orgd539bae"><span class="section-number-3">3.1</span> Añadir ruta</h3>
 <div class="outline-text-3" id="text-3-1">
 <pre class="example">
 Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -349,8 +363,8 @@ Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
 </div>
 </div>
 
-<div id="outline-container-orgb60b6a2" class="outline-3">
-<h3 id="orgb60b6a2"><span class="section-number-3">3.2</span> Borrar ruta</h3>
+<div id="outline-container-orga554490" class="outline-3">
+<h3 id="orga554490"><span class="section-number-3">3.2</span> Borrar ruta</h3>
 <div class="outline-text-3" id="text-3-2">
 <pre class="example">
 Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -359,8 +373,8 @@ Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
 </div>
 
 
-<div id="outline-container-org835b92d" class="outline-3">
-<h3 id="org835b92d"><span class="section-number-3">3.3</span> Consultar rutas</h3>
+<div id="outline-container-orgce206c7" class="outline-3">
+<h3 id="orgce206c7"><span class="section-number-3">3.3</span> Consultar rutas</h3>
 <div class="outline-text-3" id="text-3-3">
 <pre class="example">
 Router&gt; show ip route
@@ -369,12 +383,12 @@ Router&gt; show ip route
 </div>
 </div>
 
-<div id="outline-container-orgff086b2" class="outline-2">
-<h2 id="orgff086b2"><span class="section-number-2">4</span> VLAN</h2>
+<div id="outline-container-orgb6352a7" class="outline-2">
+<h2 id="orgb6352a7"><span class="section-number-2">4</span> VLAN</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-orgc96fd0e" class="outline-3">
-<h3 id="orgc96fd0e"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
+<div id="outline-container-org0da3f58" class="outline-3">
+<h3 id="org0da3f58"><span class="section-number-3">4.1</span> Consultar VLANs</h3>
 <div class="outline-text-3" id="text-4-1">
 <pre class="example">
 Switch&gt; show vlan brief
@@ -383,8 +397,8 @@ Switch&gt; show interfaces trunk
 </div>
 </div>
 
-<div id="outline-container-orgd43e3e3" class="outline-3">
-<h3 id="orgd43e3e3"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
+<div id="outline-container-orgf1ef872" class="outline-3">
+<h3 id="orgf1ef872"><span class="section-number-3">4.2</span> Crear una VLAN</h3>
 <div class="outline-text-3" id="text-4-2">
 <pre class="example">
 Switch(config)#vlan 2
@@ -394,8 +408,8 @@ Switch(config-vlan)#exit
 </div>
 </div>
 
-<div id="outline-container-org3cb140f" class="outline-3">
-<h3 id="org3cb140f"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
+<div id="outline-container-org683b01f" class="outline-3">
+<h3 id="org683b01f"><span class="section-number-3">4.3</span> Asignar un puerto a una VLAN (access)</h3>
 <div class="outline-text-3" id="text-4-3">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -404,8 +418,8 @@ Switch(config-if)#switchport access vlan 2
 </div>
 </div>
 
-<div id="outline-container-org63f0354" class="outline-3">
-<h3 id="org63f0354"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
+<div id="outline-container-org6e8cb19" class="outline-3">
+<h3 id="org6e8cb19"><span class="section-number-3">4.4</span> Asignar un puerto como trunk</h3>
 <div class="outline-text-3" id="text-4-4">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -414,8 +428,8 @@ Switch(config-if)#switchport mode trunk
 </div>
 </div>
 
-<div id="outline-container-org9f044a2" class="outline-3">
-<h3 id="org9f044a2"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
+<div id="outline-container-org2cfc818" class="outline-3">
+<h3 id="org2cfc818"><span class="section-number-3">4.5</span> Permitir/denegar una VLAN en un puerto trunk</h3>
 <div class="outline-text-3" id="text-4-5">
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
@@ -425,8 +439,8 @@ Switch(config-if)#switchport trunk allowed vlan add 2
 </div>
 </div>
 
-<div id="outline-container-org0fa8b24" class="outline-3">
-<h3 id="org0fa8b24"><span class="section-number-3">4.6</span> Routers</h3>
+<div id="outline-container-org3094adb" class="outline-3">
+<h3 id="org3094adb"><span class="section-number-3">4.6</span> Routers</h3>
 <div class="outline-text-3" id="text-4-6">
 <ul class="org-ul">
 <li>Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.</li>
@@ -451,8 +465,8 @@ Router# show interfaces
 </div>
 
 
-<div id="outline-container-org96d16d3" class="outline-2">
-<h2 id="org96d16d3"><span class="section-number-2">5</span> STP</h2>
+<div id="outline-container-org0d8d262" class="outline-2">
+<h2 id="org0d8d262"><span class="section-number-2">5</span> STP</h2>
 <div class="outline-text-2" id="text-5">
 <p>
 Consultar y poner la prioridad de un switch
@@ -467,9 +481,23 @@ Switch(config)# spanning-tree vlan 1 priority 1
 </div>
 </div>
 
-<div id="outline-container-org3fefbef" class="outline-2">
-<h2 id="org3fefbef"><span class="section-number-2">6</span> Referencias</h2>
+<div id="outline-container-org30cc79a" class="outline-2">
+<h2 id="org30cc79a"><span class="section-number-2">6</span> Link agregation</h2>
 <div class="outline-text-2" id="text-6">
+<p>
+Se añader a un mismo <code>channel-group</code> todos los enlaces conectados al mismo switch.
+</p>
+
+<pre class="example">
+Switch(config)# interface fa0/1
+Switch(config-if)# channel-group 1 mode active
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5375ddd" class="outline-2">
+<h2 id="org5375ddd"><span class="section-number-2">7</span> Referencias</h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -488,7 +516,7 @@ Switch(config)# spanning-tree vlan 1 priority 1
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-05-15 mar 08:55</p>
+<p class="date">Created: 2019-02-22 vie 13:52</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
