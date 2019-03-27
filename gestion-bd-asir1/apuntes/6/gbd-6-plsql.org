@@ -135,6 +135,119 @@ case v_job_grade
 end case;
 #+end_src
 
+** Ejemplos de =case=
+Queremos implementar un servicio de traducción de español a inglés. El servicio no está disponible los lunes
+
+
+*** =case= como sentencia con un valor
+#+begin_src sql
+declare
+    v varchar(100) := 'Hasta luego';
+begin
+    if to_char(sysdate,'D')=1 then
+        dbms_output.println('es mi día libre' );
+    else    
+           
+        case v
+            when 'Hola' then
+                dbms_output.put_line('Hello' );
+            when 'Adiós' then
+                dbms_output.put_line('Bye' );
+            else
+                dbms_output.put_line('No traduction' );
+        end case;        
+    end if;    
+end;
+/
+#+end_src
+
+*** =case= como sentencia con múltiples comparaciones
+#+begin_src sql
+declare
+    v varchar(100) := 'Hola';
+begin
+    case 
+        when to_char(sysdate,'D')=1 then
+            dbms_output.put_line('es mi día libre' );
+        when v='Hola' then
+            dbms_output.put_line('Hello' );
+        when v='Adiós' then
+            dbms_output.put_line('Bye' );
+        else
+            dbms_output.put_line('No traduction' );
+    end case;        
+end;
+/
+#+end_src
+
+
+*** =case= como expresión con múltiples comparaciones
+#+begin_src sql
+declare
+    v varchar(100) := 'Hola';
+    traduccion varchar(100);
+begin
+    traduccion := case 
+        when to_char(sysdate,'D')=1 then
+            'es mi día libre'
+        when v='Hola' then
+            'Hello'
+        when v='Adiós' then
+            'Bye'
+        else
+            'No traduction'
+    end;
+    dbms_output.put_line(traduccion);
+end;
+/
+#+end_src
+
+
+*** =case= como expresión con un valor
+#+begin_src sql
+declare
+    v varchar(100) := 'Hola';
+    traduccion varchar(100);
+begin
+    if to_char(sysdate,'D')=1  then
+        traduccion := 'es mi día libre';
+    else  
+        traduccion := case v
+            when 'Hola' then
+                'Hello'
+            when 'Adiós' then
+                'Bye'
+            else
+                'No traduction'
+        end;
+    end if;   
+    dbms_output.put_line(traduccion);
+end;
+/
+#+end_src
+
+*** Case usado en sentencias =sql=
+#+begin_src sql
+select nombre, precioventa, case 
+  when precioventa >= 100 then 'carísimo'
+  when precioventa >= 10 then 'caro'
+  else 'barato' end as rango
+from productos
+order by 3;
+#+end_src
+
+
+#+begin_src sql
+select nombre,precioventa, 'caro'
+from productos
+where precioventa >= 10
+union
+select nombre,precioventa, 'barato'
+from productos
+where precioventa < 10;
+#+end_src
+
+
 ** Bucle =loop=
 #+BEGIN_SRC sql
 LOOP
