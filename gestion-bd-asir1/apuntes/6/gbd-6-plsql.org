@@ -107,7 +107,7 @@ END;
 
 ** Condicional múltiple (I)
 
-#+begin_src sql oracle
+#+begin_src sql
 case
   when vsalario<0 then
     dbms_output.put_line('Incorrecto');
@@ -373,6 +373,20 @@ select empno, es_par(empno) from empleados;
 - Haz una función que devuelva capitalizada la palabra recibida
   - Si recibe =paLABRa= debe devolver =Palabra=
 - Haz una función que devuelva capitalizada una frase, capitalizando cada palabra 
+
+*** Ejercicio resuelto: =capitalizar=
+
+#+begin_src sql
+create or replace function capitalizar( palabra varchar ) return varchar as
+  inicial char(1);
+  resto varchar(1024);
+begin
+  inicial := substr(palabra,1,1);
+  resto := substr(palabra,2,length(palabra)-1);
+  return upper(inicial) || lower(resto);
+end;
+#+end_src
+
 
 ** Procedimientos
 - Los procedimentos no devuelven un valor
@@ -720,7 +734,7 @@ END;
 
 
 
-* Habilitar el /debug/
+* Habilitar el /debug/ (en Oracle 18)
 
 #+begin_src sql
 begin
