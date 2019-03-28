@@ -1,3 +1,22 @@
+# -*- after-save-hook: org-html-export-to-html;  org-export-in-background: t;-*-
+
+#+begin_export html
+ <!-- https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position -->
+ <script type="text/javascript">
+            function refreshPage () {
+                var page_y = document.getElementsByTagName("body")[0].scrollTop;
+                window.location.href = window.location.href.split('?')[0] + '?page_y=' + page_y;
+            }
+            window.onload = function () {
+                setTimeout(refreshPage, 5000);
+                if ( window.location.href.indexOf('page_y') != -1 ) {
+                    var match = window.location.href.split('?')[1].split("&")[0].split("=");
+                    document.getElementsByTagName("body")[0].scrollTop = match[1];
+                }
+            }
+</script>
+#+end_export
+
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  /Network Address Translation/ (NAT)
 #+SUBTITLE: 
@@ -51,7 +70,7 @@
 - Se dejan como ejercicio
 
 ** Resultado
- - Si el 
+ - Si el router A
 
 
 * Referencias

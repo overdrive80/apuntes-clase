@@ -719,6 +719,26 @@ END;
 #+END_SRC
 
 
+
+* Habilitar el /debug/
+
+#+begin_src sql
+begin
+    dbms_network_acl_admin.append_host_ace
+        (host=>'IP DEL CLIENTE QUE DEBUGUEA',
+         ace=> sys.xs$ace_type( privilege_list=>sys.XS$NAME_LIST('JDWP') ,
+                                principal_name=>'USUARIO QUE DEBUGUEA',
+                                principal_type=>sys.XS_ACL.PTYPE_DB) );
+end;
+/
+
+grant debug connect session to USUARIOQUEDEBUGEA; 
+grant debug any procedure to USUARIOQUEDEBUGEA;
+grant execute on DBMS_DEBUG_JDWP to USUARIOQUEDEBUGEA;
+#+end_src
+
+
+
 * Referencias
 - Formatos:
   - [[file:gbd-6-plsql.reveal.html][Transparencias]]
@@ -2592,4 +2612,5 @@ ZONE
 
  1,846 rows selected 
 #+END_src
+
 
