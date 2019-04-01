@@ -135,8 +135,9 @@ sudo yum update #opcional, puede necesitar mucho tiempo
 
  #+BEGIN_NOTES
 sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33-3.2.3
-
  #+END_NOTES
+
+También hay un paquete de dependencias (=oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm=), que se puede instalar con =yum localinstall=
 
 *** Resumen
  - Se debe grabar la información de la hoja de resumen
