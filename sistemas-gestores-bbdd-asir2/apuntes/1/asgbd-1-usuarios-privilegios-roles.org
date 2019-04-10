@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Usuarios, privilegios y roles de *Oracle*
-# #+OPTIONS: reveal_single_file:nil
+#+OPTIONS: reveal_single_file:nil
 
 
 * Introducción
@@ -40,7 +40,7 @@
 #+reveal: split
 
 #+begin_src sql
-select tablespace_name from dba_tablespaces;
+select tablespace_name, description from dba_tablespaces;
 #+end_src
 
 
@@ -55,9 +55,12 @@ Mas información en:
 CREATE TABLESPACE nombre 
   DATAFILE '/camino/al/fichero.dbf'
   SIZE tamanoinicial
-  AUTOEXTEND ON NEXT 200k MAXSIZE 1400K
-  DEFAULT STORAGE (INITIAL 16k NEXT 16k MINEXTENTS 1 MAXEXTENTS 3);
+  AUTOEXTEND ON 
+  NEXT 200k 
+  MAXSIZE 1400K;
 #+end_src
+
+Más en [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm][docs.oracle.com]]
 
 ** ¿Por qué es tan complicado?
 - Esta flexibilidad permite:
@@ -79,7 +82,7 @@ graph{
   Tablespace -- File[label="1    N"]
   File -- Segment [label="N    N"]
   Segment -- Extent [label="1    N"]
-  Extent -- Oracle_block [label="1    N"]
+  Extent -- "Oracle block" [label="1    N"]
 }
 #+end_src
 
@@ -187,12 +190,12 @@ grant select on alumnos to profesor;
 [[https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339][Fuente: docs.oracle.com]]
 
 ** Ejercicio
-- Crea un usuario =LIMITADO=
+- Crea un usuario =CONPERMISOS=
   - Que tenga privilegios de =connect= y =resource=
   - Utilízalo para crear una tabla =DATOS(TEXTO varchar2(255),numero integer)=
   - Inserta datos (puede que necesite cuota)
-- Crea un usuario =CONPERMISOS=
-- Haz que =LIMITADO= de privilegios a =CONPERMISOS= para que:
+- Crea un usuario =LIMITADO=
+- Haz que =CONPERMISOS= de privilegios a =LIMITADO= para que:
   - Pueda leer todos los campos de la tabla =DATOS=
   - Pueda actualizar el campo =NUMERO= de tabla =DATOS=
   - Pero no pueda modificar el campo =TEXTO=, ni borrar filas, ni insertar filas
@@ -202,16 +205,16 @@ grant update(column-name) on table-name to user-name
 #+END_NOTES
 
 ** Ejercicio
-- Haz que el usuario =LIMITADO= tenga una cuota de 100k en el tablespace =USERS=
+- Haz que el usuario =CONPERMISOS= tenga una cuota de 100k en el tablespace =USERS=
 - Llena toda su cuota insertando filas en la tabla =DATOS=
 - ¿Qué ocurre?
 
 #+BEGIN_NOTES
-create user limitado identified by limitado;
-grant resource,connect to limitado;
-alter user limitado quota 100k on users;
+create user conpermisos identified by conpermisos;
+grant resource,connect to conpermisos;
+alter user conpermisos quota 100k on users;
 
-connect limitado/limitado
+connect conpermisos/conpermisos
 
 create table datos(texto varchar2(255),numero integer);
 insert into datos(texto) values('En un lugar de la Mancha de cuyo nombre no quiero acordarme');
@@ -327,7 +330,7 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
   - se quede sin sesión a los 2 minutos de conectarse, aunque no haya estado inactivo
 
 #+BEGIN_NOTES
-alter system set resource_limit = true;
+alter system set resource_limit = true scope=both;
 drop profile limitado cascade;
 create profile limitado limit idle_time 1 connect_time 2;
 alter user limitado profile limitado;
