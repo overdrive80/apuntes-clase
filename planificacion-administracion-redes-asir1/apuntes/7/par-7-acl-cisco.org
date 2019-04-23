@@ -84,6 +84,7 @@
   access-list access-list-number {permit|deny} 
   {host|source source-wildcard|any}.
   #+END_SRC
+
   + Solo hacen referencia a las direcciones IP de origen. 
   #+REVEAL: split
   + Se puede especificar:
@@ -95,6 +96,12 @@
     + Todas las direcciones: Las siguientes especificaciones son equivalentes
       - =any=
       - =0.0.0.0 255.255.255.255=
+
+  #+REVEAL: split
+Ejemplo: No dejes pasar el tráfico con origen en la red =192.168.1.0/8=
+#+begin_src sh
+access-list 10 deny 192.168.1.0 0.0.0.255 
+#+end_src
 
 ** Ejercicio
 
@@ -140,6 +147,14 @@
   - Puerto
   - Conexión previamente establecida
 
+** Operadores (para puertos TCP/UDP)
+| Operador | Significa    |
+|----------+--------------+
+| eq       | ~=~ igual    |
+| lt       | ~<~ Menor    |
+| ne       | ~≠~ No igual |
+| gt       | ~>~ Mayor    |
+
 ** IP
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]
@@ -148,6 +163,13 @@
    [precedence precedence] [tos tos] [log | log-input]  
    [time-range time-range-name][fragments]
    #+END_SRC
+
+Ejemplo: Prohíbe el tráfico hacia la red =172.16.0.0/12=
+#+begin_src sh
+access-list 101 deny ip any 172.16.0.0 0.0.15.255
+#+end_src
+
+
 ** Protocolo de mensajes de control de Internet (ICMP)
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]
@@ -164,6 +186,18 @@
    [precedence precedence] [tos tos] [log |   log-input] 
    [time-range time-range-name][fragments]
    #+END_SRC
+
+Ejemplo: Permite el protocolo *TCP* desde la red =172.16.3.0/24= con puerto de origen =21= hacia la red =172.16.1.0/24=
+#+begin_src sh
+access-list 101 permit tcp 172.16.3.0 0.0.0.255 eq 21 172.16.1.0 0.0.0.255
+#+end_src
+
+Ejemplo: Permite la comunicación *TCP* hacia la red =10.0.0.0/8= si ya se ha establecido conexión (la red =10.0.0.0/8= es la que tiene el cliente)
+#+begin_src sh
+access-list 102 permit tcp any 10.0.0.0 0.0.0.255 established
+#+end_src
+
+
 ** Protocolo de datagrama de usuario (UDP)
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]   
