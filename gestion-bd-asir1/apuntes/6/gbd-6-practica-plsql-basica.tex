@@ -60,6 +60,7 @@ Una compañía necesita automatizar su almacén
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
 create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
 as 
+  -- VARIABLES QUE HAGAN FALTA
 begin
   -- CONSIGUE EL NUEVO ID 
   -- INSERTA EL PRODUCTO CON ESE ID
@@ -100,6 +101,7 @@ create or replace procedure ENTRADA_PRODUCTO(
   preciopagado IN number,
   fecha IN timestamp default systimestamp)
 as
+  -- VARIABLES QUE HAGAN FALTA
 begin
   ...
 end; 
@@ -110,6 +112,7 @@ create or replace procedure SALIDA_PRODUCTO(
   preciocobrado IN number,
   fecha IN timestamp default systimestamp)
 as
+  -- VARIABLES QUE HAGAN FALTA
 begin
   ...
 end; 
@@ -165,7 +168,7 @@ end;
 \end{homeworkProblem}
 
 \section{Entorno de pruebas}
-En clase hay accesible un servidor Oracle (\texttt{10.1.37.201}), con un usuario para cada alumno (usuario y contraseña es el apellido en minúsculas).
+En clase hay accesible un servidor Oracle (\texttt{10.1.37.201}), con un usuario para cada alumno.
 El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.37.201}{http://10.1.37.201}.
 
 \section{Instrucciones de entrega}
