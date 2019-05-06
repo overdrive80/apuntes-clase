@@ -597,6 +597,43 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 - Exporta la base de datos al fichero =/datos/exports/multas.dump=
 - Importa las tablas en el usuario =copiamultas=
 
+** Tareas para la exportación
+
+#+begin_src dot :file ./media/dependencias-expdp.svg :exports results :cmdline -Tsvg
+digraph{
+  graph [nodesep=0.5, ranksep=1]
+  node [ shape="box"]
+  edge [fontname="courier", fontsize="10"]
+  splines=true
+
+  "Registrar directorio" -> "Crear directorio"
+  "expdp" -> "Registrar directorio"
+  "expdp" -> "Privilegios de usuario Oracle" 
+  "expdp" -> "Permisos usuario S.O."
+  "Permisos usuario S.O." -> "¿Qué usuario S.O. ejecuta la instancia?"
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/dependencias-expdp.svg]]
+
+** Tareas para la importación
+
+#+begin_src dot :file ./media/dependencias-impdp.svg :exports results :cmdline -Tsvg
+digraph{
+  graph [nodesep=0.5, ranksep=1]
+  node [ shape="box"]
+  edge [fontname="courier", fontsize="10"]
+  splines=true
+
+  "impdp" -> "Privilegios de usuario Oracle" 
+  "impdp" -> "Cambio de schema"
+  "impdp" -> "expdp"
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/dependencias-impdp.svg]]
 
 * Otras soluciones
 - RMAN
