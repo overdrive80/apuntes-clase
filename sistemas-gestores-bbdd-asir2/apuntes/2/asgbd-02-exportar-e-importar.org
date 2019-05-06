@@ -628,6 +628,7 @@ digraph{
 
   "impdp" -> "Privilegios de usuario Oracle" 
   "impdp" -> "Cambio de schema"
+  "Cambio de schema" -> "grant datapump_imp_full_database to ..."
   "impdp" -> "expdp"
 }
 #+end_src
