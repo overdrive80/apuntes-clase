@@ -120,7 +120,7 @@ end;
 
 
   
-  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
+  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido ni entradas ni salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
 
   \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
 create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number) return number
