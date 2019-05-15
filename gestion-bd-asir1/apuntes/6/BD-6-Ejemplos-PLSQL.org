@@ -350,12 +350,12 @@ end;
 ** Tablas de masa salarial
 
 #+begin_src sql
-create table sueldos( sueldo numeric)
-create table masasalarialtotal(id integer, total numeric);
+create table sueldos(idempleado, sueldo numeric)
+create table masasalarialtotal(total numeric);
 #+end_src
 
 ** Limitar los sueldos por arriba y por abajo
-haz un /trigger/ que evite que asegure que los empleados no cobran menos de 100000€ ni más de 1000000€.
+haz un /trigger/ que asegure que los empleados no cobran menos de 100000€ ni más de 1000000€.
 
 
 *** Solución                                                       :noexport:
