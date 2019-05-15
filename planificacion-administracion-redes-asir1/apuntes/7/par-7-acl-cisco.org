@@ -5,23 +5,25 @@
 
 
 * LISTAS DE CONTROL DE ACCESO
-  + Las ACL son listas con reglas.
-    - Cada regla define una condición que puede cumplir un paquete
-    - Cada regla define una acción (=permit=, =deny=) a ejecutar sobre el paquete que cumpla su condición
-    - Siempre hay una regla al final que desecha cualquier paquete
++ Las ACL son listas con reglas.
+  - Cada regla define una condición que puede cumplir un paquete
+  - Cada regla define una acción (=permit=, =deny=) a ejecutar sobre el paquete que cumpla su condición
+  - Siempre hay una regla al final que desecha cualquier paquete
 
-#+REVEAL: split
-  + Se identifican por un número
-    - Estándar: 
-      - =1= a =99=
-      - =1300= a =1999=
-    - Ampliadas: 
-      - =100= a =199=
-      - =2000= a =2699=
-  + En versiones recientes de IOS (11.2) se pueden usar también nombres de ACL      
-  + Una interfaz puede tener una ACL asociada en cada sentido
-    - Entrada de paquetes (Inbound)
-    - Salida de paquetes (Outbound)
+
+** Numeración
+
++ Se identifican por un número
+  - Estándar: 
+    - =1= a =99=
+    - =1300= a =1999=
+  - Ampliadas: 
+    - =100= a =199=
+    - =2000= a =2699=
++ En versiones recientes de IOS (11.2) se pueden usar también nombres de ACL      
++ Una interfaz puede tener una ACL asociada en cada sentido
+  - Entrada de paquetes (Inbound)
+  - Salida de paquetes (Outbound)
 
 * PROCESAMIENTO DE ACL
   + Al llegar un paquete
@@ -221,7 +223,7 @@ access-list 102 permit tcp any 10.0.0.0 0.0.0.255 established
 ** Ejercicio
    - Un router une las redes =192.168.1.0/24= (LAN) y =172.16.1.0/24= (DMZ). Se desea que:
      - Los usuarios de la LAN no puedan realizar PING hacia la DMZ.
-     - El tráfico UPD está permitido por el puerto =53= (DNS)
+     - El tráfico UDP está permitido por el puerto =53= (DNS)
      - Las únicas conexiones TCP permitidas entre LAN y DMZ serán las que tengan origen en la LAN.
 
 
