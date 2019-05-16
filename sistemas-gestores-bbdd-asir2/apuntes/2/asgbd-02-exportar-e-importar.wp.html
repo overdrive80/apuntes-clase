@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2018-11-27 mar 13:24 -->
+<!-- 2019-05-06 lun 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exportar e importar datos de Oracle</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -189,7 +202,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2018 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -238,17 +251,17 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgc872889">1. Exportar datos</a></li>
-<li><a href="#org7d3db70">2. Importar datos</a></li>
-<li><a href="#org090f29d">3. Ejercicio</a></li>
-<li><a href="#orgd3d890c">4. Otras soluciones</a></li>
-<li><a href="#orgec996ef">5. Referencias</a></li>
+<li><a href="#org746b2b4">1. Exportar datos</a></li>
+<li><a href="#orgb181fa3">2. Importar datos</a></li>
+<li><a href="#orge086fdf">3. Ejercicio</a></li>
+<li><a href="#org3a72fbe">4. Otras soluciones</a></li>
+<li><a href="#org496bb4a">5. Referencias</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgc872889" class="outline-2">
-<h2 id="orgc872889"><span class="section-number-2">1</span> Exportar datos</h2>
+<div id="outline-container-org746b2b4" class="outline-2">
+<h2 id="org746b2b4"><span class="section-number-2">1</span> Exportar datos</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>expdp</code>
@@ -269,7 +282,7 @@ between Oracle databases. The utility is invoked with the following command:
 
    Example: expdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
 
-You can control how Export runs by entering the <span style="color: #70c0b1;">'expdp'</span> command followed
+You can control how Export runs by entering the <span style="color: #d54e53; font-weight: bold;">'</span>expdp<span style="color: #d54e53; font-weight: bold;">'</span> command followed
 by various parameters. To specify parameters, you <span style="color: #7aa6da;">use</span> <span style="color: #e7c547;">keywords</span>:
 
    Format:  expdp KEYWORD=value or KEYWORD=(value1,value2,...,valueN)
@@ -285,211 +298,211 @@ The available keywords and their descriptions follow. Default values are listed 
 ABORT_STEP
 Stop the job after it is initialized or at the indicated object.
 Valid values are -1 or N where N is zero or greater.
-N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</span><span style="color: #70c0b1;">s process order number in the master table.</span>
+N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</span>s process order number in the master table.
 
-<span style="color: #70c0b1;">ACCESS_METHOD</span>
-<span style="color: #70c0b1;">Instructs Export to use a particular method to unload data.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [AUTOMATIC], DIRECT_PATH and EXTERNAL_TABLE.</span>
+ACCESS_METHOD
+Instructs Export to use a particular method to unload data.
+Valid keyword values are: [AUTOMATIC], DIRECT_PATH <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">EXTERNAL_TABLE</span>.
 
-<span style="color: #70c0b1;">ATTACH</span>
-<span style="color: #70c0b1;">Attach to an existing job.</span>
-<span style="color: #70c0b1;">For example, ATTACH=job_name.</span>
+ATTACH
+Attach to an existing job.
+For example, ATTACH=job_name.
 
-<span style="color: #70c0b1;">CLUSTER</span>
-<span style="color: #70c0b1;">Utilize cluster resources and distribute workers across the Oracle RAC [YES].</span>
+CLUSTER
+Utilize cluster resources and distribute workers across the Oracle RAC [YES].
 
-<span style="color: #70c0b1;">COMPRESSION</span>
-<span style="color: #70c0b1;">Reduce the size of a dump file.</span>
-<span style="color: #70c0b1;">Valid keyword values are: ALL, DATA_ONLY, [METADATA_ONLY] and NONE.</span>
+COMPRESSION
+Reduce the size of a dump file.
+Valid keyword values are: ALL, DATA_ONLY, [METADATA_ONLY] and NONE.
 
-<span style="color: #70c0b1;">COMPRESSION_ALGORITHM</span>
-<span style="color: #70c0b1;">Specify the compression algorithm that should be used.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [BASIC], LOW, MEDIUM and HIGH.</span>
+COMPRESSION_ALGORITHM
+Specify the compression algorithm that should be used.
+Valid keyword values are: [BASIC], LOW, MEDIUM <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">HIGH</span>.
 
-<span style="color: #70c0b1;">CONTENT</span>
-<span style="color: #70c0b1;">Specifies data to unload.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [ALL], DATA_ONLY and METADATA_ONLY.</span>
+CONTENT
+Specifies data to unload.
+Valid keyword values are: [ALL], DATA_ONLY <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">METADATA_ONLY</span>.
 
-<span style="color: #70c0b1;">DATA_OPTIONS</span>
-<span style="color: #70c0b1;">Data layer option flags.</span>
-<span style="color: #70c0b1;">Valid keyword values are: XML_CLOBS.</span>
+DATA_OPTIONS
+Data layer option flags.
+Valid keyword values are: XML_CLOBS.
 
-<span style="color: #70c0b1;">DIRECTORY</span>
-<span style="color: #70c0b1;">Directory object to be used for dump and log files.</span>
+DIRECTORY
+Directory object to be used <span style="color: #b9ca4a;">for</span> dump and log files.
 
-<span style="color: #70c0b1;">DUMPFILE</span>
-<span style="color: #70c0b1;">Specify list of destination dump file names [expdat.dmp].</span>
-<span style="color: #70c0b1;">For example, DUMPFILE=scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.</span>
+DUMPFILE
+Specify list of destination dump file names [expdat.dmp].
+For example, DUMPFILE=scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.
 
-<span style="color: #70c0b1;">ENCRYPTION</span>
-<span style="color: #70c0b1;">Encrypt part or all of a dump file.</span>
-<span style="color: #70c0b1;">Valid keyword values are: ALL, DATA_ONLY, ENCRYPTED_COLUMNS_ONLY, METADATA_ONLY and NONE.</span>
+ENCRYPTION
+Encrypt part or all of a dump file.
+Valid keyword values are: ALL, DATA_ONLY, ENCRYPTED_COLUMNS_ONLY, METADATA_ONLY <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">NONE</span>.
 
-<span style="color: #70c0b1;">ENCRYPTION_ALGORITHM</span>
-<span style="color: #70c0b1;">Specify how encryption should be done.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [AES128], AES192 and AES256.</span>
+ENCRYPTION_ALGORITHM
+Specify how encryption should be done.
+Valid keyword values are: [AES128], AES192 <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">AES256</span>.
 
-<span style="color: #70c0b1;">ENCRYPTION_MODE</span>
-<span style="color: #70c0b1;">Method of generating encryption key.</span>
-<span style="color: #70c0b1;">Valid keyword values are: DUAL, PASSWORD and [TRANSPARENT].</span>
+ENCRYPTION_MODE
+Method of generating encryption key.
+Valid keyword values are: DUAL, <span style="color: #7aa6da;">PASSWORD</span> <span style="color: #e7c547;">and</span> [TRANSPARENT].
 
-<span style="color: #70c0b1;">ENCRYPTION_PASSWORD</span>
-<span style="color: #70c0b1;">Password key for creating encrypted data within a dump file.</span>
+ENCRYPTION_PASSWORD
+Password key <span style="color: #b9ca4a;">for</span> creating encrypted data within a dump file.
 
-<span style="color: #70c0b1;">ENCRYPTION_PWD_PROMPT</span>
-<span style="color: #70c0b1;">Specifies whether to prompt for the encryption password [NO].</span>
-<span style="color: #70c0b1;">Terminal echo will be suppressed while standard input is read.</span>
+ENCRYPTION_PWD_PROMPT
+Specifies whether to prompt <span style="color: #b9ca4a;">for</span> the encryption password [NO].
+Terminal echo will be suppressed <span style="color: #b9ca4a;">while</span> standard input is read.
 
-<span style="color: #70c0b1;">ESTIMATE</span>
-<span style="color: #70c0b1;">Calculate job estimates.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [BLOCKS] and STATISTICS.</span>
+ESTIMATE
+Calculate job estimates.
+Valid keyword values are: [BLOCKS] and STATISTICS.
 
-<span style="color: #70c0b1;">ESTIMATE_ONLY</span>
-<span style="color: #70c0b1;">Calculate job estimates without performing the export [NO].</span>
+ESTIMATE_ONLY
+Calculate job estimates without performing the export [NO].
 
-<span style="color: #70c0b1;">EXCLUDE</span>
-<span style="color: #70c0b1;">Exclude specific object types.</span>
-<span style="color: #70c0b1;">For example, EXCLUDE=SCHEMA:"='</span>HR<span style="color: #d54e53; font-weight: bold;">'</span><span style="color: #70c0b1;">".</span>
+EXCLUDE
+Exclude specific object types.
+For example, EXCLUDE=SCHEMA:<span style="color: #70c0b1;">"='HR'"</span>.
 
-<span style="color: #70c0b1;">FILESIZE</span>
-<span style="color: #70c0b1;">Specify the size of each dump file in units of bytes.</span>
+FILESIZE
+Specify the size of each dump file in units of bytes.
 
-<span style="color: #70c0b1;">FLASHBACK_SCN</span>
-<span style="color: #70c0b1;">SCN used to reset session snapshot.</span>
+FLASHBACK_SCN
+SCN used to reset session snapshot.
 
-<span style="color: #70c0b1;">FLASHBACK_TIME</span>
-<span style="color: #70c0b1;">Time used to find the closest corresponding SCN value.</span>
+FLASHBACK_TIME
+Time used to find the closest corresponding SCN value.
 
-<span style="color: #70c0b1;">FULL</span>
-<span style="color: #70c0b1;">Export entire database [NO].</span>
+FULL
+Export entire database [NO].
 
-<span style="color: #70c0b1;">HELP</span>
-<span style="color: #70c0b1;">Display Help messages [NO].</span>
+HELP
+Display Help messages [NO].
 
-<span style="color: #70c0b1;">INCLUDE</span>
-<span style="color: #70c0b1;">Include specific object types.</span>
-<span style="color: #70c0b1;">For example, INCLUDE=TABLE_DATA.</span>
+INCLUDE
+Include specific object types.
+For example, INCLUDE=TABLE_DATA.
 
-<span style="color: #70c0b1;">JOB_NAME</span>
-<span style="color: #70c0b1;">Name of export job to create.</span>
+JOB_NAME
+Name of export job to create.
 
-<span style="color: #70c0b1;">KEEP_MASTER</span>
-<span style="color: #70c0b1;">Retain the master table after an export job that completes successfully [NO].</span>
+KEEP_MASTER
+Retain the master table after an export job that completes successfully [NO].
 
-<span style="color: #70c0b1;">LOGFILE</span>
-<span style="color: #70c0b1;">Specify log file name [export.log].</span>
+LOGFILE
+Specify log file name [export.log].
 
-<span style="color: #70c0b1;">LOGTIME</span>
-<span style="color: #70c0b1;">Specifies that messages displayed during export operations be timestamped.</span>
-<span style="color: #70c0b1;">Valid keyword values are: ALL, [NONE], LOGFILE and STATUS.</span>
+LOGTIME
+Specifies that messages displayed during export operations be timestamped.
+Valid keyword values are: ALL, [NONE], LOGFILE <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">STATUS</span>.
 
-<span style="color: #70c0b1;">METRICS</span>
-<span style="color: #70c0b1;">Report additional job information to the export log file [NO].</span>
+METRICS
+Report additional job information to the export log file [NO].
 
-<span style="color: #70c0b1;">NETWORK_LINK</span>
-<span style="color: #70c0b1;">Name of remote database link to the source system.</span>
+NETWORK_LINK
+Name of remote database link to the source system.
 
-<span style="color: #70c0b1;">NOLOGFILE</span>
-<span style="color: #70c0b1;">Do not write log file [NO].</span>
+NOLOGFILE
+Do not write log file [NO].
 
-<span style="color: #70c0b1;">PARALLEL</span>
-<span style="color: #70c0b1;">Change the number of active workers for current job.</span>
+PARALLEL
+Change the number of active workers <span style="color: #b9ca4a;">for</span> current job.
 
-<span style="color: #70c0b1;">PARFILE</span>
-<span style="color: #70c0b1;">Specify parameter file name.</span>
+PARFILE
+Specify parameter file name.
 
-<span style="color: #70c0b1;">QUERY</span>
-<span style="color: #70c0b1;">Predicate clause used to export a subset of a table.</span>
-<span style="color: #70c0b1;">For example, QUERY=employees:"WHERE department_id &gt; 10".</span>
+QUERY
+Predicate clause used to export a subset of a table.
+For example, QUERY=employees:<span style="color: #70c0b1;">"WHERE department_id &gt; 10"</span>.
 
-<span style="color: #70c0b1;">REMAP_DATA</span>
-<span style="color: #70c0b1;">Specify a data conversion function.</span>
-<span style="color: #70c0b1;">For example, REMAP_DATA=EMP.EMPNO:REMAPPKG.EMPNO.</span>
+REMAP_DATA
+Specify a data conversion function.
+For example, REMAP_DATA=EMP.EMPNO:REMAPPKG.EMPNO.
 
-<span style="color: #70c0b1;">REUSE_DUMPFILES</span>
-<span style="color: #70c0b1;">Overwrite destination dump file if it exists [NO].</span>
+REUSE_DUMPFILES
+Overwrite destination dump file <span style="color: #b9ca4a;">if</span> it exists [NO].
 
-<span style="color: #70c0b1;">SAMPLE</span>
-<span style="color: #70c0b1;">Percentage of data to be exported. </span>
+SAMPLE
+Percentage of data to be exported. 
 
-<span style="color: #70c0b1;">SCHEMAS</span>
-<span style="color: #70c0b1;">List of schemas to export [login schema].</span>
+SCHEMAS
+List of schemas to export [login schema].
 
-<span style="color: #70c0b1;">SERVICE_NAME</span>
-<span style="color: #70c0b1;">Name of an active Service and associated resource group to constrain Oracle RAC resources.</span>
+SERVICE_NAME
+Name of an active Service and associated resource group to constrain Oracle RAC resources.
 
-<span style="color: #70c0b1;">SOURCE_EDITION</span>
-<span style="color: #70c0b1;">Edition to be used for extracting metadata.</span>
+SOURCE_EDITION
+Edition to be used <span style="color: #b9ca4a;">for</span> extracting metadata.
 
-<span style="color: #70c0b1;">STATUS</span>
-<span style="color: #70c0b1;">Frequency (secs) job status is to be monitored where</span>
-<span style="color: #70c0b1;">the default [0] will show new status when available.</span>
+STATUS
+Frequency (secs) job status is to be monitored <span style="color: #7aa6da;">where</span>
+<span style="color: #e7c547;">the</span> <span style="color: #b9ca4a;">default</span> [0] will show new status when available.
 
-<span style="color: #70c0b1;">TABLES</span>
-<span style="color: #70c0b1;">Identifies a list of tables to export.</span>
-<span style="color: #70c0b1;">For example, TABLES=HR.EMPLOYEES,SH.SALES:SALES_1995.</span>
+TABLES
+Identifies a list of tables to export.
+For example, <span style="color: #e7c547;">TABLES</span>=HR.EMPLOYEES,<span style="color: #e7c547;">SH</span>.SALES:SALES_1995.
 
-<span style="color: #70c0b1;">TABLESPACES</span>
-<span style="color: #70c0b1;">Identifies a list of tablespaces to export.</span>
+TABLESPACES
+Identifies a list of tablespaces to export.
 
-<span style="color: #70c0b1;">TRANSPORTABLE</span>
-<span style="color: #70c0b1;">Specify whether transportable method can be used.</span>
-<span style="color: #70c0b1;">Valid keyword values are: ALWAYS and [NEVER].</span>
+TRANSPORTABLE
+Specify whether transportable method can be used.
+Valid keyword values are: ALWAYS and [NEVER].
 
-<span style="color: #70c0b1;">TRANSPORT_FULL_CHECK</span>
-<span style="color: #70c0b1;">Verify storage segments of all tables [NO].</span>
+TRANSPORT_FULL_CHECK
+Verify storage segments of all tables [NO].
 
-<span style="color: #70c0b1;">TRANSPORT_TABLESPACES</span>
-<span style="color: #70c0b1;">List of tablespaces from which metadata will be unloaded.</span>
+TRANSPORT_TABLESPACES
+List of tablespaces from which metadata will be unloaded.
 
-<span style="color: #70c0b1;">VERSION</span>
-<span style="color: #70c0b1;">Version of objects to export.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [COMPATIBLE], LATEST or any valid database version.</span>
+VERSION
+Version of objects to export.
+Valid keyword values are: [COMPATIBLE], <span style="color: #e7c547;">LATEST</span> or any valid database version.
 
-<span style="color: #70c0b1;">VIEWS_AS_TABLES</span>
-<span style="color: #70c0b1;">Identifies one or more views to be exported as tables.</span>
-<span style="color: #70c0b1;">For example, VIEWS_AS_TABLES=HR.EMP_DETAILS_VIEW.</span>
+VIEWS_AS_TABLES
+Identifies one or more views to be exported as tables.
+For example, <span style="color: #e7c547;">VIEWS_AS_TABLES</span>=HR.EMP_DETAILS_VIEW.
 
-<span style="color: #70c0b1;">------------------------------------------------------------------------------</span>
+------------------------------------------------------------------------------
 
-<span style="color: #70c0b1;">The following commands are valid while in interactive mode.</span>
-<span style="color: #70c0b1;">Note: abbreviations are allowed.</span>
+The following commands are valid <span style="color: #b9ca4a;">while</span> in interactive mode.
+Note: abbreviations are allowed.
 
-<span style="color: #70c0b1;">ADD_FILE</span>
-<span style="color: #70c0b1;">Add dumpfile to dumpfile set.</span>
+ADD_FILE
+Add dumpfile to dumpfile set.
 
-<span style="color: #70c0b1;">CONTINUE_CLIENT</span>
-<span style="color: #70c0b1;">Return to logging mode. Job will be restarted if idle.</span>
+CONTINUE_CLIENT
+Return to logging mode. Job will be restarted <span style="color: #b9ca4a;">if</span> idle.
 
-<span style="color: #70c0b1;">EXIT_CLIENT</span>
-<span style="color: #70c0b1;">Quit client session and leave job running.</span>
+EXIT_CLIENT
+Quit client session and leave job running.
 
-<span style="color: #70c0b1;">FILESIZE</span>
-<span style="color: #70c0b1;">Default filesize (bytes) for subsequent ADD_FILE commands.</span>
+FILESIZE
+Default filesize (bytes) <span style="color: #b9ca4a;">for</span> subsequent ADD_FILE commands.
 
-<span style="color: #70c0b1;">HELP</span>
-<span style="color: #70c0b1;">Summarize interactive commands.</span>
+HELP
+Summarize interactive commands.
 
-<span style="color: #70c0b1;">KILL_JOB</span>
-<span style="color: #70c0b1;">Detach and delete job.</span>
+KILL_JOB
+Detach and delete job.
 
-<span style="color: #70c0b1;">PARALLEL</span>
-<span style="color: #70c0b1;">Change the number of active workers for current job.</span>
+PARALLEL
+Change the number of active workers <span style="color: #b9ca4a;">for</span> current job.
 
-<span style="color: #70c0b1;">REUSE_DUMPFILES</span>
-<span style="color: #70c0b1;">Overwrite destination dump file if it exists [NO]. </span>
+REUSE_DUMPFILES
+Overwrite destination dump file <span style="color: #b9ca4a;">if</span> it exists [NO]. 
 
-<span style="color: #70c0b1;">START_JOB</span>
-<span style="color: #70c0b1;">Start or resume current job.</span>
-<span style="color: #70c0b1;">Valid keyword values are: SKIP_CURRENT.</span>
+START_JOB
+Start or resume current job.
+Valid keyword values are: SKIP_CURRENT.
 
-<span style="color: #70c0b1;">STATUS</span>
-<span style="color: #70c0b1;">Frequency (secs) job status is to be monitored where</span>
-<span style="color: #70c0b1;">the default [0] will show new status when available.</span>
+STATUS
+Frequency (secs) job status is to be monitored <span style="color: #7aa6da;">where</span>
+<span style="color: #e7c547;">the</span> <span style="color: #b9ca4a;">default</span> [0] will show new status when available.
 
-<span style="color: #70c0b1;">STOP_JOB</span>
-<span style="color: #70c0b1;">Orderly shutdown of job execution and exits the client.</span>
-<span style="color: #70c0b1;">Valid keyword values are: IMMEDIATE.</span>
+STOP_JOB
+Orderly shutdown of job execution and exits the client.
+Valid keyword values are: IMMEDIATE.
 
 
 </pre>
@@ -497,8 +510,8 @@ N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</s
 </div>
 
 
-<div id="outline-container-orge0b7f4f" class="outline-3">
-<h3 id="orge0b7f4f"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
+<div id="outline-container-org0708351" class="outline-3">
+<h3 id="org0708351"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Algunos comandos de <b>Oracle</b> necesitan trabajar sobre directorios del disco</li>
@@ -514,8 +527,8 @@ N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</s
 
 
 
-<div id="outline-container-org931a739" class="outline-3">
-<h3 id="org931a739"><span class="section-number-3">1.2</span> Definir un directorio</h3>
+<div id="outline-container-orgffd5c17" class="outline-3">
+<h3 id="orgffd5c17"><span class="section-number-3">1.2</span> Definir un directorio</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">any</span> directory <span style="color: #b9ca4a;">to</span> unusuario; 
@@ -530,8 +543,8 @@ N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</s
 </div>
 </div>
 
-<div id="outline-container-orgb05447d" class="outline-3">
-<h3 id="orgb05447d"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
+<div id="outline-container-org8cf931b" class="outline-3">
+<h3 id="org8cf931b"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-shell">
@@ -570,8 +583,8 @@ Job <span style="color: #70c0b1;">"ALUMNO"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org7d3db70" class="outline-2">
-<h2 id="org7d3db70"><span class="section-number-2">2</span> Importar datos</h2>
+<div id="outline-container-orgb181fa3" class="outline-2">
+<h2 id="orgb181fa3"><span class="section-number-2">2</span> Importar datos</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>impdp</code>
@@ -592,7 +605,7 @@ between Oracle databases. The utility is invoked with the following command:
 
      Example: impdp scott/tiger DIRECTORY=dmpdir DUMPFILE=scott.dmp
 
-You can control how Import runs by entering the <span style="color: #70c0b1;">'impdp'</span> command followed
+You can control how Import runs by entering the <span style="color: #d54e53; font-weight: bold;">'</span>impdp<span style="color: #d54e53; font-weight: bold;">'</span> command followed
 by various parameters. To specify parameters, you <span style="color: #7aa6da;">use</span> <span style="color: #e7c547;">keywords</span>:
 
      Format:  impdp KEYWORD=value or KEYWORD=(value1,value2,...,valueN)
@@ -607,232 +620,232 @@ The available keywords and their descriptions follow. Default values are listed 
 ABORT_STEP
 Stop the job after it is initialized or at the indicated object.
 Valid values are -1 or N where N is zero or greater.
-N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</span><span style="color: #70c0b1;">s process order number in the master table.</span>
+N corresponds to the object<span style="color: #d54e53; font-weight: bold;">'</span>s process order number in the master table.
 
-<span style="color: #70c0b1;">ACCESS_METHOD</span>
-<span style="color: #70c0b1;">Instructs Import to use a particular method to load data.</span>
-<span style="color: #70c0b1;">Valid keyword values are: [AUTOMATIC], CONVENTIONAL, DIRECT_PATH</span>
-<span style="color: #70c0b1;">and EXTERNAL_TABLE.</span>
+ACCESS_METHOD
+Instructs Import to use a particular method to load data.
+Valid keyword values are: [AUTOMATIC], CONVENTIONAL, DIRECT_PATH
+<span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">EXTERNAL_TABLE</span>.
 
-<span style="color: #70c0b1;">ATTACH</span>
-<span style="color: #70c0b1;">Attach to an existing job.</span>
-<span style="color: #70c0b1;">For example, ATTACH=job_name.</span>
+ATTACH
+Attach to an existing job.
+For example, ATTACH=job_name.
 
-<span style="color: #70c0b1;">CLUSTER</span>
-<span style="color: #70c0b1;">Utilize cluster resources and distribute workers across the Oracle RAC [YES].</span>
+CLUSTER
+Utilize cluster resources and distribute workers across the Oracle RAC [YES].
 
-<span style="color: #70c0b1;">CONTENT</span>
-<span style="color: #70c0b1;">Specifies data to load.</span>
-<span style="color: #70c0b1;">Valid keywords are: [ALL], DATA_ONLY and METADATA_ONLY.</span>
+CONTENT
+Specifies data to load.
+Valid keywords are: [ALL], DATA_ONLY <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">METADATA_ONLY</span>.
 
-<span style="color: #70c0b1;">DATA_OPTIONS</span>
-<span style="color: #70c0b1;">Data layer option flags.</span>
-<span style="color: #70c0b1;">Valid keywords are: DISABLE_APPEND_HINT and SKIP_CONSTRAINT_ERRORS.</span>
+DATA_OPTIONS
+Data layer option flags.
+Valid keywords are: DISABLE_APPEND_HINT and SKIP_CONSTRAINT_ERRORS.
 
-<span style="color: #70c0b1;">DIRECTORY</span>
-<span style="color: #70c0b1;">Directory object to be used for dump, log and SQL files.</span>
+DIRECTORY
+Directory object to be used <span style="color: #b9ca4a;">for</span> dump, log <span style="color: #7aa6da;">and</span> <span style="color: #7aa6da;">SQL</span> <span style="color: #e7c547;">files</span>.
 
-<span style="color: #70c0b1;">DUMPFILE</span>
-<span style="color: #70c0b1;">List of dump files to import from [expdat.dmp].</span>
-<span style="color: #70c0b1;">For example, DUMPFILE=scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.</span>
+DUMPFILE
+List of dump files to import from [expdat.dmp].
+For example, DUMPFILE=scott1.dmp, scott2.dmp, dmpdir:scott3.dmp.
 
-<span style="color: #70c0b1;">ENCRYPTION_PASSWORD</span>
-<span style="color: #70c0b1;">Password key for accessing encrypted data within a dump file.</span>
-<span style="color: #70c0b1;">Not valid for network import jobs.</span>
+ENCRYPTION_PASSWORD
+Password key <span style="color: #b9ca4a;">for</span> accessing encrypted data within a dump file.
+Not valid <span style="color: #b9ca4a;">for</span> network import jobs.
 
-<span style="color: #70c0b1;">ENCRYPTION_PWD_PROMPT</span>
-<span style="color: #70c0b1;">Specifies whether to prompt for the encryption password [NO].</span>
-<span style="color: #70c0b1;">Terminal echo will be suppressed while standard input is read.</span>
+ENCRYPTION_PWD_PROMPT
+Specifies whether to prompt <span style="color: #b9ca4a;">for</span> the encryption password [NO].
+Terminal echo will be suppressed <span style="color: #b9ca4a;">while</span> standard input is read.
 
-<span style="color: #70c0b1;">ESTIMATE</span>
-<span style="color: #70c0b1;">Calculate network job estimates.</span>
-<span style="color: #70c0b1;">Valid keywords are: [BLOCKS] and STATISTICS.</span>
+ESTIMATE
+Calculate network job estimates.
+Valid keywords are: [BLOCKS] and STATISTICS.
 
-<span style="color: #70c0b1;">EXCLUDE</span>
-<span style="color: #70c0b1;">Exclude specific object types.</span>
-<span style="color: #70c0b1;">For example, EXCLUDE=SCHEMA:"='</span>HR<span style="color: #d54e53; font-weight: bold;">'</span><span style="color: #70c0b1;">".</span>
+EXCLUDE
+Exclude specific object types.
+For example, EXCLUDE=SCHEMA:<span style="color: #70c0b1;">"='HR'"</span>.
 
-<span style="color: #70c0b1;">FLASHBACK_SCN</span>
-<span style="color: #70c0b1;">SCN used to reset session snapshot.</span>
+FLASHBACK_SCN
+SCN used to reset session snapshot.
 
-<span style="color: #70c0b1;">FLASHBACK_TIME</span>
-<span style="color: #70c0b1;">Time used to find the closest corresponding SCN value.</span>
+FLASHBACK_TIME
+Time used to find the closest corresponding SCN value.
 
-<span style="color: #70c0b1;">FULL</span>
-<span style="color: #70c0b1;">Import everything from source [YES].</span>
+FULL
+Import everything from source [YES].
 
-<span style="color: #70c0b1;">HELP</span>
-<span style="color: #70c0b1;">Display help messages [NO].</span>
+HELP
+Display help messages [NO].
 
-<span style="color: #70c0b1;">INCLUDE</span>
-<span style="color: #70c0b1;">Include specific object types.</span>
-<span style="color: #70c0b1;">For example, INCLUDE=TABLE_DATA.</span>
+INCLUDE
+Include specific object types.
+For example, INCLUDE=TABLE_DATA.
 
-<span style="color: #70c0b1;">JOB_NAME</span>
-<span style="color: #70c0b1;">Name of import job to create.</span>
+JOB_NAME
+Name of import job to create.
 
-<span style="color: #70c0b1;">KEEP_MASTER</span>
-<span style="color: #70c0b1;">Retain the master table after an import job that completes successfully [NO].</span>
+KEEP_MASTER
+Retain the master table after an import job that completes successfully [NO].
 
-<span style="color: #70c0b1;">LOGFILE</span>
-<span style="color: #70c0b1;">Log file name [import.log].</span>
+LOGFILE
+Log file name [import.log].
 
-<span style="color: #70c0b1;">LOGTIME</span>
-<span style="color: #70c0b1;">Specifies that messages displayed during import operations be timestamped.</span>
-<span style="color: #70c0b1;">Valid keyword values are: ALL, [NONE], LOGFILE and STATUS.</span>
+LOGTIME
+Specifies that messages displayed during import operations be timestamped.
+Valid keyword values are: ALL, [NONE], LOGFILE <span style="color: #7aa6da;">and</span> <span style="color: #e7c547;">STATUS</span>.
 
-<span style="color: #70c0b1;">MASTER_ONLY</span>
-<span style="color: #70c0b1;">Import just the master table and then stop the job [NO].</span>
+MASTER_ONLY
+Import just the master table and then stop the job [NO].
 
-<span style="color: #70c0b1;">METRICS</span>
-<span style="color: #70c0b1;">Report additional job information to the import log file [NO].</span>
+METRICS
+Report additional job information to the import log file [NO].
 
-<span style="color: #70c0b1;">NETWORK_LINK</span>
-<span style="color: #70c0b1;">Name of remote database link to the source system.</span>
+NETWORK_LINK
+Name of remote database link to the source system.
 
-<span style="color: #70c0b1;">NOLOGFILE</span>
-<span style="color: #70c0b1;">Do not write log file [NO].</span>
+NOLOGFILE
+Do not write log file [NO].
 
-<span style="color: #70c0b1;">PARALLEL</span>
-<span style="color: #70c0b1;">Change the number of active workers for current job.</span>
+PARALLEL
+Change the number of active workers <span style="color: #b9ca4a;">for</span> current job.
 
-<span style="color: #70c0b1;">PARFILE</span>
-<span style="color: #70c0b1;">Specify parameter file.</span>
+PARFILE
+Specify parameter file.
 
-<span style="color: #70c0b1;">PARTITION_OPTIONS</span>
-<span style="color: #70c0b1;">Specify how partitions should be transformed.</span>
-<span style="color: #70c0b1;">Valid keywords are: DEPARTITION, MERGE and [NONE].</span>
+PARTITION_OPTIONS
+Specify how partitions should be transformed.
+Valid keywords are: DEPARTITION, <span style="color: #7aa6da;">MERGE</span> <span style="color: #e7c547;">and</span> [NONE].
 
-<span style="color: #70c0b1;">QUERY</span>
-<span style="color: #70c0b1;">Predicate clause used to import a subset of a table.</span>
-<span style="color: #70c0b1;">For example, QUERY=employees:"WHERE department_id &gt; 10".</span>
+QUERY
+Predicate clause used to import a subset of a table.
+For example, QUERY=employees:<span style="color: #70c0b1;">"WHERE department_id &gt; 10"</span>.
 
-<span style="color: #70c0b1;">REMAP_DATA</span>
-<span style="color: #70c0b1;">Specify a data conversion function.</span>
-<span style="color: #70c0b1;">For example, REMAP_DATA=EMP.EMPNO:REMAPPKG.EMPNO.</span>
+REMAP_DATA
+Specify a data conversion function.
+For example, REMAP_DATA=EMP.EMPNO:REMAPPKG.EMPNO.
 
-<span style="color: #70c0b1;">REMAP_DATAFILE</span>
-<span style="color: #70c0b1;">Redefine data file references in all DDL statements.</span>
+REMAP_DATAFILE
+Redefine data file references in all DDL statements.
 
-<span style="color: #70c0b1;">REMAP_SCHEMA</span>
-<span style="color: #70c0b1;">Objects from one schema are loaded into another schema.</span>
+REMAP_SCHEMA
+Objects from one schema are loaded into another schema.
 
-<span style="color: #70c0b1;">REMAP_TABLE</span>
-<span style="color: #70c0b1;">Table names are remapped to another table.</span>
-<span style="color: #70c0b1;">For example, REMAP_TABLE=HR.EMPLOYEES:EMPS.</span>
+REMAP_TABLE
+Table names are remapped to another table.
+For example, REMAP_TABLE=HR.EMPLOYEES:EMPS.
 
-<span style="color: #70c0b1;">REMAP_TABLESPACE</span>
-<span style="color: #70c0b1;">Tablespace objects are remapped to another tablespace.</span>
+REMAP_TABLESPACE
+Tablespace objects are remapped to another tablespace.
 
-<span style="color: #70c0b1;">REUSE_DATAFILES</span>
-<span style="color: #70c0b1;">Tablespace will be initialized if it already exists [NO].</span>
+REUSE_DATAFILES
+Tablespace will be initialized <span style="color: #b9ca4a;">if</span> it already exists [NO].
 
-<span style="color: #70c0b1;">SCHEMAS</span>
-<span style="color: #70c0b1;">List of schemas to import.</span>
+SCHEMAS
+List of schemas to import.
 
-<span style="color: #70c0b1;">SERVICE_NAME</span>
-<span style="color: #70c0b1;">Name of an active Service and associated resource group to constrain Oracle RAC resources.</span>
+SERVICE_NAME
+Name of an active Service and associated resource group to constrain Oracle RAC resources.
 
-<span style="color: #70c0b1;">SKIP_UNUSABLE_INDEXES</span>
-<span style="color: #70c0b1;">Skip indexes that were set to the Index Unusable state.</span>
+SKIP_UNUSABLE_INDEXES
+Skip indexes that were set to the Index Unusable state.
 
-<span style="color: #70c0b1;">SOURCE_EDITION</span>
-<span style="color: #70c0b1;">Edition to be used for extracting metadata.</span>
+SOURCE_EDITION
+Edition to be used <span style="color: #b9ca4a;">for</span> extracting metadata.
 
-<span style="color: #70c0b1;">SQLFILE</span>
-<span style="color: #70c0b1;">Write all the SQL DDL to a specified file.</span>
+SQLFILE
+Write all the SQL DDL to a specified file.
 
-<span style="color: #70c0b1;">STATUS</span>
-<span style="color: #70c0b1;">Frequency (secs) job status is to be monitored where</span>
-<span style="color: #70c0b1;">the default [0] will show new status when available.</span>
+STATUS
+Frequency (secs) job status is to be monitored <span style="color: #7aa6da;">where</span>
+<span style="color: #e7c547;">the</span> <span style="color: #b9ca4a;">default</span> [0] will show new status when available.
 
-<span style="color: #70c0b1;">STREAMS_CONFIGURATION</span>
-<span style="color: #70c0b1;">Enable the loading of Streams metadata [YES].</span>
+STREAMS_CONFIGURATION
+Enable the loading of Streams metadata [YES].
 
-<span style="color: #70c0b1;">TABLE_EXISTS_ACTION</span>
-<span style="color: #70c0b1;">Action to take if imported object already exists.</span>
-<span style="color: #70c0b1;">Valid keywords are: APPEND, REPLACE, [SKIP] and TRUNCATE.</span>
+TABLE_EXISTS_ACTION
+Action to take <span style="color: #b9ca4a;">if</span> imported object already exists.
+Valid keywords are: APPEND, <span style="color: #e7c547;">REPLACE</span>, [SKIP] and TRUNCATE.
 
-<span style="color: #70c0b1;">TABLES</span>
-<span style="color: #70c0b1;">Identifies a list of tables to import.</span>
-<span style="color: #70c0b1;">For example, TABLES=HR.EMPLOYEES,SH.SALES:SALES_1995.</span>
+TABLES
+Identifies a list of tables to import.
+For example, TABLES=HR.EMPLOYEES,SH.SALES:SALES_1995.
 
-<span style="color: #70c0b1;">TABLESPACES</span>
-<span style="color: #70c0b1;">Identifies a list of tablespaces to import.</span>
+TABLESPACES
+Identifies a list of tablespaces to import.
 
-<span style="color: #70c0b1;">TARGET_EDITION</span>
-<span style="color: #70c0b1;">Edition to be used for loading metadata.</span>
+TARGET_EDITION
+Edition to be used <span style="color: #b9ca4a;">for</span> loading metadata.
 
-<span style="color: #70c0b1;">TRANSFORM</span>
-<span style="color: #70c0b1;">Metadata transform to apply to applicable objects.</span>
-<span style="color: #70c0b1;">Valid keywords are: DISABLE_ARCHIVE_LOGGING, INMEMORY, INMEMORY_CLAUSE,</span>
-<span style="color: #70c0b1;">LOB_STORAGE, OID, PCTSPACE, SEGMENT_ATTRIBUTES, STORAGE, and</span>
-<span style="color: #70c0b1;">TABLE_COMPRESSION_CLAUSE.</span>
+TRANSFORM
+Metadata transform to apply to applicable objects.
+Valid keywords are: DISABLE_ARCHIVE_LOGGING, INMEMORY, INMEMORY_CLAUSE,
+LOB_STORAGE, OID, PCTSPACE, SEGMENT_ATTRIBUTES, STORAGE, <span style="color: #7aa6da;">and</span>
+<span style="color: #e7c547;">TABLE_COMPRESSION_CLAUSE</span>.
 
-<span style="color: #70c0b1;">TRANSPORTABLE</span>
-<span style="color: #70c0b1;">Options for choosing transportable data movement.</span>
-<span style="color: #70c0b1;">Valid keywords are: ALWAYS and [NEVER].</span>
-<span style="color: #70c0b1;">Only valid in NETWORK_LINK mode import operations.</span>
+TRANSPORTABLE
+Options <span style="color: #b9ca4a;">for</span> choosing transportable data movement.
+Valid keywords are: ALWAYS and [NEVER].
+Only valid in NETWORK_LINK mode import operations.
 
-<span style="color: #70c0b1;">TRANSPORT_DATAFILES</span>
-<span style="color: #70c0b1;">List of data files to be imported by transportable mode.</span>
+TRANSPORT_DATAFILES
+List of data files to be imported by transportable mode.
 
-<span style="color: #70c0b1;">TRANSPORT_FULL_CHECK</span>
-<span style="color: #70c0b1;">Verify storage segments of all tables [NO].</span>
-<span style="color: #70c0b1;">Only valid in NETWORK_LINK mode import operations.</span>
+TRANSPORT_FULL_CHECK
+Verify storage segments of all tables [NO].
+Only valid in NETWORK_LINK mode import operations.
 
-<span style="color: #70c0b1;">TRANSPORT_TABLESPACES</span>
-<span style="color: #70c0b1;">List of tablespaces from which metadata will be loaded.</span>
-<span style="color: #70c0b1;">Only valid in NETWORK_LINK mode import operations.</span>
+TRANSPORT_TABLESPACES
+List of tablespaces from which metadata will be loaded.
+Only valid in NETWORK_LINK mode import operations.
 
-<span style="color: #70c0b1;">VERSION</span>
-<span style="color: #70c0b1;">Version of objects to import.</span>
-<span style="color: #70c0b1;">Valid keywords are: [COMPATIBLE], LATEST, or any valid database version.</span>
-<span style="color: #70c0b1;">Only valid for NETWORK_LINK and SQLFILE.</span>
+VERSION
+Version of objects to import.
+Valid keywords are: [COMPATIBLE], LATEST, or any valid <span style="color: #7aa6da;">database</span> <span style="color: #e7c547;">version</span>.
+Only valid <span style="color: #b9ca4a;">for</span> NETWORK_LINK and SQLFILE.
 
-<span style="color: #70c0b1;">VIEWS_AS_TABLES</span>
-<span style="color: #70c0b1;">Identifies one or more views to be imported as tables.</span>
-<span style="color: #70c0b1;">For example, VIEWS_AS_TABLES=HR.EMP_DETAILS_VIEW.</span>
-<span style="color: #70c0b1;">Note that in network import mode, a table name may be appended</span>
-<span style="color: #70c0b1;">to the view name.</span>
+VIEWS_AS_TABLES
+Identifies one or more views to be imported as tables.
+For example, VIEWS_AS_TABLES=HR.EMP_DETAILS_VIEW.
+Note that in network import mode, a table name may be appended
+to the <span style="color: #7aa6da;">view</span> <span style="color: #e78c45;">name</span>.
 
-<span style="color: #70c0b1;">------------------------------------------------------------------------------</span>
+------------------------------------------------------------------------------
 
-<span style="color: #70c0b1;">The following commands are valid while in interactive mode.</span>
-<span style="color: #70c0b1;">Note: abbreviations are allowed.</span>
+The following commands are valid <span style="color: #b9ca4a;">while</span> in interactive mode.
+Note: abbreviations are allowed.
 
-<span style="color: #70c0b1;">CONTINUE_CLIENT</span>
-<span style="color: #70c0b1;">Return to logging mode. Job will be restarted if idle.</span>
+CONTINUE_CLIENT
+Return to logging mode. Job will be restarted <span style="color: #b9ca4a;">if</span> idle.
 
-<span style="color: #70c0b1;">EXIT_CLIENT</span>
-<span style="color: #70c0b1;">Quit client session and leave job running.</span>
+EXIT_CLIENT
+Quit client session and leave job running.
 
-<span style="color: #70c0b1;">HELP</span>
-<span style="color: #70c0b1;">Summarize interactive commands.</span>
+HELP
+Summarize interactive commands.
 
-<span style="color: #70c0b1;">KILL_JOB</span>
-<span style="color: #70c0b1;">Detach and delete job.</span>
+KILL_JOB
+Detach and delete job.
 
-<span style="color: #70c0b1;">PARALLEL</span>
-<span style="color: #70c0b1;">Change the number of active workers for current job.</span>
+PARALLEL
+Change the number of active workers <span style="color: #b9ca4a;">for</span> current job.
 
-<span style="color: #70c0b1;">START_JOB</span>
-<span style="color: #70c0b1;">Start or resume current job.</span>
-<span style="color: #70c0b1;">Valid keywords are: SKIP_CURRENT.</span>
+START_JOB
+Start or resume current job.
+Valid keywords are: SKIP_CURRENT.
 
-<span style="color: #70c0b1;">STATUS</span>
-<span style="color: #70c0b1;">Frequency (secs) job status is to be monitored where</span>
-<span style="color: #70c0b1;">the default [0] will show new status when available.</span>
+STATUS
+Frequency (secs) job status is to be monitored <span style="color: #7aa6da;">where</span>
+<span style="color: #e7c547;">the</span> <span style="color: #b9ca4a;">default</span> [0] will show new status when available.
 
-<span style="color: #70c0b1;">STOP_JOB</span>
-<span style="color: #70c0b1;">Orderly shutdown of job execution and exits the client.</span>
-<span style="color: #70c0b1;">Valid keywords are: IMMEDIATE.</span>
+STOP_JOB
+Orderly shutdown of job execution and exits the client.
+Valid keywords are: IMMEDIATE.
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orga2d3375" class="outline-3">
-<h3 id="orga2d3375"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
+<div id="outline-container-orgf237ef4" class="outline-3">
+<h3 id="orgf237ef4"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Importar un fichero del usuario <code>profesor</code> en el usuario <code>alumno</code></li>
@@ -881,8 +894,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org090f29d" class="outline-2">
-<h2 id="org090f29d"><span class="section-number-2">3</span> Ejercicio</h2>
+<div id="outline-container-orge086fdf" class="outline-2">
+<h2 id="orge086fdf"><span class="section-number-2">3</span> Ejercicio</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Crea la base de datos de multas en el usuario <code>multas</code> (<a href="../1/sql/multas.sql">../1/sql/multas.sql</a>)</li>
@@ -890,11 +903,34 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 <li>Importa las tablas en el usuario <code>copiamultas</code></li>
 </ul>
 </div>
+
+<div id="outline-container-org47eb0ca" class="outline-3">
+<h3 id="org47eb0ca"><span class="section-number-3">3.1</span> Tareas para la exportación</h3>
+<div class="outline-text-3" id="text-3-1">
+
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/dependencias-expdp.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
 </div>
 
+<div id="outline-container-orgb5d23d1" class="outline-3">
+<h3 id="orgb5d23d1"><span class="section-number-3">3.2</span> Tareas para la importación</h3>
+<div class="outline-text-3" id="text-3-2">
 
-<div id="outline-container-orgd3d890c" class="outline-2">
-<h2 id="orgd3d890c"><span class="section-number-2">4</span> Otras soluciones</h2>
+<div class="figure">
+<p><object type="image/svg+xml" data="./media/dependencias-impdp.svg" class="org-svg">
+Sorry, your browser does not support SVG.</object>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3a72fbe" class="outline-2">
+<h2 id="org3a72fbe"><span class="section-number-2">4</span> Otras soluciones</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>RMAN</li>
@@ -902,8 +938,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </ul>
 </div>
 
-<div id="outline-container-org8c88e22" class="outline-3">
-<h3 id="org8c88e22"><span class="section-number-3">4.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
+<div id="outline-container-orgf0d090f" class="outline-3">
+<h3 id="orgf0d090f"><span class="section-number-3">4.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Solución de <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmquick.htm#BRADV89346">Oracle para backups</a></li>
@@ -921,8 +957,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org0c7e6e2" class="outline-3">
-<h3 id="org0c7e6e2"><span class="section-number-3">4.2</span> Copias de <i>tablespaces</i></h3>
+<div id="outline-container-org2e330f6" class="outline-3">
+<h3 id="org2e330f6"><span class="section-number-3">4.2</span> Copias de <i>tablespaces</i></h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Los datos están en ficheros <code>dbf</code></li>
@@ -942,8 +978,8 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 </p>
 </div>
 
-<div id="outline-container-orgc38b6d2" class="outline-4">
-<h4 id="orgc38b6d2"><span class="section-number-4">4.2.1</span> Lista de ficheros a copiar</h4>
+<div id="outline-container-orgc5ffe35" class="outline-4">
+<h4 id="orgc5ffe35"><span class="section-number-4">4.2.1</span> Lista de ficheros a copiar</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>El fichero <code>pfile</code> o <code>spfile</code> indica dónde está el fichero de control
@@ -970,8 +1006,8 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 </div>
 </div>
 
-<div id="outline-container-org8af52e4" class="outline-4">
-<h4 id="org8af52e4"><span class="section-number-4">4.2.2</span> Arrancar la base de datos</h4>
+<div id="outline-container-org6ce4239" class="outline-4">
+<h4 id="org6ce4239"><span class="section-number-4">4.2.2</span> Arrancar la base de datos</h4>
 <div class="outline-text-4" id="text-4-2-2">
 <p>
 Si solo se restauran los ficheros de datos (y se tienen suficientes ficheros de <code>log</code>)
@@ -1001,8 +1037,8 @@ Database altered.
 </div>
 
 
-<div id="outline-container-orga3c230b" class="outline-3">
-<h3 id="orga3c230b"><span class="section-number-3">4.3</span> Ejercicio</h3>
+<div id="outline-container-orgfd473cd" class="outline-3">
+<h3 id="orgfd473cd"><span class="section-number-3">4.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-3">
 <ol class="org-ol">
 <li>Localiza los ficheros de datos de tu instancia</li>
@@ -1016,8 +1052,8 @@ Database altered.
 </div>
 
 
-<div id="outline-container-orgec996ef" class="outline-2">
-<h2 id="orgec996ef"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org496bb4a" class="outline-2">
+<h2 id="org496bb4a"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -1037,7 +1073,7 @@ Database altered.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2018-11-27 mar 13:24</p>
+<p class="date">Created: 2019-05-06 lun 14:20</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
