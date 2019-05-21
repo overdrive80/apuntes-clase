@@ -323,12 +323,25 @@ DESCRIPTION
               granted
 #+end_src
 
-
+** Operaciones aritméticas
+- Se utiliza =$((expresión))=
+#+begin_src sh
+# INCREMENTAR LA VARIABLE contador
+contador=$(($contador + 1))
+#+end_src
 ** Comandos útiles
 - Enviar un email
 #+begin_src sh
 echo Cuerpo del mensaje | mail -s "Asunto del mensaje" -a ficheroadjunto alvarogonzalezprofesor@gmail.com
 #+end_src
+
+- Operaciones matemáticas, si no se dispone de /bash/
+#+begin_src sh
+echo 2+2 | bc
+#+end_src
+
+- /Text User Interface/
+  - =whiptail= o =dialog=
 
 
 * Prerrequisitos
@@ -685,3 +698,53 @@ done
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
 
+
+* Ejemplos
+** =whiptail=
+#+begin_src sh
+#!/bin/bash
+
+
+lista_de_ficheros_0(){
+  find . -maxdepth 1 -print0
+}
+
+lista_de_opciones_0(){
+  local i=0
+  lista_de_ficheros_0 | while IFS= read -r -d '' f
+  do
+      i=$(($i + 1))
+      echo "$i"  \""$f"\"
+  done
+}
+
+lista_de_opciones(){
+  local i=0
+  for f in $(lista_de_ficheros)
+  do
+      i=$(($i + 1))
+      echo "$i" "$f"
+  done
+}
+
+
+lista_de_ficheros(){
+  ls | grep -v ' '
+}
+
+
+muestra_dialogo(){
+
+  numerolineas=$(lista_de_opciones | wc -l)
+
+
+  whiptail --title "Ejemplo whiptail" --menu "Elige un fichero para mostrar" $numerolineas 40 $numerolineas $(lista_de_opciones)
+}
+
+elige_fichero(){
+  opcion=$(muestra_dialogo 3>&2 2>&1 1>&3)
+  lista_de_ficheros | head -n $opcion | tail -n 1
+}
+
+less $(elige_fichero)
+#+end_src
