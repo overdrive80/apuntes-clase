@@ -368,14 +368,21 @@ export ORACLE_SID
 
 #+reveal: split
 *SQLPlus* con autenticación de sistema operativo
+#+begin_src sql_
+SHOW PARAMETER os_authent_prefix; -- Por defecto es 'ops$'
+CREATE USER ops$usuario IDENTIFIED EXTERNALLY;
+#+end_src_
+
 #+begin_src sh
-sqlplus / as sysdba
+su usuario
+sqlplus / 
 #+end_src
 
 *SQLPlus* con autenticación de *Oracle*
 #+begin_src sh
 sqlplus sys/alumno as sysdba
 #+end_src
+
 
 ** Conexiones de *SQLPlus*
 - Hasta ahora
@@ -453,6 +460,7 @@ less prueba.txt
 #+end_src
 
 ** Formateo básico de la salida 
+   DEADLINE: <2019-05-22 mié>
 
 - Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
 #+begin_src sh
