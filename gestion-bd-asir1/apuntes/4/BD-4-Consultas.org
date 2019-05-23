@@ -323,34 +323,7 @@ where
 
 ** Lista de las descripciones de los cursos que está siguiendo Angela Torres
 
-** Lista de la capacidad máxima y capacidad usada de cada sección (descripción del curso, identificador de sección, capacidad máxima, número de alumnos matriculados)
-#+BEGIN_SRC 
-select capacidad.section_id, capacity, matriculados, c.description
-from
-(select course_no, section_id, capacity
-from section) capacidad,
-(select section_id, count(*) as matriculados
-from enrollment
-group by section_id) losquehay,
-course c
-where
-  capacidad.section_id = losquehay.section_id and
-  c.course_no = capacidad.course_no
-order by section_id;
 
-
-
-
-select s.section_id, s.capacity, c.description, count(e.student_id)
-from
-   section s 
-   join enrollment e on s.section_id = e.section_id
-   join course c on c.course_no = s.course_no
-order by
-  section_id
-group by
-  s.section_id, s.capacity, c.description;
-#+END_SRC
 ** Notas parciales medias obtenidas por los alumnos por cada tipo de nota (descripción de tipo de nota, nota media obtenida)
 
 ** Notas parciales medias obtenidas por los alumnos por cada tipo de nota, clasificado por estado de origen (descripción de tipo de nota, estado, nota media obtenida)
