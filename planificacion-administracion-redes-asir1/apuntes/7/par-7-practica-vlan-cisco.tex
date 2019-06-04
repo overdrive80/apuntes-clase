@@ -65,14 +65,14 @@ A pesar de ello, se desea que todos los equipos de la red puedan comunicarse ent
 Rellena una tabla como la siguiente con la configuración de tu red
 
 \begin{center}
-  \begin{tabular}{|c|c|c|c|}
+  \begin{tabular}{|c|c|c|c|c|}
     \hline
-    Nombre de equipo & Interfaz & VLAN & IP/Máscara \\
+    Nombre de equipo & Interfaz & VLAN & IP/Máscara & Gateway\\
     \hline
-                     & & & \\
-                     & & & \\
-                     & & & \\
-                     & & & \\
+                     & & & & \\
+                     & & & & \\
+                     & & & & \\
+                     & & & & \\
     \hline
   \end{tabular}
 \end{center}
@@ -81,13 +81,15 @@ Es posible que no todas las columnas deban usarse para todos los adaptadores de 
 \begin{itemize}
 \item Los puertos de los switchs no tienen dirección IP
 \item Los puertos de los servidores y PCs no tienen VLAN
+\item Solo los ordenadores y servidores tienen gateway
+  
 \end{itemize}
 
 \section{Normas de entrega}
 \begin{itemize}
   
 \item La entrega se realizará en el Áula Virtual
-\item Se entregará un fichero PKT que pueda abrirse con la versión 7.1 de Packet Tracer.
+\item Se entregará un fichero PKT que pueda abrirse con la versión 7.2 de Packet Tracer.
 \item Los equipos identificarán en su etiqueta su IP, y su pertenencia a algún departamento o función.
 \end{itemize}
 
@@ -100,6 +102,8 @@ Es posible que no todas las columnas deban usarse para todos los adaptadores de 
 \item Que se incluyan etiquetas identificativas en cada equipo (\textbf{1.5} puntos)  
 \item Que los departamentos puedan comunicarse a través de la capa 3 (\textbf{2} puntos)
 \item Que se rellene correctamente la tabla de documentación de la red (\textbf{2} puntos)
+\item Que todos los ordenadores puedan comunicarse con Internet (\textbf{1} punto)
+\item Que los equipos de red no pierdan la configuración al reiniciar (\textbf{0.5} puntos)
 \item \textbf{No se valorará} el ejercicio si las direcciones IP no son de la subred \texttt{10.N.0.0/16}.
 \end{itemize}
 

@@ -97,6 +97,13 @@ Create database link LNK_DE_A_a_B
 #+end_src
 
 
+** Cerrar conexiones
+- Cada usuario que utilice el dblink crea una conexión
+- Se cierra automáticamente cuando el usuario cierre su conexión inicial
+- Se puede forzar el cierre con
+#+begin_src sql
+ALTER SESSION CLOSE DATABASE LINK linkname;
+#+end_src
 * Referencias
 - Formatos:
   - [[file:.//BD-7-dblinks.reveal.html][Transparencias]] 

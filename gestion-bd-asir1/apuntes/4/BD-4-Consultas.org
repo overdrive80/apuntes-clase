@@ -323,34 +323,7 @@ where
 
 ** Lista de las descripciones de los cursos que está siguiendo Angela Torres
 
-** Lista de la capacidad máxima y capacidad usada de cada sección (descripción del curso, identificador de sección, capacidad máxima, número de alumnos matriculados)
-#+BEGIN_SRC 
-select capacidad.section_id, capacity, matriculados, c.description
-from
-(select course_no, section_id, capacity
-from section) capacidad,
-(select section_id, count(*) as matriculados
-from enrollment
-group by section_id) losquehay,
-course c
-where
-  capacidad.section_id = losquehay.section_id and
-  c.course_no = capacidad.course_no
-order by section_id;
 
-
-
-
-select s.section_id, s.capacity, c.description, count(e.student_id)
-from
-   section s 
-   join enrollment e on s.section_id = e.section_id
-   join course c on c.course_no = s.course_no
-order by
-  section_id
-group by
-  s.section_id, s.capacity, c.description;
-#+END_SRC
 ** Notas parciales medias obtenidas por los alumnos por cada tipo de nota (descripción de tipo de nota, nota media obtenida)
 
 ** Notas parciales medias obtenidas por los alumnos por cada tipo de nota, clasificado por estado de origen (descripción de tipo de nota, estado, nota media obtenida)
@@ -589,3 +562,69 @@ from
   join section s on s.INSTRUCTOR_ID = i.INSTRUCTOR_ID
   join course c on s.COURSE_NO = c.COURSE_NO;
 #+END_SRC
+
+** Listado de secciones, nombre del curso que se imparte en la sección y cuántas plazas libres quedan en la sección
+
+#+begin_src sql
+   create view matriculadosporseccion as
+select 
+  s.section_id,
+  count(student_id) as matriculados
+from 
+  enrollment e
+  right join section s on e.section_id = s.section_id
+group by
+  s.section_id
+order by
+  section_id;
+
+select 
+  s.section_id,
+  description,
+  capacity,
+  matriculados,
+  capacity -matriculados as libres
+from 
+  section s, course c, matriculadosporseccion m
+where 
+  s.course_no = c.course_no and
+  s.section_id = m.section_id
+order 
+  by section_id;
+#+end_src
+
+#+begin_src sql
+select 
+  section_id,
+  description,
+  capacity,
+  (select count(*) from enrollment e where e.section_id=s.section_id) as matriculados,
+  capacity-(select count(*) from enrollment e where e.section_id=s.section_id) as libres
+from 
+  section s, course c
+where 
+  s.course_no = c.course_no
+order 
+  by section_id;
+#+end_src_
+
+
+
+
+
+#+begin_src sql
+select 
+  s.section_id,
+  description,
+  capacity,
+  count(student_id) as matriculados,
+  capacity - count(student_id) as plazaslibres
+from 
+  section s 
+  join course c on s.course_no = c.course_no
+  left outer join enrollment e on s.section_id = e.section_id
+group by
+  s.section_id, description, capacity
+order by 
+  section_id;
+   #+end_src

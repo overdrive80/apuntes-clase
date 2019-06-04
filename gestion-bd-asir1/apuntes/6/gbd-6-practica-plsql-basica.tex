@@ -50,7 +50,7 @@ Una compañía necesita automatizar su almacén
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{homeworkProblem}[: Definir el modelo de datos]
-  Crea las tablas y funciones necesarias para soportar la descripción del problema. Las tablas y atributos concretos no son importantes, ya que el profesor consultará los datos a partir de la vista definida más adelante.
+  Crea las tablas y funciones necesarias para soportar la descripción del problema. Las tablas y atributos concretos no son importantes, ya que el profesor consultará los datos a partir de las vistas definidas más adelante.
 \end{homeworkProblem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -60,6 +60,7 @@ Una compañía necesita automatizar su almacén
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
 create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
 as 
+  -- VARIABLES QUE HAGAN FALTA
 begin
   -- CONSIGUE EL NUEVO ID 
   -- INSERTA EL PRODUCTO CON ESE ID
@@ -100,6 +101,7 @@ create or replace procedure ENTRADA_PRODUCTO(
   preciopagado IN number,
   fecha IN timestamp default systimestamp)
 as
+  -- VARIABLES QUE HAGAN FALTA
 begin
   ...
 end; 
@@ -110,6 +112,7 @@ create or replace procedure SALIDA_PRODUCTO(
   preciocobrado IN number,
   fecha IN timestamp default systimestamp)
 as
+  -- VARIABLES QUE HAGAN FALTA
 begin
   ...
 end; 
@@ -117,7 +120,7 @@ end;
 
 
   
-  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido entradas o salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
+  Para poder corregirse, debe existir la función \texttt{EXISTENCIAS\_PRODUCTO} que informe del \textit{stock} de un producto. Un producto que no ha tenido ni entradas ni salidas tiene un \textit{stock} de cero. Un producto que no existe tiene \textit{stock} $-1$.
 
   \begin{listadosql}{Función de existencias}{lst:funcion-existencias}
 create or replace function EXISTENCIAS_PRODUCTO(idproducto IN number) return number
@@ -147,7 +150,7 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
 \begin{homeworkProblem}[: Salida del almacén respetando existencias]
 
   Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
-  Si el producto no existe, se lanzará el error -20102.
+  Si el producto no existe, se lanzará el error \texttt{-20102}.
 
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
 create or replace procedure SALIDA_PRODUCTO_CON_STOCK(
@@ -165,20 +168,19 @@ end;
 \end{homeworkProblem}
 
 \section{Entorno de pruebas}
-En clase hay accesible un servidor Oracle (\texttt{10.1.37.200}), con un usuario para cada alumno (usuario y contraseña es el apellido en minúsculas).
-El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.37.200}{http://10.1.37.200}.
+En clase hay accesible un servidor Oracle (\texttt{10.1.37.201}), con un usuario para cada alumno.
+El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.37.201}{http://10.1.37.201}.
 
 \section{Instrucciones de entrega}
 Se creará un único fichero SQL para todos los apartados.
 \begin{itemize}
 \item Este fichero se corregirá de forma semiautomática, por lo que es necesario seguir la nomenclatura propuesta en el ejercicio.
-\item El fichero se cargará en un usuario recién creado con permisos necesarios para crear todos los elementos necesarios (tablas, vistas, funciones, secuencias...)
+\item El fichero se cargará en un usuario recién creado con permisos necesarios para crear todos los elementos necesarios (tablas, vistas, funciones, secuencias\dots)
 \item Si tiene \textbf{errores} de compilación podría no corregirse. Si no se siguen los \textbf{nombres de objetos} pedidos podría no corregirse.
 \end{itemize}
 
-La autoría del trabajo puede ser por parejas. A pesar de ello, cada alumno debe subir al moodle una copia del trabajo.
 
-Sube el documento a \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/mod/assign/view.php?id=10267}{la tarea correspondiente en el aula virtual}.
+Sube el documento a la tarea correspondiente en el \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/}{aula virtual}.
 Presta atención al plazo de entrega (con fecha y hora).
 
 

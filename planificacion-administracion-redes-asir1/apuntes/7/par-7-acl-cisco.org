@@ -5,23 +5,25 @@
 
 
 * LISTAS DE CONTROL DE ACCESO
-  + Las ACL son listas con reglas.
-    - Cada regla define una condición que puede cumplir un paquete
-    - Cada regla define una acción (=permit=, =deny=) a ejecutar sobre el paquete que cumpla su condición
-    - Siempre hay una regla al final que desecha cualquier paquete
++ Las ACL son listas con reglas.
+  - Cada regla define una condición que puede cumplir un paquete
+  - Cada regla define una acción (=permit=, =deny=) a ejecutar sobre el paquete que cumpla su condición
+  - Siempre hay una regla al final que desecha cualquier paquete
 
-#+REVEAL: split
-  + Se identifican por un número
-    - Estándar: 
-      - =1= a =99=
-      - =1300= a =1999=
-    - Ampliadas: 
-      - =100= a =199=
-      - =2000= a =2699=
-  + En versiones recientes de IOS (11.2) se pueden usar también nombres de ACL      
-  + Una interfaz puede tener una ACL asociada en cada sentido
-    - Entrada de paquetes (Inbound)
-    - Salida de paquetes (Outbound)
+
+** Numeración
+
++ Se identifican por un número
+  - Estándar: 
+    - =1= a =99=
+    - =1300= a =1999=
+  - Ampliadas: 
+    - =100= a =199=
+    - =2000= a =2699=
++ En versiones recientes de IOS (11.2) se pueden usar también nombres de ACL      
++ Una interfaz puede tener una ACL asociada en cada sentido
+  - Entrada de paquetes (Inbound)
+  - Salida de paquetes (Outbound)
 
 * PROCESAMIENTO DE ACL
   + Al llegar un paquete
@@ -84,6 +86,7 @@
   access-list access-list-number {permit|deny} 
   {host|source source-wildcard|any}.
   #+END_SRC
+
   + Solo hacen referencia a las direcciones IP de origen. 
   #+REVEAL: split
   + Se puede especificar:
@@ -95,6 +98,12 @@
     + Todas las direcciones: Las siguientes especificaciones son equivalentes
       - =any=
       - =0.0.0.0 255.255.255.255=
+
+  #+REVEAL: split
+Ejemplo: No dejes pasar el tráfico con origen en la red =192.168.1.0/8=
+#+begin_src sh
+access-list 10 deny 192.168.1.0 0.0.0.255 
+#+end_src
 
 ** Ejercicio
 
@@ -140,6 +149,14 @@
   - Puerto
   - Conexión previamente establecida
 
+** Operadores (para puertos TCP/UDP)
+| Operador | Significa    |
+|----------+--------------+
+| eq       | ~=~ igual    |
+| lt       | ~<~ Menor    |
+| ne       | ~≠~ No igual |
+| gt       | ~>~ Mayor    |
+
 ** IP
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]
@@ -148,6 +165,13 @@
    [precedence precedence] [tos tos] [log | log-input]  
    [time-range time-range-name][fragments]
    #+END_SRC
+
+Ejemplo: Prohíbe el tráfico hacia la red =172.16.0.0/12=
+#+begin_src sh
+access-list 101 deny ip any 172.16.0.0 0.0.15.255
+#+end_src
+
+
 ** Protocolo de mensajes de control de Internet (ICMP)
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]
@@ -164,6 +188,18 @@
    [precedence precedence] [tos tos] [log |   log-input] 
    [time-range time-range-name][fragments]
    #+END_SRC
+
+Ejemplo: Permite el protocolo *TCP* desde la red =172.16.3.0/24= con puerto de origen =21= hacia la red =172.16.1.0/24=
+#+begin_src sh
+access-list 101 permit tcp 172.16.3.0 0.0.0.255 eq 21 172.16.1.0 0.0.0.255
+#+end_src
+
+Ejemplo: Permite la comunicación *TCP* hacia la red =10.0.0.0/8= si ya se ha establecido conexión (la red =10.0.0.0/8= es la que tiene el cliente)
+#+begin_src sh
+access-list 102 permit tcp any 10.0.0.0 0.0.0.255 established
+#+end_src
+
+
 ** Protocolo de datagrama de usuario (UDP)
    #+BEGIN_SRC sh
    access-list access-list-number [dynamic dynamic-name [timeout minutes]]   
@@ -187,7 +223,7 @@
 ** Ejercicio
    - Un router une las redes =192.168.1.0/24= (LAN) y =172.16.1.0/24= (DMZ). Se desea que:
      - Los usuarios de la LAN no puedan realizar PING hacia la DMZ.
-     - El tráfico UPD está permitido por el puerto =53= (DNS)
+     - El tráfico UDP está permitido por el puerto =53= (DNS)
      - Las únicas conexiones TCP permitidas entre LAN y DMZ serán las que tengan origen en la LAN.
 
 

@@ -133,6 +133,89 @@ Switch# show spanning-tree
 Switch(config)# spanning-tree vlan 1 priority 1
 #+END_EXAMPLE
 
+* Link agregation
+
+Se añader a un mismo =channel-group= todos los enlaces conectados al mismo switch.
+
+#+begin_example
+Switch(config)# interface fa0/1
+Switch(config-if)# channel-group 1 mode active
+#+end_example
+
+* ACL
+
+Consultar ACLs definidas
+#+begin_example
+Router# show ip access-list
+#+end_example
+
+Asociar una ACL a una interfaz
+#+begin_example
+Router(config)# interface fa0/1
+Router(config-if)# ip access-group <numero ACL> <out o in>
+#+end_example
+
+Desasociar una ACL de una interfaz
+#+begin_example
+Router(config)# interface fa0/1
+Router(config-if)# no ip access-group <numero ACL> <out o in>
+#+end_example
+
+** ACL estándar
+Crear una ACL o añadir una regla
+#+BEGIN_example
+Router(config)# access-list <numero> <permit o deny>  <host|source source-wildcard|any>
+#+END_example
+
+Borrar una ACLs
+#+BEGIN_example
+Router(config)# no access-list <numero> 
+#+END_example
+
+** ACL extendidas
+Protocolo IP (hay más opciones, no explicadas aquí)
+#+BEGIN_example
+Router(config)# access-list <numero> <permit o deny> ip
+   <host|source source-wildcard|any>
+   <host|destination destination-wildcard|any>
+#+END_example
+
+Protocolo ICMP
+#+BEGIN_example
+Router(config)# access-list <numero> <permit o deny> icmp
+   <host|source source-wildcard|any>
+   <host|destination destination-wildcard|any>
+#+END_example
+
+
+
+** ACL extendidas TCP y UDP
+
+Protocolo TCP
+#+BEGIN_example
+Router(config)# access-list <numero> <permit o deny> TCP
+   <host|source source-wildcard|any> [puerto]
+   <host|destination destination-wildcard|any> [puerto]
+   [established]
+#+END_example
+
+Protocolo UDP
+#+BEGIN_example
+Router(config)# access-list <numero> <permit o deny> UDP
+   <host|source source-wildcard|any> [puerto]
+   <host|destination destination-wildcard|any> [puerto]
+#+END_example
+
+| Operador de puerto | Significa    |
+|--------------------+--------------|
+| eq                 | ~=~ igual    |
+| lt                 | ~<~ Menor    |
+| ne                 | ~≠~ No igual |
+| gt                 | ~>~ Mayor    |
+
+
+
+
 * Referencias
 - Formatos:
   - [[file:par-4-comandos-ios.html][Transparencias]]
