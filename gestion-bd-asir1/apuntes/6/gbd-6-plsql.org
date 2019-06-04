@@ -165,6 +165,71 @@ BEGIN
 END;
 #+END_SRC
 
+** Ejercicios
+- Imprime los números del 1 al 100
+- Imprime la suma de los números del 1 al 100 
+- Imprime los números pares del 1 al 100
+- Imprime los números primos del 1 al 100
+- Imprime la suma de los números primos del 1 al 100
+- Encuentra un número primo mayor de 1000000
+
+
+** Ejercicios
+- Imprime un rectángulo de tamaño 8x6
+  #+begin_example
+  ########
+  ########
+  ########
+  ########
+  ########
+  ########
+  #+end_example
+- Imprime un tablero de ajedrez de tamaño NxM (con la función =MOD=)
+  #+begin_example
+  # # # #
+   # # # #
+  # # # #
+   # # # #
+  # # # #
+   # # # #
+  #+end_example
+
+*** solucion :noexport:
+#+begin_src sql
+create or replace procedure imprime_tablero(ancho integer, alto integer) is
+begin
+    dbms_output.new_line();
+    for fila in 1..alto
+    loop
+        imprime_fila(fila,ancho);
+    end loop;
+end;
+/
+
+
+
+
+create or replace procedure IMPRIME_FILA(fila integer, ancho integer) is
+begin
+    for columna in 1..ancho
+    loop
+        if mod(fila+columna,2) = 1 then
+            dbms_output.put('#');
+        else
+            dbms_output.put('_');
+        end if;
+    end loop;
+    dbms_output.put_line('');
+end;
+/
+
+begin
+    imprime_tablero(10,10);
+    imprime_tablero(20,20);
+    imprime_tablero(30,30);
+end;
+/
+#+end_src
 
 * Funciones y procedimientos
 - Son bloques de código identificados con un nombre
@@ -209,7 +274,62 @@ select empno, es_par(empno) from empleados;
 | ~lower~   | ~to_char~   | ~decode~ |          |
 | ~rpad~    | ~to_number~ |          |          |
 
-               
+
+[[https://ss64.com/ora/syntax-numfmt.html][Formatos de ~to_number~]]
+
+[[https://ss64.com/ora/syntax-fmt.html][Formatos de ~to_date~]]
+
+*** Ejemplos de ~to_date~ y  ~to_char~
+#+begin_src sql
+declare
+  fechaentexto varchar(255);
+  fecha date;
+begin
+  fechaentexto := '11/may/18';
+  fecha := to_date(fechaentexto,'DD/MON/YY');
+  dbms_output.put_line( to_char(fecha,'DD "de" MONTH "de" YYYY'));
+end;
+/
+
+
+declare
+    pi number(20,10) := 3.141597265;
+begin
+    dbms_output.put_line( to_char(pi, 'B9999' ) );
+end;
+/
+#+end_src
+
+*** Ejercicios               
+- Imprime un listado con la inicial de los empleados y sus apellidos
+  #+begin_example
+  A. Pérez
+  F. González
+  M. Ruiz
+  #+end_example
+- Convierte la cadena =11/MAY/20= a fecha, e imprímela como =11 de Mayo de 2020=
+- Imprime el número PI con 0,3 y 4 decimales.
+
+*** Ejercicios
+- Haz una función que devuelva =1= si un número es primo o =0= si es compuesto
+  - Tiene que /devolver/ un valor, no /imprimir/ un valor
+- Haz una función que devuelva capitalizada la palabra recibida
+  - Si recibe =paLABRa= debe devolver =Palabra=
+- Haz una función que devuelva capitalizada una frase, capitalizando cada palabra 
+
+*** Ejercicio resuelto: =capitalizar=
+
+#+begin_src sql
+create or replace function capitalizar( palabra varchar ) return varchar as
+  inicial char(1);
+  resto varchar(1024);
+begin
+  inicial := substr(palabra,1,1);
+  resto := substr(palabra,2,length(palabra)-1);
+  return upper(inicial) || lower(resto);
+end;
+#+end_src
+
 
 ** Procedimientos
 - Los procedimentos no devuelven un valor
