@@ -623,6 +623,7 @@ systemctl stop SERVICIO
 
 *** Utilidades *systemd*
 - =systemd-analyze plot=: Tiempo de carga de cada servicio
+- =systemd-analyze dot=: Fichero con todas las dependencias. Puede convertirse en SVG con =dot -Tsvg -o nombre-dibujo.svg=
 - =systemctl list-dependencies=: Servicios necesarios para cargar un servicio. Se pueden listar a la inversa con =--reverse=
 
 *** Systemd de usuario :noexport:
