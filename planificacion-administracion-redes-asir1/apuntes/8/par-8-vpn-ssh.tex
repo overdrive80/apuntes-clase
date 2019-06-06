@@ -23,6 +23,7 @@
 \setlength{\parindent}{0em}
 \setlength{\parskip}{1em} 
 
+\newcommand{\reddecasa}{192.168.1}
 
 \section{Objetivo de la práctica}
 Los objetivos de la práctica son:
@@ -142,10 +143,10 @@ Tras esto, debe haber comunicación directa (1 salto IP) entre el servidor SSH y
 
 \section{Acceso a la LAN desde el centro}
 \begin{enumerate}
-\item El ordenador de clase añadirá una ruta para acceder a la red \texttt{192.168.0.0/16} a través de \texttt{10.2.37.1}
+\item El ordenador de clase añadirá una ruta para acceder a la red \texttt{\reddecasa.0/16} a través de \texttt{10.2.37.1}
 
   \begin{listadoshell}{Enrutamiento desde el aula a casa}{lst:enrutamiento}
-    route add -net 192.168.0.0/16 gw 10.2.37.2
+    route add -net 192.168.1.0/16 gw 10.2.37.2
   \end{listadoshell}
   
 \item El servidor SSH realizará NAT, de forma que el PC de clase sea enmascarado por el servidor SSH, y el resto de PCs de la LAN de casa puedan responderle
