@@ -195,3 +195,6 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
 
 
 
+
+* nat66 :noexport:
+https://blog.apnic.net/2018/02/02/nat66-good-bad-ugly/
