@@ -1,6 +1,6 @@
 #+include: "../../../common/header.org"
 #+Title: Scripts de shell para Oracle
-#+EXCLUDE_TAGS: no_export
+#+EXCLUDE_TAGS: noexport
 
 
 * Introducción
@@ -323,12 +323,25 @@ DESCRIPTION
               granted
 #+end_src
 
-
+** Operaciones aritméticas
+- Se utiliza =$((expresión))=
+#+begin_src sh
+# INCREMENTAR LA VARIABLE contador
+contador=$(($contador + 1))
+#+end_src
 ** Comandos útiles
 - Enviar un email
 #+begin_src sh
 echo Cuerpo del mensaje | mail -s "Asunto del mensaje" -a ficheroadjunto alvarogonzalezprofesor@gmail.com
 #+end_src
+
+- Operaciones matemáticas, si no se dispone de /bash/
+#+begin_src sh
+echo 2+2 | bc
+#+end_src
+
+- /Text User Interface/
+  - =whiptail= o =dialog=
 
 
 * Prerrequisitos
@@ -355,14 +368,21 @@ export ORACLE_SID
 
 #+reveal: split
 *SQLPlus* con autenticación de sistema operativo
+#+begin_src sql_
+SHOW PARAMETER os_authent_prefix; -- Por defecto es 'ops$'
+CREATE USER ops$usuario IDENTIFIED EXTERNALLY;
+#+end_src_
+
 #+begin_src sh
-sqlplus / as sysdba
+su usuario
+sqlplus / 
 #+end_src
 
 *SQLPlus* con autenticación de *Oracle*
 #+begin_src sh
 sqlplus sys/alumno as sysdba
 #+end_src
+
 
 ** Conexiones de *SQLPlus*
 - Hasta ahora
@@ -440,6 +460,7 @@ less prueba.txt
 #+end_src
 
 ** Formateo básico de la salida 
+   DEADLINE: <2019-05-22 mié>
 
 - Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
 #+begin_src sh
@@ -545,7 +566,7 @@ Más información con =man systemd.service= y =man systemd.unit=
 *** Dependencias de la sección =Unit=
 
 #+ATTR_LATEX: :align |l|p{3cm}|p{3cm}|p{3cm}|p{3cm}|
-| Si el servicio ~A~ ... | ~A~ intenta arrancar ~B~ | Si se apaga ~B~, ~A~ también | ~A~ arranca si ~B~ está inicialmente apagado | Si falla arranque de ~S~, arranca ~A~ |
+| Si el servicio ~A~ ... | ~A~ intenta arrancar ~B~ | Si se apaga ~B~, ~A~ también | ~A~ arranca si ~B~ está inicialmente apagado | Si falla arranque de ~B~, arranca ~A~ |
 |------------------------+--------------------------+------------------------------+----------------------------------------------+---------------------------------------|
 | ~BindsTo=B~            | Sí                       | Sí                           | Sí                                           | No                                    |
 | ~Requires=B~           | Sí                       | No*                          | Sí                                           | No                                    |
@@ -560,8 +581,8 @@ Fuente: [[https://www.freedesktop.org/software/systemd/man/systemd.unit.html][fr
 *** Dependencias de la sección =Install=
 | Si el servicio ~A~ |                                            |
 |--------------------+--------------------------------------------|
-| ~WantedBy=S~       | Equivalente a que ~S~ indique ~Wants=A~    |
-| ~RequiredBy=S~     | Equivalente a que ~S~ indique ~Required=A~ |
+| ~WantedBy=B~       | Equivalente a que ~B~ indique ~Wants=A~    |
+| ~RequiredBy=B~     | Equivalente a que ~B~ indique ~Required=A~ |
 
 *** Controlar el arranque de servicios
 
@@ -602,9 +623,11 @@ systemctl stop SERVICIO
 
 *** Utilidades *systemd*
 - =systemd-analyze plot=: Tiempo de carga de cada servicio
-- =systemctl list-dependencies=: Servicios necesarios para cargar un servicio
+- =systemd-analyze dot=: Fichero con todas las dependencias. Puede convertirse en SVG con =dot -Tsvg -o nombre-dibujo.svg=
+- =systemctl list-dependencies=: Servicios necesarios para cargar un servicio. Se pueden listar a la inversa con =--reverse=
 
 *** Systemd de usuario :noexport:
+https://bugzilla.redhat.com/show_bug.cgi?id=1173278
 loginctl enable-linger $USUARIO
 
 
@@ -625,7 +648,7 @@ loginctl enable-linger $USUARIO
 
 ** =systemd=
 # https://coreos.com/os/docs/latest/scheduling-tasks-with-systemd-timers.html
-Más información en =man systemd.timer=
+Más información en =man systemd.timer= y =man systemd.time=
 #+caption: /etc/systemd/system/date.service
 #+begin_src sh
 [Unit]
@@ -636,7 +659,7 @@ Type=oneshot
 ExecStart=/usr/bin/sh -c '/usr/bin/date >> /tmp/date'
 #+end_src
 
-#+caption: etc/systemd/system/date.timer
+#+caption: /etc/systemd/system/date.timer
 #+begin_src sh
 [Unit]
 Description=Run date.service every 10 minutes
@@ -685,3 +708,209 @@ done
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
 
+
+* Ejemplos :noexport:
+** =whiptail=
+#+begin_src sh
+#!/bin/bash
+
+
+lista_de_ficheros_0(){
+  find . -maxdepth 1 -print0
+}
+
+lista_de_opciones_0(){
+  local i=0
+  lista_de_ficheros_0 | while IFS= read -r -d '' f
+  do
+      i=$(($i + 1))
+      echo "$i"  \""$f"\"
+  done
+}
+
+lista_de_opciones(){
+  i=0
+  for f in $(lista_de_ficheros)
+  do
+      i=$(($i + 1))
+      echo "$i" "$f"
+  done
+}
+
+
+lista_de_ficheros(){
+  ls | grep -v ' '
+}
+
+
+muestra_dialogo(){
+  whiptail --title "Ejemplo whiptail" \
+           --menu "Elige un fichero para mostrar" \
+           18 40 10 $(lista_de_opciones)
+}
+
+consigue_linea(){
+  local linea=$1
+  head -n $linea | tail -n 1
+}
+
+elige_fichero(){
+  opcion=$(muestra_dialogo 3>&2 2>&1 1>&3)
+  lista_de_ficheros | consigue_linea $opcion
+}
+
+#less $(elige_fichero)
+
+#lista_de_opciones
+#muestra_dialogo
+elige_fichero
+
+
+
+#+end_src
+
+
+
+#+BEGIN_SRC sh
+#!/bin/bash
+
+
+source variables-oracle.sh
+
+ejecutar_en_instancia(){
+    sqlplus / as sysdba
+}
+
+instancia_ping(){
+    ejecutar_en_instancia <<EOF
+select * from dual;
+EOF
+}
+
+encender_instancia(){
+    ejecutar_en_instancia <<EOF
+startup open;
+EOF
+}
+
+apagar_instancia(){
+    ejecutar_en_instancia <<EOF  & 
+shutdown immediate;
+EOF
+
+    SQLPLUS=$!
+    contador=0
+    while kill -0 $SQLPLUS
+    do
+	contador=$(($contador + 1))
+	sleep 1
+        whiptail --title "Oracle" --gauge "Apagando instancia" 8 78 $contador
+    done
+}
+
+encender_listener(){
+    lsnrctl start
+}
+
+apagar_listener(){
+    lsnrctl stop
+}
+
+
+instancia_encendida(){
+    #ORA-01034: ORACLE not available
+
+    if instancia_ping | grep ORA-01034 > /dev/null
+    then
+	false
+    else
+	true
+    fi
+}
+
+listener_encendido(){
+    #TNS-12541: TNS:no listener
+    if lsnrctl status | grep TNS-12541 > /dev/null
+    then
+	false
+    else
+	true
+    fi
+}
+
+
+instancia_mensaje_opcion(){
+
+    if instancia_encendida
+    then
+	echo Instancia encendida "->" Apagar
+    else
+	echo Instancia apagada "->" Encender
+    fi
+}
+
+listener_mensaje_opcion(){
+    if listener_encendido
+    then
+	echo Listener encendido "->" Apagar
+    else
+	echo Listener apagado "->" Encender
+    fi
+}
+
+
+mostrar_menu(){
+    whiptail \
+	--title "Oracle" \
+        --menu "Enciende o apaga compontenes de Oracle" \
+        18 50 10 \
+        L "$(listener_mensaje_opcion)" \
+        I "$(instancia_mensaje_opcion)" 3>&2 2>&1 1>&3
+}
+
+
+cambiar_estado_instancia(){
+
+    if instancia_encendida
+    then
+	apagar_instancia
+    else
+	encender_instancia
+    fi
+}
+
+cambiar_estado_listener(){
+    if listener_encendido
+    then
+	apagar_listener
+    else
+	encender_listener
+    fi
+}
+
+
+ejecutar_menu(){
+    while true
+    do
+	local opcion=$(mostrar_menu)
+	if [[ $opcion = "L" ]]
+	then
+	    cambiar_estado_listener
+	fi
+
+	if [[ $opcion = "I" ]]
+	then
+	    cambiar_estado_instancia
+	fi
+
+	if [[ $opcion = "" ]]
+	then
+	    return 0
+	fi
+	
+    done
+
+}
+
+ejecutar_menu
+#+END_SRC
