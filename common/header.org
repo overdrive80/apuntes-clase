@@ -79,7 +79,7 @@
 #+EMAIL: alvaro.gonzalezsotillo@educa.madrid.org
 
 # MATHJAX EN HTML
-#+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+# #+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 #+HTML_HEAD: <script type="text/javascript" src="../../../common/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
