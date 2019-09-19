@@ -138,6 +138,7 @@ Intenta completar esta tabla hasta 11111_{(2}
   $$ (d_n,d_{n-1},...,d_2,d_1,d_0) = \sum_{i=0}^{n} d_i \cdot b^i $$
 - Más en la [[https://es.wikipedia.org/wiki/Sistema_de_numeraci%25C3%25B3n#Teorema_fundamental_de_la_numeraci.C3.B3n][Wikipedia]]
 
+
 ** Ejemplo: Base 3
 
 |   | Base                 |    3 |     |     |    |    |    |   |    |
