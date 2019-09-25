@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-09-24 mar 09:40 -->
+<!-- 2019-09-25 mié 10:19 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Arquitecturas de red</title>
@@ -161,19 +161,6 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -201,7 +188,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -250,28 +237,28 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org969a860">1. Introducción</a></li>
-<li><a href="#org5b830e1">2. Factores a considerar en una comunicación</a></li>
-<li><a href="#orgf177a5f">3. Modelo OSI</a></li>
-<li><a href="#org7ff663d">4. Capa física</a></li>
-<li><a href="#orgfd20013">5. Capa de enlace</a></li>
-<li><a href="#org23a7eab">6. Capa de red</a></li>
-<li><a href="#orgd9b78c5">7. Capa de transporte</a></li>
-<li><a href="#org1ee5998">8. Capa de sesión</a></li>
-<li><a href="#org7e62c92">9. Capa de presentación</a></li>
-<li><a href="#org48755e2">10. Capa de aplicación</a></li>
-<li><a href="#org74f57fc">11. Aceptación del modelo ISO/OSI</a></li>
-<li><a href="#orgcba7789">12. Arquitectura Internet</a></li>
-<li><a href="#orgae07052">13. Otros ejemplos de arquitectura</a></li>
-<li><a href="#orgc944c75">14. Sistemas de interconexión</a></li>
-<li><a href="#org8a39eee">15. Referencias</a></li>
+<li><a href="#orgdcda43b">1. Introducción</a></li>
+<li><a href="#org113a0dd">2. Factores a considerar en una comunicación</a></li>
+<li><a href="#org1a2c74b">3. Modelo OSI</a></li>
+<li><a href="#org09cc512">4. Capa física</a></li>
+<li><a href="#orgf434a9e">5. Capa de enlace</a></li>
+<li><a href="#orgc9b74fc">6. Capa de red</a></li>
+<li><a href="#org76e3651">7. Capa de transporte</a></li>
+<li><a href="#orgcfdf587">8. Capa de sesión</a></li>
+<li><a href="#orgb4833c9">9. Capa de presentación</a></li>
+<li><a href="#orgeac7f1c">10. Capa de aplicación</a></li>
+<li><a href="#orgea9ec04">11. Aceptación del modelo ISO/OSI</a></li>
+<li><a href="#org6d2bcb6">12. Arquitectura Internet</a></li>
+<li><a href="#orgb6ff9ba">13. Otros ejemplos de arquitectura</a></li>
+<li><a href="#org89c8b4e">14. Sistemas de interconexión</a></li>
+<li><a href="#org2bf3ec7">15. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org969a860" class="outline-2">
-<h2 id="org969a860"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orgdcda43b" class="outline-2">
+<h2 id="orgdcda43b"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Podemos considerar una arquitectura de red como un “plan” cuyo objetivo es establecer los mecanismos a implementar para que dos dispositivos se comuniquen.</li>
@@ -289,8 +276,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgf102af9" class="outline-3">
-<h3 id="orgf102af9"><span class="section-number-3">1.1</span> Arquitectura monolítica</h3>
+<div id="outline-container-orgb3b0228" class="outline-3">
+<h3 id="orgb3b0228"><span class="section-number-3">1.1</span> Arquitectura monolítica</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Inicialmente, cada empresa creaba su propia arquitectura sin tener en cuenta otras existentes, de forma que unas eran incompatibles con otras.</li>
@@ -301,8 +288,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgeb0ce15" class="outline-3">
-<h3 id="orgeb0ce15"><span class="section-number-3">1.2</span> Comunicación por niveles</h3>
+<div id="outline-container-orgc5783f2" class="outline-3">
+<h3 id="orgc5783f2"><span class="section-number-3">1.2</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Pronto se vió que la arquitectura monolítica no era funcional y se pasó al modelo por capas.</li>
@@ -315,8 +302,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgc9b317e" class="outline-3">
-<h3 id="orgc9b317e"><span class="section-number-3">1.3</span> Comunicación por niveles</h3>
+<div id="outline-container-org0ba1c9a" class="outline-3">
+<h3 id="org0ba1c9a"><span class="section-number-3">1.3</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-3">
 
 <div class="figure">
@@ -328,8 +315,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org86439ba" class="outline-3">
-<h3 id="org86439ba"><span class="section-number-3">1.4</span> Comunicación por niveles</h3>
+<div id="outline-container-org6bdc5bb" class="outline-3">
+<h3 id="org6bdc5bb"><span class="section-number-3">1.4</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Cada nivel tiene una <i>interfaz</i>. Dos niveles adyacentes utilizan esta interfaz para comunicar entre ellos.</li>
@@ -340,8 +327,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdf4a84a" class="outline-3">
-<h3 id="orgdf4a84a"><span class="section-number-3">1.5</span> Comunicación por niveles</h3>
+<div id="outline-container-org19bf5ea" class="outline-3">
+<h3 id="org19bf5ea"><span class="section-number-3">1.5</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>El nivel más alto suele llevar la <i>semántica</i> de la comunicación.
@@ -357,8 +344,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org1cdb5bf" class="outline-3">
-<h3 id="org1cdb5bf"><span class="section-number-3">1.6</span> Protocolos y servicios</h3>
+<div id="outline-container-org33b3054" class="outline-3">
+<h3 id="org33b3054"><span class="section-number-3">1.6</span> Protocolos y servicios</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Protocolos (comunicación horizontal): conjunto de reglas que permite la comunicación entre los participantes.
@@ -372,8 +359,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga091a5c" class="outline-3">
-<h3 id="orga091a5c"><span class="section-number-3">1.7</span> Protocolos y servicios</h3>
+<div id="outline-container-org9317d3d" class="outline-3">
+<h3 id="org9317d3d"><span class="section-number-3">1.7</span> Protocolos y servicios</h3>
 <div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>Servicios (comunicación vertical): funciones proporcionadas entre capas dentro del mismo equipo.
@@ -387,8 +374,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgf0ac113" class="outline-4">
-<h4 id="orgf0ac113"><span class="section-number-4">1.7.1</span> Preguntas</h4>
+<div id="outline-container-org6fbae00" class="outline-4">
+<h4 id="org6fbae00"><span class="section-number-4">1.7.1</span> Preguntas</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>¿Qué ventajas tiene un modelo por capas?</li>
@@ -410,8 +397,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org5b830e1" class="outline-2">
-<h2 id="org5b830e1"><span class="section-number-2">2</span> Factores a considerar en una comunicación</h2>
+<div id="outline-container-org113a0dd" class="outline-2">
+<h2 id="org113a0dd"><span class="section-number-2">2</span> Factores a considerar en una comunicación</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?</li>
@@ -424,8 +411,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0aeba32" class="outline-3">
-<h3 id="org0aeba32"><span class="section-number-3">2.1</span> ¿Qué hace falta?</h3>
+<div id="outline-container-org9355096" class="outline-3">
+<h3 id="org9355096"><span class="section-number-3">2.1</span> ¿Qué hace falta?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Encaminamiento</li>
@@ -443,8 +430,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org146dd00" class="outline-3">
-<h3 id="org146dd00"><span class="section-number-3">2.2</span> Encaminamiento</h3>
+<div id="outline-container-org08c3f2a" class="outline-3">
+<h3 id="org08c3f2a"><span class="section-number-3">2.2</span> Encaminamiento</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Encaminamiento: buscar un camino entre el host origen y el host destino de la comunicación.</li>
@@ -452,8 +439,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org27ce56c" class="outline-3">
-<h3 id="org27ce56c"><span class="section-number-3">2.3</span> Direccionamiento</h3>
+<div id="outline-container-org2a6c063" class="outline-3">
+<h3 id="org2a6c063"><span class="section-number-3">2.3</span> Direccionamiento</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Direccionamiento: identificar de forma unívoca los hosts que participan a la comunicación.</li>
@@ -461,8 +448,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7e5ee1c" class="outline-3">
-<h3 id="org7e5ee1c"><span class="section-number-3">2.4</span> Acceso al medio</h3>
+<div id="outline-container-org5b64383" class="outline-3">
+<h3 id="org5b64383"><span class="section-number-3">2.4</span> Acceso al medio</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Acceso al medio: determinar las normas con las que los host pueden tomar el control del medio compartido y comunicar.</li>
@@ -470,8 +457,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5eb972e" class="outline-3">
-<h3 id="org5eb972e"><span class="section-number-3">2.5</span> Saturación</h3>
+<div id="outline-container-orgb86a242" class="outline-3">
+<h3 id="orgb86a242"><span class="section-number-3">2.5</span> Saturación</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Saturación del receptor: si el receptor es más lento en procesar la información con respecto al emisor, hay que regular el flujo de información.</li>
@@ -479,8 +466,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgde090a4" class="outline-3">
-<h3 id="orgde090a4"><span class="section-number-3">2.6</span> Orden de envío</h3>
+<div id="outline-container-orgfa271f9" class="outline-3">
+<h3 id="orgfa271f9"><span class="section-number-3">2.6</span> Orden de envío</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Mantenimiento del orden de envío: es posible que ciertos paquetes enviados por caminos distintos lleguen con un orden diferente al que se enviaron.</li>
@@ -488,8 +475,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4a283c0" class="outline-3">
-<h3 id="org4a283c0"><span class="section-number-3">2.7</span> Control de errores</h3>
+<div id="outline-container-org0197dcb" class="outline-3">
+<h3 id="org0197dcb"><span class="section-number-3">2.7</span> Control de errores</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Detección de errores: Determinar si la información recibida es correcta, ya que la información enviada por el medio podría verse afectada por factores como el ruido o la atenuación.</li>
@@ -498,8 +485,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4e65ae0" class="outline-3">
-<h3 id="org4e65ae0"><span class="section-number-3">2.8</span> Multiplexación</h3>
+<div id="outline-container-org4f3df94" class="outline-3">
+<h3 id="org4f3df94"><span class="section-number-3">2.8</span> Multiplexación</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>Multiplexación: un único canal puede ser usado en múltiples comunicaciones simultáneamente.</li>
@@ -507,8 +494,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org344cce2" class="outline-3">
-<h3 id="org344cce2"><span class="section-number-3">2.9</span> Segmentación</h3>
+<div id="outline-container-org4a2ef0c" class="outline-3">
+<h3 id="org4a2ef0c"><span class="section-number-3">2.9</span> Segmentación</h3>
 <div class="outline-text-3" id="text-2-9">
 <ul class="org-ul">
 <li>Segmentación: algunos bloques de información pueden ser demasiado grandes para ser enviados y hay que fraccionarlos.</li>
@@ -517,8 +504,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org89eff59" class="outline-3">
-<h3 id="org89eff59"><span class="section-number-3">2.10</span> Privacidad</h3>
+<div id="outline-container-org664a9f1" class="outline-3">
+<h3 id="org664a9f1"><span class="section-number-3">2.10</span> Privacidad</h3>
 <div class="outline-text-3" id="text-2-10">
 <ul class="org-ul">
 <li>Los datos transmitidos no deberían poder ser
@@ -532,8 +519,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf177a5f" class="outline-2">
-<h2 id="orgf177a5f"><span class="section-number-2">3</span> Modelo OSI</h2>
+<div id="outline-container-org1a2c74b" class="outline-2">
+<h2 id="org1a2c74b"><span class="section-number-2">3</span> Modelo OSI</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Modelo desarrollado por la ISO (International Standardization Organization).</li>
@@ -545,19 +532,18 @@ for the JavaScript code in this tag.
 
 
 <div class="figure">
-<p><img src="media/osi-usuario-conexion-red.png" alt="osi-usuario-conexion-red.png" width="35%" />
+<p><object type="image/svg+xml" data="media/osi-usuario-conexion-red.svg" class="org-svg" width="35%">
+Sorry, your browser does not support SVG.</object>
 </p>
 </div>
-
 
 <p>
 <a href="https://es.wikipedia.org/wiki/Modelo_OSI">Fuente: wikipedia</a>
 </p>
 </div>
 
-
-<div id="outline-container-org81992d3" class="outline-3">
-<h3 id="org81992d3"><span class="section-number-3">3.1</span> PDU (<i>protocol data unit</i>)</h3>
+<div id="outline-container-org8716bd7" class="outline-3">
+<h3 id="org8716bd7"><span class="section-number-3">3.1</span> PDU (<i>protocol data unit</i>)</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Encapsulación de datos.</li>
@@ -582,8 +568,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgc01f03f" class="outline-3">
-<h3 id="orgc01f03f"><span class="section-number-3">3.2</span> Servicios</h3>
+<div id="outline-container-org7fcc557" class="outline-3">
+<h3 id="org7fcc557"><span class="section-number-3">3.2</span> Servicios</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Cada capa se dedica a prestar <i>servicios</i> a su capa superior
@@ -594,8 +580,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org2820a75" class="outline-4">
-<h4 id="org2820a75"><span class="section-number-4">3.2.1</span> Conexión/Confiable</h4>
+<div id="outline-container-org2e117ca" class="outline-4">
+<h4 id="org2e117ca"><span class="section-number-4">3.2.1</span> Conexión/Confiable</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li>Cada servicio puede ser o no orientado a conexión</li>
@@ -616,16 +602,16 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org7ff663d" class="outline-2">
-<h2 id="org7ff663d"><span class="section-number-2">4</span> Capa física</h2>
+<div id="outline-container-org09cc512" class="outline-2">
+<h2 id="org09cc512"><span class="section-number-2">4</span> Capa física</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Se encarga de la transmisión física de los datos. Indica como utilizar el medio físico para la transmisión de la información y como nos conectaremos a éste desde los equipos.</li>
 </ul>
 </div>
 
-<div id="outline-container-org6c0590f" class="outline-3">
-<h3 id="org6c0590f"><span class="section-number-3">4.1</span> Funciones</h3>
+<div id="outline-container-org7183cb8" class="outline-3">
+<h3 id="org7183cb8"><span class="section-number-3">4.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Especifica los medios de transmisión.</li>
@@ -638,8 +624,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgfd20013" class="outline-2">
-<h2 id="orgfd20013"><span class="section-number-2">5</span> Capa de enlace</h2>
+<div id="outline-container-orgf434a9e" class="outline-2">
+<h2 id="orgf434a9e"><span class="section-number-2">5</span> Capa de enlace</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Su objetivo es convertir el medio de transmisión proporcionado por la capa física en un canal libre de errores (entre dos dispositivos conectados directamente).</li>
@@ -647,8 +633,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org9961427" class="outline-3">
-<h3 id="org9961427"><span class="section-number-3">5.1</span> Funciones</h3>
+<div id="outline-container-org073029e" class="outline-3">
+<h3 id="org073029e"><span class="section-number-3">5.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Sincronización entre el emisor y el receptor.</li>
@@ -665,8 +651,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org23a7eab" class="outline-2">
-<h2 id="org23a7eab"><span class="section-number-2">6</span> Capa de red</h2>
+<div id="outline-container-orgc9b74fc" class="outline-2">
+<h2 id="orgc9b74fc"><span class="section-number-2">6</span> Capa de red</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Define todos los aspectos necesarios para comunicar equipos de redes distintas.</li>
@@ -674,8 +660,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org0a85716" class="outline-3">
-<h3 id="org0a85716"><span class="section-number-3">6.1</span> Funciones</h3>
+<div id="outline-container-orgbfcf674" class="outline-3">
+<h3 id="orgbfcf674"><span class="section-number-3">6.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Direccionamiento lógico 
@@ -691,8 +677,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgdc72a47" class="outline-3">
-<h3 id="orgdc72a47"><span class="section-number-3">6.2</span> Funciones</h3>
+<div id="outline-container-orge2fa0f8" class="outline-3">
+<h3 id="orge2fa0f8"><span class="section-number-3">6.2</span> Funciones</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Tratamiento de la congestión de la red: debe intentar reducir al mínimo la congestión de la red evitando caminos que tienen demasiado tráfico.</li>
@@ -703,8 +689,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orga255f11" class="outline-3">
-<h3 id="orga255f11"><span class="section-number-3">6.3</span> Nodos intermedios</h3>
+<div id="outline-container-org9e9e8a3" class="outline-3">
+<h3 id="org9e9e8a3"><span class="section-number-3">6.3</span> Nodos intermedios</h3>
 <div class="outline-text-3" id="text-6-3">
 
 <div class="figure">
@@ -716,8 +702,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgd9b78c5" class="outline-2">
-<h2 id="orgd9b78c5"><span class="section-number-2">7</span> Capa de transporte</h2>
+<div id="outline-container-org76e3651" class="outline-2">
+<h2 id="org76e3651"><span class="section-number-2">7</span> Capa de transporte</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Es la encargada de regular el flujo de información desde el origen hasta el destino de una manera sincronizada y precisa.</li>
@@ -731,8 +717,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org8ac6dfc" class="outline-3">
-<h3 id="org8ac6dfc"><span class="section-number-3">7.1</span> Funciones</h3>
+<div id="outline-container-org472c2ca" class="outline-3">
+<h3 id="org472c2ca"><span class="section-number-3">7.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.</li>
@@ -745,16 +731,16 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org1ee5998" class="outline-2">
-<h2 id="org1ee5998"><span class="section-number-2">8</span> Capa de sesión</h2>
+<div id="outline-container-orgcfdf587" class="outline-2">
+<h2 id="orgcfdf587"><span class="section-number-2">8</span> Capa de sesión</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Es la encargada de establecer, mantener y finalizar las sesiones de usuario entre dos ordenadores.</li>
 </ul>
 </div>
 
-<div id="outline-container-org8f62869" class="outline-3">
-<h3 id="org8f62869"><span class="section-number-3">8.1</span> Funciones</h3>
+<div id="outline-container-org1cf1707" class="outline-3">
+<h3 id="org1cf1707"><span class="section-number-3">8.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Mejora el servicio proporcionado por la capa de transporte permitiendo la reanudación de la conexión en caso de interrupción.
@@ -769,16 +755,16 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org7e62c92" class="outline-2">
-<h2 id="org7e62c92"><span class="section-number-2">9</span> Capa de presentación</h2>
+<div id="outline-container-orgb4833c9" class="outline-2">
+<h2 id="orgb4833c9"><span class="section-number-2">9</span> Capa de presentación</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Ofrece servicios para especificar el formato de los datos que se están enviando.</li>
 </ul>
 </div>
 
-<div id="outline-container-org66b945f" class="outline-3">
-<h3 id="org66b945f"><span class="section-number-3">9.1</span> Funciones</h3>
+<div id="outline-container-orgd015394" class="outline-3">
+<h3 id="orgd015394"><span class="section-number-3">9.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Se encarga de la compresión y del cifrado de la información enviada.</li>
@@ -802,8 +788,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org48755e2" class="outline-2">
-<h2 id="org48755e2"><span class="section-number-2">10</span> Capa de aplicación</h2>
+<div id="outline-container-orgeac7f1c" class="outline-2">
+<h2 id="orgeac7f1c"><span class="section-number-2">10</span> Capa de aplicación</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Es la razón por la que se monta la red</li>
@@ -821,8 +807,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org74f57fc" class="outline-2">
-<h2 id="org74f57fc"><span class="section-number-2">11</span> Aceptación del modelo ISO/OSI</h2>
+<div id="outline-container-orgea9ec04" class="outline-2">
+<h2 id="orgea9ec04"><span class="section-number-2">11</span> Aceptación del modelo ISO/OSI</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>El modelo OSI es un gran modelo <i>teórico</i></li>
@@ -842,8 +828,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-org84a818f" class="outline-3">
-<h3 id="org84a818f"><span class="section-number-3">11.1</span> Estándar <i>de iure</i> y <i>de facto</i></h3>
+<div id="outline-container-orga5a3a76" class="outline-3">
+<h3 id="orga5a3a76"><span class="section-number-3">11.1</span> Estándar <i>de iure</i> y <i>de facto</i></h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li><i>De iure</i>: Reconocido por una autoridad competente</li>
@@ -864,8 +850,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgcba7789" class="outline-2">
-<h2 id="orgcba7789"><span class="section-number-2">12</span> Arquitectura Internet</h2>
+<div id="outline-container-org6d2bcb6" class="outline-2">
+<h2 id="org6d2bcb6"><span class="section-number-2">12</span> Arquitectura Internet</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>La gran difusión de Internet, ha permitido que este modelo sea hoy en día un estándar de hecho. OSI ha quedado como arquitectura para el estudio teórico.</li>
@@ -875,8 +861,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org43cf19a" class="outline-3">
-<h3 id="org43cf19a"><span class="section-number-3">12.1</span> TCP-IP Vs OSI</h3>
+<div id="outline-container-org07756ac" class="outline-3">
+<h3 id="org07756ac"><span class="section-number-3">12.1</span> TCP-IP Vs OSI</h3>
 <div class="outline-text-3" id="text-12-1">
 <ul class="org-ul">
 <li>OSI asignaba un protocolo por cada capa.</li>
@@ -889,8 +875,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org9fd17c1" class="outline-3">
-<h3 id="org9fd17c1"><span class="section-number-3">12.2</span> Capas en el modelo Internet</h3>
+<div id="outline-container-org6d9353a" class="outline-3">
+<h3 id="org6d9353a"><span class="section-number-3">12.2</span> Capas en el modelo Internet</h3>
 <div class="outline-text-3" id="text-12-2">
 <ul class="org-ul">
 <li>La capa de acceso al medio recoge las especificaciones de las capas física y de enlace 
@@ -908,8 +894,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9587a38" class="outline-3">
-<h3 id="org9587a38"><span class="section-number-3">12.3</span> Niveles TCP-IP</h3>
+<div id="outline-container-orgc087cbe" class="outline-3">
+<h3 id="orgc087cbe"><span class="section-number-3">12.3</span> Niveles TCP-IP</h3>
 <div class="outline-text-3" id="text-12-3">
 
 <div class="figure">
@@ -920,8 +906,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org89055bf" class="outline-3">
-<h3 id="org89055bf"><span class="section-number-3">12.4</span> Protocolos TCP-IP</h3>
+<div id="outline-container-org0dbe021" class="outline-3">
+<h3 id="org0dbe021"><span class="section-number-3">12.4</span> Protocolos TCP-IP</h3>
 <div class="outline-text-3" id="text-12-4">
 
 <div class="figure">
@@ -932,8 +918,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org4fec4c3" class="outline-3">
-<h3 id="org4fec4c3"><span class="section-number-3">12.5</span> TCP vs UDP</h3>
+<div id="outline-container-orgb1e0b59" class="outline-3">
+<h3 id="orgb1e0b59"><span class="section-number-3">12.5</span> TCP vs UDP</h3>
 <div class="outline-text-3" id="text-12-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -982,12 +968,12 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgae07052" class="outline-2">
-<h2 id="orgae07052"><span class="section-number-2">13</span> Otros ejemplos de arquitectura</h2>
+<div id="outline-container-orgb6ff9ba" class="outline-2">
+<h2 id="orgb6ff9ba"><span class="section-number-2">13</span> Otros ejemplos de arquitectura</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-orga40db51" class="outline-3">
-<h3 id="orga40db51"><span class="section-number-3">13.1</span> Arquitectura RTC</h3>
+<div id="outline-container-org905c5d5" class="outline-3">
+<h3 id="org905c5d5"><span class="section-number-3">13.1</span> Arquitectura RTC</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>RTC (Red Telefónica Conmutada)</li>
@@ -1001,8 +987,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgf311959" class="outline-3">
-<h3 id="orgf311959"><span class="section-number-3">13.2</span> Iberpac</h3>
+<div id="outline-container-org8726945" class="outline-3">
+<h3 id="org8726945"><span class="section-number-3">13.2</span> Iberpac</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>Red de datos extendida por toda España.</li>
@@ -1015,8 +1001,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgc24703f" class="outline-3">
-<h3 id="orgc24703f"><span class="section-number-3">13.3</span> RDSI o ISDN</h3>
+<div id="outline-container-org53078d2" class="outline-3">
+<h3 id="org53078d2"><span class="section-number-3">13.3</span> RDSI o ISDN</h3>
 <div class="outline-text-3" id="text-13-3">
 <ul class="org-ul">
 <li>Tiene su propio cableado y sus adaptadores específicos.</li>
@@ -1028,8 +1014,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orga9ab271" class="outline-3">
-<h3 id="orga9ab271"><span class="section-number-3">13.4</span> DSL (Digital Subcriber Line)</h3>
+<div id="outline-container-orgc133c38" class="outline-3">
+<h3 id="orgc133c38"><span class="section-number-3">13.4</span> DSL (Digital Subcriber Line)</h3>
 <div class="outline-text-3" id="text-13-4">
 <ul class="org-ul">
 <li>Permite alta velocidad en cableado de baja calidad.</li>
@@ -1046,8 +1032,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgc944c75" class="outline-2">
-<h2 id="orgc944c75"><span class="section-number-2">14</span> Sistemas de interconexión</h2>
+<div id="outline-container-org89c8b4e" class="outline-2">
+<h2 id="org89c8b4e"><span class="section-number-2">14</span> Sistemas de interconexión</h2>
 <div class="outline-text-2" id="text-14">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1088,8 +1074,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orge2d6f3b" class="outline-3">
-<h3 id="orge2d6f3b"><span class="section-number-3">14.1</span> Repetidor</h3>
+<div id="outline-container-orgc47b1bb" class="outline-3">
+<h3 id="orgc47b1bb"><span class="section-number-3">14.1</span> Repetidor</h3>
 <div class="outline-text-3" id="text-14-1">
 <ul class="org-ul">
 <li>Conecta 2 segmentos de cable.</li>
@@ -1099,8 +1085,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orga611144" class="outline-3">
-<h3 id="orga611144"><span class="section-number-3">14.2</span> Concentrador</h3>
+<div id="outline-container-org6627e88" class="outline-3">
+<h3 id="org6627e88"><span class="section-number-3">14.2</span> Concentrador</h3>
 <div class="outline-text-3" id="text-14-2">
 <ul class="org-ul">
 <li>Un repetidor con más de dos conexiones</li>
@@ -1116,8 +1102,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org17373e1" class="outline-3">
-<h3 id="org17373e1"><span class="section-number-3">14.3</span> Puente</h3>
+<div id="outline-container-orga2369e9" class="outline-3">
+<h3 id="orga2369e9"><span class="section-number-3">14.3</span> Puente</h3>
 <div class="outline-text-3" id="text-14-3">
 <ul class="org-ul">
 <li>Un puente conecta 2  redes de área local.</li>
@@ -1127,8 +1113,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org01a8fa6" class="outline-3">
-<h3 id="org01a8fa6"><span class="section-number-3">14.4</span> Conmuntador</h3>
+<div id="outline-container-orgeb3d6e3" class="outline-3">
+<h3 id="orgeb3d6e3"><span class="section-number-3">14.4</span> Conmuntador</h3>
 <div class="outline-text-3" id="text-14-4">
 <ul class="org-ul">
 <li>Un puente de más de dos conexiones</li>
@@ -1140,8 +1126,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgba615ee" class="outline-3">
-<h3 id="orgba615ee"><span class="section-number-3">14.5</span> Enrutador</h3>
+<div id="outline-container-org88c3ea5" class="outline-3">
+<h3 id="org88c3ea5"><span class="section-number-3">14.5</span> Enrutador</h3>
 <div class="outline-text-3" id="text-14-5">
 <ul class="org-ul">
 <li>Enrutador: cuando un paquete llega a un enrutador el encabezado y el terminador de la trama se eliminan y el paquete contenido en el campo de datos de la trama se pasan al software de enrutamiento.</li>
@@ -1149,8 +1135,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgf281af8" class="outline-3">
-<h3 id="orgf281af8"><span class="section-number-3">14.6</span> Pasarela</h3>
+<div id="outline-container-orgb870513" class="outline-3">
+<h3 id="orgb870513"><span class="section-number-3">14.6</span> Pasarela</h3>
 <div class="outline-text-3" id="text-14-6">
 <ul class="org-ul">
 <li>Pasarela de transporte y pasarela de aplicación.
@@ -1166,8 +1152,8 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-org8a39eee" class="outline-2">
-<h2 id="org8a39eee"><span class="section-number-2">15</span> Referencias</h2>
+<div id="outline-container-org2bf3ec7" class="outline-2">
+<h2 id="org2bf3ec7"><span class="section-number-2">15</span> Referencias</h2>
 <div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Formatos:
@@ -1188,7 +1174,7 @@ for the JavaScript code in this tag.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-09-24 mar 09:40</p>
+<p class="date">Created: 2019-09-25 mié 10:19</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

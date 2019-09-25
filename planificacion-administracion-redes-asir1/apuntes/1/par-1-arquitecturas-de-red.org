@@ -165,11 +165,9 @@ Data processing by two communicating OSI-compatible devices proceeds as follows:
 
 #+ATTR_HTML: :width 35%
 #+attr_latex: :width 0.6\textwidth
-[[file:media/osi-usuario-conexion-red.png]]
-
+[[file:media/osi-usuario-conexion-red.svg]]
 
 [[https://es.wikipedia.org/wiki/Modelo_OSI][Fuente: wikipedia]]
-
 
 ** PDU (/protocol data unit/)
 - Encapsulación de datos.
