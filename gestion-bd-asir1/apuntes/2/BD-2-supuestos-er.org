@@ -29,6 +29,8 @@ Crear un esquema ER que represente el funcionamiento de un centro escolar de for
 - Necesitamos saber y anotar en la base de datos si una asignatura requiere que antes se hayan aprobado otras, para poder matricularse en ella. Por ejemplo, Ampliación de Matemáticas de 2º a lo mejor requiere aprobar Matemáticas de 1º. Puede requerirse terminar más de una asignatura previamente para poder matricularse de una concreta.
 - De los profesores se almacena su nombre, dirección, teléfono, email, DNI, nº de Seguridad Social y un código interno de profesor así como los años que tiene de antigüedad impartiendo cada asignatura.
 - Nos damos cuenta de que en un curso escolar, puede haber varios profesores responsables de una asignatura (por bajas, ceses, etc.); por lo que anotamos cuándo empezó a impartir dicho profesor la asignatura y cuando terminó (si no ha terminado, se dejaría vacío)
+- Una misma asignatura siempre se imparte en el mismo aula a un grupo de alumnos.
+- En un mismo año un ciclo se puede impartir a más de un grupo de alumnos
 
 Asegúrate de que podemos averiguar gracias al diseño, que si buscamos a un profesor un día concreto (por ejemplo el 13 de Mayo de 2018) a una hora concreta (sexta hora), podríamos saber en qué aula va a estar.
 
