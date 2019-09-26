@@ -55,7 +55,9 @@ La *compartición de recursos* aporta las siguientes ventajas:
 - Modelo de transmisión
 - Topología (física)
 - Extensión
+- Propietario de la red
 - Modo de transmisión
+- Medio de transmisión
 
 
 * Modelo de transmisión
