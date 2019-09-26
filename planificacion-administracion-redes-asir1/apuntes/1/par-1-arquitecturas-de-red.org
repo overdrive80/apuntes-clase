@@ -250,7 +250,7 @@
 
 ** Funciones
 - Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.
-- Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin perdidas o duplicados.
+- Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin pérdidas o duplicados.
 - Control de congestión entre origen y destino
 - Direccionamiento
 
@@ -272,7 +272,7 @@
 ** Funciones
 - Se encarga de la compresión y del cifrado de la información enviada.
 - Se encarga de definir el /significado/ de la información:
-  - ¿Qué fecha es 11/11/05?
+  - ¿Qué fecha es 3/11/05?
   - ¿Qué número es 345,241?
 - También puede definir formatos para informaciones más complejas:
   1. Lenguajes de marcas: HTML, XML, …
