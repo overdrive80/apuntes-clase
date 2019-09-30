@@ -60,6 +60,19 @@
   2. Regula aspectos concretos de la comunicación.
   3. Comunicación virtual excepto en el nivel más bajo.
 
+#+begin_comment
+Communication protocols enable an entity in one host to interact with a corresponding entity at the same layer in another host. Service definitions, like the OSI Model, abstractly describe the functionality provided to an (N)-layer by an (N-1) layer, where N is one of the seven layers of protocols operating in the local host.
+
+At each level N, two entities at the communicating devices (layer N peers) exchange protocol data units (PDUs) by means of a layer N protocol. Each PDU contains a payload, called the service data unit (SDU), along with protocol-related headers or footers.
+
+Data processing by two communicating OSI-compatible devices proceeds as follows:
+
+    The data to be transmitted is composed at the topmost layer of the transmitting device (layer N) into a protocol data unit (PDU).
+    The PDU is passed to layer N-1, where it is known as the service data unit (SDU).
+    At layer N-1 the SDU is concatenated with a header, a footer, or both, producing a layer N-1 PDU. It is then passed to layer N-2.
+    The process continues until reaching the lowermost level, from which the data is transmitted to the receiving device.
+    At the receiving device the data is passed from the lowest to the highest layer as a series of SDUs while being successively stripped from each layer's header or footer, until reaching the topmost layer, where the last of the data is consumed.
+#+end_comment
 
 
 ** Protocolos y servicios
@@ -110,7 +123,7 @@
 - Encaminamiento: buscar un camino entre el host origen y el host destino de la comunicación.
 
 ** Direccionamiento
-- Direccionamiento: identificar de forma univoca los hosts que participan a la comunicación.
+- Direccionamiento: identificar de forma unívoca los hosts que participan a la comunicación.
 
 ** Acceso al medio
 - Acceso al medio: determinar las normas con las que los host pueden tomar el control del medio compartido y comunicar.
@@ -124,14 +137,14 @@
 
 ** Control de errores
 - Detección de errores: Determinar si la información recibida es correcta, ya que la información enviada por el medio podría verse afectada por factores como el ruido o la atenuación.
-- Control de errores: Corregir los errores detectados
+- Corrección de errores: Corregir los errores detectados
 
 ** Multiplexación
 
 - Multiplexación: un único canal puede ser usado en múltiples comunicaciones simultáneamente.
 
 ** Segmentación
-- Segmentación: algunos bloques de información pueden ser demasiados grandes para ser enviados y hay que fraccionarlos.
+- Segmentación: algunos bloques de información pueden ser demasiado grandes para ser enviados y hay que fraccionarlos.
 - Ensamblado: si se ha segmentado la información hay que volver a reconstruirla en el destino.
 
 ** Privacidad
@@ -152,11 +165,9 @@
 
 #+ATTR_HTML: :width 35%
 #+attr_latex: :width 0.6\textwidth
-[[file:media/osi-usuario-conexion-red.png]]
-
+[[file:media/osi-usuario-conexion-red.svg]]
 
 [[https://es.wikipedia.org/wiki/Modelo_OSI][Fuente: wikipedia]]
-
 
 ** PDU (/protocol data unit/)
 - Encapsulación de datos.
@@ -250,7 +261,7 @@
 
 ** Funciones
 - Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.
-- Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin perdidas o duplicados.
+- Proporciona un servicio orientado a la conexión que garantiza que la comunicación está libre de errores, sin pérdidas o duplicados.
 - Control de congestión entre origen y destino
 - Direccionamiento
 
@@ -272,7 +283,7 @@
 ** Funciones
 - Se encarga de la compresión y del cifrado de la información enviada.
 - Se encarga de definir el /significado/ de la información:
-  - ¿Qué fecha es 11/11/05?
+  - ¿Qué fecha es 3/11/05?
   - ¿Qué número es 345,241?
 - También puede definir formatos para informaciones más complejas:
   1. Lenguajes de marcas: HTML, XML, …

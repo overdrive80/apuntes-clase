@@ -55,7 +55,9 @@ La *compartición de recursos* aporta las siguientes ventajas:
 - Modelo de transmisión
 - Topología (física)
 - Extensión
+- Propietario de la red
 - Modo de transmisión
+- Medio de transmisión
 
 
 * Modelo de transmisión
@@ -89,7 +91,7 @@ Ejemplo de redes de difusión:
 
 ** Redes punto a punto : 
 1. A quiere conectarse con B. 
-2. Entre A y B existen otros elementos de interconexión que se ocupan de seleccionar un camino de A a B.
+2. Entre A y B existen otros /elementos de interconexión/ que se ocupan de seleccionar un camino de A a B.
 3. Los equipos que no estén directamente en la interconexión no interactúan
 
 #+attr_latex: :width 0.6\textwidth

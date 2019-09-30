@@ -142,18 +142,17 @@
 #+attr_latex: :width 0.6\textwidth
 [[file:tabla-ascii-hexadecimal.jpg]]
 
-** Ejercicio                                                  :noexport:
+** Ejercicio :noexport:
 - *Inventa* los siguientes datos
-- Crea un fichero con nombres, apellidos, e instituto anterior de 10 alumnos
+- Crea un fichero con nombres e instituto de 10 alumnos
 - Crea un fichero con datos de 5 institutos (pueden ser inventados)
   - Nombre del instituto
-  - Dirección
-  - Teléfono 
   - Número de alumnos
 - El formato es /libre/
 
 ** Ejercicio :noexport:
 - Ordena los alumnos por apellidos
+- Asegúrate que el número de alumnos de un instituto coincide con los alumnos que has matriculado
 - Busca institutos de los que no tengas alumnos
 - Busca alumnos que estén en un instituto del que no tienes teléfono
 - Cierra el instituto con más alumnos y recoloca los alumnos en otros institutos
