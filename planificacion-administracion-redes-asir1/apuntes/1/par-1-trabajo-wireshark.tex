@@ -13,9 +13,10 @@
 \section{Objetivo de la práctica}
 En esta práctica se espera que el alumno se familiarice con:
 \begin{itemize}
-\item La encapsulación de los protocolos de nivel $n$ en los protocolos $n-1$
-\item Búsqueda de la información relevante entre el resto de información
-\item Utilización de la herramienta \textbf{Wireshark}
+\item La encapsulación de los protocolos de nivel $n$ en los protocolos $n-1$.
+\item Búsqueda de la información relevante entre el resto de información.
+\item Utilización de la herramienta \textbf{Wireshark}.
+\item La correspondencia entre los niveles ISO/OSI y los protocolos de una red real.
   
 \end{itemize}
 
@@ -28,6 +29,9 @@ La última versión de este documento está disponible en \enlace{https://alvaro
   \begin{itemize}
   \item Monitoriza la red durante uno o dos minutos. 
   \item Haz una lista de los protocolos de nivel 2 que encuentres.
+    \begin{itemize}
+    \item \small{No hablamos del nivel de enlace ISO/OSI, sino los del segundo nivel según el \textbf{whiresark}}
+    \end{itemize}
   \item Compara esos protocolos entre sí
     \begin{itemize}
     \item ¿Cuáles son más modernos?
@@ -46,14 +50,19 @@ La última versión de este documento está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[¿Qué protocolos viajan sobre el nivel 2?]
-  Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos que viajen sobre un nivel 2 que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo:
+\begin{homeworkProblem}[¿Qué protocolos viajan sobre el nivel de enlace?]
+  Más de un protocolo puede utilizar el nivel de enlace para enviar sus datos. En esos casos, el nivel de enlace debe apuntar a qué protocolo se le entregarán los datos en el ordenador de destino.
+  
+  Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos que viajen sobre los niveles de enlace que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo:
   \begin{itemize}
   \item Hay tramas \textit{Ethernet} que llevan \textit{IP} (\texttt{0x0800}). Hay que apuntar \textit{IP}.
-  \item Pero no apuntes el \textit{Transmission Control  Protocol}, porque no va directamente sobre el nivel 2 (\textit{ethernet}) sino dentro de un nivel 3 (\textit{IP})
+  \item Pero no apuntes el \textit{Transmission Control  Protocol}, porque no va directamente sobre el nivel 2 (\textit{Ethernet}) sino dentro de un nivel 3 (\textit{IP})
 \end{itemize}
-  \small{Nota: puede que alguno de los protocolos que viajen sobre el nivel 2 no sean de nivel 3 OSI.}
+  \small{Nota: puede que alguno de los protocolos de nivel de enlace no sean el segundo protocolo en \textbf{Wireshark}}
 \end{homeworkProblem}
+
+% https://en.wikipedia.org/wiki/Logical_link_control
+% https://en.wikipedia.org/wiki/IEEE_802.2#LSAP_values
 
 
 % \begin{homeworkProblem}[ (Opcional): Haz una redacción alternativa del ejercicio anterior]
