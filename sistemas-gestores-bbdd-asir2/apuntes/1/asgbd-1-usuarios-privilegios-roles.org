@@ -40,7 +40,7 @@
 #+reveal: split
 
 #+begin_src sql
-select tablespace_name, description from dba_tablespaces;
+select tablespace_name, contents from dba_tablespaces;
 #+end_src
 
 
