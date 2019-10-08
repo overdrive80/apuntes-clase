@@ -83,6 +83,24 @@
 #+HTML_HEAD: <script type="text/javascript" src="../../../common/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
+# IMAGENES AUTOENLAZADAS EN HTML
+#+begin_export html
+<script>
+window.addEventListener("load",()=>{
+  let images = document.getElementsByTagName('img'); 
+  console.log(`Autoenlazando ${images.length} imágenes...`);
+
+  for( let i of images){
+    i.style.cursor = "pointer";
+    i.onclick = ()=> window.location = i.src; 
+  }
+});
+
+</script>
+#+end_export
+
+
+
 # OTRAS OPCIONES
 #+LANGUAGE: es
 #+OPTIONS:   H:3
