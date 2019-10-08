@@ -420,9 +420,10 @@ sqlplus / as sysdba
 - El cliente *sqlplus* viene en la instalación de *oracle*
 - Pero también puede instalarse por separado:
   - http://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html
-  - http://download.oracle.com/otn/linux/instantclient/122010/instantclient-basic-linux.x64-12.2.0.1.0.zip
-  - http://download.oracle.com/otn/linux/instantclient/122010/instantclient-sqlplus-linux.x64-12.2.0.1.0.zip
+  - https://download.oracle.com/otn_software/linux/instantclient/193000/instantclient-basic-linux.x64-19.3.0.0.0dbru.zip
+  - https://download.oracle.com/otn_software/linux/instantclient/193000/instantclient-sqlplus-linux.x64-19.3.0.0.0dbru.zip
 - Tras descomprimir, hay que definir las variables =ORACLE_HOME= y =LD_LIBRARY_PATH= al directorio de instalación
+- Puede ser necesaria la libería =libaio=
 - Para contectarse:
 
 #+begin_src bash
@@ -432,7 +433,7 @@ sqlplus / as sysdba
 #+end_src
 
 
-# #+BEGIN_NOTES
+#+BEGIN_NOTES
 See the Instant Client Home Page for more information.
 
 - Installation of ZIP files:
@@ -464,7 +465,7 @@ See the Instant Client Home Page for more information.
      #+end_src
   7. Start your application.
 
-# #+END_NOTES
+#+END_NOTES
 
 ** Instalación de *SQLDeveloper* en Centos
 - Se necesita *JDK 1.8*
