@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Usuarios, privilegios y roles de *Oracle*
-#+OPTIONS: reveal_single_file:nil
+# #+OPTIONS: reveal_single_file:nil
 
 
 * Introducción
@@ -40,7 +40,7 @@
 #+reveal: split
 
 #+begin_src sql
-select tablespace_name, description from dba_tablespaces;
+select tablespace_name, contents from dba_tablespaces;
 #+end_src
 
 
