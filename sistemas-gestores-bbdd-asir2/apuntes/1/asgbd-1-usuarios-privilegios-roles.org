@@ -1,6 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Usuarios, privilegios y roles de *Oracle*
-# #+OPTIONS: reveal_single_file:nil
+#+OPTIONS: reveal_single_file:nil
 
 
 * Introducción
@@ -83,6 +83,9 @@ graph{
   File -- Segment [label="N    N"]
   Segment -- Extent [label="1    N"]
   Extent -- "Oracle block" [label="1    N"]
+
+  Segment -- Tablespace[label="1    n"]
+
 }
 #+end_src
 
