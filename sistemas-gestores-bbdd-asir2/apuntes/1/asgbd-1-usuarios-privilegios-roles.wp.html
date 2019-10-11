@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-10-07 lun 11:37 -->
+<!-- 2019-10-10 jue 14:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Usuarios, privilegios y roles de <b>Oracle</b></title>
@@ -237,20 +237,20 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0e967c6">1. Introducción</a></li>
-<li><a href="#org8fda278">2. <i>Tablespaces</i></a></li>
-<li><a href="#orgf67080a">3. Usuarios</a></li>
-<li><a href="#orgbb6dd4d">4. Privilegios</a></li>
-<li><a href="#orgbbdab8b">5. Roles</a></li>
-<li><a href="#orgff365d9">6. Perfiles</a></li>
-<li><a href="#org8195aa1">7. Referencias</a></li>
+<li><a href="#org83da9ee">1. Introducción</a></li>
+<li><a href="#org079f5e8">2. <i>Tablespaces</i></a></li>
+<li><a href="#orgb1c1d01">3. Usuarios</a></li>
+<li><a href="#org2d8d626">4. Privilegios</a></li>
+<li><a href="#orgbc91d4f">5. Roles</a></li>
+<li><a href="#orgb2ea03b">6. Perfiles</a></li>
+<li><a href="#org9193258">7. Referencias</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org0e967c6" class="outline-2">
-<h2 id="org0e967c6"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org83da9ee" class="outline-2">
+<h2 id="org83da9ee"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Oracle puede utilizarse simultáneamente por varios procesos y clientes</li>
@@ -264,8 +264,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org8fda278" class="outline-2">
-<h2 id="org8fda278"><span class="section-number-2">2</span> <i>Tablespaces</i></h2>
+<div id="outline-container-org079f5e8" class="outline-2">
+<h2 id="org079f5e8"><span class="section-number-2">2</span> <i>Tablespaces</i></h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><b>Oracle</b> almacena datos en los <i>tablespaces</i>
@@ -282,8 +282,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgf750ddd" class="outline-3">
-<h3 id="orgf750ddd"><span class="section-number-3">2.1</span> ¿Por qué tantas normas?</h3>
+<div id="outline-container-orgfc8d4d3" class="outline-3">
+<h3 id="orgfc8d4d3"><span class="section-number-3">2.1</span> ¿Por qué tantas normas?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Disponibilidad
@@ -304,8 +304,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6b1cde1" class="outline-3">
-<h3 id="org6b1cde1"><span class="section-number-3">2.2</span> <i>Tablespaces</i> por defecto</h3>
+<div id="outline-container-org9eb3da9" class="outline-3">
+<h3 id="org9eb3da9"><span class="section-number-3">2.2</span> <i>Tablespaces</i> por defecto</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Por defecto, <b>Oracle</b> crea en una nueva base de datos
@@ -336,8 +336,8 @@ Mas información en:
 </div>
 </div>
 
-<div id="outline-container-org73e5ebb" class="outline-3">
-<h3 id="org73e5ebb"><span class="section-number-3">2.3</span> Crear un <i>tablespace</i></h3>
+<div id="outline-container-orgd0ba6dd" class="outline-3">
+<h3 id="orgd0ba6dd"><span class="section-number-3">2.3</span> Crear un <i>tablespace</i></h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> TABLESPACE nombre 
@@ -355,8 +355,8 @@ Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statemen
 </div>
 </div>
 
-<div id="outline-container-org5527abe" class="outline-3">
-<h3 id="org5527abe"><span class="section-number-3">2.4</span> ¿Por qué es tan complicado?</h3>
+<div id="outline-container-org36ce130" class="outline-3">
+<h3 id="org36ce130"><span class="section-number-3">2.4</span> ¿Por qué es tan complicado?</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Esta flexibilidad permite:
@@ -370,8 +370,8 @@ Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statemen
 </div>
 </div>
 
-<div id="outline-container-org5a87899" class="outline-3">
-<h3 id="org5a87899"><span class="section-number-3">2.5</span> Conceptos de almacenamiento</h3>
+<div id="outline-container-org8a1f6f9" class="outline-3">
+<h3 id="org8a1f6f9"><span class="section-number-3">2.5</span> Conceptos de almacenamiento</h3>
 <div class="outline-text-3" id="text-2-5">
 
 <div class="figure">
@@ -439,8 +439,8 @@ A database's data is collectively stored in the datafiles that constitute each t
 </div>
 </div>
 
-<div id="outline-container-orgf67080a" class="outline-2">
-<h2 id="orgf67080a"><span class="section-number-2">3</span> Usuarios</h2>
+<div id="outline-container-orgb1c1d01" class="outline-2">
+<h2 id="orgb1c1d01"><span class="section-number-2">3</span> Usuarios</h2>
 <div class="outline-text-2" id="text-3">
 <p>
 ¿Qué usuario hemos utilizado con <code>sqlplus</code> hasta ahora?
@@ -456,8 +456,8 @@ A database's data is collectively stored in the datafiles that constitute each t
 </ul>
 </div>
 
-<div id="outline-container-org97358b7" class="outline-3">
-<h3 id="org97358b7"><span class="section-number-3">3.1</span> Creación de usuarios</h3>
+<div id="outline-container-org0bb27c4" class="outline-3">
+<h3 id="org0bb27c4"><span class="section-number-3">3.1</span> Creación de usuarios</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> <span style="color: #c397d8;">USER</span> usuario IDENTIFIED <span style="color: #b9ca4a;">BY</span> contrasena
@@ -472,8 +472,8 @@ A database's data is collectively stored in the datafiles that constitute each t
 </div>
 </div>
 
-<div id="outline-container-org2ebc452" class="outline-3">
-<h3 id="org2ebc452"><span class="section-number-3">3.2</span> Modificación de usuario</h3>
+<div id="outline-container-org0704636" class="outline-3">
+<h3 id="org0704636"><span class="section-number-3">3.2</span> Modificación de usuario</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li><p>
@@ -500,8 +500,8 @@ Borrado de usuario
 
 
 
-<div id="outline-container-orgbb6dd4d" class="outline-2">
-<h2 id="orgbb6dd4d"><span class="section-number-2">4</span> Privilegios</h2>
+<div id="outline-container-org2d8d626" class="outline-2">
+<h2 id="org2d8d626"><span class="section-number-2">4</span> Privilegios</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Cada usuario puede tener unos permisos distintos</li>
@@ -520,8 +520,8 @@ Borrado de usuario
 
 
 
-<div id="outline-container-orgd880fc0" class="outline-3">
-<h3 id="orgd880fc0"><span class="section-number-3">4.1</span> Privilegios de <b>Oracle</b></h3>
+<div id="outline-container-orgb6fb1d4" class="outline-3">
+<h3 id="orgb6fb1d4"><span class="section-number-3">4.1</span> Privilegios de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -554,8 +554,8 @@ Borrado de usuario
 </div>
 </div>
 
-<div id="outline-container-org6770f4c" class="outline-3">
-<h3 id="org6770f4c"><span class="section-number-3">4.2</span> Sintaxis de <code>Grant</code></h3>
+<div id="outline-container-org66fb89c" class="outline-3">
+<h3 id="org66fb89c"><span class="section-number-3">4.2</span> Sintaxis de <code>Grant</code></h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
@@ -579,8 +579,8 @@ Borrado de usuario
 </div>
 </div>
 
-<div id="outline-container-orgd341d44" class="outline-3">
-<h3 id="orgd341d44"><span class="section-number-3">4.3</span> Ejercicio</h3>
+<div id="outline-container-orgf0026bb" class="outline-3">
+<h3 id="orgf0026bb"><span class="section-number-3">4.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Crea un usuario <code>CONPERMISOS</code>
@@ -607,8 +607,8 @@ grant update(column-name) on table-name to user-name
 </div>
 </div>
 
-<div id="outline-container-org50c0d81" class="outline-3">
-<h3 id="org50c0d81"><span class="section-number-3">4.4</span> Ejercicio</h3>
+<div id="outline-container-orgaac54ad" class="outline-3">
+<h3 id="orgaac54ad"><span class="section-number-3">4.4</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-4">
 <ul class="org-ul">
 <li>Haz que el usuario <code>CONPERMISOS</code> tenga una cuota de 100k en el tablespace <code>USERS</code></li>
@@ -645,8 +645,8 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 </div>
 </div>
 
-<div id="outline-container-org075cc57" class="outline-3">
-<h3 id="org075cc57"><span class="section-number-3">4.5</span> Quitar privilegios</h3>
+<div id="outline-container-org2a8fd87" class="outline-3">
+<h3 id="org2a8fd87"><span class="section-number-3">4.5</span> Quitar privilegios</h3>
 <div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>Los privilegios se quitan con <code>revoke</code></li>
@@ -673,8 +673,8 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 </div>
 </div>
 
-<div id="outline-container-orgbbdab8b" class="outline-2">
-<h2 id="orgbbdab8b"><span class="section-number-2">5</span> Roles</h2>
+<div id="outline-container-orgbc91d4f" class="outline-2">
+<h2 id="orgbc91d4f"><span class="section-number-2">5</span> Roles</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
@@ -687,8 +687,8 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 </ul>
 </div>
 
-<div id="outline-container-org9bae092" class="outline-3">
-<h3 id="org9bae092"><span class="section-number-3">5.1</span> Sintaxis de roles</h3>
+<div id="outline-container-org022b774" class="outline-3">
+<h3 id="org022b774"><span class="section-number-3">5.1</span> Sintaxis de roles</h3>
 <div class="outline-text-3" id="text-5-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">role</span> NOMBREROL;
@@ -703,8 +703,8 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 </div>
 </div>
 
-<div id="outline-container-org76dc3ce" class="outline-3">
-<h3 id="org76dc3ce"><span class="section-number-3">5.2</span> Ejercicio</h3>
+<div id="outline-container-orga9e3c79" class="outline-3">
+<h3 id="orga9e3c79"><span class="section-number-3">5.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Imagina que
@@ -753,8 +753,8 @@ grant ELROL to usuariodespues;
 </div>
 </div>
 
-<div id="outline-container-orgff365d9" class="outline-2">
-<h2 id="orgff365d9"><span class="section-number-2">6</span> Perfiles</h2>
+<div id="outline-container-orgb2ea03b" class="outline-2">
+<h2 id="orgb2ea03b"><span class="section-number-2">6</span> Perfiles</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Un <i>profile</i> es un conjunto de limitaciones sobre el sistema <b>Oracle</b></li>
@@ -763,8 +763,8 @@ grant ELROL to usuariodespues;
 </div>
 
 
-<div id="outline-container-org79ea356" class="outline-3">
-<h3 id="org79ea356"><span class="section-number-3">6.1</span> Creación de perfiles</h3>
+<div id="outline-container-org14663a3" class="outline-3">
+<h3 id="org14663a3"><span class="section-number-3">6.1</span> Creación de perfiles</h3>
 <div class="outline-text-3" id="text-6-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">CREATE</span> PROFILE nombreperfil <span style="color: #b9ca4a;">LIMIT</span> 
@@ -795,8 +795,8 @@ grant ELROL to usuariodespues;
 </div>
 </div>
 
-<div id="outline-container-org927e038" class="outline-3">
-<h3 id="org927e038"><span class="section-number-3">6.2</span> Asignación de perfil a un usuario</h3>
+<div id="outline-container-org1c1df66" class="outline-3">
+<h3 id="org1c1df66"><span class="section-number-3">6.2</span> Asignación de perfil a un usuario</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li><p>
@@ -810,8 +810,8 @@ En la creación (<code>create user</code>), o posteriormente
 </div>
 </div>
 
-<div id="outline-container-org09ca7a7" class="outline-3">
-<h3 id="org09ca7a7"><span class="section-number-3">6.3</span> Ejercicio</h3>
+<div id="outline-container-org7d037e7" class="outline-3">
+<h3 id="org7d037e7"><span class="section-number-3">6.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Haz que el usuario <code>LIMITADO</code> 
@@ -843,8 +843,8 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 </div>
 </div>
 
-<div id="outline-container-org6800769" class="outline-3">
-<h3 id="org6800769"><span class="section-number-3">6.4</span> Ejercicio</h3>
+<div id="outline-container-org28d0a51" class="outline-3">
+<h3 id="org28d0a51"><span class="section-number-3">6.4</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>Utiliza las vistas de <b>Oracle</b> para conocer los límites del profile por defecto.</li>
@@ -855,8 +855,8 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 
 
 
-<div id="outline-container-org8195aa1" class="outline-2">
-<h2 id="org8195aa1"><span class="section-number-2">7</span> Referencias</h2>
+<div id="outline-container-org9193258" class="outline-2">
+<h2 id="org9193258"><span class="section-number-2">7</span> Referencias</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
@@ -876,7 +876,7 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-10-07 lun 11:37</p>
+<p class="date">Created: 2019-10-10 jue 14:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
