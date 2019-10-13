@@ -1,3 +1,4 @@
+* Aspectos formales de las prácticas
 - Las prácticas deberían estar escritas como un tutorial. Deberían *ser útiles* si alguien las encuentra sin conocer el enunciado.
 - Hacen falta números de página y un índice.
 - Una comparación *resalta las diferencias*. No enumera las características de cada cosa comparada .
