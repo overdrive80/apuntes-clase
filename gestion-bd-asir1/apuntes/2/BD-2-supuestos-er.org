@@ -1,3 +1,18 @@
+* Buscaminas
+- Hay un tablero con celdas
+- Cada celda puede contener o no una mina
+- Cada celda puede estar descubierta u oculta
+- Cada partida define
+  - El tamaño del tablero
+  - El número de minas en total
+  - Hay unos niveles predefinidos de dificultad (tamaño del tablero y minas), pero el usuario puede personalizar cada partida.  
+- Cada partida guarda su resultado
+  - Si se consiguió ganar o no
+  - El tiempo total de juego
+- Se guardan los mejores tiempos de los niveles predefinidos de dificultad
+- Cada partida puede grabarse y continuarse posteriormente
+- Interesa guardar cómo jugó se jugó cada partida: qué celdas se abrieron, en qué orden y la rapidez con la que se abrieron
+
 * Biblioteca
 Crear un diseño ER que permita gestionar los datos de una biblioteca de modo que:
 
