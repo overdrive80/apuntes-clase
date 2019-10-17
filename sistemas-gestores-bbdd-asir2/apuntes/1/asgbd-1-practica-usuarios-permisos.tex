@@ -25,7 +25,6 @@
 \section{Objetivo de la práctica}
 En esta práctica utilizaremos a la base de datos \textbf{Oracle} como un verdadero servidor, conectándonos desde otros ordenadores. Para ello:
 \begin{itemize}
-\item Necesitamos poner accesible por red nuestro servidor
 \item Crearemos tablas en un \textit{tablespace} separado
 \item Crearemos un usuario para cada compañero de clase
 \item Asignaremos privilegios utilizando un rol
@@ -33,50 +32,13 @@ En esta práctica utilizaremos a la base de datos \textbf{Oracle} como un verdad
 
 La última versión de este documento está accesible en \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/sistemas-gestores-bbdd-asir2/apuntes/1/asgbd-1-practica-usuarios-permisos.pdf}{https://alvarogonzalezsotillo.github.io/apuntes-clase/sistemas-gestores-bbdd-asir2/apuntes/1/asgbd-1-practica-usuarios-permisos.pdf}
 
-\begin{homeworkProblem}[: Poner Oracle disponible por red]
-
-  Los demás compañeros deben poder acceder a tu servidor de \textbf{Oracle}. Para ello:
-  \begin{enumerate}
-  \item La máquina virtual debe ser accedida desde el resto del aula. El tipo de conexión será \textit{bridged}
-  \item \textbf{Centos} tiene activado un firewall. Hay que desactivarlo como se indica en
-    \begin{itemize}
-    \item  \enlace{https://www.liquidweb.com/kb/how-to-stop-and-disable-firewalld-on-centos-7/}{https://www.liquidweb.com/kb/how-to-stop-and-disable-firewalld-on-centos-7/}
-    \end{itemize}
-    
-  \item La dirección IP se asigna actualmente por DHCP. Esto es un inconveniente porque puede variar cada día. Es mejor utilizar un nombre, así que instalaremos \textbf{avahi}
-    \begin{itemize}
-    \item \enlace{https://en.wikipedia.org/wiki/Avahi\_(software)}{https://en.wikipedia.org/wiki/Avahi\_(software)}
-    \item Instalaremos repositorios de \textit{software} adicionales con \texttt{sudo yum install epel-release}
-    \item Después, instalaremos \textbf{avahi} con \texttt{sudo yum install avahi avahi-tools nss-mdns}
-
-    \end{itemize}
-
-  \item Tu ordenador será accesible con el nombre \texttt{nombre-de-host.local} desde otros linux.
-  \item Pide al profesor que añada el nombre de tu ordenador en la siguiente hoja de cálculo: \enlace{http://bit.ly/2y7u57I}{http://bit.ly/2y7u57I}
-
-
-    \begin{comment}
-      Lo que hay que cambiar en /etc/sysconfig/network-scripts:
-      #BOOTPROTO=dhcp                                                    
-      BOOTPROTO=none
-      IPADDR=10.1.35.210
-      NETMASK=255.255.255.0
-      GATEWAY=10.1.0.1
-      DNS=8.8.8.8
-    \end{comment}
-    
-  \end{enumerate}
-
-  Cuando tengas estos cambios, pide al profesor que compruebe que funcionan.
-\end{homeworkProblem}
-
 \begin{homeworkProblem}[: Creación de un \textit{tablespace}]
 
   Crea un tablespace
   \begin{itemize}
   \item De nombre \texttt{PARAOTROS}.
   \item Con dos ficheros que se guardarán en \texttt{/datos/paraotros}.
-  \item El tamaño de cada fichero será como máximo de 10MBytes
+  \item El tamaño de cada fichero será como máximo de 100 MBytes
   \end{itemize}
 
 \end{homeworkProblem}
@@ -87,41 +49,38 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   Crea un usuario para tí, uno para cada uno de tus compañeros, y uno para el profesor. La contraseña inicial será la misma que el nombre, excepto en tu usuario que debería ser una contraseña secreta:
   \begin{multicols}{3}
     \begin{itemize}
-    \item ANGEL    
-    \item BANEGAS  
-    \item BERMUDEZ 
-    \item BROWN    
-    \item CABRERA  
-    \item DZIERZAK 
-    \item FERNANDEZ
-    \item FRONTELO 
-    \item GARCIA   
-    \item GUINEA   
-    \item LOZANO   
-    \item MONTERO  
-    \item MORALES        
-    \item PEREZ    
-    \item RIVERO   
-    \item RODRIGUEZ
-    \item ROMERO   
-    \item ROSA     
-    \item SAIZ     
-    \item SANCHEZ  
-    \item SANTAREN 
-    \item UTRERO   
-    \item VAZQUEZ  
+    \item ABABEI    
+    \item BERMUDEZ  
+    \item BLANCO          
+    \item CASTELLANO
+    \item CIOBANU   
+    \item COBERTERA       
+    \item CONTONENTE
+    \item CRUZ      
+    \item FERNANDO  
+    \item GONZALEZ  
+    \item LOPEZ     
+    \item MARTINEZ  
+    \item MBA       
+    \item RAMOS     
+    \item RANERA    
+    \item ROLLAN    
+    \item SIMON     
+    \item UTRERO    
+    \item VILLARTA  
+    \item YUBERO    
     \item PROFESOR
     \end{itemize}
   \end{multicols}
   {\small \textbf{Nota}: Son muchos usuarios, así que es aconsejable utilizar un \textit{script} en vez de crearlos manualmente.}
 
-  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto. Los usuarios de los otros alumnos tendrán una cuota de 1MByte en \texttt{PARAOTROS}, y no podrán escribir nada en \texttt{USERS}.
+  Tu propio usuario tendrá como \textit{tablespace} por defecto \texttt{USERS}, y los demás \texttt{PARAOTROS}. Los usuarios necesitan poder conectarse a la base de datos y crear tablas en su \textit{tablespace} por defecto. Los usuarios de los otros alumnos tendrán una cuota de 10 MByte en \texttt{PARAOTROS}, y no podrán escribir nada en \texttt{USERS}.
   
   Cuando tengas listos los usuarios:
   \begin{itemize}
     \item El resto de usuarios podrán conectarse con \texttt{sqlplus USUARIO/USUARIO@HOST:1521/SID}
-    \item Pide al profesor que compruebe su usuario
     \item Pide a algunos compañeros que comprueben su usuario
+    \item Pide al profesor que compruebe su usuario
   \end{itemize}
 \end{homeworkProblem}
 
@@ -134,8 +93,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \item Con tu propio usuario, crea las tablas en ese \textit{tablespace}
     \begin{itemize}
     \item Utiliza el \enlace{https://raw.githubusercontent.com/alvarogonzalezsotillo/apuntes-clase/gh-pages/sistemas-gestores-bbdd-asir2/apuntes/1/sql/carreras-coches.sql}{\textit{script} \texttt{carreras-coches.sql}} para la creación de las tablas
-    \item Tendrás que modificar el \textit{script} para que tenga en cuenta tu \textit{tablespace}
-    \item Tu usuario deberá tener cuota en el \textit{tablespace} \texttt{CARRERAS}
+    \item Tendrás que modificar el \textit{script} para que tenga en cuenta el nuevo \textit{tablespace}
     \end{itemize}
   \end{enumerate}
 \end{homeworkProblem}
@@ -193,7 +151,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 \section{Qué se valorará}
 \begin{itemize}
 \item La corrección técnica (que funcione, que haya usuarios, que tengan los permisos correctos)
-\item Que se incluyan las órdenes SQL ejecutadas en cada punto
+\item Que se incluyan las órdenes de \textit{shell} y SQL ejecutadas en cada punto
 \item La claridad de las explicaciones
 \end{itemize}
 
