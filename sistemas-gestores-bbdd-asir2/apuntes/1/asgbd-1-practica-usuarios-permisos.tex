@@ -85,6 +85,9 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \end{itemize}
 \end{homeworkProblem}
 
+\begin{homeworkProblem}[: \texttt{PROFESOR} con permisos especiales]
+  Haz que el usuario \texttt{PROFESOR} tenga permisos de lectura en las vistas de sistema \texttt{DBA\_TABLES} y \texttt{DBA\_TABLESPACES}.
+\end{homeworkProblem}
 
 \begin{homeworkProblem}[: Creación de las tablas]
   Cambia la contraseña de tu usuario, si no lo has hecho ya, para que ningún compañero pueda utilizarlo (con \texttt{ALTER USER}).
@@ -113,7 +116,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \begin{itemize}
   \item Crea un nuevo campo en la tabla \texttt{RESULTADOS}: \texttt{VALORACION}, de tipo \texttt{VARCHAR(20)}. Tendrá como únicos valores posibles \texttt{MALO}, \texttt{ACEPTABLE}, \texttt{BUENO} y \texttt{MUY BUENO}.
     
-  \item Da permisos al resto de usuarios para poder escribir en este campo, con una orden \texttt{GRANT}
+  \item Da permisos al resto de usuarios para poder leer y actualizar este campo, con una orden \texttt{GRANT}
     \begin{itemize}
     \item \enlace{http://stackoverflow.com/questions/14462353/grant-alter-on-only-one-column-in-table}{http://stackoverflow.com/questions/14462353/grant-alter-on-only-one-column-in-table}
     \end{itemize}
@@ -122,8 +125,6 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   \item Pide al profesor que compruebe que funciona.
 
   \end{itemize}
-  
-
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Llena el \textit{tablespace} \texttt{CARRERAS}]
