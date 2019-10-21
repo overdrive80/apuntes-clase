@@ -13,6 +13,19 @@
 - Cada partida puede grabarse y continuarse posteriormente
 - Interesa guardar cómo jugó se jugó cada partida: qué celdas se abrieron, en qué orden y la rapidez con la que se abrieron
 
+* Ticket de compra
+El TPV de un comercio tiene que almacenar e imprimir tickets de compra con la siguiente información:
+- Fecha y hora de compra
+- Los artículos comprados
+- El precio de cada artículo
+- Si se compra más de un artículo igual, se quiere en la misma línea, con un multiplicador
+- Cada artículo tiene un impuesto de IVA distinto
+- El total del ticket, y la parte que se debe al IVA
+- Cada día, el comercio puede definir ofertas con descuentos. Por ejemplo:
+  - Con dos barras de pan, la 2ª al 50%
+  - Lleva 3 litros de leche, y uno será gratis
+
+
 * Biblioteca
 Crear un diseño ER que permita gestionar los datos de una biblioteca de modo que:
 
@@ -376,9 +389,18 @@ Crear el esquema entidad/relación que permita gestionar los datos sobre prepara
 
 
 
-* Futbol
+* Fútbol
 
-Crear el esquema entidad/relación que permita crear el diseño de una base de datos que almacena información sobre los partidos de una liga de futbol una temporada. Hay que tener en cuenta que en dicha liga los jugadores no pueden cambiar de equipo
+Crear el esquema entidad/relación que permita crear el diseño de una base de datos que almacena información sobre los partidos de una liga de fútbol durante varias temporadas. 
+- De cada partido se guarda:
+  - Equipos que juegan, indicando cuál es el local y cuál el visitante
+  - Alineación titular, incluyendo la posición de cada jugador. 
+  - Resultado
+  - Por cada gol, qué jugador fue el autor y el minuto de juego
+- Hay que tener en cuenta que en dicha liga los jugadores no pueden cambiar de equipo durante una temporada, pero pueden cambiar en la siguiente.
+- Se debe guardar el dorsal de cada jugador. El dorsal puede cambiar cada temporada.
+- Un empate representa un punto para cada equipo. Una victoria son tres, y una derrota no representa ningún punto.
+
 
 
 
