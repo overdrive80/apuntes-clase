@@ -147,6 +147,7 @@
 [[file:media/modulacion-animacion.gif]]
 
 #+reveal: split
+
 | Amplitud                           | Frecuencia                           | Fase                           |
 | [[file:media/modulacion-amplitud.png]] | [[file:media/modulacion-frecuencia.png]] | [[file:media/modulacion-fase.png]] |
 
@@ -157,8 +158,9 @@
 - En el lado receptor se pueden separar las señales
   - Si cada señal tiene un rango de frecuencias distinto
   - Utilizando la [[https://es.wikipedia.org/wiki/Transformada_de_Fourier][Transformada de Fourier]]
-  
-file:media/suma-de-senales.png
+
+#+attr_latex: :width 0.6\textwidth
+[[file:media/suma-de-senales.png]]
 
 Señalización – Señales analógicas complejas
 
@@ -347,9 +349,9 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
 
 
 ** Ejemplos de multiplexación en frecuencias
-- Cuadro Nacional de Atribución de frecuencias
-  - http://www.minetad.gob.es/telecomunicaciones/Espectro/Paginas/CNAF.aspx
+- [[https://es.wikipedia.org/wiki/Anexo:CNAF_de_Espa%25C3%25B1a_(2007)][Cuadro Nacional de Atribución de Frecuencias]]
 - [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
+
   #+attr_latex: :width 0.6\textwidth
   [[file:media/frecuencias-estados-unidos.pdf]]
 
@@ -395,7 +397,7 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
 - Modo de transmisión serie
   - Una única línea transmite los datos
   - Ejemplos: ADSL, USB 1.0
-- Mode de transmisión paralelo
+- Modo de transmisión paralelo
   - La información se envía simultáneamente por varias líneas
   - Más rápido, pero con mayores problemas de sincronía a distancias largas
   - Ejemplos: buses internos del ordenador
@@ -456,3 +458,9 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
+
+
+
+# Local Variables:
+# eval: (setq org-latex-image-default-width "0.2\\linewidth")
+# End:
