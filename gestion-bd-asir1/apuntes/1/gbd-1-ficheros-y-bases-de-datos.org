@@ -287,7 +287,11 @@ Una base de datos es una colección de datos estructurados según un modelo que 
 - De todas formas, *las ventajas superan ampliamente los inconvenientes*
 
 
-* Estándar ANSI/SPARC 
+* <<#ansi-sparc>>Estándar ANSI/SPARC 
+  :PROPERTIES:
+  :CUSTOM_ID: ansi-sparc
+  :END:
+
 - Define tres niveles, para ayudar a conseguir los [[#objetivos-sgbd][objetivos de un SGBD]]
   - *Interno*: es como se almacena la información realmente. Por lo general, en ficheros en disco
   - *Conceptual*: incluye la estructura de la base de datos total
@@ -365,6 +369,8 @@ Nota: estos niveles son del *diseño*, no confundir con los niveles de la implem
 - Independencia lógica de datos
   - Un programa debería poder seguir funcionando aunque el diseño lógico (cómo se relacionan los datos) cambie
   - Es más difícil, pero teóricamente son suficientes las vistas (niveles externos)
+- Estos objetivos se ven facilitados por los niveles definidos en [[#ansi-sparc][la arquitectura ANSI-SPARC]]
+
     
 
 * Referencias
