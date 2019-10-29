@@ -307,6 +307,9 @@ Pregunta: ¿cuántos enlaces tiene una malla completa con 7 nodos?
 [[file:media/red-europea.png]]
 http://www.chrisharrison.net/index.php/Visualizations/InternetMap
 
+#+REVEAL: split
+[[https://www.submarinecablemap.com/][
+Submarine Cable Map]]
 ** Topología física vs topología lógica
 - Física: conexiones entre equipos
 - Lógica: cómo se utilizan las conexiones
