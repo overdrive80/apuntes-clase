@@ -33,6 +33,10 @@
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="329" y="46" width="114" height="58"/>
 </OView>
+<OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="6A42A406-DF17-FC39-0851-773BDED17DDB" otype="Entity" vid="901558E1-8678-33D9-045F-3EDE308D4538">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<bounds x="147" y="21" width="129" height="62"/>
+</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="6ADC91CD-1A84-AB2A-EEA2-48CE9DAB9A95" otype="Entity" vid="7EF7831E-4D01-405F-75E2-816C4BBB03D4">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="32" y="371" width="145" height="48"/>
@@ -64,11 +68,6 @@
 
 El ID de la otra parte se añade al ID de la parte con barra</comment>
 </OView>
-<OView class="oracle.dbtools.crest.swingui.TVNote" oid="E0189D82-1952-F3D4-A078-4E589653D591" otype="Note" vid="8322C992-89F8-A2FD-5D27-DED2777BA21D">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="476" y="117" width="130" height="26"/>
-<comment>entrenador-entrenado</comment>
-</OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="E56E258C-5C98-1448-A2C9-62FFF45F9544" otype="Entity" vid="FB9EF612-F838-721D-6DAC-3C13D654696C">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <bounds x="249" y="259" width="144" height="54"/>
@@ -91,6 +90,15 @@ El ID de la otra parte se añade al ID de la parte con barra</comment>
 <points>
 <point x="361" y="104"/>
 <point x="361" y="259"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="243B3541-1F14-AD2D-38CB-43B3742A5470" otype="Relation" vid_source="2902E3C5-0C47-2825-ADAC-4A4E9339C93C" vid_target="901558E1-8678-33D9-045F-3EDE308D4538">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="329" y="64"/>
+<point x="276" y="64"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="3757913D-6EC9-5C28-1D21-DF671E61DE47" otype="Relation" vid_source="7EF7831E-4D01-405F-75E2-816C4BBB03D4" vid_target="47C710AC-A9AF-4383-4369-9822A98A26F8">
@@ -147,18 +155,6 @@ El ID de la otra parte se añade al ID de la parte con barra</comment>
 <point x="438" y="403"/>
 </points>
 </Connector>
-<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="668568C7-EC78-4DA1-4EB4-3479C5E0DCCD" otype="Relation" vid_source="2902E3C5-0C47-2825-ADAC-4A4E9339C93C" vid_target="2902E3C5-0C47-2825-ADAC-4A4E9339C93C">
-<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<backgroundColor>-16777216</backgroundColor>
-<lineWidth>1</lineWidth>
-<points>
-<point x="443" y="80"/>
-<point x="468" y="80"/>
-<point x="468" y="129"/>
-<point x="396" y="129"/>
-<point x="396" y="104"/>
-</points>
-</Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="84A39D14-037A-1608-47D6-A9C57C4C2105" otype="Relation" vid_source="7EF7831E-4D01-405F-75E2-816C4BBB03D4" vid_target="F6F7D4B6-2D06-7E70-BF36-313F49243F8A">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
 <backgroundColor>-16777216</backgroundColor>
@@ -193,6 +189,15 @@ El ID de la otra parte se añade al ID de la parte con barra</comment>
 <points>
 <point x="443" y="58"/>
 <point x="553" y="58"/>
+</points>
+</Connector>
+<Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="D27F3528-D943-9DDF-2349-DD6ACB3528D1" otype="Relation" vid_source="2902E3C5-0C47-2825-ADAC-4A4E9339C93C" vid_target="901558E1-8678-33D9-045F-3EDE308D4538">
+<hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
+<backgroundColor>-16777216</backgroundColor>
+<lineWidth>1</lineWidth>
+<points>
+<point x="329" y="79"/>
+<point x="276" y="79"/>
 </points>
 </Connector>
 </connectors>
