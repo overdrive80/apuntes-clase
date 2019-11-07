@@ -46,3 +46,29 @@ dba_ts_quotas
 #+BEGIN_COMMENT
 dba_tables_
 #+END_COMMENT
+
+* Sinónimos
+- A qué tabla apunta un sinónimo
+- Si existe el destino de un sinónimo
+- Si un sinónimo es público
+#+BEGIN_COMMENT
+DBA_SYNONYMS
+#+end_comment
+
+
+
+* Procedimientos y funciones
+- Qué funciones tiene un usuario
+- Qué errores tienen las funciones de un usuario
+#+BEGIN_COMMENT
+DBA_SOURCE
+DBA_PROCEDURES
+DBA_ERRORS
+DBA_OBJECTS
+
+#+end_comment
+
+
+
+
+
