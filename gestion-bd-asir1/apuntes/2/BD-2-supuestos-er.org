@@ -273,6 +273,11 @@ como las siguientes características de estos.
 - Cada partido tiene asociado un premio de consolación para el perdedor que dependerá de la fase en que se encuentre el torneo (p. ej., el perdedor de octavos de final puede ganar 5.000 dólares). El ganador de la final recibirá el premio correspondiente al torneo.
 - Cada torneo tiene cinco modalidades: Individual masculino, individual femenino, dobles masculino, dobles femenino y dobles mixtos.
 - También hay que tener en cuenta la nacionalidad de un jugador, de forma que éste puede ser apátrida o tener varias nacionalidades.
+- Solo se apunta un árbitro de cada partido
+- El árbitro podía haber sido previamente jugador
+- Una edición de un Grand Slam solo tiene una localización
+- Los premios dependen de la edición y de la modalidad.
+- Se juega hasta que alguien gana 3 sets.
 
 El sistema debe dar respuesta a las siguientes preguntas:
 1. Dado un año y un torneo, composición y resultado de los partidos.
