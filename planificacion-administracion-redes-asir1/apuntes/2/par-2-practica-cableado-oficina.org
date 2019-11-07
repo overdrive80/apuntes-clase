@@ -1,0 +1,31 @@
+
+
+
+#+BEGIN_SRC dot :file ./media/tareas-en-la-practica.pdf :exports results :cmd dot :cmdline -Tpdf
+digraph {
+  compound=true
+  label=""
+  node [shape="ellipse",margin=0]
+
+  
+  "Comprar cable"
+  "Colocar las mesas"
+  "Comprar ordenadores"
+  "Colocar switch" -> "Comprar cable"
+  "Decidir dónde van las rosetas" -> "Comprar cable"
+  "Decidir por dónde va el cable" -> "Comprar cable"
+  "Decidir dónde van las rosetas" -> "Colocar las mesas"
+  "Decidir cuántas rosetas" -> "Decidir dónde van las rosetas"
+  "Comprar patch pannels"
+  "Comprar patch cords"
+  "Comprar proyector"
+  "Comprar punto acceso wifi"
+                
+
+                
+}
+
+#+end_src
+
+#+RESULTS:
+[[file:./media/tareas-en-la-practica.pdf]]
