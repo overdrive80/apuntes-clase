@@ -98,6 +98,7 @@ digraph{
 - *Mount*: 
   - Para habilitar y deshabilitar el /redo log/.
   - Para recuperar la base de datos de errores (sin usuarios)
+  - Ejemplo: [[https://docs.oracle.com/cd/B28359_01/server.111/b28310/dfiles005.htm#ADMIN11434][cambiar los nombres de los ficheros de datos]]
 - Conclusión: con suerte, solo *Shutdown* y *open*
 
 
