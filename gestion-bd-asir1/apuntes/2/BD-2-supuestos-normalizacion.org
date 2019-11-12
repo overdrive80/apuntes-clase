@@ -21,22 +21,48 @@ Se pide:
 ** Profesores y recursos
 Dada la siguiente relación UTILIZACIÓN(=DNI_Prof=, =Nombre_Prof=, =Despacho_Prof=, =Recurso=, =Ubicación=, =Fecha_inicio=, =Fecha_fin=,) que contiene información relativa a la utilización de los recursos de la universidad por parte de los profesores en periodos de tiempo:
 
-| =DNI_Prof= | =Nombre_Prof= | =Despacho_Prof= | =Recurso= | =Descripción= | =Fecha_inicio= | =Fecha_fin= |
-|------------+---------------+-----------------+-----------+---------------+----------------+-------------|
-|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-1-2007 |   15-1-2007 |
-|   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     |       1-1-2007 |   15-1-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      |      12-1-2007 |   22-1-2007 |
-|   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  |      16-1-2007 |   31-1-2007 |
-|   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      |      23-1-2007 |   26-1-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        |       1-1-2007 |   15-1-2007 |
-|   99887766 | F.Calle       | 2.1.C11         | R300      | Scaner        |       1-2-2007 |    6-2-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-2-2007 |    6-2-2007 |
+| =DNI_Prof= | =Nombre_Prof= | =Despacho_Prof= | =Recurso= | =Descripción= | =Fechahora_inicio= | =Fechahora_fin=  |
+|------------+---------------+-----------------+-----------+---------------+--------------------+------------------|
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  | 1-1-2007  12:00    | 15-1-2007  12:00 |
+|   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     | 1-1-2007 12:00     | 15-1-2007  12:00 |
+|   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      | 12-1-2007 12:00    | 22-1-2007  12:00 |
+|   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  | 16-1-2007 12:00    | 31-1-2007  12:00 |
+|   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      | 23-1-2007 12:00    | 26-1-2007  12:00 |
+|   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        | 1-1-2007 12:00     | 15-1-2007  12:00 |
+|   99887766 | F.Calle       | 2.1.C11         | R300      | Scaner        | 1-2-2007 12:00     | 6-2-2007  12:00  |
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  | 1-2-2007 12:00     | 6-2-2007  12:00  |
    
 Se pide, considerando únicamente la extensión de la relación mostrada en la tabla:
 1. Indicar un ejemplo de anomalía de modificación
 2. Indicar un ejemplo de anomalía de borrado
 3. Indicar un ejemplo de anomalía de inserción
 4. Pasar a tercera forma normal
+
+#+BEGIN_SRC dot :file ./media/profesores-recursos.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_iniciorecurso {
+                         style="rounded"
+                         recurso
+                         fechahorainicio
+                }
+
+                dni -> nombre
+                recurso -> descripcion
+                dni -> despacho
+                recurso -> dni [ltail=cluster_iniciorecurso]
+                recurso -> fechahorafin  [ltail=cluster_iniciorecurso]
+
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/profesores-recursos.png]]
+
 
 ** Turnos de trabajo
 Dada la siguiente relación ASIGNACIÓN (DNI, Nombre, Código_Tienda, Dirección_Tienda, Fecha, Turno) que contiene información relativa a la asignación de los turnos de trabajo de los empleados de los distintos centros de una cadena de tiendas de moda:
