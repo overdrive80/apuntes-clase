@@ -101,13 +101,14 @@ Se pide:
 |              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |    11:00 |       0:30 |
 |              04 | Gimnasia           |      45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |    12:00 |       1:00 |
 |              02 | Fitness            |      45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |    10:00 |       1:30 |
-|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    10:00 |       1:00 |
+|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    11:00 |       1:00 |
 
 Se pide, considerando que los nombres de los monitores no son únicos, ateniéndose a las tuplas de la relación SE REALIZA:
 a. Indicar un ejemplo de anomalía de borrado
 b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas:Cod_Actividad (A), Nombre_Actividad (N), DNI_Monitor (D), Nombre_Monitor(M), Sala (S), Fecha(F), Hora_I (I), Duración(L).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
+
 
 
 ** Actividades extraescolares II
@@ -131,6 +132,65 @@ a. Indicar un ejemplo de anomalía de borrado
 b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas: =Cod_Actividad= (A), =Nombre_Actividad= (N), =DNI_Monitor= (D), =Nombre_Monitor= (M), =Sala= (S), =Fecha= (F), =Hora_I= (I), =Hora_F= (E).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
+
+
+#+BEGIN_SRC dot :file ./media/actividades-v1.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_codigo_fecha_hi {
+                         style="rounded"
+                         codigo
+                         fecha
+                         hora_inicio
+                }
+
+                codigo -> nombre_actividad
+                dni -> nombre_monitor
+                
+                codigo -> dni [ltail=cluster_codigo_fecha_hi]
+                codigo -> dni [ltail=cluster_codigo_fecha_hi]
+                codigo -> sala [ltail=cluster_codigo_fecha_hi]
+                codigo -> hora_fin [ltail=cluster_codigo_fecha_hi]
+
+                "No se pueden dar dos pilates a la vez" [shape="rectangle"]
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/actividades-v1.png]]
+
+#+BEGIN_SRC dot :file ./media/actividades-v2.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_dni_fecha_hi {
+                         style="rounded"
+                         dni
+                         fecha
+                         hora_inicio
+                }
+
+                codigo -> nombre_actividad
+                dni -> nombre_monitor
+                
+
+                dni -> codigo [ltail=cluster_dni_fecha_hi]
+                dni -> sala [ltail=cluster_dni_fecha_hi]
+                dni -> hora_fin [ltail=cluster_dni_fecha_hi]
+
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/actividades-v2.png]]
+
 
 ** Broker bursátil
 Se desea modelar la actividad de una empresa bursátil, quien maneja las carteras de acciones de varios inversores. Las atributos relevantes son:
