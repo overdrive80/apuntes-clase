@@ -66,6 +66,9 @@
    #+BEGIN_SRC sh
    show ip access-list
    #+END_SRC
+   #+BEGIN_SRC sh
+   show access-lists
+   #+END_SRC
 ** ACL asociadas a una interfaz
    #+BEGIN_SRC sh
    show ip interface <interfaz>
