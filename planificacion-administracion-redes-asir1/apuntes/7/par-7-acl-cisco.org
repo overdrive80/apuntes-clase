@@ -4,6 +4,7 @@
 
 
 
+
 * LISTAS DE CONTROL DE ACCESO
 + Las ACL son listas con reglas.
   - Cada regla define una condición que puede cumplir un paquete
@@ -209,6 +210,42 @@ access-list 102 permit tcp any 10.0.0.0 0.0.0.255 established
    [precedence precedence] [tos tos] [log | log-input] 
    [time-range time-range-name][fragments]
    #+END_SRC
+
+* Edición de ACL
+- ACL con nombre
+- Modificación de ACL
+
+** ACL con nombre
+- En vez de asignar números a las ACL, pueden crearse con un nombre
+- Facilita la comprensión de la configuración del firewall
+  #+BEGIN_SRC sh
+  R1(config)# ip access-list standard NO_ACCESS
+  R1(config-std-nacl)# deny host 192.168.11.10
+  R1(config-std-nacl)# permit any
+  R1(config-std-nacl)# exit
+  R1(config)# interface g0/0
+  R1(config-if)# ip access-group NO_ACCESS out
+  #+END_SRC
+
+** Modificación de ACL
+- Generalmente:
+  - Utilizar un editor de texto para crear las ACL
+  - Copiar y pegar los comandos en iOS
+- Modificación en el firewall:
+  #+BEGIN_SRC sh
+  R1# show access-lists 1
+  Standard IP access list 1
+     10 deny   192.168.10.99
+     20 permit 192.168.0.0, wildcard bits 0.0.255.255
+  R1#
+
+  R1# configure terminal      
+  R1(config)# ip access-list standard 1
+  R1(config-std-nacl)# no 10
+  R1(config-std-nacl)# 10 deny host 192.168.10.10
+  R1(config-std-nacl)# end
+  R1#
+  #+END_SRC
 
 * PROCESO DE DEFINICIÓN DE ACLs
   + Para definir las ACL de un router es necesario
