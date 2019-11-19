@@ -21,22 +21,48 @@ Se pide:
 ** Profesores y recursos
 Dada la siguiente relación UTILIZACIÓN(=DNI_Prof=, =Nombre_Prof=, =Despacho_Prof=, =Recurso=, =Ubicación=, =Fecha_inicio=, =Fecha_fin=,) que contiene información relativa a la utilización de los recursos de la universidad por parte de los profesores en periodos de tiempo:
 
-| =DNI_Prof= | =Nombre_Prof= | =Despacho_Prof= | =Recurso= | =Descripción= | =Fecha_inicio= | =Fecha_fin= |
-|------------+---------------+-----------------+-----------+---------------+----------------+-------------|
-|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-1-2007 |   15-1-2007 |
-|   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     |       1-1-2007 |   15-1-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      |      12-1-2007 |   22-1-2007 |
-|   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  |      16-1-2007 |   31-1-2007 |
-|   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      |      23-1-2007 |   26-1-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        |       1-1-2007 |   15-1-2007 |
-|   99887766 | F.Calle       | 2.1.C11         | R300      | Scaner        |       1-2-2007 |    6-2-2007 |
-|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  |       1-2-2007 |    6-2-2007 |
+| =DNI_Prof= | =Nombre_Prof= | =Despacho_Prof= | =Recurso= | =Descripción= | =Fechahora_inicio= | =Fechahora_fin=  |
+|------------+---------------+-----------------+-----------+---------------+--------------------+------------------|
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  | 1-1-2007  12:00    | 15-1-2007  12:00 |
+|   44556689 | L.Moreno      | 2.2.A10         | R100      | Impresora     | 1-1-2007 12:00     | 15-1-2007  12:00 |
+|   33456456 | P.Martínez    | 2.2.B05         | R200      | Portátil      | 12-1-2007 12:00    | 22-1-2007  12:00 |
+|   11223344 | E.Castro      | 2.2.B23         | R122      | Tablet    PC  | 16-1-2007 12:00    | 31-1-2007  12:00 |
+|   99771122 | D.Cuadra      | 2.1.B23         | R200      | Portátil      | 23-1-2007 12:00    | 26-1-2007  12:00 |
+|   33456456 | P.Martínez    | 2.2.B05         | R300      | Scaner        | 1-1-2007 12:00     | 15-1-2007  12:00 |
+|   99887766 | F.Calle       | 2.1.C11         | R300      | Scaner        | 1-2-2007 12:00     | 6-2-2007  12:00  |
+|   33456456 | P.Martínez    | 2.2.B05         | R122      | Tablet    PC  | 1-2-2007 12:00     | 6-2-2007  12:00  |
    
 Se pide, considerando únicamente la extensión de la relación mostrada en la tabla:
 1. Indicar un ejemplo de anomalía de modificación
 2. Indicar un ejemplo de anomalía de borrado
 3. Indicar un ejemplo de anomalía de inserción
 4. Pasar a tercera forma normal
+
+#+BEGIN_SRC dot :file ./media/profesores-recursos.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_iniciorecurso {
+                         style="rounded"
+                         recurso
+                         fechahorainicio
+                }
+
+                dni -> nombre
+                recurso -> descripcion
+                dni -> despacho
+                recurso -> dni [ltail=cluster_iniciorecurso]
+                recurso -> fechahorafin  [ltail=cluster_iniciorecurso]
+
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/profesores-recursos.png]]
+
 
 ** Turnos de trabajo
 Dada la siguiente relación ASIGNACIÓN (DNI, Nombre, Código_Tienda, Dirección_Tienda, Fecha, Turno) que contiene información relativa a la asignación de los turnos de trabajo de los empleados de los distintos centros de una cadena de tiendas de moda:
@@ -75,13 +101,14 @@ Se pide:
 |              03 | Yoga               |      65434527 | P. García         | Sala Multiusos         | 15/9/2007 |    11:00 |       0:30 |
 |              04 | Gimnasia           |      45673214 | Ana Sanz          | Pabellón Polideportivo | 1/10/2007 |    12:00 |       1:00 |
 |              02 | Fitness            |      45673214 | Ana Sanz          | Pabellón Polideportivo | 9/9/2007  |    10:00 |       1:30 |
-|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    10:00 |       1:00 |
+|              01 | Pilates            |      65434527 | P. García         | Sala Multiusos         | 9/9/2007  |    11:00 |       1:00 |
 
 Se pide, considerando que los nombres de los monitores no son únicos, ateniéndose a las tuplas de la relación SE REALIZA:
 a. Indicar un ejemplo de anomalía de borrado
 b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas:Cod_Actividad (A), Nombre_Actividad (N), DNI_Monitor (D), Nombre_Monitor(M), Sala (S), Fecha(F), Hora_I (I), Duración(L).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
+
 
 
 ** Actividades extraescolares II
@@ -105,6 +132,65 @@ a. Indicar un ejemplo de anomalía de borrado
 b. Indicar las dependencias funcionales utilizando las siguientes abreviaturas: =Cod_Actividad= (A), =Nombre_Actividad= (N), =DNI_Monitor= (D), =Nombre_Monitor= (M), =Sala= (S), =Fecha= (F), =Hora_I= (I), =Hora_F= (E).
 c. ¿Cuáles son las claves de la relación? ¿En que FN está la relación SEREALIZA? 
 d. Pasar a tercera forma normal
+
+
+#+BEGIN_SRC dot :file ./media/actividades-v1.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_codigo_fecha_hi {
+                         style="rounded"
+                         codigo
+                         fecha
+                         hora_inicio
+                }
+
+                codigo -> nombre_actividad
+                dni -> nombre_monitor
+                
+                codigo -> dni [ltail=cluster_codigo_fecha_hi]
+                codigo -> dni [ltail=cluster_codigo_fecha_hi]
+                codigo -> sala [ltail=cluster_codigo_fecha_hi]
+                codigo -> hora_fin [ltail=cluster_codigo_fecha_hi]
+
+                "No se pueden dar dos pilates a la vez" [shape="rectangle"]
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/actividades-v1.png]]
+
+#+BEGIN_SRC dot :file ./media/actividades-v2.png :exports results :cmd dot :cmdline -Tpng
+digraph{
+                compound=true
+                label=""
+                node [shape="ellipse",margin=0]
+
+
+                subgraph cluster_dni_fecha_hi {
+                         style="rounded"
+                         dni
+                         fecha
+                         hora_inicio
+                }
+
+                codigo -> nombre_actividad
+                dni -> nombre_monitor
+                
+
+                dni -> codigo [ltail=cluster_dni_fecha_hi]
+                dni -> sala [ltail=cluster_dni_fecha_hi]
+                dni -> hora_fin [ltail=cluster_dni_fecha_hi]
+
+}
+#+end_src
+
+#+RESULTS:
+[[file:./media/actividades-v2.png]]
+
 
 ** Broker bursátil
 Se desea modelar la actividad de una empresa bursátil, quien maneja las carteras de acciones de varios inversores. Las atributos relevantes son:
