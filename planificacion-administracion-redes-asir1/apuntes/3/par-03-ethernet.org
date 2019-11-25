@@ -216,6 +216,13 @@ ifconfig eth0 up
   - Puede almacenar la trama completa antes de empezar a retransmitirla
   - Un concentrador (hub) es un repetidor con más de dos puertos
 
+** Corte o almacenamiento y reenvío
+- Método de corte: 
+  - Según llegan los primeros bytes se empieza a reenviar la trama
+  - Menor latencia de red
+- Almacenamiento y reenvío: 
+  - Hasta que no se tiene la trama completa no se empieza a reenviar
+  - Menos colisiones
 ** Componentes de red: Puente
 - Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada
 - No solo trabaja a nivel eléctrico. Además, entiende las tramas y puede decidir si las retransmite o no
