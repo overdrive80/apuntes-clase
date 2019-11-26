@@ -11,6 +11,8 @@ entity Compra {
   * fechahora
 }
 Producto }--{ Compra
+note "La interrelación tiene\n el atributo cantidad" as N1
+
 @enduml
 
 #+end_src
