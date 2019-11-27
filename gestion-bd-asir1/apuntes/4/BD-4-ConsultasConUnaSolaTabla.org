@@ -79,7 +79,8 @@ where
   numeric_grade=(select min(numeric_grade) from grade where section_id = 86);
 #+END_SRC
 
-
+** ¿En qué cursos me puedo matricular si ya tengo el curso con identificador 20?
+** ¿En qué cursos me puedo matricular si ya tengo los cursos con identificador 20 y 130?
 ** ¿En qué fecha comienza la sección que primero empieza sus clases?
 select min(start_date_time) from section;
 ** ¿En qué fecha comienza la sección que primero empieza en Junio?
