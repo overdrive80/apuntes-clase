@@ -106,6 +106,10 @@ select * from section where trunc(start_date_time)='24/07/07';
 #+end_src
 
 ** Lista de los días en los que comienza alguna seccion, en orden ascendente
+select to_char(start_date_time,'DD/MM/YYYY HH24:MI:SS') from section;
+select distinct trunc(start_date_time) as fecha from section order by fecha;
+select distinct trunc(start_date_time) from section order by 1;
+
 ** Lista de alumnos ordenados por apellido (sin importar minúsculas)
 select first_name,last_name,student_id, lower(last_name) as paraordenar 
 from student
