@@ -2,21 +2,34 @@
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** Media de las notas parciales (exámenes, trabajos,...)
+#+begin_src sql
 select avg(numeric_grade)
 from grade
+#+end_src
 
 ** Media de las notas finales
-
-** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
-select description from GRADE_TYPE;
-
-** Nota media de los exámenes finales (el tipo de nota es 'FI')
+#+begin_src sql
 select avg(numeric_grade)
 from grade
 where grade_type_code='FI';
+#+end_src
+
+** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
+#+begin_src sql
+select description from GRADE_TYPE;
+#+end_src
+
+** Nota media de los exámenes finales (el tipo de nota es 'FI')
+#+begin_src sql
+select avg(numeric_grade)
+from grade
+where grade_type_code='FI';
+#+end_src
 ** Número de alumnos totales
+#+begin_src sql
 select count(*)
 from student;
+#+end_src
 ** Número de alumnos con tratamiento 'Ms'
 select count(*)
 from student
