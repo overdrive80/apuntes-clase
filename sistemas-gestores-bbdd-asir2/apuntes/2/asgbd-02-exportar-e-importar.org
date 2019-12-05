@@ -592,7 +592,7 @@ Job "SYSTEM"."SYS_IMPORT_SCHEMA_01" successfully completed at Fri Dec 16 13:23:5
 [[https://stackoverflow.com/questions/14397668/ora-39122-unprivileged-users-may-not-perform-remap-schema-remappings][Permiso para cambiar schema]]
 
 
-* Ejercicio
+* Ejercicio (1)
 - Crea la base de datos de multas en el usuario =multas= ([[../1/sql/multas.sql]])
 - Exporta la base de datos al fichero =/datos/exports/multas.dump=
 - Importa las tablas en el usuario =copiamultas=
@@ -635,6 +635,17 @@ digraph{
 
 #+RESULTS:
 [[file:./media/dependencias-impdp.svg]]
+
+
+* Ejercicio (2)
+1. Crear la base de datos
+   - Con la base de datos de carreras ([[../1/sql/carreras-coches.sql][../1/sql/carreras-coches.sql]])
+   - Crear el usuario =CARRERAS= y ejecutar el /script/ SQL
+2. Exportar
+   - Exportar las tablas del usuario =CARRERAS= al fichero =carreras.dmp=
+3. Importar
+   - Borrar las filas de la tabla =CARRERAS.RESULTADOS=
+   - Importar los datos de de =carreras.dmp=
 
 * Otras soluciones
 - RMAN
