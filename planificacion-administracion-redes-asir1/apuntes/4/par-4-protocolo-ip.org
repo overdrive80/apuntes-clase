@@ -53,6 +53,7 @@
 - El primero es para usos futuros.
 - El segundo indica si este datagrama se puede fragmentar.
 - El tercero dice si hay más fragmentos o es el último.
+- El flag DF (/dont fragment/) indica a los routers que no fragmenten el paquete si sobrepasa la MTU (descarta el paquete)
 ** TTL (tiempo de vida)
 - El enrutamiento IP puede tener problemas
   - Es posible que haya bucles en las rutas que hagan que un paquete de vueltas /por siempre/
@@ -208,7 +209,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 - En un principio, IP tenía suficientes direcciones y redes para todo el mundo
 - La creciente demanda de direcciones IP supuso problemas
    -  Ejemplo: Una empresa con 3000 hosts debe reservar una red de clase B, con más de 65000 direcciones (muchas direcciones desperdiciadas)
-   -  Si reserva más de una red de clase B (unas 12), hay que configurar muchas redes en los routers intermedios.
+   -  Si reserva más de una red de clase C (unas 12), hay que configurar muchas redes en los routers intermedios.
 - Últimamente (desde 1985) las direcciones IP ya no se dividen en clases, utilizándose CIDR (/Classless Internet Domain Routing/)
 
 * CIDR

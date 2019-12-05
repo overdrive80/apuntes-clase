@@ -77,16 +77,46 @@
 ** [[https://es.wikipedia.org/wiki/IEEE_802.2][LLC]]
 #+caption: Cabecera LLC
 [[file:media/llc.png]]
-
+*** *SAP* y control 
+- Si *length* es mayor de =05DC=, es un *type*
 - *DSAP* y *SSAP*: Especifican los protocolos de nivel superior 
 - Control:
   - Paquetes *U* , con un campo de control de 8 bits, están pensados para servicios no orientados a conexión. Son los usados /normalmente/
   - Paquetes *I*, con un campo de control y secuencia numérica de 16 bits, están pensados para servicios orientados a conexión
   - Paquetes *S*, con un campo de control de 16 bits, están pensados para usarse en funciones supervisoras en la capa LLC (Logical Link Control).
+*** Lista de protocolos *SAP*
+| 00 | Null LSAP                                           |
+| 02 | Individual LLC Sublayer Management Function         |
+| 03 | Group LLC Sublayer Management Function              |
+| 04 | IBM SNA Path Control (individual)                   |
+| 05 | IBM SNA Path Control (group)                        |
+| 06 | ARPANET Internet Protocol (IP)                      |
+| 08 | SNA                                                 |
+| 0C | SNA                                                 |
+| 0E | PROWAY (IEC955) Network Management & Initialization |
+| 18 | Texas Instruments                                   |
+| 42 | IEEE 802.1 Bridge Spanning Tree Protocol            |
+| 4E | EIA RS-511 Manufacturing Message Service            |
+| 7E | ISO 8208 (X.25 over IEEE 802.2 Type 2 LLC)          |
+| 80 | Xerox Network Systems (XNS)                         |
+| 86 | Nestar                                              |
+| 8E | PROWAY (IEC 955) Active Station List Maintenance    |
+| 98 | ARPANET Address Resolution Protocol (ARP)           |
+| BC | Banyan VINES                                        |
+| AA | SubNetwork Access Protocol (SNAP)                   |
+| E0 | Novell NetWare                                      |
+| F0 | IBM NetBIOS                                         |
+| F4 | IBM LAN Management (individual)                     |
+| F5 | IBM LAN Management (group)                          |
+| F8 | IBM Remote Program Load (RPL)                       |
+| FA | Ungermann-Bass                                      |
+| FE | ISO Network Layer Protocol                          |
+| FF | Global LSAP                                         |
 
 #+begin_NOTES
 - Lista de dsap-ssap:
   - http://standards.ieee.org/develop/regauth/llc/public.html
+  - https://www.liveaction.com/docs/glossary/networking-technical-reference/service-access-point-sap/
 #+end_NOTES
 ** [[https://en.wikipedia.org/wiki/Subnetwork_Access_Protocol][SNAP]]
 - Cuando DSAP y SSAP tienen el valor =AA= o =BB=
@@ -186,6 +216,13 @@ ifconfig eth0 up
   - Puede almacenar la trama completa antes de empezar a retransmitirla
   - Un concentrador (hub) es un repetidor con más de dos puertos
 
+** Corte o almacenamiento y reenvío
+- Método de corte: 
+  - Según llegan los primeros bytes se empieza a reenviar la trama
+  - Menor latencia de red
+- Almacenamiento y reenvío: 
+  - Hasta que no se tiene la trama completa no se empieza a reenviar
+  - Menos colisiones
 ** Componentes de red: Puente
 - Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada
 - No solo trabaja a nivel eléctrico. Además, entiende las tramas y puede decidir si las retransmite o no
