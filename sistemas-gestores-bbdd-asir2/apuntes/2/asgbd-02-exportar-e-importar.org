@@ -647,6 +647,29 @@ digraph{
    - Borrar las filas de la tabla =CARRERAS.RESULTADOS=
    - Importar los datos de de =carreras.dmp=
 
+** Tareas
+#+begin_src dot :file ./media/tareas-carreras.svg :exports results :cmdline -Tsvg
+digraph{
+  graph [nodesep=0.5, ranksep=1]
+  node [ shape="box"]
+  edge [fontname="courier", fontsize="10"]
+  splines=true
+
+  "Registrar directorio" -> "Crear directorio"
+  "expdp" -> "Registrar directorio"
+  "expdp" -> "Privilegios de usuario Oracle" 
+  "expdp" -> "Permisos usuario S.O."
+  "Permisos usuario S.O." -> "¿Qué usuario S.O. ejecuta la instancia?"
+
+  "impdp" -> "expdp"
+  "impdp" -> "Vaciar RESULTADOS"
+  "impdp" -> "Seleccionar importar solo datos"
+  "impdp" -> "Seleccionar tabla a importar"
+
+}
+#+end_src
+
+
 * Otras soluciones
 - RMAN
 - Copias de /tablespaces/
