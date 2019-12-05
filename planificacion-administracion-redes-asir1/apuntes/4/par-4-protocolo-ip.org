@@ -209,7 +209,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 - En un principio, IP tenía suficientes direcciones y redes para todo el mundo
 - La creciente demanda de direcciones IP supuso problemas
    -  Ejemplo: Una empresa con 3000 hosts debe reservar una red de clase B, con más de 65000 direcciones (muchas direcciones desperdiciadas)
-   -  Si reserva más de una red de clase B (unas 12), hay que configurar muchas redes en los routers intermedios.
+   -  Si reserva más de una red de clase C (unas 12), hay que configurar muchas redes en los routers intermedios.
 - Últimamente (desde 1985) las direcciones IP ya no se dividen en clases, utilizándose CIDR (/Classless Internet Domain Routing/)
 
 * CIDR
