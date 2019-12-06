@@ -270,7 +270,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 | 0 | 0V                            |
 | 1 | xV o -xV, alternando cada vez |
 #+attr_latex: :width 0.6\textwidth
-file:media/codificacion-ami.png
+[[file:media/codificacion-ami.png]]
 - Desventaja
   - Pérdida de sincronía con muchos 0s
 
