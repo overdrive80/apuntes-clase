@@ -289,7 +289,23 @@ group by
   state;
 #+END_SRC
 ** Lista de los profesores y los cursos que imparten (nombre, apellidos, descripción del curso)
+#+BEGIN_SRC sql
+select distinct first_name, last_name, description
+from 
+  instructor i 
+  join section s on i.instructor_id = s.instructor_id
+  join course c on c.course_no = s.course_no
+order by last_name, first_name, description;
 
+
+select first_name, last_name, description
+from 
+  instructor i, section s, course c
+where
+   i.instructor_id = s.instructor_id and
+   c.course_no = s.course_no
+order by last_name, first_name, description;
+#+END_SRC
 ** Lista de los profesores y las secciones que imparten (nombre, apellidos, descripción del curso, identificador de sección)
 
 ** ¿Qué profesor o profesores imparten más cursos? (nombre y apellidos)
