@@ -216,6 +216,7 @@ where letter_grade='B+';
 
 
 select count(*) from zipcode where city='New York';
+
 ** ¿Cuántos códigos postales hay registrados del estado de New York (NY)?
 select count(*) from zipcode where state='NY';
 
@@ -244,3 +245,34 @@ select * from course where not(prerequisite is null);
 
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
 ** Listado de alumnos ordenado por apellido y nombre.
+** Identificador de curso y número de veces que se imparte ese curso
+#+BEGIN_SRC sql
+select course_no, count(*)
+from section
+group by course_no;
+#+END_SRC
+** Identificador del curso que se imparte más veces
+#+BEGIN_SRC sql
+select * 
+from (select course_no, count(*) as veces from section group by course_no)
+where veces = (
+  select max(veces) from (select course_no, count(*) as veces from section group by course_no)
+)
+
+create view vecesdecurso(course_no,veces) as select course_no, count(*) as veces from section group by course_no;
+
+select * 
+from vecesdecurso
+where veces = (
+  select max(veces) from vecesdecurso
+)
+
+
+select course_no
+from section
+group by course_no
+having count(*) =  (select max(veces) from vecesdecurso);
+
+
+
+#+END_SRC
