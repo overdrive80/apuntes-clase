@@ -47,6 +47,8 @@ from(
 where rownum <= 20
 #+end_src
 
+OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+
 ** Lista de los 20 siguientes alumnos, ordenados (ascendente) por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 #+begin_src sql
 select fila, salutation, last_name, first_name, state
@@ -79,6 +81,7 @@ fila > (select count(*) from student)-20
 #+end_src
 
 ** Lista de las secciones con el número máximo de alumnos que podrían estar en esa sección
+** Lista de las secciones y el número de alumnos matriculados en la sección
 ** Lista de las secciones que tienen matriculados su número máximo de alumnos
 #+begin_src sql
 select section_id 
