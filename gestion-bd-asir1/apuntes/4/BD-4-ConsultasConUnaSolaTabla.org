@@ -2,21 +2,34 @@
 * RESPONDE A CADA PREGUNTA CON UNA SOLA SENTENCIA SQL
 
 ** Media de las notas parciales (exámenes, trabajos,...)
+#+begin_src sql
 select avg(numeric_grade)
 from grade
+#+end_src
 
 ** Media de las notas finales
-
-** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
-select description from GRADE_TYPE;
-
-** Nota media de los exámenes finales (el tipo de nota es 'FI')
+#+begin_src sql
 select avg(numeric_grade)
 from grade
 where grade_type_code='FI';
+#+end_src
+
+** ¿Cuáles son las descripciones de los tipos de notas que se pueden poner?
+#+begin_src sql
+select description from GRADE_TYPE;
+#+end_src
+
+** Nota media de los exámenes finales (el tipo de nota es 'FI')
+#+begin_src sql
+select avg(numeric_grade)
+from grade
+where grade_type_code='FI';
+#+end_src
 ** Número de alumnos totales
+#+begin_src sql
 select count(*)
 from student;
+#+end_src
 ** Número de alumnos con tratamiento 'Ms'
 select count(*)
 from student
@@ -36,38 +49,25 @@ select * from student
 where lower(first_name) like 'o%';
 
 ** Alumnos con un nombre de 4 letras
-select * from student
-where first_name like '____';
-
+#+begin_src sql
 select 
   first_name
 from
   student
 where
   first_name like '____';
+#+end_src
 ** ¿Cuál es la mejor nota parcial en la sección con identificador 86?
+#+BEGIN_SRC sql
 select 
-  first_name
-from
-  student
-where
-  first_name like '____';
-
+  student_id 
+from 
+  grade 
+where 
+  section_id=86 and 
+  numeric_grade=(select max(numeric_grade) from grade where section_id=86);
+#+END_SRC
 ** ¿Cuál es la mejor nota parcial del alumno con identificador 102?
-** ¿Cuál es el identificador del alumno con la mejor nota parcial en la sección con identificador 86?
-
-   1. Cuál es la mejor nota parcial de la seccion 86
-   2. Alumnos que han sacado 99 en la sección 86
-
-*** a
-select 
-  student_id
-from
-  grade
-where
-  section_id = 86 and
-  numeric_grade = (select max(numeric_grade) from grade where section_id = 86);
-
 ** ¿Cuál es el identificador del alumno con la peor nota parcial en la sección con identificador 86?
 #+BEGIN_SRC sql
 select 
@@ -101,11 +101,14 @@ where start_date_time=(
   select max(start_date_time) from section
 );
 
-select 
-  max( start_date_time )
-from
-  section;
+select max( start_date_time ) from section;   
+select * from section where trunc(start_date_time)='24/07/07';
 #+end_src
+
+** Lista de los días en los que comienza alguna seccion, en orden ascendente
+select to_char(start_date_time,'DD/MM/YYYY HH24:MI:SS') from section;
+select distinct trunc(start_date_time) as fecha from section order by fecha;
+select distinct trunc(start_date_time) from section order by 1;
 
 ** Lista de alumnos ordenados por apellido (sin importar minúsculas)
 select first_name,last_name,student_id, lower(last_name) as paraordenar 
@@ -213,6 +216,7 @@ where letter_grade='B+';
 
 
 select count(*) from zipcode where city='New York';
+
 ** ¿Cuántos códigos postales hay registrados del estado de New York (NY)?
 select count(*) from zipcode where state='NY';
 
@@ -241,3 +245,34 @@ select * from course where not(prerequisite is null);
 
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
 ** Listado de alumnos ordenado por apellido y nombre.
+** Identificador de curso y número de veces que se imparte ese curso
+#+BEGIN_SRC sql
+select course_no, count(*)
+from section
+group by course_no;
+#+END_SRC
+** Identificador del curso que se imparte más veces
+#+BEGIN_SRC sql
+select * 
+from (select course_no, count(*) as veces from section group by course_no)
+where veces = (
+  select max(veces) from (select course_no, count(*) as veces from section group by course_no)
+)
+
+create view vecesdecurso(course_no,veces) as select course_no, count(*) as veces from section group by course_no;
+
+select * 
+from vecesdecurso
+where veces = (
+  select max(veces) from vecesdecurso
+)
+
+
+select course_no
+from section
+group by course_no
+having count(*) =  (select max(veces) from vecesdecurso);
+
+
+
+#+END_SRC
