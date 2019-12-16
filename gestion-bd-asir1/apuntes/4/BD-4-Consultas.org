@@ -47,6 +47,8 @@ from(
 where rownum <= 20
 #+end_src
 
+OFFSET 10 ROWS FETCH NEXT 10 ROWS ONLY;
+
 ** Lista de los 20 siguientes alumnos, ordenados (ascendente) por apellidos y nombre (saludo, apellidos, nombre, estado de origen)
 #+begin_src sql
 select fila, salutation, last_name, first_name, state
@@ -79,6 +81,7 @@ fila > (select count(*) from student)-20
 #+end_src
 
 ** Lista de las secciones con el número máximo de alumnos que podrían estar en esa sección
+** Lista de las secciones y el número de alumnos matriculados en la sección
 ** Lista de las secciones que tienen matriculados su número máximo de alumnos
 #+begin_src sql
 select section_id 
@@ -289,7 +292,23 @@ group by
   state;
 #+END_SRC
 ** Lista de los profesores y los cursos que imparten (nombre, apellidos, descripción del curso)
+#+BEGIN_SRC sql
+select distinct first_name, last_name, description
+from 
+  instructor i 
+  join section s on i.instructor_id = s.instructor_id
+  join course c on c.course_no = s.course_no
+order by last_name, first_name, description;
 
+
+select first_name, last_name, description
+from 
+  instructor i, section s, course c
+where
+   i.instructor_id = s.instructor_id and
+   c.course_no = s.course_no
+order by last_name, first_name, description;
+#+END_SRC
 ** Lista de los profesores y las secciones que imparten (nombre, apellidos, descripción del curso, identificador de sección)
 
 ** ¿Qué profesor o profesores imparten más cursos? (nombre y apellidos)
