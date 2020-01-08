@@ -326,6 +326,7 @@ Una organización tiene 5 departamentos independientes. En cada uno de ellos se 
 - ¿Qué clase deberá solicitar el administrador de la empresa?.
 - Establece la máscara necesaria para que la organización subdivida la red en redes a razón de una subred por cada departamento.
 - Indica las direcciones de subred, broadcast y rangos de direcciones IP de los host para cada departamento.
+- Se debe desaprovechar el mínimo número de direcciones IP (ajustar el tamaño de red al tamaño del departamento)
 - Las redes libres, si las hay, deben quedar lo más compactas posible
 
 ** Subnetting
@@ -386,3 +387,42 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
   - [[https://www.latex-project.org/][Latex]]
+
+* PRUEBAS :noexport:
+
+
+#+begin_src plantuml :file kk1.png
+frame "192.168.1.0/24\n\n\n\n\n\n\n\n\n\n\n\n192.168.1.255"
+#+end_src
+
+#+RESULTS:
+[[file:kk1.png]]
+
+#+begin_src plantuml :file kk2.png
+frame "192.168.1.0/24"{
+  frame "192.168.1.0/25\n\n\n\n192.168.1.127"
+  frame "192.168.1.128/25\n\n\n\n192.168.1.255"
+  rectangle "Hola"
+}
+#+end_src
+
+#+RESULTS:
+[[file:kk2.png]]
+
+#+begin_src plantuml :file kk3.png
+!function $recurse($count)
+frame $count
+!if $count > 0
+$recurse($count)
+!endif
+!endfunction
+
+frame "192.168.1.0/24"{
+  frame "192.168.1.0/25\n\n\n\n192.168.1.127"
+  frame "192.168.1.128/25\n\n\n\n192.168.1.255"
+  rectangle "Hola"
+}
+#+end_src
+
+#+RESULTS:
+[[file:kk3.png]]
