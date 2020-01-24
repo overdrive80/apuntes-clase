@@ -301,12 +301,19 @@ from
 order by last_name, first_name, description;
 
 
-select first_name, last_name, description
+select distinct first_name, last_name, description
 from 
   instructor i, section s, course c
 where
    i.instructor_id = s.instructor_id and
    c.course_no = s.course_no
+order by last_name, first_name, description;
+
+select distinct
+  (select last_name from instructor where instructor_id = section.instructor_id) as last_name,
+  (select first_name from instructor where instructor_id = section.instructor_id) as first_name,
+  (select description from course where course_no = section.course_no) as description
+from section
 order by last_name, first_name, description;
 #+END_SRC
 ** Lista de los profesores y las secciones que imparten (nombre, apellidos, descripción del curso, identificador de sección)

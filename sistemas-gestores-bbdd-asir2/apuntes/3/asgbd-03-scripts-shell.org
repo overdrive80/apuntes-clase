@@ -343,7 +343,22 @@ echo 2+2 | bc
 - /Text User Interface/
   - =whiptail= o =dialog=
 
+  
+* Entorno inicial
+- =bash= procesa los siguientes ficheros:
+  - Si es un nuevo /login/: =/etc/bash.bashrc= (Debian), =/etc/bashrc= (Centos), =~/.bash_login=
+  - Siempre: =/etc/profile/= =~/.bashrc=
+- Así, se puede conseguir que
+  - Se ejecuten comandos al entrar a un sistema
+  - Se ejecuten comandos en cada nueva /shell/
+  - Se ejecuten comandos para todos los usuarios
 
+** Ejercicios
+1. Haz que el usuario =alumno= tenga las variables necesarias para utilizar *Oracle* cada vez que hace /login/.
+2. Haz que el usuario =alumno= vea el estado del /listener/ cada vez que inicia una /shell/
+3. Haz que todos los usuarios vean el mensaje =Bienvenido a ASGBD= cada vez que inician una /shell/.
+4. Crea un /script/ en =$HOME/estado.sh= que muestre el valor de las variables =HOME=, =USER=, =PATH=, =ORACLE_HOME=, =ORACLE_SID=, =ORACLE_BASE= y la hora actual.
+  
 * Prerrequisitos
 
 - Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia

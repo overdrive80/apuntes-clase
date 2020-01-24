@@ -2,7 +2,7 @@
 
 
 * Student
-- "Fred Crocitto" vive en "New Milford" 
+- "Fred Crocitto" vive en la población "New Milford" 
 
 #+begin_src sql
 update
@@ -25,9 +25,23 @@ where grade_type_code='HM';
 update grade_type 
 set description='Parcial'
 where grade_type_code='MT';
+
+update grade_type
+set description = (
+  case description
+  when 'Homework' then 'DEBERES'
+  when 'Midterm' then 'PARCIAL'
+  when 'Participation' then 'PARTICIPACIÓN'
+  when 'Project' then 'Proyecto'
+  when 'Quiz' then 'CONCURSO'
+  else description
+  end
+);
+
+
 #+end_src
 
-- Todos las secciones de  cursos de Java empiezan el 3 de septiembre del 2007.
+- Todas las secciones de  cursos de Java empiezan el 3 de septiembre del 2007.
 #+begin_src sql
 update section
 set start_date_time=to_date('03-09-2007','DD/MM/YYYY')
@@ -57,7 +71,7 @@ set phone='+1-' || substr(phone,1,3) || '-' || substr(phone,4,3) || '-'  || subs
 where phone is not null;
 #+end_src
 
-- Pasa el número de telefono de los instructores al formato que tienen los números de teléfono de los alumnos (999-999-9999).
+- Pasa el número de teléfono de los instructores al formato que tienen los números de teléfono de los alumnos (999-999-9999).
 
 - Los teléfonos no conocidos de alumnos pasan a ser 'desconocido'.
 
@@ -152,6 +166,6 @@ where
   section_id in (select section_id from secciones_de_schori);
 #+end_src
 
-- La nota final de "Intro to Programming" que imparte "Nina Schori" será la nota del examen final menos un 10%.
+- La nota final de "Intro to Programming" que imparte "Nina Schorin" será la nota del examen final menos un 10%.
 
 
