@@ -383,10 +383,10 @@ export ORACLE_SID
 
 #+reveal: split
 *SQLPlus* con autenticación de sistema operativo
-#+begin_src sql_
+#+begin_src sql
 SHOW PARAMETER os_authent_prefix; -- Por defecto es 'ops$'
 CREATE USER ops$usuario IDENTIFIED EXTERNALLY;
-#+end_src_
+#+end_src
 
 #+begin_src sh
 su usuario
