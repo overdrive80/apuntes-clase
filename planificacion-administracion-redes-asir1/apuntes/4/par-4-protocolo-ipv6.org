@@ -49,7 +49,7 @@
 | ~2001:0DB8::/32~           | Ejemplos para [[https://www.apnic.net/get-ip/faqs/ipv6-documentation-prefix/][documentación]]                                                                                                        |
 | ~2000::/3~                 | /Global Unicast Address/. Internet.                                                                                                 |
 
-
+(https://en.wikipedia.org/wiki/Reserved_IP_addresses)
 ** /link-local/ con /eui-64/
 - Inicialmente, Windows y Linux calculaban las direcciones /link-local/ con el [[https://es.wikipedia.org/wiki/Direcci%25C3%25B3n_IPv6#EUI-64_Modificado][eui-64]]
 - Actualmente, Windows utiliza una dirección aleatoria
