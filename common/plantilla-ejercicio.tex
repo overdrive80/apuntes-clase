@@ -40,7 +40,7 @@
 \usepackage{courier} % Required for the courier font
 \usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
 \usepackage{svg}
-\usepackage{attachfile}
+\usepackage{attachfile2}
 \usepackage{currfile}
 \usepackage{multicol}
 \usepackage{alltt}
@@ -247,6 +247,7 @@ stepnumber=0 % Line numbers go in steps of 5
     \IfFileExists{\ficherotex}%
     {%
       \textattachfile[mimetype=text/plain,%
+      author={plantilla-ejercicio.tex},
       description={La plantilla},%
       subject={La plantilla}]%
       {\ficherotex}%
@@ -261,9 +262,11 @@ stepnumber=0 % Line numbers go in steps of 5
   \IfFileExists{\currfilename}
   {
     \textattachfile[mimetype=text/plain,
+    author={\currfilename},
     description={El fichero TEX original para crear este documento, no sea que se nos pierda},
     subject={El fichero TEX original para crear este documento, no sea que se nos pierda}]
-    {\currfilename}{}
+    {\currfilename}
+    {}
   }
   {}
 }
