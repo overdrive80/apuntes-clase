@@ -4,14 +4,15 @@
  <!-- https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position -->
  <script type="text/javascript">
             function refreshPage () {
-                var page_y = document.getElementsByTagName("body")[0].scrollTop;
+                var page_y = document.documentElement.scrollTop;
                 window.location.href = window.location.href.split('?')[0] + '?page_y=' + page_y;
             }
             window.onload = function () {
-                setTimeout(refreshPage, 5000);
+                setTimeout(refre
+shPage, 5000);
                 if ( window.location.href.indexOf('page_y') != -1 ) {
                     var match = window.location.href.split('?')[1].split("&")[0].split("=");
-                    document.getElementsByTagName("body")[0].scrollTop = match[1];
+                    document.documentElement.scrollTop = match[1];
                 }
             }
 </script>
@@ -66,17 +67,61 @@
  | 192.168.4.0 | /24     |   10.0.3.2 |       1 |
  | 192.168.4.0 | /24     |   10.0.2.1 |       3 |
 
-** Tablas de enrutamiento de =C= y D
+** Tablas de enrutamiento de =C= y =D=
 - Se dejan como ejercicio
 
 ** Resultado
- - Si el router A
+- Si el enlace entre A y C se rompe
+  - A envía los paquetes de 192.168.3.0/24 a B
+- B seguirá enviando los paquetes de 192.168.3.0/24 a A
 
+
+
+* RIP y OSPF
+- Añadir rutas es una tarea rutinaria
+  - /Para llegar allí pasa por aquí.../
+- Los propios routers pueden *anunciar* qué redes pueden alcanzar
+- Los propios routers pueden detectar problemas y dejar de utilizar algunas rutas
+
+
+* RIP
+- [[https://es.wikipedia.org/wiki/Routing_Information_Protocol][Routing Information Protocol]]
+- [[https://tools.ietf.org/html/rfc1058][RIPv1]]: Solo soporta redes con clase
+- [[https://tools.ietf.org/html/rfc2453][RIPv2]]: Estandar actual, soporta VLSM y CIDR
+- Periódicamente, cada /router/ anuncia sus redes alcanzables
+- Una ruta caduca cuando no es actualizada en un tiempo, y se considera inalcanzable
+- Cuando pasa un tiempo con la ruta caducada, se borra de la tabla de rutas
+
+** Ventajas de RIP
+- Simple 
+- Soportado por casi todos los /routers/
+
+** Desventajas de RIP
+- Su métrica es solo el número de saltos (sin ancho de banda, congestión...)
+- Solo redes pequeñas (máximo de 16 saltos)
+- El tiempo de convergencia (descubrimiento de cambios de la red) es largo
+
+** RIP en Cisco
+- Se debe permitir al router anunciar cada una de las redes a las que está directamente conectado
+- Acepta información RIP por las interfaces de las redes anunciadas 
+
+    #+begin_example
+Router(config)#router rip
+Router(config-router)#network 192.168.1.0 
+Router(config-router)#network 200.200.1.0
+    #+end_example
+
+
+* OSPF
+- [[https://es.wikipedia.org/wiki/Open_Shortest_Path_First][Open Shortest Path First]]
+- Más complejo que RIP
+- No tiene sus desventajas
+- Adecuado para redes grandes
 
 * Referencias
 - Formatos:
-  - [[file:par-6-nat.reveal.html][Transparencias]]
-  - [[file:par-6-nat.pdf][PDF]]
+  - [[file:par-enrutamiento-redundate-rip-ospf.reveal.html][Transparencias]]
+  - [[file::par-enrutamiento-redundate-rip-ospf.pdf][PDF]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
