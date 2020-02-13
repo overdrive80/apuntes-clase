@@ -129,9 +129,17 @@ route -A inet6 add <red>/<mascara> gw <gateway> [dev <interfaz>]
   #+end_src
 
 - Para añadir rutas: En el ejemplo, se indica que para llegar a la red =2001:db8::/32= se va por el router =2001:db8:3000:1=.
-#+begin_src 
+  #+begin_src 
   ipv6 route 2001:DB8::/32 2001:DB8:3000:1
-#+end_src
+  #+end_src
+
+- Para activar el enrutamiento y consultar las rutas
+  #+begin_src 
+  ipv6 route 2001:DB8::/32 2001:DB8:3000:1
+  ipv6 unicast-routing 
+  show ipv6 route
+  #+end_src
+
 
 * Convivencia IPv4/IPv6
 - Todos los sistemas operativos actuales cuentan con pila IPv6
