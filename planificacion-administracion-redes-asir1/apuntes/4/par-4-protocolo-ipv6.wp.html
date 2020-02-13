@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-02-13 jue 10:26 -->
+<!-- 2020-02-13 jue 10:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Protocolo IPv6</title>
@@ -250,12 +250,12 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org37e910a">1. Introducción</a></li>
-<li><a href="#org4985de7">2. IPv6</a></li>
-<li><a href="#orgfc5b211">3. Configuración de IPv6</a></li>
-<li><a href="#orgcffcde7">4. Convivencia IPv4/IPv6</a></li>
-<li><a href="#orgd2ee9ba">5. Ejercicios</a></li>
-<li><a href="#org1685ac1">6. Referencias</a></li>
+<li><a href="#org9750fa3">1. Introducción</a></li>
+<li><a href="#org29ce2eb">2. IPv6</a></li>
+<li><a href="#org0706f26">3. Configuración de IPv6</a></li>
+<li><a href="#org60f24b4">4. Convivencia IPv4/IPv6</a></li>
+<li><a href="#orgd332d58">5. Ejercicios</a></li>
+<li><a href="#org1a6c5fc">6. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -272,8 +272,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-org37e910a" class="outline-2">
-<h2 id="org37e910a"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org9750fa3" class="outline-2">
+<h2 id="org9750fa3"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>En IPv4, las direcciones son de 32 bits
@@ -293,8 +293,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org4985de7" class="outline-2">
-<h2 id="org4985de7"><span class="section-number-2">2</span> IPv6</h2>
+<div id="outline-container-org29ce2eb" class="outline-2">
+<h2 id="org29ce2eb"><span class="section-number-2">2</span> IPv6</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Las direcciones tienen 128 bits de longitud
@@ -308,8 +308,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org511fac7" class="outline-3">
-<h3 id="org511fac7"><span class="section-number-3">2.1</span> Direcciones IPv6</h3>
+<div id="outline-container-org21c07f4" class="outline-3">
+<h3 id="org21c07f4"><span class="section-number-3">2.1</span> Direcciones IPv6</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Se especifican en hexadecimal, separando grupos de 16 bits con “:”</li>
@@ -327,8 +327,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org5465a0b" class="outline-3">
-<h3 id="org5465a0b"><span class="section-number-3">2.2</span> Direcciones reservadas</h3>
+<div id="outline-container-orgeffed48" class="outline-3">
+<h3 id="orgeffed48"><span class="section-number-3">2.2</span> Direcciones reservadas</h3>
 <div class="outline-text-3" id="text-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -392,8 +392,8 @@ window.addEventListener("load",()=>{
 </p>
 </div>
 </div>
-<div id="outline-container-orgfe4c50f" class="outline-3">
-<h3 id="orgfe4c50f"><span class="section-number-3">2.3</span> <i>link-local</i> con <i>eui-64</i></h3>
+<div id="outline-container-org980ca14" class="outline-3">
+<h3 id="org980ca14"><span class="section-number-3">2.3</span> <i>link-local</i> con <i>eui-64</i></h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Inicialmente, Windows y Linux calculaban las direcciones <i>link-local</i> con el <a href="https://es.wikipedia.org/wiki/Direcci%25C3%25B3n_IPv6#EUI-64_Modificado">eui-64</a></li>
@@ -410,8 +410,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-orgf6919bc" class="outline-3">
-<h3 id="orgf6919bc"><span class="section-number-3">2.4</span> Tipos de comunicación</h3>
+<div id="outline-container-org7619e1a" class="outline-3">
+<h3 id="org7619e1a"><span class="section-number-3">2.4</span> Tipos de comunicación</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li><b>Unicast</b>
@@ -438,8 +438,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org4c43cab" class="outline-3">
-<h3 id="org4c43cab"><span class="section-number-3">2.5</span> Subnetting en IPv6</h3>
+<div id="outline-container-org4ceda27" class="outline-3">
+<h3 id="org4ceda27"><span class="section-number-3">2.5</span> Subnetting en IPv6</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Conceptualmente es igual que en IPv4</li>
@@ -465,8 +465,8 @@ only one device is connecting.
 </div>
 </div>
 
-<div id="outline-container-org6faba3f" class="outline-3">
-<h3 id="org6faba3f"><span class="section-number-3">2.6</span> Ejercicio subnetting</h3>
+<div id="outline-container-orgeb410a6" class="outline-3">
+<h3 id="orgeb410a6"><span class="section-number-3">2.6</span> Ejercicio subnetting</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Dada la red <code>2001:0DB8:7200::/39</code>, se desea dividirla en 8 redes de igual tamaño. Indica en forma de tabla las redes resultantes, primer host, último host y cantidad de hosts en cada red
@@ -476,12 +476,12 @@ Dada la red <code>2001:0DB8:7200::/39</code>, se desea dividirla en 8 redes de i
 </div>
 
 
-<div id="outline-container-orgfc5b211" class="outline-2">
-<h2 id="orgfc5b211"><span class="section-number-2">3</span> Configuración de IPv6</h2>
+<div id="outline-container-org0706f26" class="outline-2">
+<h2 id="org0706f26"><span class="section-number-2">3</span> Configuración de IPv6</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgcf2448d" class="outline-3">
-<h3 id="orgcf2448d"><span class="section-number-3">3.1</span> Linux <a href="https://debian-handbook.info/browse/es-ES/stable/sect.ipv6.html">Debian</a></h3>
+<div id="outline-container-org7162182" class="outline-3">
+<h3 id="org7162182"><span class="section-number-3">3.1</span> Linux <a href="https://debian-handbook.info/browse/es-ES/stable/sect.ipv6.html">Debian</a></h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sh">iface eth0 inet6 static 
@@ -509,8 +509,8 @@ Añadir una ruta
 </div>
 </div>
 
-<div id="outline-container-orgd533cc1" class="outline-3">
-<h3 id="orgd533cc1"><span class="section-number-3">3.2</span> Windows</h3>
+<div id="outline-container-org4996366" class="outline-3">
+<h3 id="org4996366"><span class="section-number-3">3.2</span> Windows</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>En las propiedades del adaptador, como IPv4</li>
@@ -524,8 +524,8 @@ Añadir una ruta
 </div>
 
 
-<div id="outline-container-org0c91d2d" class="outline-3">
-<h3 id="org0c91d2d"><span class="section-number-3">3.3</span> IOS</h3>
+<div id="outline-container-org5b0db4f" class="outline-3">
+<h3 id="org5b0db4f"><span class="section-number-3">3.3</span> IOS</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li><p>
@@ -548,7 +548,6 @@ Para añadir rutas: En el ejemplo, se indica que para llegar a la red <code>2001
 Para activar el enrutamiento y consultar las rutas
 </p>
 <pre class="example">
-  ipv6 route 2001:DB8::/32 2001:DB8:3000:1
   ipv6 unicast-routing 
   show ipv6 route
 </pre></li>
@@ -558,8 +557,8 @@ Para activar el enrutamiento y consultar las rutas
 </div>
 
 
-<div id="outline-container-orgcffcde7" class="outline-2">
-<h2 id="orgcffcde7"><span class="section-number-2">4</span> Convivencia IPv4/IPv6</h2>
+<div id="outline-container-org60f24b4" class="outline-2">
+<h2 id="org60f24b4"><span class="section-number-2">4</span> Convivencia IPv4/IPv6</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Todos los sistemas operativos actuales cuentan con pila IPv6</li>
@@ -575,8 +574,8 @@ Para activar el enrutamiento y consultar las rutas
 </ul>
 </div>
 
-<div id="outline-container-org0f6236d" class="outline-3">
-<h3 id="org0f6236d"><span class="section-number-3">4.1</span> Interoperabilidad</h3>
+<div id="outline-container-org0296ee5" class="outline-3">
+<h3 id="org0296ee5"><span class="section-number-3">4.1</span> Interoperabilidad</h3>
 <div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -615,8 +614,8 @@ Para activar el enrutamiento y consultar las rutas
 </ul>
 </div>
 
-<div id="outline-container-orgac42b17" class="outline-4">
-<h4 id="orgac42b17"><span class="section-number-4">4.1.1</span> IPv4 mapeada a IPv6</h4>
+<div id="outline-container-orgd229c0a" class="outline-4">
+<h4 id="orgd229c0a"><span class="section-number-4">4.1.1</span> IPv4 mapeada a IPv6</h4>
 <div class="outline-text-4" id="text-4-1-1">
 
 <div class="figure">
@@ -641,8 +640,8 @@ Fuente: <a href="http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm
 
 
 
-<div id="outline-container-org96f0640" class="outline-4">
-<h4 id="org96f0640"><span class="section-number-4">4.1.2</span> IPv6 compatible con IPv4 (túnel dinámico)</h4>
+<div id="outline-container-orge99a6bc" class="outline-4">
+<h4 id="orge99a6bc"><span class="section-number-4">4.1.2</span> IPv6 compatible con IPv4 (túnel dinámico)</h4>
 <div class="outline-text-4" id="text-4-1-2">
 
 <div class="figure">
@@ -668,12 +667,12 @@ Fuente: <a href="http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm
 </div>
 
 
-<div id="outline-container-orgd2ee9ba" class="outline-2">
-<h2 id="orgd2ee9ba"><span class="section-number-2">5</span> Ejercicios</h2>
+<div id="outline-container-orgd332d58" class="outline-2">
+<h2 id="orgd332d58"><span class="section-number-2">5</span> Ejercicios</h2>
 <div class="outline-text-2" id="text-5">
 </div>
-<div id="outline-container-orgbbf8060" class="outline-3">
-<h3 id="orgbbf8060"><span class="section-number-3">5.1</span> Linux</h3>
+<div id="outline-container-org1dc4d18" class="outline-3">
+<h3 id="org1dc4d18"><span class="section-number-3">5.1</span> Linux</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Configura una máquina virtual linux en modo bridged con ip6
@@ -692,8 +691,8 @@ Haz ping al resto de ordenadores de tus compañeros
 </div>
 </div>
 
-<div id="outline-container-org2b6deda" class="outline-3">
-<h3 id="org2b6deda"><span class="section-number-3">5.2</span> Windows</h3>
+<div id="outline-container-org71f7930" class="outline-3">
+<h3 id="org71f7930"><span class="section-number-3">5.2</span> Windows</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Configura una máquina virtual Windows 7 en modo bridged con ip6
@@ -714,8 +713,8 @@ Haz ping al resto de ordenadores de tus compañeros (<code>interfaz</code> hace 
 </div>
 </div>
 
-<div id="outline-container-orgcc1f7bc" class="outline-3">
-<h3 id="orgcc1f7bc"><span class="section-number-3">5.3</span> IOS</h3>
+<div id="outline-container-org63f4c45" class="outline-3">
+<h3 id="org63f4c45"><span class="section-number-3">5.3</span> IOS</h3>
 <div class="outline-text-3" id="text-5-3">
 <p>
 Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan conexión entre sí.
@@ -733,8 +732,8 @@ Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan
 </div>
 </div>
 
-<div id="outline-container-org1685ac1" class="outline-2">
-<h2 id="org1685ac1"><span class="section-number-2">6</span> Referencias</h2>
+<div id="outline-container-org1a6c5fc" class="outline-2">
+<h2 id="org1a6c5fc"><span class="section-number-2">6</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Formatos:
@@ -753,7 +752,7 @@ Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-02-13 jue 10:26</p>
+<p class="date">Created: 2020-02-13 jue 10:28</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

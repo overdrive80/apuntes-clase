@@ -135,7 +135,6 @@ route -A inet6 add <red>/<mascara> gw <gateway> [dev <interfaz>]
 
 - Para activar el enrutamiento y consultar las rutas
   #+begin_src 
-  ipv6 route 2001:DB8::/32 2001:DB8:3000:1
   ipv6 unicast-routing 
   show ipv6 route
   #+end_src
