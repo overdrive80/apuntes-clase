@@ -209,7 +209,7 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
 ** IOS
 Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan conexión entre sí.
 
-[[file:pkt/ejercicio-ipv6.pkt][Fichero PKT]]
+[[file:pkt/ejercicio-ipv6.pkt][Fichero PKT]] 
 #+latex: \attachfile{./pkt/ejercicio-ipv6.pkt}
 
 [[file:pkt/ejercicio-ipv6.png]] 
