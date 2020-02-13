@@ -47,7 +47,7 @@
 | ~fc00::/7~                 | /[[https://en.wikipedia.org/wiki/Unique_local_address][Unique-local]]/. Parecidas a las redes privadas de IPv4                                                                             |
 | ~ff00::/8~                 | Grupos [[https://en.wikipedia.org/wiki/Multicast_address#IPv6][multicast]].                                                                                                                  |
 | ~2001:0DB8::/32~           | Ejemplos para [[https://www.apnic.net/get-ip/faqs/ipv6-documentation-prefix/][documentación]]                                                                                                        |
-| ~2000::/3~                 | /Global Unicast Address/. Internet.                                                                                                 |
+| ~2000::/3~                 | /Global Unicast Address/. Internet.                                                                                                |
 
 (https://en.wikipedia.org/wiki/Reserved_IP_addresses)
 ** /link-local/ con /eui-64/
@@ -89,6 +89,14 @@ blocks to end sites.  In particular, it recommends the assignment of
 subnet is needed and /128 when it is absolutely known that one and
 only one device is connecting.
 #+end_src
+
+** Ejercicio subnetting
+Dada la red ~2001:0DB8:7391::/40~, se desea dividirla en 8 redes de igual tamaño. Indica en forma de tabla las redes resultantes, primer host, último host y cantidad de hosts en cada red
+
+*** Solución :noexport:
+
+
+
 
 * Configuración de IPv6
 
