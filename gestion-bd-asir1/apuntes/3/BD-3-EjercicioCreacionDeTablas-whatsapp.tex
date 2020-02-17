@@ -22,7 +22,7 @@
 
 % \setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
 
-\primerapagina
+\primerapagina%
 
 
 \section{Objetivo de la práctica}
@@ -76,7 +76,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
 \begin{homeworkProblem}[: Insertar datos en las tablas (2 puntos)]
 
   El cliente quiere insertar los siguientes datos para comprobar la idoneidad del modelo relacional:
-  
+  \begin{center}
   \begin{tabular}{|l|l|}
     \hline
     \multicolumn{2}{|c|}{Usuarios} \\
@@ -138,7 +138,7 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
     Viaje a la nieve & Juan & El sábado no puedo & Recibido solo por Pepe & Leido solo por Pepe \\
     \hline
   \end{tabular}
-  
+\end{center}
   Es importante que los datos coincidan con los especificados. Los valores \textit{cierto} y \textit{falso} se pondrán como un número con \texttt{1} y \texttt{0} (esto puede facilitar la vista \texttt{V\_MENSAJESPORGRUPO}).
   
 
@@ -147,22 +147,22 @@ Una compañía decide lanzar un sistema de mensajería al estilo de Whatsapp.
   \begin{itemize}
   \item \texttt{V\_CONTACTOS(nombreusuario, nombrecontacto)}
   
-  \item \texttt{V\_MENSAJESRECIBIDOSPOR(nombredestinatario, nombreemisor, textomensaje, recibido, leido)}: Todos los mensajes recibidos por un destinatario, sean directos o dentro de un grupo de \texttt{chat}
+  \item \texttt{V\_MENSAJESENVIADOSA(nombredestinatario, nombreemisor, textomensaje, recibido, leido)}: Todos los mensajes recibidos por un destinatario, sean directos o dentro de un grupo de \texttt{chat}
   \item \texttt{V\_MENSAJESPORGRUPO(nombrechat, nombreemisor, textomensaje, cuantosrecibido, cuantosleido)}: Mensajes enviados a un grupo de \textit{chat}
     
-  \item \texttt{V\_GRUPOSDECHAT(nombrechat,integrantes)}: Número de integrantes de un chat, incluido el creador
+  \item \texttt{V\_GRUPOSDECHAT(nombrechat,cuantosintegrantes)}: Número de integrantes de un chat, incluido el creador
 
   \begin{listadosql}{Vistas a crear}{lst:vistas}
   create view V_CONTACTOS(nombreusuario, nombrecontacto) as
   select ...
   
-  create view V_MENSAJESRECIBIDOSPOR(nombredestinatario,nombreemisor,textomensaje,recibido,leido) as
+  create view V_MENSAJESENVIADOSA(nombredestinatario,nombreemisor,textomensaje,recibido,leido) as
   select ...
   
   create view V_MENSAJESPORGRUPO(nombrechat,nombreemisor,textomensaje,cuantosrecibido,cuantosleido) as
   select ...
     
-  create view V_GRUPOSDECHAT(nombrechat,integrantes) as
+  create view V_GRUPOSDECHAT(nombrechat,cuantosintegrantes) as
   select ...
 \end{listadosql}
     

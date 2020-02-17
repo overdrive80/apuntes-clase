@@ -9,7 +9,7 @@ object A{
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".pdf", ".html" )
+    val includeExtensions = Seq( ".pdf", ".html", "epub" )
     val excludeExtensions = Seq( ".svg.pdf" )
 
 
@@ -25,6 +25,7 @@ object A{
     }
 
     if( current.isDirectory ){
+      println( s"Mirando directorio $current")
       val all = sanitizeArray( current.listFiles ).sorted
       val files = all.filter(extensionFilter).filter(includeFilter)
       val directories = all.filter( _.isDirectory )
