@@ -35,13 +35,13 @@ La última versión de este documento se puede descargar de \enlace{https://alva
 
 
 
-\begin{homeworkProblem}[: \textit{Scripts} de inicio y parada de \textbf{Oracle} (1 punto)]
+\begin{homeworkProblem}[: \imenu{\textit{Scripts} de inicio y parada de \textbf{Oracle} (1 punto)}]
 
   Crea dos \textit{scripts} para iniciar y parar \textbf{Oracle} en \path{/home/alumno/scripts/oraclestart.sh} y \path{/home/alumno/scripts/oraclestop.sh}
   
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Arrancar automáticamente \textbf{Oracle} cuando se inicie el servidor (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Arrancar automáticamente \textbf{Oracle} cuando se inicie el servidor (2 puntos)}]
 
   \begin{itemize}
   \item \textbf{Oracle} debe levantarse cuando la máquina se inicie, y apagarse cuando la máquina se cierre.
@@ -70,7 +70,7 @@ La última versión de este documento se puede descargar de \enlace{https://alva
   
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Crea usuarios de base de datos (2 puntos)]
+\begin{homeworkProblem}[: \imenu{Crea usuarios de base de datos (2 puntos)}]
   Crea un script de nombre \texttt{/home/alumno/scripts/nuevo-usuario-oracle.sh} que cree un nuevo usuario de oracle. Si se invoca sin parámetros, o con más de dos, mostrará el texto de ayuda del listado \ref{lst:nuevo-usuario-ayuda}
 
   \begin{listadotxt}{Ayuda del script \texttt{nuevo-usuario-oracle.sh}}{lst:nuevo-usuario-ayuda}
@@ -88,7 +88,7 @@ La última versión de este documento se puede descargar de \enlace{https://alva
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[: Almacena información periódicamente en la base de datos (3 puntos)]
+\begin{homeworkProblem}[: \imenu{Almacena información periódicamente en la base de datos (3 puntos)}]
   % df -k | awk '{print $3}'
 
   % while read -r line
@@ -159,7 +159,7 @@ tmpfs             804488        88    804400   1% /run/user/1000
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[: Envía un correo periódicamente (3 puntos)]
+\begin{homeworkProblem}[: \imenu{Envía un correo periódicamente (2 puntos)}]
 
   \begin{itemize}
   \item Programa un \textit{script} para que cada minuto envíe un correo con la información promedio del comando  \texttt{df -k}. Puedes usar como base para la consulta el listado \ref{lst:promedio.sql}.

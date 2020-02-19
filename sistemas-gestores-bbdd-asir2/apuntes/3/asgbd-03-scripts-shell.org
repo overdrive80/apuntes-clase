@@ -714,6 +714,20 @@ done
 
 
 
+* Avanzado
+- Literales
+  - Comillas dobles: sustituyen variables
+  - Comillas simples: no se sustituyen variables
+- Heredocs
+  - Indentados: =<<-EOF=
+  - Sin sustitución de variables: =<<'EOF'= 
+- [[http://www.tldp.org/LDP/abs/html/process-sub.html][Process substitutions]]: Trata una orden como un fichero temporal
+  #+caption: Compara los contenidos de un directorio con otro
+  #+begin_src sh
+  diff <(ls $first_directory) <(ls $second_directory)
+  #+end_src
+
+
 * Referencias
 - Formatos:
   - [[file:asgbd-03-scripts-shell.html][Transparencias]] 
