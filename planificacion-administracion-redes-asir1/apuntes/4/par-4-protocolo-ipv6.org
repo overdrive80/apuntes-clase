@@ -203,7 +203,7 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
   #+end_src
 
 ** Windows
-- Configura una máquina virtual Windows 7 en modo bridged con ip6
+- Configura una máquina virtual Windows 7 en modo bridged con ipv6
   - Dirección =fe80::xx00/112= 
   - =xx= es tu número de ordenador (1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, 10, 11, …)
 - Haz ping al resto de ordenadores de tus compañeros (=interfaz= hace falta si hay más de una interfaz)
@@ -212,6 +212,11 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
   ping -6 fe80::xx00%interfaz
   #+end_src
 - Haz ping desde tu Linux a los Windows
+
+** Windows
+- Configura una máquina Windows con dos tarjetas en diferentes redes internas
+- Configura máquinas virtuales en cada una de las redes, con *la misma* dirección ipv6 /link local/
+- Haz ping desde windows a esas direcciones /link local/ sin determinar la interfaz, y comprueba cuál de las dos máquinas encuentra.
 
 ** IOS
 Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan conexión entre sí.
