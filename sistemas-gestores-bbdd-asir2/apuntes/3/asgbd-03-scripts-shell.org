@@ -363,7 +363,7 @@ echo 2+2 | bc
 
 - Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia
 - Para ello, necesitan las variables de entorno =ORACLE_HOME= y =ORACLE_SID=.
-- También es conveniente añadir los comandos de *Oracle* al /path/
+- También es conveniente añadir los comandos de *Oracle* al /2path/
 - El siguiente /script/ puede utilizarse para tener estas variables (ejecutándolo con =source=)
 
 #+begin_src sh
@@ -726,7 +726,8 @@ done
   #+begin_src sh
   diff <(ls $first_directory) <(ls $second_directory)
   #+end_src
-
+- =mktemp= para ficheros temporales
+- /traps/ para finalizar un /script/
 
 * Referencias
 - Formatos:
