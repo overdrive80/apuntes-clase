@@ -107,7 +107,7 @@ Intenta hacer =ping= a Google con un TTL de 10. ¿es suficiente? ¿y con 20?
 [[file:media/host-con-dos-ips.png]]
 
 ** Red y Host
-- Las direcciones IP se asignan al montar la red, nocomo las MAC
+- Las direcciones IP se asignan al montar la red, no como las MAC
    -  Las direcciones MAC se asignan por el fabricante de la tarjeta, quedando distribuidas casi aleatoriamente
    -  Las direcciones IP se estructuran de una forma jerárquica
 - La dirección IP contiene dos partes
