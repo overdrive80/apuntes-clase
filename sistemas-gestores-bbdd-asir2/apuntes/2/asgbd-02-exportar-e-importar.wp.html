@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-12-16 lun 10:54 -->
+<!-- 2020-02-24 lun 11:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exportar e importar datos de Oracle</title>
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -237,12 +250,12 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org7dbb3d4">1. Exportar datos</a></li>
-<li><a href="#orgbed89b8">2. Importar datos</a></li>
-<li><a href="#org3eee0aa">3. Ejercicio (1)</a></li>
-<li><a href="#org7cd0413">4. Ejercicio (2)</a></li>
-<li><a href="#org40eed92">5. Otras soluciones</a></li>
-<li><a href="#org80ff4fc">6. Referencias</a></li>
+<li><a href="#org41793b1">1. Exportar datos</a></li>
+<li><a href="#org73a4986">2. Importar datos</a></li>
+<li><a href="#orgb523af6">3. Ejercicio (1)</a></li>
+<li><a href="#orgb09c89d">4. Ejercicio (2)</a></li>
+<li><a href="#org47dfd0a">5. Otras soluciones</a></li>
+<li><a href="#orgb4097ef">6. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -259,8 +272,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-org7dbb3d4" class="outline-2">
-<h2 id="org7dbb3d4"><span class="section-number-2">1</span> Exportar datos</h2>
+<div id="outline-container-org41793b1" class="outline-2">
+<h2 id="org41793b1"><span class="section-number-2">1</span> Exportar datos</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>expdp</code>
@@ -509,8 +522,8 @@ Valid keyword values are: IMMEDIATE.
 </div>
 
 
-<div id="outline-container-org2f02cfe" class="outline-3">
-<h3 id="org2f02cfe"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
+<div id="outline-container-org586af75" class="outline-3">
+<h3 id="org586af75"><span class="section-number-3">1.1</span> <code>directory</code> de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Algunos comandos de <b>Oracle</b> necesitan trabajar sobre directorios del disco</li>
@@ -526,8 +539,8 @@ Valid keyword values are: IMMEDIATE.
 
 
 
-<div id="outline-container-org1930181" class="outline-3">
-<h3 id="org1930181"><span class="section-number-3">1.2</span> Definir un directorio</h3>
+<div id="outline-container-orgf57d7ae" class="outline-3">
+<h3 id="orgf57d7ae"><span class="section-number-3">1.2</span> Definir un directorio</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">any</span> directory <span style="color: #b9ca4a;">to</span> unusuario; 
@@ -542,8 +555,8 @@ Valid keyword values are: IMMEDIATE.
 </div>
 </div>
 
-<div id="outline-container-org457f5fd" class="outline-3">
-<h3 id="org457f5fd"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
+<div id="outline-container-orgd0bfd7b" class="outline-3">
+<h3 id="orgd0bfd7b"><span class="section-number-3">1.3</span> Ejemplo de exportación</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="org-src-container">
 <pre class="src src-shell">
@@ -582,8 +595,8 @@ Job <span style="color: #70c0b1;">"ALUMNO"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-orgbed89b8" class="outline-2">
-<h2 id="orgbed89b8"><span class="section-number-2">2</span> Importar datos</h2>
+<div id="outline-container-org73a4986" class="outline-2">
+<h2 id="org73a4986"><span class="section-number-2">2</span> Importar datos</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Se utiliza el comando <code>impdp</code>
@@ -843,8 +856,8 @@ Valid keywords are: IMMEDIATE.
 </div>
 </div>
 
-<div id="outline-container-orge68192f" class="outline-3">
-<h3 id="orge68192f"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
+<div id="outline-container-org6571e33" class="outline-3">
+<h3 id="org6571e33"><span class="section-number-3">2.1</span> Importar un <code>schema</code> en otro <code>schema</code></h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Importar un fichero del usuario <code>profesor</code> en el usuario <code>alumno</code></li>
@@ -893,8 +906,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </div>
 
 
-<div id="outline-container-org3eee0aa" class="outline-2">
-<h2 id="org3eee0aa"><span class="section-number-2">3</span> Ejercicio (1)</h2>
+<div id="outline-container-orgb523af6" class="outline-2">
+<h2 id="orgb523af6"><span class="section-number-2">3</span> Ejercicio (1)</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Crea la base de datos de multas en el usuario <code>multas</code> (<a href="../1/sql/multas.sql">../1/sql/multas.sql</a>)</li>
@@ -903,8 +916,8 @@ Job <span style="color: #70c0b1;">"SYSTEM"</span>.<span style="color: #70c0b1;">
 </ul>
 </div>
 
-<div id="outline-container-org34a1a74" class="outline-3">
-<h3 id="org34a1a74"><span class="section-number-3">3.1</span> Tareas para la exportación</h3>
+<div id="outline-container-org6408afb" class="outline-3">
+<h3 id="org6408afb"><span class="section-number-3">3.1</span> Tareas para la exportación</h3>
 <div class="outline-text-3" id="text-3-1">
 
 <div class="figure">
@@ -915,8 +928,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgbad82b5" class="outline-3">
-<h3 id="orgbad82b5"><span class="section-number-3">3.2</span> Tareas para la importación</h3>
+<div id="outline-container-orge267839" class="outline-3">
+<h3 id="orge267839"><span class="section-number-3">3.2</span> Tareas para la importación</h3>
 <div class="outline-text-3" id="text-3-2">
 
 <div class="figure">
@@ -929,8 +942,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org7cd0413" class="outline-2">
-<h2 id="org7cd0413"><span class="section-number-2">4</span> Ejercicio (2)</h2>
+<div id="outline-container-orgb09c89d" class="outline-2">
+<h2 id="orgb09c89d"><span class="section-number-2">4</span> Ejercicio (2)</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>Crear la base de datos
@@ -950,8 +963,8 @@ Sorry, your browser does not support SVG.</object>
 </ol>
 </div>
 
-<div id="outline-container-org1aa63c5" class="outline-3">
-<h3 id="org1aa63c5"><span class="section-number-3">4.1</span> Tareas</h3>
+<div id="outline-container-orge29b038" class="outline-3">
+<h3 id="orge29b038"><span class="section-number-3">4.1</span> Tareas</h3>
 <div class="outline-text-3" id="text-4-1">
 
 <div class="figure">
@@ -964,8 +977,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org40eed92" class="outline-2">
-<h2 id="org40eed92"><span class="section-number-2">5</span> Otras soluciones</h2>
+<div id="outline-container-org47dfd0a" class="outline-2">
+<h2 id="org47dfd0a"><span class="section-number-2">5</span> Otras soluciones</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>RMAN</li>
@@ -973,8 +986,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-org18c13f4" class="outline-3">
-<h3 id="org18c13f4"><span class="section-number-3">5.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
+<div id="outline-container-org33edd92" class="outline-3">
+<h3 id="org33edd92"><span class="section-number-3">5.1</span> <a href="https://oracle-base.com/articles/9i/recovery-manager-9i">RMAN</a></h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Solución de <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/rcmquick.htm#BRADV89346">Oracle para backups</a></li>
@@ -992,8 +1005,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org8ae276b" class="outline-3">
-<h3 id="org8ae276b"><span class="section-number-3">5.2</span> Copias de <i>tablespaces</i></h3>
+<div id="outline-container-orgedc56fb" class="outline-3">
+<h3 id="orgedc56fb"><span class="section-number-3">5.2</span> Copias de <i>tablespaces</i></h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Los datos están en ficheros <code>dbf</code></li>
@@ -1013,8 +1026,8 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 </p>
 </div>
 
-<div id="outline-container-org60056a8" class="outline-4">
-<h4 id="org60056a8"><span class="section-number-4">5.2.1</span> Lista de ficheros a copiar</h4>
+<div id="outline-container-org18cb6c4" class="outline-4">
+<h4 id="org18cb6c4"><span class="section-number-4">5.2.1</span> Lista de ficheros a copiar</h4>
 <div class="outline-text-4" id="text-5-2-1">
 <ul class="org-ul">
 <li>El fichero <code>pfile</code> o <code>spfile</code> indica dónde está el fichero de control
@@ -1041,8 +1054,8 @@ Fuente: <a href="https://docs.oracle.com/cd/E11882_01/backup.112/e10642/osbackup
 </div>
 </div>
 
-<div id="outline-container-org551bf19" class="outline-4">
-<h4 id="org551bf19"><span class="section-number-4">5.2.2</span> Arrancar la base de datos</h4>
+<div id="outline-container-orgba920ce" class="outline-4">
+<h4 id="orgba920ce"><span class="section-number-4">5.2.2</span> Arrancar la base de datos</h4>
 <div class="outline-text-4" id="text-5-2-2">
 <p>
 Si solo se restauran los ficheros de datos (y se tienen suficientes ficheros de <code>log</code>)
@@ -1072,8 +1085,8 @@ Database altered.
 </div>
 
 
-<div id="outline-container-org7e4da99" class="outline-3">
-<h3 id="org7e4da99"><span class="section-number-3">5.3</span> Ejercicio</h3>
+<div id="outline-container-org545f545" class="outline-3">
+<h3 id="org545f545"><span class="section-number-3">5.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-5-3">
 <ol class="org-ol">
 <li>Localiza los ficheros de datos de tu instancia</li>
@@ -1087,8 +1100,8 @@ Database altered.
 </div>
 
 
-<div id="outline-container-org80ff4fc" class="outline-2">
-<h2 id="org80ff4fc"><span class="section-number-2">6</span> Referencias</h2>
+<div id="outline-container-orgb4097ef" class="outline-2">
+<h2 id="orgb4097ef"><span class="section-number-2">6</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Formatos:
@@ -1108,7 +1121,7 @@ Database altered.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-12-16 lun 10:54</p>
+<p class="date">Created: 2020-02-24 lun 11:41</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
