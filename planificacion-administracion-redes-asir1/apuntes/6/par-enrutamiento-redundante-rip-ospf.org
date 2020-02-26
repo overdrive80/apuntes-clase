@@ -158,7 +158,14 @@ Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con
 | RIP                                 |                      120 |
 | Ruta estática (flotante, de backup) |         Cualquier número |
 
+** Linux :noexport:
+- https://unix.stackexchange.com/questions/188584/which-order-is-the-route-table-analyzed-in
+- Tiene diferentes tablas
+#+begin_src sh
+ip rule show
 
+ip route show table {local,default,main...}
+#+end_src
 
 * Referencias
 - Formatos:
