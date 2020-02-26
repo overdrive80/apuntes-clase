@@ -121,11 +121,44 @@ Router(config-router)#network 200.200.1.0
 
 ** Ejercicio
 Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
+
 * OSPF
 - [[https://es.wikipedia.org/wiki/Open_Shortest_Path_First][Open Shortest Path First]]
 - Más complejo que RIP
 - No tiene sus desventajas
 - Adecuado para redes grandes
+
+
+* Distancia administrativa (Cisco)
+
+** Formas de descubrir rutas
+- Las rutas conocidas llegan por diferentes vías:
+  - Redes directamente conectadas a interfaces
+  - Rutas estáticas
+  - OSPF
+  - RIP
+  - ...
+- No todos las vías son igual de confiables:
+  - Las redes directamente conectadas /seguro/ que funcionan
+  - Las rutas estáticas las determina un administrador, que /seguro/ que está en lo cierto
+  - OSFP es más fiable que RIP
+  - Hay más formas ([[https://en.wikipedia.org/wiki/Border_Gateway_Protocol][BGP]], [[https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol][EIGRP]]...)
+** Distancia administrativa
+- Un router CISCO determina cuál es la menor *distancia administrativa* entre sus rutas
+- Después, elige la ruta a aplicar entre la menor *métrica*
+- Es una práctica común
+  - Configurar los routers para que autodescubran las rutas
+  - Crear una ruta estática por si falla el autodescubrimiento
+
+| Vía de descubrimiento               | Distancia administrativa |
+|-------------------------------------+--------------------------|
+| Red directamente conectada          |                        0 |
+| Ruta estática (por defecto)         |                        1 |
+| OSPF                                |                      110 |
+| RIP                                 |                      120 |
+| Ruta estática (flotante, de backup) |         Cualquier número |
+
+
 
 * Referencias
 - Formatos:
