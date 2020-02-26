@@ -1,4 +1,4 @@
-# -*- after-save-hook: org-html-export-to-html;  org-export-in-background: t;-*-
+# # -*- after-save-hook: org-html-export-to-html;  org-export-in-background: t;-*-
 
 #+begin_export html
  <!-- https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position -->
@@ -19,7 +19,7 @@ shPage, 5000);
 #+end_export
 
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  /Network Address Translation/ (NAT)
+#+TITLE:  RIP y OSPF
 #+SUBTITLE: 
 #+KEYWORDS: 
 
@@ -76,6 +76,14 @@ shPage, 5000);
 - B seguirá enviando los paquetes de 192.168.3.0/24 a A
 
 
+** Ejercicio
+
+[[file:media/ejercicio-redundancia-routers.png]]
+
+#+latex: \attachfile{./pkt/redundancia-routers-rip.pkt}
+
+[[file:pkt/redundancia-routers-rip.pkt][Enlace a fichero PKT]]
+
 
 * RIP y OSPF
 - Añadir rutas es una tarea rutinaria
@@ -111,7 +119,8 @@ Router(config-router)#network 192.168.1.0
 Router(config-router)#network 200.200.1.0
     #+end_example
 
-
+** Ejercicio
+Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
 * OSPF
 - [[https://es.wikipedia.org/wiki/Open_Shortest_Path_First][Open Shortest Path First]]
 - Más complejo que RIP
