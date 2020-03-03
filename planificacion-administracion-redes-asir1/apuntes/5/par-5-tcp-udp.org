@@ -87,7 +87,7 @@ file:./media/sequence-number-acknoledgement-number.svg
 - Si se recibe un /sequence number/ posterior a nuestro /acknowledgment number/
   - Es un paquete *posterior* al que esperamos
     - Se puede guardar en la capa *TCP* hasta que lleguen los anteriores
-    - O se puede ignorar, y [[https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Dupack_based_retransmission][reclamar los paquetes perdidos]] enviando un /acknowledgment number/ menor que el que espera el otro 
+    - O se puede ignorar, y [[https://en.wikipedia.org/wiki/Transmission_Control_Protocol#Dupack-based_retransmission][reclamar los paquetes perdidos]] enviando un /acknowledgment number/ menor que el que espera el otro 
   - El otro lado reenviará los paquetes necesarios
 
 
