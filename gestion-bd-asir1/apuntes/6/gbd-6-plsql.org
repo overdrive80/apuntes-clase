@@ -95,11 +95,11 @@ DECLARE
   numero integer := 1;
 BEGIN
   if( numero < 0 ) then
-    dbms_output.put_line( "Menor que cero");
+    dbms_output.put_line( 'Menor que cero');
   elsif( numero > 0 ) then
-    dbms_output.put_line( "Mayor que cero");
+    dbms_output.put_line( 'Mayor que cero');
   else
-    dbms_output.put_line( "Igual que cero");
+    dbms_output.put_line( 'Igual que cero');
   end if;
 END;
 /
@@ -146,7 +146,7 @@ declare
     v varchar(100) := 'Hasta luego';
 begin
     if to_char(sysdate,'D')=1 then
-        dbms_output.println('es mi día libre' );
+        dbms_output.put_line('es mi día libre' );
     else    
            
         case v
