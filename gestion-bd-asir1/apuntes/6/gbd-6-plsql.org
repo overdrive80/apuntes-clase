@@ -3,7 +3,7 @@
 
 #+latex_header: \lstset{emph={begin,declare,serveroutput,trigger,on,before,after,each, if, elsif, exit, while, loop}, emphstyle=\color{Blue}\ttfamily\bfseries}
 
-#+OPTIONS: reveal_single_file:nil
+#+OPTIONS: reveal_single_file:t
 
 
 
@@ -345,35 +345,6 @@ end;
 #+end_src
 
 
-** Ejercicios
-- Imprime los números del 1 al 100
-- Imprime la suma de los números del 1 al 100 
-- Imprime los números pares del 1 al 100
-- Imprime los números primos del 1 al 100
-- Imprime la suma de los números primos del 1 al 100
-- Encuentra un número primo mayor de 1000000
-
-
-** Ejercicios
-- Imprime un rectángulo de tamaño 8x6
-  #+begin_example
-  ########
-  ########
-  ########
-  ########
-  ########
-  ########
-  #+end_example
-- Imprime un tablero de ajedrez de tamaño NxM (con la función =MOD=)
-  #+begin_example
-  # # # #
-   # # # #
-  # # # #
-   # # # #
-  # # # #
-   # # # #
-  #+end_example
-
 
 * Funciones y procedimientos
 - Son bloques de código identificados con un nombre
@@ -418,7 +389,7 @@ select empno, es_par(empno) from empleados;
 | ~lower~   | ~to_char~   | ~decode~ |          |
 | ~rpad~    | ~to_number~ |          |          |
 
-Formatos de ~to_number~]]
+[[https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements004.htm#i34510][Formatos de ~to_number~]]
 
 [[https://ss64.com/ora/syntax-fmt.html][Formatos de ~to_date~]]
 
