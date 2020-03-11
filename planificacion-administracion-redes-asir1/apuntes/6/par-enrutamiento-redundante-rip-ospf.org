@@ -1,4 +1,4 @@
-# -*- after-save-hook: org-html-export-to-html;  org-export-in-background: t;-*-
+# # -*- after-save-hook: org-html-export-to-html;  org-export-in-background: t;-*-
 
 #+begin_export html
  <!-- https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position -->
@@ -19,7 +19,7 @@ shPage, 5000);
 #+end_export
 
 #+INCLUDE: "../../../common/header.org"
-#+TITLE:  /Network Address Translation/ (NAT)
+#+TITLE:  RIP y OSPF
 #+SUBTITLE: 
 #+KEYWORDS: 
 
@@ -76,6 +76,14 @@ shPage, 5000);
 - B seguirá enviando los paquetes de 192.168.3.0/24 a A
 
 
+** Ejercicio
+
+[[file:media/ejercicio-redundancia-routers.png]]
+
+#+latex: \attachfile{./pkt/redundancia-routers-rip.pkt}
+
+[[file:pkt/redundancia-routers-rip.pkt][Enlace a fichero PKT]]
+
 
 * RIP y OSPF
 - Añadir rutas es una tarea rutinaria
@@ -111,12 +119,53 @@ Router(config-router)#network 192.168.1.0
 Router(config-router)#network 200.200.1.0
     #+end_example
 
+** Ejercicio
+Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
 
 * OSPF
 - [[https://es.wikipedia.org/wiki/Open_Shortest_Path_First][Open Shortest Path First]]
 - Más complejo que RIP
 - No tiene sus desventajas
 - Adecuado para redes grandes
+
+
+* Distancia administrativa (Cisco)
+
+** Formas de descubrir rutas
+- Las rutas conocidas llegan por diferentes vías:
+  - Redes directamente conectadas a interfaces
+  - Rutas estáticas
+  - OSPF
+  - RIP
+  - ...
+- No todos las vías son igual de confiables:
+  - Las redes directamente conectadas /seguro/ que funcionan
+  - Las rutas estáticas las determina un administrador, que /seguro/ que está en lo cierto
+  - OSFP es más fiable que RIP
+  - Hay más formas ([[https://en.wikipedia.org/wiki/Border_Gateway_Protocol][BGP]], [[https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol][EIGRP]]...)
+** Distancia administrativa
+- Un router CISCO determina cuál es la menor *distancia administrativa* entre sus rutas
+- Después, elige la ruta a aplicar entre la menor *métrica*
+- Es una práctica común
+  - Configurar los routers para que autodescubran las rutas
+  - Crear una ruta estática por si falla el autodescubrimiento
+
+| Vía de descubrimiento               | Distancia administrativa |
+|-------------------------------------+--------------------------|
+| Red directamente conectada          |                        0 |
+| Ruta estática (por defecto)         |                        1 |
+| OSPF                                |                      110 |
+| RIP                                 |                      120 |
+| Ruta estática (flotante, de backup) |         Cualquier número |
+
+** Linux :noexport:
+- https://unix.stackexchange.com/questions/188584/which-order-is-the-route-table-analyzed-in
+- Tiene diferentes tablas
+#+begin_src sh
+ip rule show
+
+ip route show table {local,default,main...}
+#+end_src
 
 * Referencias
 - Formatos:
