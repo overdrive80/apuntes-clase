@@ -385,6 +385,7 @@ Las funciones pueden invocarse:
 #+begin_src sql
 CREATE OR REPLACE FUNCTION es_par_varchar(numero IN number)
 RETURN varchar
+IS
 BEGIN
   -- AQUÍ SE INVOCA LA FUNCIÓN DEL APARTADO ANTERIOR
   if( es_par(numero) ) then
