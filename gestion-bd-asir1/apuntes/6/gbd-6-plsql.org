@@ -376,10 +376,39 @@ END;
 /
 #+END_SRC 
 
+*** Invocar una función
+Las funciones pueden invocarse:
+- Desde otra función o procedimiento
+- Desde un bloque anónimo
+- Desde SQL (ver más adelante)
+
+#+begin_src sql
+CREATE OR REPLACE FUNCTION es_par_varchar(numero IN number)
+RETURN varchar
+BEGIN
+  -- AQUÍ SE INVOCA LA FUNCIÓN DEL APARTADO ANTERIOR
+  if( es_par(numero) ) then
+    return 'Sí es par';
+  else
+    return 'No es par';
+  end if;
+END;
+/
+
+DECLARE
+  n number := 32;
+BEGIN
+  dbms_output.put_line( 'El número ' || n || ' ' || es_par_varchar(n) );
+END;
+/
+
+#+end_src
+
 *** Funciones en SQL
 - Una función puede utilizarse en SQL
 #+BEGIN_SRC sql
 select empno, es_par(empno) from empleados;
+select es_par(89) from dual;
 #+END_SRC
 
 *** Funciones predefinidas
