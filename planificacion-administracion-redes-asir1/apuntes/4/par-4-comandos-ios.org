@@ -39,7 +39,9 @@
 #+ATTR_LATEX: :align |l|p{12cm}|
 | Ctrl-C       | Cuando está en cualquier modo de configuración, termina el modo de configuración y regresa al modo EXEC con privilegios. Cuando está en modo de configuración, interrumpe y regresa al símbolo del sistema. |
 | Ctrl-Z       | Cuando está en cualquier modo de configuración, termina el modo de configuración y regresa al modo EXEC con privilegios.                                                                                    |
-| Ctrl-Shift-6 | Secuencia de pausa multiuso. Se la utiliza para interrumpir búsquedas DNS, traceroutes, pings.                                                                                                     |
+| Ctrl-Shift-6 | Secuencia de pausa multiuso. Se la utiliza para interrumpir búsquedas DNS, traceroutes, pings.                                                                                                              |
+| Ctrl-6       | Secuencia de pausa multiuso. Se la utiliza para interrumpir búsquedas DNS, traceroutes, pings.                                                                                                              |
+
 ** Modos
 - =Press RETURN to get started.=
   - Desactivado
@@ -86,6 +88,11 @@ Router> show ip interface brief
 ** Añadir ruta
 #+BEGIN_EXAMPLE
 Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
+#+END_EXAMPLE
+
+También se puede usar una interfaz de red en vez de un gateway. Esto es útil en interfaces serie (donde solo hay un destino posible)
+#+BEGIN_EXAMPLE
+Router(config)# ip route 172.16.0.0 255.255.255.0 s0/0/1
 #+END_EXAMPLE
 
 ** Borrar ruta
@@ -175,11 +182,31 @@ Switch(config-if)# channel-group 1 mode active
 #+end_example
 
 * RIP
+Habilitar RIP para dos redes conectadas directamente
 #+begin_example
 Router(config)#router rip
 Router(config-router)#network 192.168.1.0 
 Router(config-router)#network 200.200.1.0
 #+end_example
+
+Comprobar la configuración RIP
+#+begin_example
+Router# show ip protocols
+#+end_example
+
+
+Habilitar versión 2
+#+begin_example
+Router(config)#router rip
+Router(config-router)# version 2
+#+end_example
+
+Interfaz pasiva, en la que no hay otros routers y por tanto no se envia información de routing
+#+begin_example
+Router(config)#router rip
+Router(config-router)# passive-interface g0/0
+#+end_example
+
 
 * ACL
 
