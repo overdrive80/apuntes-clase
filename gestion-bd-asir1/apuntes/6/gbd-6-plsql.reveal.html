@@ -1946,7 +1946,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-18 mié 17:13</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-18 mié 18:54</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -1967,6 +1967,26 @@ div.figure, caption.t-bottom{
 </div>
 </div>
 </section>
+<script>
+function cargarHighlight(){
+  var script = document.createElement('script');
+  script.onload = function () {
+      console.log("onload para highlight.js");
+      hljs.initHighlightingOnLoad();
+  };
+  script.src = "../../../common/reveal.js/plugin/highlight/highlight.js";
+
+  document.head.appendChild(script);
+}
+
+window.addEventListener("load",()=>{
+  console.log("onload para cargarHighlight");
+  cargarHighlight();
+});
+</script>
+
+
+
 <script>
 window.addEventListener("load",()=>{
   let images = document.getElementsByTagName('img'); 
