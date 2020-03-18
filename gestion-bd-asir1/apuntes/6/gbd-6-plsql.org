@@ -538,18 +538,66 @@ end;
 
 * Sentencias SQL en PLSQL
 
+- Desde PLSQL pueden utilizarse las sentencias del DML
+  - =select=
+  - =update=
+  - =insert=
+  - =delete=
+
 ** Variables en =select=
+
+- Se puede leer el valor de un campo y guardarlo en una variable con =select ... into ... from...=
+- Hay que asegurarse que la /query/ devuelve solo una fila
+- El número de columnas debe coincidir con el número de variables
 
 #+BEGIN_SRC sql
 create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+insert into table empleados(empno,salario,nombre) values (1,2000,'María');
+insert into table empleados(empno,salario,nombre) values (2,1000,'Juan');
+
 DECLARE
+  vempno NUMBER := 2;
   vsalario NUMBER;
 BEGIN
-  SELECT salario INTO vsalario FROM empleados WHERE empno=7369;
-  dbms_output.put_line('El empleado numero 7369 tiene un sueldo de '||vsalario||'€');
+  SELECT salario INTO vsalario FROM empleados WHERE empno=vempno;
+  dbms_output.put_line('El empleado ' || vempno || ' tiene un sueldo de '||vsalario||'€');
 end;
 /
 #+END_SRC
+
+- Es fácil confundir variables con nombres de columna. 
+- Convenio: comenzar todas las variables con =v=
+
+** Ventaja de los tipos =%type=
+- Una variable puede copiar su tipo de una columna de una tabla
+- Así, si cambia la definición de la tabla (con un =alter table=), el PLSQL sigue siendo válido
+#+BEGIN_SRC sql
+DECLARE
+  vempno empleados.empno%TYPE := 2;
+  vsalario empleados.salario%TYPE;
+BEGIN
+  SELECT salario INTO vsalario FROM empleados WHERE empno=vempno;
+  dbms_output.put_line('El empleado ' || vempno || ' tiene un sueldo de '||vsalario||'€');
+end;
+/
+#+END_SRC
+
+
+** Ventaja de los tipos =%rowtype=
+- Una variable puede contener todas las columnas de una fila
+- Si cambia la definición de la tabla (con un =alter table=), el PLSQL sigue siendo válido
+#+BEGIN_SRC sql
+DECLARE
+  vempno empleados.empno%TYPE := 2;
+  vempleado empleados%ROWTYPE;
+BEGIN
+  SELECT * INTO vempleado FROM empleados WHERE empno=vempno;
+  dbms_output.put_line('El empleado ' || vempno || ' tiene un sueldo de '|| vempleado.salario ||'€');
+  dbms_output.put_line('El empleado ' || vempno || ' se llama '|| vempleado.nombre ||'€');
+end;
+/
+#+END_SRC
+
 
 ** Variables en =insert=, =update=, =delete=
 - Se utilizan como un valor inmediato
@@ -559,7 +607,7 @@ declare
 begin
   vempno := 100;
   insert into empleados(empno, salario, nombre)
-         values( vempno, 1000, 'Juan');
+         values( vempno, 1000, 'Manolo');
   update empleados 
          set salario = salario + 100
          where empno = vempno;
@@ -568,26 +616,38 @@ end;
 /
 #+END_SRC
 
-** Recorrer consultas
-- Además de consultas de datos de una fila, se pueden hacer bucles recorriendo todas las filas de una consulta, con =for=
-- Se ejecutan las órdenes de dento del =for= por cada fila
-  - La variable indicada es un =%ROWTYPE= de lo que devuelva la consulta
+
+** Ventaja de los tipos =%rowtype= en =insert=
+- Una variable %ROWTYPE% se puede usar en un =insert=
+- El resultado puede ser más limpio
 #+BEGIN_SRC sql
 DECLARE
+  vempleado empleados%ROWTYPE;
+BEGIN
+  vempleado.empno := 4;
+  vempleado.salario := 3000;
+  vempleado.nombre := 'Susana';
+  insert into empleados values vempleado;
+end;
+/
+#+END_SRC
+
+
+** Recorrer consultas
+#+BEGIN_SRC sql
+DECLARE
+  c empleados%ROWTYPE;
   salariototal number;
   numeroempleados number;
   mediasalario number;
 begin
   numeroempleados := 0;
   for c in (select * from empleados) loop
-    dbms_output.put_line(c.nombre || ' tiene de salario ' || c.salario );
+    dbms_output.put_line(c.nombre);
     numeroempleados := numeroempleados + 1;
     salariototal := salariototal + c.salario;
   end loop;
   mediasalario := salariototal / numeroempleados;
-  dbms_output.put_line( ' salario total: ' || salariototal );
-  dbms_output.put_line( ' numeroempleados: ' || numeroempleados );
-  dbms_output.put_line( ' salario medio: ' || mediasalario );
 end;
 /
 #+END_SRC
