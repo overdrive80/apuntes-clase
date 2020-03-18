@@ -1902,6 +1902,10 @@ body {
     border: 0px;
 }
 
+.reveal pre code{
+    max-height: none;
+}
+
 .creditos{
     position:fixed;
     bottom:20px;
@@ -1946,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-18 mié 18:54</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-18 mié 19:28</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2853,8 +2857,8 @@ end;
 <div class="org-src-container">
 
 <pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
-insert into table empleados(empno,salario,nombre) values (1,2000,'María');
-insert into table empleados(empno,salario,nombre) values (2,1000,'Juan');
+insert into empleados(empno,salario,nombre) values (1,2000,'María');
+insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
 
 DECLARE
   vempno NUMBER := 2;
@@ -2979,21 +2983,28 @@ end;
 <section id="slide-6-6">
 <div class="slide-header"></div>
 <h3 id="6-6"><span class="section-number-3">6.6</span> Recorrer consultas</h3>
+<ul>
+<li><code>for</code> puede recorrer las filas de una consulta</li>
+<li>En cada vuelta, la variable del <code>for</code> tiene el <code>%ROWTYPE</code> de la consulta</li>
+
+</ul>
 <div class="org-src-container">
 
 <pre><code class=" sql" >DECLARE
-  c empleados%ROWTYPE;
-  salariototal number;
-  numeroempleados number;
-  mediasalario number;
+  salariototal number := 0;
+  numeroempleados number := 0;
+  mediasalario number := 0;
 begin
-  numeroempleados := 0;
-  for c in (select * from empleados) loop
-    dbms_output.put_line(c.nombre);
+  for empleado in (select * from empleados) loop
+    dbms_output.put_line(empleado.nombre || ' con salario ' || empleado.salario );
     numeroempleados := numeroempleados + 1;
-    salariototal := salariototal + c.salario;
+    salariototal := salariototal +empleado.salario;
   end loop;
+  dbms_output.put_line( 'Hay ' || numeroempleados || ' empleados ');
+  dbms_output.put_line( 'Sus sueldos suman ' || salariototal );
+
   mediasalario := salariototal / numeroempleados;
+  dbms_output.put_line( 'La media de los sueldos es ' || mediasalario);
 end;
 /
 </code></pre>

@@ -552,8 +552,8 @@ end;
 
 #+BEGIN_SRC sql
 create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
-insert into table empleados(empno,salario,nombre) values (1,2000,'María');
-insert into table empleados(empno,salario,nombre) values (2,1000,'Juan');
+insert into empleados(empno,salario,nombre) values (1,2000,'María');
+insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
 
 DECLARE
   vempno NUMBER := 2;
@@ -634,20 +634,24 @@ end;
 
 
 ** Recorrer consultas
+- =for= puede recorrer las filas de una consulta
+- En cada vuelta, la variable del =for= tiene el =%ROWTYPE= de la consulta
 #+BEGIN_SRC sql
 DECLARE
-  c empleados%ROWTYPE;
-  salariototal number;
-  numeroempleados number;
-  mediasalario number;
+  salariototal number := 0;
+  numeroempleados number := 0;
+  mediasalario number := 0;
 begin
-  numeroempleados := 0;
-  for c in (select * from empleados) loop
-    dbms_output.put_line(c.nombre);
+  for empleado in (select * from empleados) loop
+    dbms_output.put_line(empleado.nombre || ' con salario ' || empleado.salario );
     numeroempleados := numeroempleados + 1;
-    salariototal := salariototal + c.salario;
+    salariototal := salariototal +empleado.salario;
   end loop;
+  dbms_output.put_line( 'Hay ' || numeroempleados || ' empleados ');
+  dbms_output.put_line( 'Sus sueldos suman ' || salariototal );
+
   mediasalario := salariototal / numeroempleados;
+  dbms_output.put_line( 'La media de los sueldos es ' || mediasalario);
 end;
 /
 #+END_SRC
