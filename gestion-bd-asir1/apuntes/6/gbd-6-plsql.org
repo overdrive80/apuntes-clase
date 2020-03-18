@@ -569,20 +569,25 @@ end;
 #+END_SRC
 
 ** Recorrer consultas
+- Además de consultas de datos de una fila, se pueden hacer bucles recorriendo todas las filas de una consulta, con =for=
+- Se ejecutan las órdenes de dento del =for= por cada fila
+  - La variable indicada es un =%ROWTYPE= de lo que devuelva la consulta
 #+BEGIN_SRC sql
 DECLARE
-  c empleados%ROWTYPE;
   salariototal number;
   numeroempleados number;
   mediasalario number;
 begin
   numeroempleados := 0;
   for c in (select * from empleados) loop
-    dbms_output.put_line(c.nombre);
+    dbms_output.put_line(c.nombre || ' tiene de salario ' || c.salario );
     numeroempleados := numeroempleados + 1;
     salariototal := salariototal + c.salario;
   end loop;
   mediasalario := salariototal / numeroempleados;
+  dbms_output.put_line( ' salario total: ' || salariototal );
+  dbms_output.put_line( ' numeroempleados: ' || numeroempleados );
+  dbms_output.put_line( ' salario medio: ' || mediasalario );
 end;
 /
 #+END_SRC
