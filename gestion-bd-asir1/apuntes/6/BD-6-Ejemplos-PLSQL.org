@@ -23,11 +23,63 @@ Los números se tabulan alineándolos a la derecha
 7 x 10 = 70
 #+end_src
 
+No sale alineado.
+
+Hay varias opciones: o muchos IF para ver los dígitos que tiene un número, o usar la funcion LPAD, o usar TO_CHAR con un formato adecuado.
+
+
 ** Nota cualitativa
 Haz una función que reciba una nota numérica sobre 10 y devuelva su nota cualitativa. Por ejemplo, para =7.3= es =notable=.
+
+CREATE OR REPLACE FUNCTION NOTACUALITATIVA(NOTA NUMBER) RETURN VARCHAR
+
+IS
+
+    NOTACUALITATIVA VARCHAR(20);
+
+BEGIN
+
+    CASE  
+
+        WHEN NOTA < 5 THEN NOTACUALITATIVA := 'SUSPENSO';
+
+        WHEN NOTA < 6 THEN NOTACUALITATIVA := 'SUFICIENTE';
+
+        WHEN NOTA < 7 THEN NOTACUALITATIVA := 'BIEN';
+
+        WHEN NOTA < 9 THEN NOTACUALITATIVA := 'NOTABLE';
+
+        WHEN NOTA <=10 THEN NOTACUALITATIVA := 'SOBRESALIENTE';
+
+        ELSE NOTACUALITATIVA := 'ESCRIBA UNA NOTA CORRECTA';
+
+    END CASE;
+
+    RETURN NOTACUALITATIVA;
+
+END;
+
+/
+
 ** Pasar de decimal a binario
 ** Pasar de decimal a una base entre 2 y 16
 ** Pasar de una base de 2 a 16 a decimal 
+** Función para decidir si un número es primo
+
+#+begin_src sql
+CREATE OR REPLACE FUNCTION ESPRIMO(NUMERO number) RETURN VARCHAR
+IS
+    J FLOAT :=1;
+BEGIN
+        FOR J IN 2..NUMERO-1 LOOP
+            IF(MOD(NUMERO,J)=0) THEN
+                RETURN 'NO ES PRIMO';
+            END IF;
+        END LOOP;
+        RETURN 'ES PRIMO';
+END;
+#+end_src
+
 ** Imprimir los números primos menores de 1000
 
 *** Solución                                                       :noexport:
@@ -60,6 +112,7 @@ end;
 #+end_src
 
 ** Decidir si un número es capicúa
+
 Usa =to_char= para pasar el número a texto, y utiliza =substr= para extraer posiciones del texto y compararlas.
 
 *** Solución :noexport:
