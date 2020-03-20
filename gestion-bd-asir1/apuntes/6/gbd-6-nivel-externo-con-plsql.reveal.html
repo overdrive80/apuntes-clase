@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL para completar un esquema relacional</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-20 vie 18:50</p>
+<h1 class="title">PLSQL para completar un esquema relacional</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-20 vie 18:56</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -5684,12 +5684,28 @@ end;
 
 </ul>
 
-
 <div class="slide-footer"></div>
 </section>
 <section id="slide-2-3-3">
 <div class="slide-header"></div>
-<h4 id="2-3-3"><span class="section-number-4">2.3.3</span> Inserciones: alumnos</h4>
+<h4 id="2-3-3"><span class="section-number-4">2.3.3</span> Ejemplo de inserción</h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >declare
+  nuevoprofesor integer;
+begin
+  CREA_PROFESOR('María',nuevoprofesor);
+  dbms_output.put_line('Creado profesor:' || nuevoprofesor );
+end;
+/
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-2-3-4">
+<div class="slide-header"></div>
+<h4 id="2-3-4"><span class="section-number-4">2.3.4</span> Inserciones: alumnos</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create sequence ALUMNO_SECUENCIA;
@@ -5706,9 +5722,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-4">
+<section id="slide-2-3-5">
 <div class="slide-header"></div>
-<h4 id="2-3-4"><span class="section-number-4">2.3.4</span> Inserciones: matriculaciones</h4>
+<h4 id="2-3-5"><span class="section-number-4">2.3.5</span> Inserciones: matriculaciones</h4>
 <ul>
 <li>En el procedimiento de inserción, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: No puede haber más de 10 alumnos por curso</li>
@@ -5732,9 +5748,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-5">
+<section id="slide-2-3-6">
 <div class="slide-header"></div>
-<h4 id="2-3-5"><span class="section-number-4">2.3.5</span> Borrados : alumnos</h4>
+<h4 id="2-3-6"><span class="section-number-4">2.3.6</span> Borrados : alumnos</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create or replace procedure BORRA_ALUMNO(palumnoid integer)
@@ -5749,9 +5765,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-6">
+<section id="slide-2-3-7">
 <div class="slide-header"></div>
-<h4 id="2-3-6"><span class="section-number-4">2.3.6</span> Borrados : profesores</h4>
+<h4 id="2-3-7"><span class="section-number-4">2.3.7</span> Borrados : profesores</h4>
 <ul>
 <li>En el procedimiento de borrado, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: Al menos un profesor en la academia
@@ -5780,9 +5796,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-7">
+<section id="slide-2-3-8">
 <div class="slide-header"></div>
-<h4 id="2-3-7"><span class="section-number-4">2.3.7</span> Modificaciones</h4>
+<h4 id="2-3-8"><span class="section-number-4">2.3.8</span> Modificaciones</h4>
 <ul>
 <li>No es fácil controlar las modificaciones con procedimientos</li>
 <li>Suele ser mejor dejar cambiar las tablas con <code>update</code> y controlar los posibles errores con <i>triggers</i></li>

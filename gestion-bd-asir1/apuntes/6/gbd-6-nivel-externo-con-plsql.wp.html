@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-03-20 vie 18:50 -->
+<!-- 2020-03-20 vie 18:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PLSQL para completar un esquema relacional</title>
@@ -250,9 +250,9 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd064738">1. Introducción</a></li>
-<li><a href="#orgaeddab5">2. Ejemplo: Academia</a></li>
-<li><a href="#org503c965">3. Referencias</a></li>
+<li><a href="#org6e2fea5">1. Introducción</a></li>
+<li><a href="#org85f600f">2. Ejemplo: Academia</a></li>
+<li><a href="#orgb365fe4">3. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -290,8 +290,8 @@ window.addEventListener("load",()=>{
 </script>
 
 
-<div id="outline-container-orgd064738" class="outline-2">
-<h2 id="orgd064738"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org6e2fea5" class="outline-2">
+<h2 id="org6e2fea5"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 
 <div class="figure">
@@ -300,8 +300,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org1cbd75c" class="outline-3">
-<h3 id="org1cbd75c"><span class="section-number-3">1.1</span> Arquitectura ANSI-SPARC</h3>
+<div id="outline-container-org9a1188b" class="outline-3">
+<h3 id="org9a1188b"><span class="section-number-3">1.1</span> Arquitectura ANSI-SPARC</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>En la arquitectura ANSI/SPARC se especifica un nivel interno, conceptual y externo
@@ -319,8 +319,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org50a06dd" class="outline-3">
-<h3 id="org50a06dd"><span class="section-number-3">1.2</span> Modelo relacional</h3>
+<div id="outline-container-orgafef53e" class="outline-3">
+<h3 id="orgafef53e"><span class="section-number-3">1.2</span> Modelo relacional</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>El modelo relacional deja expresar:
@@ -338,8 +338,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org3f9b72f" class="outline-3">
-<h3 id="org3f9b72f"><span class="section-number-3">1.3</span> Limitaciones del SGBD</h3>
+<div id="outline-container-org66dd4d2" class="outline-3">
+<h3 id="org66dd4d2"><span class="section-number-3">1.3</span> Limitaciones del SGBD</h3>
 <div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>No todos los SGBD tienen las mismas funcionalidades</li>
@@ -353,8 +353,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orgaeddab5" class="outline-2">
-<h2 id="orgaeddab5"><span class="section-number-2">2</span> Ejemplo: Academia</h2>
+<div id="outline-container-org85f600f" class="outline-2">
+<h2 id="org85f600f"><span class="section-number-2">2</span> Ejemplo: Academia</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Soportado en el modelo relacional:
@@ -372,8 +372,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orgd14ef75" class="outline-3">
-<h3 id="orgd14ef75"><span class="section-number-3">2.1</span> Esquema relacional</h3>
+<div id="outline-container-orge4897cf" class="outline-3">
+<h3 id="orge4897cf"><span class="section-number-3">2.1</span> Esquema relacional</h3>
 <div class="outline-text-3" id="text-2-1">
 
 <div class="figure">
@@ -383,8 +383,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 </div>
-<div id="outline-container-orgad617c6" class="outline-3">
-<h3 id="orgad617c6"><span class="section-number-3">2.2</span> Tablas</h3>
+<div id="outline-container-org545200f" class="outline-3">
+<h3 id="org545200f"><span class="section-number-3">2.2</span> Tablas</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">PROFESORES</span>(
@@ -409,8 +409,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org67a3743" class="outline-3">
-<h3 id="org67a3743"><span class="section-number-3">2.3</span> Operaciones</h3>
+<div id="outline-container-orgf90f065" class="outline-3">
+<h3 id="orgf90f065"><span class="section-number-3">2.3</span> Operaciones</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Consultas</li>
@@ -420,8 +420,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orgf759c64" class="outline-4">
-<h4 id="orgf759c64"><span class="section-number-4">2.3.1</span> Consultas</h4>
+<div id="outline-container-org7697d55" class="outline-4">
+<h4 id="org7697d55"><span class="section-number-4">2.3.1</span> Consultas</h4>
 <div class="outline-text-4" id="text-2-3-1">
 <ul class="org-ul">
 <li><code>select</code> sobre las tablas (o vistas que se pudieran hacer)</li>
@@ -429,8 +429,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgbf4e205" class="outline-4">
-<h4 id="orgbf4e205"><span class="section-number-4">2.3.2</span> Inserciones: profesores</h4>
+<div id="outline-container-orgc91a540" class="outline-4">
+<h4 id="orgc91a540"><span class="section-number-4">2.3.2</span> Inserciones: profesores</h4>
 <div class="outline-text-4" id="text-2-3-2">
 <ul class="org-ul">
 <li>Procedimientos del tipo <code>CREA_XXX</code></li>
@@ -456,10 +456,25 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-
-<div id="outline-container-org52d135d" class="outline-4">
-<h4 id="org52d135d"><span class="section-number-4">2.3.3</span> Inserciones: alumnos</h4>
+<div id="outline-container-org5be2e40" class="outline-4">
+<h4 id="org5be2e40"><span class="section-number-4">2.3.3</span> Ejemplo de inserción</h4>
 <div class="outline-text-4" id="text-2-3-3">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">declare</span>
+  nuevoprofesor <span style="color: #7aa6da;">integer</span>;
+<span style="color: #b9ca4a;">begin</span>
+  CREA_PROFESOR(<span style="color: #70c0b1;">'Mar&#237;a'</span>,nuevoprofesor);
+  dbms_output.put_line(<span style="color: #70c0b1;">'Creado profesor:'</span> || nuevoprofesor );
+<span style="color: #b9ca4a;">end</span>;
+/
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7917d51" class="outline-4">
+<h4 id="org7917d51"><span class="section-number-4">2.3.4</span> Inserciones: alumnos</h4>
+<div class="outline-text-4" id="text-2-3-4">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">sequence</span> <span style="color: #e78c45;">ALUMNO_SECUENCIA</span>;
 <span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">or</span> replace <span style="color: #b9ca4a;">procedure</span> <span style="color: #e78c45;">CREA_ALUMNO</span>(palumnonombre <span style="color: #7aa6da;">varchar</span>, palumnoid <span style="color: #b9ca4a;">out</span> <span style="color: #7aa6da;">integer</span>)
@@ -475,9 +490,9 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org957bde2" class="outline-4">
-<h4 id="org957bde2"><span class="section-number-4">2.3.4</span> Inserciones: matriculaciones</h4>
-<div class="outline-text-4" id="text-2-3-4">
+<div id="outline-container-orgf269a25" class="outline-4">
+<h4 id="orgf269a25"><span class="section-number-4">2.3.5</span> Inserciones: matriculaciones</h4>
+<div class="outline-text-4" id="text-2-3-5">
 <ul class="org-ul">
 <li>En el procedimiento de inserción, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: No puede haber más de 10 alumnos por curso</li>
@@ -499,9 +514,9 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org821707a" class="outline-4">
-<h4 id="org821707a"><span class="section-number-4">2.3.5</span> Borrados : alumnos</h4>
-<div class="outline-text-4" id="text-2-3-5">
+<div id="outline-container-org824cc08" class="outline-4">
+<h4 id="org824cc08"><span class="section-number-4">2.3.6</span> Borrados : alumnos</h4>
+<div class="outline-text-4" id="text-2-3-6">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">or</span> replace <span style="color: #b9ca4a;">procedure</span> <span style="color: #e78c45;">BORRA_ALUMNO</span>(palumnoid <span style="color: #7aa6da;">integer</span>)
 <span style="color: #b9ca4a;">as</span>
@@ -515,9 +530,9 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org2995ecd" class="outline-4">
-<h4 id="org2995ecd"><span class="section-number-4">2.3.6</span> Borrados : profesores</h4>
-<div class="outline-text-4" id="text-2-3-6">
+<div id="outline-container-orgd192194" class="outline-4">
+<h4 id="orgd192194"><span class="section-number-4">2.3.7</span> Borrados : profesores</h4>
+<div class="outline-text-4" id="text-2-3-7">
 <ul class="org-ul">
 <li>En el procedimiento de borrado, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: Al menos un profesor en la academia
@@ -543,9 +558,9 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org942f66e" class="outline-4">
-<h4 id="org942f66e"><span class="section-number-4">2.3.7</span> Modificaciones</h4>
-<div class="outline-text-4" id="text-2-3-7">
+<div id="outline-container-orgcc2bd79" class="outline-4">
+<h4 id="orgcc2bd79"><span class="section-number-4">2.3.8</span> Modificaciones</h4>
+<div class="outline-text-4" id="text-2-3-8">
 <ul class="org-ul">
 <li>No es fácil controlar las modificaciones con procedimientos</li>
 <li>Suele ser mejor dejar cambiar las tablas con <code>update</code> y controlar los posibles errores con <i>triggers</i></li>
@@ -555,8 +570,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org503c965" class="outline-2">
-<h2 id="org503c965"><span class="section-number-2">3</span> Referencias</h2>
+<div id="outline-container-orgb365fe4" class="outline-2">
+<h2 id="orgb365fe4"><span class="section-number-2">3</span> Referencias</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Formatos:
@@ -576,7 +591,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-03-20 vie 18:50</p>
+<p class="date">Created: 2020-03-20 vie 18:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

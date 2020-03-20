@@ -101,6 +101,16 @@ end;
 - Se podría hacer con un /trigger/ que calcule automáticamente la clave en un =insert=
   - El problema sería conseguir la clave de la fila recién insertada
 
+*** Ejemplo de inserción de profesor
+#+begin_src sql
+declare
+  nuevoprofesor integer;
+begin
+  CREA_PROFESOR('María',nuevoprofesor);
+  dbms_output.put_line('Creado profesor:' || nuevoprofesor );
+end;
+/
+#+end_src
 
 *** Inserciones: alumnos
 #+begin_src sql
@@ -114,6 +124,39 @@ end;
 /
 #+end_src
 
+
+*** Inserciones: materias y cursos
+#+begin_src sql
+create or replace procedure CREA_MATERIA(pmaterianombre varchar)
+as
+begin
+  insert into MATERIAS values(pmaterianombre);
+end;
+/
+create sequence CURSO_SECUENCIA;
+create or replace procedure CREA_CURSO(pmaterianombre varchar, pprofesorid integer, pcursoid out integer)
+as
+begin
+  pcursoid := CURSO_SECUENCIA.nextval;
+  insert into CURSOS(cursoid,profesorid,materianombre) values(pcursoid,pprofesorid,pmaterianombre);
+end;
+/
+#+end_src
+
+*** Ejemplo de inserción de materias y cursos
+#+begin_src sql
+declare
+  cursoid integer;
+  profesorid integer;
+begin
+  crea_profesor('Juan', profesorid);
+  crea_materia('Bases de datos');
+  crea_curso('Bases de datos', profesorid, cursoid); 
+  dbms_output.put_line('Bases de datos: id:' || cursoid );
+  dbms_output.put_line('Bases de datos: id de profesor:' || profesorid );
+end;
+/
+#+end_src
 
 *** Inserciones: matriculaciones
 - En el procedimiento de inserción, pueden controlarse errores que el modelo relacional no puede expresar
@@ -131,6 +174,18 @@ begin
 end;
 /
 #+end_src
+
+*** Prueba de inserción de 11 alumnos en un curso
+declare
+  cursoid integer;
+begin
+  crea_materia('Materia popular');
+  crea_curso('Materia popular',cursoid);
+
+end;
+/
+
+
 
 *** Borrados : alumnos
 #+begin_src sql
