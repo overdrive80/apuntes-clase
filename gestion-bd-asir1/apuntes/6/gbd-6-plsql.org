@@ -662,7 +662,7 @@ end;
 - Si se produce un error, se lanza una *excepción*
   - Se interrumpe el flujo de programa
   - Hasta que se *atrapa*
-  - Puede atraparse en cada bloque/funcion/procedimiento
+  - Puede atraparse en cada bloque/función/procedimiento
 
 #+BEGIN_SRC sql
 DECLARE

@@ -2,12 +2,58 @@
 * Programación
 
 ** Tabla de multiplicar Del 7
+Haz un procedimiento =CREATE OR REPLACE PROCEDURE TABLADELSIETE= que imprima con =dbms_output.put_line= la tabla de multiplicar del 7
+
 #+begin_src c
 7 x 1 = 7
 7 x 2 = 14
 ...
 #+end_src
+
+#+begin_src sql
+create or replace procedure tabladelsiete
+is
+begin
+    for n in 1..10 loop
+        dbms_output.put_line('7 x '||n||' = '|| n*7);      
+    end loop;
+end;
+/
+
+call tabladelsiete();
+#+end_src
+
+#+begin_src sql
+create or replace procedure tabladel(numero number)
+is
+begin
+    for n in 1..10 loop
+        dbms_output.put_line( numero || ' x '||n||' = '|| n*numero);      
+    end loop;
+end;
+/
+
+call tabladel(3);
+#+end_src
+
+
+
+
 ** Tablas de multiplicar del 1 al 9
+#+begin_src sql
+create or replace procedure tablasdemultiplicar(desde number, hasta number)
+is
+begin
+    for n in desde..hasta loop
+        dbms_output.put_line('TABLA DEL ' || n );
+        tabladel(n);
+    end loop;
+end;
+/
+
+call tablasdemultiplicar(5,8);
+#+end_src
+
 ** Tablas de multiplicar bien alineadas
 Los números se tabulan alineándolos a la derecha
 #+begin_src c
@@ -23,6 +69,48 @@ Los números se tabulan alineándolos a la derecha
 7 x 10 = 70
 #+end_src
 
+#+begin_src sql
+create or replace procedure tablabienalineada(numero number)
+is
+  resultado number;
+  cadena varchar(10);
+begin
+    for n in 1..10   loop
+        resultado := numero*n;
+        if( resultado < 10 ) then
+          cadena := '  ' || resultado;
+        elsif( resultado < 100 ) then
+          cadena := ' ' || resultado;
+        else 
+          cadena := '' || resultado;
+        end if;
+    
+        if n < 10 then
+          dbms_output.put_line( numero || ' x  '|| n||' = '||cadena); 
+        else
+          dbms_output.put_line( numero || ' x '|| n||' = '|| cadena); 
+        end if;  
+    end loop;
+end;
+/
+#+end_src
+
+
+#+begin_src sql
+create or replace procedure tablabienalineada(numero number)
+is
+  resultado number;
+  cadena varchar(10);
+begin
+    for n in 1..10   loop
+       dbms_output.put_line( numero || ' x '|| to_char(n,'999') ||' = '|| to_char(n*numero,'999') ); 
+    end loop;
+end;
+/
+#+end_src
+
+
+
 No sale alineado.
 
 Hay varias opciones: o muchos IF para ver los dígitos que tiene un número, o usar la funcion LPAD, o usar TO_CHAR con un formato adecuado.
@@ -31,37 +119,69 @@ Hay varias opciones: o muchos IF para ver los dígitos que tiene un número, o u
 ** Nota cualitativa
 Haz una función que reciba una nota numérica sobre 10 y devuelva su nota cualitativa. Por ejemplo, para =7.3= es =notable=.
 
+
+#+begin_src sql
 CREATE OR REPLACE FUNCTION NOTACUALITATIVA(NOTA NUMBER) RETURN VARCHAR
-
 IS
-
     NOTACUALITATIVA VARCHAR(20);
-
 BEGIN
-
     CASE  
-
         WHEN NOTA < 5 THEN NOTACUALITATIVA := 'SUSPENSO';
-
         WHEN NOTA < 6 THEN NOTACUALITATIVA := 'SUFICIENTE';
-
         WHEN NOTA < 7 THEN NOTACUALITATIVA := 'BIEN';
-
         WHEN NOTA < 9 THEN NOTACUALITATIVA := 'NOTABLE';
-
         WHEN NOTA <=10 THEN NOTACUALITATIVA := 'SOBRESALIENTE';
-
         ELSE NOTACUALITATIVA := 'ESCRIBA UNA NOTA CORRECTA';
-
     END CASE;
-
     RETURN NOTACUALITATIVA;
-
 END;
+/
+#+end_src
 
+
+
+#+begin_src sql
+CREATE OR REPLACE FUNCTION NOTACUALITATIVA(NOTA NUMBER) RETURN VARCHAR
+IS
+BEGIN
+    return CASE  
+        WHEN NOTA < 5 THEN 'SUSPENSO'
+        WHEN NOTA < 6 THEN 'SUFICIENTE'
+        WHEN NOTA < 7 THEN  'BIEN'
+        WHEN NOTA < 9 THEN 'NOTABLE'
+        WHEN NOTA <=10 THEN 'SOBRESALIENTE'
+        ELSE 'ESCRIBA UNA NOTA entre 0 y 10'
+    END;
+END;
 /
 
+select notacualitativa(8.3) from dual;
+#+end_src
+
+
+
+
 ** Pasar de decimal a binario
+#+begin_src sql
+CREATE OR REPLACE FUNCTION ENBINARIO(NUMERO number) RETURN VARCHAR
+is
+  retorno varchar(20) := '';
+  resto number;
+  n number := numero;
+begin
+  while(n > 0) loop
+    resto := mod(n,2);
+    retorno := resto || retorno;
+    n := trunc(n/2);
+  end loop;
+  return retorno;
+end;
+/
+
+select enbinario(255) from dual;
+#+end_src
+
+
 ** Pasar de decimal a una base entre 2 y 16
 ** Pasar de una base de 2 a 16 a decimal 
 ** Función para decidir si un número es primo
@@ -76,7 +196,7 @@ BEGIN
                 RETURN 'NO ES PRIMO';
             END IF;
         END LOOP;
-        RETURN 'ES PRIMO';
+        RETURN 'SI ES PRIMO';
 END;
 #+end_src
 
@@ -117,8 +237,8 @@ Usa =to_char= para pasar el número a texto, y utiliza =substr= para extraer pos
 
 *** Solución :noexport:
 #+BEGIN_SRC sql
-declare
-  n number := 1234543201;
+create or replace function escapicua(n number) return varchar 
+as
   numerocomotexto varchar(255);
   longitud number;
   letra char(1);
@@ -135,15 +255,57 @@ begin
      end if;  
   end loop;
   if escapicua = 0 then
-     dbms_output.put_line('No es capicua');
+     return 'No es capicua';
   else
-     dbms_output.put_line('Es capicua');
+     return 'Es capicua';
   end if;
 end;
 /
-#+END_SRC
-** Imprimir los Números primos capicúas menores de 100000
 
+select escapicua(7987) from dual;
+#+END_SRC
+
+
+#+begin_src sql
+create or replace function reverse(cadena varchar) return varchar
+as
+  retorno varchar(1024) := '';
+begin
+  -- ESTA FUNCION EXISTÍA EN VERSIONES ANTERIORES DE ORACLE
+  -- http://psoug.org/definition.htm/REVERSE.htm
+  for i in 1..length(cadena) loop
+    retorno := substr(cadena,i,1) || retorno;
+  end loop;
+  return retorno;
+end;
+/
+
+create or replace function escapicua(n number) return varchar 
+as
+begin
+  if( to_char(n) = reverse(to_char(n)) ) then
+    return 'Es capicua';
+  else
+    return 'No es capicua';
+  end if;  
+end;
+/
+
+select escapicua(7) from dual;
+#+end_src
+
+
+** Imprimir los Números primos capicúas menores de 100000
+#+begin_src sql
+begin
+  for n in 1..2000 loop
+    if lower(esprimo(n)) = 'es primo' and lower(escapicua(n)) = 'es capicua' then
+      dbms_output.put_line('Es primo y capicua: ' || n );
+    end if;
+  end loop;  
+end;
+/
+#+end_src
 ** Decidir si 1000003 es primo
 
 *** Solución                                                       :noexport:

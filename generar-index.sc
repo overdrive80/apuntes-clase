@@ -9,8 +9,9 @@ object A{
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".pdf", ".html", "epub" )
+    val includeExtensions = Seq( ".pdf", ".reveal.html", "epub" )
     val excludeExtensions = Seq( ".svg.pdf" )
+    val excludePatterns = Seq("aruizcristina");
 
 
     def sanitizeArray[T]( a: Array[T] )(implicit m: scala.reflect.ClassTag[T]) = if(a == null)  new Array[T](0) else a
@@ -21,7 +22,7 @@ object A{
 
     def includeFilter(f:File) = {
       val name = f.getPath.toLowerCase
-      name.contains("apuntes") && !name.contains("media")
+      name.contains("apuntes") && !name.contains("media") && !excludePatterns.exists( name.contains(_) )
     }
 
     if( current.isDirectory ){
