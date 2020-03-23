@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-23 lun 16:01</p>
+<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-23 lun 16:10</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2630,8 +2630,16 @@ Router# show ip nat statistics
 Borrar todas las entradas de NAT dinámico
 </p>
 <pre class="example">
-clear ip nat translation *
+no ip nat source static
 </pre>
+
+<p>
+Borrar todas las entradas de NAT estático
+</p>
+<pre class="example">
+no ip nat source static
+</pre>
+
 
 <div class="slide-footer"></div>
 </section>
@@ -2641,28 +2649,28 @@ clear ip nat translation *
 <ul>
 <li>Defina el grupo de direcciones globales que se debe usar para la traducción de sobrecarga.
 <ul>
-<li><code>ip nat pool name start-ip end-ip {netmask netmask | prefix-length prefix-length}</code></li>
+<li><code>ip nat pool &lt;name&gt; &lt;start-ip&gt; &lt;end-ip&gt; {netmask &lt;netmask&gt; | prefix-length &lt;prefix-length&gt;}</code></li>
 
 </ul></li>
 <li>Defina una lista de acceso estándar que permita las direcciones que se deben traducir. 
 <ul>
-<li><code>access-list access-list-number permit source [source-wildcard]</code></li>
+<li><code>access-list &lt;access-list-number&gt; permit &lt;source&gt; [source-wildcard]</code></li>
 
 </ul></li>
 <li>Especifique la lista de acceso y el grupo que se definieron en los pasos anteriores para establecer la traducción de sobrecarga. 
 <ul>
-<li><code>ip nat inside source list access-list-number pool name overload</code></li>
+<li><code>ip nat inside source list &lt;access-list-number&gt; pool &lt;name&gt; overload</code></li>
 
 </ul></li>
 <li>Identificar la interfaz interna. 
 <ul>
-<li><code>interface tipo-número</code></li>
+<li><code>interface &lt;tipo-número&gt;</code></li>
 <li><code>ip nat inside</code></li>
 
 </ul></li>
 <li>Identificar la interfaz externa.
 <ul>
-<li><code>interface tipo-número</code></li>
+<li><code>interface &lt;tipo-número&gt;</code></li>
 <li><code>ip nat outside</code></li>
 
 </ul></li>
@@ -2677,28 +2685,28 @@ clear ip nat translation *
 <ul>
 <li>Defina el conjunto de direcciones globales que se debe usar para la traducción.
 <ul>
-<li><code>ip nat pool name start-ip end-ip {netmask  netmask | prefix-length  prefix-length}</code></li>
+<li><code>ip nat pool &lt;name&gt; &lt;start-ip&gt; &lt;end-ip&gt; {netmask  &lt;netmask&gt; | prefix-length  &lt;prefix-length&gt;}</code></li>
 
 </ul></li>
 <li>Configure una lista de acceso estándar que permita las direcciones que se deben traducir.
 <ul>
-<li><code>access-list access-list-number permit source [source-wildcard]</code></li>
+<li><code>access-list &lt;access-list-number&gt; permit &lt;source&gt; [source-wildcard]</code></li>
 
 </ul></li>
 <li>Especifique la lista de acceso y el grupo que se definieron en los pasos anteriores para establecer la traducción dinámica de origen.
 <ul>
-<li><code>ip nat inside source list access-list-number pool name</code></li>
+<li><code>ip nat inside source list &lt;access-list-number&gt; pool &lt;name&gt;</code></li>
 
 </ul></li>
 <li>Identifique la interfaz interna.
 <ul>
-<li><code>interface type-number</code></li>
+<li><code>interface &lt;type-number&gt;</code></li>
 <li><code>ip nat inside</code></li>
 
 </ul></li>
 <li>Identifique la interfaz externa.
 <ul>
-<li><code>interface type number</code></li>
+<li><code>interface &lt;type-number&gt;</code></li>
 <li><code>ip nat outside</code></li>
 
 </ul></li>
@@ -2714,13 +2722,13 @@ clear ip nat translation *
 <ul>
 <li>Se establece la traducción estática entre una dirección local interna y una dirección global interna.
 <ul>
-<li><code>Router(config)# ip nat inside source static local-ip global-ip</code></li>
+<li><code>Router(config)# ip nat inside source static &lt;local-ip&gt; &lt;global-ip&gt;</code></li>
 <li>Introduzca el comando <code>no ip nat inside source static</code> del modo de configuración global para eliminar la traducción dinámica de origen.</li>
 
 </ul></li>
 <li>Especificar la interfaz interna. 
 <ul>
-<li><code>Router(config)# interface type-number</code></li>
+<li><code>Router(config)# interface &lt;type-number&gt;</code></li>
 
 </ul></li>
 <li>Marque la interfaz como conectada al interior. 
@@ -2735,7 +2743,7 @@ clear ip nat translation *
 </ul></li>
 <li>Especificar la interfaz externa. 
 <ul>
-<li><code>Router(config)# interface type-number</code></li>
+<li><code>Router(config)# interface &lt;type-number&gt;</code></li>
 
 </ul></li>
 <li>Marque la interfaz como conectada al exterior.
