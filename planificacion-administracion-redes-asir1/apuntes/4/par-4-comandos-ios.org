@@ -282,6 +282,66 @@ Router(config)# access-list <numero> <permit o deny> UDP
 
 
 
+* NAT
+
+Información del estado de NAT
+#+begin_example
+Router# show running-config
+Router# show ip nat translations
+Router# show ip nat statistics 
+#+end_example
+
+Borrar todas las entradas de NAT dinámico
+#+begin_example
+clear ip nat translation *
+#+end_example
+
+** PAT
+- Defina el grupo de direcciones globales que se debe usar para la traducción de sobrecarga.
+  - =ip nat pool name start-ip end-ip {netmask netmask | prefix-length prefix-length}=
+- Defina una lista de acceso estándar que permita las direcciones que se deben traducir. 
+  - =access-list access-list-number permit source [source-wildcard]=
+- Especifique la lista de acceso y el grupo que se definieron en los pasos anteriores para establecer la traducción de sobrecarga. 
+  - =ip nat inside source list access-list-number pool name overload=
+- Identificar la interfaz interna. 
+  - =interface tipo-número=
+  - =ip nat inside=
+- Identificar la interfaz externa.
+  - =interface tipo-número=
+  - =ip nat outside=
+
+** NAT dinámica
+- Defina el conjunto de direcciones globales que se debe usar para la traducción.
+  - =ip nat pool name start-ip end-ip {netmask  netmask | prefix-length  prefix-length}=
+- Configure una lista de acceso estándar que permita las direcciones que se deben traducir.
+  - =access-list access-list-number permit source [source-wildcard]=
+- Especifique la lista de acceso y el grupo que se definieron en los pasos anteriores para establecer la traducción dinámica de origen.
+  - =ip nat inside source list access-list-number pool name=
+- Identifique la interfaz interna.
+  - =interface type-number=
+  - =ip nat inside=
+- Identifique la interfaz externa.
+  - =interface type number=
+  - =ip nat outside=
+
+
+** NAT estática
+- Se establece la traducción estática entre una dirección local interna y una dirección global interna.
+  - =Router(config)# ip nat inside source static local-ip global-ip=
+  - Introduzca el comando =no ip nat inside source static= del modo de configuración global para eliminar la traducción dinámica de origen.
+- Especificar la interfaz interna. 
+  - =Router(config)# interface type-number=
+- Marque la interfaz como conectada al interior. 
+  - =Router(config-if)# ip nat inside=
+- Salga del modo de configuración de interfaz. 
+  - =Router(config-if)# exit=
+- Especificar la interfaz externa. 
+  - =Router(config)# interface type-number=
+- Marque la interfaz como conectada al exterior.
+  - =Router(config-if)# ip nat outside=
+
+
+
 * Referencias
 - Formatos:
   - [[file:par-4-comandos-ios.html][Transparencias]]
