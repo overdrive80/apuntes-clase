@@ -183,6 +183,7 @@ end;
 - Formatos:
   - [[file:gbd-6-depurar-plsql-con-sqldeveloper.reveal.html][Transparencias]]
   - [[file:gbd-6-depurar-plsql-con-sqldeveloper.pdf][PDF]]
+  - [[https://youtu.be/8KtloCRNDOE][Vídeo]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]
