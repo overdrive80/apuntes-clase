@@ -1,4 +1,4 @@
-select #+INCLUDE: "../../../common/header.org"
+#+INCLUDE: "../../../common/header.org"
 #+TITLE:  Producto cartesiano y JOIN
 
 * Funciones sobre valores
