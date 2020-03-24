@@ -1,0 +1,25 @@
+
+# https://emacs.stackexchange.com/questions/21930/org-mode-macro-not-evaluated-inside-link
+
+#+begin_src emacs-lisp :exports results :results raw
+(concat 
+"- Formatos:\n"
+"  - [[file:./" (file-name-base (buffer-file-name))  ".reveal.html" "][Transparencias]]\n"
+"  - [[file:./" (file-name-base (buffer-file-name))  ".pdf" "][PDF]]\n"
+"- Creado con:\n"
+"  - [[https://www.gnu.org/s/emacs/][Emacs]]\n"
+"  - [[https://gitlab.com/oer/org-re-reveal][org-re-reveal]]\n"
+"  - [[https://www.latex-project.org/][Latex]]\n"
+)
+#+end_src
+
+#+RESULTS:
+- Formatos:
+  - [[file:./footer.reveal.html][Transparencias]]
+  - [[file:./footer.pdf][PDF]]
+- Creado con:
+  - [[https://www.gnu.org/s/emacs/][Emacs]]
+  - [[https://gitlab.com/oer/org-re-reveal][org-reveal]]
+  - [[https://www.latex-project.org/][Latex]]
+
+
