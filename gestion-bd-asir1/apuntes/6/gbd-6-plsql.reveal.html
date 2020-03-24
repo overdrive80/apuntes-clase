@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-20 vie 10:58</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-24 mar 12:51</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -1965,8 +1965,7 @@ div.figure, caption.t-bottom{
 <li><a href="#/slide-6">6. Sentencias SQL en PLSQL</a></li>
 <li><a href="#/slide-7">7. Control de errores</a></li>
 <li><a href="#/slide-8">8. Disparadores (<i>triggers</i>)</a></li>
-<li><a href="#/slide-9">9. Habilitar el <i>debug</i> (en Oracle 18)</a></li>
-<li><a href="#/slide-10">10. Referencias</a></li>
+<li><a href="#/slide-9">9. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -2493,6 +2492,10 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 
 </ul>
 
+<p>
+(<a href="https://www.youtube.com/watch?v=etfuyJgq6-E&amp;list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&amp;index=3&amp;t=0s">youtube</a>)
+</p>
+
 <div class="slide-footer"></div>
 </section>
 <section id="slide-5-1">
@@ -2842,6 +2845,9 @@ end;
 
 </ul>
 
+<p>
+(<a href="https://www.youtube.com/watch?v=BWeKWaPwKnA&amp;list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&amp;index=4&amp;t=0s">youtube</a>)
+</p>
 <div class="slide-footer"></div>
 </section>
 <section id="slide-6-1">
@@ -3565,39 +3571,16 @@ END;
 
 
 
+
+
+
 <div class="slide-footer"></div>
 </section>
 </section>
 <section>
 <section id="slide-9">
 <div class="slide-header"></div>
-<h2 id="9"><span class="section-number-2">9</span> Habilitar el <i>debug</i> (en Oracle 18)</h2>
-<div class="org-src-container">
-
-<pre><code class=" sql" >begin
-    dbms_network_acl_admin.append_host_ace
-        (host=&gt;'IP DEL CLIENTE QUE DEBUGUEA',
-         ace=&gt; sys.xs$ace_type( privilege_list=&gt;sys.XS$NAME_LIST('JDWP') ,
-                                principal_name=&gt;'USUARIO QUE DEBUGUEA',
-                                principal_type=&gt;sys.XS_ACL.PTYPE_DB) );
-end;
-/
-
-grant debug connect session to USUARIOQUEDEBUGEA; 
-grant debug any procedure to USUARIOQUEDEBUGEA;
-grant execute on DBMS_DEBUG_JDWP to USUARIOQUEDEBUGEA;
-</code></pre>
-</div>
-
-
-
-<div class="slide-footer"></div>
-</section>
-</section>
-<section>
-<section id="slide-10">
-<div class="slide-header"></div>
-<h2 id="10"><span class="section-number-2">10</span> Referencias</h2>
+<h2 id="9"><span class="section-number-2">9</span> Referencias</h2>
 <ul>
 <li>Formatos:
 <ul>

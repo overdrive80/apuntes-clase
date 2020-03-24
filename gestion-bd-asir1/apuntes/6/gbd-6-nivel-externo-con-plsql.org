@@ -176,14 +176,23 @@ end;
 #+end_src
 
 *** Prueba de inserción de 11 alumnos en un curso
+#+begin_src sql
 declare
   cursoid integer;
+  profesorid integer;
+  alumnoid integer;
 begin
-  crea_materia('Materia popular');
-  crea_curso('Materia popular',cursoid);
-
+  CREA_MATERIA('Materia popular');
+  CREA_PROFESOR('Un profesor', profesorid);
+  CREA_CURSO('Materia popular',cursoid);
+  for i in 1..11 loop
+    CREA_ALUMNO('Alumno' || i, alumnoid );
+    dbms_output.put_line( i || ': Voy a matricular al alumno ' || alumnoid || ' en el curso ' || cursoid );
+    MATRICULA_ALUMNO_EN_CURSO(alumnoid,cursoid);
+  end loop;
 end;
 /
+#+end_src
 
 
 
@@ -225,6 +234,7 @@ end;
 - Formatos:
   - [[file:gbd-6-nivel-externo-con-plsql.reveal.html][Transparencias]]
   - [[file:gbd-6-nivel-externo-con-plsql.pdf][PDF]]
+  - [[ https://youtu.be/hglZiNqS3bU][Youtube]]
 - Creado con:
   - [[https://www.gnu.org/s/emacs/][Emacs]]
   - [[https://github.com/yjwen/org-reveal][org-reveal]]

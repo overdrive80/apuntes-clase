@@ -353,6 +353,8 @@ end;
   - De entrada
   - De salida
 
+([[https://www.youtube.com/watch?v=etfuyJgq6-E&list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&index=3&t=0s][youtube]])
+
 ** Funciones
 - Las funciones devuelven *siempre* un valor
 - Pueden recibir parámetros
@@ -544,6 +546,7 @@ end;
   - =insert=
   - =delete=
 
+([[https://www.youtube.com/watch?v=BWeKWaPwKnA&list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&index=4&t=0s][youtube]])
 ** Variables en =select=
 
 - Se puede leer el valor de un campo y guardarlo en una variable con =select ... into ... from...=
