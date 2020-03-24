@@ -9,7 +9,7 @@ object A{
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".pdf", ".reveal.html", "epub" )
+    val includeExtensions = Seq( ".reveal.html", "epub" )
     val excludeExtensions = Seq( ".svg.pdf" )
     val excludePatterns = Seq("aruizcristina");
 
