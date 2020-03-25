@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL para completar un esquema relacional</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-20 vie 18:56</p>
+<h1 class="title">PLSQL para completar un esquema relacional</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-25 mié 14:12</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -5596,7 +5596,7 @@ Java Runtime: Java(TM) SE Runtime Environment
 JVM: Java HotSpot(TM) 64-Bit Server VM
 Java Version: 1.8.0_111-b14
 Operating System: Linux
-OS Version: 4.15.0-74-generic
+OS Version: 4.15.0-91-generic
 Default Encoding: UTF-8
 Language: en
 Country: US
@@ -5688,7 +5688,7 @@ end;
 </section>
 <section id="slide-2-3-3">
 <div class="slide-header"></div>
-<h4 id="2-3-3"><span class="section-number-4">2.3.3</span> Ejemplo de inserción</h4>
+<h4 id="2-3-3"><span class="section-number-4">2.3.3</span> Ejemplo de inserción de profesor</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >declare
@@ -5724,7 +5724,52 @@ end;
 </section>
 <section id="slide-2-3-5">
 <div class="slide-header"></div>
-<h4 id="2-3-5"><span class="section-number-4">2.3.5</span> Inserciones: matriculaciones</h4>
+<h4 id="2-3-5"><span class="section-number-4">2.3.5</span> Inserciones: materias y cursos</h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create or replace procedure CREA_MATERIA(pmaterianombre varchar)
+as
+begin
+  insert into MATERIAS values(pmaterianombre);
+end;
+/
+create sequence CURSO_SECUENCIA;
+create or replace procedure CREA_CURSO(pmaterianombre varchar, pprofesorid integer, pcursoid out integer)
+as
+begin
+  pcursoid := CURSO_SECUENCIA.nextval;
+  insert into CURSOS(cursoid,profesorid,materianombre) values(pcursoid,pprofesorid,pmaterianombre);
+end;
+/
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-2-3-6">
+<div class="slide-header"></div>
+<h4 id="2-3-6"><span class="section-number-4">2.3.6</span> Ejemplo de inserción de materias y cursos</h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >declare
+  cursoid integer;
+  profesorid integer;
+begin
+  crea_profesor('Juan', profesorid);
+  crea_materia('Bases de datos');
+  crea_curso('Bases de datos', profesorid, cursoid); 
+  dbms_output.put_line('Bases de datos: id:' || cursoid );
+  dbms_output.put_line('Bases de datos: id de profesor:' || profesorid );
+end;
+/
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-2-3-7">
+<div class="slide-header"></div>
+<h4 id="2-3-7"><span class="section-number-4">2.3.7</span> Inserciones: matriculaciones</h4>
 <ul>
 <li>En el procedimiento de inserción, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: No puede haber más de 10 alumnos por curso</li>
@@ -5748,9 +5793,36 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-6">
+<section id="slide-2-3-8">
 <div class="slide-header"></div>
-<h4 id="2-3-6"><span class="section-number-4">2.3.6</span> Borrados : alumnos</h4>
+<h4 id="2-3-8"><span class="section-number-4">2.3.8</span> Prueba de inserción de 11 alumnos en un curso</h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >declare
+  cursoid integer;
+  profesorid integer;
+  alumnoid integer;
+begin
+  CREA_MATERIA('Materia popular');
+  CREA_PROFESOR('Un profesor', profesorid);
+  CREA_CURSO('Materia popular',cursoid);
+  for i in 1..11 loop
+    CREA_ALUMNO('Alumno' || i, alumnoid );
+    dbms_output.put_line( i || ': Voy a matricular al alumno ' || alumnoid || ' en el curso ' || cursoid );
+    MATRICULA_ALUMNO_EN_CURSO(alumnoid,cursoid);
+  end loop;
+end;
+/
+</code></pre>
+</div>
+
+
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-2-3-9">
+<div class="slide-header"></div>
+<h4 id="2-3-9"><span class="section-number-4">2.3.9</span> Borrados : alumnos</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create or replace procedure BORRA_ALUMNO(palumnoid integer)
@@ -5765,9 +5837,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-7">
+<section id="slide-2-3-10">
 <div class="slide-header"></div>
-<h4 id="2-3-7"><span class="section-number-4">2.3.7</span> Borrados : profesores</h4>
+<h4 id="2-3-10"><span class="section-number-4">2.3.10</span> Borrados : profesores</h4>
 <ul>
 <li>En el procedimiento de borrado, pueden controlarse errores que el modelo relacional no puede expresar</li>
 <li>Ejemplo: Al menos un profesor en la academia
@@ -5796,9 +5868,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-3-8">
+<section id="slide-2-3-11">
 <div class="slide-header"></div>
-<h4 id="2-3-8"><span class="section-number-4">2.3.8</span> Modificaciones</h4>
+<h4 id="2-3-11"><span class="section-number-4">2.3.11</span> Modificaciones</h4>
 <ul>
 <li>No es fácil controlar las modificaciones con procedimientos</li>
 <li>Suele ser mejor dejar cambiar las tablas con <code>update</code> y controlar los posibles errores con <i>triggers</i></li>
@@ -5815,17 +5887,19 @@ end;
 <ul>
 <li>Formatos:
 <ul>
-<li><a href="gbd-6-nivel-externo-con-plsql.reveal.html">Transparencias</a></li>
-<li><a href="gbd-6-nivel-externo-con-plsql.pdf">PDF</a></li>
+<li><a href="./gbd-6-nivel-externo-con-plsql.reveal.html">Transparencias</a></li>
+<li><a href="./gbd-6-nivel-externo-con-plsql.pdf">PDF</a></li>
+<li><a href="./gbd-6-nivel-externo-con-plsql.epub">EPUB</a></li>
 
 </ul></li>
 <li>Creado con:
 <ul>
 <li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
-<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
 
 </ul>
 <div class="slide-footer"></div>
