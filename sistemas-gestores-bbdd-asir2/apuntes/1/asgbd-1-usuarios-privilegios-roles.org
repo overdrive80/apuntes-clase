@@ -19,6 +19,19 @@
   - Datos de recuperación: /undo tablespace/
   - Datos temporales: /temporary tablespace/
 
+** Recordatorio: Tipos de fichero según su uso
+
+- Permanentes (/permanent/)
+  - Datos que deben ser guardados
+  - Ejemplo: Empleados contratados, nóminas pagadas, declaraciones de impuestos,…
+- De movimiento (/undo/)
+  - Cambios que deben ser incluidos en archivos permanentes
+  - Ejemplo: un puesto de peaje debe guardar todos los pagos con tarjeta, y enviarlos juntos
+- De maniobra (/temporary/)
+  - Se utilizan como extensión a la RAM de un ordenador, se borran cuando el proceso termina
+  - Ejemplo: caché de disco de los navegadores
+
+
 ** ¿Por qué tantas normas?
 - Disponibilidad
   - ¿Es mejor garantizar el espacio para las tablas?
@@ -352,11 +365,4 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 
 
 * Referencias
-- Formatos:
-  - [[file:asgbd-1-usuarios-privilegios-roles.html][Transparencias]] 
-  - [[file:asgbd-1-usuarios-privilegios-roles.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
-
+#+INCLUDE: "../../../common/footer.org"
