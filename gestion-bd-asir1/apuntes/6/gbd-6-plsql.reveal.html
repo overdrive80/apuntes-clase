@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-24 mar 19:48</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-27 vie 11:32</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -3048,6 +3048,10 @@ END;
 </code></pre>
 </div>
 
+<p>
+(<a href="https://youtu.be/jQfWrMDQKvY">youtube</a>)
+</p>
+
 <div class="slide-footer"></div>
 </section>
 <section id="slide-7-1">
@@ -3079,7 +3083,34 @@ END;
 </section>
 <section id="slide-7-2">
 <div class="slide-header"></div>
-<h3 id="7-2"><span class="section-number-3">7.2</span> Excepciones predefinidas</h3>
+<h3 id="7-2"><span class="section-number-3">7.2</span> Ejemplo</h3>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+insert into empleados(empno,salario,nombre) values (1,2000,'María');
+insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
+
+DECLARE
+  unavariable varchar(255);
+BEGIN
+  select nombre into unavariable from empleados;
+EXCEPTION
+  WHEN TOO_MANY_ROWS THEN 
+    dbms_output.put_line('select...into ha devuelto más de una fila!');
+  WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line('select...into no ha devuelto ninguna fila!');
+  WHEN OTHERS THEN
+    dbms_output.put_line('Error no previsto:' || sqlcode || ': ' || sqlerrm );
+END;
+</code></pre>
+</div>
+
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-7-3">
+<div class="slide-header"></div>
+<h3 id="7-3"><span class="section-number-3">7.3</span> Excepciones predefinidas</h3>
 <ul>
 <li>Estas son algunas (hay muchas)</li>
 
@@ -3121,9 +3152,9 @@ END;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-7-3">
+<section id="slide-7-4">
 <div class="slide-header"></div>
-<h3 id="7-3"><span class="section-number-3">7.3</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
+<h3 id="7-4"><span class="section-number-3">7.4</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
 <ul>
 <li>Funciones predefinidas</li>
 <li><code>SQLCODE</code>: Número de error (independiente del idioma)</li>
@@ -3150,18 +3181,36 @@ END;
 </code></pre>
 </div>
 
+<div class="slide-footer"></div>
+</section>
+<section id="slide-7-5">
+<div class="slide-header"></div>
+<h3 id="7-5"><span class="section-number-3">7.5</span> ¿Qué excepciones hay que atrapar?</h3>
+<ul>
+<li>Una excepción debe ser <i>excepcional</i></li>
+<li>El flujo normal de programa debe evitarlas
+<ul>
+<li>Un <code>select into</code> debe estar hecho para devolver como mucho una fila</li>
+<li>Antes se debería hacer <code>select count()</code> con un <code>if</code> para comprobar que devuelve una fila</li>
 
+</ul></li>
+<li>Solo se atrapa si se puede solucionar el error, si no se deja pasar
+<ul>
+<li>No tiene sentido que imprimamos <i>Ha habido un error</i>, pero que la función/procedimiento que nos llamó no lo sepa</li>
+<li>Si nadie lo atrapa, llega hasta el usuario, que es el que tiene que enterarse y el que lo podrá arreglar</li>
 
+</ul></li>
 
+</ul>
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-7-4">
+<section id="slide-7-6">
 <div class="slide-header"></div>
-<h3 id="7-4"><span class="section-number-3">7.4</span> Excepciones de usuario</h3>
+<h3 id="7-6"><span class="section-number-3">7.6</span> Excepciones de usuario</h3>
 <ul>
 <li>En ocasiones queremos enviar un mensaje de error personalizado</li>
-<li>Están disponibles los números de error entre <code>­20001</code> y <code>­20999</code></li>
+<li>Están disponibles los números de error entre <code>-20001</code> y <code>­20999</code></li>
 <li>Se pueden atrapar con <code>when others</code> y comprobarse con <code>SQLCODE</code></li>
 
 </ul>
@@ -3591,6 +3640,7 @@ END;
 <ul>
 <li><a href="./gbd-6-plsql.reveal.html">Transparencias</a></li>
 <li><a href="./gbd-6-plsql.pdf">PDF</a></li>
+<li><a href="./gbd-6-plsql.epub">EPUB</a></li>
 
 </ul></li>
 <li>Creado con:
@@ -3600,6 +3650,7 @@ END;
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
 
 </ul>
 <div class="slide-footer"></div>

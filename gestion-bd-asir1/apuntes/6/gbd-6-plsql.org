@@ -677,6 +677,8 @@ EXCEPTION
 END;
 #+END_SRC
 
+([[https://youtu.be/jQfWrMDQKvY][youtube]])
+
 ** Sección /exception/
 - Se especifican varios tipos de excepción que se esperan
 #+BEGIN_SRC sql
@@ -694,6 +696,27 @@ EXCEPTION
     -- en los bloques anteriores
 END;
 #+END_SRC
+
+** Ejemplo
+#+BEGIN_SRC sql
+create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+insert into empleados(empno,salario,nombre) values (1,2000,'María');
+insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
+
+DECLARE
+  unavariable varchar(255);
+BEGIN
+  select nombre into unavariable from empleados;
+EXCEPTION
+  WHEN TOO_MANY_ROWS THEN 
+    dbms_output.put_line('select...into ha devuelto más de una fila!');
+  WHEN NO_DATA_FOUND THEN
+    dbms_output.put_line('select...into no ha devuelto ninguna fila!');
+  WHEN OTHERS THEN
+    dbms_output.put_line('Error no previsto:' || sqlcode || ': ' || sqlerrm );
+END;
+#+END_SRC
+
 
 ** Excepciones predefinidas
 - Estas son algunas (hay muchas)
@@ -722,13 +745,18 @@ EXCEPTION
 END;
 #+END_SRC
 
-
-
-
+** ¿Qué excepciones hay que atrapar?
+- Una excepción debe ser /excepcional/
+- El flujo normal de programa debe evitarlas
+  - Un ~select into~ debe estar hecho para devolver como mucho una fila
+  - Antes se debería hacer ~select count()~ con un ~if~ para comprobar que devuelve una fila
+- Solo se atrapa si se puede solucionar el error, si no se deja pasar
+  - No tiene sentido que imprimamos /Ha habido un error/, pero que la función/procedimiento que nos llamó no lo sepa
+  - Si nadie lo atrapa, llega hasta el usuario, que es el que tiene que enterarse y el que lo podrá arreglar
 
 ** Excepciones de usuario
 - En ocasiones queremos enviar un mensaje de error personalizado
-- Están disponibles los números de error entre =­20001= y =­20999=
+- Están disponibles los números de error entre =-20001= y =­20999=
 - Se pueden atrapar con =when others= y comprobarse con =SQLCODE=
 
 #+BEGIN_SRC sql
