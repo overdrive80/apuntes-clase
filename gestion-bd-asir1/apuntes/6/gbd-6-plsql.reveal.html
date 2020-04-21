@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-27 vie 11:32</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-04-21 mar 18:29</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -3272,7 +3272,7 @@ end;
 </section>
 <section id="slide-8-1">
 <div class="slide-header"></div>
-<h3 id="8-1"><span class="section-number-3">8.1</span> Eventos</h3>
+<h3 id="8-1"><span class="section-number-3">8.1</span> Eventos DML</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3307,126 +3307,10 @@ end;
 <td class="org-left"><code>update of</code></td>
 <td class="org-left">Modificación de un campo de una fila</td>
 </tr>
-</tbody>
-</table>
-
-<div class="slide-footer"></div>
-</section>
-<section>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Evento DDL/sistema</th>
-<th scope="col" class="org-left">&#xa0;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">ALTER</td>
-<td class="org-left">Modificación de objetos</td>
-</tr>
 
 <tr>
-<td class="org-left">ANALYSE</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">ASSOCIATE STATISTICS</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">AUDIT</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">COMMENT</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">CREATE</td>
-<td class="org-left">Creación de objetos</td>
-</tr>
-
-<tr>
-<td class="org-left">DDL</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">DISASSOCIATE STATISTICS</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">DROP</td>
-<td class="org-left">Borrado de Objetos</td>
-</tr>
-
-<tr>
-<td class="org-left">GRANT</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">LOGON</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">LOGOFF</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">NOAUDIT</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">RENAME</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">REVOKE</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">TRUNCATE</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">SERVERERROR</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">STARTUP</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">SHUTDOWN</td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left">SUSPEND</td>
-<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>instead of</code></td>
+<td class="org-left">Anula la orden, pero no provoca un error</td>
 </tr>
 </tbody>
 </table>
@@ -3440,9 +3324,12 @@ end;
 
 </ul>
 
+
 <div class="slide-footer"></div>
 </section>
-<section>
+<section id="slide-8-1-1">
+<div class="slide-header"></div>
+<h4 id="8-1-1"><span class="section-number-4">8.1.1</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >CREATE or replace TRIGGER ejemplo_or
@@ -3467,7 +3354,159 @@ end;
 </section>
 <section id="slide-8-2">
 <div class="slide-header"></div>
-<h3 id="8-2"><span class="section-number-3">8.2</span> <code>for each row</code></h3>
+<h3 id="8-2"><span class="section-number-3">8.2</span> Eventos DDL</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Evento DDL</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ALTER</td>
+<td class="org-left">Modificación de objetos</td>
+</tr>
+
+<tr>
+<td class="org-left">COMMENT</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">CREATE</td>
+<td class="org-left">Creación de objetos</td>
+</tr>
+
+<tr>
+<td class="org-left">DDL</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">DROP</td>
+<td class="org-left">Borrado de Objetos</td>
+</tr>
+
+<tr>
+<td class="org-left">GRANT</td>
+<td class="org-left">Otorgar privilegios</td>
+</tr>
+
+<tr>
+<td class="org-left">RENAME</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">REVOKE</td>
+<td class="org-left">Quitar privilegios</td>
+</tr>
+
+<tr>
+<td class="org-left">TRUNCATE</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-3">
+<div class="slide-header"></div>
+<h3 id="8-3"><span class="section-number-3">8.3</span> Eventos de sistema</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Evento DDL</th>
+<th scope="col" class="org-left">&#xa0;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">ANALYSE</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">ASSOCIATE STATISTICS</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">AUDIT</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">DISASSOCIATE STATISTICS</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">LOGON</td>
+<td class="org-left">Entrada de usuario</td>
+</tr>
+
+<tr>
+<td class="org-left">LOGOFF</td>
+<td class="org-left">Salida de usuario</td>
+</tr>
+
+<tr>
+<td class="org-left">NOAUDIT</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">RENAME</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">SERVERERROR</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">STARTUP</td>
+<td class="org-left">Servidor arrancado</td>
+</tr>
+
+<tr>
+<td class="org-left">SHUTDOWN</td>
+<td class="org-left">Servidor parado</td>
+</tr>
+
+<tr>
+<td class="org-left">SUSPEND</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-4">
+<div class="slide-header"></div>
+<h3 id="8-4"><span class="section-number-3">8.4</span> <code>for each row</code></h3>
 <ul>
 <li>Por defecto, un <i>trigger</i> se lanza una vez por cada sentencia SQL que provoque cambios</li>
 <li>Si se especifica <code>for each row</code>, se lanza una vez por cada fila cambiada</li>
@@ -3476,9 +3515,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-3">
+<section id="slide-8-5">
 <div class="slide-header"></div>
-<h3 id="8-3"><span class="section-number-3">8.3</span> Momentos del evento</h3>
+<h3 id="8-5"><span class="section-number-3">8.5</span> Momentos del evento</h3>
 <ul>
 <li>Se puede lanzar
 <ul>
@@ -3496,6 +3535,11 @@ end;
 
 </ul>
 
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-5-1">
+<div class="slide-header"></div>
+<h4 id="8-5-1"><span class="section-number-4">8.5.1</span> Resumen de momentos y variables</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3565,12 +3609,22 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-4">
+<section id="slide-8-6">
 <div class="slide-header"></div>
-<h3 id="8-4"><span class="section-number-3">8.4</span> Ejemplo típico: auditoría</h3>
+<h3 id="8-6"><span class="section-number-3">8.6</span> Ejemplo típico: auditoría</h3>
+<ul>
+<li>Se necesitan los datos del usuario que creo y modificó un empleado por última vez</li>
+
+</ul>
+
 <div class="org-src-container">
 
-<pre><code class=" sql" >alter table empleados add (
+<pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+insert into empleados(empno,salario,nombre) values (1,2000,'María');
+insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
+
+
+alter table empleados add (
   createdby varchar(255),
   createddate timestamp,
   modifiedby varchar(255),
@@ -3579,27 +3633,168 @@ end;
 </code></pre>
 </div>
 
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-6-1">
+<div class="slide-header"></div>
+<h4 id="8-6-1"><span class="section-number-4">8.6.1</span> Actualizar campos <code>createdXXXX</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace trigger auditoria_creacion_empleados
+<pre><code class=" sql" >create or replace trigger audit_creacion_empleados
   before insert 
   on empleados
   for each row
 begin
-  :new.createdby := username;
+  dbms_output.put_line('Empleado ' || :new.nombre || ' creado por:' || user );
+  :new.createdby := user;
   :new.createddate := systimestamp;
 end;
 /
 </code></pre>
 </div>
 
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-6-2">
+<div class="slide-header"></div>
+<h4 id="8-6-2"><span class="section-number-4">8.6.2</span> Actualizar campos <code>modifiedXXXX</code></h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create or replace trigger audit__modificacion_empleados
+  before update 
+  on empleados
+  for each row
+begin
+  dbms_output.put_line('Empleado ' || :new.nombre || ' modificado por:' || user );
+  :new.modifiedby := user;
+  :new.modifieddate := systimestamp;
+end;
+/
+</code></pre>
+</div>
 
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-5">
+<section id="slide-8-7">
 <div class="slide-header"></div>
-<h3 id="8-5"><span class="section-number-3">8.5</span> Sintaxis (casi) completa</h3>
+<h3 id="8-7"><span class="section-number-3">8.7</span> Ejemplo típico: desnormalización</h3>
+<ul>
+<li>Imaginemos que necesitamos saber la masa salarial total</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create or replace function MASA_SALARIAL return number 
+as
+  total number;
+begin
+  select sum(salario) into total from empleados;
+  return total;
+end;
+/
+</code></pre>
+</div>
+
+<ul>
+<li>Ventajas: simple, rendimiento es escritura</li>
+<li>Desventajas: rendimiento en lectura, se consulta cada vez</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-7-1">
+<div class="slide-header"></div>
+<h4 id="8-7-1"><span class="section-number-4">8.7.1</span> Con triggers</h4>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create table cantidadesprecalculadas(nombre varchar(255), valor number(20,2));
+
+create or replace trigger mantener_masa_salarial
+after insert or update or delete
+on empleados
+for each row
+begin
+  if inserting then
+    update cantidadesprecalculadas set valor=valor + :new.salario where nombre = 'masasalarial';
+  elsif deleting then
+    update cantidadesprecalculadas set valor=valor - :old.salario where nombre = 'masasalarial';
+  elsif updating then
+    update cantidadesprecalculadas set valor=valor - v:old.salario + :new.salario where nombre = 'masasalarial';
+  end if;
+end;
+/
+
+create or replace function MASA_SALARIAL_PRECALCULADA return number 
+as
+  total number;
+begin
+  select valor into total from cantidadesprecalculadas where nombre='masasalarial';
+  return total;
+end;
+/
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-7-2">
+<div class="slide-header"></div>
+<h4 id="8-7-2"><span class="section-number-4">8.7.2</span> Ventajas de la desnormalización</h4>
+<ul>
+<li>La tabla <code>masasalarial</code> tiene un atributo calculado, que depende de otros datos
+<ul>
+<li>No está normalizada</li>
+<li>Es más complicado que la función <code>MASA_SALARIAL</code></li>
+<li>Es más lento en escritura</li>
+
+</ul></li>
+<li>Pero es mucho más eficiente en lectura, porque no se calcula cada vez que se consulta</li>
+
+</ul>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-7-3">
+<div class="slide-header"></div>
+<h4 id="8-7-3"><span class="section-number-4">8.7.3</span> Prueba de rendimiento</h4>
+<ul>
+<li>Estas consultas simples suelen <a href="https://docs.oracle.com/database/121/TGDBA/tune_result_cache.htm#TGDBA618">estar ya optimizadas</a> por el gestor de base de datos</li>
+
+</ul>
+<div class="org-src-container">
+
+<pre><code class=" sql" >set serveroutput off;
+begin
+  for i in 1 .. 10000 loop
+     insert into empleados(empno,salario,nombre)
+     values(100+i, i, 'Nombre Inventado');
+  end loop;
+end;
+/
+set serveroutput on;
+</code></pre>
+</div>
+
+<div class="org-src-container">
+
+<pre><code class=" sql" >declare
+  numero number;
+begin
+  for i in 1 .. 1000 loop
+    select /*+ NO_RESULT_CACHE */ masa_salarial_precalculada into numero from dual;
+  end loop;
+end;
+/
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-8">
+<div class="slide-header"></div>
+<h3 id="8-8"><span class="section-number-3">8.8</span> Sintaxis (casi) completa de los <i>triggers</i></h3>
 <div class="org-src-container">
 
 <pre><code class=" sql" >CREATE [OR REPLACE] TRIGGER &lt;nombre_trigger&gt;
