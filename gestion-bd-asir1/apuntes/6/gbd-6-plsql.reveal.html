@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-04-21 mar 18:29</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-04-22 mié 12:33</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -3252,6 +3252,38 @@ END;
 
 </ul>
 
+<p>
+(<a href="https://youtu.be/WXqkI5Jnsmo">youtube 1</a>) (<a href="https://youtu.be/pt7jJehGlU0">youtube 2</a>) (<a href="https://youtu.be/eAAU1kbCvbs">youtube 3</a>)
+</p>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-1">
+<div class="slide-header"></div>
+<h3 id="8-1"><span class="section-number-3">8.1</span> Sintaxis (casi) completa</h3>
+<div class="org-src-container">
+
+<pre><code class=" sql" >CREATE [OR REPLACE] TRIGGER &lt;nombre_trigger&gt;
+  {BEFORE|AFTER}
+  {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
+  [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
+  ON &lt;nombre_tabla&gt;
+  [FOR EACH ROW [WHEN (&lt;condicion&gt;)]]
+DECLARE
+  -- variables locales
+BEGIN
+  -- Sentencias
+[EXCEPTION]
+  -- Sentencias control de excepcion
+END;
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-2">
+<div class="slide-header"></div>
+<h3 id="8-2"><span class="section-number-3">8.2</span> Ejemplo: Al menos 10 empleados</h3>
 <div class="org-src-container">
 
 <pre><code class=" sql" >CREATE or replace TRIGGER personal_minimo
@@ -3270,9 +3302,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-1">
+<section id="slide-8-3">
 <div class="slide-header"></div>
-<h3 id="8-1"><span class="section-number-3">8.1</span> Eventos DML</h3>
+<h3 id="8-3"><span class="section-number-3">8.3</span> Eventos DML</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3327,9 +3359,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-1-1">
+<section id="slide-8-3-1">
 <div class="slide-header"></div>
-<h4 id="8-1-1"><span class="section-number-4">8.1.1</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
+<h4 id="8-3-1"><span class="section-number-4">8.3.1</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >CREATE or replace TRIGGER ejemplo_or
@@ -3352,9 +3384,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-2">
+<section id="slide-8-4">
 <div class="slide-header"></div>
-<h3 id="8-2"><span class="section-number-3">8.2</span> Eventos DDL</h3>
+<h3 id="8-4"><span class="section-number-3">8.4</span> Eventos DDL</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3421,9 +3453,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-3">
+<section id="slide-8-5">
 <div class="slide-header"></div>
-<h3 id="8-3"><span class="section-number-3">8.3</span> Eventos de sistema</h3>
+<h3 id="8-5"><span class="section-number-3">8.5</span> Eventos de sistema</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3504,9 +3536,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-4">
+<section id="slide-8-6">
 <div class="slide-header"></div>
-<h3 id="8-4"><span class="section-number-3">8.4</span> <code>for each row</code></h3>
+<h3 id="8-6"><span class="section-number-3">8.6</span> <code>for each row</code></h3>
 <ul>
 <li>Por defecto, un <i>trigger</i> se lanza una vez por cada sentencia SQL que provoque cambios</li>
 <li>Si se especifica <code>for each row</code>, se lanza una vez por cada fila cambiada</li>
@@ -3515,9 +3547,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-5">
+<section id="slide-8-7">
 <div class="slide-header"></div>
-<h3 id="8-5"><span class="section-number-3">8.5</span> Momentos del evento</h3>
+<h3 id="8-7"><span class="section-number-3">8.7</span> Momentos del evento</h3>
 <ul>
 <li>Se puede lanzar
 <ul>
@@ -3537,9 +3569,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-5-1">
+<section id="slide-8-7-1">
 <div class="slide-header"></div>
-<h4 id="8-5-1"><span class="section-number-4">8.5.1</span> Resumen de momentos y variables</h4>
+<h4 id="8-7-1"><span class="section-number-4">8.7.1</span> Resumen de momentos y variables</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3606,12 +3638,32 @@ end;
 </table>
 
 
+<div class="slide-footer"></div>
+</section>
+<section id="slide-8-8">
+<div class="slide-header"></div>
+<h3 id="8-8"><span class="section-number-3">8.8</span> Ejemplo típico: Autonuméricos</h3>
+<div class="org-src-container">
+
+<pre><code class=" sql" >create sequence empleado_empno_seq;
+CREATE or replace TRIGGER asignar_empleado_empno
+BEFORE INSERT ON empleados
+for each row
+begin
+  if :new.empno is null then
+    :new.empno = empleado_empno_seq.nextval;
+  end if;
+end;
+/
+</code></pre>
+</div>
+
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-6">
+<section id="slide-8-9">
 <div class="slide-header"></div>
-<h3 id="8-6"><span class="section-number-3">8.6</span> Ejemplo típico: auditoría</h3>
+<h3 id="8-9"><span class="section-number-3">8.9</span> Ejemplo típico: auditoría</h3>
 <ul>
 <li>Se necesitan los datos del usuario que creo y modificó un empleado por última vez</li>
 
@@ -3635,9 +3687,9 @@ alter table empleados add (
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-6-1">
+<section id="slide-8-9-1">
 <div class="slide-header"></div>
-<h4 id="8-6-1"><span class="section-number-4">8.6.1</span> Actualizar campos <code>createdXXXX</code></h4>
+<h4 id="8-9-1"><span class="section-number-4">8.9.1</span> Actualizar campos <code>createdXXXX</code></h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create or replace trigger audit_creacion_empleados
@@ -3655,9 +3707,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-6-2">
+<section id="slide-8-9-2">
 <div class="slide-header"></div>
-<h4 id="8-6-2"><span class="section-number-4">8.6.2</span> Actualizar campos <code>modifiedXXXX</code></h4>
+<h4 id="8-9-2"><span class="section-number-4">8.9.2</span> Actualizar campos <code>modifiedXXXX</code></h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create or replace trigger audit__modificacion_empleados
@@ -3676,9 +3728,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-7">
+<section id="slide-8-10">
 <div class="slide-header"></div>
-<h3 id="8-7"><span class="section-number-3">8.7</span> Ejemplo típico: desnormalización</h3>
+<h3 id="8-10"><span class="section-number-3">8.10</span> Ejemplo típico: desnormalización</h3>
 <ul>
 <li>Imaginemos que necesitamos saber la masa salarial total</li>
 
@@ -3704,9 +3756,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-7-1">
+<section id="slide-8-10-1">
 <div class="slide-header"></div>
-<h4 id="8-7-1"><span class="section-number-4">8.7.1</span> Con triggers</h4>
+<h4 id="8-10-1"><span class="section-number-4">8.10.1</span> Con triggers</h4>
 <div class="org-src-container">
 
 <pre><code class=" sql" >create table cantidadesprecalculadas(nombre varchar(255), valor number(20,2));
@@ -3739,9 +3791,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-7-2">
+<section id="slide-8-10-2">
 <div class="slide-header"></div>
-<h4 id="8-7-2"><span class="section-number-4">8.7.2</span> Ventajas de la desnormalización</h4>
+<h4 id="8-10-2"><span class="section-number-4">8.10.2</span> Ventajas de la desnormalización</h4>
 <ul>
 <li>La tabla <code>masasalarial</code> tiene un atributo calculado, que depende de otros datos
 <ul>
@@ -3756,9 +3808,9 @@ end;
 
 <div class="slide-footer"></div>
 </section>
-<section id="slide-8-7-3">
+<section id="slide-8-10-3">
 <div class="slide-header"></div>
-<h4 id="8-7-3"><span class="section-number-4">8.7.3</span> Prueba de rendimiento</h4>
+<h4 id="8-10-3"><span class="section-number-4">8.10.3</span> Prueba de rendimiento</h4>
 <ul>
 <li>Estas consultas simples suelen <a href="https://docs.oracle.com/database/121/TGDBA/tune_result_cache.htm#TGDBA618">estar ya optimizadas</a> por el gestor de base de datos</li>
 
@@ -3789,30 +3841,6 @@ end;
 /
 </code></pre>
 </div>
-
-<div class="slide-footer"></div>
-</section>
-<section id="slide-8-8">
-<div class="slide-header"></div>
-<h3 id="8-8"><span class="section-number-3">8.8</span> Sintaxis (casi) completa de los <i>triggers</i></h3>
-<div class="org-src-container">
-
-<pre><code class=" sql" >CREATE [OR REPLACE] TRIGGER &lt;nombre_trigger&gt;
-  {BEFORE|AFTER}
-  {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
-  [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
-  ON &lt;nombre_tabla&gt;
-  [FOR EACH ROW [WHEN (&lt;condicion&gt;)]]
-DECLARE
-  -- variables locales
-BEGIN
-  -- Sentencias
-[EXCEPTION]
-  -- Sentencias control de excepcion
-END;
-</code></pre>
-</div>
-
 
 
 

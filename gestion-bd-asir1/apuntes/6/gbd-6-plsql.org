@@ -785,6 +785,27 @@ END;
 - Los disparadores se pueden lanzar /antes/ o /después/ del evento
 - Los disparadores se pueden lanzar una vez por cada fila afectada, o una vez para toda la sentencia SQL
 
+([[https://youtu.be/WXqkI5Jnsmo][youtube 1]]) ([[https://youtu.be/pt7jJehGlU0][youtube 2]]) ([[https://youtu.be/eAAU1kbCvbs][youtube 3]])
+
+** Sintaxis (casi) completa
+#+BEGIN_SRC sql
+CREATE [OR REPLACE] TRIGGER <nombre_trigger>
+  {BEFORE|AFTER}
+  {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
+  [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
+  ON <nombre_tabla>
+  [FOR EACH ROW [WHEN (<condicion>)]]
+DECLARE
+  -- variables locales
+BEGIN
+  -- Sentencias
+[EXCEPTION]
+  -- Sentencias control de excepcion
+END;
+#+END_SRC
+
+** Ejemplo: Al menos 10 empleados
+
 #+BEGIN_SRC sql
 CREATE or replace TRIGGER personal_minimo
 BEFORE DELETE ON empleados
@@ -888,6 +909,20 @@ end;
 | ~after~  | ~insert~ |         | Lectura           |
 | ~after~  | ~update~ | Lectura | Lectura           |
 
+
+** Ejemplo típico: Autonuméricos
+#+BEGIN_SRC sql
+create sequence empleado_empno_seq;
+CREATE or replace TRIGGER asignar_empleado_empno
+BEFORE INSERT ON empleados
+for each row
+begin
+  if :new.empno is null then
+    :new.empno = empleado_empno_seq.nextval;
+  end if;
+end;
+/
+#+END_SRC
 
 
 ** Ejemplo típico: auditoría
@@ -1014,24 +1049,6 @@ begin
 end;
 /
 #+end_src
-
-** Sintaxis (casi) completa de los /triggers/
-#+BEGIN_SRC sql
-CREATE [OR REPLACE] TRIGGER <nombre_trigger>
-  {BEFORE|AFTER}
-  {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
-  [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
-  ON <nombre_tabla>
-  [FOR EACH ROW [WHEN (<condicion>)]]
-DECLARE
-  -- variables locales
-BEGIN
-  -- Sentencias
-[EXCEPTION]
-  -- Sentencias control de excepcion
-END;
-#+END_SRC
-
 
 
 
