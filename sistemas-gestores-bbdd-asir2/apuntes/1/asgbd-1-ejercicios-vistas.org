@@ -18,9 +18,11 @@ ROLE_ROLE_PRIVS
 * Privilegios
 - Lista de privilegios de tabla otorgados entre los usuarios creados en tu base de datos para la práctica de permisos (propietario, tabla, usuario con privilegio concedidos)
 - Lista de privilegios de columna otorgados entre los usuarios creados en tu base de datos para la práctica de permisos (propietario, tabla, columna, usuario con privilegio concedido)
-- Lista de roles concedidos a usuarios
+- Lista de roles concedidos a usuarios (rol concedido, usuario que lo tiene)
+- Lista de usuarios (no roles) que pueden ver la vista dba_users
 #+begin_comment
 TABLE_PRIVILEGES
+dba_tab_privs
 dba_col_privs
 #+end_comment
 
