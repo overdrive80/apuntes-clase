@@ -62,6 +62,35 @@ create or replace view PROGRAMAS_DE_USUARIOS(nombre,usuario,tipo) as ...
   
 \end{homeworkProblem}
 
+\section{Problemas con los permisos}
+%https://dba.stackexchange.com/questions/86030/ora-00942-when-trying-to-select-from-gvsession-inside-of-procedure
+En Oracle, los \texttt{select} se ejecutan con los privilegios del usuario y sus roles. En cambio, las vistas se ejecutan con los privilegios dados directamente al usuario, sin tener en cuenta los roles. 
+
+Mientras voy dando todos los privilegios necesarios, como solución propongo:
+\begin{itemize}
+\item Crear las vistas pedidas en esta práctica sobre vuestra propia instancia, con el usuario \texttt{SYS}. Así podéis probar si funcionan.
+\item Después, crear funciones en la instancia del profesor con las select de las vistas. \textit{Aunque las funciones den errores de compilación}, el profesor puede verlas en su instancia y así corregirlas.
+
+\begin{listadosql}{Ejemplo de función \textit{con errores}, pero que permite corregir al profesor}{lst:funcion-trampa}
+create or replace function FICHEROS_Y_TABLESPACES return integer
+as
+begin
+  select * from sys.dba_tablespaces; -- aquí la query que resuelve el ejercicio
+  return 0;
+end;
+/
+
+Function FICHEROS_Y_TABLESPACES compiled
+
+LINE/COL  ERROR
+--------- -------------------------------------------------------------
+4/3       PL/SQL: SQL Statement ignored
+4/21      PL/SQL: ORA-00942: table or view does not exist
+Errors: check compiler log
+\end{listadosql}
+\end{itemize}
+
+
 \section{Instrucciones de entrega}
 Se entregará sobre el servidor del profesor:
 \begin{itemize}
