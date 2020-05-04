@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-23 lun 16:10</p>
+<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-05-04 lun 14:03</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2324,6 +2324,7 @@ Router&gt; show ip route
 <pre class="example">
 Switch&gt; show vlan brief
 Switch&gt; show interfaces trunk
+Switch&gt; show interfaces f0/1 switchport
 </pre>
 
 <div class="slide-footer"></div>
@@ -2355,6 +2356,8 @@ Switch(config-if)#switchport access vlan 2
 <pre class="example">
 Switch(config)#interface FastEthernet0/1
 Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk native vlan 99
+Switch(config-if)#switchport trunk allowed vlan 1,2,5
 </pre>
 
 <div class="slide-footer"></div>

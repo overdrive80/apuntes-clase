@@ -112,6 +112,7 @@ Router> show ip route
 #+BEGIN_EXAMPLE 
 Switch> show vlan brief
 Switch> show interfaces trunk
+Switch> show interfaces f0/1 switchport
 #+END_EXAMPLE
 
 ** Crear una VLAN
@@ -131,6 +132,8 @@ Switch(config-if)#switchport access vlan 2
 #+BEGIN_EXAMPLE 
 Switch(config)#interface FastEthernet0/1
 Switch(config-if)#switchport mode trunk
+Switch(config-if)#switchport trunk native vlan 99
+Switch(config-if)#switchport trunk allowed vlan 1,2,5
 #+END_EXAMPLE
 
 ** Permitir/denegar una VLAN en un puerto trunk
