@@ -363,7 +363,7 @@ echo 2+2 | bc
 
 - Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia
 - Para ello, necesitan las variables de entorno =ORACLE_HOME= y =ORACLE_SID=.
-- También es conveniente añadir los comandos de *Oracle* al /2path/
+- También es conveniente añadir los comandos de *Oracle* al /path/
 - El siguiente /script/ puede utilizarse para tener estas variables (ejecutándolo con =source=)
 
 #+begin_src sh

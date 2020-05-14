@@ -61,7 +61,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   
   \begin{listadoshell}{Ejemplo de uso del script \textit{existe-objeto.sh}}{lst:tabla.sql}
     > ./existe-objeto.sh ALUMNO UNATABLA
-    El objeto ALUMNO.UNATABLA existe y es una: tabla
+    El objeto ALUMNO.UNATABLA existe y es un: tabla
     > ./existe-objeto.sh ALUMNO ALGORARO
     El objeto ALUMNO.ALGORARO no existe
     >
@@ -70,6 +70,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \begin{Aviso}[Ayuda]
     \begin{itemize}
     \item Utiliza las vistas \texttt{dba\_xxxx} para saber si existen los objetos
+    \item Fíjate que los tipos están en castellano: \texttt{tabla} en vez de \texttt{TABLE}.
     \end{itemize}
   \end{Aviso}
   
@@ -85,6 +86,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \begin{Aviso}[Ayuda]
     \begin{itemize}
     \item Utiliza \texttt{read} para conseguir la opción del alumno (\url{https://www.putorius.net/linux-read-command.html}).
+    \item Este ejercicio no funcionará en el servidor del profesor, porque no tenéis permisos de \texttt{sysadmin}. Pruébalo en tu instancia y deja el script en el directorio del servidor del profesor.
     \end{itemize}
   \end{Aviso}
 \end{homeworkProblem}
@@ -92,7 +94,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \section{Instrucciones de entrega}
 \begin{itemize}
 \item El ejercicio se realizará y entregará de manera individual.
-\item Cada alumno subirá al servidor sus \textit{scripts}.
+\item Cada alumno subirá al servidor sus \textit{scripts} al directorio \texttt{\$HOME/scripts}
   \begin{itemize}
   \item IP: \texttt{alvarogonzalez.no-ip.biz}
   \item Puerto: \texttt{1522}
