@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-05-12 mar 10:24 -->
+<!-- 2020-05-15 vie 09:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Usuarios, privilegios y roles de <b>Oracle</b></title>
@@ -250,11 +250,11 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org5914bca">1. Introducción</a></li>
-<li><a href="#org70c29e2">2. Usuarios</a></li>
-<li><a href="#orgb8b570a">3. Privilegios</a></li>
-<li><a href="#org1d4ae14">4. Roles</a></li>
-<li><a href="#orgc80ee21">5. Referencias</a></li>
+<li><a href="#org7c1f876">1. Introducción</a></li>
+<li><a href="#org7d77eb8">2. Usuarios</a></li>
+<li><a href="#org5944144">3. Privilegios</a></li>
+<li><a href="#orga0b6b28">4. Roles</a></li>
+<li><a href="#org9e5fd6c">5. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -293,8 +293,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org5914bca" class="outline-2">
-<h2 id="org5914bca"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org7c1f876" class="outline-2">
+<h2 id="org7c1f876"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Oracle puede utilizarse simultáneamente por varios procesos y clientes
@@ -313,8 +313,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org70c29e2" class="outline-2">
-<h2 id="org70c29e2"><span class="section-number-2">2</span> Usuarios</h2>
+<div id="outline-container-org7d77eb8" class="outline-2">
+<h2 id="org7d77eb8"><span class="section-number-2">2</span> Usuarios</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><p>
@@ -345,8 +345,8 @@ Borrado de usuario
 </div>
 </div>
 
-<div id="outline-container-orgb8b570a" class="outline-2">
-<h2 id="orgb8b570a"><span class="section-number-2">3</span> Privilegios</h2>
+<div id="outline-container-org5944144" class="outline-2">
+<h2 id="org5944144"><span class="section-number-2">3</span> Privilegios</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Cada usuario puede tener unos permisos distintos</li>
@@ -361,8 +361,8 @@ Borrado de usuario
 </ul>
 </div>
 
-<div id="outline-container-org819640d" class="outline-3">
-<h3 id="org819640d"><span class="section-number-3">3.1</span> Privilegios de <b>Oracle</b></h3>
+<div id="outline-container-org56fec0b" class="outline-3">
+<h3 id="org56fec0b"><span class="section-number-3">3.1</span> Privilegios de <b>Oracle</b></h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -397,8 +397,8 @@ Borrado de usuario
 
 
 
-<div id="outline-container-org54c44eb" class="outline-3">
-<h3 id="org54c44eb"><span class="section-number-3">3.2</span> Sintaxis de <code>Grant</code></h3>
+<div id="outline-container-org919fd88" class="outline-3">
+<h3 id="org919fd88"><span class="section-number-3">3.2</span> Sintaxis de <code>Grant</code></h3>
 <div class="outline-text-3" id="text-3-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">grant</span> PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
@@ -423,8 +423,8 @@ Borrado de usuario
 
 
 
-<div id="outline-container-org931b32e" class="outline-3">
-<h3 id="org931b32e"><span class="section-number-3">3.3</span> Ejercicio</h3>
+<div id="outline-container-org6071a01" class="outline-3">
+<h3 id="org6071a01"><span class="section-number-3">3.3</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Crea un usuario <code>PROPIETARIO</code>
@@ -453,8 +453,8 @@ grant update(column-name) on table-name to user-name
 
 
 
-<div id="outline-container-org1a0caf5" class="outline-3">
-<h3 id="org1a0caf5"><span class="section-number-3">3.4</span> Quitar privilegios</h3>
+<div id="outline-container-org63a63bf" class="outline-3">
+<h3 id="org63a63bf"><span class="section-number-3">3.4</span> Quitar privilegios</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Los privilegios se quitan con <code>revoke</code></li>
@@ -479,11 +479,34 @@ grant update(column-name) on table-name to user-name
 </div>
 </div>
 </div>
+
+
+<div id="outline-container-org95d5ef1" class="outline-3">
+<h3 id="org95d5ef1"><span class="section-number-3">3.5</span> Caso especial: <code>Select</code> sobre columnas</h3>
+<div class="outline-text-3" id="text-3-5">
+<ul class="org-ul">
+<li>Oracle no permite otorgar <code>select</code> sobre columnas, solo sobre la tabla completa</li>
+<li>Se puede simular creando una vista sobre la tabla, y otorgando <code>select</code> sobre la vista</li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">datos</span>(texto varchar2(255,numero <span style="color: #7aa6da;">integer</span>);
+
+<span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">select</span>(texto) <span style="color: #b9ca4a;">on</span> datos <span style="color: #b9ca4a;">to</span> usuario; <span style="color: #969896; font-style: italic;">-- NO FUNCIONA EN ORACLE</span>
+
+<span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">view</span> <span style="color: #e78c45;">DATOSPARAUSUARIO</span> <span style="color: #b9ca4a;">as</span> <span style="color: #b9ca4a;">select</span> texto <span style="color: #b9ca4a;">from</span> datos;
+<span style="color: #b9ca4a;">grant</span> <span style="color: #b9ca4a;">select</span> <span style="color: #b9ca4a;">on</span> datosparausuario <span style="color: #b9ca4a;">to</span> usuario;
+</pre>
 </div>
 
-
-<div id="outline-container-org1d4ae14" class="outline-2">
-<h2 id="org1d4ae14"><span class="section-number-2">4</span> Roles</h2>
+<p>
+_
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orga0b6b28" class="outline-2">
+<h2 id="orga0b6b28"><span class="section-number-2">4</span> Roles</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
@@ -496,8 +519,8 @@ grant update(column-name) on table-name to user-name
 </ul>
 </div>
 
-<div id="outline-container-orgad8e5a5" class="outline-3">
-<h3 id="orgad8e5a5"><span class="section-number-3">4.1</span> Sintaxis de roles</h3>
+<div id="outline-container-org7681e8e" class="outline-3">
+<h3 id="org7681e8e"><span class="section-number-3">4.1</span> Sintaxis de roles</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">role</span> NOMBREROL;
@@ -512,8 +535,8 @@ grant update(column-name) on table-name to user-name
 </div>
 </div>
 
-<div id="outline-container-orgf11aea0" class="outline-3">
-<h3 id="orgf11aea0"><span class="section-number-3">4.2</span> Ejercicio</h3>
+<div id="outline-container-orge108dfb" class="outline-3">
+<h3 id="orge108dfb"><span class="section-number-3">4.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-2">
 <ul class="org-ul">
 <li>Imagina que
@@ -566,8 +589,8 @@ grant ELROL to usuariodespues;
 </div>
 </div>
 
-<div id="outline-container-orgc80ee21" class="outline-2">
-<h2 id="orgc80ee21"><span class="section-number-2">5</span> Referencias</h2>
+<div id="outline-container-org9e5fd6c" class="outline-2">
+<h2 id="org9e5fd6c"><span class="section-number-2">5</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -587,7 +610,7 @@ grant ELROL to usuariodespues;
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-05-12 mar 10:24</p>
+<p class="date">Created: 2020-05-15 vie 09:59</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

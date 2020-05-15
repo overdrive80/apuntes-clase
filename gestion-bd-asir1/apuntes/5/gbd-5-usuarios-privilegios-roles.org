@@ -100,6 +100,20 @@ revoke select on unatabla from unusuario;
 #+end_src
 
 
+** Caso especial: =Select= sobre columnas
+- Oracle no permite otorgar =select= sobre columnas, solo sobre la tabla completa
+- Se puede simular creando una vista sobre la tabla, y otorgando =select= sobre la vista
+
+#+begin_src sql
+create table datos(texto varchar2(255,numero integer);
+
+grant select(texto) on datos to usuario; -- NO FUNCIONA EN ORACLE
+
+create view DATOSPARAUSUARIO as select texto from datos;
+grant select on datosparausuario to usuario;
+#+end_src
+
+_
 * Roles
 - Asignar todos los privilegios a un usuario es trabajoso, pero factible
 - ¿Qué ocurre si tenemos que manejar a muchos usuario?
