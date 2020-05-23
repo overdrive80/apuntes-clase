@@ -1,0 +1,23 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Nuevos criterios de calificación
+#+SUBTITLE: Por clases a distancia
+
+
+** Cálculo de la nota
+- Nota de la evaluación 3
+  #+begin_src notas 
+  trabajos*0.70 + exámenes*0.30
+  #+END_SRC
+- Nota de recuperación evaluaciones anteriores
+  - Un máximo de *5* si se aprueba el examen
+- Nota del curso: la mayor de
+  #+begin_src notas 
+  evaluación1*0.4 + evaluacion2*0.4 + evaluacion3*0.2
+  evaluación1*0.5 + evaluacion2*0.5
+  #+END_SRC
+
+** Detalles sobre la calificación
+- Son necesarios todos los trabajos para poder aprobar
+- En un problema de un trabajo o examen, se necesita la totalidad para poder puntuar el problema
+  - Los conocimientos y esfuerzo para conseguir el 80% de un problema suelen ser bajos
+  - La dificultad real suele estar en el 20% restante del problema
