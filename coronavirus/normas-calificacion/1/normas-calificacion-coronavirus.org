@@ -2,7 +2,6 @@
 #+TITLE:  Nuevos criterios de calificación
 #+SUBTITLE: Por clases a distancia
 
-
 ** Cálculo de la nota
 - Nota de la evaluación 3
   #+begin_src notas 
