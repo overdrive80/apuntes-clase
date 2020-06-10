@@ -67,14 +67,25 @@ Asegúrate de que podemos averiguar gracias al diseño, que si buscamos a un pro
 * Registro civil
 Se desea realizar una base de datos para almacenar la información del registro civil de una provincia.
 - El registro debe guardar información de nacimientos, defunciones, matrimonios y divorcios.
-- Los nacimientos se producen en una localidad en cierta fecha, de una madre y certificados por un facultativo. Es posible que el padre no sea conocido.
+- Los nacimientos se producen en una localidad en cierta fecha, de una madre y certificados por un facultativo. Es posible que el padre no sea conocido. Si es un niño abandonado, tampoco aparece la madre.
 - Las defunciones se certifican por un médico o forense. Se producen en una localidad, en cierta fecha.
 - Los matrimonios son certificados por un funcionario. Se celebran en una localidad y fecha concretas. Los matrimonios están compuestos por dos personas.
 - Los divorcios se sancionan por un juez, en una localidad y fecha concretas.
-- El registro civil también se encarga de expedir los libros de familia. Hay un libro de familia por cada pareja con hijos en común, aunque también pueden existir libros de familia monoparentales.
 - Todos los hechos registrables se apuntan en los libros de registro. Cada hecho se apunta en un folio, dentro de un tomo de un libro. Dos hechos no pueden compartir el mismo folio.
 - Las personas participantes en un hecho se identifican por nombre, apellidos, lugar de nacimiento, y, si están disponibles, DNI, nombre del padre y nombre de la madre.
-- Los ciudadanos pueden requerir la expedición de certificados de cualquier hecho registrable. Para evitar un abuso en el servicio, se desean conocer los certificados que han sido expedidos para cada ciudadano, y en qué fecha.
+- (Opcional) Los ciudadanos pueden requerir la expedición de certificados de cualquier hecho registrable. Para evitar un abuso en el servicio, se desean conocer los certificados que han sido expedidos para cada ciudadano, y en qué fecha.
+
+** Consultas
+- Número de gente que ha nacido, por año, entre 1990 y 2000 (año, número de nacimientos)
+- Lista de personas que han estado casadas con la persona con DNI 123456789Y
+- Matrimonios realizados en "Alcalá de Henares" el año 2015 (fecha, nombre-apellidos persona1, nombre-apellidos persona2)
+- Matrimonios realizados en "Alcalá de Henares" el año 2015, que a fecha 1-1-2019 se han divorciado (fecha de divorcio, nombre-apellidos persona1, nombre-apellidos persona2)
+- Hijos de padres huérfanos, porque los abuelos no están registrados (dni, nombre-apellidos)
+
+** Inserciones
+- Pepe Pérez (1341414U) se casa con María Gómez(134124E) el día 1-1-2014 en Daganzo
+- Pepe Pérez (1341414U) se divorcia de María Gómez(134124E) el día 1-1-2016 en Daganzo
+- Manolo García (31234T) se casa con María Gómez(134124E) el día 1-1-2017 en Daganzo
 
 * Agenda personal
 Un gestor de correo electrónico maneja la siguiente información
@@ -580,6 +591,12 @@ Modificación:
 * Diagrama relacional
 Haz un diagrama ER para una base de datos que almacenará varios esquemas relacionales
 - Un esquema relacional tiene un nombre único y una fecha de creación
-- De cada tabla se guarda su nombre y sus columnas
+- De cada tabla se guarda su nombre y sus columnas, y el tipo de cada columna
 - De cada columna hay que saber su nombre, si es clave primaria y si es clave extranjera. Si es una clave extranjera, también hay que saber a qué tabla y columna referencia
 
+** Consultas
+- Lista de esquemas relacionales con el número de tablas y columnas que contiene (esquema, número de tablas, número de columnas)
+- Lista de columnas que referencian a la columna "idalumno" de la tabla "alumno" del esquema "academia" (nombre de columna, nombre de tabla)
+
+** Inserciones
+- La tabla "alumno" del esquema "academia" tiene 4 columnas: nombre (Varchar), apellido (varchar), dni (varchar), idalumno (integer)
