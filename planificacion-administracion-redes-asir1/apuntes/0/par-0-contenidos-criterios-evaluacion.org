@@ -78,6 +78,16 @@
 
   
 
+* Cuenta NETACAD
+- Utilizaremos NETACAD si no se dan las condiciones para realizar prácticas en el aula
+- Packet tracer VS Linux & Windows
+  - Packet tracer es necesario para simular switches
+  - Para simular redes y routers se sienten más reales las máquinas virtuales
+  - Versión 7.3.0 (no es la última, pero funciona bien en Windows y Ubuntu)
+- Curso: [[https://1319583.netacad.com/courses/1072889]]
+  - Se necesita un /redeem token/ para matricularse
+  - Los repartiré en clase
+
 * Temas del libro de referencia
 
 ** Capítulo 1. Caracterización de redes
