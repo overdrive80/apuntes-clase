@@ -259,11 +259,12 @@ both TCP and UDP sockets.
   - Las aplicaciones que usan TCP no envían paquetes, sino bytes. 
   - TCP decide cuando enviar un paquete (las aplicaciones pueden /opinar/)
   - Consume más CPU y memoria, por la ventana de emisión y los reenvíos
+  - Reduce la /transferencia útil/ 
 - UDP es más eficiente
   - No necesita mantener conexión, ni reordenar paquetes, ni retransmitir paquetes
   - Las aplicaciones son /conscientes/ de que se envían paquetes, no bytes.
   - En redes con pocos errores, puede ser más adecuado
-  - Interesante cuando se necesita mucho ancho de banda pero no importa perder algún paquete (voz, vídeo)
+  - Interesante cuando se necesita mucha transferencia útil pero no importa perder algún paquete (voz, vídeo)
 
 ** TCP Joke
 1. Hello, would you like to hear a TCP joke?                                                                                                 

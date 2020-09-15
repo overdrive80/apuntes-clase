@@ -285,6 +285,11 @@ Router(config)# access-list <numero> <permit o deny> UDP
 
 
 
+
+** ACL con nombre
+#+begin_example_
+Router(config)# ip access-list standard NOMBRE
+#+end_example_
 * NAT
 
 Información del estado de NAT
@@ -350,6 +355,11 @@ no ip nat source static
   - =Router(config-if)# ip nat outside=
 
 
+
+
+** Generales
+show ip nat translations
+debug ip nat
 
 * Referencias
 - Formatos:

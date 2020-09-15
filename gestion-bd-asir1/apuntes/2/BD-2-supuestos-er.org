@@ -130,7 +130,7 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
 - Las colecciones se agrupan por temas: fútbol, series de televisión, películas...
 - Cada cromo poseido pertenece a una colección, tiene un número, una descripción y un estado de conservación
 - Cada álbum poseido pertenece a una colección, y tiene un estado de conservación
-- También se desea almacenar información del cromos y álbums no poseidos, como en una lista de deseos
+- También se desea almacenar información de cromos y álbums no poseidos, como en una lista de deseos
 - Algunos cromos son especialmente difíciles de conseguir. Hay que conocer qué cromos son especialmente difíciles de cada colección, se posean ya o no.
 - De los cromos especialmente difíciles de conseguir, se debe conocer su abundancia relativa respecto de los demás cromos de la colección y su precio de mercado.
   
@@ -430,6 +430,150 @@ Realizar un esquema entidad/relación que sirva para almacenar información geog
 - Se almacena también información sobre cada país, su nombre, su extensión y su población
 - Se desea almacenar información que permite saber en qué país está cada accidente geográfico, teniendo en cuenta que cada accidente puede estar en más de un país.
 - Se almacena también los nombres de cada localidad del planeta. Y se almacena por qué localidades pasa cada río.
+
+- Preguntas sql:
+  - Lista de localidades por donde pasa el Amazonas, ordenadas por país y localidad
+     #+begin_src sql
+     select p.nombrepais, l.nombre
+     from
+       Accidentegeografico a
+       join accidente_localidad al on a.idaccidente = al.idaccidente
+       join localidad l on l.idlocalidad = al.idlocalidad
+       join pais p on p.nombrepais = l.nombrepais
+     where
+       a.nombre = 'Amazonas' and
+       a.tipo = 'rio'
+     order by
+       1, 2
+     #+end_src
+  - Tipos de accidentes y cuántos hay de cada tipo en Portugal
+    #+BEGIN_SRC sql
+    select a.tipo, count(a.idaccidente)
+    from
+      AccidenteGeografico a
+      join accidente_pais ap on a.idaccidente = ap.accidente
+    where
+      ap.nombrepais = 'Portugal'
+    group by
+      a.tipo
+
+   select a.tipo, count(a.idaccidente)
+    from
+      AccidenteGeografico a, accidente_pais ap
+    where
+      a.idaccidente = ap.accidente and
+      ap.nombrepais = 'Portugal'
+    group by
+      a.tipo
+    #+END_SRC
+  - Lista de las poblaciones con más de un rio (nombrepoblacion, numeroderios)
+    #+BEGIN_SRC sql
+  
+select
+  l.idlocalidad, l.nombre, count(a.idaccidente)
+from
+  accidente_geografico a,
+  localidad l,
+  accidente_localidad al
+where
+  a.idaccidente = al.idaccidente and
+  al.idlocalidad = l.idlocalidad and
+  a.tipo = 'rio' and
+group by
+  l.idlocalidad, l.nombre
+having
+  count(a.idaccidente) > 1;
+
+select idlocalidad, nombre,numerorios
+from(
+  select
+    l.idlocalidad, l.nombre, count(a.idaccidente) as numerorios
+  from
+    accidente_geografico a,
+    localidad l,
+    accidente_localidad al
+  where
+    a.idaccidente = al.idaccidente and
+    al.idlocalidad = l.idlocalidad and
+    a.tipo = 'rio' and
+  group by
+    l.idlocalidad, l.nombre
+)
+where
+  numerorios > 1
+
+
+
+
+
+
+
+
+
+
+
+insert into pais(nombrepais) values ('España');
+
+
+insert into localidad(idlocalidad,nombre,nombrepais)
+  values(1,'Madrid', 'España');
+insert into localidad(idlocalidad,nombre,nombrepais)
+  values(2,'Manzanares', 'España');
+insert into localidad(idlocalidad,nombre,nombrepais)
+  values(3,'Alcalá', 'España');
+
+insert into accidentegeografico(idaccidente,nombre,tipo,longitud)
+  values(1,'Manzanares','rio',100000);
+insert into accidente_pais(idaccidente,nombrepais)
+  values(1,'España');
+insert into accidente_localidad(idaccidente,idlocalidad)
+  values(1,1);
+insert into accidente_localidad(idaccidente,idlocalidad)
+  values(1,2);
+
+
+insert into accidentegeografico(idaccidente,nombre,tipo,altura)
+  values(2,'Gurugú','montaña',900);
+insert into accidente_pais(idaccidente,nombrepais)
+  values(2,'España');
+insert into accidente_localidad(idaccidente,idlocalidad)
+  values(2,3);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #+END_SRC 
 
 
 * Empresa de software

@@ -1,3 +1,4 @@
+# https://docs.google.com/document/d/14aDD6iO5C_KYfjl0nkfOndUVUS6b71ujUVUdkrTNW9U/edit
 #+INCLUDE: "../../../common/header.org"
 #+TITLE: Análisis de riesgos
 #+OPTIONS:   toc:2
@@ -163,7 +164,7 @@ En conclusión.... el *análisis de riesgos* es mucho más que un documento... E
 
 Es la herramienta clave de la SEGURIDAD, tanto informática como de cualquier otro aspecto, y es el punto de partida hacia el aporte de soluciones. Lo emplearemos intensiva y extensivamente en los casos que veamos a lo largo del curso.
 
-[más[[http://es.wikipedia.org/wiki/An%C3%A1lisis_de_riesgo][/Análisis de riesgos/]] en Wikipedia]
+Más[[http://es.wikipedia.org/wiki/An%C3%A1lisis_de_riesgo][ /Análisis de riesgos/]] en Wikipedia.
 
 * Políticas de seguridad
 

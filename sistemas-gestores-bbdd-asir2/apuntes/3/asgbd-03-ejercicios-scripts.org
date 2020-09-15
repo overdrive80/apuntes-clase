@@ -137,3 +137,40 @@ Haz un script que hace un backup de un directorio.
 - Los contenidos del directorio se añadirán a un fichero ZIP que se guardará en la carpeta =$HOME/backups=.
 - El fichero ZIP se llamará =backup-HHMM.zip=, siendo HHMM la hora actual.
 
+** Solución :noexport:
+   #+begin_src sh
+#!/bin/bash                                                                                                                                                  
+
+if [ -d "$HOME/backups" ]
+then
+    echo El directorio de backups ya existe
+else
+    echo Procedemos a crearlo
+    mkdir -p $HOME/backups
+fi
+
+
+
+echo el directorio existe por lo tanto procedemos a hacer el backup del directorio que nos diga
+
+if [ $# -eq 1 ]
+then
+    direc=$1
+else
+    read -p "Digame un directorio: " direc
+fi
+
+direc=$(realpath "$direc")
+
+
+if [ -d "$direc" ]
+then
+    pushd $HOME/backups
+    DATE=$(date +%R)
+    zip -r backup-$DATE.zip "$direc"
+    popd
+else
+    echo "$direc" No es un directorio
+fi
+
+   #+end_src
