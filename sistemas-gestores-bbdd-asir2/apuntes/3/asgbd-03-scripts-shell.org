@@ -353,11 +353,15 @@ echo 2+2 | bc
   - Se ejecuten comandos en cada nueva /shell/
   - Se ejecuten comandos para todos los usuarios
 
+** Ficheros de inicio de /shell/    
+[[file:../1/media/ficheros-inicio-bash.svg]]
+   
 ** Ejercicios
-1. Haz que el usuario =alumno= tenga las variables necesarias para utilizar *Oracle* cada vez que hace /login/.
-2. Haz que el usuario =alumno= vea el estado del /listener/ cada vez que inicia una /shell/
-3. Haz que todos los usuarios vean el mensaje =Bienvenido a ASGBD= cada vez que inician una /shell/.
-4. Crea un /script/ en =$HOME/estado.sh= que muestre el valor de las variables =HOME=, =USER=, =PATH=, =ORACLE_HOME=, =ORACLE_SID=, =ORACLE_BASE= y la hora actual.
+1. Edita los ficheros de inicio y añade una orden =echo ESTOY EN EL FICHERO XXXXXX=. Comprueba cuándo se invoca cada fichero.
+2. Haz que el usuario =alumno= tenga las variables necesarias para utilizar *Oracle* cada vez que hace /login/.
+3. Haz que el usuario =alumno= vea el estado del /listener/ cada vez que inicia una /shell/
+4. Haz que todos los usuarios vean el mensaje =Bienvenido a ASGBD= cada vez que inician una /shell/.
+5. Crea un /script/ en =$HOME/estado.sh= que muestre el valor de las variables =HOME=, =USER=, =PATH=, =ORACLE_HOME=, =ORACLE_SID=, =ORACLE_BASE= y la hora actual.
   
 * Prerrequisitos
 

@@ -32,6 +32,8 @@ sudo apt install virtualbox-5.2
 
 ** Prerequisitos
 - Será una máquina virtual de VirtualBox
+  - [[https://iesavellaneda-my.sharepoint.com/:u:/g/personal/alvaro_gonzalezsotillo_iesavellaneda_onmicrosoft_com/EXY7H7CIAjhFqo4TyIK_wC8BTD9aCVC5-0RUdKsg2WeLhg][Enlace al fichero OVA]]
+  - En clase puede bajarse desde el PC del profesor (más rápido)
 - El fichero =OVA= del profesor ya tiene:
   - *Centos 7* instalado (inglés)
   - *Oracle 12c y 18c* descargado
@@ -202,6 +204,40 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
    - Incluir =$ORACLE_HOME/bin= en el =PATH=
  - También se puede usar [[http://www.orafaq.com/wiki/Oraenv][el comando =oraenv=]] para definir estas variables
 
+*** Relación entre ficheros de inicio de /shell/
+
+#+BEGIN_SRC dot :file ./media/ficheros-inicio-bash.svg :exports results :cmd dot :cmdline -Tsvg
+digraph {
+        "~/.bash_profile" [fontname="courier new"];
+        "~/.bash_login" [fontname="courier new"];
+        "~/.profile" [fontname="courier new"];
+        "~/.bash_logout" [fontname="courier new"];
+        "/etc/bash.bashrc" [fontname="courier new"];
+        "~/.bashrc" [fontname="courier new"];
+        "/etc/profile" [fontname="courier new"];
+
+        "BASH LOGIN" -> "/etc/profile" [label="1º"];
+        "BASH LOGIN" -> "Primero de:" [label="2º"];
+        "Primero de:" -> "~/.bash_profile" [label="1º"];
+        "Primero de:" -> "~/.bash_login" [label="2º"];
+        "Primero de:" -> "~/.profile" [label="3º"];
+        
+        "BASH LOGIN" -> "~/.bash_logout" [label="exit"];
+
+        "BASH INTERACTIVO" -> "/etc/bash.bashrc" [label="1º"]
+        "BASH INTERACTIVO" -> "~/.bashrc" [label="2º"]
+
+        "SH INTERACTIVO" -> "/etc/profile" [label="1º"]
+        "SH INTERACTIVO" -> "~/.profile" [label="2º"]
+
+        "~/.bash_profile" -> "~/.bashrc" [style=dotted]
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./media/ficheros-inicio-bash.svg]]
+    
+ 
 *** Reiniciar
  - En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
  - Después, podemos ver que los programas están, *pero no hacen nada*
