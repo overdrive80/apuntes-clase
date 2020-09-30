@@ -733,15 +733,14 @@ done
 - =mktemp= para ficheros temporales
 - /traps/ para finalizar un /script/
 
-* Referencias
-- Formatos:
-  - [[file:asgbd-03-scripts-shell.html][Transparencias]] 
-  - [[file:asgbd-03-scripts-shell.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+* Más avanzado: comandos desde PL/SQL
+http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm
 
+  DBMS_SCHEDULER.RUN_JOB
+
+* Referencias
+#+include: "../../../common/footer.org"
+- [[https://oracle-base.com/articles/misc/oracle-shell-scripting][oracle-base]]
 
 * Ejemplos :noexport:
 ** =whiptail=
