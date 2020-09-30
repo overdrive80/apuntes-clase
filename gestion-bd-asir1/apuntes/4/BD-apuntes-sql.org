@@ -161,7 +161,7 @@ select * from alumnos;
 #+end_src
 
 
-* /Query/ en un from
+* /Query/ en un =from=
 - En el =from= no es obligatorio poner tablas
 - Se puede poner cualquier cosa con filas y columnas:
   - Tablas
@@ -172,6 +172,24 @@ select * from alumnos;
 select * from (
   select student_id as clave, first_name as nombre, last_name as apellidos from student
 );
+#+end_src
+
+* /with/
+- Si no se quiere definir una vista o usar una /query/ dentro de  =from=
+
+#+begin_src sql
+select nombre, apellidos from (
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+where clave > 10;
+
+
+with estudiantes as(
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+select nombre, apellidos
+from estudiantes
+where clave > 10;
 #+end_src
 
 * /Query/ traducida a valor
@@ -227,11 +245,5 @@ having
 
 
 * Referencias
-- Formatos:
-  - [[file:BD-apuntes-sql.reveal.html][Transparencias]]
-  - [[file:BD-apuntes-sql.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
 
+#+INCLUDE: "../../../common/footer.org"

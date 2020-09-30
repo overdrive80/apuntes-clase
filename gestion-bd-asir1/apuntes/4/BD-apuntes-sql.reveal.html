@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Resumen de SQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-24 mar 11:46</p>
+<h1 class="title">Resumen de SQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-09-30 mié 12:07</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -1963,11 +1963,12 @@ div.figure, caption.t-bottom{
 <li><a href="#/slide-3">3. Funciones sobre grupos</a></li>
 <li><a href="#/slide-4">4. Producto cartesiano</a></li>
 <li><a href="#/slide-5">5. Vistas</a></li>
-<li><a href="#/slide-6">6. <i>Query</i> en un from</a></li>
-<li><a href="#/slide-7">7. <i>Query</i> traducida a valor</a></li>
-<li><a href="#/slide-8">8. <i>Query</i> traducida a lista</a></li>
-<li><a href="#/slide-9">9. <code>Having</code></a></li>
-<li><a href="#/slide-10">10. Referencias</a></li>
+<li><a href="#/slide-6">6. <i>Query</i> en un <code>from</code></a></li>
+<li><a href="#/slide-7">7. <i>with</i></a></li>
+<li><a href="#/slide-8">8. <i>Query</i> traducida a valor</a></li>
+<li><a href="#/slide-9">9. <i>Query</i> traducida a lista</a></li>
+<li><a href="#/slide-10">10. <code>Having</code></a></li>
+<li><a href="#/slide-11">11. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -2021,7 +2022,7 @@ window.addEventListener("load",()=>{
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >select  
+<pre><code class="sql" >select  
   location, count(*) as ocupacion
 from 
   section
@@ -2606,7 +2607,7 @@ order by
 <h3 id="4-4"><span class="section-number-3">4.4</span> Sintaxis SQL</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" > select 
+<pre><code class="sql" > select 
    *
  from 
    PRODUCTOS,PEDIDOS
@@ -2617,7 +2618,7 @@ order by
 
 <div class="org-src-container">
 
-<pre><code class=" sql" > select 
+<pre><code class="sql" > select 
    *
  from 
    PRODUCTOS join PEDIDOS on PRODUCTOS.producto = PEDIDOS.producto;
@@ -2640,7 +2641,7 @@ order by
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create view ALUMNOS as
+<pre><code class="sql" >create view ALUMNOS as
 select student_id as clave, first_name as nombre, last_name as apellidos from student;
 
 
@@ -2656,7 +2657,7 @@ select * from alumnos;
 <section>
 <section id="slide-6">
 <div class="slide-header"></div>
-<h2 id="6"><span class="section-number-2">6</span> <i>Query</i> en un from</h2>
+<h2 id="6"><span class="section-number-2">6</span> <i>Query</i> en un <code>from</code></h2>
 <ul>
 <li>En el <code>from</code> no es obligatorio poner tablas</li>
 <li>Se puede poner cualquier cosa con filas y columnas:
@@ -2671,7 +2672,7 @@ select * from alumnos;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >select * from (
+<pre><code class="sql" >select * from (
   select student_id as clave, first_name as nombre, last_name as apellidos from student
 );
 </code></pre>
@@ -2683,14 +2684,43 @@ select * from alumnos;
 <section>
 <section id="slide-7">
 <div class="slide-header"></div>
-<h2 id="7"><span class="section-number-2">7</span> <i>Query</i> traducida a valor</h2>
+<h2 id="7"><span class="section-number-2">7</span> <i>with</i></h2>
+<ul>
+<li>Si no se quiere definir una vista o usar una <i>query</i> dentro de  <code>from</code></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="sql" >select nombre, apellidos from (
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+where clave &gt; 10;
+
+
+with estudiantes as(
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+select nombre, apellidos
+from estudiantes
+where clave &gt; 10;
+</code></pre>
+</div>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-8">
+<div class="slide-header"></div>
+<h2 id="8"><span class="section-number-2">8</span> <i>Query</i> traducida a valor</h2>
 <ul>
 <li>Se puede poner una consulta que devuelva una fila y una columna en cualquier lugar donde se necesite un valor simple</li>
 
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >select * from student 
+<pre><code class="sql" >select * from student 
 where upper(last_name) = (
   select max(upper(last_name)) from student
 );
@@ -2702,16 +2732,16 @@ where upper(last_name) = (
 </section>
 </section>
 <section>
-<section id="slide-8">
+<section id="slide-9">
 <div class="slide-header"></div>
-<h2 id="8"><span class="section-number-2">8</span> <i>Query</i> traducida a lista</h2>
+<h2 id="9"><span class="section-number-2">9</span> <i>Query</i> traducida a lista</h2>
 <ul>
 <li>Se puede poner una consulta que devuelva una columna y muchas filas en una condición <code>in</code></li>
 
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >select distinct course_no from section where capacity = 25 order by course_no;
+<pre><code class="sql" >select distinct course_no from section where capacity = 25 order by course_no;
 select * from course where course_no = 20 or course_no = 220 or course_no = 134;
 select * from course where course_no in (20,220,134);
 
@@ -2726,9 +2756,9 @@ select * from course where course_no in (
 </section>
 </section>
 <section>
-<section id="slide-9">
+<section id="slide-10">
 <div class="slide-header"></div>
-<h2 id="9"><span class="section-number-2">9</span> <code>Having</code></h2>
+<h2 id="10"><span class="section-number-2">10</span> <code>Having</code></h2>
 <ul>
 <li><code>having</code> sirve para poner condiciones a los grupos de una consulta</li>
 <li>Se puede simular con una subconsulta en el <code>from</code></li>
@@ -2737,7 +2767,7 @@ select * from course where course_no in (
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >select * from
+<pre><code class="sql" >select * from
 (
     select  
       location, count(*) as ocupacion
@@ -2766,23 +2796,25 @@ having
 </section>
 </section>
 <section>
-<section id="slide-10">
+<section id="slide-11">
 <div class="slide-header"></div>
-<h2 id="10"><span class="section-number-2">10</span> Referencias</h2>
+<h2 id="11"><span class="section-number-2">11</span> Referencias</h2>
 <ul>
 <li>Formatos:
 <ul>
-<li><a href="BD-apuntes-sql.reveal.html">Transparencias</a></li>
-<li><a href="BD-apuntes-sql.pdf">PDF</a></li>
+<li><a href="./BD-apuntes-sql.reveal.html">Transparencias</a></li>
+<li><a href="./BD-apuntes-sql.pdf">PDF</a></li>
+<li><a href="./BD-apuntes-sql.epub">EPUB</a></li>
 
 </ul></li>
 <li>Creado con:
 <ul>
 <li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
-<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
 
 </ul>
 <div class="slide-footer"></div>

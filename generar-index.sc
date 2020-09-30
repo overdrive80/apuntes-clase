@@ -1,4 +1,4 @@
-#!/usr/bin/env scala
+#!/usr/bin/env scala -nc
 // INSTALAR AMMONITE
 // sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/1.1.2/2.12-1.1.2) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' && amm
 
@@ -9,7 +9,7 @@ object IndexCreator{
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".reveal.html", "epub" )
+    val includeExtensions = Seq( ".reveal.html" )
     val excludeExtensions = Seq( ".svg.pdf" )
     val excludePatterns = Seq("aruizcristina", "examen");
 
