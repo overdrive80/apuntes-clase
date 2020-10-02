@@ -34,7 +34,7 @@
 - Originalmente, los programas de ordenador utilizaban directamente los soportes de memoria (cinta, disco)
   - Ventaja: No se depende de otros sistemas
   - Pero...
-- Un programa :arrow ⇔ Un disco de datos
+- Un programa $\Leftrightarrow$ Un disco de datos
   - Un cambio de datos hacía inútil el programa
   - Un cambio de programa hacía inútiles los datos anteriores
 - Cada programa debe aprender a manejar los discos
