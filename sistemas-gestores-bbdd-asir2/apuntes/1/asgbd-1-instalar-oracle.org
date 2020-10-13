@@ -1,6 +1,33 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
 
+* Problemas kernel 5.4 en ubuntu 18 :noexport:
+
+https://askubuntu.com/questions/912011/fatal-module-vboxdrv-not-found-in-directory-lib-modules-4-10-0-20-generic
+#+begin_src sh
+sudo apt-get install build-essential linux-headers-`uname -r`
+sudo apt-get install autoconf automake bc bison build-essential flex gcc g++ make python -y
+sudo apt-get purge virtualbox
+s://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install virtualbox-6.0
+#+end_src
+
+
+Da errores de compilación, voy a probar con actualizar el compilador
+Actualizar compilador
+#+begin_src sh
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-9
+#+end_src
+
+Poner como versión la 9
+https://stackoverflow.com/questions/7832892/how-to-change-the-default-gcc-compiler-in-ubuntu
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-3.3 50
+
+
 * problemas ova 52 en 50 :noexport:
 Problema con Virtualbox
 - El 5.2 hace ova que no se descomprime con 5.0 ni con tar
