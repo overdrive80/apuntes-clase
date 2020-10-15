@@ -134,6 +134,10 @@
 - =ini=, =inf=, =conf=, =xml=: configuración de programas
 - =sql=, =java=, =php=, =c=, =bat=, =sh=: instrucciones de programas informáticos
 
+Variantes:
+- Encodig: ASCII, UNICODE (utf-8, utf-16, utf-32, BOM), ISO-8859,...
+- Fin de línea: Unix, Windows
+  
 *** Ficheros de texto como binarios
 - Al final, todos los ficheros son solo *números* almacenados en disco
   - Los programas o personas /interpretan/ los números
