@@ -24,7 +24,7 @@
 
 ** Comunicación por niveles
 
-- Pronto se vió que la arquitectura *monolítica* no era funcional y se pasó al modelo *por capas* o niveles.
+- Pronto se vió que la arquitectura /monolítica/ no era funcional y se pasó al modelo /por capas/ o niveles.
 - Para hacer más sencilla la comunicación, se divide en varias capas o niveles.
 - Cada capa proporciona servicios que las capas superiores pueden utilizar.
 
@@ -32,7 +32,7 @@
 
 
 ** Comunicación por niveles
-#+ATTR_HTML: :width 50%
+#+ATTR_HTML: :width 70%
 #+attr_latex: :width 0.6\textwidth
 [[file:media/comunicacion-por-niveles.png]]
 
@@ -40,7 +40,7 @@
 
 ** Comunicación por niveles
 - Cada nivel tiene una /interfaz/. Dos niveles adyacentes utilizan esta interfaz para comunicar entre ellos.
-- Interfaz: normas de comunicación entre dos capas.
+  - Interfaz: normas de comunicación entre dos capas.
 - Cada capa en el host origen comunica (de forma virtual) con la capa homóloga del host destino. En realidad lo hacen a través de las capas inferiores.
 - Cada capa conoce los /servicios/ proporcionados por la capa de abajo y lo que tiene que proporcionar a la capa de arriba.
 
@@ -53,9 +53,8 @@
 
 
 
-
 ** Protocolos y servicios
-- Protocolos (comunicación horizontal): conjunto de reglas que permite la comunicación entre los participantes.
+- Protocolos (comunicación /horizontal/): conjunto de reglas que permite la comunicación entre los participantes.
   1. Todos los fabricantes que respeten las normas serán compatibles entre ellos.
   2. Regula aspectos concretos de la comunicación.
   3. Comunicación virtual excepto en el nivel más bajo.
@@ -76,7 +75,7 @@ Data processing by two communicating OSI-compatible devices proceeds as follows:
 
 
 ** Protocolos y servicios
-- Servicios (comunicación vertical): funciones proporcionadas entre capas dentro del mismo equipo.
+- Servicios (comunicación /vertical/): funciones proporcionadas entre capas dentro del mismo equipo.
   1. Las capas inferiores proporcionan servicios a las capas superiores.
   2. Cada capa debería usar únicamente los servicios proporcionados por la capa inmediatamente inferior.
   3. Cuando una capa hace uso de los servicios de la siguiente, la petición se realiza a través de los interfaces.
@@ -92,7 +91,7 @@ Data processing by two communicating OSI-compatible devices proceeds as follows:
 #+begin_notes
 - Inventa un sistema de comunicación por niveles con al menos 3 capas.
 - ¿Cómo se solicita un servicio?
-- ¿El nivel 3 proporciona o recibe servicios del el nivel 1?
+- ¿El nivel 3 proporciona o recibe servicios del nivel 1?
 #+end_notes
 
 
