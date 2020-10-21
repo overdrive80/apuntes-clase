@@ -108,7 +108,7 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
   - CC: indirecto en copia
   - CCO: como copia oculta a otros destinatarios
 - Un email puede tener varios ficheros adjuntos
-- De cada usuario se guarda su nombre de usuario y su nombre real. Cada usuario tiene una agenda donde apunta sus contactos.
+- De cada usuario se guarda su nombre de usuario y su nombre real. Cada usuario tiene una agenda donde apunta sus contactos: nombre y apellidos, lista de teléfonos y lista de emails.
 
 
 * Empresa
