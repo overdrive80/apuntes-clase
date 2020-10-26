@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-10-19 lun 09:49 -->
+<!-- 2020-10-26 lun 09:26 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Arquitecturas de red</title>
@@ -229,21 +229,21 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org394cd3b">1. Introducción</a></li>
-<li><a href="#org984eb60">2. Factores a considerar en una comunicación</a></li>
-<li><a href="#org3f92f06">3. Modelo OSI</a></li>
-<li><a href="#org15169d2">4. Capa física</a></li>
-<li><a href="#org2e1de9b">5. Capa de enlace</a></li>
-<li><a href="#org3f2e28d">6. Capa de red</a></li>
-<li><a href="#org724f612">7. Capa de transporte</a></li>
-<li><a href="#orgdd59fb3">8. Capa de sesión</a></li>
-<li><a href="#orge05b811">9. Capa de presentación</a></li>
-<li><a href="#orgb9611bc">10. Capa de aplicación</a></li>
-<li><a href="#org79918c3">11. Aceptación del modelo ISO/OSI</a></li>
-<li><a href="#org0a95de8">12. Arquitectura Internet</a></li>
-<li><a href="#orgb8b8970">13. Otros ejemplos de arquitectura</a></li>
-<li><a href="#org8492868">14. Sistemas de interconexión</a></li>
-<li><a href="#orgf42978d">15. Referencias</a></li>
+<li><a href="#org9040c5d">1. Introducción</a></li>
+<li><a href="#orgfb9b96a">2. Factores a considerar en una comunicación</a></li>
+<li><a href="#orgc943e2e">3. Modelo OSI</a></li>
+<li><a href="#org360c7df">4. Capa física</a></li>
+<li><a href="#orgef0921e">5. Capa de enlace</a></li>
+<li><a href="#org7dbb9bc">6. Capa de red</a></li>
+<li><a href="#org190274d">7. Capa de transporte</a></li>
+<li><a href="#orgfb19229">8. Capa de sesión</a></li>
+<li><a href="#orgad0fb9b">9. Capa de presentación</a></li>
+<li><a href="#org541480a">10. Capa de aplicación</a></li>
+<li><a href="#org1229524">11. Aceptación del modelo ISO/OSI</a></li>
+<li><a href="#orgd275af1">12. Arquitectura Internet</a></li>
+<li><a href="#org494a13b">13. Otros ejemplos de arquitectura</a></li>
+<li><a href="#org05506b4">14. Sistemas de interconexión</a></li>
+<li><a href="#org8590d98">15. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -281,8 +281,8 @@ window.addEventListener("load",()=>{
 </script>
 
 
-<div id="outline-container-org394cd3b" class="outline-2">
-<h2 id="org394cd3b"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org9040c5d" class="outline-2">
+<h2 id="org9040c5d"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Podemos considerar una arquitectura de red como un “plan” cuyo objetivo es establecer los mecanismos a implementar para que dos dispositivos se comuniquen.</li>
@@ -300,8 +300,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-orge911dd2" class="outline-3">
-<h3 id="orge911dd2"><span class="section-number-3">1.1</span> Arquitectura monolítica</h3>
+<div id="outline-container-org3a71908" class="outline-3">
+<h3 id="org3a71908"><span class="section-number-3">1.1</span> Arquitectura monolítica</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Inicialmente, cada empresa creaba su propia arquitectura sin tener en cuenta otras existentes, de forma que unas eran incompatibles con otras.</li>
@@ -312,8 +312,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org52f8069" class="outline-3">
-<h3 id="org52f8069"><span class="section-number-3">1.2</span> Comunicación por niveles</h3>
+<div id="outline-container-org3da80d4" class="outline-3">
+<h3 id="org3da80d4"><span class="section-number-3">1.2</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
 <li>Pronto se vió que la arquitectura <i>monolítica</i> no era funcional y se pasó al modelo <i>por capas</i> o niveles.</li>
@@ -326,11 +326,11 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-orgc7d3f10" class="outline-3">
-<h3 id="orgc7d3f10"><span class="section-number-3">1.3</span> Comunicación por niveles</h3>
+<div id="outline-container-orgd9e854d" class="outline-3">
+<h3 id="orgd9e854d"><span class="section-number-3">1.3</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-3">
 
-<div id="org3efa95b" class="figure">
+<div id="org3fa42bd" class="figure">
 <p><img src="media/comunicacion-por-niveles.png" alt="comunicacion-por-niveles.png" width="70%" />
 </p>
 </div>
@@ -339,8 +339,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org6523f79" class="outline-3">
-<h3 id="org6523f79"><span class="section-number-3">1.4</span> Comunicación por niveles</h3>
+<div id="outline-container-org2368cc8" class="outline-3">
+<h3 id="org2368cc8"><span class="section-number-3">1.4</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Cada nivel tiene una <i>interfaz</i>. Dos niveles adyacentes utilizan esta interfaz para comunicar entre ellos.
@@ -353,8 +353,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org49540e6" class="outline-3">
-<h3 id="org49540e6"><span class="section-number-3">1.5</span> Comunicación por niveles</h3>
+<div id="outline-container-org3197ea8" class="outline-3">
+<h3 id="org3197ea8"><span class="section-number-3">1.5</span> Comunicación por niveles</h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>El nivel más alto suele llevar la <i>semántica</i> de la comunicación.
@@ -369,8 +369,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-orgc310d88" class="outline-3">
-<h3 id="orgc310d88"><span class="section-number-3">1.6</span> Protocolos y servicios</h3>
+<div id="outline-container-orgdb3f3ac" class="outline-3">
+<h3 id="orgdb3f3ac"><span class="section-number-3">1.6</span> Protocolos y servicios</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Protocolos (comunicación <i>horizontal</i>): conjunto de reglas que permite la comunicación entre los participantes.
@@ -384,8 +384,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org835ca3d" class="outline-3">
-<h3 id="org835ca3d"><span class="section-number-3">1.7</span> Protocolos y servicios</h3>
+<div id="outline-container-org3c56f57" class="outline-3">
+<h3 id="org3c56f57"><span class="section-number-3">1.7</span> Protocolos y servicios</h3>
 <div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>Servicios (comunicación <i>vertical</i>): funciones proporcionadas entre capas dentro del mismo equipo.
@@ -399,8 +399,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org5b46fc9" class="outline-4">
-<h4 id="org5b46fc9"><span class="section-number-4">1.7.1</span> Preguntas</h4>
+<div id="outline-container-orgcd4d962" class="outline-4">
+<h4 id="orgcd4d962"><span class="section-number-4">1.7.1</span> Preguntas</h4>
 <div class="outline-text-4" id="text-1-7-1">
 <ul class="org-ul">
 <li>¿Qué ventajas tiene un modelo por capas?</li>
@@ -408,7 +408,7 @@ window.addEventListener("load",()=>{
 <li>¿De qué debemos preocuparnos al crear un servicio?</li>
 </ul>
 
-<div class="notes" id="orgf3875d8">
+<div class="notes" id="orgb67e4c8">
 <ul class="org-ul">
 <li>Inventa un sistema de comunicación por niveles con al menos 3 capas.</li>
 <li>¿Cómo se solicita un servicio?</li>
@@ -422,22 +422,22 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org984eb60" class="outline-2">
-<h2 id="org984eb60"><span class="section-number-2">2</span> Factores a considerar en una comunicación</h2>
+<div id="outline-container-orgfb9b96a" class="outline-2">
+<h2 id="orgfb9b96a"><span class="section-number-2">2</span> Factores a considerar en una comunicación</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>¿Qué problemas se deben tener en cuenta en la comunicación entre dos ordenadores?</li>
 </ul>
 
 
-<div id="org095835b" class="figure">
+<div id="org861ce56" class="figure">
 <p><img src="media/ejemplo-red.png" alt="ejemplo-red.png" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org88c7a00" class="outline-3">
-<h3 id="org88c7a00"><span class="section-number-3">2.1</span> ¿Qué hace falta?</h3>
+<div id="outline-container-org8eee069" class="outline-3">
+<h3 id="org8eee069"><span class="section-number-3">2.1</span> ¿Qué hace falta?</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Encaminamiento</li>
@@ -455,8 +455,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org5019989" class="outline-3">
-<h3 id="org5019989"><span class="section-number-3">2.2</span> Encaminamiento</h3>
+<div id="outline-container-orgecd32ac" class="outline-3">
+<h3 id="orgecd32ac"><span class="section-number-3">2.2</span> Encaminamiento</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>Encaminamiento: buscar un camino entre el host origen y el host destino de la comunicación.</li>
@@ -464,8 +464,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org3034ee1" class="outline-3">
-<h3 id="org3034ee1"><span class="section-number-3">2.3</span> Direccionamiento</h3>
+<div id="outline-container-orgcef0898" class="outline-3">
+<h3 id="orgcef0898"><span class="section-number-3">2.3</span> Direccionamiento</h3>
 <div class="outline-text-3" id="text-2-3">
 <ul class="org-ul">
 <li>Direccionamiento: identificar de forma unívoca los hosts que participan a la comunicación.</li>
@@ -473,8 +473,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org468540e" class="outline-3">
-<h3 id="org468540e"><span class="section-number-3">2.4</span> Acceso al medio</h3>
+<div id="outline-container-org4b728c2" class="outline-3">
+<h3 id="org4b728c2"><span class="section-number-3">2.4</span> Acceso al medio</h3>
 <div class="outline-text-3" id="text-2-4">
 <ul class="org-ul">
 <li>Acceso al medio: determinar las normas con las que los host pueden tomar el control del medio compartido y comunicar.</li>
@@ -482,8 +482,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org60f965a" class="outline-3">
-<h3 id="org60f965a"><span class="section-number-3">2.5</span> Saturación</h3>
+<div id="outline-container-orgd5076b2" class="outline-3">
+<h3 id="orgd5076b2"><span class="section-number-3">2.5</span> Saturación</h3>
 <div class="outline-text-3" id="text-2-5">
 <ul class="org-ul">
 <li>Saturación del receptor: si el receptor es más lento en procesar la información con respecto al emisor, hay que regular el flujo de información.</li>
@@ -491,8 +491,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orgbd169af" class="outline-3">
-<h3 id="orgbd169af"><span class="section-number-3">2.6</span> Orden de envío</h3>
+<div id="outline-container-org36dd3fa" class="outline-3">
+<h3 id="org36dd3fa"><span class="section-number-3">2.6</span> Orden de envío</h3>
 <div class="outline-text-3" id="text-2-6">
 <ul class="org-ul">
 <li>Mantenimiento del orden de envío: es posible que ciertos paquetes enviados por caminos distintos lleguen con un orden diferente al que se enviaron.</li>
@@ -500,8 +500,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org6353970" class="outline-3">
-<h3 id="org6353970"><span class="section-number-3">2.7</span> Control de errores</h3>
+<div id="outline-container-orgace56a2" class="outline-3">
+<h3 id="orgace56a2"><span class="section-number-3">2.7</span> Control de errores</h3>
 <div class="outline-text-3" id="text-2-7">
 <ul class="org-ul">
 <li>Detección de errores: Determinar si la información recibida es correcta, ya que la información enviada por el medio podría verse afectada por factores como el ruido o la atenuación.</li>
@@ -510,8 +510,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orgb9b3bdc" class="outline-3">
-<h3 id="orgb9b3bdc"><span class="section-number-3">2.8</span> Multiplexación</h3>
+<div id="outline-container-org55adc41" class="outline-3">
+<h3 id="org55adc41"><span class="section-number-3">2.8</span> Multiplexación</h3>
 <div class="outline-text-3" id="text-2-8">
 <ul class="org-ul">
 <li>Multiplexación: un único canal puede ser usado en múltiples comunicaciones simultáneamente.</li>
@@ -519,8 +519,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orge15e164" class="outline-3">
-<h3 id="orge15e164"><span class="section-number-3">2.9</span> Segmentación</h3>
+<div id="outline-container-orgf972187" class="outline-3">
+<h3 id="orgf972187"><span class="section-number-3">2.9</span> Segmentación</h3>
 <div class="outline-text-3" id="text-2-9">
 <ul class="org-ul">
 <li>Segmentación: algunos bloques de información pueden ser demasiado grandes para ser enviados y hay que fraccionarlos.</li>
@@ -529,8 +529,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org8f8acdd" class="outline-3">
-<h3 id="org8f8acdd"><span class="section-number-3">2.10</span> Privacidad</h3>
+<div id="outline-container-org7a1b0a9" class="outline-3">
+<h3 id="org7a1b0a9"><span class="section-number-3">2.10</span> Privacidad</h3>
 <div class="outline-text-3" id="text-2-10">
 <ul class="org-ul">
 <li>Los datos transmitidos no deberían poder ser
@@ -544,8 +544,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org3f92f06" class="outline-2">
-<h2 id="org3f92f06"><span class="section-number-2">3</span> Modelo OSI</h2>
+<div id="outline-container-orgc943e2e" class="outline-2">
+<h2 id="orgc943e2e"><span class="section-number-2">3</span> Modelo OSI</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Modelo desarrollado por la ISO (International Standardization Organization).</li>
@@ -556,7 +556,7 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="orgcac824a" class="figure">
+<div id="org5204153" class="figure">
 <p><object type="image/svg+xml" data="media/osi-usuario-conexion-red.svg" class="org-svg" width="35%">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -567,8 +567,8 @@ Sorry, your browser does not support SVG.</object>
 </p>
 </div>
 
-<div id="outline-container-orgccd8eb6" class="outline-3">
-<h3 id="orgccd8eb6"><span class="section-number-3">3.1</span> PDU (<i>protocol data unit</i>)</h3>
+<div id="outline-container-orgd0c78a9" class="outline-3">
+<h3 id="orgd0c78a9"><span class="section-number-3">3.1</span> PDU (<i>protocol data unit</i>)</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Encapsulación de datos.</li>
@@ -585,7 +585,7 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 
 
-<div id="orgf10a723" class="figure">
+<div id="orgd7b3d44" class="figure">
 <p><img src="media/encapsulacion-niveles-osi.png" alt="encapsulacion-niveles-osi.png" width="50%" />
 </p>
 </div>
@@ -593,8 +593,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org59f9172" class="outline-3">
-<h3 id="org59f9172"><span class="section-number-3">3.2</span> Servicios</h3>
+<div id="outline-container-orgd937e47" class="outline-3">
+<h3 id="orgd937e47"><span class="section-number-3">3.2</span> Servicios</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Cada capa se dedica a prestar <i>servicios</i> a su capa superior
@@ -605,8 +605,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orgbe0f102" class="outline-4">
-<h4 id="orgbe0f102"><span class="section-number-4">3.2.1</span> Conexión/Confiable</h4>
+<div id="outline-container-org83e6f31" class="outline-4">
+<h4 id="org83e6f31"><span class="section-number-4">3.2.1</span> Conexión/Confiable</h4>
 <div class="outline-text-4" id="text-3-2-1">
 <ul class="org-ul">
 <li>Cada servicio puede ser o no orientado a conexión</li>
@@ -627,16 +627,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org15169d2" class="outline-2">
-<h2 id="org15169d2"><span class="section-number-2">4</span> Capa física</h2>
+<div id="outline-container-org360c7df" class="outline-2">
+<h2 id="org360c7df"><span class="section-number-2">4</span> Capa física</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Se encarga de la transmisión física de los datos. Indica como utilizar el medio físico para la transmisión de la información y como nos conectaremos a éste desde los equipos.</li>
 </ul>
 </div>
 
-<div id="outline-container-orge6946a8" class="outline-3">
-<h3 id="orge6946a8"><span class="section-number-3">4.1</span> Funciones</h3>
+<div id="outline-container-orge4522c6" class="outline-3">
+<h3 id="orge4522c6"><span class="section-number-3">4.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Especifica los medios de transmisión.</li>
@@ -649,8 +649,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2e1de9b" class="outline-2">
-<h2 id="org2e1de9b"><span class="section-number-2">5</span> Capa de enlace</h2>
+<div id="outline-container-orgef0921e" class="outline-2">
+<h2 id="orgef0921e"><span class="section-number-2">5</span> Capa de enlace</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Su objetivo es convertir el medio de transmisión proporcionado por la capa física en un canal libre de errores (entre dos dispositivos conectados directamente).</li>
@@ -658,8 +658,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-org2366c0e" class="outline-3">
-<h3 id="org2366c0e"><span class="section-number-3">5.1</span> Funciones</h3>
+<div id="outline-container-org0f33252" class="outline-3">
+<h3 id="org0f33252"><span class="section-number-3">5.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Sincronización entre el emisor y el receptor.</li>
@@ -676,8 +676,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org3f2e28d" class="outline-2">
-<h2 id="org3f2e28d"><span class="section-number-2">6</span> Capa de red</h2>
+<div id="outline-container-org7dbb9bc" class="outline-2">
+<h2 id="org7dbb9bc"><span class="section-number-2">6</span> Capa de red</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Define todos los aspectos necesarios para comunicar equipos de redes distintas.</li>
@@ -685,15 +685,18 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orgc166ffb" class="outline-3">
-<h3 id="orgc166ffb"><span class="section-number-3">6.1</span> Funciones</h3>
+<div id="outline-container-org84f6819" class="outline-3">
+<h3 id="org84f6819"><span class="section-number-3">6.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Direccionamiento lógico 
 <ul class="org-ul">
 <li>¿Por qué no valen las direcciones de la capa de enlace?</li>
 </ul></li>
-<li>Especificación de los tamaños máximos y mínimos de los paquetes.</li>
+<li>Especificación de los tamaños máximos y mínimos de los paquetes.
+<ul class="org-ul">
+<li>Fragmentación: Si un paquete es demasiado grande, hay que fragmentarlo y reagruparlo en el destino</li>
+</ul></li>
 <li>Definir si la comunicación se establece mediante circuitos virtuales o conmutación de paquetes (datagramas).</li>
 <li>Encaminamiento (enrutamiento): tiene que determinar el mejor camino para que la información llegue al destino.</li>
 </ul>
@@ -702,8 +705,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org3e9a83f" class="outline-3">
-<h3 id="org3e9a83f"><span class="section-number-3">6.2</span> Funciones</h3>
+<div id="outline-container-orga507c20" class="outline-3">
+<h3 id="orga507c20"><span class="section-number-3">6.2</span> Funciones</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Tratamiento de la congestión de la red: debe intentar reducir al mínimo la congestión de la red evitando caminos que tienen demasiado tráfico.</li>
@@ -714,11 +717,11 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org1b392a8" class="outline-3">
-<h3 id="org1b392a8"><span class="section-number-3">6.3</span> Nodos intermedios</h3>
+<div id="outline-container-org2bf2763" class="outline-3">
+<h3 id="org2bf2763"><span class="section-number-3">6.3</span> Nodos intermedios</h3>
 <div class="outline-text-3" id="text-6-3">
 
-<div id="org94b9c11" class="figure">
+<div id="org7c79897" class="figure">
 <p><img src="media/osi-niveles-nodos-intermedios.png" alt="osi-niveles-nodos-intermedios.png" width="50%" />
 </p>
 </div>
@@ -727,8 +730,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org724f612" class="outline-2">
-<h2 id="org724f612"><span class="section-number-2">7</span> Capa de transporte</h2>
+<div id="outline-container-org190274d" class="outline-2">
+<h2 id="org190274d"><span class="section-number-2">7</span> Capa de transporte</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Es la encargada de regular el flujo de información desde el origen hasta el destino de una manera sincronizada y precisa.</li>
@@ -742,8 +745,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orge6182a1" class="outline-3">
-<h3 id="orge6182a1"><span class="section-number-3">7.1</span> Funciones</h3>
+<div id="outline-container-orgae24c3c" class="outline-3">
+<h3 id="orgae24c3c"><span class="section-number-3">7.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Establecer, mantener y terminar los circuitos virtuales que se crean durante la transmisión de datos.</li>
@@ -756,16 +759,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-orgdd59fb3" class="outline-2">
-<h2 id="orgdd59fb3"><span class="section-number-2">8</span> Capa de sesión</h2>
+<div id="outline-container-orgfb19229" class="outline-2">
+<h2 id="orgfb19229"><span class="section-number-2">8</span> Capa de sesión</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Es la encargada de establecer, mantener y finalizar las sesiones de usuario entre dos ordenadores.</li>
 </ul>
 </div>
 
-<div id="outline-container-org5481c3b" class="outline-3">
-<h3 id="org5481c3b"><span class="section-number-3">8.1</span> Funciones</h3>
+<div id="outline-container-org75ef33e" class="outline-3">
+<h3 id="org75ef33e"><span class="section-number-3">8.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Mejora el servicio proporcionado por la capa de transporte permitiendo la reanudación de la conexión en caso de interrupción.
@@ -780,16 +783,16 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orge05b811" class="outline-2">
-<h2 id="orge05b811"><span class="section-number-2">9</span> Capa de presentación</h2>
+<div id="outline-container-orgad0fb9b" class="outline-2">
+<h2 id="orgad0fb9b"><span class="section-number-2">9</span> Capa de presentación</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Ofrece servicios para especificar el formato de los datos que se están enviando.</li>
 </ul>
 </div>
 
-<div id="outline-container-org94a1c15" class="outline-3">
-<h3 id="org94a1c15"><span class="section-number-3">9.1</span> Funciones</h3>
+<div id="outline-container-org529b255" class="outline-3">
+<h3 id="org529b255"><span class="section-number-3">9.1</span> Funciones</h3>
 <div class="outline-text-3" id="text-9-1">
 <ul class="org-ul">
 <li>Se encarga de la compresión y del cifrado de la información enviada.</li>
@@ -813,8 +816,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orgb9611bc" class="outline-2">
-<h2 id="orgb9611bc"><span class="section-number-2">10</span> Capa de aplicación</h2>
+<div id="outline-container-org541480a" class="outline-2">
+<h2 id="org541480a"><span class="section-number-2">10</span> Capa de aplicación</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Es la razón por la que se monta la red</li>
@@ -832,8 +835,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org79918c3" class="outline-2">
-<h2 id="org79918c3"><span class="section-number-2">11</span> Aceptación del modelo ISO/OSI</h2>
+<div id="outline-container-org1229524" class="outline-2">
+<h2 id="org1229524"><span class="section-number-2">11</span> Aceptación del modelo ISO/OSI</h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li>El modelo OSI es un gran modelo <i>teórico</i></li>
@@ -853,8 +856,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-org2990856" class="outline-3">
-<h3 id="org2990856"><span class="section-number-3">11.1</span> Estándar <i>de iure</i> y <i>de facto</i></h3>
+<div id="outline-container-org8ee012b" class="outline-3">
+<h3 id="org8ee012b"><span class="section-number-3">11.1</span> Estándar <i>de iure</i> y <i>de facto</i></h3>
 <div class="outline-text-3" id="text-11-1">
 <ul class="org-ul">
 <li><i>De iure</i>: Reconocido por una autoridad competente</li>
@@ -875,8 +878,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org0a95de8" class="outline-2">
-<h2 id="org0a95de8"><span class="section-number-2">12</span> Arquitectura Internet</h2>
+<div id="outline-container-orgd275af1" class="outline-2">
+<h2 id="orgd275af1"><span class="section-number-2">12</span> Arquitectura Internet</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>La gran difusión de Internet, ha permitido que este modelo sea hoy en día un estándar de hecho. OSI ha quedado como arquitectura para el estudio teórico.</li>
@@ -886,8 +889,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org859d45b" class="outline-3">
-<h3 id="org859d45b"><span class="section-number-3">12.1</span> TCP-IP Vs OSI</h3>
+<div id="outline-container-org5d15c27" class="outline-3">
+<h3 id="org5d15c27"><span class="section-number-3">12.1</span> TCP-IP Vs OSI</h3>
 <div class="outline-text-3" id="text-12-1">
 <ul class="org-ul">
 <li>OSI asignaba un protocolo por cada capa.</li>
@@ -900,8 +903,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org58278b8" class="outline-3">
-<h3 id="org58278b8"><span class="section-number-3">12.2</span> Capas en el modelo Internet</h3>
+<div id="outline-container-orgba17686" class="outline-3">
+<h3 id="orgba17686"><span class="section-number-3">12.2</span> Capas en el modelo Internet</h3>
 <div class="outline-text-3" id="text-12-2">
 <ul class="org-ul">
 <li>La capa de acceso al medio recoge las especificaciones de las capas física y de enlace 
@@ -919,11 +922,11 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org8ee3285" class="outline-3">
-<h3 id="org8ee3285"><span class="section-number-3">12.3</span> Niveles TCP-IP</h3>
+<div id="outline-container-org8dd4033" class="outline-3">
+<h3 id="org8dd4033"><span class="section-number-3">12.3</span> Niveles TCP-IP</h3>
 <div class="outline-text-3" id="text-12-3">
 
-<div id="orgb3fd766" class="figure">
+<div id="orgfc355a5" class="figure">
 <p><img src="media/niveles-tcpip.png" alt="niveles-tcpip.png" />
 </p>
 </div>
@@ -931,11 +934,11 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org5dfc9b3" class="outline-3">
-<h3 id="org5dfc9b3"><span class="section-number-3">12.4</span> Protocolos TCP-IP</h3>
+<div id="outline-container-org7aab529" class="outline-3">
+<h3 id="org7aab529"><span class="section-number-3">12.4</span> Protocolos TCP-IP</h3>
 <div class="outline-text-3" id="text-12-4">
 
-<div id="org3ebaab8" class="figure">
+<div id="org7bcadcf" class="figure">
 <p><img src="media/protocolos-tcpip.png" alt="protocolos-tcpip.png" />
 </p>
 </div>
@@ -943,8 +946,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org243d16c" class="outline-3">
-<h3 id="org243d16c"><span class="section-number-3">12.5</span> TCP vs UDP</h3>
+<div id="outline-container-org91a02e8" class="outline-3">
+<h3 id="org91a02e8"><span class="section-number-3">12.5</span> TCP vs UDP</h3>
 <div class="outline-text-3" id="text-12-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -993,12 +996,12 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgb8b8970" class="outline-2">
-<h2 id="orgb8b8970"><span class="section-number-2">13</span> Otros ejemplos de arquitectura</h2>
+<div id="outline-container-org494a13b" class="outline-2">
+<h2 id="org494a13b"><span class="section-number-2">13</span> Otros ejemplos de arquitectura</h2>
 <div class="outline-text-2" id="text-13">
 </div>
-<div id="outline-container-org6ab20ad" class="outline-3">
-<h3 id="org6ab20ad"><span class="section-number-3">13.1</span> Arquitectura RTC</h3>
+<div id="outline-container-org09f200e" class="outline-3">
+<h3 id="org09f200e"><span class="section-number-3">13.1</span> Arquitectura RTC</h3>
 <div class="outline-text-3" id="text-13-1">
 <ul class="org-ul">
 <li>RTC (Red Telefónica Conmutada)</li>
@@ -1012,8 +1015,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orgd7476ff" class="outline-3">
-<h3 id="orgd7476ff"><span class="section-number-3">13.2</span> Iberpac</h3>
+<div id="outline-container-org15620dc" class="outline-3">
+<h3 id="org15620dc"><span class="section-number-3">13.2</span> Iberpac</h3>
 <div class="outline-text-3" id="text-13-2">
 <ul class="org-ul">
 <li>Red de datos extendida por toda España.</li>
@@ -1026,8 +1029,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org218acc1" class="outline-3">
-<h3 id="org218acc1"><span class="section-number-3">13.3</span> RDSI o ISDN</h3>
+<div id="outline-container-org0d6ed24" class="outline-3">
+<h3 id="org0d6ed24"><span class="section-number-3">13.3</span> RDSI o ISDN</h3>
 <div class="outline-text-3" id="text-13-3">
 <ul class="org-ul">
 <li>Tiene su propio cableado y sus adaptadores específicos.</li>
@@ -1039,8 +1042,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-orgf46c406" class="outline-3">
-<h3 id="orgf46c406"><span class="section-number-3">13.4</span> DSL (Digital Subcriber Line)</h3>
+<div id="outline-container-org73f7a0b" class="outline-3">
+<h3 id="org73f7a0b"><span class="section-number-3">13.4</span> DSL (Digital Subcriber Line)</h3>
 <div class="outline-text-3" id="text-13-4">
 <ul class="org-ul">
 <li>Permite alta velocidad en cableado de baja calidad.</li>
@@ -1057,8 +1060,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org8492868" class="outline-2">
-<h2 id="org8492868"><span class="section-number-2">14</span> Sistemas de interconexión</h2>
+<div id="outline-container-org05506b4" class="outline-2">
+<h2 id="org05506b4"><span class="section-number-2">14</span> Sistemas de interconexión</h2>
 <div class="outline-text-2" id="text-14">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1099,8 +1102,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-orgc1d0e8d" class="outline-3">
-<h3 id="orgc1d0e8d"><span class="section-number-3">14.1</span> Repetidor</h3>
+<div id="outline-container-org3eaf4d6" class="outline-3">
+<h3 id="org3eaf4d6"><span class="section-number-3">14.1</span> Repetidor</h3>
 <div class="outline-text-3" id="text-14-1">
 <ul class="org-ul">
 <li>Conecta 2 segmentos de cable.</li>
@@ -1110,8 +1113,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org13e510a" class="outline-3">
-<h3 id="org13e510a"><span class="section-number-3">14.2</span> Concentrador</h3>
+<div id="outline-container-org81996d4" class="outline-3">
+<h3 id="org81996d4"><span class="section-number-3">14.2</span> Concentrador</h3>
 <div class="outline-text-3" id="text-14-2">
 <ul class="org-ul">
 <li>Un repetidor con más de dos conexiones</li>
@@ -1127,8 +1130,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-org8f7fcb7" class="outline-3">
-<h3 id="org8f7fcb7"><span class="section-number-3">14.3</span> Puente</h3>
+<div id="outline-container-org5cff13d" class="outline-3">
+<h3 id="org5cff13d"><span class="section-number-3">14.3</span> Puente</h3>
 <div class="outline-text-3" id="text-14-3">
 <ul class="org-ul">
 <li>Un puente conecta 2  redes de área local.</li>
@@ -1138,8 +1141,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org6a97f92" class="outline-3">
-<h3 id="org6a97f92"><span class="section-number-3">14.4</span> Conmuntador</h3>
+<div id="outline-container-org8ac2c2e" class="outline-3">
+<h3 id="org8ac2c2e"><span class="section-number-3">14.4</span> Conmuntador</h3>
 <div class="outline-text-3" id="text-14-4">
 <ul class="org-ul">
 <li>Un puente de más de dos conexiones</li>
@@ -1151,8 +1154,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org79b6a2b" class="outline-3">
-<h3 id="org79b6a2b"><span class="section-number-3">14.5</span> Enrutador</h3>
+<div id="outline-container-org893be9a" class="outline-3">
+<h3 id="org893be9a"><span class="section-number-3">14.5</span> Enrutador</h3>
 <div class="outline-text-3" id="text-14-5">
 <ul class="org-ul">
 <li>Enrutador: cuando un paquete llega a un enrutador el encabezado y el terminador de la trama se eliminan y el paquete contenido en el campo de datos de la trama se pasan al software de enrutamiento.</li>
@@ -1160,8 +1163,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgf4816f6" class="outline-3">
-<h3 id="orgf4816f6"><span class="section-number-3">14.6</span> Pasarela</h3>
+<div id="outline-container-org7b2880b" class="outline-3">
+<h3 id="org7b2880b"><span class="section-number-3">14.6</span> Pasarela</h3>
 <div class="outline-text-3" id="text-14-6">
 <ul class="org-ul">
 <li>Pasarela de transporte y pasarela de aplicación.
@@ -1177,8 +1180,8 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orgf42978d" class="outline-2">
-<h2 id="orgf42978d"><span class="section-number-2">15</span> Referencias</h2>
+<div id="outline-container-org8590d98" class="outline-2">
+<h2 id="org8590d98"><span class="section-number-2">15</span> Referencias</h2>
 <div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Formatos:
@@ -1200,7 +1203,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-10-19 lun 09:49</p>
+<p class="date">Created: 2020-10-26 lun 09:26</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
