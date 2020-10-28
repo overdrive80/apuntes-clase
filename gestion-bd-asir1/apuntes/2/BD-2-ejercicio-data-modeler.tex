@@ -25,7 +25,7 @@ La última versión de este documento está disponible en \enlace{https://alvaro
 
 Se desea obtener el modelo conceptual para una base de datos que manejará el catálogo y los pedidos de una multinacional minorista de muebles.
 \begin{itemize}
-\item Cada mueble puede ser vendido en varias temporadas (2016, 2017, 2018…).
+\item Cada mueble puede ser vendido en varias temporadas (2018, 2019, 2020…).
 \item Cada mueble puede ser de una colección (dormitorio Estival, cocina Etrusca, salón Belén…). No es obligatorio que un mueble pertenezca a una colección.
   
 \item Un mueble es de un tipo (mesa de comedor, armario, aparador, silla\ldots)
@@ -35,16 +35,17 @@ Se desea obtener el modelo conceptual para una base de datos que manejará el ca
   \item Varios colores disponibles.
   \item Varios tipos de cristales (opaco, transparente, ahumado…).
   \end{itemize}
-\item El precio de un mueble puede depender de la terminación y las dimensiones, añadiendo sobreprecios independientes. Por ejemplo:
-  % \begin{itemize}
-  % \item Una mesa de 80$\times$120 con pintura blanca cuesta 100\euro, pero lacada tiene un sobreprecio de 20\euro.
-  % \item La misma mesa de y 80$\times$150 con pintura blanca cuesta 130\euro, pero lacada tiene un sobreprecio de 30\euro.
-  % \end{itemize}
+\item El precio de un mueble puede depender de las dimensiones del mueble. Por ejemplo:
   \begin{itemize}
-  \item Una mesa de 80$\times$120 con pintura blanca cuesta 100\euro, pero lacada tiene un sobreprecio de 20\euro.
-  \item La misma mesa de y 80$\times$150 con pintura blanca cuesta 130\euro (por las nuevas dimensiones), pero el sobreprecio de la pintura lacada sigue siendo 20\euro.
+  \item Una mesa de 80$\times$120 cuesta 100{\euro}
+  \item La misma mesa de y 80$\times$150 cuesta 130{\euro} (por las nuevas dimensiones)
   \end{itemize}
- 
+\item Los sobreprecios por los acabados no dependen de las dimensiones
+  \begin{itemize}
+  \item Una mesa de 80$\times$120 (de 100{\euro}) tiene un sobreprecio de 30{\euro} por pintura lacada.
+  \item La misma mesa de y 80$\times$150 (de 130{\euro}) tiene el mismo sobreprecio de 30{\euro} por pintura lacada, aunque sea más grande.
+  \end{itemize}
+  
 \end{itemize}
 
 
@@ -66,7 +67,8 @@ Se pide un diseño de \textbf{Oracle Data Modeler} con este supuesto. Se entrega
 
 La entrega se realizará en la tarea correspondiente del \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/mod/assign/view.php?id=8885}{aula virtual}.
 
-La autoría del trabajo puede ser por parejas. A pesar de ello, cada alumno debe subir al aula virtual una copia del trabajo.
+% La autoría del trabajo puede ser por parejas. A pesar de ello, cada alumno debe subir al aula virtual una copia del trabajo.
+La autoría del trabajo puede será individual.
 
 
 \end{document}
