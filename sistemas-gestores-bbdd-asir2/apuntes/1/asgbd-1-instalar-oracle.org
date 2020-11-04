@@ -552,6 +552,21 @@ See the Instant Client Home Page for more information.
   - =/etc/sysconfig/network-scripts=
   - =ONBOOT= debe ser =YES=
 
+
+* Dirección IP
+- Pondremos IP estática
+  - =etc/sysconfig/network-scripts/ifcfg-enp0s3=
+    #+begin_src sh
+    BOOTPROTO=none
+    PREFIX=16
+    IPADDR=10.1.35.xxx
+    #+end_src
+  - [[https://docs.google.com/spreadsheets/d/1onVe6zpdLe_MWj4k5iQ7bGc5K43kVZ9fhMONyG9whMU/edit#][Lista de direcciones]]
+- Si tengo un portátil, es más cómo tener dos tarjetas en la máquina virtual
+  1) Host-only: Dirección que funciona siempre desde el windows
+  2) Bridged: A enganchar en la wifi, con la dirección apuntada en la [[https://docs.google.com/spreadsheets/d/1onVe6zpdLe_MWj4k5iQ7bGc5K43kVZ9fhMONyG9whMU/edit#][hoja excel de direcciones IP]]
+- También se puede usar =sudo nmtui=
+  
 * Cosas que hemos aprendido /de pasada/
 - Variables de entorno
   - Variable =PATH=
