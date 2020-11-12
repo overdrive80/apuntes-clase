@@ -100,7 +100,7 @@
 |---+-------------------------+------------------------------------+--------------------|
 | / | >                       | <                                  |                    |
 |   | *Información analógica* | Teléfono o televisión (analógicos) | Televisión digital |
-|   | *Información digital*   | Fax, módem telefónico              | ADSL, fibra        |
+|   | *Información digital*   | Fax, módem telefónico, ADSL        | fibra              |
 
 
 
