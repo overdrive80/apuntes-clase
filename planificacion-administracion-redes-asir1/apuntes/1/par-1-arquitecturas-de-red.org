@@ -231,7 +231,7 @@ Data processing by two communicating OSI-compatible devices proceeds as follows:
 ** Funciones
 - Direccionamiento lógico 
   - ¿Por qué no valen las direcciones de la capa de enlace?
-- Especificación de los tamaños máximos y mínimos de los paquetes.
+- Especificación del tamaño máximo de los paquetes, según las capas inferiores.
   - Fragmentación: Si un paquete es demasiado grande, hay que fragmentarlo y reagruparlo en el destino
 - Definir si la comunicación se establece mediante circuitos virtuales o conmutación de paquetes (datagramas).
 - Encaminamiento (enrutamiento): tiene que determinar el mejor camino para que la información llegue al destino.
