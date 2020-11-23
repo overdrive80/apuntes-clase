@@ -311,8 +311,8 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Aplica 4B/5B a los bits anteriores. Rellena con bits a =0= al final si es necesario
 
 
-** Velocidad de transferencia
-- Cada medios físico admiten la transferencia de información a cierta velocidad.
+* Velocidad de transferencia
+- Cada medios físicos admiten la transferencia de información a cierta velocidad.
 - La transferencia de datos puede medirse de tres formas:
   - *Ancho de banda*: Capacidad que posee un medio de transportar datos sin procesar.  El ancho de banda digital (kbps o Mbps) mide la cantidad de información que puede fluir desde un lugar hacia otro en un período de tiempo determinado.
   - *Rendimiento*: Medida de transferencia de *bits* a través de los medios durante un período de tiempo determinado.  Generalmente /no coincide/ con el ancho de banda (colisiones en el medio si es de acceso compartido, errores de transmisión o sincronía,...)
