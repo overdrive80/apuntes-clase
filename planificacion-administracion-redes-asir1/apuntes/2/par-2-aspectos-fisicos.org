@@ -124,7 +124,7 @@
 
 - [[https://es.wikipedia.org/wiki/Banda_base][Banda base]]
   - Se pueden utilizar simplemente voltajes para indicar niveles
-  - No se puede multiplexar el medio
+  - No es fácil multiplexar el medio
   - Se suele utilizar en medios de baja velocidad
 - [[https://es.wikipedia.org/wiki/Banda_ancha][Banda ancha]]
   - El medio se comparte, utilizando diferentes frecuencias (ver [[#multiplexacion-frecuencia][multiplexación por frecuencia]])
