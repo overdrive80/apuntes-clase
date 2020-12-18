@@ -232,7 +232,15 @@ https://es.wikipedia.org/wiki/TIA-568B
 #+reveal: split
 [[file:media/categorias.png]]
 
+** Certificación del cable
 
+- Tras la instalación de componentes de cierta categoría, es necesario certificar la red
+   - Para comprobar su clase
+- Un analizador de cable mide los problemas que pueden producirse en el cable        
+   - [[https://en.wikipedia.org/wiki/Copper_cable_certification][https://en.wikipedia.org/wiki/Copper_cable_certification]]
+- La *clase* de la red se determina por el peor cable instalado.
+
+[[file:media/analizador-de-cable.jpg]]
 
 * Coaxial 
 - Conductor de cobre rodeado de una capa de aislante flexible, 

@@ -12,10 +12,7 @@ do
 done
 #+end_src
 
-#+RESULTS:
-:results:
-* Instalación de cableado
-[[./media/cableado]]
+
 * Instalación de cableado
 [[./media/cableado/empotrable-suelo-puesto-trabajo.jpg]]
 * Instalación de cableado
@@ -42,5 +39,4 @@ done
 [[./media/cableado/etiquetado-cableado-estructurado_8.jpg]]
 * Instalación de cableado
 [[./media/cableado/a-03.png]]
-:end:
 
