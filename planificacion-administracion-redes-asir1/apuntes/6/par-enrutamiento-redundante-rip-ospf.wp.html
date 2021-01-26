@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-02-11 mar 19:57 -->
+<!-- 2020-03-23 lun 10:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title><i>Network Address Translation</i> (NAT)</title>
+<title>RIP y OSPF</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Álvaro González Sotillo" />
 <style type="text/css">
@@ -201,7 +201,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -245,36 +245,41 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title"><i>Network Address Translation</i> (NAT)</h1>
+<h1 class="title">RIP y OSPF</h1>
 <div id="table-of-contents">
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgdb24913">1. Introducción</a></li>
-<li><a href="#orgad60d97">2. Métrica del enrutamiento</a></li>
-<li><a href="#org4ca6f33">3. Ejemplo de enrutamiento redundante</a></li>
-<li><a href="#org00528a7">4. RIP y OSPF</a></li>
-<li><a href="#org97c4149">5. RIP</a></li>
-<li><a href="#org266abaa">6. OSPF</a></li>
-<li><a href="#orgcc5d5cd">7. Referencias</a></li>
+<li><a href="#org3e903cd">1. Introducción</a></li>
+<li><a href="#orgc8796ee">2. Métrica del enrutamiento</a></li>
+<li><a href="#org9f7d925">3. Ejemplo de enrutamiento redundante</a></li>
+<li><a href="#org9b34c9c">4. RIP y OSPF</a></li>
+<li><a href="#orge3088a8">5. RIP</a></li>
+<li><a href="#org7ef642c">6. OSPF</a></li>
+<li><a href="#org6222082">7. Distancia administrativa (Cisco)</a></li>
+<li><a href="#org637a133">8. Referencias</a></li>
 </ul>
 </div>
 </div>
- <!-- https://stackoverflow.com/questions/17642872/refresh-page-and-keep-scroll-position -->
- <script type="text/javascript">
-            function refreshPage () {
-                var page_y = document.documentElement.scrollTop;
-                window.location.href = window.location.href.split('?')[0] + '?page_y=' + page_y;
-            }
-            window.onload = function () {
-                setTimeout(refre
-shPage, 5000);
-                if ( window.location.href.indexOf('page_y') != -1 ) {
-                    var match = window.location.href.split('?')[1].split("&")[0].split("=");
-                    document.documentElement.scrollTop = match[1];
-                }
-            }
+<script>
+function cargarHighlight(){
+  var script = document.createElement('script');
+  script.onload = function () {
+      console.log("onload para highlight.js");
+      hljs.initHighlightingOnLoad();
+  };
+  script.src = "../../../common/reveal.js/plugin/highlight/highlight.js";
+
+  document.head.appendChild(script);
+}
+
+window.addEventListener("load",()=>{
+  console.log("onload para cargarHighlight");
+  cargarHighlight();
+});
 </script>
+
+
 
 <script>
 window.addEventListener("load",()=>{
@@ -289,8 +294,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-orgdb24913" class="outline-2">
-<h2 id="orgdb24913"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org3e903cd" class="outline-2">
+<h2 id="org3e903cd"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>El protocolo IP se pensó para tener más de una ruta a cada destino</li>
@@ -301,8 +306,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orgad60d97" class="outline-2">
-<h2 id="orgad60d97"><span class="section-number-2">2</span> Métrica del enrutamiento</h2>
+<div id="outline-container-orgc8796ee" class="outline-2">
+<h2 id="orgc8796ee"><span class="section-number-2">2</span> Métrica del enrutamiento</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Las tablas de rutas pueden tener más de una ruta para un destino
@@ -323,8 +328,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org4ca6f33" class="outline-2">
-<h2 id="org4ca6f33"><span class="section-number-2">3</span> Ejemplo de enrutamiento redundante</h2>
+<div id="outline-container-org9f7d925" class="outline-2">
+<h2 id="org9f7d925"><span class="section-number-2">3</span> Ejemplo de enrutamiento redundante</h2>
 <div class="outline-text-2" id="text-3">
 
 <div class="figure">
@@ -334,8 +339,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgd4737ae" class="outline-3">
-<h3 id="orgd4737ae"><span class="section-number-3">3.1</span> Tabla de enrutamiento de <code>A</code></h3>
+<div id="outline-container-orgc711f39" class="outline-3">
+<h3 id="orgc711f39"><span class="section-number-3">3.1</span> Tabla de enrutamiento de <code>A</code></h3>
 <div class="outline-text-3" id="text-3-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -412,8 +417,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org967d8d9" class="outline-3">
-<h3 id="org967d8d9"><span class="section-number-3">3.2</span> Tabla de enrutamiento de <code>B</code></h3>
+<div id="outline-container-orgbf517e8" class="outline-3">
+<h3 id="orgbf517e8"><span class="section-number-3">3.2</span> Tabla de enrutamiento de <code>B</code></h3>
 <div class="outline-text-3" id="text-3-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -489,8 +494,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org6080877" class="outline-3">
-<h3 id="org6080877"><span class="section-number-3">3.3</span> Tablas de enrutamiento de <code>C</code> y <code>D</code></h3>
+<div id="outline-container-org102f616" class="outline-3">
+<h3 id="org102f616"><span class="section-number-3">3.3</span> Tablas de enrutamiento de <code>C</code> y <code>D</code></h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Se dejan como ejercicio</li>
@@ -498,8 +503,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org6399814" class="outline-3">
-<h3 id="org6399814"><span class="section-number-3">3.4</span> Resultado</h3>
+<div id="outline-container-orgbc97cc2" class="outline-3">
+<h3 id="orgbc97cc2"><span class="section-number-3">3.4</span> Resultado</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Si el enlace entre A y C se rompe
@@ -510,12 +515,27 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 </div>
+
+
+<div id="outline-container-orgc8c4923" class="outline-3">
+<h3 id="orgc8c4923"><span class="section-number-3">3.5</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-3-5">
+
+<div class="figure">
+<p><img src="media/ejercicio-redundancia-routers.png" alt="ejercicio-redundancia-routers.png" />
+</p>
+</div>
+
+<p>
+<a href="pkt/redundancia-routers-rip.pkt">Enlace a fichero PKT</a>
+</p>
+</div>
+</div>
 </div>
 
 
-
-<div id="outline-container-org00528a7" class="outline-2">
-<h2 id="org00528a7"><span class="section-number-2">4</span> RIP y OSPF</h2>
+<div id="outline-container-org9b34c9c" class="outline-2">
+<h2 id="org9b34c9c"><span class="section-number-2">4</span> RIP y OSPF</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Añadir rutas es una tarea rutinaria
@@ -529,8 +549,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="outline-container-org97c4149" class="outline-2">
-<h2 id="org97c4149"><span class="section-number-2">5</span> RIP</h2>
+<div id="outline-container-orge3088a8" class="outline-2">
+<h2 id="orge3088a8"><span class="section-number-2">5</span> RIP</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li><a href="https://es.wikipedia.org/wiki/Routing_Information_Protocol">Routing Information Protocol</a></li>
@@ -542,8 +562,8 @@ Sorry, your browser does not support SVG.</object>
 </ul>
 </div>
 
-<div id="outline-container-orga00fa3e" class="outline-3">
-<h3 id="orga00fa3e"><span class="section-number-3">5.1</span> Ventajas de RIP</h3>
+<div id="outline-container-orgd2921d7" class="outline-3">
+<h3 id="orgd2921d7"><span class="section-number-3">5.1</span> Ventajas de RIP</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Simple</li>
@@ -552,8 +572,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org54f7813" class="outline-3">
-<h3 id="org54f7813"><span class="section-number-3">5.2</span> Desventajas de RIP</h3>
+<div id="outline-container-orge18d17e" class="outline-3">
+<h3 id="orge18d17e"><span class="section-number-3">5.2</span> Desventajas de RIP</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Su métrica es solo el número de saltos (sin ancho de banda, congestión&#x2026;)</li>
@@ -563,8 +583,8 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-orgc7753f3" class="outline-3">
-<h3 id="orgc7753f3"><span class="section-number-3">5.3</span> RIP en Cisco</h3>
+<div id="outline-container-orge48191a" class="outline-3">
+<h3 id="orge48191a"><span class="section-number-3">5.3</span> RIP en Cisco</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Se debe permitir al router anunciar cada una de las redes a las que está directamente conectado</li>
@@ -580,11 +600,37 @@ Router(config-router)#network 200.200.1.0
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org92d2264" class="outline-3">
+<h3 id="org92d2264"><span class="section-number-3">5.4</span> Interfaces pasivas</h3>
+<div class="outline-text-3" id="text-5-4">
+<ul class="org-ul">
+<li>La información de RIP se envia por todas las interfaces que se anuncian</li>
+<li>Si no hay routers por una red anunciada, estos mensajes no tienen sentido</li>
+<li><p>
+Una interfaz pasiva se anuncia por otras interfaces, pero no se envían anuncios por ellas
+</p>
+
+<pre class="example">
+Router(config)#router rip
+Router(config-router)#passive-interface FastEthernet 0/1    
+</pre></li>
+</ul>
+</div>
 </div>
 
+<div id="outline-container-org910b14f" class="outline-3">
+<h3 id="org910b14f"><span class="section-number-3">5.5</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-5-5">
+<p>
+Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
+</p>
+</div>
+</div>
+</div>
 
-<div id="outline-container-org266abaa" class="outline-2">
-<h2 id="org266abaa"><span class="section-number-2">6</span> OSPF</h2>
+<div id="outline-container-org7ef642c" class="outline-2">
+<h2 id="org7ef642c"><span class="section-number-2">6</span> OSPF</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li><a href="https://es.wikipedia.org/wiki/Open_Shortest_Path_First">Open Shortest Path First</a></li>
@@ -595,9 +641,94 @@ Router(config-router)#network 200.200.1.0
 </div>
 </div>
 
-<div id="outline-container-orgcc5d5cd" class="outline-2">
-<h2 id="orgcc5d5cd"><span class="section-number-2">7</span> Referencias</h2>
+
+<div id="outline-container-org6222082" class="outline-2">
+<h2 id="org6222082"><span class="section-number-2">7</span> Distancia administrativa (Cisco)</h2>
 <div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-orgea689a2" class="outline-3">
+<h3 id="orgea689a2"><span class="section-number-3">7.1</span> Formas de descubrir rutas</h3>
+<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li>Las rutas conocidas llegan por diferentes vías:
+<ul class="org-ul">
+<li>Redes directamente conectadas a interfaces</li>
+<li>Rutas estáticas</li>
+<li>OSPF</li>
+<li>RIP</li>
+<li>&#x2026;</li>
+</ul></li>
+<li>No todos las vías son igual de confiables:
+<ul class="org-ul">
+<li>Las redes directamente conectadas <i>seguro</i> que funcionan</li>
+<li>Las rutas estáticas las determina un administrador, que <i>seguro</i> que está en lo cierto</li>
+<li>OSFP es más fiable que RIP</li>
+<li>Hay más formas (<a href="https://en.wikipedia.org/wiki/Border_Gateway_Protocol">BGP</a>, <a href="https://en.wikipedia.org/wiki/Enhanced_Interior_Gateway_Routing_Protocol">EIGRP</a>&#x2026;)</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org11c0673" class="outline-3">
+<h3 id="org11c0673"><span class="section-number-3">7.2</span> Distancia administrativa</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li>Un router CISCO determina cuál es la menor <b>distancia administrativa</b> entre sus rutas</li>
+<li>Después, elige la ruta a aplicar entre la menor <b>métrica</b></li>
+<li>Es una práctica común
+<ul class="org-ul">
+<li>Configurar los routers para que autodescubran las rutas</li>
+<li>Crear una ruta estática por si falla el autodescubrimiento</li>
+</ul></li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Vía de descubrimiento</th>
+<th scope="col" class="org-right">Distancia administrativa</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Red directamente conectada</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">Ruta estática (por defecto)</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">OSPF</td>
+<td class="org-right">110</td>
+</tr>
+
+<tr>
+<td class="org-left">RIP</td>
+<td class="org-right">120</td>
+</tr>
+
+<tr>
+<td class="org-left">Ruta estática (flotante, de backup)</td>
+<td class="org-right">Cualquier número</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org637a133" class="outline-2">
+<h2 id="org637a133"><span class="section-number-2">8</span> Referencias</h2>
+<div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -616,7 +747,7 @@ Router(config-router)#network 200.200.1.0
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-02-11 mar 19:57</p>
+<p class="date">Created: 2020-03-23 lun 10:55</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

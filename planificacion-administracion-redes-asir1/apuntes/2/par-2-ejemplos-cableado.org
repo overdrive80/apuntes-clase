@@ -1,0 +1,42 @@
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Imágenes de instalación de cableado
+#+SUBTITLE: 
+#+KEYWORDS: 
+
+#+begin_src bash :results raw drawer :exports results
+IFS=$'\n'
+for f in $(find ./media/cableado)
+do
+    echo '*' Instalación de cableado
+    echo "[[$f]]"
+done
+#+end_src
+
+
+* Instalación de cableado
+[[./media/cableado/empotrable-suelo-puesto-trabajo.jpg]]
+* Instalación de cableado
+[[./media/cableado/cableado_estructurado_construccion_de_sistemas_cableado_colombia.jpg]]
+* Instalación de cableado
+[[./media/cableado/cableado-estructurado-08-1.jpg]]
+* Instalación de cableado
+[[./media/cableado/detalle_cableado_rack_techo_fermilab.preview.jpg]]
+* Instalación de cableado
+[[./media/cableado/antes-despues.png]]
+* Instalación de cableado
+[[./media/cableado/cableado-estructurado-3-avza.jpg]]
+* Instalación de cableado
+[[./media/cableado/39b54a1c5fa67eec5f4f44ffa01905af.jpg]]
+* Instalación de cableado
+[[./media/cableado/www.reveterm.es_2015-03-17_17-14-28_suelo-tecnico-cableado.jpg]]
+* Instalación de cableado
+[[./media/cableado/10102017100053-cableado-estructurado-industrial-deta.jpg]]
+* Instalación de cableado
+[[./media/cableado/Cableado-estructurado-con-escalarilla-de-metal.jpg]]
+* Instalación de cableado
+[[./media/cableado/rutas de.PNG]]
+* Instalación de cableado
+[[./media/cableado/etiquetado-cableado-estructurado_8.jpg]]
+* Instalación de cableado
+[[./media/cableado/a-03.png]]
+

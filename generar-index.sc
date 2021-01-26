@@ -1,16 +1,17 @@
-#!/usr/bin/env scala
+#!/usr/bin/env scala -nc
 // INSTALAR AMMONITE
 // sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/1.1.2/2.12-1.1.2) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' && amm
 
-object A{
+object IndexCreator{
 
   import java.io._
 
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".pdf", ".html", "epub" )
+    val includeExtensions = Seq( ".reveal.html" )
     val excludeExtensions = Seq( ".svg.pdf" )
+    val excludePatterns = Seq("aruizcristina", "examen");
 
 
     def sanitizeArray[T]( a: Array[T] )(implicit m: scala.reflect.ClassTag[T]) = if(a == null)  new Array[T](0) else a
@@ -21,7 +22,7 @@ object A{
 
     def includeFilter(f:File) = {
       val name = f.getPath.toLowerCase
-      name.contains("apuntes") && !name.contains("media")
+      name.contains("apuntes") && !name.contains("media") && !excludePatterns.exists( name.contains(_) )
     }
 
     if( current.isDirectory ){
@@ -30,6 +31,7 @@ object A{
       val files = all.filter(extensionFilter).filter(includeFilter)
       val directories = all.filter( _.isDirectory )
       lazy val recurse = directories.map(allFiles(_))
+      files.foreach(println)
       files.toStream #::: recurse.foldLeft( Stream[File]() )( _ #::: _ )
     }
     else{
@@ -62,7 +64,9 @@ object A{
   }
 }
 
-val out = new java.io.FileWriter("index.html")
-A.doPage( new java.io.File("."), out )
-out.close()
-println("Done")
+object Main extends App{
+  val out = new java.io.FileWriter("index.html")
+  IndexCreator.doPage( new java.io.File("."), out )
+  out.close()
+  println("Done")
+}

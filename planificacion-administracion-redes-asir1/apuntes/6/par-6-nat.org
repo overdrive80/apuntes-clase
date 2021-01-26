@@ -112,6 +112,9 @@ En un enrutamiento normal IP los paquetes siempre conservan su IP origen y desti
 
 [[file:media/ics.png]]
 
+* Ejemplo NAT: TPLink
+- Usaremos un emulador de TPLink: [[https://www.tp-link.com/es/support/emulator/][https://www.tp-link.com/es/support/emulator/]]
+- No funcionan correctamente, pero sirve para hacerse una idea de las opciones
 
 * DMZ
 - La /zona desmilitarizada/ la componen los hosts que una empresa expone a Internet
@@ -128,10 +131,4 @@ En un enrutamiento normal IP los paquetes siempre conservan su IP origen y desti
 
 
 * Referencias
-- Formatos:
-  - [[file:par-6-nat.reveal.html][Transparencias]]
-  - [[file:par-6-nat.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+INCLUDE: "../../../common/footer.org"

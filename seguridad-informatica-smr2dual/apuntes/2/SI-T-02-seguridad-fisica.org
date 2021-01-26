@@ -135,12 +135,10 @@ Aunque el hardware, en general puede operar correctamente en diversas condicione
 Los factores que más afectan a la electrónica son temperatura, humedad y polvo
 
 ** Temperatura
-Los equipos electrónicos  de consumo pueden funcionar correctamente con una temperatura ambiental del aire en un rango de 10 a 32ºC.
+Los equipos electrónicos  de consumo pueden funcionar correctamente con una temperatura ambiental del aire en un rango bastante amplio.
 Generan bastante calor interno, con lo que es conveniente que el ambiente en el que se encuentran esté lo más fresco posible.
 Si los equipos conviven con personas, pueden estar perfectamente a las temperaturas en las que vivimos las personas.
-Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente mantenerlos a baja temperatura, pero no es realmente necesario y el gasto energético de bajar la temperatura podría ser muy elevado, así que mantenerlos a unos 22ºC ya se consideraría adecuado. 
-
-En las salas aisladas de un datacenter, por normativa internacional, la temperatura promedio en el ambiente debe ser de 22.3ºC. Por lo general, esta temperatura es menor y se acerca a los 10ºC.
+Si se encuentran aislados (por ejemplo, en un cuarto de servidores o un datacenter) podría ser conveniente regular la temperatura ambiental de las dependencias en las que se encuentran. No hace falta que esa temperatura sea baja, sino conveniente y económica. 25-28ºC suele ser un rango adecuado. Los especialistas en climatización recomendarán una instalación adecuada y económica.
 
 Ten en cuenta, que en estos rangos de temperatura, hablamos de la temperatura del aire de la habitación. En el interior de los ordenadores el aire estará más caliente.
 
@@ -152,7 +150,7 @@ Para los equipos electrónicos, es conveniente mantenerla entre el 40% y el 50% 
 
 
 En ambientes de humedad alta, puede eliminarse humedad mediante deshumidificadores, que condensan el agua del aire, la devuelven al estado líquido haciéndolo pasar por una rejilla fría.
-Los deshumidificadores pueden conectase a un desagüe para evacuar el agua en estado líquido.
+Los deshumidificadores pueden conectarse a un desagüe para evacuar el agua en estado líquido.
 
 #+caption: Deshumificador doméstico
 [[file:media/deshumidificador.png]]
@@ -250,7 +248,9 @@ Con respecto al fuego con riesgo de electrocución el CO2 es adecuado, pero el p
 
 Los principales agentes extintores para uso automático son:
 - Agua nebulizada. Puede dañar equipos. Es necesario tomar precauciones ante riesgo de electrocución
-- Gases eliminadores del oxígeno. Tradicionalmente se han utilizado derivados del gas halón, pero dañan la capa de ozono. Existen soluciones alternativas, como el gas inergén.
+- Gases eliminadores del oxígeno. Tradicionalmente se han utilizado derivados del gas halón, pero dañan la capa de ozono. Existen soluciones alternativas, como el gas [[https://es.wikipedia.org/wiki/INERGEN][inergén]]  (nitrógeno, CO2 y argón), o el [[http://www.seguridadproteccioncontraincendios.es/fm-200-agente-extintor-fm-200-uso-y-aplicaciones/][FM200]] (heptafluorpropano)
+
+
 
 ** Vías de evacuación y señalización.
 Distintas normas europeas indican cómo debe ser la señalización referida a los incendios. En todos los casos se trata de señales verdes que se colocan en partes altas.
@@ -446,11 +446,29 @@ Un equipo RAID para rack mide, por supuesto 19” de ancho y un múltiplo de “
 #+caption: Equipo RAID enracable
 [[file:media/raid-enracable.png]]
 
+
+* Suelo Técnico
+El suelo técnico es un suelo que se monta sobre una estructura metálica con baldosas que habitualmente van sueltas, formando un segundo suelo más elevado sobre el suelo de obra. Tiene múltiples utilidades. No todas ellas están disponibles en todos los suelos técnicos.
+  - Puede dar cobijo a la instalación eléctrica.
+  - En salas de estaciones de trabajo también se suelen pasar otras instalaciones, como las de red para que los cables no estén visibles y puedan causar molestias o problemas. En salas de servidores la instalación de red no suele estar bajo el suelo porque no es demasiado práctico.
+   - Si hay pequeños escapes de agua, puede albergar la humedad para que no llegue a los armarios
+   - Si las baldosas del pasillo y las que quedan bajo los armarios se preparan eléctricamente pueden desviar la electricidad estática  y otras corrientes descontroladas para que no pase al personal (y no reciban calambres)
+   - Puede contribuir en el circuito de refrigeración ambiental, inyectando aire frio en el suelo técnico, que se distribuirá bajo los racks porque el aire frío tiende a quedarse abajo. En los racks se pueden poner ventiladores en la parte superior que evacúan el aire caliente del  interior del rack, y el aire frío del suelo técnico ascenderá por el interior del rack.
+
+#+caption:  Suelo técnico en Datacenter
+[[file:media/suelo-tecnico-datacenter.png]]
+
+
+#+caption: Suelo técnico en oficina
+[[file:media/suelo-tecnico-oficina.png]]
+
+
+
 * Electricidad
 
 ** La red eléctrica
 En España, el suministro de corriente eléctrica se hace con corriente alterna (que es la forma de transportar corriente a largas distancias, con éstos parámetros fijos:
-- Tensión: 230 Volts (Con ±10V de oscilaciones permitidas, es decir, entre 220 y 240 Volts)
+- Tensión: 230 Volts (Con ±7% de oscilaciones permitidas, es decir, entre 213 y 247 Volts)
 - Frecuencia: 50 Hertz
 
 Los dispositivos electrónicos (ordenadores, periféricos, comunicaciones…) utilizan corriente continua, así que la corriente alterna se transforma en continua en cada dispositivo, mediante fuentes de alimentación o transformadores.
@@ -482,7 +500,7 @@ Existen varios tipos de conectores y entradas normalizados, aunque en informáti
 
 Los fabricantes de aparatos electrónicos optan por colocar una entrada de corriente en el aparato, y utilizar un cable de alimentación que por un lado lleve un enchufe Schuko o Europlug, y por el otro un conector parejo a la entrada. En otros paises, puede utilizarse la misma fuente con conector IEC y otro cable de alimentación adaptado al sistema del país.
 
-Los conectores utilizados en la CE están normalizados por la norma IEC 60320 (International ElectrotechnicalCommision).  
+Los conectores utilizados en la CE están normalizados por la norma IEC 60320 (International Electrotechnical Commision).  
 
 Los conectores y entradas IEC  se denominan por una letra “C” y un número. Los números impares corresponden a un conector, y los pares a una entrada. La entrada siempre presenta “pines” al descubierto, mientras que el conector dispone de agujeros en los que encajan los pines. 
 
@@ -695,7 +713,7 @@ El conmutador tarda un cierto tiempo en detectar el problema... en general, es r
 Aunque no lo hayamos dibujado, muchos de ellos cuentan con un sencillo filtro en la entrada que elimina los posibles ruídos.
 
 *** Off-Line interactivos, o activos, o con estabilizador o AVR
-El estabilizador (AVR- AutomaticVoltageRegulator) es un circuito que es capaz de proporcionar una tensión de salida constante (230V en el caso de España), aunque la entrada tenga pequeñas fluctuaciones. Un SAI interactivo dispone de un AVR en la entrada de corriente alterna (desde la red eléctrica), y proporciona al cargador de la batería y a la salida de AC una tensión constante. Los AVR tienen un rango de trabajo. Si la entrada cae por debajo de los 175V o sube por encima de los 270V (aproximadamente), no podrán estabilizarla, y el conmutador deberá conmutar la salida a la batería.
+El estabilizador ([[http://en.wikipedia.org/wiki/Automatic_Voltage_Regulator][AVR- AutomaticVoltageRegulator]]) es un circuito que es capaz de proporcionar una tensión de salida constante (230V en el caso de España), aunque la entrada tenga pequeñas fluctuaciones. Un SAI interactivo dispone de un AVR en la entrada de corriente alterna (desde la red eléctrica), y proporciona al cargador de la batería y a la salida de AC una tensión constante. Los AVR tienen un rango de trabajo. Si la entrada cae por debajo de los 175V o sube por encima de los 270V (aproximadamente), no podrán estabilizarla, y el conmutador deberá conmutar la salida a la batería.
 
 #+caption: SAI offline interactivo
 [[file:media/sai-con-avr.png]]
@@ -716,7 +734,7 @@ El Bypass (del inglés by-pass) es un simple conmutador, que conecta directament
 Los SAIs no fueron ideados para proporcionar energía a los equipos durante mucho tiempo. La idea es mantener la corriente el tiempo necesario para que el equipo pueda salvaguardar los datos adecuadamente (por ejemplo, cerrando bases de datos, servicios, o hibernando), bien manualmente o bien automáticamente... es decir... hablamos de minutos.
 Para poder hacerlo automáticamente, casi todos los SAI pueden conectarse al equipo mediante un cable USB (o un cable serie RS-232 en algunos casos). En el equipo se instala un software de control que puede realizar alguna tarea de salvaguarda cuando el SAI indica que está actuando porque no hay suministro.
 A través de ese cable también se suelen obtener otros datos, como la cantidad de carga de las baterías, o el tiempo que podrá suministrar energía el SAI si se va la corriente.
-Los fabricantes de SAI nos dan una idea de su capacidad utilizando una unidad de medida poco conocida: el Voltio-Amperio (VA). Esa unidad de medida tiene que ver con la potencia aparente que es capaz de proporcionar el SAI.
+Los fabricantes de SAI nos dan una idea de su capacidad utilizando una unidad de medida poco conocida: el [[http://es.wikipedia.org/wiki/Voltio-amperio][Voltio-Amperio]] (VA). Esa unidad de medida tiene que ver con la [[http://es.wikipedia.org/wiki/Potencia_aparente][potencia aparente]] que es capaz de proporcionar el SAI.
 Sin embargo, cuando compramos un ordenador (u otro equipo), los fabricantes nos acostumbran a hablarnos de su "consumo" en Watios... e incluso, en algunos casos, en Amperios. ¿Cómo saber si un SAI podrá dar corriente a un determinado equipo? aplica estas reglas:
 - Si expresan la potencia en Watios, divide ese valor por 0.7. El resultado serán los Voltio-Amperios que deberá tener el SAI. Ej: Para un equipo de 450W se necesita un SAI de al menos 643VA (Sacado de dividir 450/0.7)
 - Si expresan la corriente que consumen en Amperios, multiplica por 230 (la tensión AC). El resultado serán los Voltio-Amperios que deberá tener el SAI. Ej.: Para un equipo que necesite 3A, se necesita un SAI de al menos 690VA (Sacado de multiplicar 3×230).
@@ -734,14 +752,15 @@ $$P_{voltioamperio} = P_{watios}$$
 
 También hay veces que se llama $P_{voltioamperio}$ a la potencia aparente, y $P_{watios}$ a la potencia efectiva. El factor $0.7$ es debido al desfase entre la subida de tensión y la subida de intensidad. Cuanto menos desfase haya, más se parecerá a $1$, y más caro será el SAI.
 
-
+* Tamaños de SAI
 Hay SAIs de todos los tamaños, desde los muy muy pequeños para equipos domésticos y de pequeña oficina hasta los muy muy grandes, para grandes instalaciones y servidores, como éste de la foto, de 500000VA.
 #+caption: SAI para una gran instalación
 [[file:media/sai-en-rack.png]]
 
 Cabe destacar que existen equipos de medidas normalizadas para armarios rack. Muy útiles para proteger ordenadores y dispositivos de comunicación del mismo armario. Cuando los SAI se colocan en RACK en general, se hace en la parte inferior, debido a dos motivos: por un lado, en la parte inferior es donde suelen estar las tomas eléctricas, y por el otro, las baterías de plomo pesan mucho, así que colocándolos abajo es donde menos sufre el armario por el peso del SAI.
 
-
+#+caption SAI modular de [[https://www.salicru.com/slc-adapt.html][hasta 1.500 kVA]]
+[[file:media/sai-modular-salicru.png]]
 
 ** Grupos electrógenos
 Generan electricidad quemando un combustible (normalmente gasoil).

@@ -1,6 +1,33 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Instalación de Oracle
 
+* Problemas kernel 5.4 en ubuntu 18 :noexport:
+
+https://askubuntu.com/questions/912011/fatal-module-vboxdrv-not-found-in-directory-lib-modules-4-10-0-20-generic
+#+begin_src sh
+sudo apt-get install build-essential linux-headers-`uname -r`
+sudo apt-get install autoconf automake bc bison build-essential flex gcc g++ make python -y
+sudo apt-get purge virtualbox
+s://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install virtualbox-6.0
+#+end_src
+
+
+Da errores de compilación, voy a probar con actualizar el compilador
+Actualizar compilador
+#+begin_src sh
+sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+sudo apt update
+sudo apt install gcc-9
+#+end_src
+
+Poner como versión la 9
+https://stackoverflow.com/questions/7832892/how-to-change-the-default-gcc-compiler-in-ubuntu
+update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-3.3 50
+
+
 * problemas ova 52 en 50 :noexport:
 Problema con Virtualbox
 - El 5.2 hace ova que no se descomprime con 5.0 ni con tar
@@ -32,6 +59,8 @@ sudo apt install virtualbox-5.2
 
 ** Prerequisitos
 - Será una máquina virtual de VirtualBox
+  - [[https://iesavellaneda-my.sharepoint.com/:u:/g/personal/alvaro_gonzalezsotillo_iesavellaneda_onmicrosoft_com/EXY7H7CIAjhFqo4TyIK_wC8BTD9aCVC5-0RUdKsg2WeLhg][Enlace al fichero OVA]]
+  - En clase puede bajarse desde el PC del profesor (más rápido)
 - El fichero =OVA= del profesor ya tiene:
   - *Centos 7* instalado (inglés)
   - *Oracle 12c y 18c* descargado
@@ -202,6 +231,40 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
    - Incluir =$ORACLE_HOME/bin= en el =PATH=
  - También se puede usar [[http://www.orafaq.com/wiki/Oraenv][el comando =oraenv=]] para definir estas variables
 
+*** Relación entre ficheros de inicio de /shell/
+
+#+BEGIN_SRC dot :file ./media/ficheros-inicio-bash.svg :exports results :cmd dot :cmdline -Tsvg
+digraph {
+        "~/.bash_profile" [fontname="courier new"];
+        "~/.bash_login" [fontname="courier new"];
+        "~/.profile" [fontname="courier new"];
+        "~/.bash_logout" [fontname="courier new"];
+        "/etc/bash.bashrc" [fontname="courier new"];
+        "~/.bashrc" [fontname="courier new"];
+        "/etc/profile" [fontname="courier new"];
+
+        "BASH LOGIN" -> "/etc/profile" [label="1º"];
+        "BASH LOGIN" -> "Primero de:" [label="2º"];
+        "Primero de:" -> "~/.bash_profile" [label="1º"];
+        "Primero de:" -> "~/.bash_login" [label="2º"];
+        "Primero de:" -> "~/.profile" [label="3º"];
+        
+        "BASH LOGIN" -> "~/.bash_logout" [label="exit"];
+
+        "BASH INTERACTIVO" -> "/etc/bash.bashrc" [label="1º"]
+        "BASH INTERACTIVO" -> "~/.bashrc" [label="2º"]
+
+        "SH INTERACTIVO" -> "/etc/profile" [label="1º"]
+        "SH INTERACTIVO" -> "~/.profile" [label="2º"]
+
+        "~/.bash_profile" -> "~/.bashrc" [style=dotted]
+}
+#+END_SRC
+
+#+RESULTS:
+[[file:./media/ficheros-inicio-bash.svg]]
+    
+ 
 *** Reiniciar
  - En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno
  - Después, podemos ver que los programas están, *pero no hacen nada*
@@ -489,6 +552,21 @@ See the Instant Client Home Page for more information.
   - =/etc/sysconfig/network-scripts=
   - =ONBOOT= debe ser =YES=
 
+
+* Dirección IP
+- Pondremos IP estática
+  - =etc/sysconfig/network-scripts/ifcfg-enp0s3=
+    #+begin_src sh
+    BOOTPROTO=none
+    PREFIX=16
+    IPADDR=10.1.35.xxx
+    #+end_src
+  - [[https://docs.google.com/spreadsheets/d/1onVe6zpdLe_MWj4k5iQ7bGc5K43kVZ9fhMONyG9whMU/edit#][Lista de direcciones]]
+- Si tengo un portátil, es más cómo tener dos tarjetas en la máquina virtual
+  1) Host-only: Dirección que funciona siempre desde el windows
+  2) Bridged: A enganchar en la wifi, con la dirección apuntada en la [[https://docs.google.com/spreadsheets/d/1onVe6zpdLe_MWj4k5iQ7bGc5K43kVZ9fhMONyG9whMU/edit#][hoja excel de direcciones IP]]
+- También se puede usar =sudo nmtui=
+  
 * Cosas que hemos aprendido /de pasada/
 - Variables de entorno
   - Variable =PATH=

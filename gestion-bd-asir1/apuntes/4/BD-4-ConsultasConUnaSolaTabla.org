@@ -153,7 +153,7 @@ order by last_name;
 select avg(capacity) from section;
 #+END_SRC
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
-** ¿Cuáles son las aulas sin duplicados (location) en las que se imparten secciones con más de 20 alumnos?
+** ¿Cuáles son las aulas sin duplicados (location) en las que se imparten secciones con más de 20 alumnos posibles?
 #+begin_src sql
 select distinct location from section
 where capacity>20;

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2019-10-03 jue 09:03 -->
+<!-- 2020-09-14 lun 10:47 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PLANIFICACIÓN Y ADMINISTRACIÓN DE REDES</title>
@@ -41,7 +41,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -162,6 +162,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -189,7 +202,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -241,22 +254,55 @@ for the JavaScript code in this tag.
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge783bec">1. Cómo serán las clases</a></li>
-<li><a href="#org5aaba69">2. Materiales</a></li>
-<li><a href="#org3a1d875">3. Entrega de Trabajos</a></li>
-<li><a href="#orgba254f1">4. Normas</a></li>
-<li><a href="#org3d404a9">5. Cómo será la evaluación</a></li>
-<li><a href="#orgee714be">6. Temas del libro de referencia</a></li>
-<li><a href="#orgaf4f3b7">7. Contenidos</a></li>
-<li><a href="#org7adfe81">8. Criterios de evaluación</a></li>
-<li><a href="#org3933e2f">9. Contenidos básicos</a></li>
+<li><a href="#org9bb7069">1. Cómo serán las clases</a></li>
+<li><a href="#org50cc807">2. Materiales</a></li>
+<li><a href="#orgffa6202">3. Entrega de Trabajos</a></li>
+<li><a href="#org34f5f70">4. Normas</a></li>
+<li><a href="#org0ddaae3">5. Cómo será la evaluación</a></li>
+<li><a href="#org14f2249">6. Cuenta NETACAD</a></li>
+<li><a href="#org6a6552c">7. Temas del libro de referencia</a></li>
+<li><a href="#orgfbc719d">8. Contenidos</a></li>
+<li><a href="#orgb2e2ce0">9. Criterios de evaluación</a></li>
+<li><a href="#org09ab05c">10. Contenidos básicos</a></li>
 </ul>
 </div>
 </div>
+<script>
+function cargarHighlight(){
+  var script = document.createElement('script');
+  script.onload = function () {
+      console.log("onload para highlight.js");
+      hljs.initHighlightingOnLoad();
+  };
+  script.src = "../../../common/reveal.js/plugin/highlight/highlight.js";
+
+  document.head.appendChild(script);
+}
+
+window.addEventListener("load",()=>{
+  console.log("onload para cargarHighlight");
+  cargarHighlight();
+});
+</script>
 
 
-<div id="outline-container-orge783bec" class="outline-2">
-<h2 id="orge783bec"><span class="section-number-2">1</span> Cómo serán las clases</h2>
+
+<script>
+window.addEventListener("load",()=>{
+  let images = document.getElementsByTagName('img'); 
+  console.log(`Autoenlazando ${images.length} imágenes...`);
+
+  for( let i of images){
+    i.style.cursor = "pointer";
+    i.onclick = ()=> window.location = i.src; 
+  }
+});
+
+</script>
+
+
+<div id="outline-container-org9bb7069" class="outline-2">
+<h2 id="org9bb7069"><span class="section-number-2">1</span> Cómo serán las clases</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Teoría
@@ -279,8 +325,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org5aaba69" class="outline-2">
-<h2 id="org5aaba69"><span class="section-number-2">2</span> Materiales</h2>
+<div id="outline-container-org50cc807" class="outline-2">
+<h2 id="org50cc807"><span class="section-number-2">2</span> Materiales</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Memoria USB</li>
@@ -293,8 +339,8 @@ for the JavaScript code in this tag.
 </ul></li>
 </ul>
 </div>
-<div id="outline-container-org3fe14d6" class="outline-3">
-<h3 id="org3fe14d6"><span class="section-number-3">2.1</span> Libro de texto</h3>
+<div id="outline-container-org2ce41c7" class="outline-3">
+<h3 id="org2ce41c7"><span class="section-number-3">2.1</span> Libro de texto</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li><b>Planificación y Administración de Redes</b></li>
@@ -311,8 +357,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3a1d875" class="outline-2">
-<h2 id="org3a1d875"><span class="section-number-2">3</span> Entrega de Trabajos</h2>
+<div id="outline-container-orgffa6202" class="outline-2">
+<h2 id="orgffa6202"><span class="section-number-2">3</span> Entrega de Trabajos</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Via <b>Moodle</b>
@@ -336,8 +382,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgba254f1" class="outline-2">
-<h2 id="orgba254f1"><span class="section-number-2">4</span> Normas</h2>
+<div id="outline-container-org34f5f70" class="outline-2">
+<h2 id="org34f5f70"><span class="section-number-2">4</span> Normas</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Retrasos y faltas</li>
@@ -355,8 +401,8 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org26ed132" class="outline-3">
-<h3 id="org26ed132"><span class="section-number-3">4.1</span> Averías de los ordenadores</h3>
+<div id="outline-container-orgd7f0ca3" class="outline-3">
+<h3 id="orgd7f0ca3"><span class="section-number-3">4.1</span> Averías de los ordenadores</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Los problemas se comunican al profesor en cuanto se detectan</li>
@@ -376,8 +422,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3d404a9" class="outline-2">
-<h2 id="org3d404a9"><span class="section-number-2">5</span> Cómo será la evaluación</h2>
+<div id="outline-container-org0ddaae3" class="outline-2">
+<h2 id="org0ddaae3"><span class="section-number-2">5</span> Cómo será la evaluación</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Trabajos</li>
@@ -398,8 +444,8 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 
-<div id="outline-container-orgea9dd97" class="outline-3">
-<h3 id="orgea9dd97"><span class="section-number-3">5.1</span> Cálculo de la nota</h3>
+<div id="outline-container-orgadf255b" class="outline-3">
+<h3 id="orgadf255b"><span class="section-number-3">5.1</span> Cálculo de la nota</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Nota de la evaluación</li>
@@ -420,13 +466,13 @@ for the JavaScript code in this tag.
 </div>
 
 <ul class="org-ul">
-<li>Las notas pueden calcularse con <a href="calculo-notas/calculo-notas.html?evaluaciones=2">el calculador de notas.</a></li>
+<li>Las notas pueden calcularse con <a href="../../../common/calculo-notas/calculo-notas.html?evaluaciones=2">el calculador de notas.</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org4d1dd39" class="outline-3">
-<h3 id="org4d1dd39"><span class="section-number-3">5.2</span> Detalles sobre la calificación</h3>
+<div id="outline-container-orgc151f1a" class="outline-3">
+<h3 id="orgc151f1a"><span class="section-number-3">5.2</span> Detalles sobre la calificación</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Son necesarios todos los trabajos para poder aprobar</li>
@@ -449,13 +495,33 @@ for the JavaScript code in this tag.
 
 
 
-<div id="outline-container-orgee714be" class="outline-2">
-<h2 id="orgee714be"><span class="section-number-2">6</span> Temas del libro de referencia</h2>
+<div id="outline-container-org14f2249" class="outline-2">
+<h2 id="org14f2249"><span class="section-number-2">6</span> Cuenta NETACAD</h2>
 <div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>Utilizaremos NETACAD si no se dan las condiciones para realizar prácticas en el aula</li>
+<li>Packet tracer VS Linux &amp; Windows
+<ul class="org-ul">
+<li>Packet tracer es necesario para simular switches</li>
+<li>Para simular redes y routers se sienten más reales las máquinas virtuales</li>
+<li>Versión 7.3.0 (no es la última, pero funciona bien en Windows y Ubuntu)</li>
+</ul></li>
+<li>Curso: <a href="https://1319583.netacad.com/courses/1072889">https://1319583.netacad.com/courses/1072889</a>
+<ul class="org-ul">
+<li>Se necesita un <i>redeem token</i> para matricularse</li>
+<li>Los repartiré en clase</li>
+</ul></li>
+</ul>
 </div>
-<div id="outline-container-org830c2c2" class="outline-3">
-<h3 id="org830c2c2"><span class="section-number-3">6.1</span> Capítulo 1. Caracterización de redes</h3>
-<div class="outline-text-3" id="text-6-1">
+</div>
+
+<div id="outline-container-org6a6552c" class="outline-2">
+<h2 id="org6a6552c"><span class="section-number-2">7</span> Temas del libro de referencia</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org4b87c9c" class="outline-3">
+<h3 id="org4b87c9c"><span class="section-number-3">7.1</span> Capítulo 1. Caracterización de redes</h3>
+<div class="outline-text-3" id="text-7-1">
 <ol class="org-ol">
 <li>La comunicación</li>
 <li>Concepto de red. Ventajas</li>
@@ -467,9 +533,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3e4a843" class="outline-3">
-<h3 id="org3e4a843"><span class="section-number-3">6.2</span> Capítulo 2. Arquitecturas de red</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-org06fb7be" class="outline-3">
+<h3 id="org06fb7be"><span class="section-number-3">7.2</span> Capítulo 2. Arquitecturas de red</h3>
+<div class="outline-text-3" id="text-7-2">
 <ol class="org-ol">
 <li>Organizaciones de estándares</li>
 <li>Arquitectura de red</li>
@@ -482,9 +548,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgdf9593a" class="outline-3">
-<h3 id="orgdf9593a"><span class="section-number-3">6.3</span> Capítulo 3. Redes de área Local</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-org666977a" class="outline-3">
+<h3 id="org666977a"><span class="section-number-3">7.3</span> Capítulo 3. Redes de área Local</h3>
+<div class="outline-text-3" id="text-7-3">
 <ol class="org-ol">
 <li>Introducción a las LAN</li>
 <li>Proyecto IEEE 802</li>
@@ -497,9 +563,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org442b2e9" class="outline-3">
-<h3 id="org442b2e9"><span class="section-number-3">6.4</span> Capítulo 4. Nivel Físico</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-org18a7591" class="outline-3">
+<h3 id="org18a7591"><span class="section-number-3">7.4</span> Capítulo 4. Nivel Físico</h3>
+<div class="outline-text-3" id="text-7-4">
 <ol class="org-ol">
 <li>Introducción a las señales</li>
 <li>Tipos de transmisión</li>
@@ -510,9 +576,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org0c41d38" class="outline-3">
-<h3 id="org0c41d38"><span class="section-number-3">6.5</span> Capítulo 5. Cableado estructurado</h3>
-<div class="outline-text-3" id="text-6-5">
+<div id="outline-container-org454b82d" class="outline-3">
+<h3 id="org454b82d"><span class="section-number-3">7.5</span> Capítulo 5. Cableado estructurado</h3>
+<div class="outline-text-3" id="text-7-5">
 <ol class="org-ol">
 <li>Introducción</li>
 <li>Espacios y recorridos para telecomunicaciones en edificios comerciales</li>
@@ -521,9 +587,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orge681652" class="outline-3">
-<h3 id="orge681652"><span class="section-number-3">6.6</span> Capítulo 6. Nivel de Enlace</h3>
-<div class="outline-text-3" id="text-6-6">
+<div id="outline-container-org908a3d0" class="outline-3">
+<h3 id="org908a3d0"><span class="section-number-3">7.6</span> Capítulo 6. Nivel de Enlace</h3>
+<div class="outline-text-3" id="text-7-6">
 <ol class="org-ol">
 <li>Funciones del nivel de enlace</li>
 <li>Tramado
@@ -546,9 +612,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7939dc2" class="outline-3">
-<h3 id="org7939dc2"><span class="section-number-3">6.7</span> Capítulo 7. El switch. STP. VLAN. Diseño de una red</h3>
-<div class="outline-text-3" id="text-6-7">
+<div id="outline-container-orga97ff59" class="outline-3">
+<h3 id="orga97ff59"><span class="section-number-3">7.7</span> Capítulo 7. El switch. STP. VLAN. Diseño de una red</h3>
+<div class="outline-text-3" id="text-7-7">
 <ol class="org-ol">
 <li>El switch
 <ol class="org-ol">
@@ -579,9 +645,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3d8be04" class="outline-3">
-<h3 id="org3d8be04"><span class="section-number-3">6.8</span> Capítulo 8. Nivel de red. Direccionamiento IPv4 e IPv6. Adaptadores de red</h3>
-<div class="outline-text-3" id="text-6-8">
+<div id="outline-container-org9d63c29" class="outline-3">
+<h3 id="org9d63c29"><span class="section-number-3">7.8</span> Capítulo 8. Nivel de red. Direccionamiento IPv4 e IPv6. Adaptadores de red</h3>
+<div class="outline-text-3" id="text-7-8">
 <ol class="org-ol">
 <li>Nivel de red. Objetivo, funciones y protocolos</li>
 <li>Protocolo IP
@@ -629,9 +695,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org4438a18" class="outline-3">
-<h3 id="org4438a18"><span class="section-number-3">6.9</span> Capítulo 9. El router. Configuración</h3>
-<div class="outline-text-3" id="text-6-9">
+<div id="outline-container-org4beb6ee" class="outline-3">
+<h3 id="org4beb6ee"><span class="section-number-3">7.9</span> Capítulo 9. El router. Configuración</h3>
+<div class="outline-text-3" id="text-7-9">
 <ol class="org-ol">
 <li>El router
 <ol class="org-ol">
@@ -657,9 +723,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org9d16c70" class="outline-3">
-<h3 id="org9d16c70"><span class="section-number-3">6.10</span> Capítulo 10. Protocolos de enrutamiento</h3>
-<div class="outline-text-3" id="text-6-10">
+<div id="outline-container-org63cb9dd" class="outline-3">
+<h3 id="org63cb9dd"><span class="section-number-3">7.10</span> Capítulo 10. Protocolos de enrutamiento</h3>
+<div class="outline-text-3" id="text-7-10">
 <ol class="org-ol">
 <li>Concepto de enrutamiento</li>
 <li>Tipos de enrutamiento
@@ -692,9 +758,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org74444ee" class="outline-3">
-<h3 id="org74444ee"><span class="section-number-3">6.11</span> Capítulo 11. Seguridad: ACL, Firewall y DMZ</h3>
-<div class="outline-text-3" id="text-6-11">
+<div id="outline-container-org5bef42c" class="outline-3">
+<h3 id="org5bef42c"><span class="section-number-3">7.11</span> Capítulo 11. Seguridad: ACL, Firewall y DMZ</h3>
+<div class="outline-text-3" id="text-7-11">
 <ol class="org-ol">
 <li>ACL. Listas de control de acceso
 <ol class="org-ol">
@@ -712,9 +778,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org6adb233" class="outline-3">
-<h3 id="org6adb233"><span class="section-number-3">6.12</span> Capítulo 12. Acceso a Internet. NAPT</h3>
-<div class="outline-text-3" id="text-6-12">
+<div id="outline-container-org2ce2905" class="outline-3">
+<h3 id="org2ce2905"><span class="section-number-3">7.12</span> Capítulo 12. Acceso a Internet. NAPT</h3>
+<div class="outline-text-3" id="text-7-12">
 <ol class="org-ol">
 <li>Técnicas de conmutación
 <ol class="org-ol">
@@ -742,17 +808,17 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-orgaf4f3b7" class="outline-2">
-<h2 id="orgaf4f3b7"><span class="section-number-2">7</span> Contenidos</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-orgfbc719d" class="outline-2">
+<h2 id="orgfbc719d"><span class="section-number-2">8</span> Contenidos</h2>
+<div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Decreto 12/2010, de 18 de marzo</li>
 </ul>
 </div>
 
-<div id="outline-container-org1743c85" class="outline-3">
-<h3 id="org1743c85"><span class="section-number-3">7.1</span> Caracterización de redes:</h3>
-<div class="outline-text-3" id="text-7-1">
+<div id="outline-container-org549065d" class="outline-3">
+<h3 id="org549065d"><span class="section-number-3">8.1</span> Caracterización de redes:</h3>
+<div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li>Sistemas de numeración decimal, binario y hexadecimal. Conversión entre sistemas.</li>
 <li>Sistemas de comunicación. Características y componentes.</li>
@@ -768,9 +834,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org34f0d98" class="outline-3">
-<h3 id="org34f0d98"><span class="section-number-3">7.2</span> Integración de elementos en una red: Fundamentos de redes.</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-org7d3e074" class="outline-3">
+<h3 id="org7d3e074"><span class="section-number-3">8.2</span> Integración de elementos en una red: Fundamentos de redes.</h3>
+<div class="outline-text-3" id="text-8-2">
 <ul class="org-ul">
 <li>Nivel físico. Aspectos físicos básicos en la transmisión de datos:
 <ul class="org-ul">
@@ -821,9 +887,9 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-org0f0bab0" class="outline-3">
-<h3 id="org0f0bab0"><span class="section-number-3">7.3</span> Integración de elementos en una red: Redes de área local.</h3>
-<div class="outline-text-3" id="text-7-3">
+<div id="outline-container-orga21d7d7" class="outline-3">
+<h3 id="orga21d7d7"><span class="section-number-3">8.3</span> Integración de elementos en una red: Redes de área local.</h3>
+<div class="outline-text-3" id="text-8-3">
 <ul class="org-ul">
 <li>Características.</li>
 <li>Estándares.</li>
@@ -863,9 +929,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgd45447d" class="outline-3">
-<h3 id="orgd45447d"><span class="section-number-3">7.4</span> Configuración y administración de conmutadores:</h3>
-<div class="outline-text-3" id="text-7-4">
+<div id="outline-container-org755a814" class="outline-3">
+<h3 id="org755a814"><span class="section-number-3">8.4</span> Configuración y administración de conmutadores:</h3>
+<div class="outline-text-3" id="text-8-4">
 <ul class="org-ul">
 <li>Tipos de conmutadores: Velocidad, gestionables/no gestionables, ubicación,…</li>
 <li>Conmutadores y dominios de colisión y «broadcast».</li>
@@ -882,9 +948,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org317d254" class="outline-3">
-<h3 id="org317d254"><span class="section-number-3">7.5</span> Configuración y administración básica de «routers»:</h3>
-<div class="outline-text-3" id="text-7-5">
+<div id="outline-container-org94b2c18" class="outline-3">
+<h3 id="org94b2c18"><span class="section-number-3">8.5</span> Configuración y administración básica de «routers»:</h3>
+<div class="outline-text-3" id="text-8-5">
 <ul class="org-ul">
 <li>Los «routers» en las LAN y en las WAN.</li>
 <li>Componentes del «router».</li>
@@ -897,9 +963,9 @@ for the JavaScript code in this tag.
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc2f9689" class="outline-3">
-<h3 id="orgc2f9689"><span class="section-number-3">7.6</span> Configuración de redes virtuales VLANs (Virtual Local Area Network):</h3>
-<div class="outline-text-3" id="text-7-6">
+<div id="outline-container-org98a52a8" class="outline-3">
+<h3 id="org98a52a8"><span class="section-number-3">8.6</span> Configuración de redes virtuales VLANs (Virtual Local Area Network):</h3>
+<div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>Características de las VLANs</li>
 <li>Ventajas.</li>
@@ -913,9 +979,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org63819fc" class="outline-3">
-<h3 id="org63819fc"><span class="section-number-3">7.7</span> Configuración y administración de protocolos dinámicos:</h3>
-<div class="outline-text-3" id="text-7-7">
+<div id="outline-container-org6d5194f" class="outline-3">
+<h3 id="org6d5194f"><span class="section-number-3">8.7</span> Configuración y administración de protocolos dinámicos:</h3>
+<div class="outline-text-3" id="text-8-7">
 <ul class="org-ul">
 <li>Protocolos enrutables y protocolos de enrutamiento.</li>
 <li>Encaminamiento estático vs. encaminamiento dinámico.</li>
@@ -929,9 +995,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3a6844a" class="outline-3">
-<h3 id="org3a6844a"><span class="section-number-3">7.8</span> Configuración del acceso a Internet desde una LAN:</h3>
-<div class="outline-text-3" id="text-7-8">
+<div id="outline-container-org2b51937" class="outline-3">
+<h3 id="org2b51937"><span class="section-number-3">8.8</span> Configuración del acceso a Internet desde una LAN:</h3>
+<div class="outline-text-3" id="text-8-8">
 <ul class="org-ul">
 <li>Arquitectura de acceso a Internet.</li>
 <li>Tecnologías de acceso a Internet.
@@ -951,18 +1017,18 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org7adfe81" class="outline-2">
-<h2 id="org7adfe81"><span class="section-number-2">8</span> Criterios de evaluación</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgb2e2ce0" class="outline-2">
+<h2 id="orgb2e2ce0"><span class="section-number-2">9</span> Criterios de evaluación</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 Cada resultado de aprendizaje tiene sus criterios de evaluación correspondiente.
 La nota del módulo depende del logro de los criterios de evaluación.
 </p>
 </div>
 
-<div id="outline-container-org4902135" class="outline-3">
-<h3 id="org4902135"><span class="section-number-3">8.1</span> Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.</h3>
-<div class="outline-text-3" id="text-8-1">
+<div id="outline-container-org9001e68" class="outline-3">
+<h3 id="org9001e68"><span class="section-number-3">9.1</span> Reconoce la estructura de las redes de datos identificando sus elementos y principios de funcionamiento.</h3>
+<div class="outline-text-3" id="text-9-1">
 <ol class="org-ol">
 <li>Se han identificado los factores que impulsan la continua expansión y evolución de las redes de datos.</li>
 <li>Se han diferenciado los distintos medios de transmisión utilizados en las redes.</li>
@@ -975,9 +1041,9 @@ La nota del módulo depende del logro de los criterios de evaluación.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf8fe197" class="outline-3">
-<h3 id="orgf8fe197"><span class="section-number-3">8.2</span> Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su funcionamiento y prestaciones.</h3>
-<div class="outline-text-3" id="text-8-2">
+<div id="outline-container-org19697e3" class="outline-3">
+<h3 id="org19697e3"><span class="section-number-3">9.2</span> Integra ordenadores y periféricos en redes cableadas e inalámbricas, evaluando su funcionamiento y prestaciones.</h3>
+<div class="outline-text-3" id="text-9-2">
 <ol class="org-ol">
 <li>Se han identificado los estándares para redes cableadas e inalámbricas.</li>
 <li>Se han montado cables directos, cruzados y de consola.</li>
@@ -991,9 +1057,9 @@ La nota del módulo depende del logro de los criterios de evaluación.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgba33fea" class="outline-3">
-<h3 id="orgba33fea"><span class="section-number-3">8.3</span> Administra conmutadores estableciendo opciones de configuración para su integración en la red.</h3>
-<div class="outline-text-3" id="text-8-3">
+<div id="outline-container-org46e77f8" class="outline-3">
+<h3 id="org46e77f8"><span class="section-number-3">9.3</span> Administra conmutadores estableciendo opciones de configuración para su integración en la red.</h3>
+<div class="outline-text-3" id="text-9-3">
 <ol class="org-ol">
 <li>Se han conectado conmutadores entre sí y con las estaciones de trabajo.</li>
 <li>Se ha interpretado la información que proporcionan los «leds» del conmutador.</li>
@@ -1008,9 +1074,9 @@ La nota del módulo depende del logro de los criterios de evaluación.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgf768d10" class="outline-3">
-<h3 id="orgf768d10"><span class="section-number-3">8.4</span> Administra las funciones básicas de un «router» estableciendo opciones de configuración para su integración en la red.</h3>
-<div class="outline-text-3" id="text-8-4">
+<div id="outline-container-org50621e0" class="outline-3">
+<h3 id="org50621e0"><span class="section-number-3">9.4</span> Administra las funciones básicas de un «router» estableciendo opciones de configuración para su integración en la red.</h3>
+<div class="outline-text-3" id="text-9-4">
 <ol class="org-ol">
 <li>Se ha interpretado la información que proporcionan los «leds» del «router».</li>
 <li>Se han utilizado distintos métodos para acceder al modo de configuración del «router».</li>
@@ -1025,9 +1091,9 @@ La nota del módulo depende del logro de los criterios de evaluación.
 </ol>
 </div>
 </div>
-<div id="outline-container-orgc320844" class="outline-3">
-<h3 id="orgc320844"><span class="section-number-3">8.5</span> Configura redes locales virtuales identificando su campo de aplicación.</h3>
-<div class="outline-text-3" id="text-8-5">
+<div id="outline-container-orgf467b0a" class="outline-3">
+<h3 id="orgf467b0a"><span class="section-number-3">9.5</span> Configura redes locales virtuales identificando su campo de aplicación.</h3>
+<div class="outline-text-3" id="text-9-5">
 <ol class="org-ol">
 <li>Se han descrito las ventajas que presenta la utilización de redes locales virtuales (VLANs).</li>
 <li>Se han implementado VLANs.</li>
@@ -1039,9 +1105,9 @@ La nota del módulo depende del logro de los criterios de evaluación.
 </ol>
 </div>
 </div>
-<div id="outline-container-org87f9cf7" class="outline-3">
-<h3 id="org87f9cf7"><span class="section-number-3">8.6</span> Realiza tareas avanzadas de administración de red analizando y utilizando protocolos dinámicos de encaminamiento.</h3>
-<div class="outline-text-3" id="text-8-6">
+<div id="outline-container-org42e503a" class="outline-3">
+<h3 id="org42e503a"><span class="section-number-3">9.6</span> Realiza tareas avanzadas de administración de red analizando y utilizando protocolos dinámicos de encaminamiento.</h3>
+<div class="outline-text-3" id="text-9-6">
 <p>
 Criterios de evaluación:
 </p>
@@ -1058,9 +1124,9 @@ Criterios de evaluación:
 </div>
 </div>
 
-<div id="outline-container-orga6ee618" class="outline-3">
-<h3 id="orga6ee618"><span class="section-number-3">8.7</span> Conecta redes privadas a redes públicas identificando y aplicando diferentes tecnologías.</h3>
-<div class="outline-text-3" id="text-8-7">
+<div id="outline-container-org4a118cf" class="outline-3">
+<h3 id="org4a118cf"><span class="section-number-3">9.7</span> Conecta redes privadas a redes públicas identificando y aplicando diferentes tecnologías.</h3>
+<div class="outline-text-3" id="text-9-7">
 <ol class="org-ol">
 <li>Se han descrito las ventajas e inconvenientes del uso de la traducción de direcciones de red (NAT).</li>
 <li>Se ha utilizado NAT para realizar la traducción estática de direcciones de red.</li>
@@ -1073,18 +1139,18 @@ Criterios de evaluación:
 </div>
 </div>
 
-<div id="outline-container-org3933e2f" class="outline-2">
-<h2 id="org3933e2f"><span class="section-number-2">9</span> Contenidos básicos</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-org09ab05c" class="outline-2">
+<h2 id="org09ab05c"><span class="section-number-2">10</span> Contenidos básicos</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Incluídos solo como referencia</li>
 <li>No son aplicables en la Comunidad de Madrid</li>
 </ul>
 </div>
 
-<div id="outline-container-org8399ab3" class="outline-3">
-<h3 id="org8399ab3"><span class="section-number-3">9.1</span> Caracterización de redes:</h3>
-<div class="outline-text-3" id="text-9-1">
+<div id="outline-container-orgd7f6a04" class="outline-3">
+<h3 id="orgd7f6a04"><span class="section-number-3">10.1</span> Caracterización de redes:</h3>
+<div class="outline-text-3" id="text-10-1">
 <p>
 	Terminología: redes LAN, MAN y WAN, topologías, arquitecturas, protocolos.
 	Sistemas de numeración decimal, binario y hexadecimal. Conversión entre sistemas.
@@ -1098,9 +1164,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-org9953459" class="outline-3">
-<h3 id="org9953459"><span class="section-number-3">9.2</span> Integración de elementos en una red:</h3>
-<div class="outline-text-3" id="text-9-2">
+<div id="outline-container-orga66f4f8" class="outline-3">
+<h3 id="orga66f4f8"><span class="section-number-3">10.2</span> Integración de elementos en una red:</h3>
+<div class="outline-text-3" id="text-10-2">
 <p>
 	Los medios físicos.
 	Ancho de banda y tasa de transferencia.
@@ -1117,9 +1183,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-org56b3165" class="outline-3">
-<h3 id="org56b3165"><span class="section-number-3">9.3</span> Configuración y administración de conmutadores:</h3>
-<div class="outline-text-3" id="text-9-3">
+<div id="outline-container-org1cd34e9" class="outline-3">
+<h3 id="org1cd34e9"><span class="section-number-3">10.3</span> Configuración y administración de conmutadores:</h3>
+<div class="outline-text-3" id="text-10-3">
 <p>
 	Segmentación de la red. Ventajas que presenta.
 	Conmutadores y dominios de colisión y «broadcast».
@@ -1130,9 +1196,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-orgecb4f72" class="outline-3">
-<h3 id="orgecb4f72"><span class="section-number-3">9.4</span> Configuración y administración básica de «routers»:</h3>
-<div class="outline-text-3" id="text-9-4">
+<div id="outline-container-org83dd70e" class="outline-3">
+<h3 id="org83dd70e"><span class="section-number-3">10.4</span> Configuración y administración básica de «routers»:</h3>
+<div class="outline-text-3" id="text-10-4">
 <p>
 	Los «routers» en las LAN y en las WAN.
 	Componentes del «router».
@@ -1144,9 +1210,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-orgb4cdaa8" class="outline-3">
-<h3 id="orgb4cdaa8"><span class="section-number-3">9.5</span> Configuración de redes virtuales:</h3>
-<div class="outline-text-3" id="text-9-5">
+<div id="outline-container-orgb5e084e" class="outline-3">
+<h3 id="orgb5e084e"><span class="section-number-3">10.5</span> Configuración de redes virtuales:</h3>
+<div class="outline-text-3" id="text-10-5">
 <p>
 	El diseño de redes locales a tres capas (núcleo, distribución y acceso).
 	Implantación y configuración de redes virtuales.
@@ -1154,9 +1220,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-orgc4e46b6" class="outline-3">
-<h3 id="orgc4e46b6"><span class="section-number-3">9.6</span> Configuración y administración de protocolos dinámicos:</h3>
-<div class="outline-text-3" id="text-9-6">
+<div id="outline-container-orga1eb966" class="outline-3">
+<h3 id="orga1eb966"><span class="section-number-3">10.6</span> Configuración y administración de protocolos dinámicos:</h3>
+<div class="outline-text-3" id="text-10-6">
 <p>
 	Protocolos enrutables y protocolos de enrutamiento.
 	Protocolos de enrutamiento interior y exterior.
@@ -1168,9 +1234,9 @@ Criterios de evaluación:
 </p>
 </div>
 </div>
-<div id="outline-container-orgd91928c" class="outline-3">
-<h3 id="orgd91928c"><span class="section-number-3">9.7</span> Configuración del acceso a Internet desde una LAN:</h3>
-<div class="outline-text-3" id="text-9-7">
+<div id="outline-container-org4d8af5c" class="outline-3">
+<h3 id="org4d8af5c"><span class="section-number-3">10.7</span> Configuración del acceso a Internet desde una LAN:</h3>
+<div class="outline-text-3" id="text-10-7">
 <p>
 	Direccionamiento interno y direccionamiento externo.
 	NAT origen y NAT destino.
@@ -1185,7 +1251,7 @@ Criterios de evaluación:
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-10-03 jue 09:03</p>
+<p class="date">Created: 2020-09-14 lun 10:47</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

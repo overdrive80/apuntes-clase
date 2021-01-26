@@ -3,12 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-05-15 mié 13:16 -->
+<!-- 2020-03-10 mar 13:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ejemplos y ejercicios PLSQL</title>
 <meta name="generator" content="Org mode" />
-<meta name="author" content="alvaro" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
@@ -198,7 +197,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -247,51 +246,51 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org22323fc">1. Programación</a>
+<li><a href="#orgd3d2152">1. Programación</a>
 <ul>
-<li><a href="#org304fc03">1.1. Tabla de multiplicar Del 7</a></li>
-<li><a href="#org83afc0f">1.2. Tablas de multiplicar del 1 al 9</a></li>
-<li><a href="#org575c75e">1.3. Tablas de multiplicar bien alineadas</a></li>
-<li><a href="#org3d0fb02">1.4. Nota cualitativa</a></li>
-<li><a href="#orga785933">1.5. Pasar de decimal a binario</a></li>
-<li><a href="#org583cfa6">1.6. Pasar de decimal a una base entre 2 y 16</a></li>
-<li><a href="#orgfd2a096">1.7. Pasar de una base de 2 a 16 a decimal</a></li>
-<li><a href="#orgbb46834">1.8. Imprimir los números primos menores de 1000</a></li>
-<li><a href="#orgd1614d4">1.9. Decidir si un número es capicúa</a></li>
-<li><a href="#org9694e28">1.10. Imprimir los Números primos capicúas menores de 100000</a></li>
-<li><a href="#orgd893c79">1.11. Decidir si 1000003 es primo</a></li>
-<li><a href="#org75f2356">1.12. Convertir boolean a char</a></li>
+<li><a href="#org4cf61c6">1.1. Tabla de multiplicar Del 7</a></li>
+<li><a href="#org0a2ae88">1.2. Tablas de multiplicar del 1 al 9</a></li>
+<li><a href="#org1b6d716">1.3. Tablas de multiplicar bien alineadas</a></li>
+<li><a href="#org8a5a48a">1.4. Nota cualitativa</a></li>
+<li><a href="#org582422d">1.5. Pasar de decimal a binario</a></li>
+<li><a href="#orga411c7b">1.6. Pasar de decimal a una base entre 2 y 16</a></li>
+<li><a href="#orga1c9853">1.7. Pasar de una base de 2 a 16 a decimal</a></li>
+<li><a href="#org8d8d293">1.8. Imprimir los números primos menores de 1000</a></li>
+<li><a href="#orgb9d2664">1.9. Decidir si un número es capicúa</a></li>
+<li><a href="#org59417ef">1.10. Imprimir los Números primos capicúas menores de 100000</a></li>
+<li><a href="#orgac1c8d4">1.11. Decidir si 1000003 es primo</a></li>
+<li><a href="#orgb7be306">1.12. Convertir boolean a char</a></li>
 </ul>
 </li>
-<li><a href="#org1cc3338">2. Estudiantes</a>
+<li><a href="#orgcc6f4bc">2. Estudiantes</a>
 <ul>
-<li><a href="#orgc76a607">2.1. Estadística por nombre</a></li>
-<li><a href="#org391e9e2">2.2. Matricular un hermano</a></li>
-<li><a href="#org82e2854">2.3. Calcular nota máxima y mínima</a></li>
-<li><a href="#org75c9139">2.4. Calcular la media de notas por encima de cierto valor</a></li>
-<li><a href="#org4d72515">2.5. Costes totales de los cursos</a></li>
-<li><a href="#org09494d8">2.6. Insertar un ID automático en un estudiante</a></li>
-<li><a href="#orgc923f2f">2.7. Actualizar campos de auditoría</a></li>
+<li><a href="#org7e9280d">2.1. Estadística por nombre</a></li>
+<li><a href="#org959745f">2.2. Matricular un hermano</a></li>
+<li><a href="#org715c4b9">2.3. Calcular nota máxima y mínima</a></li>
+<li><a href="#org2b37165">2.4. Calcular la media de notas por encima de cierto valor</a></li>
+<li><a href="#orgb06febf">2.5. Costes totales de los cursos</a></li>
+<li><a href="#orgacfe94e">2.6. Insertar un ID automático en un estudiante</a></li>
+<li><a href="#org41325f2">2.7. Actualizar campos de auditoría</a></li>
 </ul>
 </li>
-<li><a href="#orgd789a4a">3. Sueldos y masa salarial (desnormalización)</a>
+<li><a href="#org6c0b679">3. Sueldos y masa salarial (desnormalización)</a>
 <ul>
-<li><a href="#org68c867d">3.1. Tablas de masa salarial</a></li>
-<li><a href="#org58496dc">3.2. Limitar los sueldos por arriba y por abajo</a></li>
-<li><a href="#org1d267d9">3.3. Inicializar la masa salarial</a></li>
-<li><a href="#org8314b0a">3.4. Actualizar al borrar</a></li>
-<li><a href="#orgcea0660">3.5. Actualizar al modificar o insertar</a></li>
+<li><a href="#org82915c9">3.1. Tablas de masa salarial</a></li>
+<li><a href="#org5e131ab">3.2. Limitar los sueldos por arriba y por abajo</a></li>
+<li><a href="#orgd278094">3.3. Inicializar la masa salarial</a></li>
+<li><a href="#orgbb55fb8">3.4. Actualizar al borrar</a></li>
+<li><a href="#org325c3c8">3.5. Actualizar al modificar o insertar</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org22323fc" class="outline-2">
-<h2 id="org22323fc"><span class="section-number-2">1</span> Programación</h2>
+<div id="outline-container-orgd3d2152" class="outline-2">
+<h2 id="orgd3d2152"><span class="section-number-2">1</span> Programación</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org304fc03" class="outline-3">
-<h3 id="org304fc03"><span class="section-number-3">1.1</span> Tabla de multiplicar Del 7</h3>
+<div id="outline-container-org4cf61c6" class="outline-3">
+<h3 id="org4cf61c6"><span class="section-number-3">1.1</span> Tabla de multiplicar Del 7</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="org-src-container">
 <pre class="src src-c">7 x 1 = 7
@@ -301,11 +300,11 @@ for the JavaScript code in this tag.
 </div>
 </div>
 </div>
-<div id="outline-container-org83afc0f" class="outline-3">
-<h3 id="org83afc0f"><span class="section-number-3">1.2</span> Tablas de multiplicar del 1 al 9</h3>
+<div id="outline-container-org0a2ae88" class="outline-3">
+<h3 id="org0a2ae88"><span class="section-number-3">1.2</span> Tablas de multiplicar del 1 al 9</h3>
 </div>
-<div id="outline-container-org575c75e" class="outline-3">
-<h3 id="org575c75e"><span class="section-number-3">1.3</span> Tablas de multiplicar bien alineadas</h3>
+<div id="outline-container-org1b6d716" class="outline-3">
+<h3 id="org1b6d716"><span class="section-number-3">1.3</span> Tablas de multiplicar bien alineadas</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 Los números se tabulan alineándolos a la derecha
@@ -313,57 +312,57 @@ Los números se tabulan alineándolos a la derecha
 <div class="org-src-container">
 <pre class="src src-c">7 x  1 =  7
 7 x  2 = 14
-7 x  3 = 14
-7 x  4 = 14
-7 x  5 = 14
-7 x  6 = 14
-7 x  7 = 14
-7 x  8 = 14
-7 x  9 = 14
-7 x 10 = 14
+7 x  3 = 21
+7 x  4 = 28
+7 x  5 = 35
+7 x  6 = 42
+7 x  7 = 49
+7 x  8 = 56
+7 x  9 = 63
+7 x 10 = 70
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org3d0fb02" class="outline-3">
-<h3 id="org3d0fb02"><span class="section-number-3">1.4</span> Nota cualitativa</h3>
+<div id="outline-container-org8a5a48a" class="outline-3">
+<h3 id="org8a5a48a"><span class="section-number-3">1.4</span> Nota cualitativa</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 Haz una función que reciba una nota numérica sobre 10 y devuelva su nota cualitativa. Por ejemplo, para <code>7.3</code> es <code>notable</code>.
 </p>
 </div>
 </div>
-<div id="outline-container-orga785933" class="outline-3">
-<h3 id="orga785933"><span class="section-number-3">1.5</span> Pasar de decimal a binario</h3>
+<div id="outline-container-org582422d" class="outline-3">
+<h3 id="org582422d"><span class="section-number-3">1.5</span> Pasar de decimal a binario</h3>
 </div>
-<div id="outline-container-org583cfa6" class="outline-3">
-<h3 id="org583cfa6"><span class="section-number-3">1.6</span> Pasar de decimal a una base entre 2 y 16</h3>
+<div id="outline-container-orga411c7b" class="outline-3">
+<h3 id="orga411c7b"><span class="section-number-3">1.6</span> Pasar de decimal a una base entre 2 y 16</h3>
 </div>
-<div id="outline-container-orgfd2a096" class="outline-3">
-<h3 id="orgfd2a096"><span class="section-number-3">1.7</span> Pasar de una base de 2 a 16 a decimal</h3>
+<div id="outline-container-orga1c9853" class="outline-3">
+<h3 id="orga1c9853"><span class="section-number-3">1.7</span> Pasar de una base de 2 a 16 a decimal</h3>
 </div>
-<div id="outline-container-orgbb46834" class="outline-3">
-<h3 id="orgbb46834"><span class="section-number-3">1.8</span> Imprimir los números primos menores de 1000</h3>
+<div id="outline-container-org8d8d293" class="outline-3">
+<h3 id="org8d8d293"><span class="section-number-3">1.8</span> Imprimir los números primos menores de 1000</h3>
 </div>
 
-<div id="outline-container-orgd1614d4" class="outline-3">
-<h3 id="orgd1614d4"><span class="section-number-3">1.9</span> Decidir si un número es capicúa</h3>
+<div id="outline-container-orgb9d2664" class="outline-3">
+<h3 id="orgb9d2664"><span class="section-number-3">1.9</span> Decidir si un número es capicúa</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 Usa <code>to_char</code> para pasar el número a texto, y utiliza <code>substr</code> para extraer posiciones del texto y compararlas.
 </p>
 </div>
 </div>
-<div id="outline-container-org9694e28" class="outline-3">
-<h3 id="org9694e28"><span class="section-number-3">1.10</span> Imprimir los Números primos capicúas menores de 100000</h3>
+<div id="outline-container-org59417ef" class="outline-3">
+<h3 id="org59417ef"><span class="section-number-3">1.10</span> Imprimir los Números primos capicúas menores de 100000</h3>
 </div>
 
-<div id="outline-container-orgd893c79" class="outline-3">
-<h3 id="orgd893c79"><span class="section-number-3">1.11</span> Decidir si 1000003 es primo</h3>
+<div id="outline-container-orgac1c8d4" class="outline-3">
+<h3 id="orgac1c8d4"><span class="section-number-3">1.11</span> Decidir si 1000003 es primo</h3>
 </div>
-<div id="outline-container-org75f2356" class="outline-3">
-<h3 id="org75f2356"><span class="section-number-3">1.12</span> Convertir boolean a char</h3>
+<div id="outline-container-orgb7be306" class="outline-3">
+<h3 id="orgb7be306"><span class="section-number-3">1.12</span> Convertir boolean a char</h3>
 <div class="outline-text-3" id="text-1-12">
 <p>
 Crea una función que reciba un <code>boolean</code> y devuelva <code>'si'</code> si es <code>true</code> y <code>'no'</code> si es <code>false</code>.
@@ -377,12 +376,12 @@ Crea una función que reciba un <code>boolean</code> y devuelva <code>'si'</code
 
 
 
-<div id="outline-container-org1cc3338" class="outline-2">
-<h2 id="org1cc3338"><span class="section-number-2">2</span> Estudiantes</h2>
+<div id="outline-container-orgcc6f4bc" class="outline-2">
+<h2 id="orgcc6f4bc"><span class="section-number-2">2</span> Estudiantes</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgc76a607" class="outline-3">
-<h3 id="orgc76a607"><span class="section-number-3">2.1</span> Estadística por nombre</h3>
+<div id="outline-container-org7e9280d" class="outline-3">
+<h3 id="org7e9280d"><span class="section-number-3">2.1</span> Estadística por nombre</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Crea un procedimiento que reciba un nombre o apellido, e imprima cuántos alumnos tienen ese nombre o apellido.
@@ -391,8 +390,8 @@ Crea un procedimiento que reciba un nombre o apellido, e imprima cuántos alumno
 </div>
 
 
-<div id="outline-container-org391e9e2" class="outline-3">
-<h3 id="org391e9e2"><span class="section-number-3">2.2</span> Matricular un hermano</h3>
+<div id="outline-container-org959745f" class="outline-3">
+<h3 id="org959745f"><span class="section-number-3">2.2</span> Matricular un hermano</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Un hermano comparte todos los datos, excepto el nombre y el tratamiento
@@ -400,8 +399,8 @@ Un hermano comparte todos los datos, excepto el nombre y el tratamiento
 </div>
 </div>
 
-<div id="outline-container-org82e2854" class="outline-3">
-<h3 id="org82e2854"><span class="section-number-3">2.3</span> Calcular nota máxima y mínima</h3>
+<div id="outline-container-org715c4b9" class="outline-3">
+<h3 id="org715c4b9"><span class="section-number-3">2.3</span> Calcular nota máxima y mínima</h3>
 <div class="outline-text-3" id="text-2-3">
 <p>
 Crea un procedimiento con dos parámetros out, que devuelvan la nota mínima y máxima entre las notas parciales (tabla <code>grade</code>)
@@ -409,8 +408,8 @@ Crea un procedimiento con dos parámetros out, que devuelvan la nota mínima y m
 </div>
 </div>
 
-<div id="outline-container-org75c9139" class="outline-3">
-<h3 id="org75c9139"><span class="section-number-3">2.4</span> Calcular la media de notas por encima de cierto valor</h3>
+<div id="outline-container-org2b37165" class="outline-3">
+<h3 id="org2b37165"><span class="section-number-3">2.4</span> Calcular la media de notas por encima de cierto valor</h3>
 <div class="outline-text-3" id="text-2-4">
 <p>
 Crea una función que devuelva la media de las notas mayores que un umbral (tabla <code>grade</code>)
@@ -418,8 +417,8 @@ Crea una función que devuelva la media de las notas mayores que un umbral (tabl
 </div>
 </div>
 
-<div id="outline-container-org4d72515" class="outline-3">
-<h3 id="org4d72515"><span class="section-number-3">2.5</span> Costes totales de los cursos</h3>
+<div id="outline-container-orgb06febf" class="outline-3">
+<h3 id="orgb06febf"><span class="section-number-3">2.5</span> Costes totales de los cursos</h3>
 <div class="outline-text-3" id="text-2-5">
 <p>
 Funcion que devuelve la suma de los precios de todos los cursos (table <code>course</code>)
@@ -427,8 +426,8 @@ Funcion que devuelve la suma de los precios de todos los cursos (table <code>cou
 </div>
 </div>
 
-<div id="outline-container-org09494d8" class="outline-3">
-<h3 id="org09494d8"><span class="section-number-3">2.6</span> Insertar un ID automático en un estudiante</h3>
+<div id="outline-container-orgacfe94e" class="outline-3">
+<h3 id="orgacfe94e"><span class="section-number-3">2.6</span> Insertar un ID automático en un estudiante</h3>
 <div class="outline-text-3" id="text-2-6">
 <p>
 Crea un <i>trigger</i> que añada un ID a los estudiantes insertados, en el caso de que no tengan un ID ya asignado. El ID saldrá de una secuencia.
@@ -436,8 +435,8 @@ Crea un <i>trigger</i> que añada un ID a los estudiantes insertados, en el caso
 </div>
 </div>
 
-<div id="outline-container-orgc923f2f" class="outline-3">
-<h3 id="orgc923f2f"><span class="section-number-3">2.7</span> Actualizar campos de auditoría</h3>
+<div id="outline-container-org41325f2" class="outline-3">
+<h3 id="org41325f2"><span class="section-number-3">2.7</span> Actualizar campos de auditoría</h3>
 <div class="outline-text-3" id="text-2-7">
 <p>
 Crea  <i>triggers</i> que actualicen los campos de auditoría <code>modified_by</code> y <code>modified_date</code> de todas las tablas de la base de datos.
@@ -446,12 +445,12 @@ Crea  <i>triggers</i> que actualicen los campos de auditoría <code>modified_by<
 </div>
 </div>
 
-<div id="outline-container-orgd789a4a" class="outline-2">
-<h2 id="orgd789a4a"><span class="section-number-2">3</span> Sueldos y masa salarial (desnormalización)</h2>
+<div id="outline-container-org6c0b679" class="outline-2">
+<h2 id="org6c0b679"><span class="section-number-2">3</span> Sueldos y masa salarial (desnormalización)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org68c867d" class="outline-3">
-<h3 id="org68c867d"><span class="section-number-3">3.1</span> Tablas de masa salarial</h3>
+<div id="outline-container-org82915c9" class="outline-3">
+<h3 id="org82915c9"><span class="section-number-3">3.1</span> Tablas de masa salarial</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">table</span> <span style="color: #e78c45;">sueldos</span>(idempleado, sueldo <span style="color: #7aa6da;">numeric</span>)
@@ -461,8 +460,8 @@ Crea  <i>triggers</i> que actualicen los campos de auditoría <code>modified_by<
 </div>
 </div>
 
-<div id="outline-container-org58496dc" class="outline-3">
-<h3 id="org58496dc"><span class="section-number-3">3.2</span> Limitar los sueldos por arriba y por abajo</h3>
+<div id="outline-container-org5e131ab" class="outline-3">
+<h3 id="org5e131ab"><span class="section-number-3">3.2</span> Limitar los sueldos por arriba y por abajo</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 haz un <i>trigger</i> que asegure que los empleados no cobran menos de 100000€ ni más de 1000000€.
@@ -471,8 +470,8 @@ haz un <i>trigger</i> que asegure que los empleados no cobran menos de 100000€
 </div>
 
 
-<div id="outline-container-org1d267d9" class="outline-3">
-<h3 id="org1d267d9"><span class="section-number-3">3.3</span> Inicializar la masa salarial</h3>
+<div id="outline-container-orgd278094" class="outline-3">
+<h3 id="orgd278094"><span class="section-number-3">3.3</span> Inicializar la masa salarial</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 Crea una tabla <code>masasalarialtotal</code>. Tendrá una sola fila con la suma de todos los sueldos
@@ -490,8 +489,8 @@ Crea un procedimiento que se asegure que solo hay una fila con la suma de todos 
 </div>
 
 
-<div id="outline-container-org8314b0a" class="outline-3">
-<h3 id="org8314b0a"><span class="section-number-3">3.4</span> Actualizar al borrar</h3>
+<div id="outline-container-orgbb55fb8" class="outline-3">
+<h3 id="orgbb55fb8"><span class="section-number-3">3.4</span> Actualizar al borrar</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 Crea un <i>trigger</i> que actualice la masa salarial al borrar un sueldo
@@ -501,8 +500,8 @@ Crea un <i>trigger</i> que actualice la masa salarial al borrar un sueldo
 
 
 
-<div id="outline-container-orgcea0660" class="outline-3">
-<h3 id="orgcea0660"><span class="section-number-3">3.5</span> Actualizar al modificar o insertar</h3>
+<div id="outline-container-org325c3c8" class="outline-3">
+<h3 id="org325c3c8"><span class="section-number-3">3.5</span> Actualizar al modificar o insertar</h3>
 <div class="outline-text-3" id="text-3-5">
 <p>
 Crea un <i>trigger</i> que actualice la masa salarial al modificar o insertar un sueldo
@@ -512,8 +511,7 @@ Crea un <i>trigger</i> que actualice la masa salarial al modificar o insertar un
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: alvaro</p>
-<p class="date">Created: 2019-05-15 mié 13:16</p>
+<p class="date">Created: 2020-03-10 mar 13:56</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

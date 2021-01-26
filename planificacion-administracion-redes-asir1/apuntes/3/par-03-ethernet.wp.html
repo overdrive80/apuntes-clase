@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ES" xml:lang="ES">
 <head>
-<!-- 2019-11-25 lun 08:45 -->
+<!-- 2020-09-15 mar 12:54 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ethernet. Switchs y Hubs</title>
@@ -40,7 +40,7 @@
   }
   pre.src {
     position: relative;
-    overflow: visible;
+    overflow: auto;
     padding-top: 1.2em;
   }
   pre.src:before {
@@ -161,6 +161,19 @@
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -188,7 +201,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -237,17 +250,37 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd53f1a1">1. Introducción</a></li>
-<li><a href="#org972a688">2. Dominios de colisión</a></li>
-<li><a href="#orga373f30">3. Precedente de Ethernet (802.3)</a></li>
-<li><a href="#org4325032">4. Ethernet (802.3)</a></li>
-<li><a href="#org473f808">5. Direcciones MAC</a></li>
-<li><a href="#org6550d96">6. Equipos de interconexión</a></li>
-<li><a href="#org22e0cb1">7. ARP</a></li>
-<li><a href="#org2e0244d">8. Referencias</a></li>
+<li><a href="#orgb008d94">1. Introducción</a></li>
+<li><a href="#org73b249a">2. Dominios de colisión</a></li>
+<li><a href="#orga8e19d5">3. Precedente de Ethernet (802.3)</a></li>
+<li><a href="#orgd009cd0">4. Ethernet (802.3)</a></li>
+<li><a href="#org4b28a05">5. Direcciones MAC</a></li>
+<li><a href="#orgd0f7aaa">6. Equipos de interconexión</a></li>
+<li><a href="#org9144f09">7. ARP</a></li>
+<li><a href="#orgdc94ca9">8. Referencias</a></li>
 </ul>
 </div>
 </div>
+<script>
+function cargarHighlight(){
+  var script = document.createElement('script');
+  script.onload = function () {
+      console.log("onload para highlight.js");
+      hljs.initHighlightingOnLoad();
+  };
+  script.src = "../../../common/reveal.js/plugin/highlight/highlight.js";
+
+  document.head.appendChild(script);
+}
+
+window.addEventListener("load",()=>{
+  console.log("onload para cargarHighlight");
+  cargarHighlight();
+});
+</script>
+
+
+
 <script>
 window.addEventListener("load",()=>{
   let images = document.getElementsByTagName('img'); 
@@ -262,8 +295,8 @@ window.addEventListener("load",()=>{
 </script>
 
 
-<div id="outline-container-orgd53f1a1" class="outline-2">
-<h2 id="orgd53f1a1"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-orgb008d94" class="outline-2">
+<h2 id="orgb008d94"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li>Recuerda que en la arquitectura IEEE 802, el nivel de enlace se divide en dos subcapas:
@@ -278,8 +311,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org972a688" class="outline-2">
-<h2 id="org972a688"><span class="section-number-2">2</span> Dominios de colisión</h2>
+<div id="outline-container-org73b249a" class="outline-2">
+<h2 id="org73b249a"><span class="section-number-2">2</span> Dominios de colisión</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Un dominio de colisión es el conjunto de segmentos de cable que interconectan una red donde, al transmitir dos o más estaciones, puede producirse una colisión.</li>
@@ -292,8 +325,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org5430ff7" class="outline-3">
-<h3 id="org5430ff7"><span class="section-number-3">2.1</span> Compartición del medio</h3>
+<div id="outline-container-org55d0bb2" class="outline-3">
+<h3 id="org55d0bb2"><span class="section-number-3">2.1</span> Compartición del medio</h3>
 <div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>Al principio del curso vimos 2 tipos de redes:
@@ -308,8 +341,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org6883771" class="outline-3">
-<h3 id="org6883771"><span class="section-number-3">2.2</span> Gestión de un dominio de colisión</h3>
+<div id="outline-container-orgbab81dc" class="outline-3">
+<h3 id="orgbab81dc"><span class="section-number-3">2.2</span> Gestión de un dominio de colisión</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li><b>Detección de portadora</b>. Se trata de la capacidad de las estaciones transmisoras para detectar si en un determinado momento el canal está siendo ocupado por otra transmisión.</li>
@@ -320,12 +353,12 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orga373f30" class="outline-2">
-<h2 id="orga373f30"><span class="section-number-2">3</span> Precedente de Ethernet (802.3)</h2>
+<div id="outline-container-orga8e19d5" class="outline-2">
+<h2 id="orga8e19d5"><span class="section-number-2">3</span> Precedente de Ethernet (802.3)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgee9c5a7" class="outline-3">
-<h3 id="orgee9c5a7"><span class="section-number-3">3.1</span> <a href="https://es.wikipedia.org/wiki/ALOHAnet">ALOHA</a></h3>
+<div id="outline-container-orgc2b81e2" class="outline-3">
+<h3 id="orgc2b81e2"><span class="section-number-3">3.1</span> <a href="https://es.wikipedia.org/wiki/ALOHAnet">ALOHA</a></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Elaborado en el 1970 por la Universidad de Hawaii.</li>
@@ -346,8 +379,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org2c7b04f" class="outline-3">
-<h3 id="org2c7b04f"><span class="section-number-3">3.2</span> CSMA.</h3>
+<div id="outline-container-orgc1bfda5" class="outline-3">
+<h3 id="orgc1bfda5"><span class="section-number-3">3.2</span> CSMA.</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Carrier Sense Multiple Access.</li>
@@ -372,8 +405,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org4325032" class="outline-2">
-<h2 id="org4325032"><span class="section-number-2">4</span> Ethernet (802.3)</h2>
+<div id="outline-container-orgd009cd0" class="outline-2">
+<h2 id="orgd009cd0"><span class="section-number-2">4</span> Ethernet (802.3)</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Ethernet se basa sobre el CSMA/CD persistente.</li>
@@ -395,8 +428,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-orgd87cc89" class="outline-3">
-<h3 id="orgd87cc89"><span class="section-number-3">4.1</span> Tramas</h3>
+<div id="outline-container-org53f71e5" class="outline-3">
+<h3 id="org53f71e5"><span class="section-number-3">4.1</span> Tramas</h3>
 <div class="outline-text-3" id="text-4-1">
 
 <div class="figure">
@@ -407,8 +440,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orgb071126" class="outline-3">
-<h3 id="orgb071126"><span class="section-number-3">4.2</span> <a href="https://es.wikipedia.org/wiki/IEEE_802.2">LLC</a></h3>
+<div id="outline-container-org26d74f1" class="outline-3">
+<h3 id="org26d74f1"><span class="section-number-3">4.2</span> <a href="https://es.wikipedia.org/wiki/IEEE_802.2">LLC</a></h3>
 <div class="outline-text-3" id="text-4-2">
 
 <div class="figure">
@@ -417,8 +450,8 @@ window.addEventListener("load",()=>{
 <p><span class="figure-number">Figure 2: </span>Cabecera LLC</p>
 </div>
 </div>
-<div id="outline-container-orgd085cc8" class="outline-4">
-<h4 id="orgd085cc8"><span class="section-number-4">4.2.1</span> <b>SAP</b> y control</h4>
+<div id="outline-container-org4d37d57" class="outline-4">
+<h4 id="org4d37d57"><span class="section-number-4">4.2.1</span> <b>SAP</b> y control</h4>
 <div class="outline-text-4" id="text-4-2-1">
 <ul class="org-ul">
 <li>Si <b>length</b> es mayor de <code>05DC</code>, es un <b>type</b></li>
@@ -432,8 +465,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 </div>
-<div id="outline-container-org20ff805" class="outline-4">
-<h4 id="org20ff805"><span class="section-number-4">4.2.2</span> Lista de protocolos <b>SAP</b></h4>
+<div id="outline-container-org3af753e" class="outline-4">
+<h4 id="org3af753e"><span class="section-number-4">4.2.2</span> Lista de protocolos <b>SAP</b></h4>
 <div class="outline-text-4" id="text-4-2-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -594,8 +627,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 </div>
-<div id="outline-container-org7e6bb46" class="outline-3">
-<h3 id="org7e6bb46"><span class="section-number-3">4.3</span> <a href="https://en.wikipedia.org/wiki/Subnetwork_Access_Protocol">SNAP</a></h3>
+<div id="outline-container-orgbf56c23" class="outline-3">
+<h3 id="orgbf56c23"><span class="section-number-3">4.3</span> <a href="https://en.wikipedia.org/wiki/Subnetwork_Access_Protocol">SNAP</a></h3>
 <div class="outline-text-3" id="text-4-3">
 <ul class="org-ul">
 <li>Cuando DSAP y SSAP tienen el valor <code>AA</code> o <code>BB</code></li>
@@ -614,8 +647,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org360f447" class="outline-3">
-<h3 id="org360f447"><span class="section-number-3">4.4</span> ¿Se usa LLC, SNAP?</h3>
+<div id="outline-container-org8fd7d3c" class="outline-3">
+<h3 id="org8fd7d3c"><span class="section-number-3">4.4</span> ¿Se usa LLC, SNAP?</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 <i>As per IETF RFC 1042, IP datagrams and ARP datagrams are transmitted over IEEE 802 networks using LLC and SNAP headers, except on Ethernet/IEEE 802.3, where they are transmitted with Ethernet II headers, as per RFC 894</i>
@@ -627,8 +660,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org665c76e" class="outline-3">
-<h3 id="org665c76e"><span class="section-number-3">4.5</span> Tamaño</h3>
+<div id="outline-container-org1bbccfc" class="outline-3">
+<h3 id="org1bbccfc"><span class="section-number-3">4.5</span> Tamaño</h3>
 <div class="outline-text-3" id="text-4-5">
 <ul class="org-ul">
 <li>Tamaño mínimo: 64 bytes (46 de datos)
@@ -647,8 +680,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org8bfaf25" class="outline-4">
-<h4 id="org8bfaf25"><span class="section-number-4">4.5.1</span> MTU</h4>
+<div id="outline-container-orgbc91c08" class="outline-4">
+<h4 id="orgbc91c08"><span class="section-number-4">4.5.1</span> MTU</h4>
 <div class="outline-text-4" id="text-4-5-1">
 <ul class="org-ul">
 <li><i>Maximum Transfer Unit</i></li>
@@ -718,8 +751,8 @@ El sistema operativo puede permitir configurarlo para
 </div>
 
 
-<div id="outline-container-org473f808" class="outline-2">
-<h2 id="org473f808"><span class="section-number-2">5</span> Direcciones MAC</h2>
+<div id="outline-container-org4b28a05" class="outline-2">
+<h2 id="org4b28a05"><span class="section-number-2">5</span> Direcciones MAC</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Se llaman <b>direcciones físicas</b>, aunque son de la capa de enlace</li>
@@ -756,8 +789,8 @@ grep $OUI lynx -dump <a href="http://standards.ieee.org/regauth/oui/oui.txt">htt
 </div>
 </div>
 
-<div id="outline-container-orge4b68d0" class="outline-3">
-<h3 id="orge4b68d0"><span class="section-number-3">5.1</span> Consultar la propia MAC</h3>
+<div id="outline-container-org67e55cb" class="outline-3">
+<h3 id="org67e55cb"><span class="section-number-3">5.1</span> Consultar la propia MAC</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Windows
@@ -772,8 +805,8 @@ grep $OUI lynx -dump <a href="http://standards.ieee.org/regauth/oui/oui.txt">htt
 </div>
 </div>
 
-<div id="outline-container-orgcc2865a" class="outline-3">
-<h3 id="orgcc2865a"><span class="section-number-3">5.2</span> ¿Puedo cambiar mi MAC?</h3>
+<div id="outline-container-org015203c" class="outline-3">
+<h3 id="org015203c"><span class="section-number-3">5.2</span> ¿Puedo cambiar mi MAC?</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>El sistema operativo consulta la MAC de la tarjeta</li>
@@ -795,14 +828,14 @@ ifconfig eth0 up
 </div>
 
 
-<div id="outline-container-org2e180ef" class="outline-3">
-<h3 id="org2e180ef"><span class="section-number-3">5.3</span> Broadcast</h3>
+<div id="outline-container-org52669ad" class="outline-3">
+<h3 id="org52669ad"><span class="section-number-3">5.3</span> Broadcast</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Hay ocasiones en las que interesa hablar con todos los ordenadores de la red
 <ul class="org-ul">
 <li><a href="https://es.wikipedia.org/wiki/Zeroconf">MDNS/Zeroconf</a></li>
-<li><a href="https://es.wikipedia.org/wiki/Protocolo_de_resoluci%C3%B3n_de_direcciones">ARP</a></li>
+<li><a href="https://es.wikipedia.org/wiki/Protocolo_de_resoluci%25C3%25B3n_de_direcciones">ARP</a></li>
 <li><a href="https://es.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol">DHCP</a></li>
 </ul></li>
 <li>La dirección MAC <code>FF:FF:FF:FF:FF:FF</code> es de broadcast, e implica que los destinatarios del paquete enviado son todos los equipos de la subred.</li>
@@ -811,12 +844,12 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org6550d96" class="outline-2">
-<h2 id="org6550d96"><span class="section-number-2">6</span> Equipos de interconexión</h2>
+<div id="outline-container-orgd0f7aaa" class="outline-2">
+<h2 id="orgd0f7aaa"><span class="section-number-2">6</span> Equipos de interconexión</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div id="outline-container-orgc45754b" class="outline-3">
-<h3 id="orgc45754b"><span class="section-number-3">6.1</span> Componentes de red: Repetidor</h3>
+<div id="outline-container-orge40db83" class="outline-3">
+<h3 id="orge40db83"><span class="section-number-3">6.1</span> Componentes de red: Repetidor</h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Un repetidor es un equipo con dos puertos de comunicaciones</li>
@@ -830,8 +863,8 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org9196e23" class="outline-3">
-<h3 id="org9196e23"><span class="section-number-3">6.2</span> Corte o almacenamiento y reenvío</h3>
+<div id="outline-container-orgbbba176" class="outline-3">
+<h3 id="orgbbba176"><span class="section-number-3">6.2</span> Corte o almacenamiento y reenvío</h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Método de corte: 
@@ -845,10 +878,15 @@ ifconfig eth0 up
 <li>Menos colisiones</li>
 </ul></li>
 </ul>
+
+<p>
+<a href="https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.1.6">Actividad Cisco de métodos de reenvío</a>
+</p>
 </div>
 </div>
-<div id="outline-container-org95eda73" class="outline-3">
-<h3 id="org95eda73"><span class="section-number-3">6.3</span> Componentes de red: Puente</h3>
+
+<div id="outline-container-org8c24d5b" class="outline-3">
+<h3 id="org8c24d5b"><span class="section-number-3">6.3</span> Componentes de red: Puente</h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada</li>
@@ -861,8 +899,8 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org84af1a8" class="outline-3">
-<h3 id="org84af1a8"><span class="section-number-3">6.4</span> Hub VS switch</h3>
+<div id="outline-container-org6716fdb" class="outline-3">
+<h3 id="org6716fdb"><span class="section-number-3">6.4</span> Hub VS switch</h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>Si A envía un mensaje a B, un hub replica dicho mensaje a partes innecesarias de la red</li>
@@ -877,12 +915,16 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org5d72ce1" class="outline-3">
-<h3 id="org5d72ce1"><span class="section-number-3">6.5</span> Hub VS switch</h3>
+<div id="outline-container-org863c5b3" class="outline-3">
+<h3 id="org863c5b3"><span class="section-number-3">6.5</span> Hub VS switch</h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li>Si A envía un mensaje a B, un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias</li>
 </ul>
+
+<p>
+<a href="https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.2.4">Actividad Cisco hub VS switch</a>
+</p>
 
 
 <div class="figure">
@@ -895,8 +937,8 @@ ifconfig eth0 up
 
 
 
-<div id="outline-container-org910b9bb" class="outline-3">
-<h3 id="org910b9bb"><span class="section-number-3">6.6</span> ¿Direcciones MAC?</h3>
+<div id="outline-container-orga3909fa" class="outline-3">
+<h3 id="orga3909fa"><span class="section-number-3">6.6</span> ¿Direcciones MAC?</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li>Los hub y los switch no tienen una dirección MAC
@@ -908,8 +950,8 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org3258684" class="outline-3">
-<h3 id="org3258684"><span class="section-number-3">6.7</span> Switch ¿Configuración?</h3>
+<div id="outline-container-org28b2258" class="outline-3">
+<h3 id="org28b2258"><span class="section-number-3">6.7</span> Switch ¿Configuración?</h3>
 <div class="outline-text-3" id="text-6-7">
 <ul class="org-ul">
 <li>¿Cómo conoce un bridge qué equipos están en qué zonas de la red?
@@ -926,8 +968,8 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org091616b" class="outline-3">
-<h3 id="org091616b"><span class="section-number-3">6.8</span> Switch: aprendizaje inicial</h3>
+<div id="outline-container-org1cc7b32" class="outline-3">
+<h3 id="org1cc7b32"><span class="section-number-3">6.8</span> Switch: aprendizaje inicial</h3>
 <div class="outline-text-3" id="text-6-8">
 <ul class="org-ul">
 <li>En una red grande, es casi <i>obligatorio</i> utilizar switches
@@ -936,6 +978,10 @@ ifconfig eth0 up
 </ul></li>
 <li>Aún así, inicialmente hay una <i>inundación</i> hasta que los switches conocen las MAC de los equipos</li>
 </ul>
+
+<p>
+<a href="https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.1.7">Actividad Cisco</a>
+</p>
 
 
 <div class="figure">
@@ -947,8 +993,8 @@ ifconfig eth0 up
 </div>
 </div>
 
-<div id="outline-container-org22e0cb1" class="outline-2">
-<h2 id="org22e0cb1"><span class="section-number-2">7</span> ARP</h2>
+<div id="outline-container-org9144f09" class="outline-2">
+<h2 id="org9144f09"><span class="section-number-2">7</span> ARP</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Es un protocolo que se encuentra en la frontera de las capas de red y enlace, aunque generalmente aparece como protocolo de red.</li>
@@ -957,21 +1003,21 @@ ifconfig eth0 up
 </ul>
 </div>
 
-<div id="outline-container-orge8489fe" class="outline-3">
-<h3 id="orge8489fe"><span class="section-number-3">7.1</span> Comando ARP (Linux)</h3>
+<div id="outline-container-orgc8f4e08" class="outline-3">
+<h3 id="orgc8f4e08"><span class="section-number-3">7.1</span> Comando ARP (Linux)</h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Consultar las direcciones conocidas</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">arp -n
+<pre class="src src-shell">  arp -n
 </pre>
 </div>
 <ul class="org-ul">
 <li>Borrar una entrada (dirección IP)</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">sudo arp -d III.III.III.III
+<pre class="src src-shell">  sudo arp -d III.III.III.III
 </pre>
 </div>
 
@@ -979,41 +1025,41 @@ ifconfig eth0 up
 <li>Añadir manualmente una entrada (dirección IP, MAC)</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">sudo arp -s III.III.III.III XX:XX:XX:XX:XX:XX
+<pre class="src src-shell">  sudo arp -s III.III.III.III XX:XX:XX:XX:XX:XX
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org487c7ae" class="outline-3">
-<h3 id="org487c7ae"><span class="section-number-3">7.2</span> Comando ARP (Windows)</h3>
+<div id="outline-container-org927f4d4" class="outline-3">
+<h3 id="org927f4d4"><span class="section-number-3">7.2</span> Comando ARP (Windows)</h3>
 <div class="outline-text-3" id="text-7-2">
 <ul class="org-ul">
 <li>Consultar las direcciones conocidas</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">arp -a
+<pre class="src src-shell">  arp -a
 </pre>
 </div>
 <ul class="org-ul">
 <li>Borrar una entrada (dirección IP)</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">arp -d III.III.III.III
+<pre class="src src-shell">  arp -d III.III.III.III
 </pre>
 </div>
 <ul class="org-ul">
 <li>Borrar todas las entradas</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">arp -d
+<pre class="src src-shell">  arp -d
 </pre>
 </div>
 <ul class="org-ul">
 <li>Añadir manualmente una entrada (dirección IP, MAC)</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-shell">arp -s III.III.III.III XX:XX:XX:XX:XX:XX
+<pre class="src src-shell">  arp -s III.III.III.III XX:XX:XX:XX:XX:XX
 </pre>
 </div>
 </div>
@@ -1021,28 +1067,32 @@ ifconfig eth0 up
 </div>
 
 
-<div id="outline-container-org2e0244d" class="outline-2">
-<h2 id="org2e0244d"><span class="section-number-2">8</span> Referencias</h2>
+
+
+<div id="outline-container-orgdc94ca9" class="outline-2">
+<h2 id="orgdc94ca9"><span class="section-number-2">8</span> Referencias</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
-<li><a href="par-03-ethernet.html">Transparencias</a></li>
-<li><a href="par-03-ethernet.pdf">PDF</a></li>
+<li><a href="./par-03-ethernet.reveal.html">Transparencias</a></li>
+<li><a href="./par-03-ethernet.pdf">PDF</a></li>
+<li><a href="./par-03-ethernet.epub">EPUB</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
 <li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
-<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Álvaro González Sotillo</p>
-<p class="date">Created: 2019-11-25 lun 08:45</p>
+<p class="date">Created: 2020-09-15 mar 12:54</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

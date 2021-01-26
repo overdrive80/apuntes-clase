@@ -44,7 +44,7 @@ Las redes permiten compartir recursos entre ordenadores.
 
 ** Ventajas de una red
 La *compartición de recursos* aporta las siguientes ventajas:
-- Reduccción de costes
+- Reducción de costes
 - Mejora de la comunicación (trabajo en colaborativo en equipo)
 - Gestión simplificada
   - Los técnicos pueden centralizar su trabajo

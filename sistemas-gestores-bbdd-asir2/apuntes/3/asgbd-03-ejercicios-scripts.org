@@ -1,0 +1,176 @@
+
+* Adivina un número
+Haz un script que adivine un número en el que está pensando el usuario. El número debe estar entre 1 y 31. El script propondrá un número, y el usuario responderá =si=, =mayor= o =menor=.
+
+Pista: en la primera pregunta, el número está entre 1 y 31, así que se pregunta por 16 (el medio). Si dice menor, el número estará entre 1 y 15, y pregunto por 8. Si ahora dice mayor, estará entre 9 y 15, pregunto por 12...
+
+** Ejemplo (con el número 1)
+#+begin_example
+PIENSA UN NUMERO ENTRE 1 Y 31
+Es 16 el número? (si/mayor/menor):menor
+
+Es 8 el número? (si/mayor/menor):menor
+
+Es 4 el número? (si/mayor/menor):menor
+
+Es 2 el número? (si/mayor/menor):menor
+
+Es 1 el número? (si/mayor/menor):si
+He acertado que el número es 1
+#+end_example
+** solución :noexport:
+
+#+begin_src sh
+#!/bin/bash
+
+MAX=31
+MIN=1
+
+pregunta(){
+  PREGUNTA=$((($MAX+$MIN)/2))
+  read -p "Es $PREGUNTA el número?" RESPUESTA
+  if [[ "$RESPUESTA" = "mayor"  ]]
+  then
+    MIN=$(($PREGUNTA+1))
+    return 0
+  elif [[ "$RESPUESTA" = "menor" ]]
+  then
+    MAX=$(($PREGUNTA-1))
+    return 0
+  else
+    echo "He acertado que el número es $RESPUESTA"
+    return 1
+  fi
+}
+
+while pregunta
+do
+  echo
+done
+#+end_src
+
+#+RESULTS:
+: He acertado que el número es
+
+* Analiza directorio
+
+El script recibe un nombre de directorio. Por cada elemento dentro de ese directorio:
+- Si es un fichero, contará el número de líneas de ese fichero
+- Si es un directorio, contará el número de ficheros dentre de ese directorio
+
+Supondremos que no hay espacios en los nombres de fichero, para que sea más fácil
+
+** Solución :noexport:
+
+#+begin_src bash :results raw
+#!/bin/bash
+
+IFS=$'\n'
+
+DIR="$1"
+
+if [[ "$DIR" = "" ]]
+then
+  DIR=/home/alvaro
+fi
+
+informacion(){
+  local COSA="$1"
+  if [ -d "$COSA" ]
+  then
+    echo "$COSA" es un directorio y tiene $(ls "$COSA" | wc -l) elementos
+  else
+    echo "$COSA" es un fchero y tiene $(cat "$COSA" | wc -l) filas
+  fi
+}
+
+
+for COSA in $(ls "$DIR")
+do
+   informacion "$DIR"/"$COSA"
+done
+
+#+end_src
+
+#+RESULTS:
+/home/alvaro/1 es un fchero y tiene 340 filas
+/home/alvaro/2020-05-12 09-35-14.mkv es un fchero y tiene 448 filas
+/home/alvaro/apuntes-clase es un directorio y tiene 33 elementos
+/home/alvaro/certificado.pfx es un fchero y tiene 37 filas
+/home/alvaro/Cloud es un directorio y tiene 3 elementos
+/home/alvaro/Desktop es un directorio y tiene 3 elementos
+/home/alvaro/dlang es un directorio y tiene 3 elementos
+/home/alvaro/Documents es un directorio y tiene 9 elementos
+/home/alvaro/Downloads es un directorio y tiene 16 elementos
+/home/alvaro/eclipse-workspace es un directorio y tiene 0 elementos
+/home/alvaro/fichero.txt es un fchero y tiene 2 filas
+/home/alvaro/github es un directorio y tiene 13 elementos
+/home/alvaro/#!home!alvaro!Cloud!cedro365!sincronizado-alvaro-vaio!2019-2020-Alonso-De-Avellaneda!planificacion-administracion-redes-asir1!cisco!vlan.org# es un fchero y tiene 34 filas
+/home/alvaro/#!home!alvaro!Cloud!cedro365!sincronizado-alvaro-vaio!2019-2020-Alonso-De-Avellaneda!sistemas-gestores-bbdd-asir2!evaluacion!practica-scripts-extraordinaria-2020-06-02!VILLARTA!inserta-datos.sh# es un fchero y tiene 24 filas
+/home/alvaro/#!home!alvaro!.emacs.d!config.el# es un fchero y tiene 1282 filas
+/home/alvaro/#!home!alvaro!kk.sh# es un fchero y tiene 31 filas
+/home/alvaro/kk.sh es un fchero y tiene 14 filas
+/home/alvaro/listado-alumnos0.odb es un fchero y tiene 0 filas
+/home/alvaro/listado-alumnos1.odb es un fchero y tiene 0 filas
+/home/alvaro/Mail es un directorio y tiene 0 elementos
+/home/alvaro/Music es un directorio y tiene 0 elementos
+/home/alvaro/OneDrive es un directorio y tiene 0 elementos
+/home/alvaro/openssl.conf es un fchero y tiene 13 filas
+/home/alvaro/ordenado.txt es un fchero y tiene 6 filas
+/home/alvaro/Pictures es un directorio y tiene 25 elementos
+/home/alvaro/#.profile# es un fchero y tiene 29 filas
+/home/alvaro/prueba es un directorio y tiene 6 elementos
+/home/alvaro/prueba.sh es un fchero y tiene 19 filas
+/home/alvaro/pt es un directorio y tiene 7 elementos
+/home/alvaro/Public es un directorio y tiene 0 elementos
+/home/alvaro/#!sudo:root@alvaro-vaio:!etc!ImageMagick-6!policy.xml# es un fchero y tiene 96 filas
+/home/alvaro/Templates es un directorio y tiene 0 elementos
+/home/alvaro/unicode-test.txt es un fchero y tiene 530 filas
+/home/alvaro/uto.txt es un fchero y tiene 530 filas
+/home/alvaro/Videos es un directorio y tiene 9 elementos
+
+
+
+* Backup de un directorio
+Haz un script que hace un backup de un directorio.
+- Si el directorio $HOME/backups no existe, se creará
+- Los contenidos del directorio se añadirán a un fichero ZIP que se guardará en la carpeta =$HOME/backups=.
+- El fichero ZIP se llamará =backup-HHMM.zip=, siendo HHMM la hora actual.
+
+** Solución :noexport:
+   #+begin_src sh
+#!/bin/bash                                                                                                                                                  
+
+if [ -d "$HOME/backups" ]
+then
+    echo El directorio de backups ya existe
+else
+    echo Procedemos a crearlo
+    mkdir -p $HOME/backups
+fi
+
+
+
+echo el directorio existe por lo tanto procedemos a hacer el backup del directorio que nos diga
+
+if [ $# -eq 1 ]
+then
+    direc=$1
+else
+    read -p "Digame un directorio: " direc
+fi
+
+direc=$(realpath "$direc")
+
+
+if [ -d "$direc" ]
+then
+    pushd $HOME/backups
+    DATE=$(date +%R)
+    zip -r backup-$DATE.zip "$direc"
+    popd
+else
+    echo "$direc" No es un directorio
+fi
+
+   #+end_src

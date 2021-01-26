@@ -1,7 +1,7 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Privacidad, confidencialidad
 #+OPTIONS:   toc:2
-
+# https://docs.google.com/document/d/1g0qPjo7TZaK3pjH0BGqPJCboH5ymPTlUI5UTK72qwmU/edit#
 #+HTML_HEAD: <style>h2::before,h1::before,h3::before,h4::before{ clear: both; }</style>
 
 
@@ -71,6 +71,7 @@ La idea es que un usuario de la información, utilizando alguna clave secreta nu
 | Hash, huella digital (resumen)          | Información de pequeño tamaño generada por un algoritmo de /un solo sentido/ a partir de otra información. Es fácil conseguir el resumen de una información, pero es muy difícil encontrar la información a partir del resumen                                                                                                                                                 |
 | Codificar                               | Aunque en el lenguaje coloquial lo utilizamos a menudo como sinónimo de cifrado, en la informática no lo es. codificar es utilizar un código público (como el código ASCII) para representar información. No hay clave, ni intención de encriptar.                                                                                                                             |
 
+
 ** Utilización
 La criptografía se usa en distintas aplicaciones, pero las principales formas de utilizarla caen en
 alguno de estos grupos:
@@ -105,6 +106,8 @@ alguno de estos grupos:
 - Casi todos los algoritmos de cifrado simétrico tienen debilidades, o se pueden atacar utilizando criptoanálisis , aunque si el algoritmo es bueno y la clave secreta es grande, se puede requerir muchísimo esfuerzo y tiempo.
 - A lo largo de la historia se conocen muchos algoritmos de cifrado simétrico, pero hoy en día, en la práctica, sólo se utilizan unos pocos de manera habitual.
 
+Como ejemplo histórico veremos el Cifrado del César.
+
 *** Cifrado del César
 Cada letra del alfabeto se reemplaza por la que se encuentra varias posiciones más a la derecha. Es un cifrado por sustitución, y puede atacarse criptográficamente con medios muy básicos. Originalmente se desplazaban dos posiciones, y posteriormente la *clave* se acordaba previamente como el número de posiciones a desplazar
 #+caption: Cifrado del César (3 posiciones)
@@ -121,9 +124,9 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
 [[file:media/cifrado-sustitucion.png]]
 
 
-** Algoritmos simétricos comnunmente usados:
+** Algoritmos simétricos comunmente usados:
 - DES (Data Encryption Standard) 1976: Escogido por el gobierno de los EEUU como algoritmo de encriptación estándar en 1976. Lo sustituye por AES 26 años después.  A lo largo de todos esos años, se ha demostrado bastante inseguro. No obstante, hay algunas variantes (como el Triple DES) que se siguen utilizando en algunas aplicaciones de no muy alta seguridad.
-- AES (Advanced Encryption Standard) 2002.El gobierno de EEUU realizó una convocatoria pública para sustituir su antiguo algoritmo DES por otro más moderno y seguro. Se presentaron varios algoritmos, y el escogido fue el que se presentó con el nombre de Rijndael (sus creadores se llamaban Joan Daemen y Vincent Rijmen, de la Universidad Católica de Lovaina, Bélgica). Tras ser escogido, se adoptó el nombre de AES. Por las claúsulas de la convocatoria, el algoritmo
+- AES (Advanced Encryption Standard) 2002. El gobierno de EEUU realizó una convocatoria pública para sustituir su antiguo algoritmo DES por otro más moderno y seguro. Se presentaron varios algoritmos, y el escogido fue el que se presentó con el nombre de Rijndael (sus creadores se llamaban Joan Daemen y Vincent Rijmen, de la Universidad Católica de Lovaina, Bélgica). Tras ser escogido, se adoptó el nombre de AES. Por las claúsulas de la convocatoria, el algoritmo
   - Es de dominio público
   - Simétrico
   - Admite claves de 128, 192 y 256 bits
@@ -132,13 +135,14 @@ Es una evolución del cifrado del César. La tabla de sustitución ya no se calc
   - Serpent,
   - Twofish, evolución de otro algoritmo anterior conocido como Blowfish. Normalmente algo más lento que AES
   - RC6. Un desarrollo privado de la empresa RSA Security, evolución del anterior RC4 y RC5
+  - Otros: En los últimos años, y de manera independiente al concurso han surgido algunos algoritmos. Ej: [[https://en.wikipedia.org/wiki/Camellia_(cipher)][Camellia]], de 2000 [[https://en.wikipedia.org/wiki/Salsa20][Salsa20, Chacha20 y Rumba20]] de 2008, 
 
 * Criptografía asimétrica
 ** Características principales:
 - Se utiliza un algoritmo que debe ser público y conocido por todos los que participen en el cifrado o descifrado. Así pues, toda la seguridad reside en la fortaleza de la clave, y no en la utilización de un algoritmo secreto.
-- Se utilizan dos claves para cada persona o entidad que participe en la comunicación cifrada. Cada persona o entidad X que quiera recibir información cifrada debe tener éstas dos claves:
-  - Una clave pública asociada a su identidad, y que cualquiera puede conocer. La clave pública se utiliza para que los demás cifren información dirigida a X.
-  - Una clave privada que debe mantener en secreto, y que servirá para descifrar los mensajes que los demás dirigen a X.
+- Se utilizan dos claves para cada persona o entidad que participe en la comunicación cifrada. Cada persona o entidad  que quiera *recibir* información cifrada debe tener éstas dos claves:
+  - Una clave pública asociada a su identidad, y que cualquiera puede conocer. La clave pública se utiliza para que *los demás* cifren información dirigida a *ella*.
+  - Una clave privada que debe mantener en secreto, y que servirá para descifrar los mensajes que los *demás le dirigen*.
 - Es el tipo de cifrado más moderno. Se desarrolla durante la segunda mitad del siglo XX (antes de la aparición de los ordenadores es impensable, debido a la gran cantidad de cálculos necesarios)
 - Se basan en funciones u operaciones matemáticas de un solo sentido: aquellas que es sencillo realizar en un sentido, pero computacionalmente poco víable en sentido contrario. Una de las más significativas de éstas operaciones es la descomposición en factores primos.
 
@@ -175,11 +179,12 @@ contiene el número n mientras que la privada contiene a p y q por separado.
 - Son bastante costosos computacionalmente: consumen recursos de tiempo de CPU y de espacio en memoria.
 - A diferencia de los simétricos, no necesitan compartir nada por un canal seguro.
 
-Algoritmos simétricos comunmente usados:
-- RSA (Rivest-Shamir-Adleman) 1977. El más utilizado. Respaldado por una empresa: RSA Security, que mantiene su patente
+Algoritmos asimétricos comunmente usados:
+- RSA (Rivest-Shamir-Adleman) 1977. El más utilizado. Respaldado por una empresa: [[http://www.rsa.com/][RSA Security]], que mantiene su patente
 - Diffie-Hellman 1976. Se utiliza en las mismas aplicaciones que RSA
 - Elgamal 1984. Basado en principios similares al de Diffie-Hellman, pero con técnicas más modernas. No está bajo ninguna patente, y su licencia permite libre uso y modificación. (Utilizado por el programa GnuPG, y versiones recientes de PGP)
-- ECC 1985. Sujeto a patentes. Se puede utilizar en el cifrado de ficheros de Windows 7 y Server 2008.
+- ECC 1985. Criptografía de curvas elípticas. Sujeto a patentes. Es un derivado de la criptografía asimétrica que utiliza claves más cortas y algoritmos más rápidos. Hay diversas variantes, que cuyo nombre comienza por EC. Ej: ECDH (Diffie Hellman)
+
 
 ** El desafío/respuesta criptográfico.
 Es un mecanismo para evitar que las contraseñas viajen, basado en la criptografía. Por ejemplo, es el que se utiliza entre un ordenador Windows y el servidor de dominio. La contraseña introducida no viaja por la red, en lugar de ello se desencadena un desafío/respuesta.
@@ -204,18 +209,8 @@ Este sistema se utiliza, por ejemplo, en el [[#https][protocolo https]]
 #+caption: Proceso simplificado de criptografía híbrida
 [[file:media/criptografia-hibrida.svg]]
 
-* <<#firmadigital>> Firma digital
-  :PROPERTIES:
-  :CUSTOM_ID: firmadigital
-  :END:
 
-Permite garantizar cualquiera de estas tres cualidades de una pieza de información:
-- Que no ha sido alterada durante su almacenamiento o transporte (integridad)
-- Que el emisor de la información es quien realmente dice ser (autenticación)
-- Que el emisor de una información no puede negar que él es el emisor original (no repudio, una de las propiedades segurias adicionales)
-
-
-** Algoritmos de resumen criptográficos.
+* Algoritmos de resumen criptográficos.
 La firma digital se basa en ellos, además de en la criptografía asimétrica, así que debemos empezar por describirlos.
 
 Son algoritmos que se aplican a un conjunto de datos (una tira de bytes) y tienen como propósito principal detectar cambios accidentales o deliberados en una secuencia de datos para proteger su integridad, verificando que no haya discrepancias.
@@ -227,6 +222,18 @@ En cierto modo, son una evolución de otros algoritmos de comprobación, como el
 Los más conocidos son:
 - El MD5, de 128 bits. (Message Digest version 5). Obtiene un resumen de 128 bits (32 bytes) de cualquier cantidad de bytes. Los bytes del resumen suelen expresarse con dígitos hexadecimales.
 - Los algoritmos SHA, que son una familia de varios algoritmos relacionados con el gobierno de los EEUU. (Secure Hash Algorithm) Existen varias versiones, que se suelen identificar con números: SHA-0, SHA-1 y SHA-2. Este último tiene distintas variantes [conocidas como SHA-224, SHA-256, SHA-384, y SHA-512] La cantidad de bytes del resumen varía de uno a otro.
+
+
+* <<#firmadigital>> Firma digital
+  :PROPERTIES:
+  :CUSTOM_ID: firmadigital
+  :END:
+
+Permite garantizar cualquiera de estas tres cualidades de una pieza de información:
+- Que no ha sido alterada durante su almacenamiento o transporte (integridad)
+- Que el emisor de la información es quien realmente dice ser (autenticación)
+- Que el emisor de una información no puede negar que él es el emisor original (no repudio, una de las propiedades segurias adicionales)
+
 
 ** El mecanismo de la firma digital.
 - La información a firmar se resume con un algoritmo de resumen
@@ -243,7 +250,7 @@ Los más conocidos son:
 
 
 * Sistemas de confianza e intercambio de claves: la PKI y PGP
-La criptografía asimétrica tiene una utilidad apasionante, pero también tiene un punto débil.  Si bien proporciona un cifrado prácticamente imposible de romper, se basa en la difusión de una clave pública, por mecanismos públicos, y que siempre va asociada a una identidad. Es decir, yo puedo generar una clave pública para mi y publicarla donde sea asociada a mi nombre o a mi dirección de correo... o a cualquier otro dato que me identifique.... pero cualquiera puede hacer lo mismo suplantando mi identidad. En ese supuesto caso... si un intruso pone en algun lugar público una dirección de correo y una clave pública diciendo que soy yo... un posible emisor de un mensaje podría confundirse y enviarle a él un mensaje cifrado pensando que soy yo. Él lo podría descifrar, dado que ha sido él quien ha creado la clave pública. 
+La criptografía asimétrica tiene una utilidad apasionante, pero también tiene un punto débil.  Si bien proporciona un cifrado prácticamente imposible de romper, se basa en la difusión de una clave pública, por mecanismos públicos, y que siempre va asociada a una identidad. Es decir, yo puedo generar una clave pública para mi y publicarla donde sea asociada a mi nombre o a mi dirección de correo... o a cualquier otro dato que me identifique.... /pero cualquiera puede hacer lo mismo suplantando mi identidad/. En ese supuesto caso... si un intruso pone en algun lugar público una dirección de correo y una clave pública diciendo que soy yo... un posible emisor de un mensaje podría confundirse y enviarle a él un mensaje cifrado pensando que soy yo. Él lo podría descifrar, dado que ha sido él quien ha creado la clave pública. 
 
 La criptografía asimétrica necesita un mecanismo para autentificar la identidad de los receptores de los mensajes.
 
@@ -258,12 +265,14 @@ Hay servidores web con aplicaciones web para intercambiar claves públicas. Esto
 
 Cuanto más grande el conjunto de usuarios de usuarios, también es más fácil la intrusión mediante suplantación de la clave pública en uno de éstos servidores de claves públicas PGP.
 
-PGP es un buen medio para enviar mensajes cifrados, pero no para autenticar.
+PGP es un buen medio para enviar mensajes cifrados, pero no para autenticar. La autenticidad de los certificados se basa en el llamado "anillo de confianza" en el cual, cuando una persona puede garantizar que un certificado de otra persona es de confianza, lo firma... si se distribuye el certificado firmado y quien lo recibe confía en el firmante, entonces confía también en el certificado original. Este proceso puede repetirse indefinidamente.... ir firmando los certificados y transmitirlos firmados es una manera de transmitir la confianza.
+
 
 * x509 y la Public Key Infrastructure (PKI)
-En otro ámbito, existe un estándar llamado x509, y propuesto por la ITU (Unión Internacional de Telecomunicaciones).
+En otro ámbito, existe un estándar llamado x509, y propuesto por la ITU (Unión Internacional de Telecomunicaciones), que es el que se utiliza para los certificar la identidad de los sitios web que usan https, y también para la identificación y firma digital de personas en España, mediante el DNIe o el certificado de la Fábrica Nacional de Moneda y Timbre (FNMT)
 
 Es un formato de intercambio de claves públicas, en lo que ellos llaman “certificados”.
+
 Un certificado es un fichero que contiene en su interior al menos uno de éstos elementos:
 - Datos de identificación de una persona u organización
 - Una clave privada
@@ -272,11 +281,9 @@ Un certificado es un fichero que contiene en su interior al menos uno de éstos 
 
 En cierto modo, x509 puede hacer lo mismo que PGP, sólo que con un propósito más general (PGP está orientado a los mensajes -nivel aplicación- y x509 es más multifuncional).
 
-Alrededor del sistema x509 se ha montado un sistema llamado la PKI (Public Key Infrastructure).
+Alrededor del sistema x509 se ha montado una infraestructura de validación de certificados llamada PKI (Public Key Infrastructure). En ella, algunas entidades son CERTIFICADORAS. Firman certificados para otras entidades o personas. Generar un certificado es sencillo, se puede realizar de forma particular con una  aplicación. Estas entidades FIRMAN el certificado que otros generan. A estas entidades que firman se les denomina *Autoridades de Certificación (CA)*.
 
-En él, algunas entidades son EMISORAS DE CERTIFICADOS. Emiten certificados para otras entidades o personas. Generar un certificado es sencillo... pero además de eso, estas entidades FIRMAN el certificado que generan. A estas entidades se les denomina Autoridades de Certificación (CA).
-
-El sistema PKI está basado en que en el mundo existen una serie de CA, que garantizan la identidad de otras organizaciónes... A partir de ahí, las otras organizaciones a su vez pueden generar y firmar nuevos certificados para otras entidades o personas.
+El sistema PKI está basado en que en el mundo existen una serie de CA, que garantizan la identidad de otras organizaciónes... A partir de ahí, las otras organizaciones a su vez pueden generar y firmar nuevos certificados para otras entidades o personas. Las claves públicas de las CA están incluídas en las distribuciones de nuestros navegadores y sistemas operativos.
 
 En resumen... cualquier persona u organización puede tener un certificado y hacerlo público, que contenga: su identidad, su clave pública y una firma digital de quien lo ha emitido.  Para verificar su identidad, podemos comprobar la firma del certificado. Si quien lo ha emitido no es una CA, su certificado irá a su vez firmado por otra entidad... repetimos el proceso de verificación hasta llegar a la CA.
 
@@ -297,8 +304,7 @@ va firmado por Entrust.net.
 
 
 * Aplicaciones
-Vamos a dar un repaso a algunas aplicaciones de lo que hemos visto hasta ahora, pero en el
-mundo real.
+Vamos a dar un repaso a algunas aplicaciones de lo que hemos visto hasta ahora, pero en el mundo real.
 
 ** Cifrado/descifrado en información almacenada
 
@@ -474,12 +480,11 @@ encriptación.
 
 *** Wifi (IEEE802.11)
 Es una tecnología para la comunicación de tramas Ethernet a través de conexiones inalámbricas. En su nivel físico y de enlace, admite varios tipos de cifrado
-- WEP
-- WPA
-- WPA2
+- WEP y WPA
+- WPA2 y WPA3
 
 *** WEP (Wired Equivalent Privacy - Privacidad tan buena como la del cable)
-Se basa en un cifrado RC4 con claves de 64 o 128 bits.  La autenticación de los clientes en el punto de acceso se realiza conociendo esa clave, que se suele representar como un conjunto de dígitos hexadecimales.  El algoritmo RC4 tenía algunas vulnerabilidades conocidas.  Al ser implementado en WEP y popularizarse, no tardó en ser atacado por técnicas de criptoanálisis.  Hoy en día se considera absolutamente inseguro, y no hay ningún motivo para utilizarlo.
+Se basa en un cifrado RC4 con claves de 64 o 128 bits.  La autenticación de los clientes en el punto de acceso se realiza conociendo esa clave, que se suele representar como un conjunto de dígitos hexadecimales.  El algoritmo RC4 tenía algunas vulnerabilidades conocidas.  Al ser implementado en WEP y popularizarse, no tardó en ser atacado por técnicas de criptoanálisis.  Hoy en día se considera absolutamente *inseguro*, y no hay ningún motivo para utilizarlo.
 
 *** WPA. (Wifi Protected Access) 
 Fue un intento de los fabricantes de componentes Wifi de paliar la vulnerabilidad de WEP sin necesidad de cambiar el hardware: de hacer WEP más seguro sólo con una actualizacion de software.
@@ -494,9 +499,7 @@ Data de 2004 (IEEE802.11i) Se introduce AES como algoritmo criptográfico.  WPA2
 
 También admite que se combine AES con la técnica de TKIP, que lo fortalece aún más. Hoy en día, es la única opción sensata.
 
-En WPA2 se introducen dos formas de autenticar a un cliente (una tarjeta inalámbrica) en la
-red, y darle acceso al nivel de enlace.
-Se debe escoger una u otra en la configuración del punto de acceso.
+En WPA2 se introducen dos formas de autenticar a un cliente (una tarjeta inalámbrica) en la red, y darle acceso al nivel de enlace. Se debe escoger una u otra en la configuración del punto de acceso.
 
 
 - PSK (Pre-Shared-Key): consiste en compartir una clave (una contraseña alfanumérica) conocida por todos los usuarios de la red. Esa contraseña es la que se utiliza para generar la clave AES y realizar el cifrado.
@@ -609,8 +612,15 @@ La aplicación *AutoFirma* permite, entre otras cosas:
 - Realizar firma electrónica on-line en sitios web de la administración pública
 - Comprobar firmas digitales
 
+La aplicación *Adobe Acrobat* permite utilizar un certificado X509 (DNIe, FNMT) para firmar digitalmente un PDF. La firma digital se guarda en el propio PDF y visualmente se ve un cuadro con los datos de la firma. Aunque un PDF firmado se puede imprimir, sólo se puede comprobar la firma teniendo el fichero
+  
+
 El sitio web https://valide.redsara.es/valide/ permite validar firmas en documentos sin necesidad de instalar ningún software.
 
+** Software firmado
+Los ejecutables aplicaciones de Windows (y en otros sistemas operativos, por ejemplo, Android) llevan una firma digital, que los sistemas pueden comprobar durante la instalación. También se utiliza para evitar la copia en algunas videoconsolas.
+
+[[file:media/firma-de-programa-windows.png]]
 
 
 

@@ -15,3 +15,9 @@ backups-moodle
 
 /entornos-de-desarrollo-distancia/EntornosDeDesarrollo/examenes
 *.atfi
+/gestion-bd-asir1/evaluacion/ev-2-whatsapp/descomprimidos/*
+/common/reveal.js-3.9.2.zip
+/common/reveal.js-old/
+/common/reveal.js.zip.old
+/coronavirus/
+/.notas.autosave.xopp

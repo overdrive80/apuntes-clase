@@ -223,6 +223,9 @@ ifconfig eth0 up
 - Almacenamiento y reenvío: 
   - Hasta que no se tiene la trama completa no se empieza a reenviar
   - Menos colisiones
+
+[[https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.1.6][Actividad Cisco de métodos de reenvío]]
+
 ** Componentes de red: Puente
 - Un puente es similar a un hub, incluyendo sus funcionalidades pero con una lógica más avanzada
 - No solo trabaja a nivel eléctrico. Además, entiende las tramas y puede decidir si las retransmite o no
@@ -237,6 +240,8 @@ file:media/retransmision-hub.png
 
 ** Hub VS switch
 - Si A envía un mensaje a B, un switch interpreta la trama y sabe en qué parte de la red está B, por lo que no envía dicha trama por subredes innecesarias
+
+[[https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.2.4][Actividad Cisco hub VS switch]]
 
 #+caption: Un switch solo retransmite si es necesario
 [[file:media/retransmision-switch.png]]
@@ -260,6 +265,8 @@ file:media/retransmision-hub.png
 - En una red grande, es casi /obligatorio/ utilizar switches
   - Para evitar /tormentas de broadcast/
 - Aún así, inicialmente hay una /inundación/ hasta que los switches conocen las MAC de los equipos
+
+[[https://static-course-assets.s3.amazonaws.com/RSE6/es/index.html#4.2.1.7][Actividad Cisco]]
 
 #+caption: La primera comunicación entre A y B inundará la red
 [[file:media/muchos-switch.png]]
@@ -304,11 +311,7 @@ file:media/retransmision-hub.png
 #+end_src
 
 
+
+
 * Referencias
-- Formatos:
-  - [[file:par-03-ethernet.html][Transparencias]]
-  - [[file:par-03-ethernet.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+INCLUDE: "../../../common/footer.org"

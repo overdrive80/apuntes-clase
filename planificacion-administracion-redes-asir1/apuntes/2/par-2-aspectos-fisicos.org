@@ -100,7 +100,7 @@
 |---+-------------------------+------------------------------------+--------------------|
 | / | >                       | <                                  |                    |
 |   | *Información analógica* | Teléfono o televisión (analógicos) | Televisión digital |
-|   | *Información digital*   | Fax, módem telefónico              | ADSL, fibra        |
+|   | *Información digital*   | Fax, módem telefónico, ADSL        | fibra              |
 
 
 
@@ -124,7 +124,7 @@
 
 - [[https://es.wikipedia.org/wiki/Banda_base][Banda base]]
   - Se pueden utilizar simplemente voltajes para indicar niveles
-  - No se puede multiplexar el medio
+  - No es fácil multiplexar el medio
   - Se suele utilizar en medios de baja velocidad
 - [[https://es.wikipedia.org/wiki/Banda_ancha][Banda ancha]]
   - El medio se comparte, utilizando diferentes frecuencias (ver [[#multiplexacion-frecuencia][multiplexación por frecuencia]])
@@ -311,8 +311,8 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Aplica 4B/5B a los bits anteriores. Rellena con bits a =0= al final si es necesario
 
 
-** Velocidad de transferencia
-- Cada medios físico admiten la transferencia de información a cierta velocidad.
+* Velocidad de transferencia
+- Cada medios físicos admiten la transferencia de información a cierta velocidad.
 - La transferencia de datos puede medirse de tres formas:
   - *Ancho de banda*: Capacidad que posee un medio de transportar datos sin procesar.  El ancho de banda digital (kbps o Mbps) mide la cantidad de información que puede fluir desde un lugar hacia otro en un período de tiempo determinado.
   - *Rendimiento*: Medida de transferencia de *bits* a través de los medios durante un período de tiempo determinado.  Generalmente /no coincide/ con el ancho de banda (colisiones en el medio si es de acceso compartido, errores de transmisión o sincronía,...)
@@ -349,7 +349,7 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
 
 
 ** Ejemplos de multiplexación en frecuencias
-- [[https://es.wikipedia.org/wiki/Anexo:CNAF_de_Espa%25C3%25B1a_(2007)][Cuadro Nacional de Atribución de Frecuencias]]
+- [[https://es.wikipedia.org/wiki/Anexo:CNAF_de_España_(2007)][Cuadro Nacional de Atribución de Frecuencias]]
 - [[https://upload.wikimedia.org/wikipedia/commons/d/df/United_States_Frequency_Allocations_Chart_2011_-_The_Radio_Spectrum.pdf][Equivalente estadounidense]]
 
   #+attr_latex: :width 0.6\textwidth
@@ -393,7 +393,7 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
 
 
 
-* Paralelo/serie
+* Serie/Paralelo
 - Modo de transmisión serie
   - Una única línea transmite los datos
   - Ejemplos: ADSL, USB 1.0

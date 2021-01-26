@@ -353,17 +353,21 @@ echo 2+2 | bc
   - Se ejecuten comandos en cada nueva /shell/
   - Se ejecuten comandos para todos los usuarios
 
+** Ficheros de inicio de /shell/    
+[[file:../1/media/ficheros-inicio-bash.svg]]
+   
 ** Ejercicios
-1. Haz que el usuario =alumno= tenga las variables necesarias para utilizar *Oracle* cada vez que hace /login/.
-2. Haz que el usuario =alumno= vea el estado del /listener/ cada vez que inicia una /shell/
-3. Haz que todos los usuarios vean el mensaje =Bienvenido a ASGBD= cada vez que inician una /shell/.
-4. Crea un /script/ en =$HOME/estado.sh= que muestre el valor de las variables =HOME=, =USER=, =PATH=, =ORACLE_HOME=, =ORACLE_SID=, =ORACLE_BASE= y la hora actual.
+1. Edita los ficheros de inicio y añade una orden =echo ESTOY EN EL FICHERO XXXXXX=. Comprueba cuándo se invoca cada fichero.
+2. Haz que el usuario =alumno= tenga las variables necesarias para utilizar *Oracle* cada vez que hace /login/.
+3. Haz que el usuario =alumno= vea el estado del /listener/ cada vez que inicia una /shell/
+4. Haz que todos los usuarios vean el mensaje =Bienvenido a ASGBD= cada vez que inician una /shell/.
+5. Crea un /script/ en =$HOME/estado.sh= que muestre el valor de las variables =HOME=, =USER=, =PATH=, =ORACLE_HOME=, =ORACLE_SID=, =ORACLE_BASE= y la hora actual.
   
 * Prerrequisitos
 
 - Los comandos de *Oracle* necesitan conocer a qué instancia hacen referencia
 - Para ello, necesitan las variables de entorno =ORACLE_HOME= y =ORACLE_SID=.
-- También es conveniente añadir los comandos de *Oracle* al /2path/
+- También es conveniente añadir los comandos de *Oracle* al /path/
 - El siguiente /script/ puede utilizarse para tener estas variables (ejecutándolo con =source=)
 
 #+begin_src sh
@@ -729,15 +733,14 @@ done
 - =mktemp= para ficheros temporales
 - /traps/ para finalizar un /script/
 
-* Referencias
-- Formatos:
-  - [[file:asgbd-03-scripts-shell.html][Transparencias]] 
-  - [[file:asgbd-03-scripts-shell.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+* Más avanzado: comandos desde PL/SQL
+http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm
 
+  DBMS_SCHEDULER.RUN_JOB
+
+* Referencias
+#+include: "../../../common/footer.org"
+- [[https://oracle-base.com/articles/misc/oracle-shell-scripting][oracle-base]]
 
 * Ejemplos :noexport:
 ** =whiptail=

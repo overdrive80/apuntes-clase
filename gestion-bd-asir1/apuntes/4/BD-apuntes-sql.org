@@ -1,9 +1,34 @@
-select #+INCLUDE: "../../../common/header.org"
-#+TITLE:  Producto cartesiano y JOIN
+#+INCLUDE: "../../../common/header.org"
+#+TITLE:  Resumen de SQL
+
+* Orden de ejecución de una /query/
+1. =from=
+2. =where=
+3. =group by=
+4. =having=
+5. =select=
+6. =order by=
+
+#+begin_src sql
+select  
+  location, count(*) as ocupacion
+from 
+  section
+where
+  capacity > 10 
+group by 
+  location
+having
+  count(*) < 10
+order by
+  ocupacion;
+#+end_src
 
 * Funciones sobre valores
 - =upper=, =lower=: Mayúsculas y minúsculas
 - =trunc=: quita decimales a números, horas y minutos a las fechas
+- =substr=: partes de un =varchar=
+- =mod=, =sqrt=...: funciones matemáticas
 
 * Funciones sobre grupos
 - =avg=: media
@@ -136,7 +161,7 @@ select * from alumnos;
 #+end_src
 
 
-* /Query/ en un from
+* /Query/ en un =from=
 - En el =from= no es obligatorio poner tablas
 - Se puede poner cualquier cosa con filas y columnas:
   - Tablas
@@ -147,6 +172,24 @@ select * from alumnos;
 select * from (
   select student_id as clave, first_name as nombre, last_name as apellidos from student
 );
+#+end_src
+
+* /with/
+- Si no se quiere definir una vista o usar una /query/ dentro de  =from=
+
+#+begin_src sql
+select nombre, apellidos from (
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+where clave > 10;
+
+
+with estudiantes as(
+  select student_id as clave, first_name as nombre, last_name as apellidos from student
+)
+select nombre, apellidos
+from estudiantes
+where clave > 10;
 #+end_src
 
 * /Query/ traducida a valor
@@ -199,25 +242,8 @@ having
   count(*) < 10;
 #+end_src
 
-* Orden de ejecución de una /query/
-1. =from=
-2. =where=
-3. =group by=
-4. =having=
-5. =select=
-6. =order by=
 
-#+begin_src sql
-select  
-  location, count(*) as ocupacion
-from 
-  section
-where
-  capacity > 10 
-group by 
-  location
-having
-  count(*) < 10
-order by
-  ocupacion;
-#+end_src
+
+* Referencias
+
+#+INCLUDE: "../../../common/footer.org"
