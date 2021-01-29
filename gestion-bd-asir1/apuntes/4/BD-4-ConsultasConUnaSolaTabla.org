@@ -153,7 +153,7 @@ order by last_name;
 select avg(capacity) from section;
 #+END_SRC
 ** ¿Cuál es el máximo de alumnos matriculable (suma de capacidades de las secciones)?
-** ¿Cuáles son las aulas sin duplicados (location) en las que se imparten secciones con más de 20 alumnos?
+** ¿Cuáles son las aulas sin duplicados (location) en las que se imparten secciones con más de 20 alumnos posibles?
 #+begin_src sql
 select distinct location from section
 where capacity>20;
@@ -238,11 +238,35 @@ from zipcode;
 
 select * from course where not(prerequisite is null);
 
+** Listado de ciudades y cuántos zipcode tienen
+   #+begin_src sql
 
+with algotemporal as(
+  select count(*) as numero , city
+  from zipcode
+  group by city
+)
+select max(NUMERO) as maximo from algotemporal;
+   #+end_src   
 
+** Estados con más de un zipcode
+   #+begin_src sql
+select count(*), state
+from zipcode
+group by state
+having count(*) > 1;
+   #+end_src   
 
-
-
+** Media de las notas por sección y tipo de nota
+   #+begin_src sql
+select 
+  section_id, grade_type_code,
+  avg(numeric_grade),
+  count(*)
+from grade
+group by section_id, grade_type_code
+order by section_id, grade_type_code;
+   #+end_src  
 ** ¿Cuáles son las descripciones de los cursos que no necesitan un curso previo?
 ** Listado de alumnos ordenado por apellido y nombre.
 ** Identificador de curso y número de veces que se imparte ese curso
