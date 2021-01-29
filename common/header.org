@@ -1,3 +1,5 @@
+# // -*- mode: fundamental;coding:utf-8 -*-
+
 # MACROS UTILES
 #+MACRO: input-file-no-extension (eval (file-name-sans-extension  (file-name-nondirectory buffer-file-name)) )
 

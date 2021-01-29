@@ -56,7 +56,7 @@ done
 
 El script recibe un nombre de directorio. Por cada elemento dentro de ese directorio:
 - Si es un fichero, contará el número de líneas de ese fichero
-- Si es un directorio, contará el número de ficheros dentre de ese directorio
+- Si es un directorio, contará el número de ficheros dentro de ese directorio
 
 Supondremos que no hay espacios en los nombres de fichero, para que sea más fácil
 
