@@ -33,7 +33,7 @@ order by
 - =nvl=: Pone un valor por defecto si un valor es =null=    
 
 * Funciones de texto
-- =to_char=: Formatea fechas o números y los convierte en fechas
+- =to_char=: Formatea fechas o números y los convierte en cadenas
 - =instr=: Busca el comienzo de una cadena dentro de otra cadena
 - =to_date=: Convierte una cadena en una fecha
 - =substr=: partes de un =varchar=
@@ -44,6 +44,7 @@ order by
 - =avg=: media
 - =max=: mínimo
 - =min=: máximo
+- =sum=: suma   
 - =count=: cuenta valores de columnas
 - =count(distict )=: cuenta valores distintos
 - =count(*)=: cuenta todas las filas, incluidos los valores =null=

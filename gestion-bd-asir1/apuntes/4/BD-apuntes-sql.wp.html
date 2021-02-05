@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2021-02-05 vie 09:38 -->
+<!-- 2021-02-05 vie 10:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resumen de SQL</title>
@@ -248,18 +248,18 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orga111fff">1. Orden de ejecución de una <i>query</i></a></li>
-<li><a href="#orga194858">2. Funciones sobre valores</a></li>
-<li><a href="#org140542f">3. Funciones de texto</a></li>
-<li><a href="#org88e58a2">4. Funciones sobre grupos</a></li>
-<li><a href="#org96eaeb2">5. Producto cartesiano</a></li>
-<li><a href="#org87aaf17">6. Vistas</a></li>
-<li><a href="#org6fc8962">7. <i>Query</i> en un <code>from</code></a></li>
-<li><a href="#org5ee2da9">8. <i>with</i></a></li>
-<li><a href="#orgbdf2da8">9. <i>Query</i> traducida a valor</a></li>
-<li><a href="#org47252ba">10. <i>Query</i> traducida a lista</a></li>
-<li><a href="#org17702c4">11. <code>Having</code></a></li>
-<li><a href="#org5a0dd75">12. Referencias</a></li>
+<li><a href="#org1bd5ae4">1. Orden de ejecución de una <i>query</i></a></li>
+<li><a href="#org618092a">2. Funciones sobre valores</a></li>
+<li><a href="#org63db7bd">3. Funciones de texto</a></li>
+<li><a href="#org28271c7">4. Funciones sobre grupos</a></li>
+<li><a href="#org6693e20">5. Producto cartesiano</a></li>
+<li><a href="#org58d46d9">6. Vistas</a></li>
+<li><a href="#org3935586">7. <i>Query</i> en un <code>from</code></a></li>
+<li><a href="#orgd0644ea">8. <i>with</i></a></li>
+<li><a href="#orgebedb13">9. <i>Query</i> traducida a valor</a></li>
+<li><a href="#org1dc20fd">10. <i>Query</i> traducida a lista</a></li>
+<li><a href="#orge906f32">11. <code>Having</code></a></li>
+<li><a href="#orgc5bc474">12. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -296,8 +296,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-orga111fff" class="outline-2">
-<h2 id="orga111fff"><span class="section-number-2">1</span> Orden de ejecución de una <i>query</i></h2>
+<div id="outline-container-org1bd5ae4" class="outline-2">
+<h2 id="org1bd5ae4"><span class="section-number-2">1</span> Orden de ejecución de una <i>query</i></h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><code>from</code></li>
@@ -326,8 +326,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orga194858" class="outline-2">
-<h2 id="orga194858"><span class="section-number-2">2</span> Funciones sobre valores</h2>
+<div id="outline-container-org618092a" class="outline-2">
+<h2 id="org618092a"><span class="section-number-2">2</span> Funciones sobre valores</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>upper</code>, <code>lower</code>: Mayúsculas y minúsculas</li>
@@ -340,11 +340,11 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org140542f" class="outline-2">
-<h2 id="org140542f"><span class="section-number-2">3</span> Funciones de texto</h2>
+<div id="outline-container-org63db7bd" class="outline-2">
+<h2 id="org63db7bd"><span class="section-number-2">3</span> Funciones de texto</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
-<li><code>to_char</code>: Formatea fechas o números y los convierte en fechas</li>
+<li><code>to_char</code>: Formatea fechas o números y los convierte en cadenas</li>
 <li><code>instr</code>: Busca el comienzo de una cadena dentro de otra cadena</li>
 <li><code>to_date</code>: Convierte una cadena en una fecha</li>
 <li><code>substr</code>: partes de un <code>varchar</code></li>
@@ -354,13 +354,14 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org88e58a2" class="outline-2">
-<h2 id="org88e58a2"><span class="section-number-2">4</span> Funciones sobre grupos</h2>
+<div id="outline-container-org28271c7" class="outline-2">
+<h2 id="org28271c7"><span class="section-number-2">4</span> Funciones sobre grupos</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><code>avg</code>: media</li>
 <li><code>max</code>: mínimo</li>
 <li><code>min</code>: máximo</li>
+<li><code>sum</code>: suma</li>
 <li><code>count</code>: cuenta valores de columnas</li>
 <li><code>count(distict )</code>: cuenta valores distintos</li>
 <li><code>count(*)</code>: cuenta todas las filas, incluidos los valores <code>null</code></li>
@@ -369,8 +370,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org96eaeb2" class="outline-2">
-<h2 id="org96eaeb2"><span class="section-number-2">5</span> Producto cartesiano</h2>
+<div id="outline-container-org6693e20" class="outline-2">
+<h2 id="org6693e20"><span class="section-number-2">5</span> Producto cartesiano</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Es una operación de conjuntos</li>
@@ -394,8 +395,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org98162f5" class="outline-3">
-<h3 id="org98162f5"><span class="section-number-3">5.1</span> Tabla original</h3>
+<div id="outline-container-org2a2f34f" class="outline-3">
+<h3 id="org2a2f34f"><span class="section-number-3">5.1</span> Tabla original</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Solo un pedido al día</li>
@@ -479,8 +480,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orgd006e16" class="outline-3">
-<h3 id="orgd006e16"><span class="section-number-3">5.2</span> Tablas normalizadas</h3>
+<div id="outline-container-org156699f" class="outline-3">
+<h3 id="org156699f"><span class="section-number-3">5.2</span> Tablas normalizadas</h3>
 <div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tabla 2</span> PRODUCTOS</caption>
@@ -581,8 +582,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org043942a" class="outline-3">
-<h3 id="org043942a"><span class="section-number-3">5.3</span> Cómo recuperar información original</h3>
+<div id="outline-container-orgbea144a" class="outline-3">
+<h3 id="orgbea144a"><span class="section-number-3">5.3</span> Cómo recuperar información original</h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>La tabla original VENTAS puede seguir siendo necesaria para un informe</li>
@@ -594,8 +595,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-orgf42cd2e" class="outline-4">
-<h4 id="orgf42cd2e"><span class="section-number-4">5.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
+<div id="outline-container-org31982aa" class="outline-4">
+<h4 id="org31982aa"><span class="section-number-4">5.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
 <div class="outline-text-4" id="text-5-3-1">
 <font size="-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -793,8 +794,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org238e412" class="outline-4">
-<h4 id="org238e412"><span class="section-number-4">5.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
+<div id="outline-container-orgd08f2cb" class="outline-4">
+<h4 id="orgd08f2cb"><span class="section-number-4">5.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
 <div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Nos quedamos solo con las filas <code>where PRODUCTO.producto = PEDIDOS.producto</code></li>
@@ -887,8 +888,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org2af960c" class="outline-3">
-<h3 id="org2af960c"><span class="section-number-3">5.4</span> Sintaxis SQL</h3>
+<div id="outline-container-orge9874f8" class="outline-3">
+<h3 id="orge9874f8"><span class="section-number-3">5.4</span> Sintaxis SQL</h3>
 <div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
 <pre class="src src-sql"> <span style="color: #a020f0;">select</span> 
@@ -911,8 +912,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org87aaf17" class="outline-2">
-<h2 id="org87aaf17"><span class="section-number-2">6</span> Vistas</h2>
+<div id="outline-container-org58d46d9" class="outline-2">
+<h2 id="org58d46d9"><span class="section-number-2">6</span> Vistas</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Una <i>query</i> puede guardarse como una vista</li>
@@ -933,8 +934,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org6fc8962" class="outline-2">
-<h2 id="org6fc8962"><span class="section-number-2">7</span> <i>Query</i> en un <code>from</code></h2>
+<div id="outline-container-org3935586" class="outline-2">
+<h2 id="org3935586"><span class="section-number-2">7</span> <i>Query</i> en un <code>from</code></h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>En el <code>from</code> no es obligatorio poner tablas</li>
@@ -955,8 +956,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org5ee2da9" class="outline-2">
-<h2 id="org5ee2da9"><span class="section-number-2">8</span> <i>with</i></h2>
+<div id="outline-container-orgd0644ea" class="outline-2">
+<h2 id="orgd0644ea"><span class="section-number-2">8</span> <i>with</i></h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Si no se quiere definir una vista o usar una <i>query</i> dentro de  <code>from</code></li>
@@ -980,8 +981,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-orgbdf2da8" class="outline-2">
-<h2 id="orgbdf2da8"><span class="section-number-2">9</span> <i>Query</i> traducida a valor</h2>
+<div id="outline-container-orgebedb13" class="outline-2">
+<h2 id="orgebedb13"><span class="section-number-2">9</span> <i>Query</i> traducida a valor</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Se puede poner una consulta que devuelva una fila y una columna en cualquier lugar donde se necesite un valor simple</li>
@@ -997,8 +998,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org47252ba" class="outline-2">
-<h2 id="org47252ba"><span class="section-number-2">10</span> <i>Query</i> traducida a lista</h2>
+<div id="outline-container-org1dc20fd" class="outline-2">
+<h2 id="org1dc20fd"><span class="section-number-2">10</span> <i>Query</i> traducida a lista</h2>
 <div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Se puede poner una consulta que devuelva una columna y muchas filas en una condición <code>in</code></li>
@@ -1017,8 +1018,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org17702c4" class="outline-2">
-<h2 id="org17702c4"><span class="section-number-2">11</span> <code>Having</code></h2>
+<div id="outline-container-orge906f32" class="outline-2">
+<h2 id="orge906f32"><span class="section-number-2">11</span> <code>Having</code></h2>
 <div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><code>having</code> sirve para poner condiciones a los grupos de una consulta</li>
@@ -1053,8 +1054,8 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org5a0dd75" class="outline-2">
-<h2 id="org5a0dd75"><span class="section-number-2">12</span> Referencias</h2>
+<div id="outline-container-orgc5bc474" class="outline-2">
+<h2 id="orgc5bc474"><span class="section-number-2">12</span> Referencias</h2>
 <div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>Formatos:
@@ -1076,7 +1077,7 @@ window.addEventListener("load",()=>{
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2021-02-05 vie 09:38</p>
+<p class="date">Created: 2021-02-05 vie 10:29</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
