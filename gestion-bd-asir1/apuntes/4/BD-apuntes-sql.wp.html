@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2020-09-30 mié 12:07 -->
+<!-- 2021-02-05 vie 09:38 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resumen de SQL</title>
@@ -52,7 +52,7 @@
     padding: 3px;
     border: 1px solid black;
   }
-  pre.src:hover:before { display: inline;}
+  pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
@@ -248,17 +248,18 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org732768c">1. Orden de ejecución de una <i>query</i></a></li>
-<li><a href="#org059cf5f">2. Funciones sobre valores</a></li>
-<li><a href="#org68bb539">3. Funciones sobre grupos</a></li>
-<li><a href="#org7aab727">4. Producto cartesiano</a></li>
-<li><a href="#orgbb380a2">5. Vistas</a></li>
-<li><a href="#org1ae1c0c">6. <i>Query</i> en un <code>from</code></a></li>
-<li><a href="#org4b9212f">7. <i>with</i></a></li>
-<li><a href="#orgeabb2d6">8. <i>Query</i> traducida a valor</a></li>
-<li><a href="#org84c78d4">9. <i>Query</i> traducida a lista</a></li>
-<li><a href="#orgb2fb4b1">10. <code>Having</code></a></li>
-<li><a href="#orgdcc4184">11. Referencias</a></li>
+<li><a href="#orga111fff">1. Orden de ejecución de una <i>query</i></a></li>
+<li><a href="#orga194858">2. Funciones sobre valores</a></li>
+<li><a href="#org140542f">3. Funciones de texto</a></li>
+<li><a href="#org88e58a2">4. Funciones sobre grupos</a></li>
+<li><a href="#org96eaeb2">5. Producto cartesiano</a></li>
+<li><a href="#org87aaf17">6. Vistas</a></li>
+<li><a href="#org6fc8962">7. <i>Query</i> en un <code>from</code></a></li>
+<li><a href="#org5ee2da9">8. <i>with</i></a></li>
+<li><a href="#orgbdf2da8">9. <i>Query</i> traducida a valor</a></li>
+<li><a href="#org47252ba">10. <i>Query</i> traducida a lista</a></li>
+<li><a href="#org17702c4">11. <code>Having</code></a></li>
+<li><a href="#org5a0dd75">12. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -295,8 +296,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-org732768c" class="outline-2">
-<h2 id="org732768c"><span class="section-number-2">1</span> Orden de ejecución de una <i>query</i></h2>
+<div id="outline-container-orga111fff" class="outline-2">
+<h2 id="orga111fff"><span class="section-number-2">1</span> Orden de ejecución de una <i>query</i></h2>
 <div class="outline-text-2" id="text-1">
 <ol class="org-ol">
 <li><code>from</code></li>
@@ -308,38 +309,54 @@ window.addEventListener("load",()=>{
 </ol>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span>  
-  location, <span style="color: #c397d8;">count</span>(*) <span style="color: #b9ca4a;">as</span> ocupacion
-<span style="color: #b9ca4a;">from</span> 
-  <span style="color: #b9ca4a;">section</span>
-<span style="color: #b9ca4a;">where</span>
+<pre class="src src-sql"><span style="color: #a020f0;">select</span>  
+  location, <span style="color: #483d8b;">count</span>(*) <span style="color: #a020f0;">as</span> ocupacion
+<span style="color: #a020f0;">from</span> 
+  <span style="color: #a020f0;">section</span>
+<span style="color: #a020f0;">where</span>
   capacity &gt; 10 
-<span style="color: #b9ca4a;">group</span> <span style="color: #b9ca4a;">by</span> 
+<span style="color: #a020f0;">group</span> <span style="color: #a020f0;">by</span> 
   location
-<span style="color: #b9ca4a;">having</span>
-  <span style="color: #c397d8;">count</span>(*) &lt; 10
-<span style="color: #b9ca4a;">order</span> <span style="color: #b9ca4a;">by</span>
+<span style="color: #a020f0;">having</span>
+  <span style="color: #483d8b;">count</span>(*) &lt; 10
+<span style="color: #a020f0;">order</span> <span style="color: #a020f0;">by</span>
   ocupacion;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org059cf5f" class="outline-2">
-<h2 id="org059cf5f"><span class="section-number-2">2</span> Funciones sobre valores</h2>
+<div id="outline-container-orga194858" class="outline-2">
+<h2 id="orga194858"><span class="section-number-2">2</span> Funciones sobre valores</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li><code>upper</code>, <code>lower</code>: Mayúsculas y minúsculas</li>
 <li><code>trunc</code>: quita decimales a números, horas y minutos a las fechas</li>
-<li><code>substr</code>: partes de un <code>varchar</code></li>
 <li><code>mod</code>, <code>sqrt</code>&#x2026;: funciones matemáticas</li>
+<li><code>to_number</code>: Convierte una cadena a número</li>
+<li><code>extract</code>: Extrae partes de una fecha</li>
+<li><code>nvl</code>: Pone un valor por defecto si un valor es <code>null</code></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org68bb539" class="outline-2">
-<h2 id="org68bb539"><span class="section-number-2">3</span> Funciones sobre grupos</h2>
+<div id="outline-container-org140542f" class="outline-2">
+<h2 id="org140542f"><span class="section-number-2">3</span> Funciones de texto</h2>
 <div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><code>to_char</code>: Formatea fechas o números y los convierte en fechas</li>
+<li><code>instr</code>: Busca el comienzo de una cadena dentro de otra cadena</li>
+<li><code>to_date</code>: Convierte una cadena en una fecha</li>
+<li><code>substr</code>: partes de un <code>varchar</code></li>
+<li><code>regexp_like</code>: como <code>like</code>, pero con expresiones regulares</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org88e58a2" class="outline-2">
+<h2 id="org88e58a2"><span class="section-number-2">4</span> Funciones sobre grupos</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><code>avg</code>: media</li>
 <li><code>max</code>: mínimo</li>
@@ -352,9 +369,9 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org7aab727" class="outline-2">
-<h2 id="org7aab727"><span class="section-number-2">4</span> Producto cartesiano</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org96eaeb2" class="outline-2">
+<h2 id="org96eaeb2"><span class="section-number-2">5</span> Producto cartesiano</h2>
+<div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Es una operación de conjuntos</li>
 <li>Para calcular \(P = A \times B\)
@@ -377,9 +394,9 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org9419b25" class="outline-3">
-<h3 id="org9419b25"><span class="section-number-3">4.1</span> Tabla original</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org98162f5" class="outline-3">
+<h3 id="org98162f5"><span class="section-number-3">5.1</span> Tabla original</h3>
+<div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Solo un pedido al día</li>
 <li>No respeta 2FN (<code>Precio</code> depende de parte de la clave)</li>
@@ -462,9 +479,9 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org082f4c2" class="outline-3">
-<h3 id="org082f4c2"><span class="section-number-3">4.2</span> Tablas normalizadas</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-orgd006e16" class="outline-3">
+<h3 id="orgd006e16"><span class="section-number-3">5.2</span> Tablas normalizadas</h3>
+<div class="outline-text-3" id="text-5-2">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tabla 2</span> PRODUCTOS</caption>
 
@@ -564,9 +581,9 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org19347a4" class="outline-3">
-<h3 id="org19347a4"><span class="section-number-3">4.3</span> Cómo recuperar información original</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-org043942a" class="outline-3">
+<h3 id="org043942a"><span class="section-number-3">5.3</span> Cómo recuperar información original</h3>
+<div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>La tabla original VENTAS puede seguir siendo necesaria para un informe</li>
 <li>Se puede recuperar con los siguientes pasos:
@@ -577,9 +594,9 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org3413b2f" class="outline-4">
-<h4 id="org3413b2f"><span class="section-number-4">4.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-orgf42cd2e" class="outline-4">
+<h4 id="orgf42cd2e"><span class="section-number-4">5.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
+<div class="outline-text-4" id="text-5-3-1">
 <font size="-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -776,9 +793,9 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org67d185c" class="outline-4">
-<h4 id="org67d185c"><span class="section-number-4">4.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-org238e412" class="outline-4">
+<h4 id="org238e412"><span class="section-number-4">5.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
+<div class="outline-text-4" id="text-5-3-2">
 <ul class="org-ul">
 <li>Nos quedamos solo con las filas <code>where PRODUCTO.producto = PEDIDOS.producto</code></li>
 </ul>
@@ -870,33 +887,33 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org85e9276" class="outline-3">
-<h3 id="org85e9276"><span class="section-number-3">4.4</span> Sintaxis SQL</h3>
-<div class="outline-text-3" id="text-4-4">
+<div id="outline-container-org2af960c" class="outline-3">
+<h3 id="org2af960c"><span class="section-number-3">5.4</span> Sintaxis SQL</h3>
+<div class="outline-text-3" id="text-5-4">
 <div class="org-src-container">
-<pre class="src src-sql"> <span style="color: #b9ca4a;">select</span> 
+<pre class="src src-sql"> <span style="color: #a020f0;">select</span> 
    *
- <span style="color: #b9ca4a;">from</span> 
+ <span style="color: #a020f0;">from</span> 
    PRODUCTOS,PEDIDOS
- <span style="color: #b9ca4a;">where</span>
+ <span style="color: #a020f0;">where</span>
    PRODUCTOS.producto = PEDIDOS.producto;
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-sql"> <span style="color: #b9ca4a;">select</span> 
+<pre class="src src-sql"> <span style="color: #a020f0;">select</span> 
    *
- <span style="color: #b9ca4a;">from</span> 
-   PRODUCTOS <span style="color: #b9ca4a;">join</span> PEDIDOS <span style="color: #b9ca4a;">on</span> PRODUCTOS.producto = PEDIDOS.producto;
+ <span style="color: #a020f0;">from</span> 
+   PRODUCTOS <span style="color: #a020f0;">join</span> PEDIDOS <span style="color: #a020f0;">on</span> PRODUCTOS.producto = PEDIDOS.producto;
 </pre>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgbb380a2" class="outline-2">
-<h2 id="orgbb380a2"><span class="section-number-2">5</span> Vistas</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org87aaf17" class="outline-2">
+<h2 id="org87aaf17"><span class="section-number-2">6</span> Vistas</h2>
+<div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Una <i>query</i> puede guardarse como una vista</li>
 <li>Las vistas se comportan como tablas con la orden <code>select</code>, extrayendo información de las tablas originales</li>
@@ -904,11 +921,11 @@ window.addEventListener("load",()=>{
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">create</span> <span style="color: #b9ca4a;">view</span> <span style="color: #e78c45;">ALUMNOS</span> <span style="color: #b9ca4a;">as</span>
-<span style="color: #b9ca4a;">select</span> student_id <span style="color: #b9ca4a;">as</span> clave, first_name <span style="color: #b9ca4a;">as</span> nombre, last_name <span style="color: #b9ca4a;">as</span> apellidos <span style="color: #b9ca4a;">from</span> student;
+<pre class="src src-sql"><span style="color: #a020f0;">create</span> <span style="color: #a020f0;">view</span> <span style="color: #0000ff;">ALUMNOS</span> <span style="color: #a020f0;">as</span>
+<span style="color: #a020f0;">select</span> student_id <span style="color: #a020f0;">as</span> clave, first_name <span style="color: #a020f0;">as</span> nombre, last_name <span style="color: #a020f0;">as</span> apellidos <span style="color: #a020f0;">from</span> student;
 
 
-<span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> alumnos;
+<span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> alumnos;
 
 </pre>
 </div>
@@ -916,9 +933,9 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org1ae1c0c" class="outline-2">
-<h2 id="org1ae1c0c"><span class="section-number-2">6</span> <i>Query</i> en un <code>from</code></h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-org6fc8962" class="outline-2">
+<h2 id="org6fc8962"><span class="section-number-2">7</span> <i>Query</i> en un <code>from</code></h2>
+<div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>En el <code>from</code> no es obligatorio poner tablas</li>
 <li>Se puede poner cualquier cosa con filas y columnas:
@@ -930,49 +947,49 @@ window.addEventListener("load",()=>{
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> (
-  <span style="color: #b9ca4a;">select</span> student_id <span style="color: #b9ca4a;">as</span> clave, first_name <span style="color: #b9ca4a;">as</span> nombre, last_name <span style="color: #b9ca4a;">as</span> apellidos <span style="color: #b9ca4a;">from</span> student
+<pre class="src src-sql"><span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> (
+  <span style="color: #a020f0;">select</span> student_id <span style="color: #a020f0;">as</span> clave, first_name <span style="color: #a020f0;">as</span> nombre, last_name <span style="color: #a020f0;">as</span> apellidos <span style="color: #a020f0;">from</span> student
 );
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org4b9212f" class="outline-2">
-<h2 id="org4b9212f"><span class="section-number-2">7</span> <i>with</i></h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org5ee2da9" class="outline-2">
+<h2 id="org5ee2da9"><span class="section-number-2">8</span> <i>with</i></h2>
+<div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Si no se quiere definir una vista o usar una <i>query</i> dentro de  <code>from</code></li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> nombre, apellidos <span style="color: #b9ca4a;">from</span> (
-  <span style="color: #b9ca4a;">select</span> student_id <span style="color: #b9ca4a;">as</span> clave, first_name <span style="color: #b9ca4a;">as</span> nombre, last_name <span style="color: #b9ca4a;">as</span> apellidos <span style="color: #b9ca4a;">from</span> student
+<pre class="src src-sql"><span style="color: #a020f0;">select</span> nombre, apellidos <span style="color: #a020f0;">from</span> (
+  <span style="color: #a020f0;">select</span> student_id <span style="color: #a020f0;">as</span> clave, first_name <span style="color: #a020f0;">as</span> nombre, last_name <span style="color: #a020f0;">as</span> apellidos <span style="color: #a020f0;">from</span> student
 )
-<span style="color: #b9ca4a;">where</span> clave &gt; 10;
+<span style="color: #a020f0;">where</span> clave &gt; 10;
 
 
-<span style="color: #b9ca4a;">with</span> estudiantes <span style="color: #b9ca4a;">as</span>(
-  <span style="color: #b9ca4a;">select</span> student_id <span style="color: #b9ca4a;">as</span> clave, first_name <span style="color: #b9ca4a;">as</span> nombre, last_name <span style="color: #b9ca4a;">as</span> apellidos <span style="color: #b9ca4a;">from</span> student
+<span style="color: #a020f0;">with</span> estudiantes <span style="color: #a020f0;">as</span>(
+  <span style="color: #a020f0;">select</span> student_id <span style="color: #a020f0;">as</span> clave, first_name <span style="color: #a020f0;">as</span> nombre, last_name <span style="color: #a020f0;">as</span> apellidos <span style="color: #a020f0;">from</span> student
 )
-<span style="color: #b9ca4a;">select</span> nombre, apellidos
-<span style="color: #b9ca4a;">from</span> estudiantes
-<span style="color: #b9ca4a;">where</span> clave &gt; 10;
+<span style="color: #a020f0;">select</span> nombre, apellidos
+<span style="color: #a020f0;">from</span> estudiantes
+<span style="color: #a020f0;">where</span> clave &gt; 10;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgeabb2d6" class="outline-2">
-<h2 id="orgeabb2d6"><span class="section-number-2">8</span> <i>Query</i> traducida a valor</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-orgbdf2da8" class="outline-2">
+<h2 id="orgbdf2da8"><span class="section-number-2">9</span> <i>Query</i> traducida a valor</h2>
+<div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li>Se puede poner una consulta que devuelva una fila y una columna en cualquier lugar donde se necesite un valor simple</li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> student 
-<span style="color: #b9ca4a;">where</span> <span style="color: #c397d8;">upper</span>(last_name) = (
-  <span style="color: #b9ca4a;">select</span> <span style="color: #c397d8;">max</span>(<span style="color: #c397d8;">upper</span>(last_name)) <span style="color: #b9ca4a;">from</span> student
+<pre class="src src-sql"><span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> student 
+<span style="color: #a020f0;">where</span> <span style="color: #483d8b;">upper</span>(last_name) = (
+  <span style="color: #a020f0;">select</span> <span style="color: #483d8b;">max</span>(<span style="color: #483d8b;">upper</span>(last_name)) <span style="color: #a020f0;">from</span> student
 );
 </pre>
 </div>
@@ -980,19 +997,19 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org84c78d4" class="outline-2">
-<h2 id="org84c78d4"><span class="section-number-2">9</span> <i>Query</i> traducida a lista</h2>
-<div class="outline-text-2" id="text-9">
+<div id="outline-container-org47252ba" class="outline-2">
+<h2 id="org47252ba"><span class="section-number-2">10</span> <i>Query</i> traducida a lista</h2>
+<div class="outline-text-2" id="text-10">
 <ul class="org-ul">
 <li>Se puede poner una consulta que devuelva una columna y muchas filas en una condición <code>in</code></li>
 </ul>
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> <span style="color: #b9ca4a;">distinct</span> course_no <span style="color: #b9ca4a;">from</span> <span style="color: #b9ca4a;">section</span> <span style="color: #b9ca4a;">where</span> capacity = 25 <span style="color: #b9ca4a;">order</span> <span style="color: #b9ca4a;">by</span> course_no;
-<span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> course <span style="color: #b9ca4a;">where</span> course_no = 20 <span style="color: #b9ca4a;">or</span> course_no = 220 <span style="color: #b9ca4a;">or</span> course_no = 134;
-<span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> course <span style="color: #b9ca4a;">where</span> course_no <span style="color: #b9ca4a;">in</span> (20,220,134);
+<pre class="src src-sql"><span style="color: #a020f0;">select</span> <span style="color: #a020f0;">distinct</span> course_no <span style="color: #a020f0;">from</span> <span style="color: #a020f0;">section</span> <span style="color: #a020f0;">where</span> capacity = 25 <span style="color: #a020f0;">order</span> <span style="color: #a020f0;">by</span> course_no;
+<span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> course <span style="color: #a020f0;">where</span> course_no = 20 <span style="color: #a020f0;">or</span> course_no = 220 <span style="color: #a020f0;">or</span> course_no = 134;
+<span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> course <span style="color: #a020f0;">where</span> course_no <span style="color: #a020f0;">in</span> (20,220,134);
 
-<span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span> course <span style="color: #b9ca4a;">where</span> course_no <span style="color: #b9ca4a;">in</span> (
-  <span style="color: #b9ca4a;">select</span> <span style="color: #b9ca4a;">distinct</span> course_no <span style="color: #b9ca4a;">from</span> <span style="color: #b9ca4a;">section</span> <span style="color: #b9ca4a;">where</span> capacity = 25
+<span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span> course <span style="color: #a020f0;">where</span> course_no <span style="color: #a020f0;">in</span> (
+  <span style="color: #a020f0;">select</span> <span style="color: #a020f0;">distinct</span> course_no <span style="color: #a020f0;">from</span> <span style="color: #a020f0;">section</span> <span style="color: #a020f0;">where</span> capacity = 25
 );
 </pre>
 </div>
@@ -1000,35 +1017,35 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-orgb2fb4b1" class="outline-2">
-<h2 id="orgb2fb4b1"><span class="section-number-2">10</span> <code>Having</code></h2>
-<div class="outline-text-2" id="text-10">
+<div id="outline-container-org17702c4" class="outline-2">
+<h2 id="org17702c4"><span class="section-number-2">11</span> <code>Having</code></h2>
+<div class="outline-text-2" id="text-11">
 <ul class="org-ul">
 <li><code>having</code> sirve para poner condiciones a los grupos de una consulta</li>
 <li>Se puede simular con una subconsulta en el <code>from</code></li>
 </ul>
 
 <div class="org-src-container">
-<pre class="src src-sql"><span style="color: #b9ca4a;">select</span> * <span style="color: #b9ca4a;">from</span>
+<pre class="src src-sql"><span style="color: #a020f0;">select</span> * <span style="color: #a020f0;">from</span>
 (
-    <span style="color: #b9ca4a;">select</span>  
-      location, <span style="color: #c397d8;">count</span>(*) <span style="color: #b9ca4a;">as</span> ocupacion
-    <span style="color: #b9ca4a;">from</span> 
-      <span style="color: #b9ca4a;">section</span>
-    <span style="color: #b9ca4a;">group</span> <span style="color: #b9ca4a;">by</span> 
+    <span style="color: #a020f0;">select</span>  
+      location, <span style="color: #483d8b;">count</span>(*) <span style="color: #a020f0;">as</span> ocupacion
+    <span style="color: #a020f0;">from</span> 
+      <span style="color: #a020f0;">section</span>
+    <span style="color: #a020f0;">group</span> <span style="color: #a020f0;">by</span> 
       location
 )
-<span style="color: #b9ca4a;">where</span> ocupacion &lt; 10;
+<span style="color: #a020f0;">where</span> ocupacion &lt; 10;
 
 
-<span style="color: #b9ca4a;">select</span>  
-  location, <span style="color: #c397d8;">count</span>(*) <span style="color: #b9ca4a;">as</span> ocupacion
-<span style="color: #b9ca4a;">from</span> 
-  <span style="color: #b9ca4a;">section</span>
-<span style="color: #b9ca4a;">group</span> <span style="color: #b9ca4a;">by</span> 
+<span style="color: #a020f0;">select</span>  
+  location, <span style="color: #483d8b;">count</span>(*) <span style="color: #a020f0;">as</span> ocupacion
+<span style="color: #a020f0;">from</span> 
+  <span style="color: #a020f0;">section</span>
+<span style="color: #a020f0;">group</span> <span style="color: #a020f0;">by</span> 
   location
-<span style="color: #b9ca4a;">having</span>
-  <span style="color: #c397d8;">count</span>(*) &lt; 10;
+<span style="color: #a020f0;">having</span>
+  <span style="color: #483d8b;">count</span>(*) &lt; 10;
 </pre>
 </div>
 </div>
@@ -1036,9 +1053,9 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-orgdcc4184" class="outline-2">
-<h2 id="orgdcc4184"><span class="section-number-2">11</span> Referencias</h2>
-<div class="outline-text-2" id="text-11">
+<div id="outline-container-org5a0dd75" class="outline-2">
+<h2 id="org5a0dd75"><span class="section-number-2">12</span> Referencias</h2>
+<div class="outline-text-2" id="text-12">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -1059,7 +1076,7 @@ window.addEventListener("load",()=>{
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2020-09-30 mié 12:07</p>
+<p class="date">Created: 2021-02-05 vie 09:38</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

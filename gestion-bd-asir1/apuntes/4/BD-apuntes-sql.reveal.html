@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Resumen de SQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-09-30 mié 12:07</p>
+<h1 class="title">Resumen de SQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-02-05 vie 09:38</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -1960,15 +1960,16 @@ div.figure, caption.t-bottom{
 <ul>
 <li><a href="#/slide-1">1. Orden de ejecución de una <i>query</i></a></li>
 <li><a href="#/slide-2">2. Funciones sobre valores</a></li>
-<li><a href="#/slide-3">3. Funciones sobre grupos</a></li>
-<li><a href="#/slide-4">4. Producto cartesiano</a></li>
-<li><a href="#/slide-5">5. Vistas</a></li>
-<li><a href="#/slide-6">6. <i>Query</i> en un <code>from</code></a></li>
-<li><a href="#/slide-7">7. <i>with</i></a></li>
-<li><a href="#/slide-8">8. <i>Query</i> traducida a valor</a></li>
-<li><a href="#/slide-9">9. <i>Query</i> traducida a lista</a></li>
-<li><a href="#/slide-10">10. <code>Having</code></a></li>
-<li><a href="#/slide-11">11. Referencias</a></li>
+<li><a href="#/slide-3">3. Funciones de texto</a></li>
+<li><a href="#/slide-4">4. Funciones sobre grupos</a></li>
+<li><a href="#/slide-5">5. Producto cartesiano</a></li>
+<li><a href="#/slide-6">6. Vistas</a></li>
+<li><a href="#/slide-7">7. <i>Query</i> en un <code>from</code></a></li>
+<li><a href="#/slide-8">8. <i>with</i></a></li>
+<li><a href="#/slide-9">9. <i>Query</i> traducida a valor</a></li>
+<li><a href="#/slide-10">10. <i>Query</i> traducida a lista</a></li>
+<li><a href="#/slide-11">11. <code>Having</code></a></li>
+<li><a href="#/slide-12">12. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -2036,8 +2037,8 @@ order by
   ocupacion;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2047,18 +2048,37 @@ order by
 <ul>
 <li><code>upper</code>, <code>lower</code>: Mayúsculas y minúsculas</li>
 <li><code>trunc</code>: quita decimales a números, horas y minutos a las fechas</li>
-<li><code>substr</code>: partes de un <code>varchar</code></li>
 <li><code>mod</code>, <code>sqrt</code>&#x2026;: funciones matemáticas</li>
+<li><code>to_number</code>: Convierte una cadena a número</li>
+<li><code>extract</code>: Extrae partes de una fecha</li>
+<li><code>nvl</code>: Pone un valor por defecto si un valor es <code>null</code></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
 <section id="slide-3">
 <div class="slide-header"></div>
-<h2 id="3"><span class="section-number-2">3</span> Funciones sobre grupos</h2>
+<h2 id="3"><span class="section-number-2">3</span> Funciones de texto</h2>
+<ul>
+<li><code>to_char</code>: Formatea fechas o números y los convierte en fechas</li>
+<li><code>instr</code>: Busca el comienzo de una cadena dentro de otra cadena</li>
+<li><code>to_date</code>: Convierte una cadena en una fecha</li>
+<li><code>substr</code>: partes de un <code>varchar</code></li>
+<li><code>regexp_like</code>: como <code>like</code>, pero con expresiones regulares</li>
+
+</ul>
+<div class="slide-footer"></div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-4">
+<div class="slide-header"></div>
+<h2 id="4"><span class="section-number-2">4</span> Funciones sobre grupos</h2>
 <ul>
 <li><code>avg</code>: media</li>
 <li><code>max</code>: mínimo</li>
@@ -2068,15 +2088,15 @@ order by
 <li><code>count(*)</code>: cuenta todas las filas, incluidos los valores <code>null</code></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-4">
+<section id="slide-5">
 <div class="slide-header"></div>
-<h2 id="4"><span class="section-number-2">4</span> Producto cartesiano</h2>
+<h2 id="5"><span class="section-number-2">5</span> Producto cartesiano</h2>
 <ul>
 <li>Es una operación de conjuntos</li>
 <li>Para calcular \(P = A \times B\)
@@ -2102,12 +2122,12 @@ order by
 <li>Se llama <i>producto</i> porque \(|P| = |A| \cdot |B|\)</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-4-1">
+<section id="slide-5-1">
 <div class="slide-header"></div>
-<h3 id="4-1"><span class="section-number-3">4.1</span> Tabla original</h3>
+<h3 id="5-1"><span class="section-number-3">5.1</span> Tabla original</h3>
 <ul>
 <li>Solo un pedido al día</li>
 <li>No respeta 2FN (<code>Precio</code> depende de parte de la clave)</li>
@@ -2187,13 +2207,13 @@ order by
 </tr>
 </tbody>
 </table>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
-<section id="slide-4-2">
+<section id="slide-5-2">
 <div class="slide-header"></div>
-<h3 id="4-2"><span class="section-number-3">4.2</span> Tablas normalizadas</h3>
+<h3 id="5-2"><span class="section-number-3">5.2</span> Tablas normalizadas</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 <caption class="t-above"><span class="table-number">Tabla 2</span> PRODUCTOS</caption>
 
@@ -2290,12 +2310,12 @@ order by
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-4-3">
+<section id="slide-5-3">
 <div class="slide-header"></div>
-<h3 id="4-3"><span class="section-number-3">4.3</span> Cómo recuperar información original</h3>
+<h3 id="5-3"><span class="section-number-3">5.3</span> Cómo recuperar información original</h3>
 <ul>
 <li>La tabla original VENTAS puede seguir siendo necesaria para un informe</li>
 <li>Se puede recuperar con los siguientes pasos:
@@ -2306,12 +2326,12 @@ order by
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-4-3-1">
+<section id="slide-5-3-1">
 <div class="slide-header"></div>
-<h4 id="4-3-1"><span class="section-number-4">4.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
+<h4 id="5-3-1"><span class="section-number-4">5.3.1</span> PRODUCTOS \(\times\) PEDIDOS</h4>
 <font size="-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2504,13 +2524,13 @@ order by
 </tbody>
 </table>
 </font>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
-<section id="slide-4-3-2">
+<section id="slide-5-3-2">
 <div class="slide-header"></div>
-<h4 id="4-3-2"><span class="section-number-4">4.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
+<h4 id="5-3-2"><span class="section-number-4">5.3.2</span> PRODUCTOS \(\times\) PEDIDOS, filtrado</h4>
 <ul>
 <li>Nos quedamos solo con las filas <code>where PRODUCTO.producto = PEDIDOS.producto</code></li>
 
@@ -2599,12 +2619,12 @@ order by
 </tbody>
 </table>
 </font>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-4-4">
+<section id="slide-5-4">
 <div class="slide-header"></div>
-<h3 id="4-4"><span class="section-number-3">4.4</span> Sintaxis SQL</h3>
+<h3 id="5-4"><span class="section-number-3">5.4</span> Sintaxis SQL</h3>
 <div class="org-src-container">
 
 <pre><code class="sql" > select 
@@ -2624,14 +2644,14 @@ order by
    PRODUCTOS join PEDIDOS on PRODUCTOS.producto = PEDIDOS.producto;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
-<section id="slide-5">
+<section id="slide-6">
 <div class="slide-header"></div>
-<h2 id="5"><span class="section-number-2">5</span> Vistas</h2>
+<h2 id="6"><span class="section-number-2">6</span> Vistas</h2>
 <ul>
 <li>Una <i>query</i> puede guardarse como una vista</li>
 <li>Las vistas se comportan como tablas con la orden <code>select</code>, extrayendo información de las tablas originales</li>
@@ -2649,15 +2669,15 @@ select * from alumnos;
 
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-6">
+<section id="slide-7">
 <div class="slide-header"></div>
-<h2 id="6"><span class="section-number-2">6</span> <i>Query</i> en un <code>from</code></h2>
+<h2 id="7"><span class="section-number-2">7</span> <i>Query</i> en un <code>from</code></h2>
 <ul>
 <li>En el <code>from</code> no es obligatorio poner tablas</li>
 <li>Se puede poner cualquier cosa con filas y columnas:
@@ -2677,14 +2697,14 @@ select * from alumnos;
 );
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
-<section id="slide-7">
+<section id="slide-8">
 <div class="slide-header"></div>
-<h2 id="7"><span class="section-number-2">7</span> <i>with</i></h2>
+<h2 id="8"><span class="section-number-2">8</span> <i>with</i></h2>
 <ul>
 <li>Si no se quiere definir una vista o usar una <i>query</i> dentro de  <code>from</code></li>
 
@@ -2706,14 +2726,14 @@ from estudiantes
 where clave &gt; 10;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
-<section id="slide-8">
+<section id="slide-9">
 <div class="slide-header"></div>
-<h2 id="8"><span class="section-number-2">8</span> <i>Query</i> traducida a valor</h2>
+<h2 id="9"><span class="section-number-2">9</span> <i>Query</i> traducida a valor</h2>
 <ul>
 <li>Se puede poner una consulta que devuelva una fila y una columna en cualquier lugar donde se necesite un valor simple</li>
 
@@ -2726,15 +2746,15 @@ where upper(last_name) = (
 );
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-9">
+<section id="slide-10">
 <div class="slide-header"></div>
-<h2 id="9"><span class="section-number-2">9</span> <i>Query</i> traducida a lista</h2>
+<h2 id="10"><span class="section-number-2">10</span> <i>Query</i> traducida a lista</h2>
 <ul>
 <li>Se puede poner una consulta que devuelva una columna y muchas filas en una condición <code>in</code></li>
 
@@ -2750,15 +2770,15 @@ select * from course where course_no in (
 );
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
-<section id="slide-10">
+<section id="slide-11">
 <div class="slide-header"></div>
-<h2 id="10"><span class="section-number-2">10</span> <code>Having</code></h2>
+<h2 id="11"><span class="section-number-2">11</span> <code>Having</code></h2>
 <ul>
 <li><code>having</code> sirve para poner condiciones a los grupos de una consulta</li>
 <li>Se puede simular con una subconsulta en el <code>from</code></li>
@@ -2789,16 +2809,16 @@ having
   count(*) &lt; 10;
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 </section>
 <section>
-<section id="slide-11">
+<section id="slide-12">
 <div class="slide-header"></div>
-<h2 id="11"><span class="section-number-2">11</span> Referencias</h2>
+<h2 id="12"><span class="section-number-2">12</span> Referencias</h2>
 <ul>
 <li>Formatos:
 <ul>
