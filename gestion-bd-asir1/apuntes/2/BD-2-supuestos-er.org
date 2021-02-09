@@ -346,9 +346,9 @@ Crear un diseño entidad relación que permita almacenar datos geográficos refe
 
 Diseñar un modelo entidad/relación que almacene los datos de todas las guerras de la historia de modo que:
 
-- Se almacene el año en el que empezó la guerra y el año en que terminó, así como su nombre y el de los paises contendientes, pudiendo indicar además quienes fueron las ganadores
+- Se almacene el año en el que empezó la guerra y el año en que terminó, así como su nombre y el de los paises contendientes, pudiendo indicar además quienes fueron los ganadores
 - Hay que tener en cuenta que los paises se pueden unir a la guerra a uno u otro bando (suponemos que solo hay dos bandos) después de comenzada la guerra (como EEUU en la 2ª guerra mundial) y que incluso pueden abandonar la guerra antes de que esta finalice (como Rusia en la 1ª guerra mundial)
-- Los paises que se almacenan en la base de datos pueden no ser paises actualmente (como Prusia, Aragón, Asiria,etc.) por lo que se ha contemplado que en la base de datos se almacenen los años en los que el país ha sido independiente, teniendo en cuenta que hay paises que ha habido momentos en los que ha sido independiente y otros en los que no (por ejemplo Croacia). Bstará con almacenar los periodos en los que ha sido independiente.
+- Los paises que se almacenan en la base de datos pueden no ser paises actualmente (como Prusia, Aragón, Asiria,etc.) por lo que se ha contemplado que en la base de datos se almacenen los años en los que el país ha sido independiente, teniendo en cuenta que hay paises que ha habido momentos en los que ha sido independiente y otros en los que no (por ejemplo Croacia). Bastará con almacenar los periodos en los que ha sido independiente.
 
 
 * Almacén v1
