@@ -100,6 +100,7 @@ variable=$(ls)
 - =$1=: Primer parámetro
 - =$2=: Segundo parámetro
 - =$*=: Todos los parámetros a partir del primero
+- =$#=: Número de parámetros del /script/
 
 ** Funciones
 - Son conjuntos agrupados de órdenes con un nombre
