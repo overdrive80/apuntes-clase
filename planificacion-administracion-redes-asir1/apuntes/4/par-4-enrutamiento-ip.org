@@ -130,13 +130,24 @@ link-local      *               255.255.0.0     U     1000   0        0 wlan0
 192.168.56.0    *               255.255.255.0   U     0      0        0 vboxnet0
 #+end_src
 
-*** Modificar las tablas en Linux
+*** Modificar las tablas en Linux (=route=)
 - Añadir una ruta para la red 157.0.0.0/8: se va por la interfaz =eth0=, con métrica 3. Se envía al router 157.55.80.1
 #+begin_src sh
 sudo route add -net 157.0.0.0 netmask 255.0.0.0 gw 157.55.80.1 metric 3 dev eth0
 #+end_src
 - La métrica y la interfaz son opcionales
 - Internet se puede especificar como =0.0.0.0= o como =default=
+
+
+
+*** Modificar las tablas en Linux (=ip=)
+- Añadir una ruta para la red 157.0.0.0/8: se va por la interfaz =eth0=, con métrica 3. Se envía al router 157.55.80.1
+#+begin_src sh
+sudo ip route add 157.0.0.0/8 via 157.55.80.1 dev eth0 weigth 3
+#+end_src
+- La métrica y la interfaz son opcionales
+- Internet se puede especificar como =0.0.0.0/0= o como =default=
+
 
 *** [[http://www.ducea.com/2006/08/01/how-to-enable-ip-forwarding-in-linux/][Activar el enrutamiento]]
 - El /ip forwarding/ es un parámetro de kernel.
@@ -148,10 +159,5 @@ sudo route add -net 157.0.0.0 netmask 255.0.0.0 gw 157.55.80.1 metric 3 dev eth0
 
 
 * Referencias
-- Formatos:
-  - [[file:par-4-enrutamiento-ip.html][Transparencias]]
-  - [[file:par-4-enrutamiento-ip.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+INCLUDE: "../../../common/footer.org"
+
