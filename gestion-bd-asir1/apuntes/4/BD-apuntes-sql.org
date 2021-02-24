@@ -32,6 +32,14 @@ order by
 - =extract=: Extrae partes de una fecha
 - =nvl=: Pone un valor por defecto si un valor es =null=    
 
+* Operaciones sobre fechas
+- Resta de fechas
+- Sumar o restar días, meses...:
+
+#+begin_src sql
+select sysdate - interval '1' month + interval '1' day from dual;
+#+end_src  
+
 * Funciones de texto
 - =to_char=: Formatea fechas o números y los convierte en cadenas
 - =instr=: Busca el comienzo de una cadena dentro de otra cadena
