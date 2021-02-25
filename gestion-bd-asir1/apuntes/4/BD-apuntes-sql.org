@@ -27,13 +27,24 @@ order by
 * Funciones sobre valores
 - =upper=, =lower=: Mayúsculas y minúsculas
 - =trunc=: quita decimales a números, horas y minutos a las fechas
-- =substr=: partes de un =varchar=
 - =mod=, =sqrt=...: funciones matemáticas
+- =to_number=: Convierte una cadena a número
+- =extract=: Extrae partes de una fecha
+- =nvl=: Pone un valor por defecto si un valor es =null=    
+
+* Funciones de texto
+- =to_char=: Formatea fechas o números y los convierte en cadenas
+- =instr=: Busca el comienzo de una cadena dentro de otra cadena
+- =to_date=: Convierte una cadena en una fecha
+- =substr=: partes de un =varchar=
+- =regexp_like=: como =like=, pero con expresiones regulares
+
 
 * Funciones sobre grupos
 - =avg=: media
 - =max=: mínimo
 - =min=: máximo
+- =sum=: suma   
 - =count=: cuenta valores de columnas
 - =count(distict )=: cuenta valores distintos
 - =count(*)=: cuenta todas las filas, incluidos los valores =null=

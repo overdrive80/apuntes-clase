@@ -338,9 +338,9 @@ http://www.ecs.umass.edu/ece/koren/FaultTolerantSystems/simulator/Hamming/Hammin
 #+end_NOTES
 
 *** ¿Y si hay más de 1 error?
-- Su distancia de Hamming es 3, así que no se puede detectar
+- Su distancia de Hamming es 3, así que no se puede corregir
 - En Hamming extendido se añade un bit de paridad adicional
-  - Permite detectar errores de dos bits, pero no corregirlos
+  - Permite detectar errores de tres bits, pero no corregirlos
 
 
 ** Ejercicio

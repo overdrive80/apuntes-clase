@@ -220,11 +220,19 @@ Fuente: [[http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding-2.htm][tcpip
 
 ** IOS
 Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan conexión entre sí.
+- Activar /unicast routing/: =Router(config)# ipv6 unicast-routing=
+- Activar RIP: =Router(config-if)# ipv6 rip process1 enable=
 
 [[file:pkt/ejercicio-ipv6.pkt][Fichero PKT]] 
 #+latex: \attachfile{./pkt/ejercicio-ipv6.pkt}
 
 [[file:pkt/ejercicio-ipv6.png]] 
+
+* NDP
+- ARP es un protocolo para IPv4
+- IPv6 utiliza [[https://en.wikipedia.org/wiki/Neighbor_Discovery_Protocol][Network Discovery Protocol]]
+- Linux: =ip -6 neigh show=
+- Windows: =netsh interface ipv6 show neighbors=  
 
 * Referencias
 - Formatos:
@@ -239,3 +247,6 @@ Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan
 
 * nat66 :noexport:
 https://blog.apnic.net/2018/02/02/nat66-good-bad-ugly/
+
+* IP6 routers cisco :noexport:
+  https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/iproute_rip/configuration/xe-3s/asr1000/ip6-rip-xe.html

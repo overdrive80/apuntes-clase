@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-09-21 lun 11:14</p>
+<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-01-26 mar 08:35</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -1965,7 +1965,8 @@ div.figure, caption.t-bottom{
 <li><a href="#/slide-6">6. Arranque y parada</a></li>
 <li><a href="#/slide-7">7. Operaciones periódicas</a></li>
 <li><a href="#/slide-8">8. Avanzado</a></li>
-<li><a href="#/slide-9">9. Referencias</a></li>
+<li><a href="#/slide-9">9. Más avanzado: comandos desde PL/SQL</a></li>
+<li><a href="#/slide-10">10. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -2043,19 +2044,19 @@ window.addEventListener("load",()=>{
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >#!/bin/sh
+<pre><code class="sh" >#!/bin/sh
 </code></pre>
 </div>
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >#!/usr/bin/php
+<pre><code class="sh" >#!/usr/bin/php
 </code></pre>
 </div>
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >#!/usr/bin/python
+<pre><code class="sh" >#!/usr/bin/python
 </code></pre>
 </div>
 
@@ -2066,7 +2067,7 @@ window.addEventListener("load",()=>{
 <h3 id="2-2"><span class="section-number-3">2.2</span> Variables</h3>
 <div class="org-src-container">
 
-<pre><code class=" sh" ># Variable local a esta shell
+<pre><code class="sh" ># Variable local a esta shell
 variable=valor
 
 # Variable exportada a los hijos de esta shell
@@ -2102,7 +2103,7 @@ variable_para_un_comando=valor comando
 <h4 id="2-3-1"><span class="section-number-4">2.3.1</span> Redirigir entrada/salida a fichero</h4>
 <div class="org-src-container">
 
-<pre><code class=" sh" ># La entrada sale de un fichero en vez del teclado
+<pre><code class="sh" ># La entrada sale de un fichero en vez del teclado
 sort &lt; fichero
 
 # La entrada sale de un fichero, y la salida va a otro fichero
@@ -2124,7 +2125,7 @@ sort &lt; fichero | less
 <h4 id="2-3-2"><span class="section-number-4">2.3.2</span> <i>HEREDOCS</i></h4>
 <div class="org-src-container">
 
-<pre><code class=" sh" >
+<pre><code class="sh" >
 # La entrada se especifica en el propio script
 sort &lt;&lt;FINDEFICHERO
 Maria
@@ -2150,7 +2151,7 @@ FINDEFICHERO
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >
+<pre><code class="sh" >
 # Defino una variable con los ficheros del directorio
 variable=$(ls)
 
@@ -2171,6 +2172,7 @@ variable=$(ls)
 <li><code>$1</code>: Primer parámetro</li>
 <li><code>$2</code>: Segundo parámetro</li>
 <li><code>$*</code>: Todos los parámetros a partir del primero</li>
+<li><code>$#</code>: Número de parámetros del <i>script</i></li>
 
 </ul>
 
@@ -2187,7 +2189,7 @@ variable=$(ls)
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >
+<pre><code class="sh" >
 importante(){
   echo --------------------------
   echo Aviso: $*
@@ -2219,7 +2221,7 @@ importante "Asi se define una funcion en bash"
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >grep cadena *
+<pre><code class="sh" >grep cadena *
 exit_code_del_grep=$?
 echo grep ha devuelto: $exit_code_del_grep
 </code></pre>
@@ -2237,7 +2239,7 @@ echo grep ha devuelto: $exit_code_del_grep
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >for nombre in Maria Juan Pepe Susana Manolo
+<pre><code class="sh" >for nombre in Maria Juan Pepe Susana Manolo
 do
    echo Realizando una vuelta de bucle sobre $nombre
 done
@@ -2270,7 +2272,7 @@ done
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >if grep cadena *
+<pre><code class="sh" >if grep cadena *
 then
   echo grep ha encontrado algo sin errores
 else
@@ -2292,7 +2294,7 @@ fi
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >condicion(){
+<pre><code class="sh" >condicion(){
   # AQUÍ SE PODRÍA DECIDIR EL RETORNO CON OTROS COMANDOS
   # O CON IF's ENCADENADOS, PERO COMO EJEMPLO DEVOLVEMOS TRUE
   return 0
@@ -2323,7 +2325,7 @@ done
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >TEST(1)                      User Commands                     TEST(1)
+<pre><code class="sh" >TEST(1)                      User Commands                     TEST(1)
 
 NAME
        test - check file types and compare values
@@ -2470,7 +2472,7 @@ DESCRIPTION
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" ># INCREMENTAR LA VARIABLE contador
+<pre><code class="sh" ># INCREMENTAR LA VARIABLE contador
 contador=$(($contador + 1))
 </code></pre>
 </div>
@@ -2485,7 +2487,7 @@ contador=$(($contador + 1))
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >echo Cuerpo del mensaje | mail -s "Asunto del mensaje" -a ficheroadjunto alvarogonzalezprofesor@gmail.com
+<pre><code class="sh" >echo Cuerpo del mensaje | mail -s "Asunto del mensaje" -a ficheroadjunto alvarogonzalezprofesor@gmail.com
 </code></pre>
 </div>
 
@@ -2495,7 +2497,7 @@ contador=$(($contador + 1))
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >echo 2+2 | bc
+<pre><code class="sh" >echo 2+2 | bc
 </code></pre>
 </div>
 
@@ -2539,7 +2541,7 @@ contador=$(($contador + 1))
 <div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1</span> Ficheros de inicio de <i>shell</i></h3>
 
-<div id="orgea92cf7" class="figure">
+<div id="orgd7e06cd" class="figure">
 <p><svg width="749pt" height="305pt"
  viewBox="0.00 0.00 749.48 305.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 301)">
@@ -2723,7 +2725,7 @@ contador=$(($contador + 1))
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >#!/bin/sh 
+<pre><code class="sh" >#!/bin/sh 
 ORACLE_HOME=/var/oracle/product/12.1.0/asir_bbdd
 ORACLE_SID=asir
 PATH=$ORACLE_HOME/bin:$PATH
@@ -2756,14 +2758,14 @@ export ORACLE_SID
 </p>
 <div class="org-src-container">
 
-<pre><code class=" sql" >SHOW PARAMETER os_authent_prefix; -- Por defecto es 'ops$'
+<pre><code class="sql" >SHOW PARAMETER os_authent_prefix; -- Por defecto es 'ops$'
 CREATE USER ops$usuario IDENTIFIED EXTERNALLY;
 </code></pre>
 </div>
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >su usuario
+<pre><code class="sh" >su usuario
 sqlplus / 
 </code></pre>
 </div>
@@ -2773,7 +2775,7 @@ sqlplus /
 </p>
 <div class="org-src-container">
 
-<pre><code class=" sh" >sqlplus sys/alumno as sysdba
+<pre><code class="sh" >sqlplus sys/alumno as sysdba
 </code></pre>
 </div>
 
@@ -2800,7 +2802,7 @@ sqlplus /
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >sqlplus sys/alumno@CONEXION as sysdba
+<pre><code class="sh" >sqlplus sys/alumno@CONEXION as sysdba
 </code></pre>
 </div>
 
@@ -2811,7 +2813,7 @@ sqlplus /
 <h3 id="4-3"><span class="section-number-3">4.3</span> <code>tnsnames.ora</code></h3>
 <div class="org-src-container">
 
-<pre><code class=" lisp" >MYSID=
+<pre><code class="lisp" >MYSID=
   (DESCRIPTION =
     (ADDRESS_LIST =
       (ADDRESS = (PROTOCOL = TCP)(HOST = mydnshostname)(PORT = 1521))
@@ -2852,7 +2854,7 @@ sqlplus /
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" shell" >sqlplus username/password@host:port/sid
+<pre><code class="shell" >sqlplus username/password@host:port/sid
 </code></pre>
 </div>
 
@@ -2881,7 +2883,7 @@ sqlplus /
 <h3 id="5-1"><span class="section-number-3">5.1</span> Ejemplo <i>heredoc</i></h3>
 <div class="org-src-container">
 
-<pre><code class=" sh" >sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+<pre><code class="sh" >sqlplus -S alumno/alumno &lt;&lt;HEREDOC
 set  autocommit off
 create table prueba(un_atributo int);
 insert into prueba values(1);
@@ -2904,7 +2906,7 @@ HEREDOC
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >sqlplus -S alumno/alumno &lt;&lt;HEREDOC
+<pre><code class="sh" >sqlplus -S alumno/alumno &lt;&lt;HEREDOC
 set  autocommit off
 insert into prueba values(1);
 insert into prueba values(2);
@@ -2929,7 +2931,7 @@ less prueba.txt
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
+<pre><code class="sh" >sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
 set colsep ','    -- separate columns with a comma
 set pagesize 0    -- No header rows
 set trimspool on  -- remove trailing blanks
@@ -2961,7 +2963,7 @@ HEREDOC
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >
+<pre><code class="sh" >
 sqlplus -S sys/alumno as sysdba &lt;&lt;HEREDOC
 @/camino/al/fichero.sql
 HEREDOC
@@ -2999,7 +3001,7 @@ HEREDOC
 
 <div class="org-src-container">
 
-<pre><code class=" sh" ># This file is used by ORACLE utilities.  It is created by root.sh
+<pre><code class="sh" ># This file is used by ORACLE utilities.  It is created by root.sh
 # and updated by either Database Configuration Assistant while creating
 # a database or ASM Configuration Assistant while creating ASM instance.
 
@@ -3061,7 +3063,7 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >[Unit]
+<pre><code class="sh" >[Unit]
 Description=Oracle
 After=network.target
 
@@ -3197,7 +3199,7 @@ Fuente: <a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.h
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >systemctl enable SERVICIO
+<pre><code class="sh" >systemctl enable SERVICIO
 systemctl disable SERVICIO
 </code></pre>
 </div>
@@ -3208,7 +3210,7 @@ systemctl disable SERVICIO
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sh" >systemctl start SERVICIO
+<pre><code class="sh" >systemctl start SERVICIO
 systemctl stop SERVICIO
 </code></pre>
 </div>
@@ -3364,7 +3366,7 @@ Más información en <code>man systemd.timer</code> y <code>man systemd.time</co
 </p>
 <div class="org-src-container">
 <label class="org-src-name">/etc/systemd/system/date.service</label>
-<pre><code class=" sh" >[Unit]
+<pre><code class="sh" >[Unit]
 Description=Prints date into /tmp/date file
 
 [Service]
@@ -3375,7 +3377,7 @@ ExecStart=/usr/bin/sh -c '/usr/bin/date &gt;&gt; /tmp/date'
 
 <div class="org-src-container">
 <label class="org-src-name">/etc/systemd/system/date.timer</label>
-<pre><code class=" sh" >[Unit]
+<pre><code class="sh" >[Unit]
 Description=Run date.service every 10 minutes
 
 [Timer]
@@ -3401,7 +3403,7 @@ OnCalendar=*:0/10
 
 <div class="org-src-container">
 
-<pre><code class=" sh" >#!/bin/bash
+<pre><code class="sh" >#!/bin/bash
 
 rm $HOME/elbucledebeparar
 hay_que_seguir(){
@@ -3450,7 +3452,7 @@ done
 </p>
 <div class="org-src-container">
 <label class="org-src-name">Compara los contenidos de un directorio con otro</label>
-<pre><code class=" sh" >  diff &lt;(ls $first_directory) &lt;(ls $second_directory)
+<pre><code class="sh" >  diff &lt;(ls $first_directory) &lt;(ls $second_directory)
 </code></pre>
 </div></li>
 <li><code>mktemp</code> para ficheros temporales</li>
@@ -3464,21 +3466,40 @@ done
 <section>
 <section id="slide-9">
 <div class="slide-header"></div>
-<h2 id="9"><span class="section-number-2">9</span> Referencias</h2>
+<h2 id="9"><span class="section-number-2">9</span> Más avanzado: comandos desde PL/SQL</h2>
+<p>
+<a href="http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm">http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm</a>
+</p>
+
+<p>
+DBMS<sub>SCHEDULER.RUN</sub><sub>JOB</sub>
+</p>
+
+<div class="slide-footer"></div>
+</section>
+</section>
+<section>
+<section id="slide-10">
+<div class="slide-header"></div>
+<h2 id="10"><span class="section-number-2">10</span> Referencias</h2>
 <ul>
 <li>Formatos:
 <ul>
-<li><a href="asgbd-03-scripts-shell.html">Transparencias</a></li>
-<li><a href="asgbd-03-scripts-shell.pdf">PDF</a></li>
+<li><a href="./asgbd-03-scripts-shell.reveal.html">Transparencias</a></li>
+<li><a href="./asgbd-03-scripts-shell.pdf">PDF</a></li>
+<li><a href="./asgbd-03-scripts-shell.epub">EPUB</a></li>
 
 </ul></li>
 <li>Creado con:
 <ul>
 <li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
-<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
+
+<li><a href="https://oracle-base.com/articles/misc/oracle-shell-scripting">oracle-base</a></li>
 
 </ul>
 <div class="slide-footer"></div>
