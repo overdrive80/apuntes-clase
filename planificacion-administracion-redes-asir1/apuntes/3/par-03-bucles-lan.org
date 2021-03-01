@@ -158,6 +158,17 @@ Switch(config-if)# channel-group 1 mode active
 
 #+latex: \attachfile{./pkt/redundancia-routers.pkt}
 
+
+** Problema con enrutamiento estático
+- si se romple un enlace, puede haber Bucles
+- solución: algoritmos dinámicos  
+
+
+[[file:./media/ejercicio-redundancia-routers.png]]
+  
+#+latex: \attachfile{./pkt/redundancia-routers-rutas-estaticas-puestas.pkt}
+
+
 [[file:pkt/redundancia-routers.pkt][Enlace a fichero PKT]]
 
 * Referencias
