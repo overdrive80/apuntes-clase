@@ -168,6 +168,15 @@ select <una consulta que devuelva algunas filas de una tabla>
 for update
 #+end_src
 
+** Bloqueos mutuos
+- Una sesión =SA= bloquea la fila/tabla =OA=
+- Una sesión =SB= bloquea la fila/tabla =OB=
+- =SA= intenta acceder a =OB=. Se queda bloqueada, esperando su liberación
+- =SB= intenta acceder a =OA=. Se queda bloqueada, esperando su liberación
+- Ni =SA= ni =SB= pueden liberar sus recursos, porque están esperando
+- Tras un tiempo, Oracle acaba finalizando una de las dos transacciones  
+
+  
 
 * Detección y solución de sesiones bloqueadas
 - Si un usuario/aplicación se comporta de manera inadecuada, puede bloquear la base de datos
