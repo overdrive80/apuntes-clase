@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ES" xml:lang="ES">
 <head>
-<!-- 2021-03-04 jue 12:34 -->
+<!-- 2021-03-04 jue 12:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ethernet. Bucles LAN</title>
@@ -229,12 +229,12 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgfa7c19f">1. Introducción</a></li>
-<li><a href="#org821e8cb">2. Bucles LAN</a></li>
-<li><a href="#orgb80f95d">3. 802.1D: Spanning Tree</a></li>
-<li><a href="#orgd3f29eb">4. IEEE 802.3ad: Link Aggregation</a></li>
-<li><a href="#org0b7ae9d">5. Redundancia a nivel de red</a></li>
-<li><a href="#org14900a6">6. Referencias</a></li>
+<li><a href="#org64a1a3b">1. Introducción</a></li>
+<li><a href="#orgaf6672d">2. Bucles LAN</a></li>
+<li><a href="#orgc69bb48">3. 802.1D: Spanning Tree</a></li>
+<li><a href="#org1ea6036">4. IEEE 802.3ad: Link Aggregation</a></li>
+<li><a href="#org402b9a0">5. Redundancia a nivel de red</a></li>
+<li><a href="#org766326b">6. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -271,8 +271,8 @@ window.addEventListener("load",()=>{
 
 </script>
 
-<div id="outline-container-orgfa7c19f" class="outline-2">
-<h2 id="orgfa7c19f"><span class="section-number-2">1</span> Introducción</h2>
+<div id="outline-container-org64a1a3b" class="outline-2">
+<h2 id="org64a1a3b"><span class="section-number-2">1</span> Introducción</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 Bucles lan
@@ -292,8 +292,8 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-org821e8cb" class="outline-2">
-<h2 id="org821e8cb"><span class="section-number-2">2</span> Bucles LAN</h2>
+<div id="outline-container-orgaf6672d" class="outline-2">
+<h2 id="orgaf6672d"><span class="section-number-2">2</span> Bucles LAN</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Problema
@@ -315,8 +315,8 @@ Bucles lan
 </div>
 
 
-<div id="outline-container-orgb80f95d" class="outline-2">
-<h2 id="orgb80f95d"><span class="section-number-2">3</span> 802.1D: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">Spanning Tree</a></h2>
+<div id="outline-container-orgc69bb48" class="outline-2">
+<h2 id="orgc69bb48"><span class="section-number-2">3</span> 802.1D: <a href="https://en.wikipedia.org/wiki/Spanning_Tree_Protocol">Spanning Tree</a></h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Es un protocolo de red para conseguir un árbol (red jerárquica) a base de deshabilitar enlaces de una malla
@@ -328,8 +328,8 @@ Bucles lan
 </ul>
 </div>
 
-<div id="outline-container-org92d58a6" class="outline-3">
-<h3 id="org92d58a6"><span class="section-number-3">3.1</span> Nomenclatura</h3>
+<div id="outline-container-orgd1a3757" class="outline-3">
+<h3 id="orgd1a3757"><span class="section-number-3">3.1</span> Nomenclatura</h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li><b>Root Port</b> (RP): es el puerto por el que se llega más “barato” a la raíz
@@ -343,8 +343,8 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-org8edd251" class="outline-3">
-<h3 id="org8edd251"><span class="section-number-3">3.2</span> Costes de un enlace</h3>
+<div id="outline-container-org0a7e29e" class="outline-3">
+<h3 id="org0a7e29e"><span class="section-number-3">3.2</span> Costes de un enlace</h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Definidos por un estándar</li>
@@ -416,8 +416,8 @@ Bucles lan
 </div>
 
 
-<div id="outline-container-orgb8b9ea5" class="outline-3">
-<h3 id="orgb8b9ea5"><span class="section-number-3">3.3</span> Bridge Protocol Data Units</h3>
+<div id="outline-container-org28be452" class="outline-3">
+<h3 id="org28be452"><span class="section-number-3">3.3</span> Bridge Protocol Data Units</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>Cada switch viene de fábrica con un ID para ser root
@@ -434,11 +434,11 @@ Bucles lan
 </div>
 </div>
 
-<div id="outline-container-orgc984e1d" class="outline-3">
-<h3 id="orgc984e1d"><span class="section-number-3">3.4</span> Ejemplo Wikipedia</h3>
+<div id="outline-container-org451080e" class="outline-3">
+<h3 id="org451080e"><span class="section-number-3">3.4</span> Ejemplo Wikipedia</h3>
 <div class="outline-text-3" id="text-3-4">
 
-<div id="org3e782c6" class="figure">
+<div id="org028407f" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo1-final.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -446,11 +446,11 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org7a82b23" class="outline-3">
-<h3 id="org7a82b23"><span class="section-number-3">3.5</span> Ejemplo 2</h3>
+<div id="outline-container-org2cab745" class="outline-3">
+<h3 id="org2cab745"><span class="section-number-3">3.5</span> Ejemplo 2</h3>
 <div class="outline-text-3" id="text-3-5">
 
-<div id="orgcc6f3ac" class="figure">
+<div id="orga9b585f" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo2-1.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -458,7 +458,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="orga9a4219" class="figure">
+<div id="org81686fa" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo2-2.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -466,7 +466,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org810e3d0" class="figure">
+<div id="orga11150e" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo2-3.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -474,7 +474,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org30bb23f" class="figure">
+<div id="org75cb688" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo2-4.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -485,11 +485,11 @@ Sorry, your browser does not support SVG.</object>
 
 
 
-<div id="outline-container-orge4517f2" class="outline-3">
-<h3 id="orge4517f2"><span class="section-number-3">3.6</span> Ejemplo 3</h3>
+<div id="outline-container-org0ed5008" class="outline-3">
+<h3 id="org0ed5008"><span class="section-number-3">3.6</span> Ejemplo 3</h3>
 <div class="outline-text-3" id="text-3-6">
 
-<div id="orgb4034d3" class="figure">
+<div id="org8cca6e4" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo3-1.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -497,7 +497,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org8e2e6dc" class="figure">
+<div id="org50a5ae8" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo3-2.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -505,7 +505,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org77abacb" class="figure">
+<div id="org1151967" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo3-3.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -513,7 +513,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org19c8f38" class="figure">
+<div id="org3ee7775" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo3-4.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -521,7 +521,7 @@ Sorry, your browser does not support SVG.</object>
 </div>
 
 
-<div id="org2feb606" class="figure">
+<div id="org653e443" class="figure">
 <p><object type="image/svg+xml" data="media/stp-ejemplo3-5.svg" class="org-svg">
 Sorry, your browser does not support SVG.</object>
 </p>
@@ -530,16 +530,16 @@ Sorry, your browser does not support SVG.</object>
 </div>
 </div>
 
-<div id="outline-container-org2500c16" class="outline-3">
-<h3 id="org2500c16"><span class="section-number-3">3.7</span> Ejercicio CISCO</h3>
+<div id="outline-container-org1422e20" class="outline-3">
+<h3 id="org1422e20"><span class="section-number-3">3.7</span> Ejercicio CISCO</h3>
 <div class="outline-text-3" id="text-3-7">
-<pre class="example" id="org130e449">
+<pre class="example" id="orgfef4ddb">
 Switch(config)# spanning-tree vlan 1 priority 1
 </pre>
 
 
 
-<div id="orgaa941ab" class="figure">
+<div id="org263d6c4" class="figure">
 <p><img src="media/stp-cisco.png" alt="stp-cisco.png" />
 </p>
 </div>
@@ -552,8 +552,8 @@ Switch(config)# spanning-tree vlan 1 priority 1
 </div>
 
 
-<div id="outline-container-orgd3f29eb" class="outline-2">
-<h2 id="orgd3f29eb"><span class="section-number-2">4</span> IEEE 802.3ad: <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a></h2>
+<div id="outline-container-org1ea6036" class="outline-2">
+<h2 id="org1ea6036"><span class="section-number-2">4</span> IEEE 802.3ad: <a href="https://en.wikipedia.org/wiki/Link_aggregation">Link Aggregation</a></h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Los switches no envían entre sí tramas ethernet estándar</li>
@@ -562,30 +562,30 @@ Switch(config)# spanning-tree vlan 1 priority 1
 </ul>
 
 
-<div id="org764bb14" class="figure">
+<div id="orgac3d76f" class="figure">
 <p><img src="media/802-3ad.png" alt="802-3ad.png" />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1e0561b" class="outline-3">
-<h3 id="org1e0561b"><span class="section-number-3">4.1</span> Configuración en Cisco</h3>
+<div id="outline-container-orgd65c3cb" class="outline-3">
+<h3 id="orgd65c3cb"><span class="section-number-3">4.1</span> Configuración en Cisco</h3>
 <div class="outline-text-3" id="text-4-1">
 <ul class="org-ul">
 <li>Los puertos que se quieren agregar se añaden al mismo <code>channel-group</code></li>
 </ul>
-<pre class="example" id="org2c6a064">
+<pre class="example" id="org99a9957">
 Switch(config)# interface fa0/1
 Switch(config-if)# channel-group 1 mode active
 </pre>
 </div>
 </div>
 
-<div id="outline-container-orgefa691f" class="outline-3">
-<h3 id="orgefa691f"><span class="section-number-3">4.2</span> Ejercicio</h3>
+<div id="outline-container-orgf24f230" class="outline-3">
+<h3 id="orgf24f230"><span class="section-number-3">4.2</span> Ejercicio</h3>
 <div class="outline-text-3" id="text-4-2">
 
-<div id="org2bdde10" class="figure">
+<div id="org36b2aa2" class="figure">
 <p><img src="media/ejercicio-stp-port-aggregation.png" alt="ejercicio-stp-port-aggregation.png" />
 </p>
 </div>
@@ -598,11 +598,11 @@ Switch(config-if)# channel-group 1 mode active
 </div>
 
 
-<div id="outline-container-org0b7ae9d" class="outline-2">
-<h2 id="org0b7ae9d"><span class="section-number-2">5</span> Redundancia a nivel de red</h2>
+<div id="outline-container-org402b9a0" class="outline-2">
+<h2 id="org402b9a0"><span class="section-number-2">5</span> Redundancia a nivel de red</h2>
 <div class="outline-text-2" id="text-5">
 
-<div id="orgfe5e9a3" class="figure">
+<div id="org462c073" class="figure">
 <p><img src="./media/ejercicio-redundancia-routers.png" alt="ejercicio-redundancia-routers.png" />
 </p>
 </div>
@@ -612,8 +612,8 @@ Switch(config-if)# channel-group 1 mode active
 </p>
 </div>
 
-<div id="outline-container-orgbaa92bb" class="outline-3">
-<h3 id="orgbaa92bb"><span class="section-number-3">5.1</span> Problema con enrutamiento estático</h3>
+<div id="outline-container-org0a61a4e" class="outline-3">
+<h3 id="org0a61a4e"><span class="section-number-3">5.1</span> Problema con enrutamiento estático</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>si se romple un enlace, puede haber Bucles</li>
@@ -622,7 +622,7 @@ Switch(config-if)# channel-group 1 mode active
 
 
 
-<div id="orgd87f792" class="figure">
+<div id="org46d5065" class="figure">
 <p><img src="./media/ejercicio-redundancia-routers-rutas-estaticas-puestas.png" alt="ejercicio-redundancia-routers-rutas-estaticas-puestas.png" />
 </p>
 </div>
@@ -636,28 +636,30 @@ Switch(config-if)# channel-group 1 mode active
 
 
 
-<div id="outline-container-org14900a6" class="outline-2">
-<h2 id="org14900a6"><span class="section-number-2">6</span> Referencias</h2>
+<div id="outline-container-org766326b" class="outline-2">
+<h2 id="org766326b"><span class="section-number-2">6</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
 <li><a href="./par-03-bucles-lan.reveal.html">Transparencias</a></li>
 <li><a href="./par-03-bucles-lan.pdf">PDF</a></li>
+<li><a href="./par-03-bucles-lan.epub">EPUB</a></li>
 </ul></li>
 <li>Creado con:
 <ul class="org-ul">
 <li><a href="https://www.gnu.org/s/emacs/">Emacs</a></li>
-<li><a href="https://github.com/yjwen/org-reveal">org-reveal</a></li>
+<li><a href="https://gitlab.com/oer/org-re-reveal">org-re-reveal</a></li>
 <li><a href="https://www.latex-project.org/">Latex</a></li>
 </ul></li>
+<li>Alojado en <a href="https://alvarogonzalezsotillo.github.io/apuntes-clase">Github</a></li>
 </ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Álvaro González Sotillo</p>
-<p class="date">Created: 2021-03-04 jue 12:34</p>
+<p class="date">Created: 2021-03-04 jue 12:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
