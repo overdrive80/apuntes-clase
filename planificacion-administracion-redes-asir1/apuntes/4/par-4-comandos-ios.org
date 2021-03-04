@@ -195,6 +195,7 @@ Router(config-router)#network 200.200.1.0
 Comprobar la configuración RIP
 #+begin_example
 Router# show ip protocols
+Router# show ip rip database
 #+end_example
 
 

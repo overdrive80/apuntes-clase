@@ -165,7 +165,7 @@ Switch(config-if)# channel-group 1 mode active
 - solución: algoritmos dinámicos  
 
 
-[[file:./media/ejercicio-redundancia-routers.png]]
+[[file:./media/ejercicio-redundancia-routers-rutas-estaticas-puestas.png]]
   
 #+latex: \attachfile{./pkt/redundancia-routers-rutas-estaticas-puestas.pkt}
 
