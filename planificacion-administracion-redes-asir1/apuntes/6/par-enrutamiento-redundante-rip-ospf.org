@@ -19,6 +19,7 @@
   - En implementaciones reales, también se usan otros criterios
     - /Flags/ de la ruta
     - Tipo de enlace (VPN, loopback...)
+    - Distancia Administrativa (Cisco)  
 
 * Ejemplo de enrutamiento redundante
 
