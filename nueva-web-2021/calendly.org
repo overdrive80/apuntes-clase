@@ -1,4 +1,5 @@
 
+Para poner un sistema de cita previa en secretaría podemos usar calendly. Lo he estado investigando y tengo algunas notas y preguntas para poder ponerlo en la página web del instituto.
 
 
 * Preguntas a secretaría:
@@ -12,8 +13,8 @@
 - Cancelación y modificación de citas:
     - Los alumnos, con el enlace enviado al email de la cita. /Si no se pone bien el email, solo puede cambiarlo secretaría/.
     - En secretaría, usando el [[https://outlook.office365.com/owa/calendar/764191242fe14cd0a1f1f729b8009ad7@iesavellaneda.onmicrosoft.com/e7779fe3b8fb4ac787e1021cd7733e7812998195332699752543/calendar.html][calendario de outlook]]
-- No se pueden pedir citas para el mismo día      
-- Quién pone los festivos?
+- No se pueden pedir citas para el mismo día, siempre son a partir de mañana      
+- ¿Quién pone los festivos que no hay secretaría?
 - ¿va  a haber alguna validación o seguimiento de las citas?
 
 
