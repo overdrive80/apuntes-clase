@@ -432,7 +432,9 @@ sqlplus / as sysdba
 - Es necesario que el ordenador cliente pueda acceder al servidor
   - Tipo de conexión de la máquina virtual: mejor /bridged/
   - =ping=
-  - /Firewall/: =systemctl disable firewalld=
+  - /Firewall/:
+    - =systemctl disable firewalld=
+    - =sudo firewall-cmd --permanent --add-port=1521/tcp=
 
 
 *** Conexión remota

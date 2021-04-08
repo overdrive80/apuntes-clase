@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">RIP y OSPF</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-23 lun 10:55</p>
+<h1 class="title">RIP y OSPF</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-03-15 lun 08:57</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2013,9 +2013,9 @@ window.addEventListener("load",()=>{
 <li>Pero hasta ahora, solo utilizamos una ruta para cada destino</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -2036,14 +2036,15 @@ window.addEventListener("load",()=>{
 <ul>
 <li><i>Flags</i> de la ruta</li>
 <li>Tipo de enlace (VPN, loopback&#x2026;)</li>
+<li>Distancia Administrativa (Cisco)</li>
 
 </ul></li>
 
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2051,7 +2052,7 @@ window.addEventListener("load",()=>{
 <div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3</span> Ejemplo de enrutamiento redundante</h2>
 
-<div class="figure">
+<div id="orgbc1927c" class="figure">
 <p><svg    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -2626,8 +2627,8 @@ window.addEventListener("load",()=>{
 </svg>
 </p>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-1">
 <div class="slide-header"></div>
@@ -2703,9 +2704,9 @@ window.addEventListener("load",()=>{
 </tr>
 </tbody>
 </table>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-3-2">
 <div class="slide-header"></div>
@@ -2781,8 +2782,8 @@ window.addEventListener("load",()=>{
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-3">
 <div class="slide-header"></div>
@@ -2791,8 +2792,8 @@ window.addEventListener("load",()=>{
 <li>Se dejan como ejercicio</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-4">
 <div class="slide-header"></div>
@@ -2806,15 +2807,15 @@ window.addEventListener("load",()=>{
 <li>B seguirá enviando los paquetes de 192.168.3.0/24 a A</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-3-5">
 <div class="slide-header"></div>
 <h3 id="3-5"><span class="section-number-3">3.5</span> Ejercicio</h3>
 
-<div class="figure">
+<div id="org2444352" class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApgAAAHFCAIAAADZqx4qAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA
 B3RJTUUH4gUPCAIftvaxwAAAABl0RVh0Q29tbWVudABDcmVhdGVkIHdpdGggR0lNUFeBDhcAACAA
 SURBVHja7N13fE33/wfw9znn7pvcyN7TjoQgESs2tfcoQqstpa1RtVeNmKWotlqjRqmvGj+09qja
@@ -3534,9 +3535,9 @@ QmCC" />
 <p>
 <a href="pkt/redundancia-routers-rip.pkt">Enlace a fichero PKT</a>
 </p>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -3553,9 +3554,9 @@ QmCC" />
 <li>Los propios routers pueden detectar problemas y dejar de utilizar algunas rutas</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -3571,8 +3572,8 @@ QmCC" />
 <li>Cuando pasa un tiempo con la ruta caducada, se borra de la tabla de rutas</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1">
 <div class="slide-header"></div>
@@ -3582,8 +3583,8 @@ QmCC" />
 <li>Soportado por casi todos los <i>routers</i></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-2">
 <div class="slide-header"></div>
@@ -3594,8 +3595,8 @@ QmCC" />
 <li>El tiempo de convergencia (descubrimiento de cambios de la red) es largo</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-3">
 <div class="slide-header"></div>
@@ -3606,15 +3607,15 @@ QmCC" />
 Acepta información RIP por las interfaces de las redes anunciadas 
 </p>
 
-<pre class="example">
+<pre class="example" id="org12ca378">
 Router(config)#router rip
 Router(config-router)#network 192.168.1.0 
 Router(config-router)#network 200.200.1.0
 </pre></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-4">
 <div class="slide-header"></div>
@@ -3626,14 +3627,14 @@ Router(config-router)#network 200.200.1.0
 Una interfaz pasiva se anuncia por otras interfaces, pero no se envían anuncios por ellas
 </p>
 
-<pre class="example">
+<pre class="example" id="org2f60c4e">
 Router(config)#router rip
 Router(config-router)#passive-interface FastEthernet 0/1    
 </pre></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-5">
 <div class="slide-header"></div>
@@ -3641,8 +3642,8 @@ Router(config-router)#passive-interface FastEthernet 0/1
 <p>
 Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -3656,9 +3657,9 @@ Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con
 <li>Adecuado para redes grandes</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -3667,7 +3668,6 @@ Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con
 <h2 id="7"><span class="section-number-2">7</span> Distancia administrativa (Cisco)</h2>
 <div class="outline-text-2" id="text-7">
 </div>
-<div class="slide-footer"></div>
 </section>
 <section id="slide-7-1">
 <div class="slide-header"></div>
@@ -3750,8 +3750,8 @@ Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
