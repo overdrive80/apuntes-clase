@@ -1,0 +1,61 @@
+
+* Preguntas a secretaría:
+- Cuántas citas simultáneas
+- Cuánto tiempo para cada cita
+- Horario de las citas
+- Con cuánta antelación
+- ¿pedimos teléfono, nombre, motivo de la cita...?  
+- Cómo tienen pensado revisarlas
+- Tenemos 20 días a futuro para citas, se puede cambiar
+- Horario ¿?  
+- El mismo día no deja  
+  
+* Más preguntas  
+- Quién pone los festivos?
+- El email es obligatorio, para tener un enlace para cambiar la cita y cancelarla
+
+
+* Para pedir cita
+
+** inline
+#+begin_export 
+<!-- Principio del widget integrado de Calendly -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/ies-alonso-avellaneda/cita-previa-en-secretaria?hide_gdpr_banner=1" style="min-width:320px;height:630px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Final del widget integrado de Calendly -->
+#+end_export
+
+** widget
+#+begin_export html
+  <!-- Principio del widget de globo de Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<script type="text/javascript">window.onload = function() { Calendly.initBadgeWidget({ url: 'https://calendly.com/ies-alonso-avellaneda/cita-previa-en-secretaria', text: 'Pedir una cita con secretaría', color: '#00a2ff', textColor: '#ffffff', branding: false }); }</script>
+<!-- Final del widget de globo de Calendly -->
+#+end_export
+
+
+
+** Texto emergente
+#+begin_export html
+<!-- Principio del widget de enlace de Calendly -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<a href="" onclick="Calendly.initPopupWidget({url: 'https://calendly.com/ies-alonso-avellaneda/cita-previa-en-secretaria'});return false;">Programe una reunión conmigo</a>
+<!-- Final del widget de enlace de Calendly -->
+#+end_export
+
+* Cuenta en calendly  
+Registrado con alvaro.gonzalezsotillo@iesavellaneda.onmicrosoft.com
+
+He puesto un calendario de outlook de esa cuenta. Tiene integración con otros calendarios con ICS
+- https://outlook.office365.com/owa/calendar/764191242fe14cd0a1f1f729b8009ad7@iesavellaneda.onmicrosoft.com/4fedc9422d9c43929d111ff9dd3ad77f1875808847706438936/S-1-8-2759839645-3663226375-497591825-2880854480/reachcalendar.ics
+- https://outlook.office365.com/owa/calendar/764191242fe14cd0a1f1f729b8009ad7@iesavellaneda.onmicrosoft.com/e7779fe3b8fb4ac787e1021cd7733e7812998195332699752543/calendar.ics
+
+* Cómo lo verían en secretaría
+  Pueden entrar a calendly o ver esta página web con las citas ya puestas
+#+begin_export html
+<iframe src="https://outlook.office365.com/owa/calendar/764191242fe14cd0a1f1f729b8009ad7@iesavellaneda.onmicrosoft.com/e7779fe3b8fb4ac787e1021cd7733e7812998195332699752543/calendar.html" width=100% height=800px></iframe>
+#+end_export
+
+
