@@ -116,19 +116,21 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
+\newpage
+
 \begin{homeworkProblem}[: \imenu{Simulación de cliente web (2 puntos)}]
-  Utilizaremos el protocolo HTTP directamente para pedir una página a un servidor
+  Utilizaremos el protocolo HTTP directamente para pedir un recurso a un servidor
   \begin{itemize}
-  \item Ejecuta NetCat conectándote al puerto 80 de \url{www.dgt.es}
+  \item Ejecuta NetCat conectándote al puerto 80 de \url{quotes.rest}
   \item Tras la conexión, introducir
     \begin{cuadrito}
-      \texttt{GET /gsm.txt HTTP/1.1} \\
-      \texttt{Host:www.dgt.es} \\
+      \texttt{GET /qod HTTP/1.1} \\
+      \texttt{Host:quotes.rest} \\
       \\
       \\
       (Aquí hay que darle al Enter dos veces)
     \end{cuadrito}
-  \item Con la información obtenida, decide si hay atasco de camino a casa.
+  \item Es una respuesta \enlace{https://es.wikipedia.org/wiki/JSON}{JSON}. Decide si la respuesta te resulta inspiradora. Si no, puedes volver a intentarlo mañana.
   \end{itemize}
 \end{homeworkProblem}
 
