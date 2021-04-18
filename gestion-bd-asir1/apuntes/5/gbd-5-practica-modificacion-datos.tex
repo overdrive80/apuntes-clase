@@ -51,7 +51,6 @@ Se dispone de un \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/g
 
 Habrá varios usuarios manejando la base de datos:
 \begin{itemize}
-\item \texttt{INFORMATICA}: Permisos completos sobre todas las tablas
 \item \texttt{RRHH}: Permisos completos sobre los datos de las tablas \texttt{Oficinas} y \texttt{Empleados}. Puede ver los datos de \texttt{Clientes} y cambiar el campo \texttt{Clientes.CodigoEmpleadoRepVentas}.  
 \item \texttt{COMERCIAL}: Permisos completos sobre los datos de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.  Podrá ver las tablas \texttt{Productos}, \texttt{Empleados} y \texttt{Oficinas}. Podrá modificar datos de la columna \texttt{Productos.CantidadEnStock}.
 \item \texttt{CONTABILIDAD}: Permisos completos sobre los datos de la tabla \texttt{Pagos}. Pueden leer de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.
@@ -59,21 +58,14 @@ Habrá varios usuarios manejando la base de datos:
 \end{itemize}
 
 \begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios (2 puntos)}]
-  Crea los usuarios necesarios (con contraseña igual al nombre), y después crea la base de datos en el usuario \texttt{INFORMATICA}.
+  En tu usuario, crea la base de datos de jardinería.
 
-  Posteriormente, asigna los permisos necesarios al resto de usuarios, con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
+  Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{JARDINERIA} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
   
-  Los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{JARDINERIA} realizarán sus consultas como si las tablas fueran \textit{suyas}. Para ello, utiliza la sentencia \enlace{http://ora.u440.com/ddl/create\%20synonym.html}{\texttt{CREATE SYNONYM}}, sin \texttt{PUBLIC}.
-
   \begin{Aviso}[¿Qué se entrega?]
-    Un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios y crear sinónimos. No es necesario incluir la carga de la base de datos ni la creación de usuarios.
-    Para indicar el usuario con el que realizas las órdenes, incluye un comentario y la orden \texttt{CONNECT} de \textbf{sqlplus}.
-    \\
-    \\
-\begin{listadosql}{Cómo indicar qué usuario ejecuta las órdenes}{lst:usuario}
--- A partir de aquí soy el usuario JARDINERIA
-connect JARDINERIA/JARDINERIA;
-\end{listadosql}
+    La base de datos se creará en el usuario de cada alumno en la base de datos del profesor. También alli se asignarán los permisos a los usuarios indicados
+
+    Además, se entregará un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios. No hay que incluir la carga de la base de datos.
   \end{Aviso}
 
 
@@ -252,6 +244,7 @@ end;
   \begin{itemize}
   \item Solo se admiten trabajos en pareja, si en clase es necesario compartir ordenador.
   \end{itemize}
+\item El ejercicio 1 debe estar realizado sobre la instancia de base de datos del profesor
 \item Entrega tu trabajo en un fichero \texttt{ZIP}, con todos los ficheros indicados en los enunciados
 \item Los nombres de los ficheros incluyen un número (para que estén ordenados). No incluyas mayúsculas. No incluyas acentos. No pongas espacios. No añadas palabras, letras ni números a los nombres.
 \item Sube el documento a \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189}{la tarea correspondiente en el aula virtual}
