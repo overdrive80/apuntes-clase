@@ -9,7 +9,6 @@
 # COLORES
 #+latex_header: \usepackage[usenames,dvipsnames]{color} % Required for custom colors
 
-
 # LISTADOS
 #+latex_header: \renewcommand{\ttdefault}{pcr} % MONOESPACIO CON NEGRITA
 #+latex_header: \usepackage{listings}
@@ -49,7 +48,7 @@
 #+LATEX_HEADER: \lhead{}
 #+LATEX_HEADER: \rhead{}
 #+LATEX_HEADER: \cfoot{}
-#+LATEX_HEADER: \lfoot{alvaro.gonzalezsotillo@educa.madrid.org}
+#+LATEX_HEADER: \lfoot{\small{alvaro.gonzalezsotillo@educa.madrid.org}}
 #+LATEX_HEADER: \rfoot{\thepage}
 
 # FAVICON EN HTML
