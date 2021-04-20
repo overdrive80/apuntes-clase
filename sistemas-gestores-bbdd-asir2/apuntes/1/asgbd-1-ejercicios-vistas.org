@@ -26,6 +26,10 @@ dba_tab_privs
 dba_col_privs
 #+end_comment
 
+* Vistas
+- Lista de vistas de cada usuario (usuario, nombredevista)
+    
+
 * /tablespaces/
 - Lista de ficheros de datos, con sus tablespaces (fichero,tablespace)
 - Lista de ficheros completa para realizar un  backup de la base de datos: datafiles y controlfiles
@@ -50,9 +54,9 @@ dba_tables_
 #+END_COMMENT
 
 * Sinónimos
-- A qué tabla apunta un sinónimo (sinónimo, tabla)
+- A qué tabla apunta un sinónimo (owner,sinónimo, tabla)
 - Lista de sinónimos públicos (sinónimo, tabla)
-- Lista de sinónimos cuyo destino no existe
+- Lista de sinónimos cuyo destino no existe (owner,sinónimo)
 #+BEGIN_COMMENT
 DBA_SYNONYMS
 #+end_comment
@@ -68,7 +72,6 @@ DBA_SOURCE
 DBA_PROCEDURES
 DBA_ERRORS
 DBA_OBJECTS
-
 #+end_comment
 
 

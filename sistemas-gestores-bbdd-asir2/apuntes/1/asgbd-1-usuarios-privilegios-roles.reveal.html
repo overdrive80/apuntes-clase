@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-03-26 jue 12:13</p>
+<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-04-20 mar 08:19</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2017,8 +2017,8 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2041,8 +2041,8 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-1">
 <div class="slide-header"></div>
@@ -2068,9 +2068,9 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-2-2">
 <div class="slide-header"></div>
@@ -2095,8 +2095,8 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-3">
 <div class="slide-header"></div>
@@ -2120,7 +2120,7 @@ window.addEventListener("load",()=>{
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >select tablespace_name, contents from dba_tablespaces;
+<pre><code class="sql" >select tablespace_name, contents from dba_tablespaces;
 </code></pre>
 </div>
 
@@ -2135,15 +2135,15 @@ Mas información en:
 <li><a href="https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm">https://docs.oracle.com/cd/B19306_01/server.102/b14220/physical.htm</a></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-4">
 <div class="slide-header"></div>
 <h3 id="2-4"><span class="section-number-3">2.4</span> Crear un <i>tablespace</i></h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE TABLESPACE nombre 
+<pre><code class="sql" >CREATE TABLESPACE nombre 
   DATAFILE '/camino/al/fichero.dbf'
   SIZE tamanoinicial
   AUTOEXTEND ON 
@@ -2155,8 +2155,8 @@ Mas información en:
 <p>
 Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm">docs.oracle.com</a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-5">
 <div class="slide-header"></div>
@@ -2172,14 +2172,14 @@ Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statemen
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-6">
 <div class="slide-header"></div>
 <h3 id="2-6"><span class="section-number-3">2.6</span> Conceptos de almacenamiento</h3>
 
-<div class="figure">
+<div id="org325b110" class="figure">
 <p><svg width="775pt" height="75pt"
  viewBox="0.00 0.00 775.00 75.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 71)">
@@ -2317,8 +2317,8 @@ A database's data is collectively stored in the datafiles that constitute each t
 </p>
 
 </aside>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2342,15 +2342,15 @@ A database's data is collectively stored in the datafiles that constitute each t
 <li>Al instalarlo, elegimos que el grupo <code>wheel</code> era administrador</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-1">
 <div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1</span> Creación de usuarios</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE USER usuario IDENTIFIED BY contrasena
+<pre><code class="sql" >CREATE USER usuario IDENTIFIED BY contrasena
   DEFAULT TABLESPACE tablespace
   TEMPORARY TABLESPACE tablespace
   QUOTA UNLIMITED ON tablespace
@@ -2359,8 +2359,8 @@ A database's data is collectively stored in the datafiles that constitute each t
   ACCOUNT UNLOCK
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-2">
 <div class="slide-header"></div>
@@ -2371,7 +2371,7 @@ Modificación de un usuario ya creado
 </p>
 <div class="org-src-container">
 
-<pre><code class=" sql" >  ALTER USER usuario
+<pre><code class="sql" >  ALTER USER usuario
     cualquier opcion valida al crear usuario
 </code></pre>
 </div></li>
@@ -2381,16 +2381,16 @@ Borrado de usuario
 </p>
 <div class="org-src-container">
 
-<pre><code class=" sql" >  DROP USER usuario
+<pre><code class="sql" >  DROP USER usuario
 </code></pre>
 </div></li>
 
 </ul>
-
-
-
-
 <div class="slide-footer"></div>
+
+
+
+
 </section>
 </section>
 <section>
@@ -2413,10 +2413,10 @@ Borrado de usuario
 </ul></li>
 
 </ul>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 <section id="slide-4-1">
 <div class="slide-header"></div>
@@ -2449,15 +2449,15 @@ Borrado de usuario
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-2">
 <div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2</span> Sintaxis de <code>Grant</code></h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >grant PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
+<pre><code class="sql" >grant PRIVILEGIO1,PRIVILEGIO2,...,PRIVILEGION 
 on OBJETO
 to USUARIO
 with grant option;
@@ -2466,7 +2466,7 @@ with grant option;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table alumnos(...);
+<pre><code class="sql" >create table alumnos(...);
 create user profesor ...;
 grant select on alumnos to profesor;
 </code></pre>
@@ -2476,8 +2476,8 @@ grant select on alumnos to profesor;
 <p>
 <a href="https://docs.oracle.com/database/121/TTSQL/privileges.htm#TTSQL339">Fuente: docs.oracle.com</a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-3">
 <div class="slide-header"></div>
@@ -2507,8 +2507,8 @@ grant update(column-name) on table-name to user-name
 </p>
 
 </aside>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-4">
 <div class="slide-header"></div>
@@ -2546,8 +2546,8 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 </p>
 
 </aside>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-5">
 <div class="slide-header"></div>
@@ -2564,7 +2564,7 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >connect sys/*******
+<pre><code class="sql" >connect sys/*******
 grant select on unatabla to unusuario with grant option;
 
 connect unusuario/*******
@@ -2576,8 +2576,8 @@ revoke select on unatabla from unusuario;
 -- AQUI NI unusuario NI otrousuario TIENEN PRIVILEGIO SOBRE unatabla
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2595,15 +2595,15 @@ revoke select on unatabla from unusuario;
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1">
 <div class="slide-header"></div>
 <h3 id="5-1"><span class="section-number-3">5.1</span> Sintaxis de roles</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create role NOMBREROL;
+<pre><code class="sql" >create role NOMBREROL;
 grant PRIVILEGIOS on OBJETOS to NOMBREROL;
 grant NOMBREROL to USUARIO;
 </code></pre>
@@ -2612,8 +2612,8 @@ grant NOMBREROL to USUARIO;
 <p>
 <a href="https://docs.oracle.com/cd/B10501_01/server.920/a96521/privs.htm">Fuente: docs.oracle.com</a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-2">
 <div class="slide-header"></div>
@@ -2664,8 +2664,8 @@ grant ELROL to usuariodespues;
 </p>
 
 </aside>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2677,16 +2677,16 @@ grant ELROL to usuariodespues;
 <li>No limita acceso a datos, sino al propio SGBD y sistema operativo</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-1">
 <div class="slide-header"></div>
 <h3 id="6-1"><span class="section-number-3">6.1</span> Creación de perfiles</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE PROFILE nombreperfil LIMIT 
+<pre><code class="sql" >CREATE PROFILE nombreperfil LIMIT 
    SESSIONS_PER_USER          UNLIMITED 
    CPU_PER_SESSION            UNLIMITED 
    CPU_PER_CALL               3000 
@@ -2713,8 +2713,8 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
 <p>
 <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_6010.htm">Fuente: docs.oracle.com</a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-2">
 <div class="slide-header"></div>
@@ -2725,13 +2725,13 @@ En la creación (<code>create user</code>), o posteriormente
 </p>
 <div class="org-src-container">
 
-<pre><code class=" sql" >  alter user USUARIO profile NOMBREDEPERFIL
+<pre><code class="sql" >  alter user USUARIO profile NOMBREDEPERFIL
 </code></pre>
 </div></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-3">
 <div class="slide-header"></div>
@@ -2765,8 +2765,8 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 </p>
 
 </aside>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-4">
 <div class="slide-header"></div>
@@ -2775,10 +2775,49 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 <li>Utiliza las vistas de <b>Oracle</b> para conocer los límites del profile por defecto.</li>
 
 </ul>
-
-
-
 <div class="slide-footer"></div>
+
+
+</section>
+<section id="slide-6-5">
+<div class="slide-header"></div>
+<h3 id="6-5"><span class="section-number-3">6.5</span> Ejercicio</h3>
+<ul>
+<li>Usa la opción <a href="http://www.dba-oracle.com/t_password_verify_function.htm"><code>PASSWORD_VERIFY_FUNCTION</code></a> para evitar que las contraseñas sean más largas de tres caracteres</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+Create or Replace Function tres<sub>caracteres</sub><sub>o</sub><sub>menos</sub>
+(in<sub>username</sub> in varchar2,
+in<sub>new</sub><sub>password</sub> in varchar2,
+in<sub>old</sub><sub>password</sub> in varchar2)
+return boolean
+as
+pwd<sub>okay</sub> boolean;
+begin
+&#x2013; <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b>
+&#x2013; you can write your own password validation here &#x2026;
+&#x2013; <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b>*</b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b>
+if LENgth(in<sub>new</sub><sub>password</sub>) &gt; 3 then
+  raise<sub>application</sub><sub>error</sub>(-20001, 'LA CONTRASEÑA ES MUY LARGA');
+end if;
+return true;
+end;
+/
+</p>
+
+<p>
+CREATE PROFILE EJEMPLO LIMIT 
+   CONNECT<sub>TIME</sub>               1
+   IDLE<sub>TIME</sub>                  1
+   PASSWORD<sub>VERIFY</sub><sub>FUNCTION</sub> tres<sub>caracteres</sub><sub>o</sub><sub>menos</sub>;
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -9029,7 +9068,6 @@ mouseWheel: false,
 fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: true,
-
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
