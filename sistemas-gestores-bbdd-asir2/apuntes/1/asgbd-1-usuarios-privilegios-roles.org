@@ -363,6 +363,33 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 - Utiliza las vistas de *Oracle* para conocer los límites del profile por defecto.
 
 
+** Ejercicio
+- Usa la opción [[http://www.dba-oracle.com/t_password_verify_function.htm][=PASSWORD_VERIFY_FUNCTION=]] para evitar que las contraseñas sean más largas de tres caracteres
+     
+#+begin_notes   
+Create or Replace Function tres_caracteres_o_menos
+(in_username in varchar2,
+in_new_password in varchar2,
+in_old_password in varchar2)
+return boolean
+as
+pwd_okay boolean;
+begin
+-- ***************************************************
+-- you can write your own password validation here ...
+-- ***************************************************
+if LENgth(in_new_password) > 3 then
+  raise_application_error(-20001, 'LA CONTRASEÑA ES MUY LARGA');
+end if;
+return true;
+end;
+/
+
+CREATE PROFILE EJEMPLO LIMIT 
+   CONNECT_TIME               1
+   IDLE_TIME                  1
+   PASSWORD_VERIFY_FUNCTION tres_caracteres_o_menos;
+#+end_notes   
 
 * Referencias
 #+INCLUDE: "../../../common/footer.org"

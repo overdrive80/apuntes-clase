@@ -2,7 +2,6 @@
 #+TITLE:  /Network Address Translation/ (NAT)
 #+SUBTITLE: 
 #+KEYWORDS: 
-#+REVEAL_TRANS: none
 
 
 * Introducción
