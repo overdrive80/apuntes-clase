@@ -410,8 +410,14 @@ END;
 *** Funciones en SQL
 - Una función puede utilizarse en SQL
 #+BEGIN_SRC sql
-select empno, es_par(empno) from empleados;
+select empno, es_par_varchar(empno) from empleados;
+select es_par_varchar(89) from dual;
+#+END_SRC
+- Una función que devuelve un tipo que no existe en SQL no se puede usar
+#+BEGIN_SRC sql
 select es_par(89) from dual;
+ORA-00902: tipo de dato no válido
+00902. 00000 -  "invalid datatype"
 #+END_SRC
 
 *** Funciones predefinidas
@@ -621,7 +627,7 @@ end;
 
 
 ** Ventaja de los tipos =%rowtype= en =insert=
-- Una variable %ROWTYPE% se puede usar en un =insert=
+- Una variable =%ROWTYPE= se puede usar en un =insert=
 - El resultado puede ser más limpio
 #+BEGIN_SRC sql
 DECLARE

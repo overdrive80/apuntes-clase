@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2020-04-22 mié 12:33</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-04-14 mié 13:37</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2023,8 +2023,8 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-1-1">
 <div class="slide-header"></div>
@@ -2035,9 +2035,9 @@ window.addEventListener("load",()=>{
 <li>No pueden ser usados como identificadores</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-1-2">
 <div class="slide-header"></div>
@@ -2054,8 +2054,8 @@ window.addEventListener("load",()=>{
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2064,7 +2064,7 @@ window.addEventListener("load",()=>{
 <h2 id="2"><span class="section-number-2">2</span> Bloques anónimos</h2>
 <div class="org-src-container">
 <label class="org-src-name">Bloque anónimo</label>
-<pre><code class=" sql" >
+<pre><code class="sql" >
 select * from pepe where nombre='a';
 
 SET SERVEROUTPUT ON;
@@ -2075,8 +2075,8 @@ END;
 
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2091,7 +2091,7 @@ END;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >SET SERVEROUTPUT ON;
+<pre><code class="sql" >SET SERVEROUTPUT ON;
 
 DECLARE
   msg varchar(255);
@@ -2102,8 +2102,8 @@ END;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-1">
 <div class="slide-header"></div>
@@ -2125,8 +2125,8 @@ END;
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-2">
 <div class="slide-header"></div>
@@ -2140,7 +2140,7 @@ END;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table cliente( id integer, nombre varchar(255) );
+<pre><code class="sql" >create table cliente( id integer, nombre varchar(255) );
 
 DECLARE
   filacliente cliente%rowtype;
@@ -2152,8 +2152,8 @@ END;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2162,14 +2162,13 @@ END;
 <h2 id="4"><span class="section-number-2">4</span> Control de flujo</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div class="slide-footer"></div>
 </section>
 <section id="slide-4-1">
 <div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1</span> Condicional</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   numero integer := 1;
 BEGIN
   if( numero &lt; 0 ) then
@@ -2183,15 +2182,15 @@ END;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-2">
 <div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2</span> Condicional múltiple (I)</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >case
+<pre><code class="sql" >case
   when vsalario&lt;0 then
     dbms_output.put_line('Incorrecto');
   when vsalario=0 THEN
@@ -2205,15 +2204,15 @@ END;
 end case;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-3">
 <div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3</span> Condicional múltiple (II)</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >case v_job_grade
+<pre><code class="sql" >case v_job_grade
   when 1 THEN
     dbms_output.put_line('Jefe!');
   when 2 then
@@ -2225,8 +2224,8 @@ end case;
 end case;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-4">
 <div class="slide-header"></div>
@@ -2234,16 +2233,16 @@ end case;
 <p>
 Queremos implementar un servicio de traducción de español a inglés. El servicio no está disponible los lunes
 </p>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-4-1">
 <div class="slide-header"></div>
 <h4 id="4-4-1"><span class="section-number-4">4.4.1</span> <code>case</code> como sentencia con un valor</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
     v varchar(100) := 'Hasta luego';
 begin
     if to_char(sysdate,'D')=1 then
@@ -2263,15 +2262,15 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-4-2">
 <div class="slide-header"></div>
 <h4 id="4-4-2"><span class="section-number-4">4.4.2</span> <code>case</code> como sentencia con múltiples comparaciones</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
     v varchar(100) := 'Hola';
 begin
     case 
@@ -2288,16 +2287,16 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-4-3">
 <div class="slide-header"></div>
 <h4 id="4-4-3"><span class="section-number-4">4.4.3</span> <code>case</code> como expresión con múltiples comparaciones</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
     v varchar(100) := 'Hola';
     traduccion varchar(100);
 begin
@@ -2316,16 +2315,16 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-4-4">
 <div class="slide-header"></div>
 <h4 id="4-4-4"><span class="section-number-4">4.4.4</span> <code>case</code> como expresión con un valor</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
     v varchar(100) := 'Hola';
     traduccion varchar(100);
 begin
@@ -2346,15 +2345,15 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-4-5">
 <div class="slide-header"></div>
 <h4 id="4-4-5"><span class="section-number-4">4.4.5</span> Case usado en sentencias <code>sql</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >select nombre, precioventa, case 
+<pre><code class="sql" >select nombre, precioventa, case 
   when precioventa &gt;= 100 then 'carísimo'
   when precioventa &gt;= 10 then 'caro'
   else 'barato' end as rango
@@ -2366,7 +2365,7 @@ order by 3;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >select nombre,precioventa, 'caro'
+<pre><code class="sql" >select nombre,precioventa, 'caro'
 from productos
 where precioventa &gt;= 10
 union
@@ -2375,16 +2374,16 @@ from productos
 where precioventa &lt; 10;
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-5">
 <div class="slide-header"></div>
 <h3 id="4-5"><span class="section-number-3">4.5</span> Bucle <code>loop</code></h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >LOOP
+<pre><code class="sql" >LOOP
     -- Instrucciones
     IF (expresion) THEN
       -- Instrucciones
@@ -2393,28 +2392,28 @@ where precioventa &lt; 10;
 END LOOP;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-6">
 <div class="slide-header"></div>
 <h3 id="4-6"><span class="section-number-3">4.6</span> Bucle <code>while</code></h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >WHILE (expresion) LOOP
+<pre><code class="sql" >WHILE (expresion) LOOP
     -- Instrucciones
 END LOOP;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-7">
 <div class="slide-header"></div>
 <h3 id="4-7"><span class="section-number-3">4.7</span> Bucle <code>for</code></h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   c PLS_INTEGER DEFAULT 0;
 BEGIN
   FOR c IN REVERSE 1..10 LOOP
@@ -2423,8 +2422,8 @@ BEGIN
 END;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-8">
 <div class="slide-header"></div>
@@ -2438,9 +2437,9 @@ END;
 <li>Encuentra un número primo mayor de 1000000</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-9">
 <div class="slide-header"></div>
@@ -2449,7 +2448,7 @@ END;
 <li><p>
 Imprime un rectángulo de tamaño 8x6
 </p>
-<pre class="example">
+<pre class="example" id="org1b5a9eb">
   ########
   ########
   ########
@@ -2460,7 +2459,7 @@ Imprime un rectángulo de tamaño 8x6
 <li><p>
 Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </p>
-<pre class="example">
+<pre class="example" id="orgc463838">
   # # # #
    # # # #
   # # # #
@@ -2470,10 +2469,10 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </pre></li>
 
 </ul>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 </section>
 <section>
@@ -2495,8 +2494,8 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 <p>
 (<a href="https://www.youtube.com/watch?v=etfuyJgq6-E&amp;list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&amp;index=3&amp;t=0s">youtube</a>)
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1">
 <div class="slide-header"></div>
@@ -2515,7 +2514,7 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE OR REPLACE FUNCTION es_par(numero IN number)
+<pre><code class="sql" >CREATE OR REPLACE FUNCTION es_par(numero IN number)
 RETURN boolean
 IS
   resto number;
@@ -2530,8 +2529,8 @@ END;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-1">
 <div class="slide-header"></div>
@@ -2548,7 +2547,7 @@ Las funciones pueden invocarse:
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE OR REPLACE FUNCTION es_par_varchar(numero IN number)
+<pre><code class="sql" >CREATE OR REPLACE FUNCTION es_par_varchar(numero IN number)
 RETURN varchar
 IS
 BEGIN
@@ -2570,8 +2569,8 @@ END;
 
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-2">
 <div class="slide-header"></div>
@@ -2582,12 +2581,23 @@ END;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >select empno, es_par(empno) from empleados;
-select es_par(89) from dual;
+<pre><code class="sql" >select empno, es_par_varchar(empno) from empleados;
+select es_par_varchar(89) from dual;
 </code></pre>
 </div>
+<ul>
+<li>Una función que devuelve un tipo que no existe en SQL no se puede usar</li>
 
+</ul>
+<div class="org-src-container">
+
+<pre><code class="sql" >select es_par(89) from dual;
+ORA-00902: tipo de dato no válido
+00902. 00000 -  "invalid datatype"
+</code></pre>
+</div>
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-3">
 <div class="slide-header"></div>
@@ -2649,15 +2659,15 @@ select es_par(89) from dual;
 <p>
 <a href="https://ss64.com/ora/syntax-fmt.html">Formatos de <code>to_date</code></a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-4">
 <div class="slide-header"></div>
 <h4 id="5-1-4"><span class="section-number-4">5.1.4</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
   fechaentexto varchar(255);
   fecha date;
 begin
@@ -2676,8 +2686,8 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-5">
 <div class="slide-header"></div>
@@ -2686,7 +2696,7 @@ end;
 <li><p>
 Imprime un listado con la inicial de los empleados y sus apellidos
 </p>
-<pre class="example">
+<pre class="example" id="org3c75871">
   A. Pérez
   F. González
   M. Ruiz
@@ -2695,8 +2705,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 <li>Imprime el número PI con 0,3 y 4 decimales.</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-6">
 <div class="slide-header"></div>
@@ -2715,15 +2725,15 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 <li>Haz una función que devuelva capitalizada una frase, capitalizando cada palabra</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1-7">
 <div class="slide-header"></div>
 <h4 id="5-1-7"><span class="section-number-4">5.1.7</span> Ejercicio resuelto: <code>capitalizar</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace function capitalizar( palabra varchar ) return varchar as
+<pre><code class="sql" >create or replace function capitalizar( palabra varchar ) return varchar as
   inicial char(1);
   resto varchar(1024);
 begin
@@ -2733,9 +2743,9 @@ begin
 end;
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-5-2">
 <div class="slide-header"></div>
@@ -2750,7 +2760,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE OR REPLACE PROCEDURE aumenta_salario(vempno IN number)
+<pre><code class="sql" >CREATE OR REPLACE PROCEDURE aumenta_salario(vempno IN number)
 IS
 BEGIN
   update empleados 
@@ -2760,8 +2770,8 @@ END;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-3">
 <div class="slide-header"></div>
@@ -2776,7 +2786,7 @@ END;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace procedure suma_uno(n in numeric) is
+<pre><code class="sql" >create or replace procedure suma_uno(n in numeric) is
 begin
   n := n +1;
 end;
@@ -2792,9 +2802,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-5-4">
 <div class="slide-header"></div>
@@ -2807,7 +2817,7 @@ end;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace procedure suma_uno(n in out numeric) is
+<pre><code class="sql" >create or replace procedure suma_uno(n in out numeric) is
 begin
   n := n +1;
 end;
@@ -2823,10 +2833,10 @@ end;
 /
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 </section>
 <section>
@@ -2862,7 +2872,7 @@ end;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+<pre><code class="sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
 insert into empleados(empno,salario,nombre) values (1,2000,'María');
 insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
 
@@ -2882,8 +2892,8 @@ end;
 <li>Convenio: comenzar todas las variables con <code>v</code></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-2">
 <div class="slide-header"></div>
@@ -2895,7 +2905,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   vempno empleados.empno%TYPE := 2;
   vsalario empleados.salario%TYPE;
 BEGIN
@@ -2905,9 +2915,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-3">
 <div class="slide-header"></div>
@@ -2919,7 +2929,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   vempno empleados.empno%TYPE := 2;
   vempleado empleados%ROWTYPE;
 BEGIN
@@ -2930,9 +2940,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-4">
 <div class="slide-header"></div>
@@ -2943,7 +2953,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
   vempno number;
 begin
   vempno := 100;
@@ -2957,21 +2967,21 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-5">
 <div class="slide-header"></div>
 <h3 id="6-5"><span class="section-number-3">6.5</span> Ventaja de los tipos <code>%rowtype</code> en <code>insert</code></h3>
 <ul>
-<li>Una variable %ROWTYPE% se puede usar en un <code>insert</code></li>
+<li>Una variable <code>%ROWTYPE</code> se puede usar en un <code>insert</code></li>
 <li>El resultado puede ser más limpio</li>
 
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   vempleado empleados%ROWTYPE;
 BEGIN
   vempleado.empno := 4;
@@ -2982,9 +2992,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-6">
 <div class="slide-header"></div>
@@ -2996,7 +3006,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   salariototal number := 0;
   numeroempleados number := 0;
   mediasalario number := 0;
@@ -3015,10 +3025,10 @@ end;
 /
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 </section>
 <section>
@@ -3038,7 +3048,7 @@ end;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   -- Declaraciones
 BEGIN
   -- Ejecucion
@@ -3051,8 +3061,8 @@ END;
 <p>
 (<a href="https://youtu.be/jQfWrMDQKvY">youtube</a>)
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-1">
 <div class="slide-header"></div>
@@ -3063,7 +3073,7 @@ END;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   -- Declaraciones
 BEGIN
   -- Ejecucion
@@ -3078,15 +3088,15 @@ EXCEPTION
 END;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-2">
 <div class="slide-header"></div>
 <h3 id="7-2"><span class="section-number-3">7.2</span> Ejemplo</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+<pre><code class="sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
 insert into empleados(empno,salario,nombre) values (1,2000,'María');
 insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
 
@@ -3104,9 +3114,9 @@ EXCEPTION
 END;
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-7-3">
 <div class="slide-header"></div>
@@ -3149,8 +3159,8 @@ END;
 <p>
 <a href="https://www.techonthenet.com/oracle/exceptions/named_system.php">https://www.techonthenet.com/oracle/exceptions/named_system.php</a>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-4">
 <div class="slide-header"></div>
@@ -3169,7 +3179,7 @@ END;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >DECLARE
+<pre><code class="sql" >DECLARE
   result NUMBER;
 BEGIN
   SELECT 1/0 INTO result FROM DUAL;
@@ -3180,8 +3190,8 @@ EXCEPTION
 END;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-5">
 <div class="slide-header"></div>
@@ -3202,8 +3212,8 @@ END;
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-6">
 <div class="slide-header"></div>
@@ -3217,7 +3227,7 @@ END;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >  DECLARE
+<pre><code class="sql" >  DECLARE
     n number;
   BEGIN
     SELECT count(*) into n from empleados
@@ -3232,11 +3242,11 @@ END;
   END;
 </code></pre>
 </div>
-
-
-
-
 <div class="slide-footer"></div>
+
+
+
+
 </section>
 </section>
 <section>
@@ -3255,15 +3265,15 @@ END;
 <p>
 (<a href="https://youtu.be/WXqkI5Jnsmo">youtube 1</a>) (<a href="https://youtu.be/pt7jJehGlU0">youtube 2</a>) (<a href="https://youtu.be/eAAU1kbCvbs">youtube 3</a>)
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-1">
 <div class="slide-header"></div>
 <h3 id="8-1"><span class="section-number-3">8.1</span> Sintaxis (casi) completa</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE [OR REPLACE] TRIGGER &lt;nombre_trigger&gt;
+<pre><code class="sql" >CREATE [OR REPLACE] TRIGGER &lt;nombre_trigger&gt;
   {BEFORE|AFTER}
   {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]
   [OR {DELETE|INSERT|UPDATE [OF col1, col2, ..., colN]...]}
@@ -3278,15 +3288,15 @@ BEGIN
 END;
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-2">
 <div class="slide-header"></div>
 <h3 id="8-2"><span class="section-number-3">8.2</span> Ejemplo: Al menos 10 empleados</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE or replace TRIGGER personal_minimo
+<pre><code class="sql" >CREATE or replace TRIGGER personal_minimo
 BEFORE DELETE ON empleados
 declare
   n number;
@@ -3299,8 +3309,8 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-3">
 <div class="slide-header"></div>
@@ -3355,16 +3365,16 @@ end;
 </ul></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-8-3-1">
 <div class="slide-header"></div>
 <h4 id="8-3-1"><span class="section-number-4">8.3.1</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >CREATE or replace TRIGGER ejemplo_or
+<pre><code class="sql" >CREATE or replace TRIGGER ejemplo_or
 BEFORE DELETE OR UPDATE OR INSERT ON empleados
 begin
   case 
@@ -3381,8 +3391,8 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-4">
 <div class="slide-header"></div>
@@ -3448,10 +3458,10 @@ end;
 </tr>
 </tbody>
 </table>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 <section id="slide-8-5">
 <div class="slide-header"></div>
@@ -3532,9 +3542,9 @@ end;
 </tr>
 </tbody>
 </table>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-8-6">
 <div class="slide-header"></div>
@@ -3544,8 +3554,8 @@ end;
 <li>Si se especifica <code>for each row</code>, se lanza una vez por cada fila cambiada</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-7">
 <div class="slide-header"></div>
@@ -3566,8 +3576,8 @@ end;
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-7-1">
 <div class="slide-header"></div>
@@ -3636,16 +3646,16 @@ end;
 </tr>
 </tbody>
 </table>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-8-8">
 <div class="slide-header"></div>
 <h3 id="8-8"><span class="section-number-3">8.8</span> Ejemplo típico: Autonuméricos</h3>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create sequence empleado_empno_seq;
+<pre><code class="sql" >create sequence empleado_empno_seq;
 CREATE or replace TRIGGER asignar_empleado_empno
 BEFORE INSERT ON empleados
 for each row
@@ -3657,9 +3667,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-8-9">
 <div class="slide-header"></div>
@@ -3671,7 +3681,7 @@ end;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
+<pre><code class="sql" >create table empleados( empno number(20), salario number(8,2), nombre varchar(255));
 insert into empleados(empno,salario,nombre) values (1,2000,'María');
 insert into empleados(empno,salario,nombre) values (2,1000,'Juan');
 
@@ -3684,15 +3694,15 @@ alter table empleados add (
 );
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-9-1">
 <div class="slide-header"></div>
 <h4 id="8-9-1"><span class="section-number-4">8.9.1</span> Actualizar campos <code>createdXXXX</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace trigger audit_creacion_empleados
+<pre><code class="sql" >create or replace trigger audit_creacion_empleados
   before insert 
   on empleados
   for each row
@@ -3704,15 +3714,15 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-9-2">
 <div class="slide-header"></div>
 <h4 id="8-9-2"><span class="section-number-4">8.9.2</span> Actualizar campos <code>modifiedXXXX</code></h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace trigger audit__modificacion_empleados
+<pre><code class="sql" >create or replace trigger audit__modificacion_empleados
   before update 
   on empleados
   for each row
@@ -3724,9 +3734,9 @@ end;
 /
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-8-10">
 <div class="slide-header"></div>
@@ -3737,7 +3747,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create or replace function MASA_SALARIAL return number 
+<pre><code class="sql" >create or replace function MASA_SALARIAL return number 
 as
   total number;
 begin
@@ -3753,15 +3763,15 @@ end;
 <li>Desventajas: rendimiento en lectura, se consulta cada vez</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-10-1">
 <div class="slide-header"></div>
 <h4 id="8-10-1"><span class="section-number-4">8.10.1</span> Con triggers</h4>
 <div class="org-src-container">
 
-<pre><code class=" sql" >create table cantidadesprecalculadas(nombre varchar(255), valor number(20,2));
+<pre><code class="sql" >create table cantidadesprecalculadas(nombre varchar(255), valor number(20,2));
 
 create or replace trigger mantener_masa_salarial
 after insert or update or delete
@@ -3788,8 +3798,8 @@ end;
 /
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-10-2">
 <div class="slide-header"></div>
@@ -3805,8 +3815,8 @@ end;
 <li>Pero es mucho más eficiente en lectura, porque no se calcula cada vez que se consulta</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-8-10-3">
 <div class="slide-header"></div>
@@ -3817,7 +3827,7 @@ end;
 </ul>
 <div class="org-src-container">
 
-<pre><code class=" sql" >set serveroutput off;
+<pre><code class="sql" >set serveroutput off;
 begin
   for i in 1 .. 10000 loop
      insert into empleados(empno,salario,nombre)
@@ -3831,7 +3841,7 @@ set serveroutput on;
 
 <div class="org-src-container">
 
-<pre><code class=" sql" >declare
+<pre><code class="sql" >declare
   numero number;
 begin
   for i in 1 .. 1000 loop
@@ -3841,12 +3851,12 @@ end;
 /
 </code></pre>
 </div>
-
-
-
-
-
 <div class="slide-footer"></div>
+
+
+
+
+
 </section>
 </section>
 <section>
