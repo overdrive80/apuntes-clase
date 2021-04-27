@@ -1,4 +1,4 @@
-#!/usr/bin/env scala -nc
+#!/usr/bin/env -vS scala -save -cp ./bin/scala-xml_2.13-2.0.0-RC1.jar # -*- mode: scala; -*-
 // INSTALAR AMMONITE
 // sudo sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/1.1.2/2.12-1.1.2) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' && amm
 
@@ -48,18 +48,21 @@ object IndexCreator{
   def doPage( dir : File, out : Writer ) = {
     val files = allFiles( new File(".") )
     val links = files.map(toLink)
+    val formatter = new scala.xml.PrettyPrinter(400, 2)
     out.write(
-      <html>
-        <head>
-          <style>
-          </style>
-        </head>
-        <body>
+      formatter.format(
+        <html>
+          <head>
+            <style>
+            </style>
+          </head>
+          <body>
             <ul>
               {links}
             </ul>
-        </body>
-      </html>.toString
+          </body>
+        </html>
+      )
     )
   }
 }
