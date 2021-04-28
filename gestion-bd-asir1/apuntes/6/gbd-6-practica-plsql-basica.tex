@@ -163,9 +163,9 @@ end;
 \end{homeworkProblem}
 
 \section{Entorno de pruebas}
-Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080}
+Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080} (y otro al servidor de Oracle por el puerto 1521)
 \begin{center}
-\texttt{ssh -L 8080:localhost:8080 \textit{USUARIO}@213.97.191.51}
+\texttt{ssh -L 8080:localhost:8080 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51}
 \end{center}
 
 \section{Instrucciones de entrega}
