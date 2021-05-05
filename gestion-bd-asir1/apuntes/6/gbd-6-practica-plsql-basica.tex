@@ -47,12 +47,12 @@ Una compañía necesita automatizar su almacén
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{homeworkProblem}[: Definir el modelo de datos]
+\begin{homeworkProblem}[: \imenu{Definir el modelo de datos}]
   Crea las tablas y funciones necesarias para soportar la descripción del problema. Las tablas y atributos concretos no son importantes, ya que el profesor consultará los datos a partir de las vistas definidas más adelante.
 \end{homeworkProblem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{homeworkProblem}[: Procedimiento para crear un producto]
+\begin{homeworkProblem}[: \imenu{Procedimiento para crear un producto} (2 puntos)]
   Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
 
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
@@ -81,7 +81,7 @@ end;
 \end{homeworkProblem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{homeworkProblem}[: Entrada y salida de productos]
+\begin{homeworkProblem}[: \imenu{Entrada y salida de productos} (3 puntos)]
 
   \begin{itemize}
   \item Crea un procedimiento \texttt{ENTRADA\_PRODUCTO} que actualice la base de datos cuando llegue un producto.
@@ -129,7 +129,7 @@ end;
 
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Vista de existencias]
+\begin{homeworkProblem}[: \imenu{Vista de existencias} (3 puntos)]
 
   Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}.
 
@@ -142,7 +142,7 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
 
 
 
-\begin{homeworkProblem}[: Salida del almacén respetando existencias]
+\begin{homeworkProblem}[: \imenu{Salida del almacén respetando existencias} (2 puntos)]
 
   Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
   Si el producto no existe, se lanzará el error \texttt{-20102}.
@@ -163,9 +163,9 @@ end;
 \end{homeworkProblem}
 
 \section{Entorno de pruebas}
-Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080}
+Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080} (y otro al servidor de Oracle por el puerto 1521)
 \begin{center}
-\texttt{ssh -L 8080:localhost:8080 \textit{USUARIO}@213.97.191.51}
+\texttt{ssh -L 8080:localhost:8080 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51 -p 10133}
 \end{center}
 
 \section{Instrucciones de entrega}
