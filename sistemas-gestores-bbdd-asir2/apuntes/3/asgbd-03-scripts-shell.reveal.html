@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-01-26 mar 08:35</p>
+<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-05-11 mar 10:10</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2022,9 +2022,9 @@ window.addEventListener("load",()=>{
 <li>Para ello, se utilizan las facilidades de ejecución del sistema operativo aprendidas en otros módulos</li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -2033,7 +2033,6 @@ window.addEventListener("load",()=>{
 <h2 id="2"><span class="section-number-2">2</span> Scripts de <i>shell</i></h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div class="slide-footer"></div>
 </section>
 <section id="slide-2-1">
 <div class="slide-header"></div>
@@ -2059,8 +2058,8 @@ window.addEventListener("load",()=>{
 <pre><code class="sh" >#!/usr/bin/python
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-2">
 <div class="slide-header"></div>
@@ -2078,8 +2077,8 @@ variable_para_un_comando=valor comando
 
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-3">
 <div class="slide-header"></div>
@@ -2095,8 +2094,8 @@ variable_para_un_comando=valor comando
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-3-1">
 <div class="slide-header"></div>
@@ -2117,8 +2116,8 @@ sort &lt; fichero | less
 
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-3-2">
 <div class="slide-header"></div>
@@ -2137,8 +2136,8 @@ FINDEFICHERO
 
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-3-3">
 <div class="slide-header"></div>
@@ -2157,12 +2156,12 @@ variable=$(ls)
 
 </code></pre>
 </div>
-
-
-
-
-
 <div class="slide-footer"></div>
+
+
+
+
+
 </section>
 <section id="slide-2-4">
 <div class="slide-header"></div>
@@ -2175,8 +2174,8 @@ variable=$(ls)
 <li><code>$#</code>: Número de parámetros del <i>script</i></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-5">
 <div class="slide-header"></div>
@@ -2200,13 +2199,44 @@ importante "Asi se define una funcion en bash"
 
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-2-6">
 <div class="slide-header"></div>
-<h3 id="2-6"><span class="section-number-3">2.6</span> Código de error (<i>exit code</i>)</h3>
+<h3 id="2-6"><span class="section-number-3">2.6</span> Ejercicio</h3>
+<ul>
+<li>Crea un <i>script</i> que reciba hasta 9 parámetros</li>
+<li>Su salida serán los parámetros, uno por línea, en orden alfabético inverso</li>
+<li>La salida no tendrá líneas en blanco</li>
+
+</ul>
+
+<aside class="notes">
+<p>
+parametros<sub>en</sub><sub>orden</sub>(){
+    sort -r &lt;&lt;EOF | grep -v "^$"
+$1
+$2
+$3
+$4
+$5
+$6
+$7
+$8
+$9
+EOF
+}
+parametros<sub>en</sub><sub>orden</sub> "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
+</p>
+
+</aside>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-2-7">
+<div class="slide-header"></div>
+<h3 id="2-7"><span class="section-number-3">2.7</span> Código de error (<i>exit code</i>)</h3>
 <ul>
 <li>Al terminar, un programa devuelve un valor numérico</li>
 <li>Por convenio
@@ -2226,12 +2256,12 @@ exit_code_del_grep=$?
 echo grep ha devuelto: $exit_code_del_grep
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-2-7">
+<section id="slide-2-8">
 <div class="slide-header"></div>
-<h3 id="2-7"><span class="section-number-3">2.7</span> Bucles</h3>
+<h3 id="2-8"><span class="section-number-3">2.8</span> Bucles</h3>
 <ul>
 <li>Con <code>for</code> se pueden hacer bucles sobre una lista de parámetros</li>
 <li>Para bucles numéricos se puede usar el comando <code>seq</code></li>
@@ -2252,14 +2282,14 @@ done
 
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
-<section id="slide-2-8">
+<section id="slide-2-9">
 <div class="slide-header"></div>
-<h3 id="2-8"><span class="section-number-3">2.8</span> Condicionales</h3>
+<h3 id="2-9"><span class="section-number-3">2.9</span> Condicionales</h3>
 <ul>
 <li><code>if</code> utiliza los códigos de error de los programas
 <ul>
@@ -2280,12 +2310,12 @@ else
 fi
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-2-8-1">
+<section id="slide-2-9-1">
 <div class="slide-header"></div>
-<h4 id="2-8-1"><span class="section-number-4">2.8.1</span> <code>return</code> en funciones</h4>
+<h4 id="2-9-1"><span class="section-number-4">2.9.1</span> <code>return</code> en funciones</h4>
 <ul>
 <li>Las funciones también tienen código de retorno</li>
 <li>Pueden simplificar <code>if</code> o bucles <code>while</code></li>
@@ -2306,12 +2336,12 @@ do
 done
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-2-8-2">
+<section id="slide-2-9-2">
 <div class="slide-header"></div>
-<h4 id="2-8-2"><span class="section-number-4">2.8.2</span> Comando <code>[</code></h4>
+<h4 id="2-9-2"><span class="section-number-4">2.9.2</span> Comando <code>[</code></h4>
 <ul>
 <li><code>[</code> es un comando externo que ayuda a hacer condiciones con <code>if</code>
 <ul>
@@ -2460,12 +2490,12 @@ DESCRIPTION
               granted
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
-<section id="slide-2-9">
+<section id="slide-2-10">
 <div class="slide-header"></div>
-<h3 id="2-9"><span class="section-number-3">2.9</span> Operaciones aritméticas</h3>
+<h3 id="2-10"><span class="section-number-3">2.10</span> Operaciones aritméticas</h3>
 <ul>
 <li>Se utiliza <code>$((expresión))</code></li>
 
@@ -2478,9 +2508,9 @@ contador=$(($contador + 1))
 </div>
 <div class="slide-footer"></div>
 </section>
-<section id="slide-2-10">
+<section id="slide-2-11">
 <div class="slide-header"></div>
-<h3 id="2-10"><span class="section-number-3">2.10</span> Comandos útiles</h3>
+<h3 id="2-11"><span class="section-number-3">2.11</span> Comandos útiles</h3>
 <ul>
 <li>Enviar un email</li>
 
@@ -2509,9 +2539,9 @@ contador=$(($contador + 1))
 </ul></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -2534,167 +2564,167 @@ contador=$(($contador + 1))
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-1">
 <div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1</span> Ficheros de inicio de <i>shell</i></h3>
 
-<div id="orgd7e06cd" class="figure">
-<p><svg width="749pt" height="305pt"
- viewBox="0.00 0.00 749.48 305.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<div id="org77f261e" class="figure">
+<p><svg width="726pt" height="305pt"
+ viewBox="0.00 0.00 726.43 305.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 301)">
 <title>%3</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-301 745.48,-301 745.48,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-301 722.4343,-301 722.4343,4 -4,4"/>
 <!-- ~/.bash_profile -->
 <g id="node1" class="node">
 <title>~/.bash_profile</title>
-<ellipse fill="none" stroke="black" cx="470.89" cy="-105" rx="90.98" ry="18"/>
-<text text-anchor="middle" x="470.89" y="-101.3" font-family="courier new" font-size="14.00">~/.bash_profile</text>
+<ellipse fill="none" stroke="#000000" cx="447.8414" cy="-105" rx="90.9839" ry="18"/>
+<text text-anchor="middle" x="447.8414" y="-101.3" font-family="courier new" font-size="14.00" fill="#000000">~/.bash_profile</text>
 </g>
 <!-- ~/.bashrc -->
 <g id="node6" class="node">
 <title>~/.bashrc</title>
-<ellipse fill="none" stroke="black" cx="375.89" cy="-18" rx="59.29" ry="18"/>
-<text text-anchor="middle" x="375.89" y="-14.3" font-family="courier new" font-size="14.00">~/.bashrc</text>
+<ellipse fill="none" stroke="#000000" cx="358.8414" cy="-18" rx="59.2899" ry="18"/>
+<text text-anchor="middle" x="358.8414" y="-14.3" font-family="courier new" font-size="14.00" fill="#000000">~/.bashrc</text>
 </g>
 <!-- ~/.bash_profile&#45;&gt;~/.bashrc -->
 <g id="edge11" class="edge">
 <title>~/.bash_profile&#45;&gt;~/.bashrc</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M452.12,-87.21C437.62,-74.23 417.4,-56.14 401.43,-41.85"/>
-<polygon fill="black" stroke="black" points="403.76,-39.24 393.98,-35.18 399.09,-44.46 403.76,-39.24"/>
+<path fill="none" stroke="#000000" stroke-dasharray="1,5" d="M429.4005,-86.9735C416.2198,-74.089 398.3297,-56.6009 383.862,-42.4583"/>
+<polygon fill="#000000" stroke="#000000" points="386.2489,-39.8971 376.6513,-35.4097 381.3557,-44.9028 386.2489,-39.8971"/>
 </g>
 <!-- ~/.bash_login -->
 <g id="node2" class="node">
 <title>~/.bash_login</title>
-<ellipse fill="none" stroke="black" cx="660.89" cy="-105" rx="80.69" ry="18"/>
-<text text-anchor="middle" x="660.89" y="-101.3" font-family="courier new" font-size="14.00">~/.bash_login</text>
+<ellipse fill="none" stroke="#000000" cx="637.8414" cy="-105" rx="80.6858" ry="18"/>
+<text text-anchor="middle" x="637.8414" y="-101.3" font-family="courier new" font-size="14.00" fill="#000000">~/.bash_login</text>
 </g>
 <!-- ~/.profile -->
 <g id="node3" class="node">
 <title>~/.profile</title>
-<ellipse fill="none" stroke="black" cx="297.89" cy="-105" rx="64.19" ry="18"/>
-<text text-anchor="middle" x="297.89" y="-101.3" font-family="courier new" font-size="14.00">~/.profile</text>
+<ellipse fill="none" stroke="#000000" cx="274.8414" cy="-105" rx="64.189" ry="18"/>
+<text text-anchor="middle" x="274.8414" y="-101.3" font-family="courier new" font-size="14.00" fill="#000000">~/.profile</text>
 </g>
 <!-- ~/.bash_logout -->
 <g id="node4" class="node">
 <title>~/.bash_logout</title>
-<ellipse fill="none" stroke="black" cx="434.89" cy="-192" rx="85.59" ry="18"/>
-<text text-anchor="middle" x="434.89" y="-188.3" font-family="courier new" font-size="14.00">~/.bash_logout</text>
+<ellipse fill="none" stroke="#000000" cx="425.8414" cy="-192" rx="85.5853" ry="18"/>
+<text text-anchor="middle" x="425.8414" y="-188.3" font-family="courier new" font-size="14.00" fill="#000000">~/.bash_logout</text>
 </g>
 <!-- /etc/bash.bashrc -->
 <g id="node5" class="node">
 <title>/etc/bash.bashrc</title>
-<ellipse fill="none" stroke="black" cx="107.89" cy="-18" rx="96.68" ry="18"/>
-<text text-anchor="middle" x="107.89" y="-14.3" font-family="courier new" font-size="14.00">/etc/bash.bashrc</text>
+<ellipse fill="none" stroke="#000000" cx="96.8414" cy="-18" rx="96.6831" ry="18"/>
+<text text-anchor="middle" x="96.8414" y="-14.3" font-family="courier new" font-size="14.00" fill="#000000">/etc/bash.bashrc</text>
 </g>
 <!-- /etc/profile -->
 <g id="node7" class="node">
 <title>/etc/profile</title>
-<ellipse fill="none" stroke="black" cx="255.89" cy="-192" rx="75.29" ry="18"/>
-<text text-anchor="middle" x="255.89" y="-188.3" font-family="courier new" font-size="14.00">/etc/profile</text>
+<ellipse fill="none" stroke="#000000" cx="246.8414" cy="-192" rx="75.2868" ry="18"/>
+<text text-anchor="middle" x="246.8414" y="-188.3" font-family="courier new" font-size="14.00" fill="#000000">/etc/profile</text>
 </g>
 <!-- BASH LOGIN -->
 <g id="node8" class="node">
 <title>BASH LOGIN</title>
-<ellipse fill="none" stroke="black" cx="434.89" cy="-279" rx="72.59" ry="18"/>
-<text text-anchor="middle" x="434.89" y="-275.3" font-family="Times,serif" font-size="14.00">BASH LOGIN</text>
+<ellipse fill="none" stroke="#000000" cx="425.8414" cy="-279" rx="63.8893" ry="18"/>
+<text text-anchor="middle" x="425.8414" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">BASH LOGIN</text>
 </g>
 <!-- BASH LOGIN&#45;&gt;~/.bash_logout -->
 <g id="edge6" class="edge">
 <title>BASH LOGIN&#45;&gt;~/.bash_logout</title>
-<path fill="none" stroke="black" d="M434.89,-260.8C434.89,-249.16 434.89,-233.55 434.89,-220.24"/>
-<polygon fill="black" stroke="black" points="438.39,-220.18 434.89,-210.18 431.39,-220.18 438.39,-220.18"/>
-<text text-anchor="middle" x="448.89" y="-231.8" font-family="Times,serif" font-size="14.00">exit</text>
+<path fill="none" stroke="#000000" d="M425.8414,-260.9735C425.8414,-249.1918 425.8414,-233.5607 425.8414,-220.1581"/>
+<polygon fill="#000000" stroke="#000000" points="429.3415,-220.0033 425.8414,-210.0034 422.3415,-220.0034 429.3415,-220.0033"/>
+<text text-anchor="middle" x="436.3414" y="-231.8" font-family="Times,serif" font-size="14.00" fill="#000000">exit</text>
 </g>
 <!-- BASH LOGIN&#45;&gt;/etc/profile -->
 <g id="edge1" class="edge">
 <title>BASH LOGIN&#45;&gt;/etc/profile</title>
-<path fill="none" stroke="black" d="M402.89,-262.8C373.42,-248.81 329.52,-227.96 297.37,-212.7"/>
-<polygon fill="black" stroke="black" points="298.75,-209.48 288.22,-208.35 295.75,-215.8 298.75,-209.48"/>
-<text text-anchor="middle" x="364.89" y="-231.8" font-family="Times,serif" font-size="14.00">1º</text>
+<path fill="none" stroke="#000000" d="M393.4259,-263.245C364.2664,-249.0725 321.2324,-228.1565 289.3281,-212.65"/>
+<polygon fill="#000000" stroke="#000000" points="290.7535,-209.4513 280.2295,-208.2277 287.6935,-215.747 290.7535,-209.4513"/>
+<text text-anchor="middle" x="353.8414" y="-231.8" font-family="Times,serif" font-size="14.00" fill="#000000">1º</text>
 </g>
 <!-- Primero de: -->
 <g id="node9" class="node">
 <title>Primero de:</title>
-<ellipse fill="none" stroke="black" cx="603.89" cy="-192" rx="65.79" ry="18"/>
-<text text-anchor="middle" x="603.89" y="-188.3" font-family="Times,serif" font-size="14.00">Primero de:</text>
+<ellipse fill="none" stroke="#000000" cx="581.8414" cy="-192" rx="52.7911" ry="18"/>
+<text text-anchor="middle" x="581.8414" y="-188.3" font-family="Times,serif" font-size="14.00" fill="#000000">Primero de:</text>
 </g>
 <!-- BASH LOGIN&#45;&gt;Primero de: -->
 <g id="edge2" class="edge">
 <title>BASH LOGIN&#45;&gt;Primero de:</title>
-<path fill="none" stroke="black" d="M465.5,-262.61C493.34,-248.6 534.58,-227.86 564.8,-212.66"/>
-<polygon fill="black" stroke="black" points="566.44,-215.76 573.8,-208.14 563.29,-209.5 566.44,-215.76"/>
-<text text-anchor="middle" x="536.89" y="-231.8" font-family="Times,serif" font-size="14.00">2º</text>
+<path fill="none" stroke="#000000" d="M454.8182,-262.8399C480.3091,-248.6238 517.5473,-227.8563 545.1193,-212.4796"/>
+<polygon fill="#000000" stroke="#000000" points="547.0394,-215.4163 554.0683,-207.4888 543.6299,-209.3028 547.0394,-215.4163"/>
+<text text-anchor="middle" x="518.8414" y="-231.8" font-family="Times,serif" font-size="14.00" fill="#000000">2º</text>
 </g>
 <!-- Primero de:&#45;&gt;~/.bash_profile -->
 <g id="edge3" class="edge">
 <title>Primero de:&#45;&gt;~/.bash_profile</title>
-<path fill="none" stroke="black" d="M579.19,-175.21C558.27,-161.84 528.08,-142.55 504.88,-127.72"/>
-<polygon fill="black" stroke="black" points="506.68,-124.72 496.37,-122.28 502.91,-130.62 506.68,-124.72"/>
-<text text-anchor="middle" x="552.89" y="-144.8" font-family="Times,serif" font-size="14.00">1º</text>
+<path fill="none" stroke="#000000" d="M557.2637,-176.0429C536.4947,-162.5585 506.4867,-143.0757 483.1466,-127.922"/>
+<polygon fill="#000000" stroke="#000000" points="484.8542,-124.8577 474.561,-122.3478 481.0423,-130.7289 484.8542,-124.8577"/>
+<text text-anchor="middle" x="528.8414" y="-144.8" font-family="Times,serif" font-size="14.00" fill="#000000">1º</text>
 </g>
 <!-- Primero de:&#45;&gt;~/.bash_login -->
 <g id="edge4" class="edge">
 <title>Primero de:&#45;&gt;~/.bash_login</title>
-<path fill="none" stroke="black" d="M615.15,-174.21C623.3,-162.06 634.45,-145.43 643.7,-131.63"/>
-<polygon fill="black" stroke="black" points="646.79,-133.3 649.46,-123.05 640.98,-129.41 646.79,-133.3"/>
-<text text-anchor="middle" x="642.89" y="-144.8" font-family="Times,serif" font-size="14.00">2º</text>
+<path fill="none" stroke="#000000" d="M593.1738,-174.3943C601.0914,-162.0938 611.8044,-145.4503 620.7541,-131.5463"/>
+<polygon fill="#000000" stroke="#000000" points="623.8641,-133.1812 626.3336,-122.8782 617.9781,-129.3925 623.8641,-133.1812"/>
+<text text-anchor="middle" x="618.8414" y="-144.8" font-family="Times,serif" font-size="14.00" fill="#000000">2º</text>
 </g>
 <!-- Primero de:&#45;&gt;~/.profile -->
 <g id="edge5" class="edge">
 <title>Primero de:&#45;&gt;~/.profile</title>
-<path fill="none" stroke="black" d="M559.4,-178.64C504.4,-163.36 410.86,-137.38 351.83,-120.98"/>
-<polygon fill="black" stroke="black" points="352.51,-117.54 341.94,-118.24 350.64,-124.29 352.51,-117.54"/>
-<text text-anchor="middle" x="477.89" y="-144.8" font-family="Times,serif" font-size="14.00">3º</text>
+<path fill="none" stroke="#000000" d="M541.8326,-180.1103C534.8406,-178.0564 527.6325,-175.9543 520.8414,-174 455.6389,-155.2366 380.5286,-134.2617 330.6288,-120.4169"/>
+<polygon fill="#000000" stroke="#000000" points="331.2576,-116.9592 320.6859,-117.66 329.3872,-123.7048 331.2576,-116.9592"/>
+<text text-anchor="middle" x="459.8414" y="-144.8" font-family="Times,serif" font-size="14.00" fill="#000000">3º</text>
 </g>
 <!-- BASH INTERACTIVO -->
 <g id="node10" class="node">
 <title>BASH INTERACTIVO</title>
-<ellipse fill="none" stroke="black" cx="107.89" cy="-105" rx="107.78" ry="18"/>
-<text text-anchor="middle" x="107.89" y="-101.3" font-family="Times,serif" font-size="14.00">BASH INTERACTIVO</text>
+<ellipse fill="none" stroke="#000000" cx="96.8414" cy="-105" rx="95.5831" ry="18"/>
+<text text-anchor="middle" x="96.8414" y="-101.3" font-family="Times,serif" font-size="14.00" fill="#000000">BASH INTERACTIVO</text>
 </g>
 <!-- BASH INTERACTIVO&#45;&gt;/etc/bash.bashrc -->
 <g id="edge7" class="edge">
 <title>BASH INTERACTIVO&#45;&gt;/etc/bash.bashrc</title>
-<path fill="none" stroke="black" d="M107.89,-86.8C107.89,-75.16 107.89,-59.55 107.89,-46.24"/>
-<polygon fill="black" stroke="black" points="111.39,-46.18 107.89,-36.18 104.39,-46.18 111.39,-46.18"/>
-<text text-anchor="middle" x="115.89" y="-57.8" font-family="Times,serif" font-size="14.00">1º</text>
+<path fill="none" stroke="#000000" d="M96.8414,-86.9735C96.8414,-75.1918 96.8414,-59.5607 96.8414,-46.1581"/>
+<polygon fill="#000000" stroke="#000000" points="100.3415,-46.0033 96.8414,-36.0034 93.3415,-46.0034 100.3415,-46.0033"/>
+<text text-anchor="middle" x="102.8414" y="-57.8" font-family="Times,serif" font-size="14.00" fill="#000000">1º</text>
 </g>
 <!-- BASH INTERACTIVO&#45;&gt;~/.bashrc -->
 <g id="edge8" class="edge">
 <title>BASH INTERACTIVO&#45;&gt;~/.bashrc</title>
-<path fill="none" stroke="black" d="M155.8,-88.8C203.98,-73.53 277.89,-50.08 326.56,-34.65"/>
-<polygon fill="black" stroke="black" points="327.77,-37.93 336.24,-31.57 325.65,-31.26 327.77,-37.93"/>
-<text text-anchor="middle" x="266.89" y="-57.8" font-family="Times,serif" font-size="14.00">2º</text>
+<path fill="none" stroke="#000000" d="M144.2876,-89.245C190.8204,-73.7932 261.4929,-50.3256 308.8744,-34.5921"/>
+<polygon fill="#000000" stroke="#000000" points="310.227,-37.8309 318.6145,-31.3578 308.021,-31.1876 310.227,-37.8309"/>
+<text text-anchor="middle" x="249.8414" y="-57.8" font-family="Times,serif" font-size="14.00" fill="#000000">2º</text>
 </g>
 <!-- SH INTERACTIVO -->
 <g id="node11" class="node">
 <title>SH INTERACTIVO</title>
-<ellipse fill="none" stroke="black" cx="192.89" cy="-279" rx="94.78" ry="18"/>
-<text text-anchor="middle" x="192.89" y="-275.3" font-family="Times,serif" font-size="14.00">SH INTERACTIVO</text>
+<ellipse fill="none" stroke="#000000" cx="185.8414" cy="-279" rx="83.3857" ry="18"/>
+<text text-anchor="middle" x="185.8414" y="-275.3" font-family="Times,serif" font-size="14.00" fill="#000000">SH INTERACTIVO</text>
 </g>
 <!-- SH INTERACTIVO&#45;&gt;~/.profile -->
 <g id="edge10" class="edge">
 <title>SH INTERACTIVO&#45;&gt;~/.profile</title>
-<path fill="none" stroke="black" d="M178.17,-261.14C161.33,-239.69 138.22,-202.05 155.89,-174 173.77,-145.62 207.14,-128.82 237.04,-119.02"/>
-<polygon fill="black" stroke="black" points="238.07,-122.37 246.6,-116.08 236.01,-115.68 238.07,-122.37"/>
-<text text-anchor="middle" x="163.89" y="-188.3" font-family="Times,serif" font-size="14.00">2º</text>
+<path fill="none" stroke="#000000" d="M171.0403,-260.9462C155.152,-239.2224 134.2853,-202.1594 150.8414,-174 165.6779,-148.7655 193.4549,-132.0912 218.9638,-121.4671"/>
+<polygon fill="#000000" stroke="#000000" points="220.5675,-124.5977 228.5976,-117.6863 218.0101,-118.0816 220.5675,-124.5977"/>
+<text text-anchor="middle" x="156.8414" y="-188.3" font-family="Times,serif" font-size="14.00" fill="#000000">2º</text>
 </g>
 <!-- SH INTERACTIVO&#45;&gt;/etc/profile -->
 <g id="edge9" class="edge">
 <title>SH INTERACTIVO&#45;&gt;/etc/profile</title>
-<path fill="none" stroke="black" d="M205.64,-260.8C214.75,-248.51 227.15,-231.77 237.36,-218.01"/>
-<polygon fill="black" stroke="black" points="240.23,-220 243.38,-209.89 234.61,-215.84 240.23,-220"/>
-<text text-anchor="middle" x="236.89" y="-231.8" font-family="Times,serif" font-size="14.00">1º</text>
+<path fill="none" stroke="#000000" d="M198.4806,-260.9735C207.0686,-248.7252 218.5735,-232.3165 228.2073,-218.5766"/>
+<polygon fill="#000000" stroke="#000000" points="231.3432,-220.2006 234.2184,-210.0034 225.6116,-216.1819 231.3432,-220.2006"/>
+<text text-anchor="middle" x="226.8414" y="-231.8" font-family="Times,serif" font-size="14.00" fill="#000000">1º</text>
 </g>
 </g>
 </svg>
 </p>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-3-2">
 <div class="slide-header"></div>
@@ -2707,8 +2737,8 @@ contador=$(($contador + 1))
 <li>Crea un <i>script</i> en <code>$HOME/estado.sh</code> que muestre el valor de las variables <code>HOME</code>, <code>USER</code>, <code>PATH</code>, <code>ORACLE_HOME</code>, <code>ORACLE_SID</code>, <code>ORACLE_BASE</code> y la hora actual.</li>
 
 </ol>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2734,8 +2764,8 @@ export PATH
 export ORACLE_SID
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-1">
 <div class="slide-header"></div>
@@ -2778,9 +2808,9 @@ sqlplus /
 <pre><code class="sh" >sqlplus sys/alumno as sysdba
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-4-2">
 <div class="slide-header"></div>
@@ -2805,8 +2835,8 @@ sqlplus /
 <pre><code class="sh" >sqlplus sys/alumno@CONEXION as sysdba
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-3">
 <div class="slide-header"></div>
@@ -2837,8 +2867,8 @@ sqlplus /
 <li>Equivalen a la lista de conexiones de SQLDeveloper</li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-4-4">
 <div class="slide-header"></div>
@@ -2857,8 +2887,8 @@ sqlplus /
 <pre><code class="shell" >sqlplus username/password@host:port/sid
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -2875,8 +2905,8 @@ sqlplus /
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-1">
 <div class="slide-header"></div>
@@ -2893,8 +2923,8 @@ rollback;
 HEREDOC
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-2">
 <div class="slide-header"></div>
@@ -2919,8 +2949,8 @@ HEREDOC
 less prueba.txt
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-3">
 <div class="slide-header"></div>
@@ -2950,8 +2980,8 @@ spool off
 HEREDOC
 </code></pre>
 </div>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-5-4">
 <div class="slide-header"></div>
@@ -2970,9 +3000,9 @@ HEREDOC
 
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -2981,7 +3011,6 @@ HEREDOC
 <h2 id="6"><span class="section-number-2">6</span> Arranque y parada</h2>
 <div class="outline-text-2" id="text-6">
 </div>
-<div class="slide-footer"></div>
 </section>
 <section id="slide-6-1">
 <div class="slide-header"></div>
@@ -3022,10 +3051,10 @@ HEREDOC
 asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 <section id="slide-6-2">
 <div class="slide-header"></div>
@@ -3044,8 +3073,8 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-3">
 <div class="slide-header"></div>
@@ -3082,9 +3111,9 @@ WantedBy=multi-user.target
 <p>
 Más información con <code>man systemd.service</code> y <code>man systemd.unit</code>
 </p>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-3-1">
 <div class="slide-header"></div>
@@ -3154,9 +3183,9 @@ Fuente: <a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.h
 <p>
 [*] Si <code>B</code> se apaga explícitamente, se apaga <code>A</code>. Si el servicio <code>B</code> termina sin error, no se apaga <code>A</code>
 </p>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-3-2">
 <div class="slide-header"></div>
@@ -3187,8 +3216,8 @@ Fuente: <a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.h
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-3-3">
 <div class="slide-header"></div>
@@ -3214,9 +3243,9 @@ systemctl disable SERVICIO
 systemctl stop SERVICIO
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-3-4">
 <div class="slide-header"></div>
@@ -3226,9 +3255,9 @@ systemctl stop SERVICIO
 <li>Se necesita <code>systemctl daemon-reload</code></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-6-3-5">
 <div class="slide-header"></div>
@@ -3246,10 +3275,10 @@ systemctl stop SERVICIO
 </ul></li>
 
 </ul>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 <section id="slide-6-3-6">
 <div class="slide-header"></div>
@@ -3303,8 +3332,8 @@ systemctl stop SERVICIO
 </tr>
 </tbody>
 </table>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-6-3-7">
 <div class="slide-header"></div>
@@ -3315,9 +3344,9 @@ systemctl stop SERVICIO
 <li><code>systemctl list-dependencies</code>: Servicios necesarios para cargar un servicio. Se pueden listar a la inversa con <code>--reverse</code></li>
 
 </ul>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 </section>
 <section>
@@ -3333,8 +3362,8 @@ systemctl stop SERVICIO
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-1">
 <div class="slide-header"></div>
@@ -3355,8 +3384,8 @@ systemctl stop SERVICIO
 </ul></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 <section id="slide-7-2">
 <div class="slide-header"></div>
@@ -3384,9 +3413,9 @@ Description=Run date.service every 10 minutes
 OnCalendar=*:0/10
 </code></pre>
 </div>
-
-
 <div class="slide-footer"></div>
+
+
 </section>
 <section id="slide-7-3">
 <div class="slide-header"></div>
@@ -3424,10 +3453,10 @@ do
 done
 </code></pre>
 </div>
-
-
-
 <div class="slide-footer"></div>
+
+
+
 </section>
 </section>
 <section>
@@ -3459,8 +3488,8 @@ done
 <li><i>traps</i> para finalizar un <i>script</i></li>
 
 </ul>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -3474,8 +3503,8 @@ done
 <p>
 DBMS<sub>SCHEDULER.RUN</sub><sub>JOB</sub>
 </p>
-
 <div class="slide-footer"></div>
+
 </section>
 </section>
 <section>
@@ -9728,7 +9757,6 @@ mouseWheel: false,
 fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: true,
-
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
