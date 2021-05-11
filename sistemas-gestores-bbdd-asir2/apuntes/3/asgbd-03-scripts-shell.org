@@ -118,6 +118,27 @@ importante "Asi se define una funcion en bash"
 
 #+end_src
 
+** Ejercicio
+- Crea un /script/ que reciba hasta 9 parámetros
+- Su salida serán los parámetros, uno por línea, en orden alfabético inverso
+- La salida no tendrá líneas en blanco
+
+#+begin_notes
+parametros_en_orden(){
+    sort -r <<EOF | grep -v "^$"
+$1
+$2
+$3
+$4
+$5
+$6
+$7
+$8
+$9
+EOF
+}
+parametros_en_orden "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
+#+end_notes
 
 ** Código de error (/exit code/)
 - Al terminar, un programa devuelve un valor numérico
