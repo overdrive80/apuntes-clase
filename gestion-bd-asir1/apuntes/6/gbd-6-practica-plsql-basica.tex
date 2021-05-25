@@ -30,12 +30,12 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \section{Descripción del problema}
 Una compañía necesita automatizar su almacén
 \begin{itemize}
-\item De cada producto se almacena su identificador, su nombre y su \textit{stock}.
+\item De cada producto se almacena su identificador, su nombre (como máximo, 30 caracteres) y su \textit{stock}.
 \item En cada entrada de producto al almacén, se apunta
   \begin{itemize}
   \item El producto
-  \item La cantidad de producto
-  \item El precio pagado al proveedor por unidad de producto
+  \item La cantidad de producto (como máximo, 9999 unidades)
+  \item El precio pagado al proveedor por unidad de producto (como máximo, 99999\euro)
   \end{itemize}
 \item De cada salida de producto del almacén se apunta
   \begin{itemize}
@@ -165,7 +165,7 @@ end;
 \section{Entorno de pruebas}
 Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080} (y otro al servidor de Oracle por el puerto 1521)
 \begin{center}
-\texttt{ssh -L 8080:localhost:8080 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51}
+\texttt{ssh -L 8080:localhost:8080 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51 -p 10133}
 \end{center}
 
 \section{Instrucciones de entrega}
