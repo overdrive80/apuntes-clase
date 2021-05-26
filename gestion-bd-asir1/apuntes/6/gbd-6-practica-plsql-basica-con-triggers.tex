@@ -154,8 +154,7 @@ insert into v_productos(nombreproducto) values ('Zapatos magnolia');
   Se desea evitar las variaciones muy rápidas de los precios pagados a los proveedores.
   \begin{itemize}
   \item Se pondrá un \textit{trigger} en la tabla donde se apunten las entradas.
-  \item Cuando se haga una nueva compra para un producto, se comprobará si va a ser la última (si no hay entradas posteriores).
-  \item Si la entrada va a ser la última, no se podrá guardar si su precio difiere en más de 10\euro (por arriba o por abajo) de la que hasta ese momento era la última. En ese caso, se lanzará el error \texttt{-20200} con \texttt{RAISE\_APPLICATION\_ERROR}.
+  \item La entrada  no se podrá guardar si su precio difiere en más de 10\euro (por arriba o por abajo) de la entrada anterior. En ese caso, se lanzará el error \texttt{-20200} con \texttt{RAISE\_APPLICATION\_ERROR}.
   \item Si nunca ha habido una entrada para ese producto, siempre se podrá guardar.
   \end{itemize}
 
