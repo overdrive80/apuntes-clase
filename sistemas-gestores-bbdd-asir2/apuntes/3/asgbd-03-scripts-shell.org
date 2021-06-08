@@ -583,7 +583,6 @@ less prueba.txt
 #+end_src
 
 ** Formateo básico de la salida 
-   DEADLINE: <2019-05-22 mié>
 
 - Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros *CSV*)
 #+begin_src sh
@@ -605,6 +604,8 @@ select table_name, tablespace_name
 spool off
 HEREDOC
 #+end_src
+
+- Ver también [[https://oracle-base.com/articles/12c/sqlplus-enhancements-12c#markup-csv][=set markup csv on=]]
 
 ** /Scripts/ *SQL* para =sqlplus=
 

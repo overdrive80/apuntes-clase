@@ -1951,7 +1951,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-05-18 mar 09:06</p>
+<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-06-08 mar 09:21</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2582,6 +2582,79 @@ Operaciones matemáticas, si no se dispone de <i>bash</i>
 
 </ul>
 <div class="slide-footer"></div>
+</section>
+<section id="slide-2-13">
+<div class="slide-header"></div>
+<h3 id="2-13"><span class="section-number-3">2.13</span> Ejercicio</h3>
+<p>
+Usa <code>whiptail=/=dialog</code> para hacer un <i>script</i> que muestre información del sistema, con opciones para:
+</p>
+<ul>
+<li>Mostrar el nombre del ordenador (<code>hostname</code>)</li>
+<li>Mostrar las IPs (<code>hostname -I</code>)</li>
+<li>Mostrar espacio libre en los discos (<code>df | grep</code>)</li>
+<li>Mostrar usuarios con sesión abierta (<code>who</code>)</li>
+
+</ul>
+<p>
+Después de mostrar la información, se vuelve al diálogo, hasta que se elija la opción "salir".
+</p>
+
+
+<p>
+#!/bin/bash
+</p>
+
+
+<p>
+dialogo(){
+    whiptail &#x2013;menu "Elige una opción" 20 50 12 \
+             1 "Mostrar el nombre del ordenador"\
+             2 "Mostrar las direcciones IP asignadas"\
+             3 "Mostrar espacio libre en los discos"\
+             4 "Mostrar usuarios con sesión abierta"\
+             5 "Salir"
+}
+</p>
+
+<p>
+resultado<sub>de</sub><sub>dialogo</sub>(){
+    dialogo 3&gt;&amp;2 2&gt;&amp;1 1&gt;&amp;3
+}
+</p>
+
+<p>
+ejecuta<sub>opcion</sub>(){
+    case $1 in
+</p>
+<ol>
+<li>hostname
+;;</li>
+<li>hostname -I
+;;</li>
+<li>df | grep /dev | grep -v tmpfs
+;;</li>
+<li>who
+;;</li>
+<li>echo "Saliendo"
+;;</li>
+
+</ol>
+<p>
+    esac
+}
+</p>
+
+<p>
+respuesta=$(resultado<sub>de</sub><sub>dialogo</sub>)
+while [ $respuesta -ne 5 ]
+do
+    ejecuta<sub>opcion</sub> \(respuesta
+    respuesta=\)(resultado<sub>de</sub><sub>dialogo</sub>)
+    read -p "Pulsa intro para continuar"
+done
+</p>
+<div class="slide-footer"></div>
 
 
 </section>
@@ -2613,7 +2686,7 @@ Operaciones matemáticas, si no se dispone de <i>bash</i>
 <div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1</span> Ficheros de inicio de <i>shell</i></h3>
 
-<div id="org71d4f6c" class="figure">
+<div id="orga122f8a" class="figure">
 <p><svg width="726pt" height="305pt"
  viewBox="0.00 0.00 726.43 305.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 301)">
@@ -3022,6 +3095,11 @@ spool off
 HEREDOC
 </code></pre>
 </div>
+
+<ul>
+<li>Ver también <a href="https://oracle-base.com/articles/12c/sqlplus-enhancements-12c#markup-csv"><code>set markup csv on</code></a></li>
+
+</ul>
 <div class="slide-footer"></div>
 
 </section>
