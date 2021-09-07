@@ -6,7 +6,7 @@
 
 
 * Introducción
-En este tema hablaremos de las amenazas se que presentan al hardware de una manera directa, es decir, desde un punto de vista absolutamente físico, y de las medidas de seguridad más comunes ante cada una de ellas.
+En este tema hablaremos de las amenazas que se presentan al hardware de una manera directa, es decir, desde un punto de vista absolutamente físico, y de las medidas de seguridad más comunes ante cada una de ellas.
 
 Hablaremos desde el punto de vista de empresas que utilizan un esquema de servidores y estaciones de trabajo, que es una manera sensata de trabajar si se requiere escalar los sistemas y prestar atención a la seguridad de la información… aunque por supuesto, prácticamente todo lo que hablemos puede ser extrapolado a pequeñas empresas o pequeños sistemas basados en equipos únicos o grupos de trabajo sin servidores dedicados.
 
@@ -729,6 +729,12 @@ Los SAI en línea no necesitan estabilizador, ya que la salida siempre está lim
 *** El By-pass de los SAI online:
 Dado que un SAI online siempre está operando con la batería, ésta no se puede sustituir sin pérdida de suministro.
 El Bypass (del inglés by-pass) es un simple conmutador, que conecta directamente la entrada de AC con la salida de AC en un SAI online, con la única intención de poder realizar tareas de mantenimiento en la batería.
+
+*** Mantenimiento
+Cuando la batería de un SAI no es capaz de mantener la carga, es necesario cambiarla. Los principales fabricantes proporcionan baterías de repuesto para sus SAI. 
+El cambio de batería con el SAI enchufado es una operación delicada y debe hacerse extremando la precaución para acceder únicamente a la batería.
+Siempre que sea posible, el cambio se debe hacer con el SAI desconectado de la corriente eléctrica.
+
 
 *** Capacidad y tiempo de suministro.
 Los SAIs no fueron ideados para proporcionar energía a los equipos durante mucho tiempo. La idea es mantener la corriente el tiempo necesario para que el equipo pueda salvaguardar los datos adecuadamente (por ejemplo, cerrando bases de datos, servicios, o hibernando), bien manualmente o bien automáticamente... es decir... hablamos de minutos.
