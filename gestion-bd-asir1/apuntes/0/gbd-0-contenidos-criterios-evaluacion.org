@@ -2,6 +2,7 @@
 #+TITLE:  GESTIÓN DE BASES DE DATOS 
 #+SUBTITLE: (CÓDIGO: 0372)
 #+KEYWORDS: 0372
+#+OPTIONS: reveal_single_file:nil
 
 * Cómo serán las clases
 + Teoría
@@ -30,7 +31,8 @@
 
 * Entrega de Trabajos
 - Via *Moodle*
-  + Nuestro curso es https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189
+  + Nuestro curso es [[https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189][aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/course/view.php?id=189]]
+
   + El curso es accesible incluso sin usuario
 - Se utilizará Microsoft Office (*DOC*, *DOCX*)
   + Opcionalmente, *PDF* o LibreOffice (*ODT*)
@@ -49,6 +51,7 @@
 - Móviles
   - No.
   - Un /smartwatch/ se considera un móvil.
+    
 
 
 ** Averías de los ordenadores

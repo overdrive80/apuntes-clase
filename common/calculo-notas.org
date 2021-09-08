@@ -1,18 +1,20 @@
 
 ** Cálculo de la nota
 - Nota de la evaluación
-#+begin_src notas
-trabajos*0.30 + exámenes*0.70
-#+END_SRC
+  #+begin_example
+  trabajos*0.30 + exámenes*0.70
+  #+END_example
+  - Nota de exámenes: La mayor de las siguientes:
+    - Media de la nota de los parciales
+    - Examen final
+  - Nota de trabajos:
+    - La media de los trabajos de la evaluación
+    - Todos los trabajos tienen que estar entregados
+- Nota del módulo
+  - Media de las notas de las evaluaciones
+  - Todas las evaluaciones tienen que estar aprobadas
 
-- Nota de exámenes
-#+begin_src notas
-La mayor de:
-  * Media de la nota de los parciales
-  * Examen final
-#+end_src
-
-- Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]
+# - Las notas pueden calcularse con [[file:calculo-notas/calculo-notas.html?evaluaciones=2][el calculador de notas.]]
 
 ** Detalles sobre la calificación
 - Son necesarios todos los trabajos para poder aprobar
