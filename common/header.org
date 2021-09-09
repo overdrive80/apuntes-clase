@@ -69,7 +69,7 @@
 #+REVEAL_PLUGINS: (highlight notes)
 # #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+REVEAL_ROOT: ../../../common/reveal.js
-#+OPTIONS: reveal_single_file:t
+#+OPTIONS: reveal_embed_local_resources:t
 #+REVEAL_INIT_SCRIPT: width: '100%'
 # Available transitions are: default|cube|page|concave|zoom|linear|fade|none
 #+REVEAL_TRANS: linear
