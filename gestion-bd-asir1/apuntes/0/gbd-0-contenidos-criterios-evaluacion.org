@@ -2,7 +2,6 @@
 #+TITLE:  GESTIÓN DE BASES DE DATOS 
 #+SUBTITLE: (CÓDIGO: 0372)
 #+KEYWORDS: 0372
-#+OPTIONS: reveal_single_file:nil
 
 * Cómo serán las clases
 + Teoría

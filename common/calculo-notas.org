@@ -23,6 +23,6 @@
   - Los conocimientos y esfuerzo para conseguir el 80% de un problema suelen ser bajos
   - La dificultad real suele estar en el 20% restante del problema
   - Ejemplo: ¿Dónde está la dificultad?
-    1. Instala Windows
-    2. Instala Linux
-    3. Haz que cada S.O. pueda ver los ficheros del otro   
+    1. Instala Windows (10% de dificultad)
+    2. Instala Linux junto a Windows (20% de dificultad)
+    3. Haz que cada S.O. pueda ver los ficheros del otro (70% restante)
