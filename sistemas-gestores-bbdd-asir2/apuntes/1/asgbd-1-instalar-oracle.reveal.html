@@ -1950,7 +1950,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Instalación de Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-03-23 mar 09:45</p>
+<h1 class="title">Instalación de Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-09-17 vie 10:08</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2008,18 +2008,18 @@ window.addEventListener("load",()=>{
 <section>
 <section id="slide-1">
 <div class="slide-header"></div>
-<h2 id="1"><span class="section-number-2">1</span> Instalación del software de base de datos</h2>
+<h2 id="1"><span class="section-number-2">1.</span> Instalación del software de base de datos</h2>
 <div class="outline-text-2" id="text-1">
 </div>
 </section>
 <section id="slide-1-1">
 <div class="slide-header"></div>
-<h3 id="1-1"><span class="section-number-3">1.1</span> Prerequisitos</h3>
+<h3 id="1-1"><span class="section-number-3">1.1.</span> Prerequisitos</h3>
 <ul>
 <li>Será una máquina virtual de VirtualBox
 <ul>
 <li><a href="https://iesavellaneda-my.sharepoint.com/:u:/g/personal/alvaro_gonzalezsotillo_iesavellaneda_onmicrosoft_com/EXY7H7CIAjhFqo4TyIK_wC8BTD9aCVC5-0RUdKsg2WeLhg">Enlace al fichero OVA</a></li>
-<li>En clase puede bajarse desde el PC del profesor (más rápido)</li>
+<li>En clase puede bajarse desde el <a href="http://nasavellaneda.local/alvaro/maquinas-virtuales/centos7-oracle-inicial-2018.ova">NAS</a> (más rápido)</li>
 
 </ul></li>
 <li>El fichero <code>OVA</code> del profesor ya tiene:
@@ -2037,7 +2037,7 @@ window.addEventListener("load",()=>{
 </section>
 <section id="slide-1-2">
 <div class="slide-header"></div>
-<h3 id="1-2"><span class="section-number-3">1.2</span> Resolver el propio nombre</h3>
+<h3 id="1-2"><span class="section-number-3">1.2.</span> Resolver el propio nombre</h3>
 <ul>
 <li>Cambiar el nombre de la máquina 
 <ul>
@@ -2059,7 +2059,7 @@ window.addEventListener("load",()=>{
 </section>
 <section id="slide-1-3">
 <div class="slide-header"></div>
-<h3 id="1-3"><span class="section-number-3">1.3</span> Entorno gráfico</h3>
+<h3 id="1-3"><span class="section-number-3">1.3.</span> Entorno gráfico</h3>
 <ul>
 <li>El instalador más cómodo de Oracle necesita un sistema de ventanas</li>
 <li>Hay varias opciones:
@@ -2085,7 +2085,7 @@ Arrancar un servidor <b>vnc</b> en <b>Centos</b>
 </p>
 <div class="org-src-container">
 
-<pre><code class="sh" >    sudo yum install vnc-server
+<pre><code class="sh" >    sudo yum install vnc-server # o tigervnc-server
     vncserver :0
 </code></pre>
 </div></li>
@@ -2098,13 +2098,13 @@ Arrancar un servidor <b>vnc</b> en <b>Centos</b>
 </section>
 <section id="slide-1-4">
 <div class="slide-header"></div>
-<h3 id="1-4"><span class="section-number-3">1.4</span> Oracle 18c</h3>
+<h3 id="1-4"><span class="section-number-3">1.4.</span> Oracle 18c</h3>
 <div class="outline-text-3" id="text-1-4">
 </div>
 </section>
 <section id="slide-1-4-1">
 <div class="slide-header"></div>
-<h4 id="1-4-1"><span class="section-number-4">1.4.1</span> Descomprimir el instalador</h4>
+<h4 id="1-4-1"><span class="section-number-4">1.4.1.</span> Descomprimir el instalador</h4>
 <ul>
 <li>Descomprimiremos sus ficheros en el directorio <code>$HOME/oracle-install-18c</code>
 <ul>
@@ -2121,7 +2121,7 @@ Arrancar un servidor <b>vnc</b> en <b>Centos</b>
 </section>
 <section id="slide-1-4-2">
 <div class="slide-header"></div>
-<h4 id="1-4-2"><span class="section-number-4">1.4.2</span> Arrancar el instalador</h4>
+<h4 id="1-4-2"><span class="section-number-4">1.4.2.</span> Arrancar el instalador</h4>
 <ol>
 <li>Se arranca con <code>./runInstaller</code></li>
 <li>Instalar sólo el <i>software</i> de la base de DATOS</li>
@@ -2134,7 +2134,7 @@ Arrancar un servidor <b>vnc</b> en <b>Centos</b>
 </section>
 <section id="slide-1-4-3">
 <div class="slide-header"></div>
-<h4 id="1-4-3"><span class="section-number-4">1.4.3</span> Directorios de Oracle</h4>
+<h4 id="1-4-3"><span class="section-number-4">1.4.3.</span> Directorios de Oracle</h4>
 <p>
 Dejamos los directorios por defecto:
 </p>
@@ -2153,7 +2153,7 @@ Dejamos los directorios por defecto:
 </section>
 <section id="slide-1-4-4">
 <div class="slide-header"></div>
-<h4 id="1-4-4"><span class="section-number-4">1.4.4</span> Grupos de <i>Linux</i></h4>
+<h4 id="1-4-4"><span class="section-number-4">1.4.4.</span> Grupos de <i>Linux</i></h4>
 <ul>
 <li>Elegir <code>wheel</code> 
 <ul>
@@ -2168,7 +2168,7 @@ Dejamos los directorios por defecto:
 </section>
 <section id="slide-1-4-5">
 <div class="slide-header"></div>
-<h4 id="1-4-5"><span class="section-number-4">1.4.5</span> Comprobaciones</h4>
+<h4 id="1-4-5"><span class="section-number-4">1.4.5.</span> Comprobaciones</h4>
 <ul>
 <li>Ignoramos la falta de memoria</li>
 <li>El instalador detectará algunos errores, pero genera unos <i>scripts</i> de <i>fix</i>
@@ -2189,7 +2189,7 @@ Dejamos los directorios por defecto:
 
 <aside class="notes">
 <p>
-sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33-3.2.3
+sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33
 </p>
 
 </aside>
@@ -2202,14 +2202,14 @@ También hay un paquete de dependencias (<code>oracle-database-preinstall-18c-1.
 </section>
 <section id="slide-1-4-6">
 <div class="slide-header"></div>
-<h4 id="1-4-6"><span class="section-number-4">1.4.6</span> Resumen</h4>
+<h4 id="1-4-6"><span class="section-number-4">1.4.6.</span> Resumen</h4>
 <ul>
 <li>Se debe grabar la información de la hoja de resumen</li>
 
 </ul>
 
 
-<div id="org1f0c762" class="figure">
+<div id="org21ada97" class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyEAAAJhCAYAAABWwb8rAAAABmJLR0QA/wD/AP+gvaeTAAAACXBI
 WXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4gkHEgI25bHK5AAAIABJREFUeNrsnVu2q6wShadn/E2B
 xpB37YU0Bnsh76Ex0BfPA2LQeM9lJ1nzG8O9V6JCcUlSkwIsVF12AOADAACmLqFUCUIIIYQQQgh5
@@ -2689,7 +2689,7 @@ Lfw5f7sjPZ4xpN1Z/htviq980Id/uV72m3xZ3e5rvN3TZt3P/7mijwMdFhNfAAAAAElFTkSuQmCC" />
 </section>
 <section id="slide-1-4-7">
 <div class="slide-header"></div>
-<h4 id="1-4-7"><span class="section-number-4">1.4.7</span> <i>scripts</i> de configuración</h4>
+<h4 id="1-4-7"><span class="section-number-4">1.4.7.</span> <i>scripts</i> de configuración</h4>
 <ul>
 <li>/home/alumno/oraInventory/orainstRoot.sh</li>
 
@@ -2755,7 +2755,7 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </section>
 <section id="slide-1-4-8">
 <div class="slide-header"></div>
-<h4 id="1-4-8"><span class="section-number-4">1.4.8</span> Finalización</h4>
+<h4 id="1-4-8"><span class="section-number-4">1.4.8.</span> Finalización</h4>
 <ul>
 <li>Necesitamos definir algunas variables de entorno (ficheros <code>~/.profile</code>, <code>~/.bash_profile</code>, <code>~/.bashrc</code>)
 <ul>
@@ -2771,9 +2771,9 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </section>
 <section id="slide-1-4-9">
 <div class="slide-header"></div>
-<h4 id="1-4-9"><span class="section-number-4">1.4.9</span> Relación entre ficheros de inicio de <i>shell</i></h4>
+<h4 id="1-4-9"><span class="section-number-4">1.4.9.</span> Relación entre ficheros de inicio de <i>shell</i></h4>
 
-<div id="org0207aff" class="figure">
+<div id="org962bd92" class="figure">
 <p><svg width="726pt" height="305pt"
  viewBox="0.00 0.00 726.43 305.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 301)">
@@ -2931,7 +2931,7 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </section>
 <section id="slide-1-4-10">
 <div class="slide-header"></div>
-<h4 id="1-4-10"><span class="section-number-4">1.4.10</span> Reiniciar</h4>
+<h4 id="1-4-10"><span class="section-number-4">1.4.10.</span> Reiniciar</h4>
 <ul>
 <li>En un servidor real no se hace, pero aquí es lo más cómodo para que funcionen las nuevas variables de entorno</li>
 <li>Después, podemos ver que los programas están, <b>pero no hacen nada</b></li>
@@ -2960,7 +2960,7 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 <section>
 <section id="slide-2">
 <div class="slide-header"></div>
-<h2 id="2"><span class="section-number-2">2</span> Instancia / <i>listener</i> / base de datos</h2>
+<h2 id="2"><span class="section-number-2">2.</span> Instancia / <i>listener</i> / base de datos</h2>
 <ul>
 <li>Instancia: 
 <ul>
@@ -2990,9 +2990,9 @@ Oracle Trace File Analyzer (TFA - Daemon Mode) can be installed by running this 
 </section>
 <section id="slide-2-1">
 <div class="slide-header"></div>
-<h3 id="2-1"><span class="section-number-3">2.1</span> Instancias y bases de DATOS</h3>
+<h3 id="2-1"><span class="section-number-3">2.1.</span> Instancias y bases de DATOS</h3>
 
-<div id="orgdd987c0" class="figure">
+<div id="orgabd5f74" class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABAIAAAFxCAYAAADprgp9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAmcwAAJnMB82x1CgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURB
 VHic7N13uFxV1cfx7yKQBAJSE3roghB6ERCpikjvvTdfUF6VrjQRpSoooK/0KiBFehekd6R3kBpq
@@ -3672,9 +3672,9 @@ m5mZmZm1439IVggLIPxdqAAAAABJRU5ErkJggg==" />
 </section>
 <section id="slide-2-2">
 <div class="slide-header"></div>
-<h3 id="2-2"><span class="section-number-3">2.2</span> Ejemplo (I) de listener</h3>
+<h3 id="2-2"><span class="section-number-3">2.2.</span> Ejemplo (I) de listener</h3>
 
-<div id="orgd5f5968" class="figure">
+<div id="orgb9a4e44" class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABDgAAACoCAYAAAAFOV7fAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAmcwAAJnMB82x1CgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURB
 VHic7J13uFxV1YffX2ghkIQaSCAhSO9Veu9NBRRBivgpgoCAgvTeFAQEBBQBpYNIbwICoSm9906A
@@ -4065,9 +4065,9 @@ AElFTkSuQmCC" />
 </section>
 <section id="slide-2-3">
 <div class="slide-header"></div>
-<h3 id="2-3"><span class="section-number-3">2.3</span> Ejemplo (II) de listener</h3>
+<h3 id="2-3"><span class="section-number-3">2.3.</span> Ejemplo (II) de listener</h3>
 
-<div id="org47f91a0" class="figure">
+<div id="org3175117" class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGIAAAIbCAYAAACgzjisAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAAmcwAAJnMB82x1CgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURB
 VHic7N13tCRV1cbh3zvkDJLzkJMkyUoGQSQoQZKKEXNEBEURUEFM8KkogglUchZFyUFEQImSBiTn
@@ -5081,7 +5081,7 @@ TkSuQmCC" />
 <section>
 <section id="slide-3">
 <div class="slide-header"></div>
-<h2 id="3"><span class="section-number-2">3</span> Creación de una instancia de base de datos</h2>
+<h2 id="3"><span class="section-number-2">3.</span> Creación de una instancia de base de datos</h2>
 <ul>
 <li>Comando <code>dbca</code></li>
 <li>No estará en el <code>PATH</code> si no se ha incluido (por ejemplo, con <code>oraenv</code>)</li>
@@ -5100,7 +5100,7 @@ TkSuQmCC" />
 </section>
 <section id="slide-3-1">
 <div class="slide-header"></div>
-<h3 id="3-1"><span class="section-number-3">3.1</span> <i>Password management</i></h3>
+<h3 id="3-1"><span class="section-number-3">3.1.</span> <i>Password management</i></h3>
 <ul>
 <li>Lista de usuarios</li>
 <li>Se puede
@@ -5120,7 +5120,7 @@ TkSuQmCC" />
 <section>
 <section id="slide-4">
 <div class="slide-header"></div>
-<h2 id="4"><span class="section-number-2">4</span> Creación de un <i>listener</i></h2>
+<h2 id="4"><span class="section-number-2">4.</span> Creación de un <i>listener</i></h2>
 <ul>
 <li>Permiten las conexiones de clientes remotos</li>
 <li>Comando <code>netca</code>
@@ -5143,7 +5143,7 @@ TkSuQmCC" />
 </section>
 <section id="slide-4-1">
 <div class="slide-header"></div>
-<h3 id="4-1"><span class="section-number-3">4.1</span> Arrancar y parar el listener</h3>
+<h3 id="4-1"><span class="section-number-3">4.1.</span> Arrancar y parar el listener</h3>
 <ul>
 <li><p>
 Arrancar:
@@ -5180,7 +5180,7 @@ Comprobar si la instancia se ha conectado
 <section>
 <section id="slide-5">
 <div class="slide-header"></div>
-<h2 id="5"><span class="section-number-2">5</span> Arrancar y parar la base de datos</h2>
+<h2 id="5"><span class="section-number-2">5.</span> Arrancar y parar la base de datos</h2>
 <ul>
 <li><p>
 Se necesitan las variables <code>ORACLE_HOME</code>, <code>ORACLE_SID</code>, <code>PATH</code>, <code>ORACLE_BASE</code>.
@@ -5220,7 +5220,7 @@ Arrancar y parar el <i>listener</i>. Comprobar que se admiten conexiones
 </section>
 <section id="slide-5-1">
 <div class="slide-header"></div>
-<h3 id="5-1"><span class="section-number-3">5.1</span> A mí <b>dbstart</b> y <b>dbshut</b> no me funcionan</h3>
+<h3 id="5-1"><span class="section-number-3">5.1.</span> A mí <b>dbstart</b> y <b>dbshut</b> no me funcionan</h3>
 <p>
 Se puede hacer <i>a mano</i>. Lo veremos en el próximo tema.
 </p>
@@ -5258,7 +5258,7 @@ SQL&gt;
 <section>
 <section id="slide-6">
 <div class="slide-header"></div>
-<h2 id="6"><span class="section-number-2">6</span> Conexión en local</h2>
+<h2 id="6"><span class="section-number-2">6.</span> Conexión en local</h2>
 <ul>
 <li>Después de la creación de un <i>listener</i> y una instancia, ya podemos conectarnos a la base de datos</li>
 <li>Recordatorio: Debemos tener configuradas las variabales de entorno
@@ -5286,13 +5286,13 @@ SQL&gt;
 <section>
 <section id="slide-7">
 <div class="slide-header"></div>
-<h2 id="7"><span class="section-number-2">7</span> Conexión remota</h2>
+<h2 id="7"><span class="section-number-2">7.</span> Conexión remota</h2>
 <div class="outline-text-2" id="text-7">
 </div>
 </section>
 <section id="slide-7-1">
 <div class="slide-header"></div>
-<h3 id="7-1"><span class="section-number-3">7.1</span> Acceso por redes</h3>
+<h3 id="7-1"><span class="section-number-3">7.1.</span> Acceso por redes</h3>
 <ul>
 <li>Es necesario conocer la IP de nuestro servidor
 <ul>
@@ -5320,7 +5320,7 @@ SQL&gt;
 </section>
 <section id="slide-7-1-1">
 <div class="slide-header"></div>
-<h4 id="7-1-1"><span class="section-number-4">7.1.1</span> Conexión remota</h4>
+<h4 id="7-1-1"><span class="section-number-4">7.1.1.</span> Conexión remota</h4>
 <ul>
 <li>Es necesario conocer la IP o el nombre del ordenador remoto</li>
 <li>Si nos fiamos de <code>DHCP</code>, cada día puede ser una IP distinta</li>
@@ -5338,7 +5338,7 @@ SQL&gt;
 </section>
 <section id="slide-7-1-2">
 <div class="slide-header"></div>
-<h4 id="7-1-2"><span class="section-number-4">7.1.2</span> avahi</h4>
+<h4 id="7-1-2"><span class="section-number-4">7.1.2.</span> avahi</h4>
 <ul>
 <li>Instalar <code>avahi</code> y <code>avahi-tools</code></li>
 <li>Activar opciones <code>publish-hinfo</code> y <code>publish-workstation</code></li>
@@ -5362,7 +5362,7 @@ SQL&gt;
 </section>
 <section id="slide-7-1-3">
 <div class="slide-header"></div>
-<h4 id="7-1-3"><span class="section-number-4">7.1.3</span> Samba</h4>
+<h4 id="7-1-3"><span class="section-number-4">7.1.3.</span> Samba</h4>
 <ul>
 <li><a href="https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7">https://www.howtoforge.com/samba-server-installation-and-configuration-on-centos-7</a>
 <ul>
@@ -5385,7 +5385,7 @@ SQL&gt;
 </section>
 <section id="slide-7-2">
 <div class="slide-header"></div>
-<h3 id="7-2"><span class="section-number-3">7.2</span> Acceso via Web</h3>
+<h3 id="7-2"><span class="section-number-3">7.2.</span> Acceso via Web</h3>
 <ul>
 <li>Al crear la base de datos con <code>dbca</code> se configura el acceso <b>Enterprise Manager</b>
 <ul>
@@ -5406,7 +5406,7 @@ SQL&gt;
 </section>
 <section id="slide-7-3">
 <div class="slide-header"></div>
-<h3 id="7-3"><span class="section-number-3">7.3</span> Instalación de <b>sqlplus</b></h3>
+<h3 id="7-3"><span class="section-number-3">7.3.</span> Instalación de <b>sqlplus</b></h3>
 <ul>
 <li>El cliente <b>sqlplus</b> viene en la instalación de <b>oracle</b></li>
 <li>Pero también puede instalarse por separado:
@@ -5501,7 +5501,7 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 </section>
 <section id="slide-7-4">
 <div class="slide-header"></div>
-<h3 id="7-4"><span class="section-number-3">7.4</span> Instalación de <b>SQLDeveloper</b> en Centos</h3>
+<h3 id="7-4"><span class="section-number-3">7.4.</span> Instalación de <b>SQLDeveloper</b> en Centos</h3>
 <ul>
 <li>Se necesita <b>JDK 1.8</b></li>
 <li>Se instalan los ficheros <code>sqldeveloper-4.1.5.21.78-1.noarch.rpm</code> y <code>jdk-8u111-linux-x64.rpm</code>
@@ -5522,7 +5522,7 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 </section>
 <section id="slide-7-5">
 <div class="slide-header"></div>
-<h3 id="7-5"><span class="section-number-3">7.5</span> Instalación de <b>SQLDeveloper</b> en Ubuntu</h3>
+<h3 id="7-5"><span class="section-number-3">7.5.</span> Instalación de <b>SQLDeveloper</b> en Ubuntu</h3>
 <ul>
 <li>Se necesita <b>JDK 1.8</b></li>
 <li>Se descarga el fichero  <code>sqldeveloper-xxxxx-no-jre.zip</code>
@@ -5541,7 +5541,7 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 <section>
 <section id="slide-8">
 <div class="slide-header"></div>
-<h2 id="8"><span class="section-number-2">8</span> Dirección IP</h2>
+<h2 id="8"><span class="section-number-2">8.</span> Dirección IP</h2>
 <ul>
 <li>Pondremos IP estática
 <ul>
@@ -5574,7 +5574,7 @@ To use supplied binaries such as SQL*Plus, update your PATH environment variable
 <section>
 <section id="slide-9">
 <div class="slide-header"></div>
-<h2 id="9"><span class="section-number-2">9</span> Cosas que hemos aprendido <i>de pasada</i></h2>
+<h2 id="9"><span class="section-number-2">9.</span> Cosas que hemos aprendido <i>de pasada</i></h2>
 <ul>
 <li>Variables de entorno
 <ul>
@@ -5607,7 +5607,7 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 </section>
 <section id="slide-9-1">
 <div class="slide-header"></div>
-<h3 id="9-1"><span class="section-number-3">9.1</span> Comandos</h3>
+<h3 id="9-1"><span class="section-number-3">9.1.</span> Comandos</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -5678,7 +5678,7 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 </section>
 <section id="slide-9-2">
 <div class="slide-header"></div>
-<h3 id="9-2"><span class="section-number-3">9.2</span> Comandos, <i>shell</i> y variables</h3>
+<h3 id="9-2"><span class="section-number-3">9.2.</span> Comandos, <i>shell</i> y variables</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -5738,9 +5738,9 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 <section>
 <section id="slide-10">
 <div class="slide-header"></div>
-<h2 id="10"><span class="section-number-2">10</span> Diagrama resumen</h2>
+<h2 id="10"><span class="section-number-2">10.</span> Diagrama resumen</h2>
 
-<div id="org9f4c627" class="figure">
+<div id="org940395d" class="figure">
 <p><svg width="621pt" height="802pt"
  viewBox="0.00 0.00 621.14 802.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 798)">
@@ -5993,7 +5993,7 @@ Nada de esto es <i>directamente</i> bases de datos&#x2026;
 <section>
 <section id="slide-11">
 <div class="slide-header"></div>
-<h2 id="11"><span class="section-number-2">11</span> Referencias</h2>
+<h2 id="11"><span class="section-number-2">11.</span> Referencias</h2>
 <ul>
 <li>Formatos:
 <ul>
@@ -12236,13 +12236,18 @@ mouseWheel: false,
 fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: true,
-
 overview: true,
 
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 transition: Reveal.getQueryHash().transition || 'linear', // see README of reveal.js for options
 transitionSpeed: 'default',
-width: '100%'});
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+ { src: '../../../common/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: '../../../common/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+,width: '100%'});
 </script>
 </body>
 </html>

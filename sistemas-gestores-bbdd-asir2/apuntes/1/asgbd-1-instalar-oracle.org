@@ -60,7 +60,7 @@ sudo apt install virtualbox-5.2
 ** Prerequisitos
 - Será una máquina virtual de VirtualBox
   - [[https://iesavellaneda-my.sharepoint.com/:u:/g/personal/alvaro_gonzalezsotillo_iesavellaneda_onmicrosoft_com/EXY7H7CIAjhFqo4TyIK_wC8BTD9aCVC5-0RUdKsg2WeLhg][Enlace al fichero OVA]]
-  - En clase puede bajarse desde el PC del profesor (más rápido)
+  - En clase puede bajarse desde el [[http://nasavellaneda.local/alvaro/maquinas-virtuales/centos7-oracle-inicial-2018.ova][NAS]] (más rápido)
 - El fichero =OVA= del profesor ya tiene:
   - *Centos 7* instalado (inglés)
   - *Oracle 12c y 18c* descargado
@@ -120,7 +120,7 @@ sudo yum update #opcional, puede necesitar mucho tiempo
     #+end_src
   - Arrancar un servidor *vnc* en *Centos*
     #+begin_src sh
-    sudo yum install vnc-server
+    sudo yum install vnc-server # o tigervnc-server
     vncserver :0
     #+end_src
 
@@ -163,7 +163,7 @@ sudo yum update #opcional, puede necesitar mucho tiempo
    - Es necesario que la máquina virtual tenga acceso a internet (debería estar en /Bridged/, pero también funciona /NAT/)
 
  #+BEGIN_NOTES
-sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33-3.2.3
+sudo yum install compat-libcap1 libstdc++-devel gcc-c++ ksh libaio-devel compat-libstdc++-33
  #+END_NOTES
 
 También hay un paquete de dependencias (=oracle-database-preinstall-18c-1.0-1.el7.x86_64.rpm=), que se puede instalar con =yum localinstall=
