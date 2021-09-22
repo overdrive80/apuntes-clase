@@ -104,8 +104,8 @@ window.addEventListener("load",()=>{
 
 # MATHJAX EN HTML
 # #+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-#+HTML_HEAD: <script type="text/javascript" src="../../../common/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
+# #+HTML_HEAD: <script type="text/javascript" src="../../../common/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+#+REVEAL_MATHJAX_URL: ../../../common/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 
 # IMAGENES AUTOENLAZADAS EN HTML
 #+begin_export html

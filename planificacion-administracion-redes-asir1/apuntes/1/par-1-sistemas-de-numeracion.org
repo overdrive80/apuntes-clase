@@ -1,7 +1,6 @@
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Sistemas de numeración
-#+OPTIONS: reveal_single_file:t
-#+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+# #+HTML_HEAD_EXTRA: <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
 
 * El lenguaje de los ordenadores

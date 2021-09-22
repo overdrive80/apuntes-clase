@@ -115,10 +115,10 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
   Realiza un diagrama E-R del siguiente supuesto acerca de los empleados de una empresa:
 - De cada empleado se sabe su DNI, nombre, apellidos y sueldo anual.
 - Cada empleado trabaja en un departamento, de los que se conoce el nombre.
-- Cada departamento tiene un responsable, que es uno de los empleados de la empresa.
+- Cada departamento tiene un responsable, que es uno de los empleados de (ese departamento|la empresa). Un empleado solo puede ser responsable de un departamento.
 - La empresa desarrolla proyectos, que tienen un nombre y un presupuesto
 - Cada proyecto tiene un responsable, y trabajan en él varios empleados.
-- Un empleado puede ser responsable de varios proyectos. Un empleado puede trabajar en varios proyectos.
+- Un empleado puede ser responsable de varios proyectos, si trabaja en ellos. Un empleado puede trabajar en varios proyectos.
     
   
   
