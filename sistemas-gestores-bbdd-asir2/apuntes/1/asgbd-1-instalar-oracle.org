@@ -574,6 +574,7 @@ See the Instant Client Home Page for more information.
   - Variable =PATH=
 - Conexiones por *ssh*
   - Con redirección del *Xserver*
+  - Con *vnc*  
 - Edición de ficheros de texto
 - Instalación de paquetes en *Centos*
 - Conexiones de red (/bridged/, /NAT/)
@@ -586,17 +587,18 @@ Nada de esto es /directamente/ bases de datos...
 ... pero ha sido necesario para instalar *Oracle*
 
 ** Comandos
-| ~cd~       | Cambia el directorio actual              |
-| ~echo~     | Escribe los parámetros pasados           |
-| ~df~       | Espacio de disco usado                   |
-| ~unzip~    | Descomprime un *zip*                     |
-| ~updatedb~ | Actualiza la lista de ficheros del disco |
-| ~locate~   | Busca un fichero la lista de =updatedb=  |
-| ~ssh~      | Conexión remota                          |
-| ~grep~     | Busca líneas con un texto                |
-| ~nano~     | Editor de ficheros                       |
-| ~netstat~  | Ver conexiones de red                    |
-| ~nc~       | Conectarse por TCP o UDP                 |
+| ~cd~        | Cambia el directorio actual              |
+| ~echo~      | Escribe los parámetros pasados           |
+| ~df~        | Espacio de disco usado                   |
+| ~unzip~     | Descomprime un *zip*                     |
+| ~updatedb~  | Actualiza la lista de ficheros del disco |
+| ~locate~    | Busca un fichero la lista de =updatedb=  |
+| ~ssh~       | Conexión remota                          |
+| ~grep~      | Busca líneas con un texto                |
+| ~nano~      | Editor de ficheros                       |
+| ~netstat~   | Ver conexiones de red                    |
+| ~nc~        | Conectarse por TCP o UDP                 |
+| ~systemctl~ | Activa y desactiva servicios (firewall)  |
   
 ** Comandos, /shell/ y variables 
 | ~$variable~     | Valor de una variable (de =export= y =env= )        |
