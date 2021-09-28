@@ -33,6 +33,7 @@ Crear un diseño ER que permita gestionar los datos de una biblioteca de modo qu
 - La biblioteca almacena libros que presta a los socios y socias, de ellos se almacena su título, su editorial, el año en el que se escribió el libro, el nombre completo del autor (o autores), el año en que se editó y en qué editorial fue y el ISBN.
 - Necesitamos poder indicar si un volumen en la biblioteca está deteriorado o no
 - Queremos controlar cada préstamo que se realiza almacenando la fecha en la que se realiza, la fecha tope para devolver (que son 15 días más que la fecha inicial) y la fecha real en la que se devuelve el libro
+- Un socio puede tener más de un libro en préstamo al mismo tiempo.  
 
 
 * Menú diario
@@ -416,6 +417,27 @@ Crear el esquema entidad/relación que permita crear el diseño de una base de d
 - Hay que tener en cuenta que en dicha liga los jugadores no pueden cambiar de equipo durante una temporada, pero pueden cambiar en la siguiente.
 - Se debe guardar el dorsal de cada jugador. El dorsal puede cambiar cada temporada.
 - Un empate representa un punto para cada equipo. Una victoria son tres, y una derrota no representa ningún punto.
+
+* Festival de música
+- Hay varios grupos de música
+- Cada grupo tiene componentes. Cada componente puede tocar varios instrumentos.
+- Se cobran entradas. Hay un aforo. Una entradas para solo un día, y entradas para todo el festival.
+- Horarios: hora de inicio y hora de salida de cada día.
+- Hay que saber qué día a qué hora toca cada grupo. hay que saber qué canciones va a tocar cada grupo. Un grupo toca solo una vez en todo el festival.
+- Las entradas no son nominativas.      
+
+* Festival de música (ii)
+La base de datos es para el manager.
+
+- Conciertos: lugar, fecha y hora, aforo máximo de cada tipo de entrada. En cada concierto pueden variar los integrantes
+- Integrantes: nombre, nombre artístico, DNI
+- Grupos de Teloneros  y los integrantes de los grupos teloneros de cada concierto, que tienen los mismos datos que los integrantes
+- Instrumentos: en qué instrumentos está especializado cada integrante (no los teloneros). Un integrante puede estar especializado en más de un instrumento. Tipo de instrumento (cuerda, percusión...) y nombre de instrumento.
+- Canciones: canciones tocadas en cada concierto, con su orden de aparición. Una canción se puede tocar dos veces en un concierto.
+- Repertorio: todas las canciones que el grupo sabe tocar.
+- Entradas vendidas para los conciertos: vip, normal, con consumición. Las entradas están numeradas, no son nominativas.
+- Entradas que realmente se usaron en el concierto.
+
 
 
 
