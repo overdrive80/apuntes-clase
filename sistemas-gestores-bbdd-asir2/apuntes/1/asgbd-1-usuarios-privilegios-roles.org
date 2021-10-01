@@ -384,7 +384,7 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 ** Ejercicio
 - Usa la opción [[http://www.dba-oracle.com/t_password_verify_function.htm][=PASSWORD_VERIFY_FUNCTION=]] para evitar que las contraseñas sean más largas de tres caracteres
      
-#+begin_notes   
+#+BEGIN_NOTES
 Create or Replace Function tres_caracteres_o_menos
 (in_username in varchar2,
 in_new_password in varchar2,
@@ -407,7 +407,7 @@ CREATE PROFILE EJEMPLO LIMIT
    CONNECT_TIME               1
    IDLE_TIME                  1
    PASSWORD_VERIFY_FUNCTION tres_caracteres_o_menos;
-#+end_notes   
+#+END_NOTES
 
 * Referencias
 #+INCLUDE: "../../../common/footer.org"
