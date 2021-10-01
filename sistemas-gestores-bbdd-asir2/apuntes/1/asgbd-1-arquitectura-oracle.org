@@ -162,7 +162,7 @@ column comments format a150
 |----------------------------------------+-------------------|
 | De Datos (dbf) undo, system y users    | ~v$datafile~      |
 | Temporales (tmp)                       | ~v$tempfile~      |
-| Rehacer o Redo Log (log)               | ~v$logfile,v$log~ |
+| Rehacer o Redo Log (log)               | ~v$logfile~       |
 | De control. Estructura física de la BD | ~v$controlfile~   |
 | De Log                                 | ~v$diag_info~     |
 | Información de la BD                   | ~v$database~      |

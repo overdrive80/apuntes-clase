@@ -65,12 +65,12 @@ Mas información en:
 
 ** Crear un /tablespace/
 #+begin_src sql
-CREATE TABLESPACE nombre 
-  DATAFILE '/camino/al/fichero.dbf'
-  SIZE tamanoinicial
-  AUTOEXTEND ON 
-  NEXT 200k 
-  MAXSIZE 1400K;
+CREATE TABLESPACE ejemplo_tablespace
+  DATAFILE
+  '/tablespaces/ejemplo_1.dbf'  SIZE 10M
+  AUTOEXTEND ON  NEXT 200k  MAXSIZE 14M,
+  '/tablespaces/ejemplo_2.dbf'  SIZE 10M
+  AUTOEXTEND ON  NEXT 200k  MAXSIZE 14M;
 #+end_src
 
 Más en [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003.htm][docs.oracle.com]]
