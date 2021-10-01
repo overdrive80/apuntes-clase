@@ -82,7 +82,7 @@ Más en [[https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7003
   - Que un /tablespace/ se localice en varios discos (rapidez, tamaño)
   - Mover /tablespaces/ una vez creados
 
-** Ejercicio: llena un tablespace
+** Ejercicio: Llena un tablespace
 - Crea un /tablespace/ con un tamaño inicial de 10MB, y un tamaño máximo de 14MB
 - Crea una tabla sobre el /tablespace/
 - Inserta datos en la tabla hasta conseguir el error =ORA-01653=
