@@ -140,8 +140,9 @@ digraph{
 | ~GV$xxxx~   | Dinámica | [[https://docs.oracle.com/database/121/REFRN/GUID-884B21B1-7C87-41E1-8F97-C4668704AF30.htm#REFRN-GUID-884B21B1-7C87-41E1-8F97-C4668704AF30][Información dinámica del cluster]]            |
 
 -----
-- Vista /comodín/:
+- Vistas /comodín/:
   - =SELECT * FROM DICT=
+  - =SELECT * FROM DICT_COLUMNS=
 
 #+BEGIN_NOTES
 Para cambiar tamaños de columnas en =sqlplus=:
