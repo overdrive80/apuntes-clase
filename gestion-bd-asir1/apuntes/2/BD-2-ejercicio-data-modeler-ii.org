@@ -18,7 +18,7 @@ En esta práctica se espera que el alumno:
 La última versión de este documento está disponible en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/apuntes/2/BD-2-ejercicio-data-modeler-ii.pdf][el aula virtual]]
 
 
-* Enunciado
+* Enunciado (muebles) :noexport:
 
 Se desea obtener el modelo conceptual para una base de datos que manejará el catálogo y los pedidos de una multinacional minorista de muebles.
 
@@ -42,9 +42,6 @@ Se desea obtener el modelo conceptual para una base de datos que manejará el ca
   - Una mesa de 80  $\times$  120 (de 100\euro) tiene un sobreprecio de 30\euro por pintura lacada blanca.
   - La misma mesa de y 80 $\times$ 150 (de 130\euro) tiene el mismo sobreprecio de 30\euro por pintura lacada blanca, aunque sea más grande.
   - Una estantería cualquiera también tendría un sobreprecio de 30\euro por la pintura lacada blanca.
-  
-
-
 
 Se desea que los clientes puedan buscar en el catálogo y realizar su pedido, con los siguientes requisitos:
 
@@ -53,6 +50,25 @@ Se desea que los clientes puedan buscar en el catálogo y realizar su pedido, co
 - El cliente puede realizar pedidos de muebles que no pertenezcan a la misma colección, ni temporada. También se debe dejar libertad a la cantidad de cada mueble y su acabado.
 - El pedido incluirá la fecha de compra, y su importe total se calculará a partir de los precios de los muebles incluidos.
 - Los muebles incluidos en un pedido pueden entregarse en una sola entrega o en varias. Se apuntará qué muebles se entregaron con cada entrega, y su fecha.
+
+* Enunciado
+Se desea obtener el modelo conceptual para una base de datos que manejará el catálogo y los pedidos de una empresa dedicada a la venta de ordenadores configurables  por internet.
+
+
+- Cada modelo de ordenador se dedica a un uso (hogar, empresa, /gaming/...) 
+- Cada modelo de ordenador es de una gama (/starter/, gama media, gama alta...)
+- Cada modelo tiene unas especificaciones de base (procesador, memoria, tarjeta gráfica...), con un precio inicial
+  - No todas las mejoras son compatibles con todos los modelos de ordenador (por ejemplo, no se pueden poner 64GB de RAM en todos los modelos)
+  - Cada mejora tiene un precio adicional. El precio de la mejora depende del modelo de ordenador (por ejemplo, subir a 64GB cuesta más en un ordenador /gaming/ que en uno para el hogar)
+
+- Los clientes se registran con su nombre, identificador fiscal de su país y correo electrónico.
+- Un cliente puede realizar varios pedidos. Cada pedido puede incluir varios ordenadores.
+- El cliente puede navegar en la web por el catálogo de ordenadores
+  - Puede consultar por uso, por gama y ver todos los modelos
+  - Puede configurar cada modelo a su gusto, y una vez configurado añadirlo a un pedido, o dejarlo guardado para un futuro.
+      
+
+
 
 
 * Normas de entrega
