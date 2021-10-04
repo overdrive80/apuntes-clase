@@ -1,4 +1,9 @@
 #+INCLUDE: "../../../common/header.org"
+#+INCLUDE: "../../../common/header-examen-practica.org"
+
+#+LATEX_HEADER: \lhead{Wireshark}
+#+LATEX_HEADER: \rhead{Planificación y administración de redes}
+
 
 #+title: Análisis de tráfico con Wireshark
 
@@ -12,40 +17,49 @@ En esta práctica se espera que el alumno se familiarice con:
 - Búsqueda autónoma de información en Internet.
 - La correspondencia entre los niveles ISO/OSI y los protocolos de una red real.
   
+La última versión de este documento está disponible en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-trabajo-wireshark-ii.pdf][el aula virtual]].
 
-
-La última versión de este documento está disponible en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/planificacion-administracion-redes-asir1/apuntes/1/par-1-trabajo-wireshark-ii.pdf]]
+#+latex: \clearpage
 
 * Tramas de /broadcast/
 
-  Las tramas de /broadcast/ son las que tienen la dirección del nivel de enlace =FF:FF:FF:FF:FF:FF=
-  Monitoriza la red durante uno o dos minutos y determina qué tramas de las recibidas son de /broadcast/. Haz una lista de las pilas de protocolos (desde nivel de enlace hasta nivel de aplicación) que viajan sobre tramas de /broadcast/, e incluye al menos 3 pantallazos de estas pilas como ejemplo. ¿Para qué se utilizan esos protocolos de nivel de aplicación?
+  Las tramas de /broadcast/ son las que tienen la dirección del nivel de enlace =FF:FF:FF:FF:FF:FF=.
+  
+  - Monitoriza la red durante uno o dos minutos y determina qué tramas de las recibidas son de /broadcast/.
+  - Haz una lista de las pilas de protocolos (desde nivel de enlace hasta nivel de aplicación) que viajan sobre tramas de /broadcast/, e incluye al menos 3 pantallazos de estas pilas como ejemplo.
+  - ¿Para qué se utilizan esos protocolos de nivel de aplicación?
 
-#+latex \begin{adjustwidth}{2cm}{}\small{
+#+latex: \begin{adjustwidth}{2cm}{2cm}
+#+latex: \begin{Aviso}[Pila de protocolos]
     Una [[https://en.wikipedia.org/wiki/Protocol_stack][pila de protocolos]] es la lista de todos los protocolos, desde el físico hasta el más alto.
-#+latex  }\end{adjustwidth}
+#+latex: \end{Aviso}
+#+latex: \end{adjustwidth}
 
 
 
 
 * ¿Qué protocolos viajan sobre el nivel de enlace?
   Más de un protocolo puede utilizar el nivel de enlace para enviar sus datos. En esos casos, el nivel de enlace debe apuntar a qué protocolo se le entregarán los datos en el ordenador de destino.
-#+latex \begin{adjustwidth}{2cm}{}\small{
-  \small{No hablamos del segundo nivel en \textbf{wireshark}, sido del nivel de enlace en ISO/OSI}
-#+latex }\end{adjustwidth}
+#+latex: \begin{adjustwidth}{2cm}{2cm}
+#+latex: \begin{Aviso}[Segundo nivel/nivel de enlace]
+  No hablamos del segundo nivel en *wireshark*, sino del nivel de enlace en ISO/OSI.
+  
+  Es posible que un nivel de enlace ISO/OSI aparezca en segundo o tercer nivel en el *wireshark*.
+#+latex: \end{Aviso}
+#+latex: \end{adjustwidth}
   
   Captura el tráfico de la red durante uno o dos minutos. Haz una lista de los protocolos que viajen sobre los niveles de enlace que encuentres, y crea una tabla con el nombre de protocolo y su código. Como ejemplo:
   
   - Hay tramas /Ethernet/ que llevan /IP/. Hay que apuntar =0x0800=
   - Pero no apuntes el /Transmission Control  Protocol/, porque no va directamente sobre el nivel de enlace (/Ethernet II/) sino dentro de un nivel de red
     
-#+begin_notes
+#+begin_comment
 https://en.wikipedia.org/wiki/Logical_link_control
 https://en.wikipedia.org/wiki/IEEE_802.2#LSAP_values
 https://networkengineering.stackexchange.com/questions/5300/what-is-the-difference-between-ethernet-ii-and-802-3-ethernet
 https://en.wikipedia.org/wiki/IEEE_802.3
 
-#+end_notes
+#+end_comment
 
 
 
