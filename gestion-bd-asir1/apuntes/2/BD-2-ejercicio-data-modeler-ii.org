@@ -85,7 +85,7 @@ Se pide un diseño de *Oracle Data Modeler* con este supuesto. Se entregará
 - Un archivo =PDF= del diagrama /lógico/ de *Data Modeler* (coincide con el /conceptual/ de clase)
 - El diagrama puede inluir las notas necesarias para poder entenderse sin tener que recurrir al fichero =DMD=: atributos de las interrelaciones, aclaraciones del dominio de los atributos...
 
-La entrega se realizará en la tarea correspondiente del [[https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala][aula virtual]].
+La entrega se realizará en la tarea correspondiente del [[https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/mod/assign/view.php?id=8885&forceview=1][aula virtual]].
 
 La autoría del trabajo puede ser por parejas, si no hay suficientes ordenadores disponibles. A pesar de ello, cada alumno debe subir al aula virtual una copia del trabajo.
 # La autoría del trabajo será individual.
