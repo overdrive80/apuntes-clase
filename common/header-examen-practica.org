@@ -1,16 +1,15 @@
+#+INCLUDE: "./header.org"
 #+latex_header: \usepackage[skins]{tcolorbox}
 #+latex_header: \usepackage{multicol}
-#+latex_header: \usepackage{lastpage}
 #+latex_header: \usepackage{changepage} %ajdustwidth
 #+latex_header: \usepackage{fancybox}
 #+latex_header: \usepackage{attachfile2}
 
-#+LATEX_HEADER: \chead{}
+
 #+LATEX_HEADER: \lhead{Extraordinaria 2021 (es el \\chead)}
 #+LATEX_HEADER: \rhead{Administración y Gestión de Bases de Datos (es el \\rhead)}
-#+LATEX_HEADER: \cfoot{}
-#+LATEX_HEADER: \lfoot{alvaro.gonzalezsotillo@educa.madrid.org}
-#+LATEX_HEADER: \rfoot{\thepage / \pageref{LastPage}}
+
+
 
 
 

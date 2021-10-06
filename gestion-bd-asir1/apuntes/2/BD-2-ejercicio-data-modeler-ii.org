@@ -1,5 +1,7 @@
-#+INCLUDE: "../../../common/header.org"
 #+INCLUDE: "../../../common/header-examen-practica.org"
+
+
+#+OPTIONS: author:nil date:nil 
 
 #+LATEX_HEADER: \lhead{SQLDeveloper}
 #+LATEX_HEADER: \rhead{Diseño de un diagrama E/R}
@@ -57,22 +59,23 @@ Se desea obtener el modelo conceptual para una base de datos que manejará el ca
 - Cada modelo de ordenador se dedica a un uso: hogar, empresa, /gaming/... (como la tienda de [[https://www.dell.es][dell]]) 
 - Cada modelo tiene unas especificaciones de base (procesador, memoria, tarjeta gráfica...), con un precio inicial (como los ordenadores [[https://www.lenovo.com/es/es/laptops/thinkpad/edge-series/E15-G2/p/20TDCTO1WWESES2/customize?][Thinkpad]])
   - No todas las mejoras son compatibles con todos los modelos de ordenador (por ejemplo, no se pueden poner 64GB de RAM en todos los modelos)
-  - Cada mejora es de una caracteristica del ordenador: memoria RAM, memoria de disco, tipo de tarjeta grafica... Solo se puede aplicar una mejora dentro de una de estas caracterisicas. Por ejemplo, no se pueden elegir 8GB y 16GB a la vez.
+  - Cada mejora es de una característica del ordenador: memoria RAM, memoria de disco, tipo de tarjeta gráfica... Solo se puede aplicar una mejora dentro de una de estas características. Por ejemplo, no se pueden elegir 8GB y 16GB a la vez.
   - Cada mejora tiene un precio adicional. El precio de la mejora depende del modelo de ordenador (por ejemplo, subir a 64GB cuesta más en un ordenador /gaming/ que en uno para el hogar)
 
 - Los clientes se registran con su nombre, identificador fiscal de su país y correo electrónico.
 - Un cliente puede realizar varios pedidos. Cada pedido puede incluir varios ordenadores.
+- Los clientes pueden especificar diferentes direcciones de entrega para cada pedido.  
 - El cliente puede navegar en la web por el catálogo de ordenadores
   - Puede consultar por uso, por gama y ver todos los modelos
   - Puede configurar cada modelo a su gusto, y una vez configurado añadirlo a un pedido, o dejarlo guardado para un futuro.
       
 
 
-#+latex: \begin{adjustwidth}{2cm}{2cm}
+#+latex: \begin{adjustwidth}{1.3cm}{1.3cm}\begin{footnotesize}
 #+latex: \begin{Aviso}[información suficiente]
 No todas las restricciones pueden conseguirse dentro del modelo E/R, pero debe haber suficiente información en la base de datos para que el programa que la maneja pueda implementar las restricciones que falten.
 #+latex: \end{Aviso}
-#+latex: \end{adjustwidth}
+#+latex: \end{footnotesize}\end{adjustwidth}
 
 
 * Normas de entrega
@@ -88,4 +91,4 @@ La autoría del trabajo puede ser por parejas, si no hay suficientes ordenadores
 # La autoría del trabajo será individual.
 
 
-\end{document}
+
