@@ -199,11 +199,11 @@ CREATE USER usuario IDENTIFIED BY contrasena
 
 
 ** Privilegios de *Oracle*
-|   | Privilegio                       | Objeto sobre el que se aplica                   |
-|---+----------------------------------+-------------------------------------------------|
-| / | <>                               | <>                                              |
-|   | =Create, alter, drop=            | =Table, sequence, view, user, synonym, session= |
-|   | =select, update, delete, insert= | Sobre campos de tablas y filas                  |
+|   | Privilegio                       | Objeto sobre el que se aplica                              |
+|---+----------------------------------+------------------------------------------------------------|
+| / | <>                               | <>                                                         |
+|   | =Create, alter, drop=            | =Table, sequence, view, user, synonym, session, procedure= |
+|   | =select, update, delete, insert= | Sobre campos de tablas y filas                             |
 
 ** Sintaxis de =Grant=
 
