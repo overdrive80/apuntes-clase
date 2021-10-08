@@ -338,7 +338,7 @@ CREATE PROFILE nombreperfil LIMIT
    CPU_PER_SESSION            UNLIMITED 
    CPU_PER_CALL               3000 
    CONNECT_TIME               45 
-   IDLE_TIME                 300
+   IDLE_TIME                  1
    LOGICAL_READS_PER_SESSION  DEFAULT 
    LOGICAL_READS_PER_CALL     1000 
    PRIVATE_SGA                15K
