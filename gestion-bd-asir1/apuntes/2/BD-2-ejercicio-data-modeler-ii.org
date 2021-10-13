@@ -64,7 +64,7 @@ Se desea obtener el modelo conceptual para una base de datos que manejará el ca
 
 - Los clientes se registran con su nombre, identificador fiscal de su país y correo electrónico.
 - Un cliente puede realizar varios pedidos. Cada pedido puede incluir varios ordenadores.
-- Los clientes pueden especificar diferentes direcciones de entrega para cada pedido.  
+- Los clientes pueden especificar una dirección de entrega distinta para cada pedido.  
 - El cliente puede navegar en la web por el catálogo de ordenadores
   - Puede consultar por uso y ver todos los modelos
   - Puede configurar cada modelo a su gusto, y una vez configurado añadirlo a un pedido, o dejarlo guardado para un futuro.
