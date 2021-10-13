@@ -199,11 +199,11 @@ CREATE USER usuario IDENTIFIED BY contrasena
 
 
 ** Privilegios de *Oracle*
-|   | Privilegio                       | Objeto sobre el que se aplica                   |
-|---+----------------------------------+-------------------------------------------------|
-| / | <>                               | <>                                              |
-|   | =Create, alter, drop=            | =Table, sequence, view, user, synonym, session= |
-|   | =select, update, delete, insert= | Sobre campos de tablas y filas                  |
+|   | Privilegio                       | Objeto sobre el que se aplica                              |
+|---+----------------------------------+------------------------------------------------------------|
+| / | <>                               | <>                                                         |
+|   | =Create, alter, drop=            | =Table, sequence, view, user, synonym, session, procedure= |
+|   | =select, update, delete, insert= | Sobre campos de tablas y filas                             |
 
 ** Sintaxis de =Grant=
 
@@ -338,7 +338,7 @@ CREATE PROFILE nombreperfil LIMIT
    CPU_PER_SESSION            UNLIMITED 
    CPU_PER_CALL               3000 
    CONNECT_TIME               45 
-   IDLE_TIME                 300
+   IDLE_TIME                  1
    LOGICAL_READS_PER_SESSION  DEFAULT 
    LOGICAL_READS_PER_CALL     1000 
    PRIVATE_SGA                15K
