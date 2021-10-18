@@ -89,7 +89,15 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: \texttt{PROFESOR} con permisos especiales]
-  Haz que el usuario \texttt{PROFESOR} tenga permisos de lectura en las vistas de sistema \texttt{DBA\_TABLES}, \texttt{DBA\_TABLESPACES}, \texttt{DBA\_TS\_QUOTAS} y \texttt{DBA\_DATA\_FILES}.
+  Haz que el usuario \texttt{PROFESOR} tenga permisos de lectura en las vistas de sistema
+  \begin{itemize}
+  \item \texttt{DBA\_TABLES}
+  \item \texttt{DBA\_TABLESPACES}
+  \item \texttt{DBA\_USERS}
+  \item \texttt{DBA\_SYNONYMS} 
+  \item \texttt{DBA\_TS\_QUOTAS} 
+  \item \texttt{DBA\_DATA\_FILES}
+  \end{itemize}
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Creación de las tablas]
@@ -106,7 +114,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Dar acceso a otros usuarios a un campo de tus tablas]
-  Tras la importación, haz que las tablas puedan ser leidas por el resto de usuarios:
+  Tras la importación, haz que las tablas puedan ser leídas por el resto de usuarios:
   \begin{itemize}
   \item Haz que el resto de usuarios pueda realizar \texttt{SELECT} sobre tus tablas.  
   \item Crea sinónimos en todos los usuarios para que puedan acceder a tus tablas sin problemas
