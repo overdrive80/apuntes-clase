@@ -118,12 +118,12 @@ Esta información se da en forma tabular por comodidad, pero no tiene la estruct
 | 512GB           | SSD  | 30€ para ~mod3~                                                           |   |
 | 1T              | SSD  | 100€ para ~mod2~, 60€ para ~mod3~. En ~mod3~, incompatible con 4GB de RAM |   |
 
-| PEDIDOS      |                                             |
-| Cliente      | Líneas de pedido                            |
-|--------------+---------------------------------------------|
-| Pepe Pérez   | 1 unidad de ~conf1~ y 2 unidades de ~conf2~ |
-| Pepe Pérez   | 1 unidad de ~conf3~                         |
-| María Pelaéz | 1 unidad de ~conf4~                         |
+| PEDIDOS      |                                             |                |
+| Cliente      | Líneas de pedido                            | Dirección      |
+|--------------+---------------------------------------------+----------------|
+| Pepe Pérez   | 1 unidad de ~conf1~ y 2 unidades de ~conf2~ | Calle Arriba 4 |
+| Pepe Pérez   | 1 unidad de ~conf3~                         | Calle Abajo 3  |
+| María Pelaéz | 1 unidad de ~conf4~                         | Calle Mayor 1  |
 
 | CONFIGURACIONES |                                      |
 | Idconfiguracion | Descripción                          |
