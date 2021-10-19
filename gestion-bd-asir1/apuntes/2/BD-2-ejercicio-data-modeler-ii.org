@@ -60,6 +60,7 @@ Se desea obtener el modelo conceptual para una base de datos que manejará el ca
 - Cada modelo tiene unas especificaciones de base (procesador, memoria, tarjeta gráfica...), con un precio inicial (como los ordenadores [[https://www.lenovo.com/es/es/laptops/thinkpad/edge-series/E15-G2/p/20TDCTO1WWESES2/customize?][Thinkpad]])
   - No todas las mejoras son compatibles con todos los modelos de ordenador (por ejemplo, no se pueden poner 64GB de RAM en todos los modelos)
   - Cada mejora es de una característica del ordenador: memoria RAM, memoria de disco, tipo de tarjeta gráfica... Solo se puede aplicar una mejora dentro de una de estas características. Por ejemplo, no se pueden elegir 8GB y 16GB a la vez.
+  - Algunas características son incompatibles con otras. Por ejemplo, [[https://www.lenovo.com/us/en/faqs/pc-life-faqs/what-is-vpro/][no se puede tener una tarjeta de red vpro con un procesador i3]].  
   - Cada mejora tiene un precio adicional. El precio de la mejora depende del modelo de ordenador (por ejemplo, subir a 64GB cuesta más en un ordenador /gaming/ que en uno para el hogar)
 
 - Los clientes se registran con su nombre, identificador fiscal de su país y correo electrónico.
@@ -109,12 +110,12 @@ Esta información se da en forma tabular por comodidad, pero no tiene la estruct
 | ~mod2~   | empresa | 8GB de RAM, 512GB SSD |
 | ~mod3~   | hogar   | 4GB de RAM, 128GB SSD |
 
-| CARACTERÍSTICAS |      |                                                                           |   |
-| Descripción     | Tipo | Precio (si no aparece, no es compatible con el modelo)                    |   |
-|-----------------+------+---------------------------------------------------------------------------+---|
-| 8GB             | RAM  | 50€ para ~mod1~, 30€ para ~mod3~                                          |   |
-| 16GB            | RAM  | 100€ para ~mod1~, 100€ para ~mod2~, 60€ para ~mod3~                       |   |
-| 512GB           | SSD  | 30€ para ~mod3~                                                           |   |
+| CARACTERÍSTICAS |      |                                                                |   |
+| Descripción     | Tipo | Precio (si no aparece, no es compatible con el modelo)         |   |
+|-----------------+------+----------------------------------------------------------------+---|
+| 8GB             | RAM  | 50€ para ~mod1~, 30€ para ~mod3~                               |   |
+| 16GB            | RAM  | 100€ para ~mod1~, 100€ para ~mod2~, 60€ para ~mod3~            |   |
+| 512GB           | SSD  | 30€ para ~mod3~                                                |   |
 | 1T              | SSD  | 100€ para ~mod2~, 60€ para ~mod3~. Incompatible con 8GB de RAM |   |
 
 | PEDIDOS      |                                             |                |

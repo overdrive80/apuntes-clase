@@ -49,31 +49,30 @@ La última versión de este documento está accesible en \enlace{https://alvarog
   Crea un usuario para tí, uno para cada uno de tus compañeros, y uno para el profesor. La contraseña inicial será la misma que el nombre, excepto en tu usuario que debería ser una contraseña secreta:
   \begin{multicols}{3}
     \begin{itemize}
-
-    \item ELENAAYECABA         
-    \item HBENAVENTEGARCIA     
-    \item DANIELBLANCOMERINO   
-    \item FRANCISCOCASTELLANO1 
-    \item RODRIGOCONTONENTE    
-    \item ALVAROMUNOZCRUZ      
-    \item ALBERTODOMINGUEZ10   
-    \item ALEJANDROFERNANDEZ40 
-    \item ROBERTOGARCIA14      
-    \item KEVINHERNANDEZGARCIA 
-    \item ALBERTOHURTADO3      
-    \item ALABRANDERO          
-    \item CRUZMBA              
-    \item DANIELMENDIETAGRANERO
-    \item JONATHANOLIVEIRA1    
-    \item SPARLALEAL           
-    \item RAULPEREZNUNEZ       
-    \item SAULDE               
-    \item JJSANCHEZCRESPO      
-    \item JOSESANCHEZ17        
-    \item MIRCEASTEFAN         
-    \item JORGEVILLARTA        
-
-
+    \item ALEJANDROALONSOPLAZA
+    \item DAVIDBERNALMICAELO  
+    \item FRANCISCOCASTELLANO1
+    \item SAULDE              
+    \item STEFANAURELIAN      
+    \item JORGEGARCIA478      
+    \item DIEGOGARCIA11       
+    \item CRISTINAGARCIAMAROTO
+    \item CARLAGARCIA15       
+    \item KEVINHERNANDEZGARCIA
+    \item SILVIUILEA          
+    \item VITALIYKRASNOKUTSKY 
+    \item CRUZMBA             
+    \item ELENAAYECABA        
+    \item JONATHANOLIVEIRA1   
+    \item SPARLALEAL          
+    \item JORGEPEREZ174       
+    \item RAULPEREZNUNEZ      
+    \item PABLOPORCEL         
+    \item ALJENADRORUIZ       
+    \item IGNACIOSERVERT      
+    \item MIRCEASTEFAN        
+    \item JORGEVILLARTA       
+    \item ALVAROVILLODRE      
     \item PROFESOR
     \end{itemize}
   \end{multicols}
@@ -90,7 +89,15 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: \texttt{PROFESOR} con permisos especiales]
-  Haz que el usuario \texttt{PROFESOR} tenga permisos de lectura en las vistas de sistema \texttt{DBA\_TABLES}, \texttt{DBA\_TABLESPACES}, \texttt{DBA\_TS\_QUOTAS} y \texttt{DBA\_DATA\_FILES}.
+  Haz que el usuario \texttt{PROFESOR} tenga permisos de lectura en las vistas de sistema
+  \begin{itemize}
+  \item \texttt{DBA\_TABLES}
+  \item \texttt{DBA\_TABLESPACES}
+  \item \texttt{DBA\_USERS}
+  \item \texttt{DBA\_SYNONYMS} 
+  \item \texttt{DBA\_TS\_QUOTAS} 
+  \item \texttt{DBA\_DATA\_FILES}
+  \end{itemize}
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Creación de las tablas]
@@ -107,7 +114,7 @@ La última versión de este documento está accesible en \enlace{https://alvarog
 \end{homeworkProblem}
 
 \begin{homeworkProblem}[: Dar acceso a otros usuarios a un campo de tus tablas]
-  Tras la importación, haz que las tablas puedan ser leidas por el resto de usuarios:
+  Tras la importación, haz que las tablas puedan ser leídas por el resto de usuarios:
   \begin{itemize}
   \item Haz que el resto de usuarios pueda realizar \texttt{SELECT} sobre tus tablas.  
   \item Crea sinónimos en todos los usuarios para que puedan acceder a tus tablas sin problemas
