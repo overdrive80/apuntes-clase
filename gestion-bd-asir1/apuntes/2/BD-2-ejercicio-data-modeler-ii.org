@@ -77,6 +77,64 @@ No todas las restricciones pueden conseguirse dentro del modelo E/R, pero debe h
 #+latex: \end{Aviso}
 #+latex: \end{footnotesize}\end{adjustwidth}
 
+#+latex: \newpage
+** Opcional: prueba tu modelo ER
+Para comprobar que el modelo ER es correcto, intenta /encajar/ la siguiente información en las entidades e interrelaciones que has obtenido.
+
+Pasa el modelo ER anterior a tablas, e introduce los siguientes datos que aporta el cliente de la base de datos:
+
+#+latex: \begin{adjustwidth}{1.3cm}{1.3cm}\begin{footnotesize}
+#+latex: \begin{Aviso}[Esta información no son las tablas]
+Esta información se da en forma tabular por comodidad, pero no tiene la estructura de la base de datos.
+- Algunos datos se dan multivaluados, pero en las tablas deben aparecer correctamente.
+- Algunos campos clave no se explicitan.
+- Informaciones que se dan por separado pueden ser de la misma entidad.  
+#+latex: \end{Aviso}
+#+latex: \end{footnotesize}\end{adjustwidth}
+
+#+latex: \begin{footnotesize}
+| CLIENTES      |              |          |                 |
+| Email         | Nombre       | Idfiscal | Lista de deseos |
+|---------------+--------------+----------+-----------------|
+| pepe@ibm.es   | Pepe Pérez   |    11111 |                 |
+| maria@aol.com | María Peláez |    22222 | ~conf5~         |
+| juan@3m.es    | Juan Gómez   |    33333 |                 |
+
+
+
+| MODELOS  |         |                       |
+| Idmodelo | Gama    | Especificaciones base |
+|----------+---------+-----------------------|
+| ~mod1~   | empresa | 4GB de RAM, 128GB SSD |
+| ~mod2~   | empresa | 8GB de RAM, 512GB SSD |
+| ~mod3~   | hogar   | 4GB de RAM, 128GB SSD |
+
+| CARACTERÍSTICAS |      |                                                                           |   |
+| Descripción     | Tipo | Precio (si no aparece, no es compatible con el modelo)                    |   |
+|-----------------+------+---------------------------------------------------------------------------+---|
+| 8GB             | RAM  | 50€ para ~mod1~, 30€ para ~mod3~                                          |   |
+| 16GB            | RAM  | 100€ para ~mod1~, 100€ para ~mod2~, 60€ para ~mod3~                       |   |
+| 512GB           | SSD  | 30€ para ~mod3~                                                           |   |
+| 1T              | SSD  | 100€ para ~mod2~, 60€ para ~mod3~. Incompatible con 8GB de RAM |   |
+
+| PEDIDOS      |                                             |                |
+| Cliente      | Líneas de pedido                            | Dirección      |
+|--------------+---------------------------------------------+----------------|
+| Pepe Pérez   | 1 unidad de ~conf1~ y 2 unidades de ~conf2~ | Calle Arriba 4 |
+| Pepe Pérez   | 1 unidad de ~conf3~                         | Calle Abajo 3  |
+| María Pelaéz | 1 unidad de ~conf4~                         | Calle Mayor 1  |
+
+| CONFIGURACIONES |                                      |
+| Idconfiguracion | Descripción                          |
+|-----------------+--------------------------------------|
+| ~conf1~         | ~mod1~ básico                        |
+| ~conf2~         | ~mod3~ básico                        |
+| ~conf3~         | ~mod2~ con 1T de SSD con 16GB de RAM |
+| ~conf4~         | ~mod1~ con 8GB de RAM                |
+| ~conf5~         | ~mod3~ con 512GB de SSD              |
+
+#+latex: \end{footnotesize}
+
 
 * Normas de entrega
 Se pide un diseño de *Oracle Data Modeler* con este supuesto. Se entregará
