@@ -1,0 +1,49 @@
+#+INCLUDE: "../../../common/header-examen-practica.org"
+
+
+#+OPTIONS: author:nil date:nil num:nil
+
+#+LATEX_HEADER: \lhead{ASGBD}
+#+LATEX_HEADER: \rhead{Importar y exportar}
+
+
+#+title: Práctica de backup de una base de datos
+
+
+* Objetivo de la práctica:
+En esta práctica se espera que el alumno:
+- Se familiarice con las utilidades /datapump/ de Oracle
+- Realice /backups/ y restauraciones de una base de datos
+
+
+
+* Preparación de la práctica
+#+latex: \textattachfile[mimetype=text/plain,author={nba_oracle.sql},description={nba_oracle.sql},subject={nba_oracle.sql}]{../../../gestion-bd-asir1/ejemplosSQL/nba_oracle.sql}{}
+- Crea el usuario =NBA= e importa el fichero descargable [[file:../../../gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
+- Registra un =DIRECTORY= en =/datos/backups=
+- Crea el usuario =OPERARIOBACKUP=.
+
+Incluye en la memoria todos los comandos utilizados.
+
+* /Backup/ del usuario =NBA=
+Realiza un /backup/ de todas las tablas del usuario =NBA= utilizando el usuario =OPERARIOBACKUP=. En la memoria, incluye todos los permisos necesarios y la línea de comandos utilizada.
+
+* Recupera el /backup/
+Borra las filas de la tabla =PARTIDOS= en las que participe el equipo =Raptors=. Después, recupera esas filas desde el /backup/, usando el usuario =OPERARIOBACKUP=. En la memoria, incluye los comandos para borrar las filas y para recuperar el backup.
+
+* /Backup/ de algunas tablas
+Realiza un /backup/ de las tablas =JUGADORES= y =EQUIPOS=. Incluye en la memoria los comandos utilizados y el fichero de backup generado.  
+
+* Normas de entrega
+Se entregarán en un fichero ZIP:
+- Los comandos utilizados para realizar la práctica. No es necesario un documento al uso, es suficiente un fichero de texto, siempre que esté claro y bien formateado.
+- El archivo de /backup/ de las tablas =JUGADORES= y =EQUIPOS=.
+
+La entrega se realizará en la tarea correspondiente del [[https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala][aula virtual]].
+
+La autoría del trabajo será individual.
+
+
+
+  
+
