@@ -1,25 +1,18 @@
 #+INCLUDE: "../../../common/header-examen-practica.org"
-
-
-#+OPTIONS: author:nil date:nil num:nil
-
+#+OPTIONS: author:nil date:nil num:nil toc:nil
 #+LATEX_HEADER: \lhead{ASGBD}
 #+LATEX_HEADER: \rhead{Importar y exportar}
-
-
+#+latex: \textattachfile[mimetype=text/plain,author={nba_oracle.sql},description={nba_oracle.sql},subject={nba_oracle.sql}]{../../../gestion-bd-asir1/ejemplosSQL/nba_oracle.sql}{} \vspace{-4em}
 #+title: Práctica de backup de una base de datos
-
-
-* Objetivo de la práctica:
+* Objetivo de la práctica
 En esta práctica se espera que el alumno:
 - Se familiarice con las utilidades /datapump/ de Oracle
 - Realice /backups/ y restauraciones de una base de datos
 
-
+Se puede descargar la última versión de este fichero en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/sistemas-gestores-bbdd-asir2/apuntes/2/asgbd-02-practica-importar-exportar.pdf][este enlace]].
 
 * Preparación de la práctica
-#+latex: \textattachfile[mimetype=text/plain,author={nba_oracle.sql},description={nba_oracle.sql},subject={nba_oracle.sql}]{../../../gestion-bd-asir1/ejemplosSQL/nba_oracle.sql}{}
-- Crea el usuario =NBA= e importa el fichero descargable [[file:../../../gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
+- Crea el usuario =NBA= e importa el fichero descargable [[https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
 - Registra un =DIRECTORY= en =/datos/backups=
 - Crea el usuario =OPERARIOBACKUP=.
 
