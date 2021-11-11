@@ -134,6 +134,7 @@ Realiza un diagrama E-R del siguiente supuesto acerca de un servidor de correo e
 - También se desea almacenar información de cromos y álbums no poseidos, como en una lista de deseos
 - Algunos cromos son especialmente difíciles de conseguir. Hay que conocer qué cromos son especialmente difíciles de cada colección, se posean ya o no.
 - De los cromos especialmente difíciles de conseguir, se debe conocer su abundancia relativa respecto de los demás cromos de la colección y su precio de mercado.
+- Se pueden poseer álbums y cromos repetidos.  
   
 
 
@@ -249,6 +250,25 @@ Explicar cómo se podría representar esta nueva situación.
 - Para cada evento está prevista una fecha, duración, número de participantes y número de comisarios.
 - Una lista de todos los comisarios se conservará junto con la lista de los eventos en los que esté involucrado cada comisario ya sea cumpliendo la tarea de juez u observador.
 - Tanto para cada evento como para el mantenimiento se necesitará cierto equipamiento (ejemplo: arcos, pértigas, barras paralelas, etc).
+
+** Datos de ejemplo
+   
+- Sede en Valencia y en Barcelona
+- Comisario Juan (1) y María (2)
+- Complejos Camp Nou, Mestalla, RCDE Stadium
+- En el Camp Nou
+  - Centro 600m2
+  - Alrededor tiene una pista 200m2
+- Mestalla
+  - Fútbol 650m2
+  - Tenis 350m2
+- RCDE Stadium, solo Fútbol, 700m2
+- eventos
+  - Final de tenis, 1-1 12:00 3 horas. María de Juez
+  - Semifinal 1 de fútbol, Mestalla, 1-1 15:00, 2:30 horas. Juan de Juez
+  - 400m vallas final, Camp Nou, 2-1 21:00, 15 min María de Juez, Juan de observador
+
+
 
 * Educando S.A.
 En la Empresa "Educando S.A." se lleva control de sus Bienes y Servicios. El interés primario es poder
@@ -680,6 +700,23 @@ Crear un diseño entidad/relación que permita modelar un sistema que sirva para
   - Un cliente puede hacer varios pedidos. En cada pedido elegirá los productos deseados y su cantidad, y especificará el día de entrega, y si quiere que se entregue por la mañana o por la tarde.
 
 
+
+* Frutería (sin ecológicos)  
+  Una frutería quiere crear una tienda online
+  - Cada producto es de una categoría: /Fruta/, /Hortaliza/, /Legumbre/ ...
+  - De cada producto interesa su nombre, el precio de venta, una descripción, y su lugar de cultivo.
+  - Hay productos que se venden por peso, y otros por unidades.
+  - De los clientes se conoce su nombre, DNI y dirección de entrega.
+  - Un cliente puede hacer varios pedidos. En cada pedido elegirá los productos deseados y su cantidad, y especificará el día de entrega, y si quiere que se entregue por la mañana o por la tarde.
+  - Si el pedido no se pudo entregar, el cliente deberá indicar un nuevo día y tramo horario para la entrega. Se guardará un histórico de los intentos de entrega (para que el cliente no pueda decir que no se ha intentado entregar el pedido)
+
+** datos
+   - Pedro, con DNI 1111111, compró 6 manzanas y 4 peras el 1-1. Se entregaron por la tarde del 3-1
+   - Pedro volvió a comprar 4 manzanas y 500g de judías el 2-1. Se van a entregar el 4-1 por la tarde, pero aún no se ha intentado la entrega.
+   - María, con DNI 2222222, compró 1 melón que pesaba 3kg y 250g de judías el 1-1. Se intentaron entregar el 2-1 por la tarde. Se acabaron entregando el 3-1 por la mañana
+   - Las manzanas se venden a 0,30€ la unidad. Las peras se venden a 0,35€ la unidad. El melón se vende a 1€/Kg, y las judías a 4€/kg.
+   - Las frutas son de Aragón. Las legumbres son de Zamora.  
+      
 
 
 * Dragones y Mazmorras
