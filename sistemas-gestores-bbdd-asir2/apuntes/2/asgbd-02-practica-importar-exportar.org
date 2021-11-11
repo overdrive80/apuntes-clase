@@ -10,7 +10,6 @@ En esta práctica se espera que el alumno:
 - Realice /backups/ y restauraciones de una base de datos
 
 Se puede descargar la última versión de este fichero en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/sistemas-gestores-bbdd-asir2/apuntes/2/asgbd-02-practica-importar-exportar.pdf][este enlace]].
-
 * Preparación de la práctica
 - Crea el usuario =NBA= e importa el fichero descargable [[https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
 - Registra un =DIRECTORY= en =/datos/backups=
