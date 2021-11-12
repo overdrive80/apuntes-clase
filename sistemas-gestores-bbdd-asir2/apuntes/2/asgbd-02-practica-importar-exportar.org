@@ -11,14 +11,15 @@ En esta práctica se espera que el alumno:
 
 Se puede descargar la última versión de este fichero en [[https://alvarogonzalezsotillo.github.io/apuntes-clase/sistemas-gestores-bbdd-asir2/apuntes/2/asgbd-02-practica-importar-exportar.pdf][este enlace]].
 * Preparación de la práctica
-- Crea el usuario =NBA= e importa el fichero descargable [[https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
+- Crea un usuario con un nombre basado en tus apellidos (por ejemplo, =GARCIAPEREZ=).
+- Importa en ese usuario el fichero descargable [[https://alvarogonzalezsotillo.github.io/apuntes-clase/gestion-bd-asir1/ejemplosSQL/nba_oracle.sql][=nba_oracle.sql=]] (también adjunto a este PDF)
 - Registra un =DIRECTORY= en =/datos/backups=
 - Crea el usuario =OPERARIOBACKUP=.
 
 Incluye en la memoria todos los comandos utilizados, tanto de Oracle como de Linux.
 
-* /Backup/ del usuario =NBA=
-Realiza un /backup/ de todas las tablas del usuario =NBA= utilizando el usuario =OPERARIOBACKUP=. En la memoria, incluye todos los permisos necesarios y la línea de comandos utilizada.
+* /Backup/ del usuario del alumno
+Realiza un /backup/ de todas las tablas del usuario utilizando el usuario =OPERARIOBACKUP=. En la memoria, incluye todos los permisos necesarios y la línea de comandos utilizada.
 
 * Recupera el /backup/
 Borra las filas de la tabla =PARTIDOS= en las que participe el equipo =Raptors=. Después, recupera esas filas desde el /backup/, usando el usuario =OPERARIOBACKUP=. En la memoria, incluye los comandos para borrar las filas y para recuperar el backup.
