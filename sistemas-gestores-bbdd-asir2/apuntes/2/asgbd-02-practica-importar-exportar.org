@@ -15,7 +15,7 @@ Se puede descargar la última versión de este fichero en [[https://alvarogonzal
 - Registra un =DIRECTORY= en =/datos/backups=
 - Crea el usuario =OPERARIOBACKUP=.
 
-Incluye en la memoria todos los comandos utilizados.
+Incluye en la memoria todos los comandos utilizados, tanto de Oracle como de Linux.
 
 * /Backup/ del usuario =NBA=
 Realiza un /backup/ de todas las tablas del usuario =NBA= utilizando el usuario =OPERARIOBACKUP=. En la memoria, incluye todos los permisos necesarios y la línea de comandos utilizada.
@@ -29,7 +29,7 @@ Realiza un /backup/ de las tablas =JUGADORES= y =EQUIPOS=. Incluye en la memoria
 * Qué se valorará
 - La corrección técnica de los comandos utilizados
 - La claridad en la explicación de dichos comandos
-- Que no se concedan más permisos/privilegios de los necesarios a los usuarios / ficheros / directorios creados
+- Que no se concedan más permisos/privilegios de los necesarios a los usuarios / ficheros /directorios creados
 
 
 * Normas de entrega
