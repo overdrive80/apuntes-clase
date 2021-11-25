@@ -110,13 +110,13 @@ Esta información se da en forma tabular por comodidad, pero no tiene la estruct
 | ~mod2~   | empresa | 8GB de RAM, 512GB SSD |
 | ~mod3~   | hogar   | 4GB de RAM, 128GB SSD |
 
-| CARACTERÍSTICAS |      |                                                                           |   |
-| Descripción     | Tipo | Precio (si no aparece, no es compatible con el modelo)                    |   |
-|-----------------+------+---------------------------------------------------------------------------+---|
-| 8GB             | RAM  | 50€ para ~mod1~, 30€ para ~mod3~                                          |   |
-| 16GB            | RAM  | 100€ para ~mod1~, 100€ para ~mod2~, 60€ para ~mod3~                       |   |
-| 512GB           | SSD  | 30€ para ~mod3~                                                           |   |
-| 1T              | SSD  | 100€ para ~mod2~, 60€ para ~mod3~. En ~mod3~, incompatible con 4GB de RAM |   |
+| CARACTERÍSTICAS |      |                                                                |   |
+| Descripción     | Tipo | Precio (si no aparece, no es compatible con el modelo)         |   |
+|-----------------+------+----------------------------------------------------------------+---|
+| 8GB             | RAM  | 50€ para ~mod1~, 30€ para ~mod3~                               |   |
+| 16GB            | RAM  | 100€ para ~mod1~, 100€ para ~mod2~, 60€ para ~mod3~            |   |
+| 512GB           | SSD  | 30€ para ~mod3~                                                |   |
+| 1T              | SSD  | 100€ para ~mod2~, 60€ para ~mod3~. Incompatible con 8GB de RAM |   |
 
 | PEDIDOS      |                                             |                |
 | Cliente      | Líneas de pedido                            | Dirección      |

@@ -297,6 +297,9 @@ grant NOMBREROL to USUARIO;
 [[https://docs.oracle.com/cd/B10501_01/server.920/a96521/privs.htm][Fuente: docs.oracle.com]]
 
 ** Ejercicio
+Se pueden asignar privilegios a =PUBLIC=, para que todos los usuarios tengan dicho privilegio. Decide si =PUBLIC= es un usuario o un rol, y compruébalo en las tablas de diccionario.
+
+** Ejercicio
 - Imagina que
   1. Creas un rol con sus permisos
   2. Le asignas privilegios
@@ -324,6 +327,16 @@ create user usuariodespues identified by u;
 grant ELROL to usuariodespues;
 
 #+END_NOTES
+
+** ¿Qué privilegios tengo?
+- Un usuario puede tener muchos permisos otorgados directamente y a través de un rol
+- Además, [[https://docs.oracle.com/cd/B19306_01/network.102/b14266/admusers.htm#i1006858][algunos roles son por defecto]], pero otros hay que activarlos con [[https://www.oracletutorial.com/oracle-administration/oracle-set-role/][=SET ROLE=]]
+
+#+begin_src sql
+select * from session_roles;
+select * from session_privs;
+#+end_src
+   
 
 * Perfiles
 

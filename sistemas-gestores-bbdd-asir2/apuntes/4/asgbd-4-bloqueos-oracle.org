@@ -33,7 +33,7 @@
   - =primary key=
   - =unique=
   - =foreign key=
-  - =ckeck=
+  - =check=
   - Incluso =triggers= (scripts del gestor de base de datos)
 - No hay forma de */saltarse/* una /constraint/
   - Más allá de eliminarla (=drop=)
