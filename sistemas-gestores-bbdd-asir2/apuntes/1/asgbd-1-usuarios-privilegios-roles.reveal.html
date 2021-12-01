@@ -1949,7 +1949,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-10-08 vie 10:09</p>
+<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-11-11 jue 11:24</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2206,7 +2206,7 @@ end;
 <div class="slide-header"></div>
 <h3 id="2-7"><span class="section-number-3">2.7.</span> Conceptos de almacenamiento</h3>
 
-<div id="orgd6d508d" class="figure">
+<div id="org591c258" class="figure">
 <p><svg width="775pt" height="75pt"
  viewBox="0.00 0.00 775.00 75.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 71)">
@@ -2645,6 +2645,15 @@ grant NOMBREROL to USUARIO;
 <section id="slide-5-2">
 <div class="slide-header"></div>
 <h3 id="5-2"><span class="section-number-3">5.2.</span> Ejercicio</h3>
+<p>
+Se pueden asignar privilegios a <code>PUBLIC</code>, para que todos los usuarios tengan dicho privilegio. Decide si <code>PUBLIC</code> es un usuario o un rol, y compruébalo en las tablas de diccionario.
+</p>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-5-3">
+<div class="slide-header"></div>
+<h3 id="5-3"><span class="section-number-3">5.3.</span> Ejercicio</h3>
 <ul>
 <li>Imagina que
 <ol>
@@ -2692,6 +2701,25 @@ grant ELROL to usuariodespues;
 
 </aside>
 <div class="slide-footer"></div>
+
+</section>
+<section id="slide-5-4">
+<div class="slide-header"></div>
+<h3 id="5-4"><span class="section-number-3">5.4.</span> ¿Qué privilegios tengo?</h3>
+<ul>
+<li>Un usuario puede tener muchos permisos otorgados directamente y a través de un rol</li>
+<li>Además, <a href="https://docs.oracle.com/cd/B19306_01/network.102/b14266/admusers.htm#i1006858">algunos roles son por defecto</a>, pero otros hay que activarlos con <a href="https://www.oracletutorial.com/oracle-administration/oracle-set-role/"><code>SET ROLE</code></a></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="sql" >select * from session_roles;
+select * from session_privs;
+</code></pre>
+</div>
+<div class="slide-footer"></div>
+
 
 </section>
 </section>
