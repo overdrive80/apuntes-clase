@@ -467,13 +467,15 @@ sqlplus / as sysdba
 
 
 ** Configuración de las conexiones (*sqlplus*) :noexport:
-- El cliente =sqlplus= utiliza las conexiones definidas en el
- fichero =tnsnames.ora=
+- El cliente =sqlplus= utiliza las conexiones definidas en el fichero =tnsnames.ora=
 - Con el comando =netca=
   - Elegir los nombres locales (/Local net service name configuration/)
+- Se puede usar también una cadena de conexión
+  - =usuario@password@servidor:puerto/sid=
+  - =sys@\"servidor:puerto/sid\" as sysdba=  
 
 
-** Acceso via Web
+** Acceso via Web :noexport:
 - Al crear la base de datos con =dbca= se configura el acceso *Enterprise Manager*
   - URL =https://= *=nombre-o-ip=* =:5500/em/=
 - Tenemos *IP* dinámica, por lo que debemos configurar una resolución por nombre 
@@ -495,6 +497,8 @@ sqlplus / as sysdba
   sqlplus username/password@host:port/service
   
   sqlplus sys/alumno@centosprofe.local/asir as sysdba
+
+  sqlplus sys@\"host:port/service\" as sysdba
 #+end_src
 
 
