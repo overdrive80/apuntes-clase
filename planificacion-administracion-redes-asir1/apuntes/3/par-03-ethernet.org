@@ -310,7 +310,12 @@ file:media/retransmision-hub.png
   arp -s III.III.III.III XX:XX:XX:XX:XX:XX
 #+end_src
 
-
+** /Unicast Poll/
+- El mensaje inicial de una pregunta ARP es de /broadcast/, para que todo el mundo lo reciba y pueda contestar.
+- Algunos S.O. pueden /repreguntar/ al dueño de una IP, para mantener la tabla caché de direcciones MAC
+  - En ese caso, envían preguntas /unicast/
+  - [[https://www.ietf.org/rfc/rfc1122.txt][RFC 1122]]  
+  
 
 
 * Referencias
