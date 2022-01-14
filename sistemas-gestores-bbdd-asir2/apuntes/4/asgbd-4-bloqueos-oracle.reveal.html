@@ -1949,7 +1949,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Concurrencia y bloqueos en Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2021-11-25 jue 11:05</p>
+<h1 class="title">Concurrencia y bloqueos en Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-13 jue 10:54</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents">
@@ -2532,17 +2532,7 @@ insert into ALUMNOS values ('3','María');
 </tr>
 
 <tr>
-<td class="org-left"><i>No se ve el cambio, sería lectura no repetible</i></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><code>delete from alumnos where nombre='Pepe'</code></td>
-<td class="org-left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="org-left"><b>ORA-08177: can't serialize access for this transaction</b></td>
+<td class="org-left"><i>No se ve el cambio, sería lectura fila fantasma</i></td>
 <td class="org-left">&#xa0;</td>
 </tr>
 
