@@ -376,6 +376,52 @@ done
 
 #+end_src
 
+*** Bucles y espacios
+- Las cadenas se separan por la variable =IFS=, que suele ser ~\t \n~ (tabulador, nueva línea, espacio)
+- Si no se quieren separar por espacios, hay que quitarlos de =IFS=
+
+#+begin_src bash
+#!/bin/bash
+ELEMENTOS="
+elemento1
+elemento 2
+elemento 3
+elemento4
+"
+
+echo "valor actual de IFS (en hexadecimal):" $(printf "%s" "$IFS" | xxd -p)
+for ELE in $ELEMENTOS
+do
+    echo BUCLE: $ELE
+done 
+
+IFS=$'\n'
+echo "valor actual de IFS (en hexadecimal):" $(printf "%s" "$IFS" | xxd -p)
+for ELE in $ELEMENTOS
+do
+    echo BUCLE: $ELE
+done 
+#+end_src
+
+*** Bucles sobre Ficheros
+- Los nombres de fichero pueden contener caracteres de todo tipo (emojis, \n, espacios...)
+  #+begin_src bash :results raw
+  touch "antes"$'\n'"después💩"
+  echo LS NORMAL
+  ls
+  echo LS LITERAL
+  ls --literal --show-control-chars
+  echo LS SIN CONTROLCHARS
+  ls --literal --hide-control-chars
+  #+end_src
+- La única forma segura es separar los ficheros por =$'\0'=, que no puede aparecer en la mayoría de sistemas de ficheros
+  #+begin_src bash
+  find . -maxdepth 1 -print0 | while read -d $'\0' FILE
+  do
+      echo FICHERO: $FILE
+  done    
+  #+end_src
+
 
 ** Operaciones aritméticas
 - Se utiliza =$((expresión))=
@@ -395,14 +441,15 @@ contador=$(($contador + 1))
 - /Text User Interface/
   - =whiptail= o =dialog=
 ** Ejercicio
-Usa =whiptail=/=dialog= para hacer un /script/ que muestre información del sistema, con opciones para:
-- Mostrar el nombre del ordenador (=hostname=)
-- Mostrar las IPs (=hostname -I=)
-- Mostrar espacio libre en los discos (=df | grep=)
-- Mostrar usuarios con sesión abierta (=who=)
-Después de mostrar la información, se vuelve al diálogo, hasta que se elija la opción "salir".
+- Usa =whiptail= / =dialog= para hacer un /script/ que muestre información del sistema, con opciones para:
+  - Mostrar el nombre del ordenador (=hostname=)
+  - Mostrar las IPs (=hostname -I=)
+  - Mostrar espacio libre en los discos (=df | grep=)
+  - Mostrar usuarios con sesión abierta (=who=)
+- Después de mostrar la información, se vuelve al diálogo, hasta que se elija la opción "salir".
 
-
+** Solución
+#+begin_src bash
 #!/bin/bash
 
 
@@ -446,7 +493,7 @@ do
     respuesta=$(resultado_de_dialogo)
     read -p "Pulsa intro para continuar"
 done
-
+#+end_src
   
 * Entorno inicial
 - =bash= procesa los siguientes ficheros:
@@ -828,7 +875,7 @@ done
   - Comillas dobles: sustituyen variables
   - Comillas simples: no se sustituyen variables
 - Heredocs
-  - Indentados: =<<-EOF=
+  - [[https://unix.stackexchange.com/a/353689][Indentados]]: =<<-EOF=
   - Sin sustitución de variables: =<<'EOF'= 
 - [[http://www.tldp.org/LDP/abs/html/process-sub.html][Process substitutions]]: Trata una orden como un fichero temporal
   #+caption: Compara los contenidos de un directorio con otro
@@ -836,7 +883,7 @@ done
   diff <(ls $first_directory) <(ls $second_directory)
   #+end_src
 - =mktemp= para ficheros temporales
-- /traps/ para finalizar un /script/
+- [[https://www.linuxjournal.com/content/bash-trap-command][/traps/]] para finalizar un /script/
 
 * Más avanzado: comandos desde PL/SQL
 http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm
