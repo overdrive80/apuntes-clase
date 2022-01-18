@@ -145,16 +145,14 @@ insert into ALUMNOS values ('3','María');
 
 ** Fila fantasma evitada
 #+ATTR_LATEX: :align p{.45\textwidth}|p{.45\textwidth}
-| Conexión 1                                               | Conexión 2                               |
-|----------------------------------------------------------+------------------------------------------|
-| =set transaction isolation level serializable=           |                                          |
-|                                                          | ~insert into ALUMNOS values('5','Pepe')~ |
-|                                                          | =commit=                                 |
-| =select * from alumnos=                                  |                                          |
-| /No se ve el cambio, sería lectura no repetible/         |                                          |
-| ~delete from alumnos where nombre='Pepe'~                |                                          |
-| *ORA-08177: can't serialize access for this transaction* |                                          |
-| =rollback=                                               |                                          |
+| Conexión 1                                        | Conexión 2                               |
+|---------------------------------------------------+------------------------------------------|
+| =set transaction isolation level serializable=    |                                          |
+|                                                   | ~insert into ALUMNOS values('5','Pepe')~ |
+|                                                   | =commit=                                 |
+| =select * from alumnos=                           |                                          |
+| /No se ve el cambio, sería lectura fila fantasma/ |                                          |
+| =rollback=                                        |                                          |
 
 
 ** Bloqueos no automáticos
@@ -225,7 +223,7 @@ AND s.type = 'USER';
 ** Bloqueos de la base de datos
 #+begin_src sql
 select session_id "sid",SERIAL#  "Serial",
-substr(object_name,1,20) "Object",
+  substr(object_name,1,20) "Object",
   substr(os_user_name,1,10) "Terminal",
   substr(oracle_username,1,10) "Locker",
   nvl(lockwait,'active') "Wait",
@@ -255,8 +253,10 @@ select s1.username || '@' || s1.machine
   where s1.sid=l1.sid and s2.sid=l2.sid
   and l1.BLOCK=1 and l2.request > 0
   and l1.id1 = l2.id1
-  and l2.id2 = l2.id2 ;
+  and l1.id2 = l2.id2 ;
 #+end_src
+
+Fuente: http://www.oracle-ckpt.com/scripts-for-locks-and-blocking-sessions/
 
 #+begin_comment
 select s1.username  as blocking_user , s1.machine as blocking_machine

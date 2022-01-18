@@ -160,7 +160,7 @@ where capacity>20;
 #+end_src
 
 ** ¿Cuáles son las aulas (location) en las que se imparten secciones con menos de 15 alumnos como máximo?
-
+** Lista de aulas (location) y cuántos cursos diferentes se imparten en ellas.
 ** ¿Cuáles son los identificadores de las secciones con menos de 10 alumnos matriculados?
 #+BEGIN_SRC sql
 select * 
@@ -300,3 +300,14 @@ having count(*) =  (select max(veces) from vecesdecurso);
 
 
 #+END_SRC
+
+** Lista de nombres distintos que hay en la base de datos (alumnos y profesores)
+   #+begin_src sql
+select first_name from student
+union
+select first_name from instructor;
+   #+end_src
+** Profesor más polivalente, que está impartiendo más cursos distintos
+** Lista de identificadores de curso y cuántos alumnos se pueden matricular en ese curso   
+** Identificador del curso más popular, el que más alumnos pueden pedir.
+

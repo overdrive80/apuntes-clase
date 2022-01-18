@@ -1,3 +1,60 @@
+* Pinta una línea
+Haz un script que reciba dos argumentos:
+- un carácter
+- un número entero
+
+Si no recibe los dos argumentos, o no cuplen las normas, escribirá un texto de ayuda.
+Si los dos argumentos son correctos, dibujará una línea horizontal con el caracter repetido el número de veces indicado
+
+** solución
+#+begin_src bash
+#!/bin/bash
+
+
+echo INICIO 
+ayuda(){
+    echo 'argumentos: <caracter> <numero>'
+}
+
+CARACTER=$1
+NUMERO=$2
+
+CARACTER=a
+NUMERO=20
+
+
+LONGITUD=$(printf "%s" "$CARACTER" | wc -m)
+echo LOGITUD=$LONGITUD
+
+if [[ "$LONGITUD" -ne "1" ]]
+then
+    echo El caracter no es correcto
+    ayuda
+    exit 1
+fi
+
+esnumero(){
+    local CADENA="$1"
+    echo $CADENA | grep -e "[0-9][0-9]*"
+}
+
+if ! esnumero "$NUMERO" 
+then
+    echo El número no es correcto
+    ayuda
+    exit 1
+fi
+
+echo HACIENDO LINEA
+
+for INDICE in $(seq 1 $NUMERO)
+do
+    printf "%s" $CARACTER
+done
+printf "\n"
+#+end_src
+
+#+RESULTS:
 
 * Adivina un número
 Haz un script que adivine un número en el que está pensando el usuario. El número debe estar entre 1 y 31. El script propondrá un número, y el usuario responderá =si=, =mayor= o =menor=.
@@ -132,7 +189,7 @@ done
 
 
 * Backup de un directorio
-Haz un script que hace un backup de un directorio.
+Haz un script que haga un backup de un directorio.
 - Si el directorio $HOME/backups no existe, se creará
 - Los contenidos del directorio se añadirán a un fichero ZIP que se guardará en la carpeta =$HOME/backups=.
 - El fichero ZIP se llamará =backup-HHMM.zip=, siendo HHMM la hora actual.
@@ -174,3 +231,158 @@ else
 fi
 
    #+end_src
+
+* Arranca o para *Oracle*
+Haz un script con whiptail que muestre un menú con tres entradas:
+- Primera entrada
+  - Si la instancia de *Oracle*  está iniciada, la primera entrada pondrá =Apagar Oracle=, y al pulsarse la instancia se apagará.
+  - Si la instancia de *Oracle*  está apagada, la primera entrada pondrá =Iniciar Oracle=, y al pulsarse la instancia se iniciará.
+  - Después, se volverá a mostrar el cuadro de diálogo  
+- La segunda entrada será similar a la primera, pero para el listener.
+- La tercera será la opción para terminar el programa      
+
+** Solución :noexport:
+#+BEGIN_SRC sh
+#!/bin/bash
+
+
+source variables-oracle.sh
+
+ejecutar_en_instancia(){
+    sqlplus / as sysdba
+}
+
+instancia_ping(){
+    ejecutar_en_instancia <<EOF
+select * from dual;
+EOF
+}
+
+encender_instancia(){
+    ejecutar_en_instancia <<EOF
+startup open;
+EOF
+}
+
+apagar_instancia(){
+    ejecutar_en_instancia <<EOF  & 
+shutdown immediate;
+EOF
+
+    SQLPLUS=$!
+    contador=0
+    while kill -0 $SQLPLUS
+    do
+	contador=$(($contador + 1))
+	sleep 1
+        whiptail --title "Oracle" --gauge "Apagando instancia" 8 78 $contador
+    done
+}
+
+encender_listener(){
+    lsnrctl start
+}
+
+apagar_listener(){
+    lsnrctl stop
+}
+
+
+instancia_encendida(){
+    #ORA-01034: ORACLE not available
+
+    if instancia_ping | grep ORA-01034 > /dev/null
+    then
+	false
+    else
+	true
+    fi
+}
+
+listener_encendido(){
+    #TNS-12541: TNS:no listener
+    if lsnrctl status | grep TNS-12541 > /dev/null
+    then
+	false
+    else
+	true
+    fi
+}
+
+
+instancia_mensaje_opcion(){
+
+    if instancia_encendida
+    then
+	echo Instancia encendida "->" Apagar
+    else
+	echo Instancia apagada "->" Encender
+    fi
+}
+
+listener_mensaje_opcion(){
+    if listener_encendido
+    then
+	echo Listener encendido "->" Apagar
+    else
+	echo Listener apagado "->" Encender
+    fi
+}
+
+
+mostrar_menu(){
+    whiptail \
+	--title "Oracle" \
+        --menu "Enciende o apaga compontenes de Oracle" \
+        18 50 10 \
+        L "$(listener_mensaje_opcion)" \
+        I "$(instancia_mensaje_opcion)" 3>&2 2>&1 1>&3
+}
+
+
+cambiar_estado_instancia(){
+
+    if instancia_encendida
+    then
+	apagar_instancia
+    else
+	encender_instancia
+    fi
+}
+
+cambiar_estado_listener(){
+    if listener_encendido
+    then
+	apagar_listener
+    else
+	encender_listener
+    fi
+}
+
+
+ejecutar_menu(){
+    while true
+    do
+	local opcion=$(mostrar_menu)
+	if [[ $opcion = "L" ]]
+	then
+	    cambiar_estado_listener
+	fi
+
+	if [[ $opcion = "I" ]]
+	then
+	    cambiar_estado_instancia
+	fi
+
+	if [[ $opcion = "" ]]
+	then
+	    return 0
+	fi
+	
+    done
+
+}
+
+ejecutar_menu
+#+END_SRC
+
