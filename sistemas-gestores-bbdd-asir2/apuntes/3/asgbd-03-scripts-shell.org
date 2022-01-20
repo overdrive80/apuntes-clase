@@ -140,7 +140,7 @@ done
 - Su salida serán los parámetros, uno por línea, en orden alfabético inverso
 - La salida no tendrá líneas en blanco
 
-#+begin_notes
+#+begin_comment
 parametros_en_orden(){
     sort -r <<EOF | grep -v "^$"
 $1
@@ -155,7 +155,7 @@ $9
 EOF
 }
 parametros_en_orden "$1" "$2" "$3" "$4" "$5" "$6" "$7" "$8" "$9"
-#+end_notes
+#+end_comment
 
 ** Código de error (/exit code/)
 - Al terminar, un programa devuelve un valor numérico
@@ -335,7 +335,7 @@ DESCRIPTION
    - Si no es ni un fichero ni un directorio, informará de ello
 
 
-#+begin_notes
+#+begin_comment
 fichero="$1"
 
 if test -z "$fichero"
@@ -358,7 +358,7 @@ else
     echo "$fichero no es ni un fichero ni un directorio"
 fi
 
-#+end_notes
+#+end_comment
 ** Bucles
 - Con =for= se pueden hacer bucles sobre una lista de parámetros
 - Para bucles numéricos se puede usar el comando =seq=
