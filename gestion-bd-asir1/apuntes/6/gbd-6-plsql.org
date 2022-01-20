@@ -3,7 +3,6 @@
 
 #+latex_header: \lstset{emph={begin,declare,serveroutput,trigger,on,before,after,each, if, elsif, exit, while, loop}, emphstyle=\color{Blue}\ttfamily\bfseries}
 
-#+OPTIONS: reveal_single_file:t
 
 
 
