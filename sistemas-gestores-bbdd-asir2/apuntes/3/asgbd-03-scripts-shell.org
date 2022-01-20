@@ -780,6 +780,8 @@ systemctl stop SERVICIO
   - Servicios de sistema
 - Si se ejecuta con =--user= se utilizan los servicios del usuario llamante
   - Sus unidades están en =$HOME/.config/systemd/user/=
+- Es una opción que no existe en Centos.
+  - Es posible que los quiten de todas las distribuciones linux    
 
 
 *** /Runlevels/ y /targets/
@@ -885,9 +887,22 @@ done
 - [[https://www.linuxjournal.com/content/bash-trap-command][/traps/]] para finalizar un /script/
 
 * Más avanzado: comandos desde PL/SQL
-http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm
-
-  DBMS_SCHEDULER.RUN_JOB
+- http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm
+- Se necesita el privilegio =CREATE EXTERNAL JOB=
+- Solo he conseguido escribir ficheros en =$ORACLE_HOME=
+#+begin_src sql
+begin
+   dbms_scheduler.drop_job( job_name => 'myjob' );
+   dbms_scheduler.create_job (job_name    => 'myjob',
+                              job_type    => 'executable',
+                              job_action  => '/bin/touch',
+                              number_of_arguments => 1,
+                              auto_drop   => true);
+   dbms_scheduler.set_job_argument_value ('myjob', 1, '/opt/oracle/product/18c/dbhomeXE/fichero.nuevo');
+   dbms_scheduler.run_job ('myjob');
+end;
+/
+#+end_src
 
 * Referencias
 #+include: "../../../common/footer.org"

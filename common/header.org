@@ -76,7 +76,6 @@
 
 # #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+REVEAL_ROOT: ../../../common/reveal.js
-#+OPTIONS: reveal_embed_local_resources:t
 #+REVEAL_INIT_SCRIPT: width: '100%', menu: { openOnInit: false, side: "left" }
 # Available transitions are: default|cube|page|concave|zoom|linear|fade|none
 #+REVEAL_TRANS: linear
@@ -129,6 +128,10 @@ window.addEventListener("load",()=>{
 
 </script>
 #+end_export
+
+# FICHEROS AUTOCONTENIDOS DE REVEAL, DAN UN POCO LA LATA CON LOS PLUGINS DE REVEAL
+#+OPTIONS: reveal_embed_local_resources:t
+#+HTML_HEAD: <script src="../../../common/reveal.js-menu/menu.js"></script>
 
 
 
