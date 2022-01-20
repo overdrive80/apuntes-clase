@@ -76,7 +76,7 @@
 
 # #+REVEAL_ROOT: http://cdn.jsdelivr.net/reveal.js/3.0.0/
 #+REVEAL_ROOT: ../../../common/reveal.js
-#+REVEAL_INIT_SCRIPT: width: '100%', menu: { openOnInit: false, side: "left" }
+#+REVEAL_INIT_SCRIPT: width: '100%', menu: { openOnInit: false, side: "left", transitions: ['None','Cube','Page','Concave','Zoom','Linear','Fade'] }
 # Available transitions are: default|cube|page|concave|zoom|linear|fade|none
 #+REVEAL_TRANS: linear
 #+REVEAL_THEME: simple

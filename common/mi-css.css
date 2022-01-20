@@ -45,5 +45,5 @@ div.figure, caption.t-bottom{
 
 .reveal .slide-menu-button {
   left: 30px;
-  bottom: 60px !important;
+  top: 30px !important;
 }
