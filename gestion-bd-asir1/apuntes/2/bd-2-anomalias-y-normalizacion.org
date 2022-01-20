@@ -270,13 +270,7 @@ digraph {
 
 
 * Referencias
-- Formatos:
-  - [[file:bd-2-anomalias-y-normalizacion.reveal.html][Transparencias]] 
-  - [[file:bd-2-anomalias-y-normalizacion.pdf][PDF]]
-- Creado con:
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
-
+#+include: "../../../common/footer.org"
 
 * NO INCLUIDO :noexport:
 

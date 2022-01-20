@@ -159,10 +159,4 @@ ip route show table {local,default,main...}
 #+end_src
 
 * Referencias
-- Formatos:
-  - [[file:par-enrutamiento-redundate-rip-ospf.reveal.html][Transparencias]]
-  - [[file::par-enrutamiento-redundate-rip-ospf.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+include: "../../../common/footer.org"

@@ -160,11 +160,6 @@ grant ELROL to usuariodespues;
 
 #+END_NOTES
 
+
 * Referencias
-- Formatos:
-  - [[file:gbd-5-usuarios-privilegios-roles.html][Transparencias]] 
-  - [[file:gbd-5-usuarios-privilegios-roles.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+include: "../../../common/footer.org"

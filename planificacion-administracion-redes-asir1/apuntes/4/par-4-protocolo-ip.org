@@ -378,15 +378,8 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
    - Por ejemplo, al dividir la red de clase C ~192.168.20.0/24~ en 4 redes (pasando a máscara ~/26~), las redes ~192.168.20.0/26~ y ~192.168.20.192/26~ quedan reservadas
    - La mayoría de routers e implementaciones de IP pueden trabajar con ellas, pero es mejor no utilizarlas para no tener problemas con equipos antiguos.
 
-
 * Referencias
-- Formatos:
-  - [[file:par-4-protocolo-ip.html][Transparencias]]
-  - [[file:par-4-protocolo-ip.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
+#+include: "../../../common/footer.org"
 
 * PRUEBAS :noexport:
 

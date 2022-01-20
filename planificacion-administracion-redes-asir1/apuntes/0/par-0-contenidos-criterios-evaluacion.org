@@ -555,3 +555,7 @@ los objetivos del módulo versarán sobre:
 - La realización de operaciones con bases de datos.
 - La administración de bases de datos.
 - La planificación y automatización de tareas en un sistema gestor.
+
+  
+* Referencias
+#+include: "../../../common/footer.org"

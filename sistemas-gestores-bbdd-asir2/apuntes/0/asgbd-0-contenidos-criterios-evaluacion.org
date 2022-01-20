@@ -446,3 +446,5 @@ Este módulo profesional contiene la formación necesaria para desempeñar la fu
 −  La conexión de la red local a una red de área extensa.
 
 
+* Referencias
+#+include: "../../../common/footer.org"

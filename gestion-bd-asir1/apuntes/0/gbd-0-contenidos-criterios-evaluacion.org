@@ -388,3 +388,7 @@ Las actividades profesionales asociadas a esta función se aplican en:
 - La realización de operaciones con datos almacenados.
 - La importación y exportación de datos.
 - El aseguramiento de la información
+
+  
+* Referencias
+#+include: "../../../common/footer.org"

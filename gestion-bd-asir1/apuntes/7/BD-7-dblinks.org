@@ -104,12 +104,6 @@ Create database link LNK_DE_A_a_B
 #+begin_src sql
 ALTER SESSION CLOSE DATABASE LINK linkname;
 #+end_src
+
 * Referencias
-- Formatos:
-  - [[file:.//BD-7-dblinks.reveal.html][Transparencias]] 
-  - [[file:.//BD-7-dblinks.pdf][PDF]]
-- Creado con:
-  - [[https://www.gnu.org/s/emacs/][Emacs]]
-  - [[https://github.com/yjwen/org-reveal][org-reveal]]
-  - [[https://www.latex-project.org/][Latex]]
-    
+#+include: "../../../common/footer.org"
