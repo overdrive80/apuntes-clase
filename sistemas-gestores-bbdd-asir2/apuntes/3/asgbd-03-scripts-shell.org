@@ -782,7 +782,6 @@ systemctl stop SERVICIO
   - Sus unidades están en =$HOME/.config/systemd/user/=
 
 
-
 *** /Runlevels/ y /targets/
 | Runlevel | Target              | Alias              |
 |----------+---------------------+--------------------|

@@ -6,7 +6,7 @@ Haz un script que reciba dos argumentos:
 Si no recibe los dos argumentos, o no cuplen las normas, escribirá un texto de ayuda.
 Si los dos argumentos son correctos, dibujará una línea horizontal con el caracter repetido el número de veces indicado
 
-** solución
+** solución                                                        :noexport:
 #+begin_src bash
 #!/bin/bash
 
@@ -232,6 +232,96 @@ fi
 
    #+end_src
 
+* Listado de tarjetas de red, para activar o desactivar
+- Han un script con wiptail que muestre el estado de las tarjetas de red con su nombre
+- Cuando se selecciona una tarjeta, se pasa de UP a DOWN, o al revés
+
+
+
+
+#+begin_example
+  ┌──────────────────────────────────────┐
+  │        lo        lo-UP               │ 
+  │        enp4s0    enp4s0-UP           │ 
+  │        wlp0s20f3 wlp0s20f3-UP        │ 
+  │        vboxnet0  vboxnet0-UP         │ 
+  │                                      │ 
+  │                                      │ 
+  │       <Ok>           <Cancel>        │ 
+  │                                      │ 
+  └──────────────────────────────────────┘ 
+#+end_example
+
+
+
+  
+** solución  :noexport:
+#+begin_src bash
+#!/bin/bash
+
+
+lista_de_interfaces(){
+    ip link | grep "^[0-9]" | cut -d ":" -f 2
+}
+
+interfaz_on(){
+    local INTERFACE=$1
+    ip link show $INTERFACE | grep -w UP > /dev/null
+}
+
+interfaz_on_texto(){
+    local INTERFACE=$1
+    if interfaz_on $INTERFACE
+    then
+        echo UP
+    else
+        echo DOWN
+    fi
+}
+
+
+lista_de_opciones(){
+    for INTERFACE in $(lista_de_interfaces)
+    do
+        echo "$INTERFACE" "$INTERFACE-$(interfaz_on_texto $INTERFACE)"
+    done 
+}
+
+mostrar_menu_interfaces(){
+    whiptail  --menu "Elija interfaz" 10 40 4 $(lista_de_opciones)  3>&2 2>&1 1>&3
+}
+
+cambiar_estado_interfaz(){
+    local INTERFACE=$1
+
+    if interfaz_on $INTERFACE
+    then
+        sudo ip link set $INTERFACE down
+    else
+        sudo ip link set $INTERFACE up
+    fi
+}
+
+bucle(){
+    local OPCION
+    local OK=0
+
+    while [[ $OK -eq 0 ]]
+    do
+        OPCION=$(mostrar_menu_interfaces)
+        OK=$?
+        echo SE HA SELECCIONADO: $OPCION - $?
+
+        if [[ $OK -eq 0 ]]
+        then
+            cambiar_estado_interfaz $OPCION
+        fi
+    done
+}
+
+bucle
+#+end_src
+   
 * Arranca o para *Oracle*
 Haz un script con whiptail que muestre un menú con tres entradas:
 - Primera entrada
