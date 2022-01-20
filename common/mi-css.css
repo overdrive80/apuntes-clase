@@ -30,6 +30,10 @@
     border-bottom: 1px solid black;
 }
 
+.reveal .slide-menu-button a{
+    border-bottom: 0px;
+}
+
 body{
     background: white;
     background-color: white;
@@ -37,4 +41,9 @@ body{
 
 div.figure, caption.t-bottom{
     font-size: 0.75em;
+}
+
+.reveal .slide-menu-button {
+  left: 30px;
+  bottom: 60px !important;
 }
