@@ -7,19 +7,21 @@
   (directory-files-recursively directory ".*\.org$" ))
 
 
-(defun lista-de-presentaciones ()
-  (let* ( (all-orgs (lista-de-orgs))
+(defun lista-de-presentaciones (directory)
+  (let* ( (all-orgs (lista-de-orgs directory))
            (presentations (seq-filter #'es-presentacion-p all-orgs)) )
     presentations))
 
 
-(defun recrea-presentacion (orgfile)
-  (dolist (orgfile (lista-de-orgs default-directory))
+(defun recrea-presentaciones ()
+  (dolist (orgfile (lista-de-presentaciones default-directory))
     (message "%s" orgfile)
     (save-window-excursion
       (find-file orgfile)
       (reveal-y-pdf)
-      (kill-buffer orgfile))))
+      )
+    ))
 
+(recrea-presentaciones)
 
 
