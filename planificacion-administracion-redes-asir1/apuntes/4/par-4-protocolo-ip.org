@@ -363,7 +363,7 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
 - Más ejemplos en la [[https://en.wikipedia.org/wiki/Reserved_IP_addresses][Wikipedia]]
 
 ** ¿Qué es una red privada?
-- Una red privada (RFC 1918) son direciones inválidas en Internet
+- Una red privada ([[https://www.rfc-editor.org/rfc/rfc1918.html][RFC 1918]]) son direciones inválidas en Internet
   - Un router de Internet descarta todos los paquetes con origen o destino en redes privadas
 - Sirven para crear redes con IP que no forman parte de Internet
   - Internas a organizaciones: Empresas, universidades, institutos...
@@ -373,7 +373,7 @@ Las redes libres, si las hay, deben quedar lo más compactas posible
   - Siguen teniendo acceso /limitado/ a Internet: [[https://en.wikipedia.org/wiki/Network_address_translation][NAT]] (se verá en otro tema)
   
 
-** CIDR: Redes reservadas
+** CIDR: Redes reservadas :noexport:
 - En el estándar CIDR se reserva la primera y última red de cada partición
    - Por ejemplo, al dividir la red de clase C ~192.168.20.0/24~ en 4 redes (pasando a máscara ~/26~), las redes ~192.168.20.0/26~ y ~192.168.20.192/26~ quedan reservadas
    - La mayoría de routers e implementaciones de IP pueden trabajar con ellas, pero es mejor no utilizarlas para no tener problemas con equipos antiguos.
