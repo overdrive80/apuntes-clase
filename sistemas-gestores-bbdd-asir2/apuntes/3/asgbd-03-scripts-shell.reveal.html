@@ -444,7 +444,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 15:32</p>
+<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 15:49</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -2117,6 +2117,7 @@ done
 </div></li>
 <li><code>mktemp</code> para ficheros temporales</li>
 <li><a href="https://www.linuxjournal.com/content/bash-trap-command"><i>traps</i></a> para finalizar un <i>script</i></li>
+<li><a href="https://www.tutorialspoint.com/awk/awk_overview.htm">awk</a>, <a href="https://www.howtogeek.com/666395/how-to-use-the-sed-command-on-linux/">sed</a>, <a href="https://www.redhat.com/sysadmin/use-whiptail">whiptail</a></li>
 
 </ul>
 <div class="slide-footer"></div>
@@ -2136,13 +2137,18 @@ done
 <div class="org-src-container">
 
 <pre><code class="sql" >begin
+   -- BORRAR EL TRABAJO, POR SI YA EXISTE
    dbms_scheduler.drop_job( job_name =&gt; 'myjob' );
+
+   -- CREAR TRABAJO Y PONER ARGUMENTOS
    dbms_scheduler.create_job (job_name    =&gt; 'myjob',
                               job_type    =&gt; 'executable',
                               job_action  =&gt; '/bin/touch',
                               number_of_arguments =&gt; 1,
                               auto_drop   =&gt; true);
    dbms_scheduler.set_job_argument_value ('myjob', 1, '/opt/oracle/product/18c/dbhomeXE/fichero.nuevo');
+
+   -- EJECUTAR TRABAJO
    dbms_scheduler.run_job ('myjob');
 end;
 /

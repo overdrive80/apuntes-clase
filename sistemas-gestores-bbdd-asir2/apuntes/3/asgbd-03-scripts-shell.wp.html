@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-20 jue 15:32 -->
+<!-- 2022-01-20 jue 15:49 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scripts de shell para Oracle</title>
@@ -1614,6 +1614,7 @@ sleep $<span style="color: #ff6347;">SEGUNDOS</span>
 </div></li>
 <li><code>mktemp</code> para ficheros temporales</li>
 <li><a href="https://www.linuxjournal.com/content/bash-trap-command"><i>traps</i></a> para finalizar un <i>script</i></li>
+<li><a href="https://www.tutorialspoint.com/awk/awk_overview.htm">awk</a>, <a href="https://www.howtogeek.com/666395/how-to-use-the-sed-command-on-linux/">sed</a>, <a href="https://www.redhat.com/sysadmin/use-whiptail">whiptail</a></li>
 </ul>
 </div>
 </div>
@@ -1628,13 +1629,18 @@ sleep $<span style="color: #ff6347;">SEGUNDOS</span>
 </ul>
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">begin</span>
+   <span style="color: #888a85;">-- </span><span style="color: #888a85;">BORRAR EL TRABAJO, POR SI YA EXISTE</span>
    dbms_scheduler.drop_job( job_name =&gt; <span style="color: #ad7fa8; font-style: italic;">'myjob'</span> );
+
+   <span style="color: #888a85;">-- </span><span style="color: #888a85;">CREAR TRABAJO Y PONER ARGUMENTOS</span>
    dbms_scheduler.create_job (job_name    =&gt; <span style="color: #ad7fa8; font-style: italic;">'myjob'</span>,
                               job_type    =&gt; <span style="color: #ad7fa8; font-style: italic;">'executable'</span>,
                               job_action  =&gt; <span style="color: #ad7fa8; font-style: italic;">'/bin/touch'</span>,
                               number_of_arguments =&gt; 1,
                               auto_drop   =&gt; <span style="color: #729fcf; font-weight: bold;">true</span>);
    dbms_scheduler.set_job_argument_value (<span style="color: #ad7fa8; font-style: italic;">'myjob'</span>, 1, <span style="color: #ad7fa8; font-style: italic;">'/opt/oracle/product/18c/dbhomeXE/fichero.nuevo'</span>);
+
+   <span style="color: #888a85;">-- </span><span style="color: #888a85;">EJECUTAR TRABAJO</span>
    dbms_scheduler.run_job (<span style="color: #ad7fa8; font-style: italic;">'myjob'</span>);
 <span style="color: #729fcf; font-weight: bold;">end</span>;
 /
@@ -1668,7 +1674,7 @@ sleep $<span style="color: #ff6347;">SEGUNDOS</span>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-20 jue 15:32</p>
+<p class="date">Created: 2022-01-20 jue 15:49</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
