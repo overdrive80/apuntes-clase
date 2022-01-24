@@ -73,7 +73,7 @@
 #+REVEAL_PLUGINS: (highlight notes)
 
 
-# #+REVEAL_ADD_PLUGIN: chalkboard RevealChalkboard https://cdn.jsdelivr.net/gh/rajgoel/reveal.js-plugins/chalkboard/plugin.js
+#+REVEAL_ADD_PLUGIN: chalkboard RevealChalkboard https://cdn.jsdelivr.net/gh/rajgoel/reveal.js-plugins/chalkboard/plugin.js
 #+REVEAL_ADD_PLUGIN: menu RevealMenu ../../common/reveal.js-menu/menu.js
 # #+REVEAL_ADD_PLUGIN: chart RevealChart https://cdn.jsdelivr.net/gh/rajgoel/reveal.js-plugins/chart/plugin.js
 
