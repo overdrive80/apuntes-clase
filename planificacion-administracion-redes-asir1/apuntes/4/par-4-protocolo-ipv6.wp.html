@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-20 jue 20:07 -->
+<!-- 2022-01-27 jue 12:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Protocolo IPv6</title>
@@ -463,8 +463,7 @@ Dada la red <code>2001:0DB8:7200::/39</code>, se desea dividirla en 8 redes de i
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sh">iface eth0 inet6 static 
-  address 2607:f0d0:2001:000a:0000:0000:0000:0002 
-  netmask 64 
+  address 2607:f0d0:2001:000a:0000:0000:0000:0002/64
   gateway 2607:f0d0:2001:000a:0000:0000:0000:0001
 </pre>
 </div>
@@ -758,7 +757,7 @@ Completa el ejercicio de packettracer, de forma que todos los ordenadores tengan
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-20 jue 20:07</p>
+<p class="date">Created: 2022-01-27 jue 12:46</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
