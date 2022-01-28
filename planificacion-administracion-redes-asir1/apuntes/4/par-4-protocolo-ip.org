@@ -342,7 +342,7 @@ El ejercicio se puede repetir con
 - Un grupo de 60 empleados y 3 de 22 empleados
 
 ** Subnetting
-Una empresa recibe la dirección 132.33.0.0 para su red. Asigna a cada uno de los siete departamentos una subred, teniendo en cuenta el número de ordenadores de cada uno:
+Una empresa recibe la dirección 132.33.0.0/17   para su red. Asigna a cada uno de los siete departamentos una subred, teniendo en cuenta el número de ordenadores de cada uno:
 - A: 8000 ordenadores
 - B: 2047 ordenadores
 - C,D: 1020 ordenadores
