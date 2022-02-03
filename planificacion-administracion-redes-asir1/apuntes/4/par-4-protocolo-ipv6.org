@@ -1,4 +1,4 @@
-#+INCLUDE: "../../../common/header.org"
+ #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Protocolo IPv6
 #+SUBTITLE: 
 #+KEYWORDS: 
@@ -101,8 +101,7 @@ Dada la red ~2001:0DB8:7200::/39~, se desea dividirla en 8 redes de igual tamañ
 ** Linux [[https://debian-handbook.info/browse/es-ES/stable/sect.ipv6.html][Debian]]
 #+begin_src sh
 iface eth0 inet6 static 
-  address 2607:f0d0:2001:000a:0000:0000:0000:0002 
-  netmask 64 
+  address 2607:f0d0:2001:000a:0000:0000:0000:0002/64
   gateway 2607:f0d0:2001:000a:0000:0000:0000:0001
 #+end_src
 

@@ -1,3 +1,4 @@
+
 #+INCLUDE: "../../../common/header.org"
 #+TITLE:  Resumen de SQL
 
@@ -248,6 +249,7 @@ select * from
     group by 
       location
 )
+
 where ocupacion < 10;
 
 
@@ -261,7 +263,11 @@ having
   count(*) < 10;
 #+end_src
 
-
+* Operaciones sobre conjuntos
+- =union=
+- =intersect=
+- =subtract=    
+[[file:operaciones-de-conjuntos.png]] 
 
 * Referencias
 
