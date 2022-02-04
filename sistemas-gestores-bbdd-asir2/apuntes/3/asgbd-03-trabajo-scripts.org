@@ -7,7 +7,7 @@
 #+LATEX_HEADER: \rhead{ASGBD}
 #+LATEX_HEADER: \usepackage{tabularx}
 
-#+latex: \StudentData
+# +latex: \StudentData
 
 
 
@@ -100,7 +100,7 @@ La última versión de este documento se puede descargar de https://alvarogonzal
   - =montado=: Punto de montaje
   
 
-  #+caption: Creación de la tabla =DF= {lst:tabla.sql}
+  #+caption: Creación de la tabla =DF=
   #+name: lst:tabla.sql
   #+begin_src sql
   create table DF(

@@ -6,7 +6,7 @@
 #+latex_header: \usepackage{attachfile2}
 
 
-#+LATEX_HEADER: \lhead{Extraordinaria 2021 (es el \\chead)}
+#+LATEX_HEADER: \lhead{Extraordinaria 2021 (es el \\lhead)}
 #+LATEX_HEADER: \rhead{Administración y Gestión de Bases de Datos (es el \\rhead)}
 
 
