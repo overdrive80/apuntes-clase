@@ -444,6 +444,21 @@ from
   full join instructor i on s.instructor_id = i.instructor_id
 group by i.instructor_id, last_name, first_name
 having last_name  is not null;
+
+select first_name, last_name, 
+  sum( case
+         when student_id is null then 0
+         else cost 
+       end
+     )  
+from
+  enrollment         e
+  full join section s on e.section_id = s.section_id
+  full join course  c on c.course_no = s.course_no
+  full join instructor i on s.instructor_id = i.instructor_id
+where
+  first_name is not  null
+group by first_name, last_name  ;
 #+end_src
 ** Lista de ingresos por alumno (nombre, apellidos, ingresos)
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito 'SIN PRERREQUISITO'.
