@@ -137,9 +137,9 @@ tmpfs             804488        88    804400   1% /run/user/1000
   - [[https://linuxconfig.org/commands-on-how-to-delete-a-first-line-from-a-text-file-using-bash-shell][Quitar la primera línea]] de la salida de =df -k= con el comando =tail=
   - El /script/ debería seguir los siguientes pasos:
     1. Quitar la primera línea de la salida de =df -k=
-    1. Leer cada línea con =while= y =read=
-    1. Sacar los campos de cada línea con =awk
-    1. Ejecutar una sentencia =SQL= con los datos extraidos
+    2. Leer cada línea con =while= y =read=
+    3. Sacar los campos de cada línea con =awk=
+    4. Ejecutar una sentencia =SQL= con los datos extraidos
 #+latex: \end{Aviso}   
 
 * Envía un correo periódicamente (2 puntos)
@@ -154,7 +154,7 @@ tmpfs             804488        88    804400   1% /run/user/1000
 #+latex: \begin{minipage}{\textwidth}
 #+caption: Consulta tipo para extraer información promedio
 #+name: lst:promedio.sql
-#+begin_src sql
+#+begin_src sql -n
   select 
     sistema, avg(tamano), avg(usado), montado
   from 
