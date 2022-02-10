@@ -403,9 +403,63 @@ where
 #+end_src
 
 ** Lista de ingresos por curso (descripción de curso, ingresos)
+#+begin_src sql
+select c.course_no, description, sum(cost)
+from
+  enrollment         e
+  inner join section s on e.section_id = s.section_id
+  inner join course  c on c.course_no = s.course_no
+group by
+  c.course_no, description;
+#+end_src
+
+
+#+begin_src sql
+select c.course_no, description, nvl(cost,0)*count(student_id)
+from
+  enrollment         e
+  full join section s on e.section_id = s.section_id
+  full join course  c on c.course_no = s.course_no
+group by
+  c.course_no, description, cost;
+#+end_src
 
 ** Lista de ingresos por profesor (nombre, apellidos, ingresos)
+#+begin_src  sql
+select last_name, first_name, nvl(sum(cost),0)
+from
+  enrollment         e
+  left join section s on e.section_id = s.section_id
+  full join course  c on c.course_no = s.course_no
+  right join instructor i on s.instructor_id = i.instructor_id
+group by i.instructor_id, last_name, first_name;
 
+
+select last_name, first_name, sum(nvl(cost,0)*
+  (case when student_id is null then 0 else 1 end))
+from
+  enrollment         e
+  full join section s on e.section_id = s.section_id
+  full join course  c on c.course_no = s.course_no
+  full join instructor i on s.instructor_id = i.instructor_id
+group by i.instructor_id, last_name, first_name
+having last_name  is not null;
+
+select first_name, last_name, 
+  sum( case
+         when student_id is null then 0
+         else cost 
+       end
+     )  
+from
+  enrollment         e
+  full join section s on e.section_id = s.section_id
+  full join course  c on c.course_no = s.course_no
+  full join instructor i on s.instructor_id = i.instructor_id
+where
+  first_name is not  null
+group by first_name, last_name  ;
+#+end_src
 ** Lista de ingresos por alumno (nombre, apellidos, ingresos)
 ** Lista de cursos y sus cursos prerrequisito (descripción de curso, descripción de curso prerrequisito). Si un curso no tiene prerrequisito, aparecerá en su prerrequisito 'SIN PRERREQUISITO'.
 #+begin_src sql
@@ -654,3 +708,7 @@ group by
 order by 
   section_id;
    #+end_src
+
+** Cuánto dinero se necesita para matricularse en todas las secciones que imparte la profesora Anita Morris
+** Lista de cada profesor, y cuánto dinero se necesita para matricularse en todas sus secciones
+** Para qué profesor se necesita más dinero para matricularse en todas sus secciones
