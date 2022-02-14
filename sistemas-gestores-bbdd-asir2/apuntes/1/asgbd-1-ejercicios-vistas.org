@@ -28,7 +28,7 @@ dba_col_privs
 
 * Vistas
 - Lista de vistas de cada usuario (usuario, nombredevista)
-    
+- Lista de dependencias de las vistas, que son las tablas de las que las vistas sacan sus datos    
 
 * /tablespaces/
 - Lista de ficheros de datos, con sus tablespaces (fichero,tablespace)
