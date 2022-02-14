@@ -288,9 +288,9 @@ Router(config)# access-list <numero> <permit o deny> UDP
 
 
 ** ACL con nombre
-#+begin_example_
+#+begin_example
 Router(config)# ip access-list standard NOMBRE
-#+end_example_
+#+end_example
 * NAT
 
 Información del estado de NAT
@@ -359,8 +359,10 @@ no ip nat source static
 
 
 ** Generales
+#+begin_example
 show ip nat translations
 debug ip nat
+#+end_example
 
 * Referencias
 #+include: "../../../common/footer.org"
