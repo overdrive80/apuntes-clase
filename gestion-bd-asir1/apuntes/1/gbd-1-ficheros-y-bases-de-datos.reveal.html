@@ -444,7 +444,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Ficheros y bases de datos</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:04</p>
+<h1 class="title">Ficheros y bases de datos</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-02-21 lun 09:44</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -994,7 +994,7 @@ window.addEventListener("load",()=>{
 Variantes:
 </p>
 <ul>
-<li>Encodig: ASCII, UNICODE (utf-8, utf-16, utf-32, BOM), ISO-8859,&#x2026;</li>
+<li>Encodig: ASCII, UNICODE (utf-8, utf-16, utf-32), ISO-8859,&#x2026;</li>
 <li>Fin de línea: Unix, Windows</li>
 
 </ul>
@@ -1003,7 +1003,23 @@ Variantes:
 </section>
 <section id="slide-4-2-3">
 <div class="slide-header"></div>
-<h4 id="4-2-3"><span class="section-number-4">4.2.3.</span> Ficheros de texto como binarios</h4>
+<h4 id="4-2-3"><span class="section-number-4">4.2.3.</span> Texto ¿plano?</h4>
+<ul>
+<li>No es fácil/posible deducir en qué variante está guardado un fichero con texto plano</li>
+<li>Los programas utilizan
+<ul>
+<li>Heurísticas: pruebas en las primeras líneas del fichero</li>
+<li><a href="https://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding">BOM</a></li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-4-2-4">
+<div class="slide-header"></div>
+<h4 id="4-2-4"><span class="section-number-4">4.2.4.</span> Ficheros de texto como binarios</h4>
 <ul>
 <li>Al final, todos los ficheros son solo <b>números</b> almacenados en disco
 <ul>

@@ -135,8 +135,14 @@
 - =sql=, =java=, =php=, =c=, =bat=, =sh=: instrucciones de programas informáticos
 
 Variantes:
-- Encodig: ASCII, UNICODE (utf-8, utf-16, utf-32, BOM), ISO-8859,...
+- Encodig: ASCII, UNICODE (utf-8, utf-16, utf-32), ISO-8859,...
 - Fin de línea: Unix, Windows
+
+*** Texto ¿plano?
+- No es fácil/posible deducir en qué variante está guardado un fichero con texto plano
+- Los programas utilizan
+  - Heurísticas: pruebas en las primeras líneas del fichero
+  - [[https://en.wikipedia.org/wiki/Byte_order_mark#Byte_order_marks_by_encoding][BOM]]    
   
 *** Ficheros de texto como binarios
 - Al final, todos los ficheros son solo *números* almacenados en disco
