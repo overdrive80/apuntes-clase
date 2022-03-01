@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-20 jue 20:07 -->
+<!-- 2022-03-01 mar 19:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Arquitectura de *Oracle*</title>
@@ -206,9 +206,9 @@
 <ul>
 <li><a href="#org000000b">1. Arquitectura</a></li>
 <li><a href="#org0000012">2. Arranque y parada</a></li>
-<li><a href="#org0000022">3. Vistas</a></li>
-<li><a href="#org0000025">4. Bibliografía</a></li>
-<li><a href="#org0000028">5. Referencias</a></li>
+<li><a href="#org0000025">3. Vistas</a></li>
+<li><a href="#org0000028">4. Bibliografía</a></li>
+<li><a href="#org000002b">5. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -401,8 +401,8 @@ Más información en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b1
 </div>
 
 
-<div id="outline-container-org0000022" class="outline-2">
-<h2 id="org0000022"><span class="section-number-2">3.</span> Vistas</h2>
+<div id="outline-container-org0000025" class="outline-2">
+<h2 id="org0000025"><span class="section-number-2">3.</span> Vistas</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>En un sistema relacional, toda la información se guarda en forma de <b>relaciones</b></li>
@@ -574,8 +574,21 @@ Para cambiar tamaños de columnas en <code>sqlplus</code>:
 </div>
 
 <div id="outline-container-org000001f" class="outline-3">
-<h3 id="org000001f"><span class="section-number-3">3.4.</span> Archivos</h3>
+<h3 id="org000001f"><span class="section-number-3">3.4.</span> Ejercicios de vistas</h3>
 <div class="outline-text-3" id="text-3-4">
+<ul class="org-ul">
+<li>Lista los usuarios de base de datos que no tengan tablas creadas</li>
+<li>Crea una vista basada en vistas estáticas <code>DBA_xxxx</code> que imite la vista compuesta <code>ROLE_TAB_PRIVS</code>
+<ul class="org-ul">
+<li>Comprueba que tiene las mismas columnas y filas que <code>ROLE_TAB_PRIVS</code> con <code>minus</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0000022" class="outline-3">
+<h3 id="org0000022"><span class="section-number-3">3.5.</span> Archivos</h3>
+<div class="outline-text-3" id="text-3-5">
 <ul class="org-ul">
 <li>Los datos de las tablas al final se almacenan en archivos</li>
 </ul>
@@ -616,8 +629,8 @@ Para cambiar tamaños de columnas en <code>sqlplus</code>:
 </div>
 
 
-<div id="outline-container-org0000025" class="outline-2">
-<h2 id="org0000025"><span class="section-number-2">4.</span> Bibliografía</h2>
+<div id="outline-container-org0000028" class="outline-2">
+<h2 id="org0000028"><span class="section-number-2">4.</span> Bibliografía</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><a href="https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit">https://docs.google.com/document/d/1CV-Sk9I0Pvra85IrBLjzCDA2M-nn82kziJJQBhvYMq8/edit</a></li>
@@ -626,8 +639,8 @@ Para cambiar tamaños de columnas en <code>sqlplus</code>:
 </div>
 </div>
 
-<div id="outline-container-org0000028" class="outline-2">
-<h2 id="org0000028"><span class="section-number-2">5.</span> Referencias</h2>
+<div id="outline-container-org000002b" class="outline-2">
+<h2 id="org000002b"><span class="section-number-2">5.</span> Referencias</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Formatos:
@@ -649,7 +662,7 @@ Para cambiar tamaños de columnas en <code>sqlplus</code>:
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-20 jue 20:07</p>
+<p class="date">Created: 2022-03-01 mar 19:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

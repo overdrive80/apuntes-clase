@@ -167,6 +167,24 @@ column comments format a150
 | De Log                                 | ~v$diag_info~     |
 | Información de la BD                   | ~v$database~      |
 
+** Ejercicios de vistas
+- Lista los usuarios de base de datos que no tengan tablas creadas
+- Crea una vista basada en vistas estáticas =DBA_xxxx= que imite la vista compuesta =ROLE_TAB_PRIVS=
+  - Comprueba que tiene las mismas columnas y filas que =ROLE_TAB_PRIVS= con =minus=
+
+*** Solución :noexport:
+#+begin_src sql
+create or replace view mi_role_tab_privs as
+select ROLE,OWNER,TABLE_NAME,COLUMN_NAME,PRIVILEGE,grantable from (
+   SELECT GRANTEE AS ROLE,OWNER,TABLE_NAME,null as column_name,PRIVILEGE, grantable
+   FROM DBA_TAB_PRIVS 
+   WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES)
+)
+union
+select grantee as role, owner,table_name,column_name,privilege,grantable from dba_col_privs
+where grantee in (select role from dba_roles);
+#+end_src
+
 ** Archivos
 - Los datos de las tablas al final se almacenan en archivos
 
