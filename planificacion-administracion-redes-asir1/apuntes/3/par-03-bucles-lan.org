@@ -141,6 +141,8 @@ Switch(config)# spanning-tree vlan 1 priority 1
 #+begin_example
 Switch(config)# interface fa0/1
 Switch(config-if)# channel-group 1 mode active
+
+Switch# show etherchannel summary
 #+end_example
 
 ** Ejercicio
