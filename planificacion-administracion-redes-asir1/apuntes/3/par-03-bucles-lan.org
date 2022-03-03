@@ -117,6 +117,7 @@ Bucles lan
 ** Ejercicio CISCO
 
 #+BEGIN_EXAMPLE
+Switch# show spanning-tree
 Switch(config)# spanning-tree vlan 1 priority 1
 #+END_EXAMPLE
 
