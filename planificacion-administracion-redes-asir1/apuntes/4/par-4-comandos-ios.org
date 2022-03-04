@@ -182,7 +182,11 @@ Se añader a un mismo =channel-group= todos los enlaces conectados al mismo swit
 #+begin_example
 Switch(config)# interface fa0/1
 Switch(config-if)# channel-group 1 mode active
+
+Switch# show etherchannel summary
 #+end_example
+
+
 
 * RIP
 Habilitar RIP para dos redes conectadas directamente
