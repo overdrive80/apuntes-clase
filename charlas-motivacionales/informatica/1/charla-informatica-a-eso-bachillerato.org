@@ -3,6 +3,9 @@
 #+OPTIONS:   toc:nil  timestamp:nil
 
 
+
+
+
 #+begin_export html
 <style>
   .reveal h2,   .reveal h3, section{
@@ -11,6 +14,7 @@
 </style>
 #+end_export 
 
+#+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
 
 
 * ¿Qué es la informática?
@@ -89,6 +93,7 @@ digraph{
   - Escritorio
   - Móvil/tableta
   - Web
+- Programación de sistemas: /drivers/, microcontroladores...    
 - Integración de aplicaciones ya existentes
 - Certificación y pruebas de aplicaciones  
 - Mejoras y arreglos de aplicaciones antiguas
