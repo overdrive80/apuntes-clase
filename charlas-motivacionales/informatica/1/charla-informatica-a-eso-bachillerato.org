@@ -14,7 +14,6 @@
 </style>
 #+end_export 
 
-#+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
 
 
 * ¿Qué es la informática?
@@ -108,6 +107,7 @@ digraph{
 # https://academo.org/demos/venn-diagram-generator/
 
 ** Características personales deseables
+- Buenas notas (baremo)
 - Disposición al autoaprendizaje
 - Organización del trabajo
 - Habilidades interpersonales
@@ -130,3 +130,10 @@ digraph{
 - Bases de datos: [[https://sqlpd.com/][SQL Police Department]] << [[https://mystery.knightlab.com/][SQL Murder Mystery]]
 - Sistemas: [[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html][Terminus game]] << [[https://ubuntu.com/download][Instalar linux]]
 - Sistemas y redes: [[https://overthewire.org/wargames/bandit/bandit0.html][Bandit]]
+
+* Para volverlo a ver
+
+[[file:qr.png]]
+
+# #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
+  
