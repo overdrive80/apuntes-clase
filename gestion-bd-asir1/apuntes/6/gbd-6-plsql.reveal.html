@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:31</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-03-19 sáb 19:44</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -1005,6 +1005,30 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </ul></li>
 
 </ul>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-5-1-1">
+<div class="slide-header"></div>
+<h4 id="5-1-1"><span class="section-number-4">5.1.1.</span> Ya hemos usado funciones</h4>
+<div class="org-src-container">
+
+<pre><code class="sql" >select to_date('01-01-01','dd-MM-yyyy') from dual;
+select * from student where mod(studentid,2)=0;
+
+sqrt, upper, substr, len, nvl...
+</code></pre>
+</div>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-5-1-2">
+<div class="slide-header"></div>
+<h4 id="5-1-2"><span class="section-number-4">5.1.2.</span> Funciones propias</h4>
+<ul>
+<li>Se pueden crear nuevas funciones, usando las que ya existen</li>
+
+</ul>
 
 <div class="org-src-container">
 
@@ -1026,9 +1050,9 @@ END;
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-1">
+<section id="slide-5-1-3">
 <div class="slide-header"></div>
-<h4 id="5-1-1"><span class="section-number-4">5.1.1.</span> Invocar una función</h4>
+<h4 id="5-1-3"><span class="section-number-4">5.1.3.</span> Invocar una función</h4>
 <p>
 Las funciones pueden invocarse:
 </p>
@@ -1066,9 +1090,9 @@ END;
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-2">
+<section id="slide-5-1-4">
 <div class="slide-header"></div>
-<h4 id="5-1-2"><span class="section-number-4">5.1.2.</span> Funciones en SQL</h4>
+<h4 id="5-1-4"><span class="section-number-4">5.1.4.</span> Funciones en SQL</h4>
 <ul>
 <li>Una función puede utilizarse en SQL</li>
 
@@ -1093,9 +1117,9 @@ ORA-00902: tipo de dato no válido
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-3">
+<section id="slide-5-1-5">
 <div class="slide-header"></div>
-<h4 id="5-1-3"><span class="section-number-4">5.1.3.</span> Funciones predefinidas</h4>
+<h4 id="5-1-5"><span class="section-number-4">5.1.5.</span> Funciones predefinidas</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -1156,9 +1180,9 @@ ORA-00902: tipo de dato no válido
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-4">
+<section id="slide-5-1-6">
 <div class="slide-header"></div>
-<h4 id="5-1-4"><span class="section-number-4">5.1.4.</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
+<h4 id="5-1-6"><span class="section-number-4">5.1.6.</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
 <div class="org-src-container">
 
 <pre><code class="sql" >declare
@@ -1183,9 +1207,9 @@ end;
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-5">
+<section id="slide-5-1-7">
 <div class="slide-header"></div>
-<h4 id="5-1-5"><span class="section-number-4">5.1.5.</span> Ejercicios</h4>
+<h4 id="5-1-7"><span class="section-number-4">5.1.7.</span> Ejercicios</h4>
 <ul>
 <li><p>
 Imprime un listado con la inicial de los empleados y sus apellidos
@@ -1202,9 +1226,9 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-6">
+<section id="slide-5-1-8">
 <div class="slide-header"></div>
-<h4 id="5-1-6"><span class="section-number-4">5.1.6.</span> Ejercicios</h4>
+<h4 id="5-1-8"><span class="section-number-4">5.1.8.</span> Ejercicios</h4>
 <ul>
 <li>Haz una función que devuelva <code>1</code> si un número es primo o <code>0</code> si es compuesto
 <ul>
@@ -1222,9 +1246,9 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 <div class="slide-footer"></div>
 
 </section>
-<section id="slide-5-1-7">
+<section id="slide-5-1-9">
 <div class="slide-header"></div>
-<h4 id="5-1-7"><span class="section-number-4">5.1.7.</span> Ejercicio resuelto: <code>capitalizar</code></h4>
+<h4 id="5-1-9"><span class="section-number-4">5.1.9.</span> Ejercicio resuelto: <code>capitalizar</code></h4>
 <div class="org-src-container">
 
 <pre><code class="sql" >create or replace function capitalizar( palabra varchar ) return varchar as
