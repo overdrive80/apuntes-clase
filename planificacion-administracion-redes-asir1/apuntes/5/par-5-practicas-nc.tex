@@ -74,10 +74,10 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
     ls -la | nc ipdelservidor puertolibre
   \end{listadoshell}
 
-  Después, envía una imagen (JPG, PNG...) a un compañero. El compañero debe grabar dicha imagen y visualizarla.
+  Después, envía una imagen (JPG, PNG...) a un compañero. El compañero debe grabar dicha imagen y visualizarla. Usa el flag \texttt{-N} en cliente y servidor, para que \texttt{netcat} finalice automáticamente al acabarse el fichero, sin tener que pulsar \texttt{CTRL-C}.
 
   \begin{listadoshell}{Enviar un fichero con \texttt{nc}}{lst:tuberias}
-    nc ipdelservidor puertolibre < imagen
+    nc -N ipdelservidor puertolibre < imagen
   \end{listadoshell}
 \end{homeworkProblem}
 
@@ -133,6 +133,12 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
     \end{cuadrito}
   \item Es una respuesta \enlace{https://es.wikipedia.org/wiki/JSON}{JSON}. Decide si la respuesta te resulta inspiradora. Si no, puedes volver a intentarlo mañana.
   \end{itemize}
+
+
+https://apipheny.io/free-api/
+
+
+  
 \end{comment}
 
 \item Ejecuta NetCat conectándote al puerto 80 de \url{www.boredapi.com}
