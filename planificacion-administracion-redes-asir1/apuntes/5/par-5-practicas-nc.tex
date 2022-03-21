@@ -120,6 +120,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 
 \begin{homeworkProblem}[: \imenu{Simulación de cliente web (2 puntos)}]
   Utilizaremos el protocolo HTTP directamente para pedir un recurso a un servidor
+\begin{comment}
   \begin{itemize}
   \item Ejecuta NetCat conectándote al puerto 80 de \url{quotes.rest}
   \item Tras la conexión, introducir
@@ -132,6 +133,22 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
     \end{cuadrito}
   \item Es una respuesta \enlace{https://es.wikipedia.org/wiki/JSON}{JSON}. Decide si la respuesta te resulta inspiradora. Si no, puedes volver a intentarlo mañana.
   \end{itemize}
+\end{comment}
+
+\item Ejecuta NetCat conectándote al puerto 80 de \url{www.boredapi.com}
+  \item Tras la conexión, introducir
+    \begin{cuadrito}
+      \texttt{GET /api/activity HTTP/1.1} \\
+      \texttt{Host:www.boredapi.com} \\
+      \\
+      \\
+      (Aquí hay dos líneas nuevas)
+    \end{cuadrito}
+  \item Importante: Las nuevas líneas deben ser con formato MSDOS (\texttt{\textbackslash r\textbackslash n}) en vez de formato UNIX (\texttt{\textbackslash n}). Lo mejor es un fichero que se redirije como entrada al comando \texttt{nc}.  
+  \item Es una respuesta \enlace{https://es.wikipedia.org/wiki/JSON}{JSON}. Decide si la actividad que te sugiere te sacará del aburrimiento.
+  \end{itemize}
+
+  
 \end{homeworkProblem}
 
 
