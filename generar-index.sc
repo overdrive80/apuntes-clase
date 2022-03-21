@@ -73,3 +73,5 @@ object Main extends App{
   out.close()
   println("Done")
 }
+
+Main.main(null)

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-20 jue 20:31 -->
+<!-- 2022-03-19 sáb 19:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>PLSQL</title>
@@ -208,11 +208,11 @@
 <li><a href="#org0000009">2. Bloques anónimos</a></li>
 <li><a href="#org0000012">3. Variables</a></li>
 <li><a href="#org0000041">4. Control de flujo</a></li>
-<li><a href="#org0000066">5. Funciones y procedimientos</a></li>
-<li><a href="#org000007b">6. Sentencias SQL en PLSQL</a></li>
-<li><a href="#org0000090">7. Control de errores</a></li>
-<li><a href="#org00000c6">8. Disparadores (<i>triggers</i>)</a></li>
-<li><a href="#org00000c9">9. Referencias</a></li>
+<li><a href="#org000006c">5. Funciones y procedimientos</a></li>
+<li><a href="#org0000081">6. Sentencias SQL en PLSQL</a></li>
+<li><a href="#org0000096">7. Control de errores</a></li>
+<li><a href="#org00000cc">8. Disparadores (<i>triggers</i>)</a></li>
+<li><a href="#org00000cf">9. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -685,8 +685,8 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 
 
 
-<div id="outline-container-org0000066" class="outline-2">
-<h2 id="org0000066"><span class="section-number-2">5.</span> Funciones y procedimientos</h2>
+<div id="outline-container-org000006c" class="outline-2">
+<h2 id="org000006c"><span class="section-number-2">5.</span> Funciones y procedimientos</h2>
 <div class="outline-text-2" id="text-5">
 <ul class="org-ul">
 <li>Son bloques de código identificados con un nombre</li>
@@ -703,8 +703,8 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </p>
 </div>
 
-<div id="outline-container-org000005a" class="outline-3">
-<h3 id="org000005a"><span class="section-number-3">5.1.</span> Funciones</h3>
+<div id="outline-container-org0000060" class="outline-3">
+<h3 id="org0000060"><span class="section-number-3">5.1.</span> Funciones</h3>
 <div class="outline-text-3" id="text-5-1">
 <ul class="org-ul">
 <li>Las funciones devuelven <b>siempre</b> un valor</li>
@@ -714,6 +714,27 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 <li>El resultado de una función solo depende de sus parámetros</li>
 <li>Una función no cambia la base de datos</li>
 </ul></li>
+</ul>
+</div>
+
+<div id="outline-container-org0000044" class="outline-4">
+<h4 id="org0000044"><span class="section-number-4">5.1.1.</span> Ya hemos usado funciones</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">select</span> to_date(<span style="color: #ad7fa8; font-style: italic;">'01-01-01'</span>,<span style="color: #ad7fa8; font-style: italic;">'dd-MM-yyyy'</span>) <span style="color: #729fcf; font-weight: bold;">from</span> dual;
+<span style="color: #729fcf; font-weight: bold;">select</span> * <span style="color: #729fcf; font-weight: bold;">from</span> student <span style="color: #729fcf; font-weight: bold;">where</span> <span style="color: #729fcf;">mod</span>(studentid,2)=0;
+
+sqrt, <span style="color: #729fcf;">upper</span>, substr, len, nvl...
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0000047" class="outline-4">
+<h4 id="org0000047"><span class="section-number-4">5.1.2.</span> Funciones propias</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<ul class="org-ul">
+<li>Se pueden crear nuevas funciones, usando las que ya existen</li>
 </ul>
 
 <div class="org-src-container">
@@ -733,10 +754,11 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </pre>
 </div>
 </div>
+</div>
 
-<div id="outline-container-org0000044" class="outline-4">
-<h4 id="org0000044"><span class="section-number-4">5.1.1.</span> Invocar una función</h4>
-<div class="outline-text-4" id="text-5-1-1">
+<div id="outline-container-org000004a" class="outline-4">
+<h4 id="org000004a"><span class="section-number-4">5.1.3.</span> Invocar una función</h4>
+<div class="outline-text-4" id="text-5-1-3">
 <p>
 Las funciones pueden invocarse:
 </p>
@@ -772,9 +794,9 @@ Las funciones pueden invocarse:
 </div>
 </div>
 
-<div id="outline-container-org0000047" class="outline-4">
-<h4 id="org0000047"><span class="section-number-4">5.1.2.</span> Funciones en SQL</h4>
-<div class="outline-text-4" id="text-5-1-2">
+<div id="outline-container-org000004d" class="outline-4">
+<h4 id="org000004d"><span class="section-number-4">5.1.4.</span> Funciones en SQL</h4>
+<div class="outline-text-4" id="text-5-1-4">
 <ul class="org-ul">
 <li>Una función puede utilizarse en SQL</li>
 </ul>
@@ -795,9 +817,9 @@ ORA-00902: tipo de dato <span style="color: #729fcf; font-weight: bold;">no</spa
 </div>
 </div>
 
-<div id="outline-container-org000004a" class="outline-4">
-<h4 id="org000004a"><span class="section-number-4">5.1.3.</span> Funciones predefinidas</h4>
-<div class="outline-text-4" id="text-5-1-3">
+<div id="outline-container-org0000050" class="outline-4">
+<h4 id="org0000050"><span class="section-number-4">5.1.5.</span> Funciones predefinidas</h4>
+<div class="outline-text-4" id="text-5-1-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -858,9 +880,9 @@ ORA-00902: tipo de dato <span style="color: #729fcf; font-weight: bold;">no</spa
 </div>
 </div>
 
-<div id="outline-container-org000004d" class="outline-4">
-<h4 id="org000004d"><span class="section-number-4">5.1.4.</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
-<div class="outline-text-4" id="text-5-1-4">
+<div id="outline-container-org0000053" class="outline-4">
+<h4 id="org0000053"><span class="section-number-4">5.1.6.</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
+<div class="outline-text-4" id="text-5-1-6">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">declare</span>
   fechaentexto <span style="color: #8ae234; font-weight: bold;">varchar</span>(255);
@@ -884,14 +906,14 @@ ORA-00902: tipo de dato <span style="color: #729fcf; font-weight: bold;">no</spa
 </div>
 </div>
 
-<div id="outline-container-org0000051" class="outline-4">
-<h4 id="org0000051"><span class="section-number-4">5.1.5.</span> Ejercicios</h4>
-<div class="outline-text-4" id="text-5-1-5">
+<div id="outline-container-org0000057" class="outline-4">
+<h4 id="org0000057"><span class="section-number-4">5.1.7.</span> Ejercicios</h4>
+<div class="outline-text-4" id="text-5-1-7">
 <ul class="org-ul">
 <li><p>
 Imprime un listado con la inicial de los empleados y sus apellidos
 </p>
-<pre class="example" id="org0000050">
+<pre class="example" id="org0000056">
   A. Pérez
   F. González
   M. Ruiz
@@ -902,9 +924,9 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000054" class="outline-4">
-<h4 id="org0000054"><span class="section-number-4">5.1.6.</span> Ejercicios</h4>
-<div class="outline-text-4" id="text-5-1-6">
+<div id="outline-container-org000005a" class="outline-4">
+<h4 id="org000005a"><span class="section-number-4">5.1.8.</span> Ejercicios</h4>
+<div class="outline-text-4" id="text-5-1-8">
 <ul class="org-ul">
 <li>Haz una función que devuelva <code>1</code> si un número es primo o <code>0</code> si es compuesto
 <ul class="org-ul">
@@ -919,9 +941,9 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000057" class="outline-4">
-<h4 id="org0000057"><span class="section-number-4">5.1.7.</span> Ejercicio resuelto: <code>capitalizar</code></h4>
-<div class="outline-text-4" id="text-5-1-7">
+<div id="outline-container-org000005d" class="outline-4">
+<h4 id="org000005d"><span class="section-number-4">5.1.9.</span> Ejercicio resuelto: <code>capitalizar</code></h4>
+<div class="outline-text-4" id="text-5-1-9">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">function</span> <span style="color: #edd400; font-weight: bold;">capitalizar</span>( palabra <span style="color: #8ae234; font-weight: bold;">varchar</span> ) <span style="color: #729fcf; font-weight: bold;">return</span> <span style="color: #8ae234; font-weight: bold;">varchar</span> <span style="color: #729fcf; font-weight: bold;">as</span>
   inicial <span style="color: #8ae234; font-weight: bold;">char</span>(1);
@@ -938,8 +960,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org000005d" class="outline-3">
-<h3 id="org000005d"><span class="section-number-3">5.2.</span> Procedimientos</h3>
+<div id="outline-container-org0000063" class="outline-3">
+<h3 id="org0000063"><span class="section-number-3">5.2.</span> Procedimientos</h3>
 <div class="outline-text-3" id="text-5-2">
 <ul class="org-ul">
 <li>Los procedimentos no devuelven un valor
@@ -961,8 +983,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000060" class="outline-3">
-<h3 id="org0000060"><span class="section-number-3">5.3.</span> Parámetros <code>in</code></h3>
+<div id="outline-container-org0000066" class="outline-3">
+<h3 id="org0000066"><span class="section-number-3">5.3.</span> Parámetros <code>in</code></h3>
 <div class="outline-text-3" id="text-5-3">
 <ul class="org-ul">
 <li>Es el tipo de parámetros por defecto</li>
@@ -992,8 +1014,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000063" class="outline-3">
-<h3 id="org0000063"><span class="section-number-3">5.4.</span> Parámetros <code>out</code></h3>
+<div id="outline-container-org0000069" class="outline-3">
+<h3 id="org0000069"><span class="section-number-3">5.4.</span> Parámetros <code>out</code></h3>
 <div class="outline-text-3" id="text-5-4">
 <ul class="org-ul">
 <li>Un parámetro <code>out</code> se pasa <i>por referencia</i></li>
@@ -1023,8 +1045,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 
 
-<div id="outline-container-org000007b" class="outline-2">
-<h2 id="org000007b"><span class="section-number-2">6.</span> Sentencias SQL en PLSQL</h2>
+<div id="outline-container-org0000081" class="outline-2">
+<h2 id="org0000081"><span class="section-number-2">6.</span> Sentencias SQL en PLSQL</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>Desde PLSQL pueden utilizarse las sentencias del DML
@@ -1040,8 +1062,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 (<a href="https://www.youtube.com/watch?v=BWeKWaPwKnA&amp;list=PLPYjb2UQXp7RWDkSfbEkSAmyQmLcYYTs1&amp;index=4&amp;t=0s">youtube</a>)
 </p>
 </div>
-<div id="outline-container-org0000069" class="outline-3">
-<h3 id="org0000069"><span class="section-number-3">6.1.</span> Variables en <code>select</code></h3>
+<div id="outline-container-org000006f" class="outline-3">
+<h3 id="org000006f"><span class="section-number-3">6.1.</span> Variables en <code>select</code></h3>
 <div class="outline-text-3" id="text-6-1">
 <ul class="org-ul">
 <li>Se puede leer el valor de un campo y guardarlo en una variable con <code>select ... into ... from...</code></li>
@@ -1072,8 +1094,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org000006c" class="outline-3">
-<h3 id="org000006c"><span class="section-number-3">6.2.</span> Ventaja de los tipos <code>%type</code></h3>
+<div id="outline-container-org0000072" class="outline-3">
+<h3 id="org0000072"><span class="section-number-3">6.2.</span> Ventaja de los tipos <code>%type</code></h3>
 <div class="outline-text-3" id="text-6-2">
 <ul class="org-ul">
 <li>Una variable puede copiar su tipo de una columna de una tabla</li>
@@ -1094,8 +1116,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org000006f" class="outline-3">
-<h3 id="org000006f"><span class="section-number-3">6.3.</span> Ventaja de los tipos <code>%rowtype</code></h3>
+<div id="outline-container-org0000075" class="outline-3">
+<h3 id="org0000075"><span class="section-number-3">6.3.</span> Ventaja de los tipos <code>%rowtype</code></h3>
 <div class="outline-text-3" id="text-6-3">
 <ul class="org-ul">
 <li>Una variable puede contener todas las columnas de una fila</li>
@@ -1117,8 +1139,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000072" class="outline-3">
-<h3 id="org0000072"><span class="section-number-3">6.4.</span> Variables en <code>insert</code>, <code>update</code>, <code>delete</code></h3>
+<div id="outline-container-org0000078" class="outline-3">
+<h3 id="org0000078"><span class="section-number-3">6.4.</span> Variables en <code>insert</code>, <code>update</code>, <code>delete</code></h3>
 <div class="outline-text-3" id="text-6-4">
 <ul class="org-ul">
 <li>Se utilizan como un valor inmediato</li>
@@ -1142,8 +1164,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000075" class="outline-3">
-<h3 id="org0000075"><span class="section-number-3">6.5.</span> Ventaja de los tipos <code>%rowtype</code> en <code>insert</code></h3>
+<div id="outline-container-org000007b" class="outline-3">
+<h3 id="org000007b"><span class="section-number-3">6.5.</span> Ventaja de los tipos <code>%rowtype</code> en <code>insert</code></h3>
 <div class="outline-text-3" id="text-6-5">
 <ul class="org-ul">
 <li>Una variable <code>%ROWTYPE</code> se puede usar en un <code>insert</code></li>
@@ -1165,8 +1187,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000078" class="outline-3">
-<h3 id="org0000078"><span class="section-number-3">6.6.</span> Recorrer consultas</h3>
+<div id="outline-container-org000007e" class="outline-3">
+<h3 id="org000007e"><span class="section-number-3">6.6.</span> Recorrer consultas</h3>
 <div class="outline-text-3" id="text-6-6">
 <ul class="org-ul">
 <li><code>for</code> puede recorrer las filas de una consulta</li>
@@ -1198,8 +1220,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 
 
-<div id="outline-container-org0000090" class="outline-2">
-<h2 id="org0000090"><span class="section-number-2">7.</span> Control de errores</h2>
+<div id="outline-container-org0000096" class="outline-2">
+<h2 id="org0000096"><span class="section-number-2">7.</span> Control de errores</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Si se produce un error, se lanza una <b>excepción</b>
@@ -1226,8 +1248,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </p>
 </div>
 
-<div id="outline-container-org000007e" class="outline-3">
-<h3 id="org000007e"><span class="section-number-3">7.1.</span> Sección <i>exception</i></h3>
+<div id="outline-container-org0000084" class="outline-3">
+<h3 id="org0000084"><span class="section-number-3">7.1.</span> Sección <i>exception</i></h3>
 <div class="outline-text-3" id="text-7-1">
 <ul class="org-ul">
 <li>Se especifican varios tipos de excepción que se esperan</li>
@@ -1251,8 +1273,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000081" class="outline-3">
-<h3 id="org0000081"><span class="section-number-3">7.2.</span> Ejemplo</h3>
+<div id="outline-container-org0000087" class="outline-3">
+<h3 id="org0000087"><span class="section-number-3">7.2.</span> Ejemplo</h3>
 <div class="outline-text-3" id="text-7-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">table</span> <span style="color: #edd400; font-weight: bold;">empleados</span>( empno <span style="color: #729fcf; font-weight: bold;">number</span>(20), salario <span style="color: #729fcf; font-weight: bold;">number</span>(8,2), nombre <span style="color: #8ae234; font-weight: bold;">varchar</span>(255));
@@ -1277,8 +1299,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000084" class="outline-3">
-<h3 id="org0000084"><span class="section-number-3">7.3.</span> Excepciones predefinidas</h3>
+<div id="outline-container-org000008a" class="outline-3">
+<h3 id="org000008a"><span class="section-number-3">7.3.</span> Excepciones predefinidas</h3>
 <div class="outline-text-3" id="text-7-3">
 <ul class="org-ul">
 <li>Estas son algunas (hay muchas)</li>
@@ -1320,8 +1342,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000087" class="outline-3">
-<h3 id="org0000087"><span class="section-number-3">7.4.</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
+<div id="outline-container-org000008d" class="outline-3">
+<h3 id="org000008d"><span class="section-number-3">7.4.</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
 <div class="outline-text-3" id="text-7-4">
 <ul class="org-ul">
 <li>Funciones predefinidas</li>
@@ -1348,8 +1370,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org000008a" class="outline-3">
-<h3 id="org000008a"><span class="section-number-3">7.5.</span> ¿Qué excepciones hay que atrapar?</h3>
+<div id="outline-container-org0000090" class="outline-3">
+<h3 id="org0000090"><span class="section-number-3">7.5.</span> ¿Qué excepciones hay que atrapar?</h3>
 <div class="outline-text-3" id="text-7-5">
 <ul class="org-ul">
 <li>Una excepción debe ser <i>excepcional</i></li>
@@ -1367,8 +1389,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org000008d" class="outline-3">
-<h3 id="org000008d"><span class="section-number-3">7.6.</span> Excepciones de usuario</h3>
+<div id="outline-container-org0000093" class="outline-3">
+<h3 id="org0000093"><span class="section-number-3">7.6.</span> Excepciones de usuario</h3>
 <div class="outline-text-3" id="text-7-6">
 <ul class="org-ul">
 <li>En ocasiones queremos enviar un mensaje de error personalizado</li>
@@ -1399,8 +1421,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 
 
-<div id="outline-container-org00000c6" class="outline-2">
-<h2 id="org00000c6"><span class="section-number-2">8.</span> <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm">Disparadores</a> (<i>triggers</i>)</h2>
+<div id="outline-container-org00000cc" class="outline-2">
+<h2 id="org00000cc"><span class="section-number-2">8.</span> <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm">Disparadores</a> (<i>triggers</i>)</h2>
 <div class="outline-text-2" id="text-8">
 <ul class="org-ul">
 <li>Las funciones y procedimientos se invocan desde <i>fuera</i> de la base de datos</li>
@@ -1415,8 +1437,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </p>
 </div>
 
-<div id="outline-container-org0000093" class="outline-3">
-<h3 id="org0000093"><span class="section-number-3">8.1.</span> Sintaxis (casi) completa</h3>
+<div id="outline-container-org0000099" class="outline-3">
+<h3 id="org0000099"><span class="section-number-3">8.1.</span> Sintaxis (casi) completa</h3>
 <div class="outline-text-3" id="text-8-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">CREATE</span> [<span style="color: #729fcf; font-weight: bold;">OR</span> REPLACE] <span style="color: #729fcf; font-weight: bold;">TRIGGER</span> &lt;nombre_trigger&gt;
@@ -1437,8 +1459,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org0000096" class="outline-3">
-<h3 id="org0000096"><span class="section-number-3">8.2.</span> Ejemplo: Al menos 10 empleados</h3>
+<div id="outline-container-org000009c" class="outline-3">
+<h3 id="org000009c"><span class="section-number-3">8.2.</span> Ejemplo: Al menos 10 empleados</h3>
 <div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">CREATE</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">TRIGGER</span> <span style="color: #edd400; font-weight: bold;">personal_minimo</span>
@@ -1457,8 +1479,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org000009c" class="outline-3">
-<h3 id="org000009c"><span class="section-number-3">8.3.</span> Eventos DML</h3>
+<div id="outline-container-org00000a2" class="outline-3">
+<h3 id="org00000a2"><span class="section-number-3">8.3.</span> Eventos DML</h3>
 <div class="outline-text-3" id="text-8-3">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1511,8 +1533,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org0000099" class="outline-4">
-<h4 id="org0000099"><span class="section-number-4">8.3.1.</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
+<div id="outline-container-org000009f" class="outline-4">
+<h4 id="org000009f"><span class="section-number-4">8.3.1.</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
 <div class="outline-text-4" id="text-8-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">CREATE</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">TRIGGER</span> <span style="color: #edd400; font-weight: bold;">ejemplo_or</span>
@@ -1536,8 +1558,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org000009f" class="outline-3">
-<h3 id="org000009f"><span class="section-number-3">8.4.</span> Eventos DDL</h3>
+<div id="outline-container-org00000a5" class="outline-3">
+<h3 id="org00000a5"><span class="section-number-3">8.4.</span> Eventos DDL</h3>
 <div class="outline-text-3" id="text-8-4">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1605,8 +1627,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 
 
-<div id="outline-container-org00000a2" class="outline-3">
-<h3 id="org00000a2"><span class="section-number-3">8.5.</span> Eventos de sistema</h3>
+<div id="outline-container-org00000a8" class="outline-3">
+<h3 id="org00000a8"><span class="section-number-3">8.5.</span> Eventos de sistema</h3>
 <div class="outline-text-3" id="text-8-5">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1688,8 +1710,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org00000a5" class="outline-3">
-<h3 id="org00000a5"><span class="section-number-3">8.6.</span> <code>for each row</code></h3>
+<div id="outline-container-org00000ab" class="outline-3">
+<h3 id="org00000ab"><span class="section-number-3">8.6.</span> <code>for each row</code></h3>
 <div class="outline-text-3" id="text-8-6">
 <ul class="org-ul">
 <li>Por defecto, un <i>trigger</i> se lanza una vez por cada sentencia SQL que provoque cambios</li>
@@ -1698,8 +1720,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org00000ab" class="outline-3">
-<h3 id="org00000ab"><span class="section-number-3">8.7.</span> Momentos del evento</h3>
+<div id="outline-container-org00000b1" class="outline-3">
+<h3 id="org00000b1"><span class="section-number-3">8.7.</span> Momentos del evento</h3>
 <div class="outline-text-3" id="text-8-7">
 <ul class="org-ul">
 <li>Se puede lanzar
@@ -1716,8 +1738,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </ul>
 </div>
 
-<div id="outline-container-org00000a8" class="outline-4">
-<h4 id="org00000a8"><span class="section-number-4">8.7.1.</span> Resumen de momentos y variables</h4>
+<div id="outline-container-org00000ae" class="outline-4">
+<h4 id="org00000ae"><span class="section-number-4">8.7.1.</span> Resumen de momentos y variables</h4>
 <div class="outline-text-4" id="text-8-7-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1788,8 +1810,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org00000ae" class="outline-3">
-<h3 id="org00000ae"><span class="section-number-3">8.8.</span> Ejemplo típico: Autonuméricos</h3>
+<div id="outline-container-org00000b4" class="outline-3">
+<h3 id="org00000b4"><span class="section-number-3">8.8.</span> Ejemplo típico: Autonuméricos</h3>
 <div class="outline-text-3" id="text-8-8">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">sequence</span> <span style="color: #edd400; font-weight: bold;">empleado_empno_seq</span>;
@@ -1808,8 +1830,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org00000b7" class="outline-3">
-<h3 id="org00000b7"><span class="section-number-3">8.9.</span> Ejemplo típico: auditoría</h3>
+<div id="outline-container-org00000bd" class="outline-3">
+<h3 id="org00000bd"><span class="section-number-3">8.9.</span> Ejemplo típico: auditoría</h3>
 <div class="outline-text-3" id="text-8-9">
 <ul class="org-ul">
 <li>Se necesitan los datos del usuario que creo y modificó un empleado por última vez</li>
@@ -1831,8 +1853,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org00000b1" class="outline-4">
-<h4 id="org00000b1"><span class="section-number-4">8.9.1.</span> Actualizar campos <code>createdXXXX</code></h4>
+<div id="outline-container-org00000b7" class="outline-4">
+<h4 id="org00000b7"><span class="section-number-4">8.9.1.</span> Actualizar campos <code>createdXXXX</code></h4>
 <div class="outline-text-4" id="text-8-9-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">trigger</span> <span style="color: #edd400; font-weight: bold;">audit_creacion_empleados</span>
@@ -1850,8 +1872,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org00000b4" class="outline-4">
-<h4 id="org00000b4"><span class="section-number-4">8.9.2.</span> Actualizar campos <code>modifiedXXXX</code></h4>
+<div id="outline-container-org00000ba" class="outline-4">
+<h4 id="org00000ba"><span class="section-number-4">8.9.2.</span> Actualizar campos <code>modifiedXXXX</code></h4>
 <div class="outline-text-4" id="text-8-9-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">trigger</span> <span style="color: #edd400; font-weight: bold;">audit__modificacion_empleados</span>
@@ -1871,8 +1893,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 
 
-<div id="outline-container-org00000c3" class="outline-3">
-<h3 id="org00000c3"><span class="section-number-3">8.10.</span> Ejemplo típico: desnormalización</h3>
+<div id="outline-container-org00000c9" class="outline-3">
+<h3 id="org00000c9"><span class="section-number-3">8.10.</span> Ejemplo típico: desnormalización</h3>
 <div class="outline-text-3" id="text-8-10">
 <ul class="org-ul">
 <li>Imaginemos que necesitamos saber la masa salarial total</li>
@@ -1895,8 +1917,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </ul>
 </div>
 
-<div id="outline-container-org00000ba" class="outline-4">
-<h4 id="org00000ba"><span class="section-number-4">8.10.1.</span> Con triggers</h4>
+<div id="outline-container-org00000c0" class="outline-4">
+<h4 id="org00000c0"><span class="section-number-4">8.10.1.</span> Con triggers</h4>
 <div class="outline-text-4" id="text-8-10-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">table</span> <span style="color: #edd400; font-weight: bold;">cantidadesprecalculadas</span>(nombre <span style="color: #8ae234; font-weight: bold;">varchar</span>(255), valor <span style="color: #729fcf; font-weight: bold;">number</span>(20,2));
@@ -1929,8 +1951,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org00000bd" class="outline-4">
-<h4 id="org00000bd"><span class="section-number-4">8.10.2.</span> Ventajas de la desnormalización</h4>
+<div id="outline-container-org00000c3" class="outline-4">
+<h4 id="org00000c3"><span class="section-number-4">8.10.2.</span> Ventajas de la desnormalización</h4>
 <div class="outline-text-4" id="text-8-10-2">
 <ul class="org-ul">
 <li>La tabla <code>masasalarial</code> tiene un atributo calculado, que depende de otros datos
@@ -1944,8 +1966,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 </div>
 
-<div id="outline-container-org00000c0" class="outline-4">
-<h4 id="org00000c0"><span class="section-number-4">8.10.3.</span> Prueba de rendimiento</h4>
+<div id="outline-container-org00000c6" class="outline-4">
+<h4 id="org00000c6"><span class="section-number-4">8.10.3.</span> Prueba de rendimiento</h4>
 <div class="outline-text-4" id="text-8-10-3">
 <ul class="org-ul">
 <li>Estas consultas simples suelen <a href="https://docs.oracle.com/database/121/TGDBA/tune_result_cache.htm#TGDBA618">estar ya optimizadas</a> por el gestor de base de datos</li>
@@ -1983,8 +2005,8 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 
 
-<div id="outline-container-org00000c9" class="outline-2">
-<h2 id="org00000c9"><span class="section-number-2">9.</span> Referencias</h2>
+<div id="outline-container-org00000cf" class="outline-2">
+<h2 id="org00000cf"><span class="section-number-2">9.</span> Referencias</h2>
 <div class="outline-text-2" id="text-9">
 <ul class="org-ul">
 <li><a href="BD-6-Ejemplos-PLSQL.html">Ejercicios</a></li>
@@ -2010,7 +2032,7 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-20 jue 20:31</p>
+<p class="date">Created: 2022-03-19 sáb 19:44</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
