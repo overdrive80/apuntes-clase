@@ -1,4 +1,4 @@
-#+INCLUDE: "../../../common/header.org"
+#+INCLUDE: "./header.org"
 #+TITLE: Estudiar informática
 #+OPTIONS:   toc:nil  timestamp:nil
 
