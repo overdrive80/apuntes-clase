@@ -16,18 +16,17 @@
 
 
 
-* ¿Qué es la informática?
+* La informática, estereotipada
 :PROPERTIES:
 :reveal_background: ./matrix.gif
 :END:
 
-#+html: <div style="font-size:3em">
-- Whatsapp 📞 , Instagram 📷, Meta ♾️
+#+html: <div style="font-size:2em">
+- Whatsapp 📞 , Instagram 📷, Meta ♾️, Tik tok, Twitch
 - Creadores de contenidos
 - Videojuegos
 - Hackers
 #+html: </div>
-
 ** Pero también es informática
 - Organizar la información de una empresa en una base de datos
 - Preparar las copias de /backup/ de los servidores
@@ -75,7 +74,12 @@ digraph{
 }
 #+end_src
 ** Mantenimiento informático
-#+html: <div style="position:absolute;top:-1em;z-index:-1000;text-align:center;width:100%"><img src="./depositphotos_55855867-stock-illustration-computer-repair-service.jpg" style="width:40%; display:inline-block" ></div>
+:PROPERTIES:
+:reveal_background: ./depositphotos_55855867-stock-illustration-computer-repair-service.jpg
+:END:
+# +html: <div style="position:absolute;top:-1em;z-index:-1000;text-align:center;width:100%"><img src="./depositphotos_55855867-stock-illustration-computer-repair-service.jpg" style="width:40%; display:inline-block" ></div>
+
+
 - Montaje de redes y equipos informáticos
 - Configuración de redes y equipos: usuarios, permisos
 - Despliegue de servicios en red: sitios web, almacenamiento de ficheros, mensajería...  
@@ -86,7 +90,11 @@ digraph{
 - Seguridad: /firewall/ coroporativo, usuarios y permisos, actualizaciones...  
 
 ** Desarrollo informático
-#+html: <div style="position:absolute;top:-1em;z-index:-1000;text-align:center;width:100%"><img src="./programando-con-gente.jpg" style="width:100%; display:inline-block" ></div>
+:PROPERTIES:
+:reveal_background: ./programando-con-gente.jpg
+:END:
+# +html: <div style="position:absolute;top:-1em;z-index:-1000;text-align:center;width:100%"><img src="./programando-con-gente.jpg" style="width:100%; display:inline-block" ></div>
+
 
 - Creación de nuevas aplicaciones
   - Escritorio
@@ -121,7 +129,7 @@ digraph{
 :reveal_background: ./hacker.jpg
 :END:
 
-
+O al menos, es una parte muy pequeña
 #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;bottom:1em"> <a href='https://www.freepik.com/vectors/anonymous-hacker'>Anonymous hacker vector created by macrovector_official - www.freepik.com</a>  </div>
 
 
@@ -134,6 +142,8 @@ digraph{
 * Para volverlo a ver
 
 [[file:qr.png]]
-
+# https://alvarogonzalezsotillo.github.io/apuntes-clase/charlas-motivacionales/informatica/1/charla-informatica-a-eso-bachillerato.html
 # #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
+
+
   
