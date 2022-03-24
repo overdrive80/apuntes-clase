@@ -22,7 +22,7 @@
 :END:
 
 #+html: <div style="font-size:2em">
-- Whatsapp 📞 , Instagram 📷, Meta ♾️, Tik tok, Twitch
+- Whatsapp [[file:whatsapp.png]] , Instagram [[file:instagram.png]], Tik tok [[file:tiktok.png]], Twitch [[file:twitch.png]]
 - Creadores de contenidos
 - Videojuegos
 - Hackers
@@ -107,7 +107,8 @@ digraph{
 - Dirección de proyectos
 
 #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;bottom:1em"><a href="https://www.freepik.com/vectors/people">People vector created by storyset - www.freepik.com</a></div>
-  
+
+
 * ¿Me dedico a la informática?
 
 [[file:venn-diagram.png]]
@@ -139,9 +140,22 @@ O al menos, es una parte muy pequeña
 - Sistemas: [[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html][Terminus game]] << [[https://ubuntu.com/download][Instalar linux]]
 - Sistemas y redes: [[https://overthewire.org/wargames/bandit/bandit0.html][Bandit]]
 
-* Para volverlo a ver
+* FP presencial y dual
+| Presencial               | Dual                            |
+|--------------------------+---------------------------------|
+| 2 años en el centro      | 1 año                           |
+| Prácticas de 1 trimestre | 3 trimestres                    |
+| Prácticas no remuneradas | Prácticas remuneradas           |
+| Módulos en el centro     | Módulos entre centro  y empresa |  
 
-[[file:qr.png]]
+* Más información
+- Para volverlo a ver
+  
+  [[file:qr.png]]
+  
+- [[https://www.todofp.es/][todofp.es]]
+- [[https://www.descubrelafp.org/][descubrelafp.org]]  
+   
 # https://alvarogonzalezsotillo.github.io/apuntes-clase/charlas-motivacionales/informatica/1/charla-informatica-a-eso-bachillerato.html
 # #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
 
