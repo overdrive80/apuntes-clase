@@ -1,5 +1,7 @@
-#+INCLUDE: "../../../common/header.org"
+#+INCLUDE: "./header.org"
 #+TITLE: Estudiar informática
+#+REVEAL_TRANS: concave
+
 #+OPTIONS:   toc:nil  timestamp:nil
 
 
@@ -22,7 +24,7 @@
 :END:
 
 #+html: <div style="font-size:2em">
-- Whatsapp [[file:whatsapp.png]] , Instagram [[file:instagram.png]], Tik tok [[file:tiktok.png]], Twitch [[file:twitch.png]]
+- Whatsapp [[file:whatsapp.64.png]] , Instagram [[file:instagram.64.png]], Tik tok [[file:tiktok.64.png]], Twitch [[file:twitch.64.png]]
 - Creadores de contenidos
 - Videojuegos
 - Hackers
@@ -106,6 +108,8 @@ digraph{
 - Mejoras y arreglos de aplicaciones antiguas
 - Dirección de proyectos
 
+  
+
 #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;bottom:1em"><a href="https://www.freepik.com/vectors/people">People vector created by storyset - www.freepik.com</a></div>
 
 
@@ -116,15 +120,16 @@ digraph{
 # https://academo.org/demos/venn-diagram-generator/
 
 ** Características personales deseables
-- Buenas notas (baremo)
+- Buenas notas ([[file:respuestas-posibles-preguntas/baremacion-anexo_ii_gm.pdf][baremo grado medio]]) ([[file:respuestas-posibles-preguntas/baremacion-anexo_iia_gs.pdf][baremo grado superior]])
 - Disposición al autoaprendizaje
-- Organización del trabajo
-- Habilidades interpersonales
-- Habilidades comunicativas
+- Habilidades interpersonales y comunicativas
 - Matemáticas, especialmente en el desarrollo de aplicaciones
 - Inglés  
 
-  
+#+BEGIN_NOTES
+[[file:respuestas-posibles-preguntas/preferencias-anexo_iii_gm.pdf]]
+[[file:respuestas-posibles-preguntas/preferencias-anexo_iii_gs.pdf]]
+#+END_NOTES  
 ** Esto no es informática
 :PROPERTIES:
 :reveal_background: ./hacker.jpg
@@ -148,11 +153,16 @@ O al menos, es una parte muy pequeña
 | Prácticas no remuneradas | Prácticas remuneradas           |
 | Módulos en el centro     | Módulos entre centro  y empresa |  
 
+#+begin_NOTES
+- Inserción laboral
+- Porcentaje de aprobados  
+#+end_notes
 * Más información
 - Para volverlo a ver
   
   [[file:qr.png]]
-  
+
+- [[file:respuestas-posibles-preguntas/madfpb-informatica-y-comunicaciones.pdf][Básica]], [[file:respuestas-posibles-preguntas/Ficha_IFCM01-smr.pdf][SMR]], [[file:respuestas-posibles-preguntas/Ficha_IFCS02-dam.pdf][DAM]], [[file:respuestas-posibles-preguntas/Ficha_IFCS03-daw.pdf][DAW]]
 - [[https://www.todofp.es/][todofp.es]]
 - [[https://www.descubrelafp.org/][descubrelafp.org]]  
    
@@ -160,4 +170,3 @@ O al menos, es una parte muy pequeña
 # #+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;top:0em"> <img width="10%" src="./qr.png"> </div>
 
 
-  
