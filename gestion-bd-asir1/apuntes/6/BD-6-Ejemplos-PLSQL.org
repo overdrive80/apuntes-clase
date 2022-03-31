@@ -447,6 +447,28 @@ end;
 /
  #+end_src
 
+** Matricular a un alumno en una sección
+#+begin_src sql
+create or replace procedure matricular_alumno_en_seccion(
+  codigoestudiante number,
+  codigoseccion number
+)
+as
+  matriculacion enrollment%rowtype;
+BEGIN
+  matriculacion.student_id := codigoestudiante;
+  matriculacion.section_id := codigoestudiante;
+  matriculacion.enroll_date := sysdate;
+
+  matriculacion.created_by := 'agonzalez';
+  matriculacion.modified_by := 'agonzalez';
+  matriculacion.created_date := sysdate;
+  matriculacion.modified_date := sysdate;
+
+  insert into enrollment values matriculacion;
+end;
+/
+#+end_src
 ** Calcular nota máxima y mínima
 Crea un procedimiento con dos parámetros out, que devuelvan la nota mínima y máxima entre las notas parciales (tabla =grade=)
 
