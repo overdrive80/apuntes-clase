@@ -668,3 +668,13 @@ digraph {
 
 * Referencias
 #+include: "../../../common/footer.org"
+
+* oracle21 :noexport:
+https://docs.oracle.com/en/database/oracle/oracle-database/21/ladbi/running-rpm-packages-to-install-oracle-database.html#GUID-BB7C11E3-D385-4A2F-9EAF-75F4F0AACF02
+
+Se instala como usuario oracle, arrancar dbca en vncserver
+
+para que funcione vncserver quitar wayland de /etc/gdm/custom.conf https://help.realvnc.com/hc/en-us/articles/4417193011857-How-do-I-disable-Wayland-to-use-VNC-Connect-
+
+
+
