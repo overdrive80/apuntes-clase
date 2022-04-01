@@ -284,6 +284,8 @@ END;
 - Imprime los números primos del 1 al 100
 - Imprime la suma de los números primos del 1 al 100
 - Encuentra un número primo mayor de 1000000
+- Calcula el máximo común divisor entre 1234516 y 77636519368
+- Calcula el mínimo común múltiplo entre 1234516 y 77636519368
 
 
 ** Ejercicios
@@ -361,6 +363,18 @@ end;
   - El resultado de una función solo depende de sus parámetros
   - Una función no cambia la base de datos
 
+*** Ya hemos usado funciones
+
+#+begin_src sql
+select to_date('01-01-01','dd-MM-yyyy') from dual;
+select * from student where mod(studentid,2)=0;
+
+sqrt, upper, substr, len, nvl...
+#+end_src
+
+*** Funciones propias
+- Se pueden crear nuevas funciones, usando las que ya existen
+  
 #+BEGIN_SRC sql
 CREATE OR REPLACE FUNCTION es_par(numero IN number)
 RETURN boolean

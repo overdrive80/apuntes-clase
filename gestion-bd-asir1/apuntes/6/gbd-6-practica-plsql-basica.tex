@@ -144,7 +144,7 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
 
 \begin{homeworkProblem}[: \imenu{Salida del almacén respetando existencias} (2 puntos)]
 
-  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. La salida se realiza en el momento actual.
+  Crea un procedimento \texttt{SALIDA\_PRODUCTO\_CON\_STOCK}. Realizará el mismo proceso que \texttt{SALIDA\_PRODUCTO}, pero en el caso de que no haya existencias suficientes lanzará un error con el mensaje \texttt{Rotura de stock} y número \texttt{-20101}. 
   Si el producto no existe, se lanzará el error \texttt{-20102}.
 
   \begin{listadosql}{Entrada y salida de productos}{lst:entrada-salida}
@@ -163,9 +163,9 @@ end;
 \end{homeworkProblem}
 
 \section{Entorno de pruebas}
-Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:8080}{http://10.1.33.201:8080}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080} (y otro al servidor de Oracle por el puerto 1521)
+Los procedimientos y funciones se crearán sobre el servidor del instituto, con el usuario de cada alumno. El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://10.1.33.201:80}{http://10.1.33.201:80}. Para acceder a los resultados desde casa, se puede utilizar un túnel ssh como sigue, y conectar un navegador a \enlace{http://localhost:8080}{http://localhost:8080} (y otro al servidor de Oracle por el puerto 1521)
 \begin{center}
-\texttt{ssh -L 8080:localhost:8080 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51 -p 10133}
+\texttt{ssh -L 8080:localhost:80 -L 1521:localhost:1521 \textit{USUARIO}@213.97.191.51 -p 10133}
 \end{center}
 
 \section{Instrucciones de entrega}

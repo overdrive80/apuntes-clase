@@ -9,7 +9,7 @@ object IndexCreator{
 
   def allFiles(current: File) : Stream[File] = {
 
-    val includeExtensions = Seq( ".reveal.html" )
+    val includeExtensions = Seq( ".reveal.html", "charla-informatica-a-eso-bachillerato.html" )
     val excludeExtensions = Seq( ".svg.pdf" )
     val excludePatterns = Seq("aruizcristina", "examen");
 
@@ -22,7 +22,7 @@ object IndexCreator{
 
     def includeFilter(f:File) = {
       val name = f.getPath.toLowerCase
-      name.contains("apuntes") && !name.contains("media") && !excludePatterns.exists( name.contains(_) )
+      (name.contains("apuntes") || name.contains("/charlas-motivacionales") ) && !name.contains("media") && !excludePatterns.exists( name.contains(_) )
     }
 
     if( current.isDirectory ){
@@ -73,3 +73,5 @@ object Main extends App{
   out.close()
   println("Done")
 }
+
+Main.main(null)

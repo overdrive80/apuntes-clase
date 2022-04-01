@@ -180,6 +180,8 @@ Fuente:[[https://commons.wikimedia.org/w/index.php?curid=30810617][By Scil100]]
 | Escuchando y establecidas | ~-a~  | ~-a~     |
 |---------------------------+-------+----------|
 
+- Si no está =netstat=, se puede usar =ss=
+  - =ss --process --numeric --tcp --all=
 
 *** Ejercicio
 - Comprueba qué conexiones están establecidas en tu ordenador
