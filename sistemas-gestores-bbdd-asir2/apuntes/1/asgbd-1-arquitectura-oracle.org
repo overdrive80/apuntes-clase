@@ -175,13 +175,13 @@ column comments format a150
 *** Solución :noexport:
 #+begin_src sql
 create or replace view mi_role_tab_privs as
-select ROLE,OWNER,TABLE_NAME,COLUMN_NAME,PRIVILEGE,grantable from (
-   SELECT GRANTEE AS ROLE,OWNER,TABLE_NAME,null as column_name,PRIVILEGE, grantable
+select ROLE,OWNER,TABLE_NAME,COLUMN_NAME,PRIVILEGE,grantable, common, inherited from (
+   SELECT GRANTEE AS ROLE,OWNER,TABLE_NAME,null as column_name,PRIVILEGE, grantable, common, inherited
    FROM DBA_TAB_PRIVS 
    WHERE GRANTEE IN(SELECT ROLE FROM DBA_ROLES)
 )
 union
-select grantee as role, owner,table_name,column_name,privilege,grantable from dba_col_privs
+select grantee as role, owner,table_name,column_name,privilege,grantable, COMMON, INHERITED from dba_col_privs
 where grantee in (select role from dba_roles);
 #+end_src
 
