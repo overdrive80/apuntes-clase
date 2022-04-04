@@ -157,12 +157,12 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \begin{comment}
 #!/bin/bash
 
-INTERNET=enp0s3
-ALUMNOS=enp0s8
-INTERNA=enp0s9
+INTERNET=eth0
+ALUMNOS=eth2
+INTERNA=eth1
 
-SERVIDORWINDOWS=10.0.0.2
-LINUXINTERNO=10.0.0.3
+SERVIDORWINDOWS=172.16.0.1
+LINUXINTERNO=172.16.0.2
 
 
 # ACTIVA ENRUTAMIENTO
@@ -186,9 +186,11 @@ iptables -t nat -A POSTROUTING -o $ALUMNOS -j MASQUERADE
 
 # ABRIR 3389 A SERVIDORWINDOWS
 iptables -t nat -A PREROUTING -p tcp -i $INTERNET --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
+iptables -t nat -A PREROUTING -p tcp -i $ALUMNOS --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
 
-# ABRIR 222 A LINUXINTERNO                                                                                                                                              
+# ABRIR 222 A LINUXINTERNO
 iptables -t nat -A PREROUTING -p tcp -i $INTERNET --dport 222 -j DNAT --to $LINUXINTERNO:22
+iptables -t nat -A PREROUTING -p tcp -i $ALUMNOS --dport 222 -j DNAT --to $LINUXINTERNO:22
 
 
 # CARPETAS COMPARTIDAS SERVIDOR WINDOWS
@@ -197,10 +199,12 @@ UDPPORTS=""
 for PORT in $TCPPORTS
 do
     iptables -t nat -A PREROUTING -p tcp --dport $PORT -i $INTERNET -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p tcp --dport $PORT -i $ALUMNOS -j DNAT --to $SERVIDORWINDOWS:$PORT
 done
 for PORT in $UDPPORTS
 do
     iptables -t nat -A PREROUTING -p udp --dport $PORT -i $INTERNET -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p udp --dport $PORT -i $ALUMNOS -j DNAT --to $SERVIDORWINDOWS:$PORT
 done
 
 
