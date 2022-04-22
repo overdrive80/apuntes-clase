@@ -78,7 +78,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
   \end{itemize}
 \end{homeworkProblem}
 
-\begin{homeworkProblem}[: Conectate a B por medio de escritorio remoto, desde tu PC físico (1 punto)]
+\begin{homeworkProblem}[: Conéctate a B por medio de escritorio remoto, desde tu PC físico (1 punto)]
   \begin{itemize}
     
   \item Busca qué puerto utiliza el protocolo RDP y ábrelo (\enlace{http://albertomolina.wordpress.com/2009/01/09/nat-con-iptables/}{albertomolina}, apartado prerouting)
@@ -91,7 +91,7 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \end{homeworkProblem}
 
 
-\begin{homeworkProblem}[: Conectate a B desde el equipo B de otro compañero (1 punto)]
+\begin{homeworkProblem}[: Conéctate a B desde el equipo B de otro compañero (1 punto)]
   Necesitarás repetir los pasos anteriores, pero para otra tarjeta de red (la de dirección \texttt{192.168.255.N}).
 \end{homeworkProblem}
 
@@ -157,12 +157,12 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \begin{comment}
 #!/bin/bash
 
-INTERNET=enp0s3
-ALUMNOS=enp0s8
-INTERNA=enp0s9
+INTERNET=eth0
+ALUMNOS=eth2
+INTERNA=eth1
 
-SERVIDORWINDOWS=10.0.0.2
-LINUXINTERNO=10.0.0.3
+SERVIDORWINDOWS=172.16.0.1
+LINUXINTERNO=172.16.0.2
 
 
 # ACTIVA ENRUTAMIENTO
@@ -185,10 +185,12 @@ iptables -t nat -A POSTROUTING -o $INTERNET -j MASQUERADE
 iptables -t nat -A POSTROUTING -o $ALUMNOS -j MASQUERADE
 
 # ABRIR 3389 A SERVIDORWINDOWS
-iptables -t nat -A PREROUTING -p tcp --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
+iptables -t nat -A PREROUTING -p tcp -i $INTERNET --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
+iptables -t nat -A PREROUTING -p tcp -i $ALUMNOS --dport 3389 -j DNAT --to $SERVIDORWINDOWS:3389
 
-# ABRIR 22022 A LINUXINTERNO                                                                                                                                              
-iptables -t nat -A PREROUTING -p tcp --dport 22022 -j DNAT --to $LINUXINTERNO:22
+# ABRIR 222 A LINUXINTERNO
+iptables -t nat -A PREROUTING -p tcp -i $INTERNET --dport 222 -j DNAT --to $LINUXINTERNO:22
+iptables -t nat -A PREROUTING -p tcp -i $ALUMNOS --dport 222 -j DNAT --to $LINUXINTERNO:22
 
 
 # CARPETAS COMPARTIDAS SERVIDOR WINDOWS
@@ -196,11 +198,13 @@ TCPPORTS="139 445"
 UDPPORTS=""
 for PORT in $TCPPORTS
 do
-    iptables -t nat -A PREROUTING -p tcp --dport $PORT -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p tcp --dport $PORT -i $INTERNET -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p tcp --dport $PORT -i $ALUMNOS -j DNAT --to $SERVIDORWINDOWS:$PORT
 done
 for PORT in $UDPPORTS
 do
-    iptables -t nat -A PREROUTING -p udp --dport $PORT -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p udp --dport $PORT -i $INTERNET -j DNAT --to $SERVIDORWINDOWS:$PORT
+    iptables -t nat -A PREROUTING -p udp --dport $PORT -i $ALUMNOS -j DNAT --to $SERVIDORWINDOWS:$PORT
 done
 
 

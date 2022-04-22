@@ -132,7 +132,7 @@ By [[https://commons.wikimedia.org/wiki/User:Ludovic.ferre][Ludovic.ferre]]  [[h
 
 ** Ejercicio: VPN en Windows
 - Crea un servidor VPN Windows en la /red interna 1/
-- Conectate desde un cliente VPN en la /red interna 2/
+- Conéctate desde un cliente VPN en la /red interna 2/
 - Comprueba con =pathping= que a través de la VPN solo se da un salto
 
 #+caption: Diagrama lógico de la red con VPN
@@ -144,7 +144,7 @@ By [[https://commons.wikimedia.org/wiki/User:Ludovic.ferre][Ludovic.ferre]]  [[h
 
 ** Ejercicio: VPN con SSH
 - Crea un servidor VPN SSH en la /red interna 1/
-- Conectate desde un cliente VPN en la /red interna 2/
+- Conéctate desde un cliente VPN en la /red interna 2/
 - Comprueba con =pathping= que a través de la VPN solo se da un salto
 
 #+caption: Diagrama lógico de la red con VPN
