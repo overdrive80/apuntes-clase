@@ -264,6 +264,15 @@ create directory mi_directorio_de_backup as '/home/alumno/backups';
 GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
 #+end_src
 
+** Caracteres de escape
+- A veces hay que pasar parámetros con espacios u otros caracteres especiales
+- En =bash= se haría con comillas "dobles" o 'simples'  
+- =expdp= maneja por sí mismo las comillas, así que hay que escaparlas en =bash=
+
+#+begin_src bash
+expdp \'sys/alumno@localhost:1521/orclpdb1 as sysdba\' DIRECTORY=datos DUMPFILE=\'con espacios.dmp\'
+#+end_src
+
 ** Ejemplo de exportación
 
 #+begin_src shell

@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Exportar e importar datos de Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:08</p>
+<h1 class="title">Exportar e importar datos de Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-04-22 vie 09:15</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -787,7 +787,25 @@ create directory mi_directorio_de_backup as '/home/alumno/backups';
 </section>
 <section id="slide-1-3">
 <div class="slide-header"></div>
-<h3 id="1-3"><span class="section-number-3">1.3.</span> Ejemplo de exportación</h3>
+<h3 id="1-3"><span class="section-number-3">1.3.</span> Caracteres de escape</h3>
+<ul>
+<li>A veces hay que pasar parámetros con espacios u otros caracteres especiales</li>
+<li>En <code>bash</code> se haría con comillas "dobles" o 'simples'</li>
+<li><code>expdp</code> maneja por sí mismo las comillas, así que hay que escaparlas en <code>bash</code></li>
+
+</ul>
+
+<div class="org-src-container">
+
+<pre><code class="bash" >expdp \'sys/alumno@localhost:1521/orclpdb1 as sysdba\' DIRECTORY=datos DUMPFILE=\'con espacios.dmp\'
+</code></pre>
+</div>
+<div class="slide-footer"></div>
+
+</section>
+<section id="slide-1-4">
+<div class="slide-header"></div>
+<h3 id="1-4"><span class="section-number-3">1.4.</span> Ejemplo de exportación</h3>
 <div class="org-src-container">
 
 <pre><code class="shell" >
