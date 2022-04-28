@@ -1,4 +1,3 @@
--/common/mathjax
--/common/reveal.js
--/gestion-bd-asir1/evaluacion/ev3-examen-colegio/log
--/gestion-bd-asir1/evaluacion/ev3-practica-plsqlbasico/log
+-reveal.js*/*
+-mathjax*/*
+
