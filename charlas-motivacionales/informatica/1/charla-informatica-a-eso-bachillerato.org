@@ -1,5 +1,5 @@
 #+INCLUDE: "./header.org"
-#+TITLE: Estudiar informática
+#+TITLE: Estudiar FP 
 #+OPTIONS:   toc:nil  timestamp:nil author:nil
 
 
@@ -14,7 +14,39 @@
 </style>
 #+end_export 
 
+* La Formación Profesional
+:PROPERTIES:
+:reveal_background: ./avatares-muchas-profesiones.jpg
+:END:
 
+- Estudios o aprendizajes que están encaminados a la inserción laboral
+- Vertiente práctica y cercanía a las empresas
+- La duración de los estudios es más breve que los universitarios
+- La incorporación laboral se puede realizar con mayor rapidez
+- Posibilidad de realizar prácticas en el extranjero
+
+
+#+html: <div style="width:100%;text-align:center;font-size:0.5em;position:fixed;bottom:1em"><a href="http://www.freepik.com">Designed by Freepik</a></div>
+
+
+** Acceso
+[[file:requisitos-y-baremo-acceso.png]]
+
+** Inserción laborar Grado Medio (2018)
+[[file:insercion-laboral-2018-grado-medio.png]]
+
+
+** Inserción laborar Grado Superior (2018)
+[[file:insercion-laboral-2018-grado-superior.png]]
+
+
+** FP presencial y dual
+| Presencial               | Dual                            |
+|--------------------------+---------------------------------|
+| 2 años en el centro      | 1 año                           |
+| Prácticas de 1 trimestre | 3 trimestres                    |
+| Prácticas no remuneradas | Prácticas remuneradas           |
+| Módulos en el centro     | Módulos entre centro  y empresa |  
 
 * La informática, estereotipada
 :PROPERTIES:
@@ -146,14 +178,6 @@ O al menos, es una parte muy pequeña
 - Bases de datos: [[https://sqlpd.com/][SQL Police Department]] << [[https://mystery.knightlab.com/][SQL Murder Mystery]]
 - Sistemas: [[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html][Terminus game]] << [[https://ubuntu.com/download][Instalar linux]]
 - Sistemas y redes: [[https://overthewire.org/wargames/bandit/bandit0.html][Bandit]]
-
-* FP presencial y dual
-| Presencial               | Dual                            |
-|--------------------------+---------------------------------|
-| 2 años en el centro      | 1 año                           |
-| Prácticas de 1 trimestre | 3 trimestres                    |
-| Prácticas no remuneradas | Prácticas remuneradas           |
-| Módulos en el centro     | Módulos entre centro  y empresa |  
 
 #+begin_NOTES
 - Inserción laboral
