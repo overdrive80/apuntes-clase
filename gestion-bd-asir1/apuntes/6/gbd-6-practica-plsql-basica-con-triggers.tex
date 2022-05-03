@@ -49,9 +49,31 @@ En esta práctica, se siguen utilizando las vistas \texttt{V\_PRODUCTOS} y \text
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \begin{homeworkProblem}[: Creación de producto con \texttt{insert}]
-  Crea un \textit{trigger} de tipo \enlace{https://www.oracletutorial.com/plsql-tutorial/oracle-instead-of-triggers/}{instead of} que permita crear un producto directamente con una orden \texttt{insert} en la vista \texttt{V\_PRODUCTOS}. El \textit{trigger} ignorará el valor del identificador de producto, y llamará al procedimiento \texttt{CREAR\_PRODUCTO}.
+
+  Modifica el procedimiento \texttt{CREAR\_PRODUCTO} para que si recibe un valor para el nuevo \texttt{IDPRODUCTO} lo utilice,  y si el \texttt{IDPRODUCTO} ya existe, se lanzará el error \texttt{PRODUCTOYAEXISTE}.
+  Si \texttt{IDPRODUCTO} es \texttt{NULL}, el identificador se extraerá del siguiente valor de la secuencia \texttt{SECUENCIA\_PRODUCTO}.
+
+\begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
+create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto IN OUT number)
+as 
+-- VARIABLES QUE HAGAN FALTA
+begin
+-- SI idproducto ES NULL, USA LA SECUENCIA_PRODUCTO
+-- INSERTA EL PRODUCTO CON ESE ID
+-- DEVUELVO EL NUEVO ID EN idproducto
+end;
+/
+\end{listadosql}
+
+  \begin{Aviso}
+    Si es necesario, se probarán números de la \texttt{SECUENCIA\_PRODUCTO} hasta que se encuentre uno que no exista (por ejemplo, con un bucle \texttt{while})
+  \end{Aviso}
+  
+  Crea un \textit{trigger} de tipo \enlace{https://www.oracletutorial.com/plsql-tutorial/oracle-instead-of-triggers/}{instead of} que permita crear un producto directamente con una orden \texttt{insert} en la vista \texttt{V\_PRODUCTOS}. El \textit{trigger} utilizará el procedimiento \texttt{CREAR\_PRODUCTO}. Si no se da valor a la columna \texttt{NOMBRE\_PRODUCTO} se lanzará el error \texttt{FALTANDATOS}.
   
 \begin{listadosql}{Creación de producto con \texttt{insert}}{lst:crear-producto}
+
+
 create or replace trigger INSERTAR_PRODUCTO
 instead of INSERT on V_PRODUCTOS
 for each row
@@ -59,92 +81,77 @@ declare
 -- VARIABLES QUE HAGAN FALTA
 begin
 -- 
--- Ignora el identificador y llama a CREAR_PRODUCTO con el nombre
+-- Llama a CREAR_PRODUCTO con los parámetros necesarios
 -- 
 end;
 /
 
 
 insert into v_productos(nombreproducto) values ('Zapatos magnolia');
+insert into v_productos(nombreproducto,idproducto) values ('Zapatos rosa', 25);
+
+-- ESTO DA EL ERROR FALTANDATOS
+insert into v_productos(idproducto) values (230);
+
 
 \end{listadosql}
 
 \end{homeworkProblem}
 
-\begin{comment}
-  \begin{homeworkProblem}[: Existencias precalculadas]
 
-    Crea una tabla \texttt{T\_EXISTENCIAS\_PRECAL} que contenga el stock de cada producto de forma precalculada. Para ello:
-    
-    \begin{itemize}
-    \item Crea un procedimiento \texttt{INICIALIZA\_EXISTENCIAS\_PRECAL}, que borre todas las filas de la tabla \texttt{T\_EXISTENCIAS\_PRECAL} e inserte de nuevo una fila por cada producto, con sus existencias.
-    \item Añade los \textit{triggers} necesarios a tus tablas para que cada vez que se produzca una entrada o salida se actualice el stock de esta tabla, sin que se vuelvan a leer del resto de entradas o salidas de ese producto.
-    \end{itemize}
+\begin{homeworkProblem}[: Saldo precalculado]
 
-    
-    \begin{listadosql}{Existencias precalculadas}{lst:entrada-salida}
-    create table T_EXISTENCIAS_PRECAL(idproducto number(10), existencias number(10));
+  Crea una tabla \texttt{T\_SALDO} que contenga la ganancia (o pérdida) de la empresa, a partir de las entradas y salidas de producto. Tendrá solo una fila, con una única columna de nombre \texttt{SALDO} con el dinero que se haya conseguido con las salidas, menos el dinero que se haya gastado con las entradas.
+  
+  \begin{itemize}
+  \item Añade los \textit{triggers} necesarios a tus tablas para que cada vez que se produzca una entrada o salida se actualice el saldo de la empresa.
+  \item Si la tabla \texttt{T\_SALDO} tiene ya una fila, esa fila se actualizará cuando haya una entrada o una salida
+  \item Si la tabla \texttt{T\_SALDO} no tiene ninguna fila, se creará la fila cuando haya una entrada o una salida
+  \end{itemize}
 
-    create or replace procedure INICIALIZA_EXISTENCIAS_PRECAL
-    as
-    -- VARIABLES QUE HAGAN FALTA
-    begin
-    -- BORRA TODAS LAS FILAS DE T_EXISTENCIAS_PRECAL
-    for producto in .... loop
-    -- INSERTA UNA FILA POR CADA FILA EN V_PRODUCTOS
-    end loop;
-    end; 
+  
+\begin{listadosql}{Existencias precalculadas}{lst:saldo}
+create table T_SALDO(saldo number(10,2));
+\end{listadosql}
 
-    create or replace trigger ACT_EXISTENCIAS_ENTRADA 
-    after insert on .....
-    for each row 
-    declare
-    -- VARIABLES QUE HAGAN FALTA
-    begin
-    .....
-    end;
+\end{homeworkProblem}
 
-    create or replace trigger ACT_EXISTENCIAS_SALIDA
-    after insert on .....
-    for each row 
-    declare
-    -- VARIABLES QUE HAGAN FALTA
-    begin
-    .....
-    end;
-
-
-    \end{listadosql}
-
-  \end{homeworkProblem}
-\end{comment}
 
 \begin{homeworkProblem}[: Creación rápida de productos]
-  Para compras de productos, se desea que se pueda insertar directamente en la vista \texttt{V\_EXISTENCIAS}.
+
+  Se modificará la tabla \texttt{V\_EXISTENCIAS} para que incluya el nombre del producto.
+
+\begin{listadosql}{Vista de existencias}{lst:vista-existencias}
+create or replace view V_EXISTENCIAS(idproducto,nombreproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
+...
+\end{listadosql}  
+
+  
+  El cliente necesita que se pueda dar de alta y dar entrada a un producto de forma rápida. Para ello, se desea que se pueda insertar directamente en la vista \texttt{V\_EXISTENCIAS}.
   \begin{itemize}
-  \item Si se indica un \texttt{idproducto}, se insertará un producto con ese identificador. Si no, se utilizará la secuencia de la práctica anterior.
-  \item El nombre del producto será \texttt{OFERTA}.
-  \item Se creará una entrada de producto con la cantidad indicada en \texttt{existencias}, al precio marcado en \texttt{ultimopreciocompra}. Si alguno de estos en \texttt{NULL} se lanzará el error \texttt{-20103}.
-  \item Si se indica un \texttt{ultimoprecioventa}, se lanzará el error \texttt{-20104}
+  \item Si se indica un \texttt{idproducto}, se creará un producto con ese identificador. Si no, se utilizará la secuencia de la práctica anterior.
+  \item El nombre del producto será el indicado en el \texttt{insert}. Si es \texttt{NULL} se lanzará el error \texttt{FALTANDATOS}
+  \item Se creará una entrada de producto con la cantidad indicada en \texttt{existencias}, al precio marcado en \texttt{ultimopreciocompra}. Si alguno de estos es \texttt{NULL} se lanzará el error \texttt{FALTANDATOS}.
+  \item Si se indica un \texttt{ultimoprecioventa}, se lanzará el error \texttt{SOBRANDATOS}
 
-    \begin{listadosql}{Ejemplos de insert}{lst:insert}
-    -- Se añade un productro de nombre OFERTA, id 1234, con una entrada de 10 unidades a 20 euros
-    insert into v_existencias(idproducto,existencias,ultimopreciocompra) 
-                values (1234,10,20);
+\begin{listadosql}{Ejemplos de insert}{lst:insert}
+-- Se añade un producto de nombre OFERTA, id 1234, con una entrada de 10 unidades a 20 euros
+insert into v_existencias(idproducto,nombreproducto,existencias,ultimopreciocompra) 
+values (1234,'OFERTA',10,20);
 
-    -- Se añade un productro de nombre OFERTA, con identificador sacado de la secuencia, con una entrada de 10 unidades a 20 euros
-    insert into v_existencias(existencias,ultimopreciocompra) 
-                values (10,20);
+-- Se añade un producto de nombre OFERTON, con identificador sacado de la secuencia, con una entrada de 10 unidades a 20 euros
+insert into v_existencias(nombreproducto,existencias,ultimopreciocompra) 
+values ('OFERTON',10,20);
 
-    -- Error -20103
-    insert into v_existencias(ultimopreciocompra) values (20);
+-- Error FALTANDATOS
+insert into v_existencias(ultimopreciocompra) values (20);
 
-    -- Error -20104
-    insert into v_existencias(existencias,ultimopreciocompra,ultimoprecioventa) 
-                values (10,20,30);
+-- Error SOBRANDATOS
+insert into v_existencias(nombreproducto,existencias,ultimopreciocompra,ultimoprecioventa) 
+values ('producto',10,20,30);
 
 
-    \end{listadosql}
+\end{listadosql}
   \end{itemize}
 
 \end{homeworkProblem}
@@ -154,12 +161,12 @@ insert into v_productos(nombreproducto) values ('Zapatos magnolia');
 
   Se desea evitar las variaciones muy rápidas de los precios pagados a los proveedores.
   \begin{itemize}
-  \item Se pondrá un \textit{trigger} en la tabla donde se apunten las entradas.
-  \item La entrada  no se podrá guardar si su precio difiere en más de 10\euro (por arriba o por abajo) de la entrada anterior. En ese caso, se lanzará el error \texttt{-20200} con \texttt{RAISE\_APPLICATION\_ERROR}.
-  \item Si nunca ha habido una entrada para ese producto, siempre se podrá guardar.
+  \item Se pondrá un \textit{trigger} en la tabla donde se apunten las entradas, de nombre \texttt{CONTROL\_PRECIOS\_ENTRADA}.
+  \item La entrada  no se podrá guardar si su precio difiere en más de 10\euro (por arriba o por abajo) de la entrada anterior. En ese caso, se lanzará el error \texttt{PRECIOFUERADERANGO}
+  \item Si nunca ha habido una entrada para ese producto, se podrá guardar.
   \end{itemize}
 
-\begin{listadosql}{Control de precios de entrada}{lst:vista-existencias}
+\begin{listadosql}{Control de precios de entrada}{lst:control-precios}
 create or replace trigger CONTROL_PRECIOS_ENTRADA
 before insert on .....
 for each row 
@@ -168,7 +175,7 @@ declare
 begin
 .....
 if ...... then
-RAISE_APPLICATION_ERROR(-20200, 'Precio fuera de rango');
+RAISE_APPLICATION_ERROR(-20200, 'PRECIOFUERADERANGO');
 end if;
 .....
 end;
@@ -193,20 +200,16 @@ end;
 \end{homeworkProblem}
 
 
-\section{Entorno de pruebas}
-En hay accesible un servidor Oracle (\texttt{alvarogonzalez.no-ip.biz}), con un usuario para cada alumno.
-El profesor pasará unas pruebas automáticas, que dejarán el resultado en \enlace{http://alvarogonzalez.no-ip.biz:8088}{http://alvarogonzalez.no-ip.biz:8088}.
 
 \section{Instrucciones de entrega}
-La entrega se realizará en el servidor de pruebas (\texttt{alvarogonzalez.no-ip.biz}). Si no estuviera operativo, se entregará un único fichero SQL para todos los apartados con las sentencias SQL necesarias para crear las tablas, secuencias, procedimientos, funciones y vistas que el alumno necesite.
+La entrega se realizará en el servidor del profesor. Si no estuviera operativo, se entregará un único fichero SQL para todos los apartados con las sentencias SQL necesarias para crear las tablas, secuencias, procedimientos, funciones y vistas que el alumno necesite.
 \begin{itemize}
-\item Este fichero se corregirá de forma semiautomática, por lo que es necesario seguir la nomenclatura propuesta en el ejercicio.
-\item El fichero se cargará en un usuario recién creado con permisos necesarios para crear todos los elementos necesarios (tablas, vistas, funciones, secuencias\dots)
+\item Este ejercicio se corregirá de forma semiautomática, por lo que es necesario seguir la nomenclatura propuesta en el ejercicio.
 \item Si tiene \textbf{errores} de compilación podría no corregirse. Si no se siguen los \textbf{nombres de objetos} pedidos podría no corregirse.
 \end{itemize}
 
 
-Sube el documento a la tarea correspondiente en el \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/}{aula virtual}.
+El documento se subiría a la tarea correspondiente en el \enlace{https://aulavirtual3.educa.madrid.org/ies.alonsodeavellan.alcala/}{aula virtual}.
 Presta atención al plazo de entrega (con fecha y hora).
 
 
