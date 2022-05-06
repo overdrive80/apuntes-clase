@@ -139,6 +139,9 @@ done
 - Crea un /script/ que reciba hasta 9 parámetros
 - Su salida serán los parámetros, uno por línea, en orden alfabético inverso
 - La salida no tendrá líneas en blanco
+- Mejoras:
+  - Más de 9 parámetros: =shift=, =$*=
+  - Parámetros con espacios: =$@=
 
 #+begin_comment
 parametros_en_orden(){
