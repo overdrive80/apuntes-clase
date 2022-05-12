@@ -46,9 +46,11 @@ Se parte de \enlace{https://alvarogonzalezsotillo.github.io/apuntes-clase/gestio
 
 En esta práctica, se siguen utilizando las vistas \texttt{V\_PRODUCTOS} y \texttt{V\_EXISTENCIAS}. Los procedimientos y funciones \texttt{EXISTENCIAS\_PRODUCTO}, \texttt{ENTRADA\_PRODUCTO}, \texttt{SALIDA\_PRODUCTO} y \texttt{SALIDA\_PRODUCTO\_CON\_STOCK} son inicialmente los mismos. Puede comenzarse con \enlace{https://www.youtube.com/playlist?list=PLPYjb2UQXp7TLfDwwm09A7BR0KLW05MiX}{la solución propuesta por el profesor}.
 
+La práctica anterior tiene un valor de \textbf{2 puntos}.
+
 \newpage
 
-\begin{homeworkProblem}[: Control de precios]
+\begin{homeworkProblem}[: Control de precios (\textbf{1 punto})]
 
   Se desea evitar las variaciones muy rápidas de los precios pagados a los proveedores.
   \begin{itemize}
@@ -92,7 +94,7 @@ end;
 
 \newpage
 
-\begin{homeworkProblem}[: Saldo precalculado]
+\begin{homeworkProblem}[: Saldo precalculado (\textbf{1 punto})]
 
   Crea una tabla \texttt{T\_SALDO} que contenga la ganancia (o pérdida) de la empresa, a partir de las entradas y salidas de producto. Tendrá solo una fila, con una única columna de nombre \texttt{SALDO} con el dinero que se haya conseguido con las salidas, menos el dinero que se haya gastado con las entradas.
   
@@ -111,7 +113,7 @@ create table T_SALDO(saldo number(10,2));
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
-\begin{homeworkProblem}[: Creación de producto especificando \texttt{IDPRODUCTO}]
+\begin{homeworkProblem}[: Creación de producto especificando \texttt{IDPRODUCTO} (\textbf{2 puntos})]
 
   Modifica el procedimiento \texttt{CREAR\_PRODUCTO} para que:
   \begin{itemize}
@@ -145,7 +147,7 @@ end;
 
 \newpage
 
-\begin{homeworkProblem}[: Creación de producto con \texttt{insert}]
+\begin{homeworkProblem}[: Creación de producto con \texttt{insert} (\textbf{2 puntos})]
 
   Crea un \textit{trigger} de tipo \enlace{https://www.oracletutorial.com/plsql-tutorial/oracle-instead-of-triggers/}{instead of} que permita crear un producto directamente con una orden \texttt{insert} en la vista \texttt{V\_PRODUCTOS}.
   \begin{itemize}
@@ -189,7 +191,7 @@ insert into v_productos(idproducto) values (230);
 
 
 
-\begin{homeworkProblem}[: Creación rápida de productos]
+\begin{homeworkProblem}[: Creación rápida de productos (\textbf{2 puntos})]
 
   Se modificará la tabla \texttt{V\_EXISTENCIAS} para que incluya el nombre del producto.
 
