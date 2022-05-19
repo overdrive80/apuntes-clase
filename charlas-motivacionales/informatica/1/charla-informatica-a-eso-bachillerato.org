@@ -1,6 +1,6 @@
 #+INCLUDE: "./header.org"
 #+TITLE: Estudiar FP 
-#+OPTIONS:   toc:nil  timestamp:nil author:nil
+#+OPTIONS:   toc:nil  timestamp:nil author:nil num:nil
 
 
 
@@ -16,7 +16,22 @@
       ;
   }
 </style>
-#+end_export 
+
+#+end_export
+
+
+* Cómo moverse por esta presentación
+|----------+----------------------------|
+| Tecla    | Acción                     |
+|----------+----------------------------|
+| =n=      | Avanzar ( *N* ext )        |
+| =p=      | Retroceder ( *P* revious ) |
+| =CTRL += | Más grande                 |
+| =CTRL -= | Más pequeño                |
+| =?=      | Mostrar resto de acciones  |
+|----------+----------------------------|
+
+
 
 * La Formación Profesional
 :PROPERTIES:
