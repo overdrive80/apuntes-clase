@@ -6,6 +6,9 @@
 # IDIOMA
 #+latex_header: \usepackage[spanish]{babel}
 
+# TAMAÑO DE PÁGINA
+#+LaTeX_CLASS_OPTIONS: [a4paper]
+
 # COLORES
 #+latex_header: \usepackage[usenames,dvipsnames]{color} % Required for custom colors
 
