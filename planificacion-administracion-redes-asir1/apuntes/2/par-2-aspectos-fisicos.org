@@ -211,6 +211,8 @@ $$ bitrate = baudios*bitsporbaudio $$
 ** Código [[https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ][NRZI]]
 | 0 | La señal no cambia       |
 | 1 | La señal cambia de signo |
+|---+--------------------------|
+|   | Por lo demás, como NRZL  |
 #+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-nrzi.png]]
 
