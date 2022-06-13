@@ -198,9 +198,10 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - La amplitud media no es 0, por lo que hay un componente de corriente continua apreciable
 
-** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZ-L]] 
+** Código [[https://es.wikipedia.org/wiki/C%25C3%25B3digos_NRZ][NRZ-L]] (bipolar)
 | 0 | -xV |
 | 1 | +xV |
+
 #+attr_latex: :width 0.6\textwidth
 [[file:media/codificacion-nrzl.png]]
 - Ventajas
@@ -208,7 +209,7 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - Si mando muchos 0s o 1s seguidos, puedo perder la sincronización del reloj
 
-** Código [[https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ][NRZI]]
+** Código [[https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ][NRZI]] (bipolar)
 | 0 | La señal no cambia       |
 | 1 | La señal cambia de signo |
 |---+--------------------------|
