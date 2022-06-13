@@ -209,6 +209,8 @@ $$ bitrate = baudios*bitsporbaudio $$
 - Desventajas
   - Si mando muchos 0s o 1s seguidos, puedo perder la sincronización del reloj
 
+Nota: Si no usa -xV para 0, queda unipolar
+
 ** Código [[https://es.wikipedia.org/wiki/C%C3%B3digos_NRZ][NRZI]] (bipolar)
 | 0 | La señal no cambia       |
 | 1 | La señal cambia de signo |
