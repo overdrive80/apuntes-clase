@@ -437,7 +437,7 @@ Data processing by two communicating OSI-compatible devices proceeds as follows:
 - Cuando llega una trama, el software del puente extrae la dirección de destino del encabezado y la busca en una tabla para averiguar a donde se debe enviar.
 - Un puente podría tener entradas de diferentes tipos de red y velocidades.
 
-** Conmuntador
+** Conmutador
 - Un puente de más de dos conexiones
 - Examinan la dirección de destino.
 - Aprenden las máquinas que están conectadas en cada boca.
