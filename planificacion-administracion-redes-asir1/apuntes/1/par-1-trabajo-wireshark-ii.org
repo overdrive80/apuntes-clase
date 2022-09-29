@@ -66,7 +66,7 @@ https://en.wikipedia.org/wiki/IEEE_802.3
 * Conversación =ping=
 
   - Captura el tráfico mientras haces un =ping= al servidor de DNS de Google =8.8.8.8=
-  - Usa un filtro de Wireshark para mostrar solo esa Conversacióm
+  - Usa un filtro de Wireshark para mostrar solo esa conversación
   - Incluye en el trabajo el pantallazo de la conversación y el filtro utilizado.  
   
   
