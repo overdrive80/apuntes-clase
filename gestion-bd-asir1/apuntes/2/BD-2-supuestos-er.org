@@ -19,7 +19,7 @@ El TPV de un comercio tiene que almacenar e imprimir tickets de compra con la si
 - Los artículos comprados
 - El precio de cada artículo
 - Si se compra más de un artículo igual, se quiere en la misma línea, con un multiplicador
-- Cada artículo tiene un impuesto de IVA distinto
+- Cada artículo tiene un impuesto de IVA distinto: normal, reducido o súper-reducido.
 - El total del ticket, y la parte que se debe al IVA
 - Cada día, el comercio puede definir ofertas con descuentos. Por ejemplo:
   - Con dos barras de pan, la 2ª al 50%
