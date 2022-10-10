@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:04</p>
+<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:48</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -496,7 +496,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> Introducción</h2>
 <ul>
 <li>Oracle puede utilizarse simultáneamente por varios procesos y clientes
@@ -521,7 +520,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> Usuarios</h2>
 <ul>
 <li><p>
@@ -559,7 +557,6 @@ Borrado de usuario
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Privilegios</h2>
 <ul>
 <li>Cada usuario puede tener unos permisos distintos</li>
@@ -579,7 +576,6 @@ Borrado de usuario
 
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Privilegios de <b>Oracle</b></h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -615,7 +611,6 @@ Borrado de usuario
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Sintaxis de <code>Grant</code></h3>
 <div class="org-src-container">
 
@@ -643,7 +638,6 @@ grant select on alumnos to profesor;
 
 </section>
 <section id="slide-3-3">
-<div class="slide-header"></div>
 <h3 id="3-3"><span class="section-number-3">3.3.</span> Ejercicio</h3>
 <ul>
 <li>Crea un usuario <code>PROPIETARIO</code>
@@ -676,7 +670,6 @@ grant update(column-name) on table-name to user-name
 
 </section>
 <section id="slide-3-4">
-<div class="slide-header"></div>
 <h3 id="3-4"><span class="section-number-3">3.4.</span> Quitar privilegios</h3>
 <ul>
 <li>Los privilegios se quitan con <code>revoke</code></li>
@@ -707,7 +700,6 @@ revoke select on unatabla from unusuario;
 
 </section>
 <section id="slide-3-5">
-<div class="slide-header"></div>
 <h3 id="3-5"><span class="section-number-3">3.5.</span> Caso especial: <code>Select</code> sobre columnas</h3>
 <ul>
 <li>Oracle no permite otorgar <code>select</code> sobre columnas, solo sobre la tabla completa</li>
@@ -734,7 +726,6 @@ _
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> Roles</h2>
 <ul>
 <li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
@@ -751,7 +742,6 @@ _
 
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Sintaxis de roles</h3>
 <div class="org-src-container">
 
@@ -768,7 +758,6 @@ grant NOMBREROL to USUARIO;
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Ejercicio</h3>
 <ul>
 <li>Imagina que
@@ -827,7 +816,6 @@ grant ELROL to usuariodespues;
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> Referencias</h2>
 <ul>
 <li>Formatos:

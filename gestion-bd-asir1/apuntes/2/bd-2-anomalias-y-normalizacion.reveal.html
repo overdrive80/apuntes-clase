@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Anomalías y formas normales</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:04</p>
+<h1 class="title">Anomalías y formas normales</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:48</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -495,7 +495,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> Introducción</h2>
 <ul>
 <li>El diseño de base de datos es necesario para evitar anomalías
@@ -522,13 +521,11 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> Anomalías</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 </section>
 <section id="slide-2-1">
-<div class="slide-header"></div>
 <h3 id="2-1"><span class="section-number-3">2.1.</span> Cambios de la BD (diseño E-R)</h3>
 <ul>
 <li>Desde el punto de vista del diseño E-R, un <b>cambio</b> en la base de datos es:
@@ -545,7 +542,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-2">
-<div class="slide-header"></div>
 <h3 id="2-2"><span class="section-number-3">2.2.</span> Cambios de la BD (relaciones)</h3>
 <ul>
 <li>Desde el punto de vista del diseño relacional, un <b>cambio</b> en la base de datos es:
@@ -561,7 +557,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-3">
-<div class="slide-header"></div>
 <h3 id="2-3"><span class="section-number-3">2.3.</span> Anomalía</h3>
 <ul>
 <li>Decimos que hay una anomalía cuando <b>un</b> cambio desde el punto de vista E-R implica <b>más de un</b> cambio en la base de datos relacional
@@ -577,7 +572,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-3-1">
-<div class="slide-header"></div>
 <h4 id="2-3-1"><span class="section-number-4">2.3.1.</span> Anomalía de inserción/borrado</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -660,7 +654,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-3-2">
-<div class="slide-header"></div>
 <h4 id="2-3-2"><span class="section-number-4">2.3.2.</span> Anomalía de modificación</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -743,7 +736,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-3-3">
-<div class="slide-header"></div>
 <h4 id="2-3-3"><span class="section-number-4">2.3.3.</span> Origen de las anomalías</h4>
 <ul>
 <li>Redundancia de las interrelaciones</li>
@@ -758,7 +750,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Dependencias funcionales</h2>
 <ul>
 <li>Decimos que un campo B depende funcionalmente de otro A si, al conocer el valor de A, conocemos el valor de B.</li>
@@ -780,7 +771,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Ejemplo</h3>
 <ul>
 <li>Se desea una base de datos que guarde los atributos <code>(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)</code></li>
@@ -891,7 +881,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Ejercicio</h3>
 <ul>
 <li>Se desea una base de datos que guarde los atributos <code>(DNI, Nombre, CódigoTienda, DirecciónTienda, Fecha, Turno)</code></li>
@@ -903,7 +892,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-3-2-1">
-<div class="slide-header"></div>
 <h4 id="3-2-1"><span class="section-number-4">3.2.1.</span> Solución</h4>
 
 <div id="org0000001" class="figure">
@@ -988,7 +976,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> Normalización</h2>
 <ul>
 <li>Procedimiento para eliminar anomalías en la base de datos</li>
@@ -999,7 +986,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Clave de una relación</h3>
 <ul>
 <li>La clave de una relación es el conjunto mínimo de campos que es imposible que se repitan en la relación
@@ -1020,7 +1006,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Primera forma normal (1FN)</h3>
 <ul>
 <li>Una relación está en <a href="https://es.wikipedia.org/wiki/Primera_forma_normal">1FN</a> si no tiene atributos multivaluados</li>
@@ -1030,7 +1015,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-2-1">
-<div class="slide-header"></div>
 <h4 id="4-2-1"><span class="section-number-4">4.2.1.</span> Ejemplo 1FN</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1169,7 +1153,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-3">
-<div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3.</span> Segunda forma normal (2FN)</h3>
 <ul>
 <li>Una relación está en <a href="https://es.wikipedia.org/wiki/Segunda_forma_normal">2FN</a> si
@@ -1185,7 +1168,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-3-1">
-<div class="slide-header"></div>
 <h4 id="4-3-1"><span class="section-number-4">4.3.1.</span> Ejemplo 2FN</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1361,7 +1343,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-4">
-<div class="slide-header"></div>
 <h3 id="4-4"><span class="section-number-3">4.4.</span> Tercera forma normal (3FN)</h3>
 <ul>
 <li>Una relación está en <a href="https://es.wikipedia.org/wiki/Tercera_forma_normal">3FN</a> si
@@ -1376,7 +1357,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-4-4-1">
-<div class="slide-header"></div>
 <h4 id="4-4-1"><span class="section-number-4">4.4.1.</span> Ejemplo 3FN</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1529,7 +1509,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> Referencias</h2>
 <ul>
 <li>Formatos:
