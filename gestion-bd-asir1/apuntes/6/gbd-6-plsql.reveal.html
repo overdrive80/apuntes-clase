@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-03-19 sáb 19:44</p>
+<h1 class="title">PLSQL</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:48</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -501,7 +501,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> Introducción</h2>
 <ul>
 <li>PLSQL es un lenguaje de programación ejecutado en los servidores Oracle
@@ -521,7 +520,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-1">
-<div class="slide-header"></div>
 <h3 id="1-1"><span class="section-number-3">1.1.</span> Palabras reservadas</h3>
 <ul>
 <li>Vista <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14237/dynviews_2048.htm#REFRN30204"><code>V$RESERVED_WORDS</code></a></li>
@@ -534,7 +532,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-2">
-<div class="slide-header"></div>
 <h3 id="1-2"><span class="section-number-3">1.2.</span> Identificadores</h3>
 <ul>
 <li>Nombres definidos por el programador
@@ -554,7 +551,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> Bloques anónimos</h2>
 <div class="org-src-container">
 <label class="org-src-name">Bloque anónimo</label>
@@ -575,7 +571,6 @@ END;
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Variables</h2>
 <ul>
 <li>Valores referenciados por un identificador</li>
@@ -600,7 +595,6 @@ END;
 
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Tipos de variable</h3>
 <ul>
 <li>Se pueden utilizar todos los tipos SQL
@@ -623,7 +617,6 @@ END;
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Tipos referidos</h3>
 <ul>
 <li><code>%type</code> : Tipo de un campo de una tabla</li>
@@ -652,13 +645,11 @@ END;
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> Control de flujo</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Condicional</h3>
 <div class="org-src-container">
 
@@ -680,7 +671,6 @@ END;
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Condicional múltiple (I)</h3>
 <div class="org-src-container">
 
@@ -702,7 +692,6 @@ end case;
 
 </section>
 <section id="slide-4-3">
-<div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3.</span> Condicional múltiple (II)</h3>
 <div class="org-src-container">
 
@@ -722,7 +711,6 @@ end case;
 
 </section>
 <section id="slide-4-4">
-<div class="slide-header"></div>
 <h3 id="4-4"><span class="section-number-3">4.4.</span> Ejemplos de <code>case</code></h3>
 <p>
 Queremos implementar un servicio de traducción de español a inglés. El servicio no está disponible los lunes
@@ -732,7 +720,6 @@ Queremos implementar un servicio de traducción de español a inglés. El servic
 
 </section>
 <section id="slide-4-4-1">
-<div class="slide-header"></div>
 <h4 id="4-4-1"><span class="section-number-4">4.4.1.</span> <code>case</code> como sentencia con un valor</h4>
 <div class="org-src-container">
 
@@ -760,7 +747,6 @@ end;
 
 </section>
 <section id="slide-4-4-2">
-<div class="slide-header"></div>
 <h4 id="4-4-2"><span class="section-number-4">4.4.2.</span> <code>case</code> como sentencia con múltiples comparaciones</h4>
 <div class="org-src-container">
 
@@ -786,7 +772,6 @@ end;
 
 </section>
 <section id="slide-4-4-3">
-<div class="slide-header"></div>
 <h4 id="4-4-3"><span class="section-number-4">4.4.3.</span> <code>case</code> como expresión con múltiples comparaciones</h4>
 <div class="org-src-container">
 
@@ -814,7 +799,6 @@ end;
 
 </section>
 <section id="slide-4-4-4">
-<div class="slide-header"></div>
 <h4 id="4-4-4"><span class="section-number-4">4.4.4.</span> <code>case</code> como expresión con un valor</h4>
 <div class="org-src-container">
 
@@ -843,7 +827,6 @@ end;
 
 </section>
 <section id="slide-4-4-5">
-<div class="slide-header"></div>
 <h4 id="4-4-5"><span class="section-number-4">4.4.5.</span> Case usado en sentencias <code>sql</code></h4>
 <div class="org-src-container">
 
@@ -873,7 +856,6 @@ where precioventa &lt; 10;
 
 </section>
 <section id="slide-4-5">
-<div class="slide-header"></div>
 <h3 id="4-5"><span class="section-number-3">4.5.</span> Bucle <code>loop</code></h3>
 <div class="org-src-container">
 
@@ -890,7 +872,6 @@ END LOOP;
 
 </section>
 <section id="slide-4-6">
-<div class="slide-header"></div>
 <h3 id="4-6"><span class="section-number-3">4.6.</span> Bucle <code>while</code></h3>
 <div class="org-src-container">
 
@@ -903,7 +884,6 @@ END LOOP;
 
 </section>
 <section id="slide-4-7">
-<div class="slide-header"></div>
 <h3 id="4-7"><span class="section-number-3">4.7.</span> Bucle <code>for</code></h3>
 <div class="org-src-container">
 
@@ -920,7 +900,6 @@ END;
 
 </section>
 <section id="slide-4-8">
-<div class="slide-header"></div>
 <h3 id="4-8"><span class="section-number-3">4.8.</span> Ejercicios</h3>
 <ul>
 <li>Imprime los números del 1 al 100</li>
@@ -929,6 +908,8 @@ END;
 <li>Imprime los números primos del 1 al 100</li>
 <li>Imprime la suma de los números primos del 1 al 100</li>
 <li>Encuentra un número primo mayor de 1000000</li>
+<li>Calcula el máximo común divisor entre 1234516 y 77636519368</li>
+<li>Calcula el mínimo común múltiplo entre 1234516 y 77636519368</li>
 
 </ul>
 <div class="slide-footer"></div>
@@ -936,7 +917,6 @@ END;
 
 </section>
 <section id="slide-4-9">
-<div class="slide-header"></div>
 <h3 id="4-9"><span class="section-number-3">4.9.</span> Ejercicios</h3>
 <ul>
 <li><p>
@@ -971,7 +951,6 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> Funciones y procedimientos</h2>
 <ul>
 <li>Son bloques de código identificados con un nombre</li>
@@ -992,7 +971,6 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 
 </section>
 <section id="slide-5-1">
-<div class="slide-header"></div>
 <h3 id="5-1"><span class="section-number-3">5.1.</span> Funciones</h3>
 <ul>
 <li>Las funciones devuelven <b>siempre</b> un valor</li>
@@ -1009,7 +987,6 @@ Imprime un tablero de ajedrez de tamaño NxM (con la función <code>MOD</code>)
 
 </section>
 <section id="slide-5-1-1">
-<div class="slide-header"></div>
 <h4 id="5-1-1"><span class="section-number-4">5.1.1.</span> Ya hemos usado funciones</h4>
 <div class="org-src-container">
 
@@ -1023,7 +1000,6 @@ sqrt, upper, substr, len, nvl...
 
 </section>
 <section id="slide-5-1-2">
-<div class="slide-header"></div>
 <h4 id="5-1-2"><span class="section-number-4">5.1.2.</span> Funciones propias</h4>
 <ul>
 <li>Se pueden crear nuevas funciones, usando las que ya existen</li>
@@ -1051,7 +1027,6 @@ END;
 
 </section>
 <section id="slide-5-1-3">
-<div class="slide-header"></div>
 <h4 id="5-1-3"><span class="section-number-4">5.1.3.</span> Invocar una función</h4>
 <p>
 Las funciones pueden invocarse:
@@ -1091,7 +1066,6 @@ END;
 
 </section>
 <section id="slide-5-1-4">
-<div class="slide-header"></div>
 <h4 id="5-1-4"><span class="section-number-4">5.1.4.</span> Funciones en SQL</h4>
 <ul>
 <li>Una función puede utilizarse en SQL</li>
@@ -1118,7 +1092,6 @@ ORA-00902: tipo de dato no válido
 
 </section>
 <section id="slide-5-1-5">
-<div class="slide-header"></div>
 <h4 id="5-1-5"><span class="section-number-4">5.1.5.</span> Funciones predefinidas</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1181,7 +1154,6 @@ ORA-00902: tipo de dato no válido
 
 </section>
 <section id="slide-5-1-6">
-<div class="slide-header"></div>
 <h4 id="5-1-6"><span class="section-number-4">5.1.6.</span> Ejemplos de <code>to_date</code> y  <code>to_char</code></h4>
 <div class="org-src-container">
 
@@ -1208,7 +1180,6 @@ end;
 
 </section>
 <section id="slide-5-1-7">
-<div class="slide-header"></div>
 <h4 id="5-1-7"><span class="section-number-4">5.1.7.</span> Ejercicios</h4>
 <ul>
 <li><p>
@@ -1227,7 +1198,6 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 </section>
 <section id="slide-5-1-8">
-<div class="slide-header"></div>
 <h4 id="5-1-8"><span class="section-number-4">5.1.8.</span> Ejercicios</h4>
 <ul>
 <li>Haz una función que devuelva <code>1</code> si un número es primo o <code>0</code> si es compuesto
@@ -1247,7 +1217,6 @@ Imprime un listado con la inicial de los empleados y sus apellidos
 
 </section>
 <section id="slide-5-1-9">
-<div class="slide-header"></div>
 <h4 id="5-1-9"><span class="section-number-4">5.1.9.</span> Ejercicio resuelto: <code>capitalizar</code></h4>
 <div class="org-src-container">
 
@@ -1266,7 +1235,6 @@ end;
 
 </section>
 <section id="slide-5-2">
-<div class="slide-header"></div>
 <h3 id="5-2"><span class="section-number-3">5.2.</span> Procedimientos</h3>
 <ul>
 <li>Los procedimentos no devuelven un valor
@@ -1292,7 +1260,6 @@ END;
 
 </section>
 <section id="slide-5-3">
-<div class="slide-header"></div>
 <h3 id="5-3"><span class="section-number-3">5.3.</span> Parámetros <code>in</code></h3>
 <ul>
 <li>Es el tipo de parámetros por defecto</li>
@@ -1325,7 +1292,6 @@ end;
 
 </section>
 <section id="slide-5-4">
-<div class="slide-header"></div>
 <h3 id="5-4"><span class="section-number-3">5.4.</span> Parámetros <code>out</code></h3>
 <ul>
 <li>Un parámetro <code>out</code> se pasa <i>por referencia</i></li>
@@ -1359,7 +1325,6 @@ end;
 </section>
 <section>
 <section id="slide-6">
-<div class="slide-header"></div>
 <h2 id="6"><span class="section-number-2">6.</span> Sentencias SQL en PLSQL</h2>
 <ul>
 <li>Desde PLSQL pueden utilizarse las sentencias del DML
@@ -1379,7 +1344,6 @@ end;
 <div class="slide-footer"></div>
 </section>
 <section id="slide-6-1">
-<div class="slide-header"></div>
 <h3 id="6-1"><span class="section-number-3">6.1.</span> Variables en <code>select</code></h3>
 <ul>
 <li>Se puede leer el valor de un campo y guardarlo en una variable con <code>select ... into ... from...</code></li>
@@ -1414,7 +1378,6 @@ end;
 
 </section>
 <section id="slide-6-2">
-<div class="slide-header"></div>
 <h3 id="6-2"><span class="section-number-3">6.2.</span> Ventaja de los tipos <code>%type</code></h3>
 <ul>
 <li>Una variable puede copiar su tipo de una columna de una tabla</li>
@@ -1438,7 +1401,6 @@ end;
 
 </section>
 <section id="slide-6-3">
-<div class="slide-header"></div>
 <h3 id="6-3"><span class="section-number-3">6.3.</span> Ventaja de los tipos <code>%rowtype</code></h3>
 <ul>
 <li>Una variable puede contener todas las columnas de una fila</li>
@@ -1463,7 +1425,6 @@ end;
 
 </section>
 <section id="slide-6-4">
-<div class="slide-header"></div>
 <h3 id="6-4"><span class="section-number-3">6.4.</span> Variables en <code>insert</code>, <code>update</code>, <code>delete</code></h3>
 <ul>
 <li>Se utilizan como un valor inmediato</li>
@@ -1490,7 +1451,6 @@ end;
 
 </section>
 <section id="slide-6-5">
-<div class="slide-header"></div>
 <h3 id="6-5"><span class="section-number-3">6.5.</span> Ventaja de los tipos <code>%rowtype</code> en <code>insert</code></h3>
 <ul>
 <li>Una variable <code>%ROWTYPE</code> se puede usar en un <code>insert</code></li>
@@ -1515,7 +1475,6 @@ end;
 
 </section>
 <section id="slide-6-6">
-<div class="slide-header"></div>
 <h3 id="6-6"><span class="section-number-3">6.6.</span> Recorrer consultas</h3>
 <ul>
 <li><code>for</code> puede recorrer las filas de una consulta</li>
@@ -1551,7 +1510,6 @@ end;
 </section>
 <section>
 <section id="slide-7">
-<div class="slide-header"></div>
 <h2 id="7"><span class="section-number-2">7.</span> Control de errores</h2>
 <ul>
 <li>Si se produce un error, se lanza una <b>excepción</b>
@@ -1583,7 +1541,6 @@ END;
 
 </section>
 <section id="slide-7-1">
-<div class="slide-header"></div>
 <h3 id="7-1"><span class="section-number-3">7.1.</span> Sección <i>exception</i></h3>
 <ul>
 <li>Se especifican varios tipos de excepción que se esperan</li>
@@ -1610,7 +1567,6 @@ END;
 
 </section>
 <section id="slide-7-2">
-<div class="slide-header"></div>
 <h3 id="7-2"><span class="section-number-3">7.2.</span> Ejemplo</h3>
 <div class="org-src-container">
 
@@ -1637,7 +1593,6 @@ END;
 
 </section>
 <section id="slide-7-3">
-<div class="slide-header"></div>
 <h3 id="7-3"><span class="section-number-3">7.3.</span> Excepciones predefinidas</h3>
 <ul>
 <li>Estas son algunas (hay muchas)</li>
@@ -1681,7 +1636,6 @@ END;
 
 </section>
 <section id="slide-7-4">
-<div class="slide-header"></div>
 <h3 id="7-4"><span class="section-number-3">7.4.</span> <code>SQLCODE</code> y <code>SQLERRM</code></h3>
 <ul>
 <li>Funciones predefinidas</li>
@@ -1712,7 +1666,6 @@ END;
 
 </section>
 <section id="slide-7-5">
-<div class="slide-header"></div>
 <h3 id="7-5"><span class="section-number-3">7.5.</span> ¿Qué excepciones hay que atrapar?</h3>
 <ul>
 <li>Una excepción debe ser <i>excepcional</i></li>
@@ -1734,7 +1687,6 @@ END;
 
 </section>
 <section id="slide-7-6">
-<div class="slide-header"></div>
 <h3 id="7-6"><span class="section-number-3">7.6.</span> Excepciones de usuario</h3>
 <ul>
 <li>En ocasiones queremos enviar un mensaje de error personalizado</li>
@@ -1769,7 +1721,6 @@ END;
 </section>
 <section>
 <section id="slide-8">
-<div class="slide-header"></div>
 <h2 id="8"><span class="section-number-2">8.</span> <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statements_7004.htm">Disparadores</a> (<i>triggers</i>)</h2>
 <ul>
 <li>Las funciones y procedimientos se invocan desde <i>fuera</i> de la base de datos</li>
@@ -1787,7 +1738,6 @@ END;
 
 </section>
 <section id="slide-8-1">
-<div class="slide-header"></div>
 <h3 id="8-1"><span class="section-number-3">8.1.</span> Sintaxis (casi) completa</h3>
 <div class="org-src-container">
 
@@ -1810,7 +1760,6 @@ END;
 
 </section>
 <section id="slide-8-2">
-<div class="slide-header"></div>
 <h3 id="8-2"><span class="section-number-3">8.2.</span> Ejemplo: Al menos 10 empleados</h3>
 <div class="org-src-container">
 
@@ -1831,7 +1780,6 @@ end;
 
 </section>
 <section id="slide-8-3">
-<div class="slide-header"></div>
 <h3 id="8-3"><span class="section-number-3">8.3.</span> Eventos DML</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1888,7 +1836,6 @@ end;
 
 </section>
 <section id="slide-8-3-1">
-<div class="slide-header"></div>
 <h4 id="8-3-1"><span class="section-number-4">8.3.1.</span> Ejemplo de <i>trigger</i> en varios eventos DML</h4>
 <div class="org-src-container">
 
@@ -1913,7 +1860,6 @@ end;
 
 </section>
 <section id="slide-8-4">
-<div class="slide-header"></div>
 <h3 id="8-4"><span class="section-number-3">8.4.</span> Eventos DDL</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1982,7 +1928,6 @@ end;
 
 </section>
 <section id="slide-8-5">
-<div class="slide-header"></div>
 <h3 id="8-5"><span class="section-number-3">8.5.</span> Eventos de sistema</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2065,7 +2010,6 @@ end;
 
 </section>
 <section id="slide-8-6">
-<div class="slide-header"></div>
 <h3 id="8-6"><span class="section-number-3">8.6.</span> <code>for each row</code></h3>
 <ul>
 <li>Por defecto, un <i>trigger</i> se lanza una vez por cada sentencia SQL que provoque cambios</li>
@@ -2076,7 +2020,6 @@ end;
 
 </section>
 <section id="slide-8-7">
-<div class="slide-header"></div>
 <h3 id="8-7"><span class="section-number-3">8.7.</span> Momentos del evento</h3>
 <ul>
 <li>Se puede lanzar
@@ -2098,7 +2041,6 @@ end;
 
 </section>
 <section id="slide-8-7-1">
-<div class="slide-header"></div>
 <h4 id="8-7-1"><span class="section-number-4">8.7.1.</span> Resumen de momentos y variables</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -2169,7 +2111,6 @@ end;
 
 </section>
 <section id="slide-8-8">
-<div class="slide-header"></div>
 <h3 id="8-8"><span class="section-number-3">8.8.</span> Ejemplo típico: Autonuméricos</h3>
 <div class="org-src-container">
 
@@ -2190,7 +2131,6 @@ end;
 
 </section>
 <section id="slide-8-9">
-<div class="slide-header"></div>
 <h3 id="8-9"><span class="section-number-3">8.9.</span> Ejemplo típico: auditoría</h3>
 <ul>
 <li>Se necesitan los datos del usuario que creo y modificó un empleado por última vez</li>
@@ -2216,7 +2156,6 @@ alter table empleados add (
 
 </section>
 <section id="slide-8-9-1">
-<div class="slide-header"></div>
 <h4 id="8-9-1"><span class="section-number-4">8.9.1.</span> Actualizar campos <code>createdXXXX</code></h4>
 <div class="org-src-container">
 
@@ -2236,7 +2175,6 @@ end;
 
 </section>
 <section id="slide-8-9-2">
-<div class="slide-header"></div>
 <h4 id="8-9-2"><span class="section-number-4">8.9.2.</span> Actualizar campos <code>modifiedXXXX</code></h4>
 <div class="org-src-container">
 
@@ -2257,7 +2195,6 @@ end;
 
 </section>
 <section id="slide-8-10">
-<div class="slide-header"></div>
 <h3 id="8-10"><span class="section-number-3">8.10.</span> Ejemplo típico: desnormalización</h3>
 <ul>
 <li>Imaginemos que necesitamos saber la masa salarial total</li>
@@ -2285,7 +2222,6 @@ end;
 
 </section>
 <section id="slide-8-10-1">
-<div class="slide-header"></div>
 <h4 id="8-10-1"><span class="section-number-4">8.10.1.</span> Con triggers</h4>
 <div class="org-src-container">
 
@@ -2320,7 +2256,6 @@ end;
 
 </section>
 <section id="slide-8-10-2">
-<div class="slide-header"></div>
 <h4 id="8-10-2"><span class="section-number-4">8.10.2.</span> Ventajas de la desnormalización</h4>
 <ul>
 <li>La tabla <code>masasalarial</code> tiene un atributo calculado, que depende de otros datos
@@ -2337,7 +2272,6 @@ end;
 
 </section>
 <section id="slide-8-10-3">
-<div class="slide-header"></div>
 <h4 id="8-10-3"><span class="section-number-4">8.10.3.</span> Prueba de rendimiento</h4>
 <ul>
 <li>Estas consultas simples suelen <a href="https://docs.oracle.com/database/121/TGDBA/tune_result_cache.htm#TGDBA618">estar ya optimizadas</a> por el gestor de base de datos</li>
@@ -2379,7 +2313,6 @@ end;
 </section>
 <section>
 <section id="slide-9">
-<div class="slide-header"></div>
 <h2 id="9"><span class="section-number-2">9.</span> Referencias</h2>
 <ul>
 <li><a href="BD-6-Ejemplos-PLSQL.html">Ejercicios</a></li>

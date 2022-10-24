@@ -74,6 +74,8 @@
 #+caption: Estándares de tramas Ethernet/802
 [[file:media/tramas-ethernet.png]]
 
+Nota: [[https://www.iana.org/assignments/ieee-802-numbers/ieee-802-numbers.xhtml][Lista de /ethertypes/]]
+
 ** [[https://es.wikipedia.org/wiki/IEEE_802.2][LLC]]
 #+caption: Cabecera LLC
 [[file:media/llc.png]]

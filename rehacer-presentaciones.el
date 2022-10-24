@@ -18,7 +18,7 @@
     (message "%s" orgfile)
     (save-window-excursion
       (find-file orgfile)
-      (reveal-y-pdf)
+      (ags/reveal-y-pdf)
       )
     ))
 

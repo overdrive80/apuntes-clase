@@ -444,7 +444,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-05-06 vie 09:43</p>
+<h1 class="title">Scripts de shell para Oracle</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:55</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -501,7 +501,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> Introducción</h2>
 <ul>
 <li>Muchas tareas del mantenimiento de una base de datos <b>Oracle</b> se llevan a cabo desde la línea de comandos</li>
@@ -523,13 +522,11 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> Scripts de <i>shell</i></h2>
 <div class="outline-text-2" id="text-2">
 </div>
 </section>
 <section id="slide-2-1">
-<div class="slide-header"></div>
 <h3 id="2-1"><span class="section-number-3">2.1.</span> <i>shebang</i></h3>
 <ul>
 <li>Los scripts empiezan con una línea indicando el intérprete que los ejecutará, con un comentario <code>#!</code></li>
@@ -556,7 +553,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-2">
-<div class="slide-header"></div>
 <h3 id="2-2"><span class="section-number-3">2.2.</span> Variables</h3>
 <div class="org-src-container">
 
@@ -575,7 +571,6 @@ variable_para_un_comando=valor comando
 
 </section>
 <section id="slide-2-3">
-<div class="slide-header"></div>
 <h3 id="2-3"><span class="section-number-3">2.3.</span> Entrada/salida</h3>
 <ul>
 <li>Los programas comienzan su ejecución con una salida y una entrada</li>
@@ -592,7 +587,6 @@ variable_para_un_comando=valor comando
 
 </section>
 <section id="slide-2-3-1">
-<div class="slide-header"></div>
 <h4 id="2-3-1"><span class="section-number-4">2.3.1.</span> Redirigir entrada/salida a fichero</h4>
 <div class="org-src-container">
 
@@ -614,7 +608,6 @@ sort &lt; fichero | less
 
 </section>
 <section id="slide-2-3-2">
-<div class="slide-header"></div>
 <h4 id="2-3-2"><span class="section-number-4">2.3.2.</span> <i>HEREDOCS</i></h4>
 <div class="org-src-container">
 
@@ -634,7 +627,6 @@ FINDEFICHERO
 
 </section>
 <section id="slide-2-3-3">
-<div class="slide-header"></div>
 <h4 id="2-3-3"><span class="section-number-4">2.3.3.</span> Salida como parámetro</h4>
 <ul>
 <li>Se puede capturar la salida de un comando en una cadena</li>
@@ -658,7 +650,6 @@ variable=$(ls)
 
 </section>
 <section id="slide-2-4">
-<div class="slide-header"></div>
 <h3 id="2-4"><span class="section-number-3">2.4.</span> Parámetros del <i>script</i></h3>
 <ul>
 <li><code>$0</code>: El nombre del <i>script</i></li>
@@ -672,7 +663,6 @@ variable=$(ls)
 
 </section>
 <section id="slide-2-5">
-<div class="slide-header"></div>
 <h3 id="2-5"><span class="section-number-3">2.5.</span> Funciones</h3>
 <ul>
 <li>Son conjuntos agrupados de órdenes con un nombre</li>
@@ -697,7 +687,6 @@ importante "Asi se define una funcion en bash"
 
 </section>
 <section id="slide-2-5-1">
-<div class="slide-header"></div>
 <h4 id="2-5-1"><span class="section-number-4">2.5.1.</span> <code>return</code> en funciones</h4>
 <ul>
 <li>Las funciones también tienen código de retorno</li>
@@ -723,7 +712,6 @@ done
 
 </section>
 <section id="slide-2-6">
-<div class="slide-header"></div>
 <h3 id="2-6"><span class="section-number-3">2.6.</span> Ejercicio</h3>
 <ul>
 <li>Crea un <i>script</i> que reciba hasta 9 parámetros</li>
@@ -741,7 +729,6 @@ done
 
 </section>
 <section id="slide-2-7">
-<div class="slide-header"></div>
 <h3 id="2-7"><span class="section-number-3">2.7.</span> Código de error (<i>exit code</i>)</h3>
 <ul>
 <li>Al terminar, un programa devuelve un valor numérico</li>
@@ -766,7 +753,6 @@ echo grep ha devuelto: $exit_code_del_grep
 
 </section>
 <section id="slide-2-8">
-<div class="slide-header"></div>
 <h3 id="2-8"><span class="section-number-3">2.8.</span> Condicionales</h3>
 <ul>
 <li><code>if</code> utiliza los códigos de error de los programas
@@ -793,7 +779,6 @@ fi
 
 </section>
 <section id="slide-2-8-1">
-<div class="slide-header"></div>
 <h4 id="2-8-1"><span class="section-number-4">2.8.1.</span> Comando <code>[</code></h4>
 <ul>
 <li><code>[</code> es un comando externo que ayuda a hacer condiciones con <code>if</code>
@@ -947,7 +932,6 @@ DESCRIPTION
 
 </section>
 <section id="slide-2-9">
-<div class="slide-header"></div>
 <h3 id="2-9"><span class="section-number-3">2.9.</span> Ejercicio</h3>
 <ul>
 <li>Haz un <i>script</i> que reciba un parámetro</li>
@@ -960,7 +944,6 @@ DESCRIPTION
 <div class="slide-footer"></div>
 </section>
 <section id="slide-2-10">
-<div class="slide-header"></div>
 <h3 id="2-10"><span class="section-number-3">2.10.</span> Bucles</h3>
 <ul>
 <li>Con <code>for</code> se pueden hacer bucles sobre una lista de parámetros</li>
@@ -986,7 +969,6 @@ done
 
 </section>
 <section id="slide-2-10-1">
-<div class="slide-header"></div>
 <h4 id="2-10-1"><span class="section-number-4">2.10.1.</span> Bucles y espacios</h4>
 <ul>
 <li>Las cadenas se separan por la variable <code>IFS</code>, que suele ser <code>\t \n</code> (tabulador, nueva línea, espacio)</li>
@@ -1022,7 +1004,6 @@ done
 
 </section>
 <section id="slide-2-10-2">
-<div class="slide-header"></div>
 <h4 id="2-10-2"><span class="section-number-4">2.10.2.</span> Bucles sobre Ficheros</h4>
 <ul>
 <li><p>
@@ -1057,7 +1038,6 @@ La única forma segura es separar los ficheros por <code>$'\0'</code>, que no pu
 
 </section>
 <section id="slide-2-11">
-<div class="slide-header"></div>
 <h3 id="2-11"><span class="section-number-3">2.11.</span> Operaciones aritméticas</h3>
 <ul>
 <li>Se utiliza <code>$((expresión))</code></li>
@@ -1072,7 +1052,6 @@ contador=$(($contador + 1))
 <div class="slide-footer"></div>
 </section>
 <section id="slide-2-12">
-<div class="slide-header"></div>
 <h3 id="2-12"><span class="section-number-3">2.12.</span> Comandos útiles</h3>
 <ul>
 <li><p>
@@ -1101,7 +1080,6 @@ Operaciones matemáticas, si no se dispone de <i>bash</i>
 <div class="slide-footer"></div>
 </section>
 <section id="slide-2-13">
-<div class="slide-header"></div>
 <h3 id="2-13"><span class="section-number-3">2.13.</span> Ejercicio</h3>
 <ul>
 <li>Usa <code>whiptail</code> / <code>dialog</code> para hacer un <i>script</i> que muestre información del sistema, con opciones para:
@@ -1119,7 +1097,6 @@ Operaciones matemáticas, si no se dispone de <i>bash</i>
 
 </section>
 <section id="slide-2-14">
-<div class="slide-header"></div>
 <h3 id="2-14"><span class="section-number-3">2.14.</span> Solución</h3>
 <div class="org-src-container">
 
@@ -1174,7 +1151,6 @@ done
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Entorno inicial</h2>
 <ul>
 <li><code>bash</code> procesa los siguientes ficheros:
@@ -1196,7 +1172,6 @@ done
 
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Ficheros de inicio de <i>shell</i></h3>
 
 <div id="org0000000" class="figure">
@@ -1355,7 +1330,6 @@ done
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Ejercicios</h3>
 <ol>
 <li>Edita los ficheros de inicio y añade una orden <code>echo ESTOY EN EL FICHERO XXXXXX</code>. Comprueba cuándo se invoca cada fichero.</li>
@@ -1371,7 +1345,6 @@ done
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> Prerrequisitos</h2>
 <ul>
 <li>Los comandos de <b>Oracle</b> necesitan conocer a qué instancia hacen referencia</li>
@@ -1396,7 +1369,6 @@ export ORACLE_SID
 
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Autenticación de <b>SQLPlus</b></h3>
 <ul>
 <li><b>SQLPlus</b> se autentica/autentifica de varias formas
@@ -1441,7 +1413,6 @@ sqlplus /
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Conexiones de <b>SQLPlus</b></h3>
 <ul>
 <li>Hasta ahora
@@ -1467,7 +1438,6 @@ sqlplus /
 
 </section>
 <section id="slide-4-3">
-<div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3.</span> <code>tnsnames.ora</code></h3>
 <div class="org-src-container">
 
@@ -1499,7 +1469,6 @@ sqlplus /
 
 </section>
 <section id="slide-4-4">
-<div class="slide-header"></div>
 <h3 id="4-4"><span class="section-number-3">4.4.</span> Conexiones sin <code>tnsnames.ora</code></h3>
 <ul>
 <li>No es necesario cambiar el fichero <code>tnsnames.ora</code> para conectarse a un servidor remoto</li>
@@ -1521,7 +1490,6 @@ sqlplus /
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> Ejecución de <b>SQL</b> desde la <i>shell</i></h2>
 <ul>
 <li>El comando <code>sqlplus</code>  puede ejecutarse desde la shell</li>
@@ -1537,7 +1505,6 @@ sqlplus /
 
 </section>
 <section id="slide-5-1">
-<div class="slide-header"></div>
 <h3 id="5-1"><span class="section-number-3">5.1.</span> Ejemplo <i>heredoc</i></h3>
 <div class="org-src-container">
 
@@ -1555,7 +1522,6 @@ HEREDOC
 
 </section>
 <section id="slide-5-2">
-<div class="slide-header"></div>
 <h3 id="5-2"><span class="section-number-3">5.2.</span> Consultas a fichero</h3>
 <ul>
 <li>Puede enviarse la salida a un fichero</li>
@@ -1581,7 +1547,6 @@ less prueba.txt
 
 </section>
 <section id="slide-5-3">
-<div class="slide-header"></div>
 <h3 id="5-3"><span class="section-number-3">5.3.</span> Formateo básico de la salida</h3>
 <ul>
 <li>Tiene algunas facilidades para formatear la salida (por ejemplo, para generar ficheros <b>CSV</b>)</li>
@@ -1617,7 +1582,6 @@ HEREDOC
 
 </section>
 <section id="slide-5-4">
-<div class="slide-header"></div>
 <h3 id="5-4"><span class="section-number-3">5.4.</span> <i>Scripts</i> <b>SQL</b> para <code>sqlplus</code></h3>
 <ul>
 <li><code>sqlplus</code> también puede leer scripts de <code>SQL</code> con <b><code>@</code></b></li>
@@ -1640,13 +1604,11 @@ HEREDOC
 </section>
 <section>
 <section id="slide-6">
-<div class="slide-header"></div>
 <h2 id="6"><span class="section-number-2">6.</span> Arranque y parada</h2>
 <div class="outline-text-2" id="text-6">
 </div>
 </section>
 <section id="slide-6-1">
-<div class="slide-header"></div>
 <h3 id="6-1"><span class="section-number-3">6.1.</span> <code>dbstart</code> y <code>/etc/oratab</code></h3>
 <ul>
 <li><b>Oracle</b> proporciona el <i>script</i> <code>dbstart</code> para arrancar instancias de base de datos</li>
@@ -1690,7 +1652,6 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 
 </section>
 <section id="slide-6-2">
-<div class="slide-header"></div>
 <h3 id="6-2"><span class="section-number-3">6.2.</span> Ejecutar <b>Oracle</b> al iniciar el sistema</h3>
 <ul>
 <li>Cada sitema operativo tiene sus formas de arrancar servicios/demonios al inicio
@@ -1710,7 +1671,6 @@ asir:/var/oracle/product/12.1.0/asir_bbdd:Y
 
 </section>
 <section id="slide-6-3">
-<div class="slide-header"></div>
 <h3 id="6-3"><span class="section-number-3">6.3.</span> <b>systemd</b></h3>
 <ul>
 <li>Los servicios se crean con ficheros en <code>/etc/systemd/system</code> (entre otros)
@@ -1749,7 +1709,6 @@ Más información con <code>man systemd.service</code> y <code>man systemd.unit<
 
 </section>
 <section id="slide-6-3-1">
-<div class="slide-header"></div>
 <h4 id="6-3-1"><span class="section-number-4">6.3.1.</span> Dependencias de la sección <code>Unit</code></h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1821,7 +1780,6 @@ Fuente: <a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.h
 
 </section>
 <section id="slide-6-3-2">
-<div class="slide-header"></div>
 <h4 id="6-3-2"><span class="section-number-4">6.3.2.</span> Dependencias de la sección <code>Install</code></h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1853,7 +1811,6 @@ Fuente: <a href="https://www.freedesktop.org/software/systemd/man/systemd.unit.h
 
 </section>
 <section id="slide-6-3-3">
-<div class="slide-header"></div>
 <h4 id="6-3-3"><span class="section-number-4">6.3.3.</span> Controlar el arranque de servicios</h4>
 <ul>
 <li>Habilitar/Deshabilitar un servicio al inicio del sistema</li>
@@ -1881,7 +1838,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-6-3-4">
-<div class="slide-header"></div>
 <h4 id="6-3-4"><span class="section-number-4">6.3.4.</span> Recargar ficheros</h4>
 <ul>
 <li>Si se crean nuevas unidades, no se tienen en cuenta automáticamente</li>
@@ -1893,7 +1849,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-6-3-5">
-<div class="slide-header"></div>
 <h4 id="6-3-5"><span class="section-number-4">6.3.5.</span> Servicios de usuario</h4>
 <ul>
 <li>El comando <code>systemctl</code> se ejecuta con el parámetro <code>--system</code> por defecto
@@ -1918,7 +1873,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-6-3-6">
-<div class="slide-header"></div>
 <h4 id="6-3-6"><span class="section-number-4">6.3.6.</span> <i>Runlevels</i> y <i>targets</i></h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -1973,7 +1927,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-6-3-7">
-<div class="slide-header"></div>
 <h4 id="6-3-7"><span class="section-number-4">6.3.7.</span> Utilidades <b>systemd</b></h4>
 <ul>
 <li><code>systemd-analyze plot</code>: Tiempo de carga de cada servicio</li>
@@ -1988,7 +1941,6 @@ systemctl stop SERVICIO
 </section>
 <section>
 <section id="slide-7">
-<div class="slide-header"></div>
 <h2 id="7"><span class="section-number-2">7.</span> Operaciones periódicas</h2>
 <ul>
 <li>Los sistemas operativos aportan formas para ejecutar tareas periódicamente
@@ -2003,7 +1955,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-7-1">
-<div class="slide-header"></div>
 <h3 id="7-1"><span class="section-number-3">7.1.</span> <code>cron</code></h3>
 <ul>
 <li>Es un servicio que 
@@ -2025,7 +1976,6 @@ systemctl stop SERVICIO
 
 </section>
 <section id="slide-7-2">
-<div class="slide-header"></div>
 <h3 id="7-2"><span class="section-number-3">7.2.</span> <code>systemd</code></h3>
 <p>
 Más información en <code>man systemd.timer</code> y <code>man systemd.time</code>
@@ -2055,7 +2005,6 @@ OnCalendar=*:0/10
 
 </section>
 <section id="slide-7-3">
-<div class="slide-header"></div>
 <h3 id="7-3"><span class="section-number-3">7.3.</span> Operaciones periódicas manuales</h3>
 <ul>
 <li>Se puede crear un bucle infinito con <code>sleep</code></li>
@@ -2098,7 +2047,6 @@ done
 </section>
 <section>
 <section id="slide-8">
-<div class="slide-header"></div>
 <h2 id="8"><span class="section-number-2">8.</span> Avanzado</h2>
 <ul>
 <li>Literales
@@ -2132,7 +2080,6 @@ done
 </section>
 <section>
 <section id="slide-9">
-<div class="slide-header"></div>
 <h2 id="9"><span class="section-number-2">9.</span> Más avanzado: comandos desde PL/SQL</h2>
 <ul>
 <li><a href="http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm">http://www.dba-oracle.com/t_execute_operating_system_os_command_oracle.htm</a></li>
@@ -2166,7 +2113,6 @@ end;
 </section>
 <section>
 <section id="slide-10">
-<div class="slide-header"></div>
 <h2 id="10"><span class="section-number-2">10.</span> Referencias</h2>
 <ul>
 <li>Formatos:

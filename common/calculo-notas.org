@@ -2,7 +2,7 @@
 ** Cálculo de la nota
 - Nota de la evaluación
   #+begin_example
-  trabajos*0.25 + exámenes*0.75
+  trabajos*0.20 + exámenes*0.80
   #+END_example
   - Nota de exámenes: La mayor de las siguientes:
     - Media de la nota de los parciales
