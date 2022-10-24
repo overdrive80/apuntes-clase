@@ -420,7 +420,7 @@ Fuente: [[https://comunication2011jeff.wordpress.com/2011/01/27/multiplexacion/]
 - Debilitamiento de la señal debido a la resistencia eléctrica del canal
 - La *amplitud* de la señal disminuye
 - Se puede mejorar con
-  - Mejores cables: cobre, oro
+  - Mejores cables: cobre, plata...
   - Amplificadores
   - Retransmisores/Repetidor
 #+attr_latex: :width 0.6\textwidth
