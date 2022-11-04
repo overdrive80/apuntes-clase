@@ -21,7 +21,7 @@ La última versión de este documento está accesible en [[https://alvarogonzale
 * Enunciado
 Un posible cliente pide un presupuesto para realizar la instalación de una LAN en una oficina.
 
-- La oficina tiene como dimensiones 15 \times 8  metros. Inicialmente, empezarán a trabajar 8 empleados, con vistas a  ampliar la plantilla hasta a 16 empleados.
+- La oficina tiene como dimensiones 15 \times 8  metros. Inicialmente, empezarán a trabajar 6 empleados, con vistas a  ampliar la plantilla hasta a 10 empleados.
 - El acceso a la red del edificio se realizará a través de un punto e red preexistente (ver plano).
 - El cliente indica que desearía tener una sala de reuniones con clientes externos, donde se dispondría de un proyector y acceso WI-FI a la red.
 - La oficina dispone de techo técnico
