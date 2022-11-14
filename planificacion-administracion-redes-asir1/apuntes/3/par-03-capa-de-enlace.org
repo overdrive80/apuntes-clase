@@ -44,7 +44,7 @@
 - Una trama se compone de tres partes
   - Información sobre la trama
   - Datos.
-  - Redundacia.
+  - Redundancia.
 
 * Control de flujo
 - Veremos el control de flujo cuando estudiemos TCP 
