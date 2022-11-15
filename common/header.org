@@ -6,9 +6,6 @@
 # IDIOMA
 #+latex_header: \usepackage[spanish]{babel}
 
-# TAMAÑO DE PÁGINA
-#+LaTeX_CLASS_OPTIONS: [a4paper]
-
 # COLORES
 #+latex_header: \usepackage[usenames,dvipsnames]{color} % Required for custom colors
 
@@ -44,7 +41,8 @@
 
 # OPCIONES DE PÁGINA DE LATEX
 #+LATEX_CLASS: article
-#+LATEX_CLASS_OPTIONS:
+#+LATEX_CLASS_OPTIONS: [a4paper]
+
 #+LATEX_HEADER: \usepackage[margin=2.5cm,includeheadfoot,includehead,includefoot]{geometry} 
 #+LATEX_HEADER: \hypersetup{colorlinks,linkcolor=black}
 
