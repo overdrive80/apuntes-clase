@@ -345,13 +345,22 @@ http://www.ecs.umass.edu/ece/koren/FaultTolerantSystems/simulator/Hamming/Hammin
 
 ** Ejercicio
 - Calcula el porcentaje de redundancia de:
-  - Tramas de 1000 bytes con crc32
-  - Tramas de 100 bytes con crc16
+  - Tramas de 1000 bytes, con crc32 incluido en los 1000 bytes
+  - Tramas de 100 bytes, con crc16 añadido a los 100 bytes
   - Hamming (7,4)
   - Hamming (11,7)
   - Hamming (11,7) extendido
   - Paridad lineal: un bit de paridad cada 7 de datos
   - Paridad de bloque: un bit de paridad lineal cada 7 de datos, bloques de 49 bits de datos
+
+** Códigos Reed Solomon
+- En la actualidad, Hamming tiene una utilidad /didáctica/ más que práctica
+- En la actualidad se utiliza [[https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction][Reed-Solomon]]
+  - CD, DVD, BlueRay
+  - QR
+  - Raid 6
+  - DVB, WiMax, transmisiones aeroespaciales    
+ 
 
 
 * Referencias
