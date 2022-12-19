@@ -264,10 +264,35 @@ having
 #+end_src
 
 * Operaciones sobre conjuntos
-- =union=
-- =intersect=
-- =subtract=    
+- $\cup$ =union=
+- $\cap$ =intersect=
+- $-$ =minus=    
 [[file:operaciones-de-conjuntos.png]] 
+
+
+* Paginación
+
+** Paginación tradicional (anterior a Oracle 12c)
+
+#+begin_src sql
+with student_con_orden as(
+    select rownum as orden, student.* 
+    from student 
+    order by last_name
+)
+select * from student_con_orden where orden > 100 and orden < 200;
+#+end_src
+
+** Paginación en Oracle 12c
+
+#+begin_src sql
+select Student.* 
+from student 
+order by last_name
+offset 0 rows                -- offset es opcional
+FETCH next 1 rows with ties; -- rows only
+#+end_src
+
 
 * Referencias
 
