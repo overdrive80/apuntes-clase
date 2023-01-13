@@ -444,7 +444,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-03-04 vie 14:10</p>
+<h1 class="title">Comandos IOS</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:53</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -500,7 +500,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> General</h2>
 <ul>
 <li><code>CTRL-ALT-6</code> para parar un comando incorrecto</li>
@@ -514,7 +513,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-1">
-<div class="slide-header"></div>
 <h3 id="1-1"><span class="section-number-3">1.1.</span> Introducción de comandos</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -606,7 +604,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-2">
-<div class="slide-header"></div>
 <h3 id="1-2"><span class="section-number-3">1.2.</span> Listados largos (<code>--more--</code>)</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -637,7 +634,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-3">
-<div class="slide-header"></div>
 <h3 id="1-3"><span class="section-number-3">1.3.</span> Interrupción de comandos</h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -673,7 +669,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-4">
-<div class="slide-header"></div>
 <h3 id="1-4"><span class="section-number-3">1.4.</span> Modos</h3>
 <ul>
 <li><code>Press RETURN to get started.</code>
@@ -704,7 +699,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-1-5">
-<div class="slide-header"></div>
 <h3 id="1-5"><span class="section-number-3">1.5.</span> Para activar la configuración</h3>
 <div class="org-src-container">
 
@@ -717,7 +711,6 @@ Router(config)#
 
 </section>
 <section id="slide-1-6">
-<div class="slide-header"></div>
 <h3 id="1-6"><span class="section-number-3">1.6.</span> Salvar la configuración</h3>
 <pre class="example" id="org0000000">
 Router# write memory
@@ -729,13 +722,11 @@ Router# copy running-config startup-config
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> Direcciones IP</h2>
 <div class="outline-text-2" id="text-2">
 </div>
 </section>
 <section id="slide-2-1">
-<div class="slide-header"></div>
 <h3 id="2-1"><span class="section-number-3">2.1.</span> Asignar IP</h3>
 <pre class="example" id="org0000001">
 Router(config)# interface fa0/0
@@ -748,7 +739,6 @@ Router(config)#
 
 </section>
 <section id="slide-2-2">
-<div class="slide-header"></div>
 <h3 id="2-2"><span class="section-number-3">2.2.</span> Consultar IP</h3>
 <pre class="example" id="org0000002">
 Router&gt; show ip interface
@@ -760,13 +750,11 @@ Router&gt; show ip interface brief
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Enrutamiento</h2>
 <div class="outline-text-2" id="text-3">
 </div>
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Añadir ruta</h3>
 <pre class="example" id="org0000003">
 Router(config)# ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -782,7 +770,6 @@ Router(config)# ip route 172.16.0.0 255.255.255.0 s0/0/1
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Borrar ruta</h3>
 <pre class="example" id="org0000005">
 Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
@@ -792,7 +779,6 @@ Router(config)# no ip route 172.16.0.0 255.255.255.0 192.168.6.254
 
 </section>
 <section id="slide-3-3">
-<div class="slide-header"></div>
 <h3 id="3-3"><span class="section-number-3">3.3.</span> Consultar rutas</h3>
 <pre class="example" id="org0000006">
 Router&gt; show ip route
@@ -803,13 +789,11 @@ Router&gt; show ip route
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> VLAN</h2>
 <div class="outline-text-2" id="text-4">
 </div>
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Consultar VLANs</h3>
 <pre class="example" id="org0000007">
 Switch&gt; show vlan brief
@@ -820,7 +804,6 @@ Switch&gt; show interfaces f0/1 switchport
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Crear una VLAN</h3>
 <pre class="example" id="org0000008">
 Switch(config)#vlan 2
@@ -831,7 +814,6 @@ Switch(config-vlan)#exit
 
 </section>
 <section id="slide-4-3">
-<div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3.</span> Asignar un puerto a una VLAN (access)</h3>
 <pre class="example" id="org0000009">
 Switch(config)#interface FastEthernet0/1
@@ -841,7 +823,6 @@ Switch(config-if)#switchport access vlan 2
 
 </section>
 <section id="slide-4-4">
-<div class="slide-header"></div>
 <h3 id="4-4"><span class="section-number-3">4.4.</span> Asignar un puerto como trunk</h3>
 <pre class="example" id="org000000a">
 Switch(config)#interface FastEthernet0/1
@@ -853,7 +834,6 @@ Switch(config-if)#switchport trunk allowed vlan 1,2,5
 
 </section>
 <section id="slide-4-5">
-<div class="slide-header"></div>
 <h3 id="4-5"><span class="section-number-3">4.5.</span> Permitir/denegar una VLAN en un puerto trunk</h3>
 <pre class="example" id="org000000b">
 Switch(config)#interface FastEthernet0/1
@@ -864,7 +844,6 @@ Switch(config-if)#switchport trunk allowed vlan add 2
 
 </section>
 <section id="slide-4-6">
-<div class="slide-header"></div>
 <h3 id="4-6"><span class="section-number-3">4.6.</span> Routers</h3>
 <ul>
 <li>Los routers pueden tener interfaces virtuales, a las que llegan las tramas 802.1q de cierta VLAN.</li>
@@ -895,7 +874,6 @@ Router# show interfaces
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> STP</h2>
 <p>
 Consultar y poner la prioridad de un switch
@@ -913,7 +891,6 @@ Switch(config)# spanning-tree vlan 1 priority 1
 </section>
 <section>
 <section id="slide-6">
-<div class="slide-header"></div>
 <h2 id="6"><span class="section-number-2">6.</span> Link agregation</h2>
 <p>
 Se añader a un mismo <code>channel-group</code> todos los enlaces conectados al mismo switch.
@@ -933,7 +910,6 @@ Switch# show etherchannel summary
 </section>
 <section>
 <section id="slide-7">
-<div class="slide-header"></div>
 <h2 id="7"><span class="section-number-2">7.</span> RIP</h2>
 <p>
 Habilitar RIP para dos redes conectadas directamente
@@ -975,7 +951,6 @@ Router(config-router)# passive-interface g0/0
 </section>
 <section>
 <section id="slide-8">
-<div class="slide-header"></div>
 <h2 id="8"><span class="section-number-2">8.</span> ACL</h2>
 <p>
 Consultar ACLs definidas
@@ -1003,7 +978,6 @@ Router(config-if)# no ip access-group &lt;numero ACL&gt; &lt;out o in&gt;
 
 </section>
 <section id="slide-8-1">
-<div class="slide-header"></div>
 <h3 id="8-1"><span class="section-number-3">8.1.</span> ACL estándar</h3>
 <p>
 Crear una ACL o añadir una regla
@@ -1022,7 +996,6 @@ Router(config)# no access-list &lt;numero&gt;
 
 </section>
 <section id="slide-8-2">
-<div class="slide-header"></div>
 <h3 id="8-2"><span class="section-number-3">8.2.</span> ACL extendidas</h3>
 <p>
 Protocolo IP (hay más opciones, no explicadas aquí)
@@ -1047,7 +1020,6 @@ Router(config)# access-list &lt;numero&gt; &lt;permit o deny&gt; icmp
 
 </section>
 <section id="slide-8-3">
-<div class="slide-header"></div>
 <h3 id="8-3"><span class="section-number-3">8.3.</span> ACL extendidas TCP y UDP</h3>
 <p>
 Protocolo TCP
@@ -1112,7 +1084,6 @@ Router(config)# access-list &lt;numero&gt; &lt;permit o deny&gt; UDP
 
 </section>
 <section id="slide-8-4">
-<div class="slide-header"></div>
 <h3 id="8-4"><span class="section-number-3">8.4.</span> ACL con nombre</h3>
 <pre class="example" id="org000001e">
 Router(config)# ip access-list standard NOMBRE
@@ -1122,7 +1093,6 @@ Router(config)# ip access-list standard NOMBRE
 </section>
 <section>
 <section id="slide-9">
-<div class="slide-header"></div>
 <h2 id="9"><span class="section-number-2">9.</span> NAT</h2>
 <p>
 Información del estado de NAT
@@ -1151,7 +1121,6 @@ no ip nat source static
 
 </section>
 <section id="slide-9-1">
-<div class="slide-header"></div>
 <h3 id="9-1"><span class="section-number-3">9.1.</span> PAT</h3>
 <ul>
 <li>Defina el grupo de direcciones globales que se debe usar para la traducción de sobrecarga.
@@ -1187,7 +1156,6 @@ no ip nat source static
 
 </section>
 <section id="slide-9-2">
-<div class="slide-header"></div>
 <h3 id="9-2"><span class="section-number-3">9.2.</span> NAT dinámica</h3>
 <ul>
 <li>Defina el conjunto de direcciones globales que se debe usar para la traducción.
@@ -1224,7 +1192,6 @@ no ip nat source static
 
 </section>
 <section id="slide-9-3">
-<div class="slide-header"></div>
 <h3 id="9-3"><span class="section-number-3">9.3.</span> NAT estática</h3>
 <ul>
 <li>Se establece la traducción estática entre una dirección local interna y una dirección global interna.
@@ -1267,7 +1234,6 @@ no ip nat source static
 
 </section>
 <section id="slide-9-4">
-<div class="slide-header"></div>
 <h3 id="9-4"><span class="section-number-3">9.4.</span> Generales</h3>
 <pre class="example" id="org0000022">
 show ip nat translations
@@ -1279,7 +1245,6 @@ debug ip nat
 </section>
 <section>
 <section id="slide-10">
-<div class="slide-header"></div>
 <h2 id="10"><span class="section-number-2">10.</span> Referencias</h2>
 <ul>
 <li>Formatos:

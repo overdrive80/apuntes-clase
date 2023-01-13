@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-26 mié 12:09 -->
+<!-- 2022-12-19 lun 09:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resumen de SQL</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style>h2::before,h1::before,h3::before,h4::before{ clear: both; }</style>
 <script src="../../../common/reveal.js-menu/menu.js"></script>
@@ -238,7 +238,8 @@
 <li><a href="#org0000030">11. <i>Query</i> traducida a lista</a></li>
 <li><a href="#org0000033">12. <code>Having</code></a></li>
 <li><a href="#org0000037">13. Operaciones sobre conjuntos</a></li>
-<li><a href="#org000003a">14. Referencias</a></li>
+<li><a href="#org0000040">14. Paginación</a></li>
+<li><a href="#org0000043">15. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -1030,6 +1031,7 @@ window.addEventListener("load",()=>{
     <span style="color: #729fcf; font-weight: bold;">group</span> <span style="color: #729fcf; font-weight: bold;">by</span> 
       location
 )
+
 <span style="color: #729fcf; font-weight: bold;">where</span> ocupacion &lt; 10;
 
 
@@ -1050,9 +1052,9 @@ window.addEventListener("load",()=>{
 <h2 id="org0000037"><span class="section-number-2">13.</span> Operaciones sobre conjuntos</h2>
 <div class="outline-text-2" id="text-13">
 <ul class="org-ul">
-<li><code>union</code></li>
-<li><code>intersect</code></li>
-<li><code>subtract</code></li>
+<li>\(\cup\) <code>union</code></li>
+<li>\(\cap\) <code>intersect</code></li>
+<li>\(-\) <code>minus</code></li>
 </ul>
 
 <div id="org0000036" class="figure">
@@ -1062,9 +1064,45 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org000003a" class="outline-2">
-<h2 id="org000003a"><span class="section-number-2">14.</span> Referencias</h2>
+
+<div id="outline-container-org0000040" class="outline-2">
+<h2 id="org0000040"><span class="section-number-2">14.</span> Paginación</h2>
 <div class="outline-text-2" id="text-14">
+</div>
+<div id="outline-container-org000003a" class="outline-3">
+<h3 id="org000003a"><span class="section-number-3">14.1.</span> Paginación tradicional (anterior a Oracle 12c)</h3>
+<div class="outline-text-3" id="text-14-1">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">with</span> student_con_orden <span style="color: #729fcf; font-weight: bold;">as</span>(
+    <span style="color: #729fcf; font-weight: bold;">select</span> rownum <span style="color: #729fcf; font-weight: bold;">as</span> orden, student.* 
+    <span style="color: #729fcf; font-weight: bold;">from</span> student 
+    <span style="color: #729fcf; font-weight: bold;">order</span> <span style="color: #729fcf; font-weight: bold;">by</span> last_name
+)
+<span style="color: #729fcf; font-weight: bold;">select</span> * <span style="color: #729fcf; font-weight: bold;">from</span> student_con_orden <span style="color: #729fcf; font-weight: bold;">where</span> orden &gt; 100 <span style="color: #729fcf; font-weight: bold;">and</span> orden &lt; 200;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org000003d" class="outline-3">
+<h3 id="org000003d"><span class="section-number-3">14.2.</span> Paginación en Oracle 12c</h3>
+<div class="outline-text-3" id="text-14-2">
+<div class="org-src-container">
+<pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">select</span> Student.* 
+<span style="color: #729fcf; font-weight: bold;">from</span> student 
+<span style="color: #729fcf; font-weight: bold;">order</span> <span style="color: #729fcf; font-weight: bold;">by</span> last_name
+offset 0 <span style="color: #729fcf; font-weight: bold;">rows</span>                <span style="color: #888a85;">-- </span><span style="color: #888a85;">offset es opcional</span>
+<span style="color: #729fcf; font-weight: bold;">FETCH</span> <span style="color: #729fcf; font-weight: bold;">next</span> 1 <span style="color: #729fcf; font-weight: bold;">rows</span> <span style="color: #729fcf; font-weight: bold;">with</span> ties; <span style="color: #888a85;">-- </span><span style="color: #888a85;">rows only</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0000043" class="outline-2">
+<h2 id="org0000043"><span class="section-number-2">15.</span> Referencias</h2>
+<div class="outline-text-2" id="text-15">
 <ul class="org-ul">
 <li>Formatos:
 <ul class="org-ul">
@@ -1085,7 +1123,7 @@ window.addEventListener("load",()=>{
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-26 mié 12:09</p>
+<p class="date">Created: 2022-12-19 lun 09:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-04-22 vie 09:15 -->
+<!-- 2022-10-10 lun 13:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Exportar e importar datos de Oracle</title>
@@ -526,6 +526,14 @@ Valid keyword values are: IMMEDIATE.
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">GRANT</span> <span style="color: #729fcf; font-weight: bold;">READ</span>, <span style="color: #729fcf; font-weight: bold;">WRITE</span> <span style="color: #729fcf; font-weight: bold;">ON</span> DIRECTORY mi_directorio_de_backup <span style="color: #729fcf; font-weight: bold;">TO</span> usuario; 
 </pre>
 </div>
+
+<ul class="org-ul">
+<li>Seguridad: es importante dar permisos a los procesos de <b>Oracle</b> para acceder y escribir al directorio
+<ul class="org-ul">
+<li>Pero no al resto de usuarios</li>
+<li>Mejor <code>setfacl</code> que <code>chmod</code></li>
+</ul></li>
+</ul>
 </div>
 </div>
 
@@ -1087,6 +1095,7 @@ Database altered.
 </div>
 
 
+
 <div id="outline-container-org0000039" class="outline-2">
 <h2 id="org0000039"><span class="section-number-2">6.</span> Referencias</h2>
 <div class="outline-text-2" id="text-6">
@@ -1110,7 +1119,7 @@ Database altered.
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-04-22 vie 09:15</p>
+<p class="date">Created: 2022-10-10 lun 13:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

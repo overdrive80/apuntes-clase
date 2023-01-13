@@ -31,10 +31,12 @@
   - Borrado de una fila
 
 ** Anomalía
-- Decimos que hay una anomalía cuando *un* cambio desde el punto de vista E-R implica *más de un* cambio en la base de datos relacional
+- Decimos que hay una anomalía cuando *un* cambio en el mundo real implica *más de un* cambio en la base de datos relacional
   - Anomalía de inserción
   - Anomalía de borrado
   - Anomalía de modificación
+
+Nota: el concepto de /cambio en el mundo real/ no es una definición precisa
 
 *** Anomalía de inserción/borrado
 
@@ -109,7 +111,7 @@ digraph {
                 CodigoTienda -> DireccionTienda
                 DireccionTienda -> CodigoTienda 
                 
-}
+}n
 #+end_src
 
 #+RESULTS:
@@ -309,3 +311,4 @@ digraph {
 
 #+RESULTS:
 [[file:./media/ejercicio-normalizacion-abstracto.svg]]
+

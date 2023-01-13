@@ -443,7 +443,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-01-20 jue 20:07</p>
+<h1 class="title">Usuarios, privilegios y roles de <b>Oracle</b></h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-10-10 lun 13:55</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -497,7 +497,6 @@ window.addEventListener("load",()=>{
 
 <section>
 <section id="slide-1">
-<div class="slide-header"></div>
 <h2 id="1"><span class="section-number-2">1.</span> Introducción</h2>
 <ul>
 <li>Oracle puede utilizarse simultáneamente por varios procesos y clientes</li>
@@ -516,7 +515,6 @@ window.addEventListener("load",()=>{
 </section>
 <section>
 <section id="slide-2">
-<div class="slide-header"></div>
 <h2 id="2"><span class="section-number-2">2.</span> <i>Tablespaces</i></h2>
 <ul>
 <li><b>Oracle</b> almacena datos en los <i>tablespaces</i>
@@ -538,7 +536,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-1">
-<div class="slide-header"></div>
 <h3 id="2-1"><span class="section-number-3">2.1.</span> Recordatorio: Tipos de fichero según su uso</h3>
 <ul>
 <li>Permanentes (<i>permanent</i>)
@@ -566,7 +563,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-2">
-<div class="slide-header"></div>
 <h3 id="2-2"><span class="section-number-3">2.2.</span> ¿Por qué tantas normas?</h3>
 <ul>
 <li>Disponibilidad
@@ -592,7 +588,6 @@ window.addEventListener("load",()=>{
 
 </section>
 <section id="slide-2-3">
-<div class="slide-header"></div>
 <h3 id="2-3"><span class="section-number-3">2.3.</span> <i>Tablespaces</i> por defecto</h3>
 <ul>
 <li>Por defecto, <b>Oracle</b> crea en una nueva base de datos
@@ -632,7 +627,6 @@ Mas información en:
 
 </section>
 <section id="slide-2-4">
-<div class="slide-header"></div>
 <h3 id="2-4"><span class="section-number-3">2.4.</span> Crear un <i>tablespace</i></h3>
 <div class="org-src-container">
 
@@ -652,7 +646,6 @@ Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statemen
 
 </section>
 <section id="slide-2-5">
-<div class="slide-header"></div>
 <h3 id="2-5"><span class="section-number-3">2.5.</span> ¿Por qué es tan complicado?</h3>
 <ul>
 <li>Esta flexibilidad permite:
@@ -669,7 +662,6 @@ Más en <a href="https://docs.oracle.com/cd/B19306_01/server.102/b14200/statemen
 
 </section>
 <section id="slide-2-6">
-<div class="slide-header"></div>
 <h3 id="2-6"><span class="section-number-3">2.6.</span> Ejercicio: Llena un tablespace</h3>
 <ul>
 <li>Crea un <i>tablespace</i> con un tamaño inicial de 10MB, y un tamaño máximo de 14MB</li>
@@ -697,7 +689,6 @@ end;
 
 </section>
 <section id="slide-2-7">
-<div class="slide-header"></div>
 <h3 id="2-7"><span class="section-number-3">2.7.</span> Conceptos de almacenamiento</h3>
 
 <div id="org0000000" class="figure">
@@ -844,7 +835,6 @@ A database's data is collectively stored in the datafiles that constitute each t
 </section>
 <section>
 <section id="slide-3">
-<div class="slide-header"></div>
 <h2 id="3"><span class="section-number-2">3.</span> Usuarios</h2>
 <p>
 ¿Qué usuario hemos utilizado con <code>sqlplus</code> hasta ahora?
@@ -867,7 +857,6 @@ A database's data is collectively stored in the datafiles that constitute each t
 
 </section>
 <section id="slide-3-1">
-<div class="slide-header"></div>
 <h3 id="3-1"><span class="section-number-3">3.1.</span> Creación de usuarios</h3>
 <div class="org-src-container">
 
@@ -884,7 +873,6 @@ A database's data is collectively stored in the datafiles that constitute each t
 
 </section>
 <section id="slide-3-2">
-<div class="slide-header"></div>
 <h3 id="3-2"><span class="section-number-3">3.2.</span> Modificación de usuario</h3>
 <ul>
 <li><p>
@@ -916,7 +904,6 @@ Borrado de usuario
 </section>
 <section>
 <section id="slide-4">
-<div class="slide-header"></div>
 <h2 id="4"><span class="section-number-2">4.</span> Privilegios</h2>
 <ul>
 <li>Cada usuario puede tener unos permisos distintos</li>
@@ -940,7 +927,6 @@ Borrado de usuario
 
 </section>
 <section id="slide-4-1">
-<div class="slide-header"></div>
 <h3 id="4-1"><span class="section-number-3">4.1.</span> Privilegios de <b>Oracle</b></h3>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -974,7 +960,6 @@ Borrado de usuario
 
 </section>
 <section id="slide-4-2">
-<div class="slide-header"></div>
 <h3 id="4-2"><span class="section-number-3">4.2.</span> Sintaxis de <code>Grant</code></h3>
 <div class="org-src-container">
 
@@ -1001,7 +986,6 @@ grant select on alumnos to profesor;
 
 </section>
 <section id="slide-4-3">
-<div class="slide-header"></div>
 <h3 id="4-3"><span class="section-number-3">4.3.</span> Ejercicio</h3>
 <ul>
 <li>Crea un usuario <code>CONPERMISOS</code>
@@ -1032,7 +1016,6 @@ grant update(column-name) on table-name to user-name
 
 </section>
 <section id="slide-4-4">
-<div class="slide-header"></div>
 <h3 id="4-4"><span class="section-number-3">4.4.</span> Ejercicio</h3>
 <ul>
 <li>Haz que el usuario <code>CONPERMISOS</code> tenga una cuota de 100k en el tablespace <code>USERS</code></li>
@@ -1071,7 +1054,6 @@ ORA-01536: space quota exceeded for tablespace 'USERS'
 
 </section>
 <section id="slide-4-5">
-<div class="slide-header"></div>
 <h3 id="4-5"><span class="section-number-3">4.5.</span> Quitar privilegios</h3>
 <ul>
 <li>Los privilegios se quitan con <code>revoke</code></li>
@@ -1103,7 +1085,6 @@ revoke select on unatabla from unusuario;
 </section>
 <section>
 <section id="slide-5">
-<div class="slide-header"></div>
 <h2 id="5"><span class="section-number-2">5.</span> Roles</h2>
 <ul>
 <li>Asignar todos los privilegios a un usuario es trabajoso, pero factible</li>
@@ -1120,7 +1101,6 @@ revoke select on unatabla from unusuario;
 
 </section>
 <section id="slide-5-1">
-<div class="slide-header"></div>
 <h3 id="5-1"><span class="section-number-3">5.1.</span> Sintaxis de roles</h3>
 <div class="org-src-container">
 
@@ -1137,7 +1117,6 @@ grant NOMBREROL to USUARIO;
 
 </section>
 <section id="slide-5-2">
-<div class="slide-header"></div>
 <h3 id="5-2"><span class="section-number-3">5.2.</span> Ejercicio</h3>
 <p>
 Se pueden asignar privilegios a <code>PUBLIC</code>, para que todos los usuarios tengan dicho privilegio. Decide si <code>PUBLIC</code> es un usuario o un rol, y compruébalo en las tablas de diccionario.
@@ -1146,7 +1125,6 @@ Se pueden asignar privilegios a <code>PUBLIC</code>, para que todos los usuarios
 
 </section>
 <section id="slide-5-3">
-<div class="slide-header"></div>
 <h3 id="5-3"><span class="section-number-3">5.3.</span> Ejercicio</h3>
 <ul>
 <li>Imagina que
@@ -1198,7 +1176,6 @@ grant ELROL to usuariodespues;
 
 </section>
 <section id="slide-5-4">
-<div class="slide-header"></div>
 <h3 id="5-4"><span class="section-number-3">5.4.</span> ¿Qué privilegios tengo?</h3>
 <ul>
 <li>Un usuario puede tener muchos permisos otorgados directamente y a través de un rol</li>
@@ -1219,7 +1196,6 @@ select * from session_privs;
 </section>
 <section>
 <section id="slide-6">
-<div class="slide-header"></div>
 <h2 id="6"><span class="section-number-2">6.</span> Perfiles</h2>
 <ul>
 <li>Un <i>profile</i> es un conjunto de limitaciones sobre el sistema <b>Oracle</b></li>
@@ -1231,7 +1207,6 @@ select * from session_privs;
 
 </section>
 <section id="slide-6-1">
-<div class="slide-header"></div>
 <h3 id="6-1"><span class="section-number-3">6.1.</span> Creación de perfiles</h3>
 <div class="org-src-container">
 
@@ -1266,7 +1241,6 @@ ALTER SYSTEM SET resource_limit = TRUE scope = BOTH
 
 </section>
 <section id="slide-6-2">
-<div class="slide-header"></div>
 <h3 id="6-2"><span class="section-number-3">6.2.</span> Asignación de perfil a un usuario</h3>
 <ul>
 <li><p>
@@ -1283,7 +1257,6 @@ En la creación (<code>create user</code>), o posteriormente
 
 </section>
 <section id="slide-6-3">
-<div class="slide-header"></div>
 <h3 id="6-3"><span class="section-number-3">6.3.</span> Ejercicio</h3>
 <ul>
 <li>Haz que el usuario <code>LIMITADO</code> 
@@ -1318,7 +1291,6 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 
 </section>
 <section id="slide-6-4">
-<div class="slide-header"></div>
 <h3 id="6-4"><span class="section-number-3">6.4.</span> Ejercicio</h3>
 <ul>
 <li>Utiliza las vistas de <b>Oracle</b> para conocer los límites del profile por defecto.</li>
@@ -1329,7 +1301,6 @@ ORA-02399: exceeded maximum connect time, you are being logged off
 
 </section>
 <section id="slide-6-5">
-<div class="slide-header"></div>
 <h3 id="6-5"><span class="section-number-3">6.5.</span> Ejercicio</h3>
 <ul>
 <li>Usa la opción <a href="http://www.dba-oracle.com/t_password_verify_function.htm"><code>PASSWORD_VERIFY_FUNCTION</code></a> para evitar que las contraseñas sean más largas de tres caracteres</li>
@@ -1371,7 +1342,6 @@ CREATE PROFILE EJEMPLO LIMIT
 </section>
 <section>
 <section id="slide-7">
-<div class="slide-header"></div>
 <h2 id="7"><span class="section-number-2">7.</span> Referencias</h2>
 <ul>
 <li>Formatos:

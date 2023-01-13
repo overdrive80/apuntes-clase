@@ -104,7 +104,7 @@
       - =0.0.0.0 255.255.255.255=
 
   #+REVEAL: split
-Ejemplo: No dejes pasar el tráfico con origen en la red =192.168.1.0/8=
+Ejemplo: No dejes pasar el tráfico con origen en la red =192.168.1.0/24=
 #+begin_src sh
 access-list 10 deny 192.168.1.0 0.0.0.255 
 #+end_src

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-01-20 jue 20:08 -->
+<!-- 2022-10-10 lun 13:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scripts de shell para Oracle</title>
@@ -479,6 +479,11 @@ importante <span style="color: #ad7fa8; font-style: italic;">"Asi se define una 
 <li>Crea un <i>script</i> que reciba hasta 9 parámetros</li>
 <li>Su salida serán los parámetros, uno por línea, en orden alfabético inverso</li>
 <li>La salida no tendrá líneas en blanco</li>
+<li>Mejoras:
+<ul class="org-ul">
+<li>Más de 9 parámetros: <code>shift</code>, <code>$*</code></li>
+<li>Parámetros con espacios: <code>$@</code></li>
+</ul></li>
 </ul>
 </div>
 </div>
@@ -1674,7 +1679,7 @@ sleep $<span style="color: #ff6347;">SEGUNDOS</span>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-01-20 jue 20:08</p>
+<p class="date">Created: 2022-10-10 lun 13:55</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

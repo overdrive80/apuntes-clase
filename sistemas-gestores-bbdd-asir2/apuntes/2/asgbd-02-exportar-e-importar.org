@@ -254,7 +254,6 @@ Valid keyword values are: IMMEDIATE.
 
 ** Definir un directorio
 
-
 #+begin_src sql
 grant create any directory to unusuario; 
 create directory mi_directorio_de_backup as '/home/alumno/backups';
@@ -263,6 +262,10 @@ create directory mi_directorio_de_backup as '/home/alumno/backups';
 #+begin_src sql
 GRANT READ, WRITE ON DIRECTORY mi_directorio_de_backup TO usuario; 
 #+end_src
+
+- Seguridad: es importante dar permisos a los procesos de *Oracle* para acceder y escribir al directorio
+  - Pero no al resto de usuarios
+  - Mejor =setfacl= que =chmod=  
 
 ** Caracteres de escape
 - A veces hay que pasar parámetros con espacios u otros caracteres especiales
@@ -816,6 +819,7 @@ https://dba.stackexchange.com/questions/46367/mounting-a-database-from-database-
 3. Arranca la instancia, y realiza cambios en la base de datos
 4. Apaga la instancia e intenta recuperar los ficheros de datos
 5. Arranca la instancia, y comprueba que todo sigue como antes del paso 1
+
 
 
 * Referencias

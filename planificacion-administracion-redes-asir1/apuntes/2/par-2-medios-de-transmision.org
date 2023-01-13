@@ -370,7 +370,7 @@ https://es.wikipedia.org/wiki/TIA-568B
 | Estándar      | Frecuencia    | Velocidad | Alcance    |
 |---------------+---------------+-----------+------------|
 | IEEE 802.11a  | 5GHz          | 54mbps    | 50 metros  |
-| IEEE 802.11b  | 2.4GHz        | 11mbsp    | 100 metros |
+| IEEE 802.11b  | 2.4GHz        | 11mbps    | 100 metros |
 | IEEE 802.11g  | 2.4GHz        | 54mbps    |            |
 | IEEE 802.11n  | 2.4GHz y 5GHz | 600mbps   | 70 metros  |
 | IEEE 802.11ac | 5GHz          | 1.3Gbs    |            |

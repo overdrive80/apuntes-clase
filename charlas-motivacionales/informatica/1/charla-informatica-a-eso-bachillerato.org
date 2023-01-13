@@ -16,8 +16,8 @@
         -2px -2px 4px #FFFFFF, 2px -2px 4px #FFFFFF,  -2px 2px 4px #FFFFFF,  2px 2px 4px #FFFFFF;
   }
 </style>
-#+end_export 
 
+#+end_export
 
 
 * Estudiar informática
@@ -202,14 +202,6 @@ O al menos, es una parte muy pequeña
 - Bases de datos: [[https://sqlpd.com/][SQL Police Department]] << [[https://mystery.knightlab.com/][SQL Murder Mystery]]
 - Sistemas: [[http://web.mit.edu/mprat/Public/web/Terminus/Web/main.html][Terminus game]] << [[https://ubuntu.com/download][Instalar linux]]
 - Sistemas y redes: [[https://overthewire.org/wargames/bandit/bandit0.html][Bandit]]
-
-* FP presencial y dual
-| Presencial               | Dual                            |
-|--------------------------+---------------------------------|
-| 2 años en el centro      | 1 año                           |
-| Prácticas de 1 trimestre | 3 trimestres                    |
-| Prácticas no remuneradas | Prácticas remuneradas           |
-| Módulos en el centro     | Módulos entre centro  y empresa |  
 
 #+begin_NOTES
 - Inserción laboral
