@@ -2,6 +2,7 @@
 #+TITLE: Estudiar FP
 #+OPTIONS: org-re-reveal-title-slide:nil re-reveal-title-slide:nil reveal-title-slide:nil toc:nil  timestamp:nil author:nil num:nil
 
+
 #+REVEAL_TITLE_SLIDE:
 
 
@@ -117,10 +118,12 @@ digraph{
 
   "Grado Superior (DAM y DAW)" [shape="rarrow"]
   "Grado Superior (DAM y DAW)" -> "Universidad (desarrollo)"
+  "Grado Superior (DAM y DAW)" -> "Cursos de especialización\nVideojuegos\nBigdata\nSeguridad"
   "Grado Superior (DAM y DAW)" -> "Programación de nuevos sistemas"
 
   [shape="rarrow"] "Grado Superior (ASIR)"
   "Grado Superior (ASIR)" -> "Universidad (sistemas)"
+  "Grado Superior (ASIR)" -> "Cursos de especialización\nVideojuegos\nBigdata\nSeguridad"
 
   {rank = same; "F.P. Básica" ; "Mantenimiento básico en pequeña oficina" }
   {rank = same;"Grado Medio" ; "Mantenimiento de sistemas informáticos" }
@@ -129,6 +132,11 @@ digraph{
   
 }
 #+end_src
+
+#+RESULTS:
+[[file:./quien-hace-que.svg]]
+
+
 ** Mantenimiento informático
 :PROPERTIES:
 :-reveal_background: ./depositphotos_55855867-stock-illustration-computer-repair-service.jpg
