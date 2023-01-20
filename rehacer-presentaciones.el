@@ -8,8 +8,8 @@
 
 
 (defun lista-de-presentaciones (directory)
-  (let* ( (all-orgs (lista-de-orgs directory))
-           (presentations (seq-filter #'es-presentacion-p all-orgs)) )
+  (let* ((all-orgs (lista-de-orgs directory))
+         (presentations (seq-filter #'es-presentacion-p all-orgs)) )
     presentations))
 
 
