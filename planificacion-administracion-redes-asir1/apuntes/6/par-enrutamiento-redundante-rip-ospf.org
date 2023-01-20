@@ -111,7 +111,8 @@ Router(config-router)#passive-interface FastEthernet 0/1
     #+end_example
 
 ** Ejercicio
-Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
+- Repite el ejercicio de añadir rutas redundantes, pero de forma automática (con RIP), en vez de con rutas estáticas
+- Puede usarse este [[file:pkt/redundancia-routers-direcciones-puestas.pkt][fichero PKT con las direcciones IP ya puestas]], pero sin enrutamiento  
 
 * OSPF
 - [[https://es.wikipedia.org/wiki/Open_Shortest_Path_First][Open Shortest Path First]]
