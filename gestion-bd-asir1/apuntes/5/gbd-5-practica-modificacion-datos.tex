@@ -54,13 +54,13 @@ Habrá varios usuarios manejando la base de datos:
 \item \texttt{RRHH}: Permisos completos sobre los datos de las tablas \texttt{Oficinas} y \texttt{Empleados}. Puede ver los datos de \texttt{Clientes} y cambiar el campo \texttt{Clientes.CodigoEmpleadoRepVentas}.  
 \item \texttt{COMERCIAL}: Permisos completos sobre los datos de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.  Podrá ver las tablas \texttt{Productos}, \texttt{Empleados} y \texttt{Oficinas}. Podrá modificar datos de la columna \texttt{Productos.CantidadEnStock}.
 \item \texttt{CONTABILIDAD}: Permisos completos sobre los datos de la tabla \texttt{Pagos}. Pueden leer de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.
-\item \texttt{JARDINERIA}: Permisos completos sobre los datos de las tablas \texttt{Productos} y \texttt{GamasProductos}
+\item \texttt{ALMACEN}: Permisos completos sobre los datos de las tablas \texttt{Productos} y \texttt{GamasProductos}
 \end{itemize}
 
 \begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios (2 puntos)}]
   En tu usuario, crea la base de datos de jardinería.
 
-  Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{JARDINERIA} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
+  Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{ALMACEN} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
   
   \begin{Aviso}[¿Qué se entrega?]
     La base de datos se creará en el usuario de cada alumno en la base de datos del profesor. También alli se asignarán los permisos a los usuarios indicados
@@ -119,6 +119,7 @@ end;
 
 
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{COMERCIAL} y \texttt{RRHH} (2 puntos)}]
 
@@ -158,6 +159,7 @@ end;
 
 \end{homeworkProblem}
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{COMERCIAL} y \texttt{COMERCIAL} (2 puntos)}]
 
@@ -188,12 +190,22 @@ end;
     \item Un fichero \textbf{\texttt{3.comercial140.sql}} con las sentencias del usuario \texttt{COMERCIAL} que vende a \textit{Agrojardín}. Incluye un comentario con el error de \textbf{Oracle} al intentar vender más ajedreas de las disponibles.
     \item Un fichero \textbf{\texttt{3.informatica.sql}} con la modificación de la tabla \texttt{Productos}.
     \end{itemize}
+
+    Para indicar que la transacción se interrumpe por el valor que devuelva una consulta, incluye un comentario como el siguiente:
+    \\
+    \\
+\begin{listadosql}{Cómo indicar fin de la transacción por una condición}{lst:rollback}
+-- Si el campo XXXX de la consulta anterior es
+-- mayor/menor/igual/distinto que XXXX, hago un ROLLBACK.
+-- En otro caso, continúa la transacción.
+\end{listadosql}
     
 
   \end{Aviso}
 
 \end{homeworkProblem}
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{CONTABILIDAD} y \texttt{CONTABILIDAD} (2 puntos)}]
   PepeGardens realiza finalmente el pedido de 50 ajedreas, y otro de 10 palas, a través
@@ -237,7 +249,7 @@ end;
 
 \end{homeworkProblem}
 
-
+\newpage
 \section{Instrucciones de entrega}
 \begin{itemize}
 \item El ejercicio se realizará y entregará de manera individual.
