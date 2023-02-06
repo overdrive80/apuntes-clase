@@ -57,15 +57,18 @@ Habrá varios usuarios manejando la base de datos:
 \item \texttt{ALMACEN}: Permisos completos sobre los datos de las tablas \texttt{Productos} y \texttt{GamasProductos}
 \end{itemize}
 
-\begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios (2 puntos)}]
+\begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios}]
   En tu usuario, crea la base de datos de jardinería.
 
   Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{ALMACEN} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
   
   \begin{Aviso}[¿Qué se entrega?]
+    Esto ya se hizo en la práctica anterior, así que ya no se corrige.
+      \begin{comment}
     La base de datos se creará en el usuario de cada alumno en la base de datos del profesor. También alli se asignarán los permisos a los usuarios indicados
 
-    Además, se entregará un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios. No hay que incluir la carga de la base de datos.
+      Además, se entregará un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios. No hay que incluir la carga de la base de datos.
+      \end{comment}
   \end{Aviso}
 
 
@@ -208,8 +211,7 @@ end;
 \newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{CONTABILIDAD} y \texttt{CONTABILIDAD} (2 puntos)}]
-  PepeGardens realiza finalmente el pedido de 50 ajedreas, y otro de 10 palas, a través
-  de \textit{Manolo Bombo}. Además, realiza el pago para el pedido de las ajedreas. Posteriormente:
+  PepeGardens realiza finalmente el pedido de 50 ajedreas, y otro de 10 palas. Además, realiza el pago para el pedido de las ajedreas. Posteriormente:
 
   \Simultaneo{
 
