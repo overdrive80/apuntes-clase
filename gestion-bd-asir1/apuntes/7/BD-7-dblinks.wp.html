@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-10-10 lun 13:48 -->
+<!-- 2023-02-14 mar 10:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Bases de datos distribuidas (dblinks)</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style>h2::before,h1::before,h3::before,h4::before{ clear: both; }</style>
 <script src="../../../common/reveal.js-menu/menu.js"></script>
@@ -205,9 +205,9 @@
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
 <li><a href="#org0000006">1. Introducción</a></li>
-<li><a href="#org000000b">2. Particiones de los datos</a></li>
-<li><a href="#org000001a">3. <i>DBLink</i></a></li>
-<li><a href="#org000001d">4. Referencias</a></li>
+<li><a href="#org000000f">2. Particiones de los datos</a></li>
+<li><a href="#org0000021">3. <i>DBLink</i></a></li>
+<li><a href="#org0000024">4. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -289,8 +289,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org000000b" class="outline-2">
-<h2 id="org000000b"><span class="section-number-2">2.</span> Particiones de los datos</h2>
+<div id="outline-container-org000000f" class="outline-2">
+<h2 id="org000000f"><span class="section-number-2">2.</span> Particiones de los datos</h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Horizontal
@@ -306,24 +306,214 @@ window.addEventListener("load",()=>{
 <li>Horizontal y vertical combinadas</li>
 </ul></li>
 </ul>
+</div>
+
+<div id="outline-container-org0000009" class="outline-3">
+<h3 id="org0000009"><span class="section-number-3">2.1.</span> Partición horizontal</h3>
+<div class="outline-text-3" id="text-2-1">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
-<div id="org0000009" class="figure">
-<p><img src="BD-7-ParticionHorizontal.jpg" alt="BD-7-ParticionHorizontal.jpg" />
-</p>
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">FECHA</th>
+<th scope="col" class="org-left">NOMBRE</th>
+<th scope="col" class="org-left">PADRE</th>
+<th scope="col" class="org-left">MADRE</th>
+<th scope="col" class="org-left">SITIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Santiago Apóstol</td>
+</tr>
+
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Santiago Apóstol</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">FECHA</th>
+<th scope="col" class="org-left">NOMBRE</th>
+<th scope="col" class="org-left">PADRE</th>
+<th scope="col" class="org-left">MADRE</th>
+<th scope="col" class="org-left">SITIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Almudena</td>
+</tr>
+
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Almudena</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">FECHA</th>
+<th scope="col" class="org-left">NOMBRE</th>
+<th scope="col" class="org-left">PADRE</th>
+<th scope="col" class="org-left">MADRE</th>
+<th scope="col" class="org-left">SITIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Sagrada Familia</td>
+</tr>
+
+<tr>
+<td class="org-left">xxxxx</td>
+<td class="org-left">yyyyyyy</td>
+<td class="org-left">zzzz</td>
+<td class="org-left">wwwww</td>
+<td class="org-left">Sagrada Familia</td>
+</tr>
+</tbody>
+</table>
+
+<br>
+
+<ul class="org-ul">
+<li>El registro eclesiástico se divide por parroquias</li>
+<li>La tabla completa se recupera con <code>UNION</code></li>
+</ul>
+</div>
 </div>
 
 
-<div id="org000000a" class="figure">
-<p><img src="BD-7-ParticionVertical.jpg" alt="BD-7-ParticionVertical.jpg" />
-</p>
+<div id="outline-container-org000000c" class="outline-3">
+<h3 id="org000000c"><span class="section-number-3">2.2.</span> Partición vertical</h3>
+<div class="outline-text-3" id="text-2-2">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">DNI (pk)</th>
+<th scope="col" class="org-left">FACTURA</th>
+<th scope="col" class="org-left">CUENTAS DE BANCO</th>
+<th scope="col" class="org-left">HERENCIAS</th>
+<th scope="col" class="org-left">LOTERÍA</th>
+<th scope="col" class="org-left">ALQUILER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Las facturas son personales.</li>
+<li>Las cuentas las conoce el banco</li>
+<li>El gestor maneja las herencias, alquileres y premios de lotería</li>
+<li>La información completa de las finanzas se recupera con un JOIN</li>
+</ul>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-org000001a" class="outline-2">
-<h2 id="org000001a"><span class="section-number-2">3.</span> <i>DBLink</i></h2>
+<div id="outline-container-org0000021" class="outline-2">
+<h2 id="org0000021"><span class="section-number-2">3.</span> <i>DBLink</i></h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Un servidor de Oracle hace de cliente de otro servidor</li>
@@ -335,8 +525,8 @@ window.addEventListener("load",()=>{
 </ul>
 </div>
 
-<div id="outline-container-org000000e" class="outline-3">
-<h3 id="org000000e"><span class="section-number-3">3.1.</span> Fichero <code>tnsnames.ora</code></h3>
+<div id="outline-container-org0000012" class="outline-3">
+<h3 id="org0000012"><span class="section-number-3">3.1.</span> Fichero <code>tnsnames.ora</code></h3>
 <div class="outline-text-3" id="text-3-1">
 <ul class="org-ul">
 <li>Es el fichero que usan los <i>clientes</i> de Oracle</li>
@@ -364,8 +554,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org0000011" class="outline-3">
-<h3 id="org0000011"><span class="section-number-3">3.2.</span> Creación de <i>dblink</i></h3>
+<div id="outline-container-org0000015" class="outline-3">
+<h3 id="org0000015"><span class="section-number-3">3.2.</span> Creación de <i>dblink</i></h3>
 <div class="outline-text-3" id="text-3-2">
 <ul class="org-ul">
 <li>Suponiendo una conexión de nombre <code>B</code></li>
@@ -396,8 +586,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org0000014" class="outline-3">
-<h3 id="org0000014"><span class="section-number-3">3.3.</span> Cadena de conexión</h3>
+<div id="outline-container-org0000018" class="outline-3">
+<h3 id="org0000018"><span class="section-number-3">3.3.</span> Cadena de conexión</h3>
 <div class="outline-text-3" id="text-3-3">
 <ul class="org-ul">
 <li>La cadena de conexión puede ser:
@@ -421,8 +611,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org0000017" class="outline-3">
-<h3 id="org0000017"><span class="section-number-3">3.4.</span> Cerrar conexiones</h3>
+<div id="outline-container-org000001b" class="outline-3">
+<h3 id="org000001b"><span class="section-number-3">3.4.</span> Cerrar conexiones</h3>
 <div class="outline-text-3" id="text-3-4">
 <ul class="org-ul">
 <li>Cada usuario que utilice el dblink crea una conexión</li>
@@ -435,10 +625,61 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 </div>
+
+<div id="outline-container-org000001e" class="outline-3">
+<h3 id="org000001e"><span class="section-number-3">3.5.</span> Ejercicio</h3>
+<div class="outline-text-3" id="text-3-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">SERVIDOR A</th>
+<th scope="col" class="org-left">SERVIDOR B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Crea el usuario <code>DBLINKA</code></td>
+<td class="org-left">Crea el usuario <code>DBLINKB</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Crea la tabla <code>TABLAA(clave integer, valor varchar(255))</code></td>
+<td class="org-left">Crea la tabla <code>TABLAB(clave integer, valor varchar(255))</code></td>
+</tr>
+
+<tr>
+<td class="org-left">Crea un <i>dblink</i> al otro servidor</td>
+<td class="org-left">Crea un <i>dblink</i> al otro servidor</td>
+</tr>
+
+<tr>
+<td class="org-left">Crea un sinónimo para acceder a <code>TABLAB</code> sin el <i>@dblink</i></td>
+<td class="org-left">Crea un sinónimo para acceder a <code>TABLAA</code> sin el <i>@dblink</i></td>
+</tr>
+
+<tr>
+<td class="org-left">Crea una vista <code>TABLATOTAL</code>, con las filas de <code>TABLAA</code> y <code>TABLAB</code></td>
+<td class="org-left">Crea una vista <code>TABLATOTAL</code>, con las filas de <code>TABLAA</code> y <code>TABLAB</code></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Las columnas de <code>TABLATOTAL</code> serán <code>(usuario,clave,valor)</code>, donde <code>usuario</code> indica si la fila viene de <code>DBLINKA</code> o =DBLINKB=dd</li>
+</ul>
+</div>
+</div>
 </div>
 
-<div id="outline-container-org000001d" class="outline-2">
-<h2 id="org000001d"><span class="section-number-2">4.</span> Referencias</h2>
+<div id="outline-container-org0000024" class="outline-2">
+<h2 id="org0000024"><span class="section-number-2">4.</span> Referencias</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Formatos:
@@ -460,7 +701,7 @@ window.addEventListener("load",()=>{
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-10-10 lun 13:48</p>
+<p class="date">Created: 2023-02-14 mar 10:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
