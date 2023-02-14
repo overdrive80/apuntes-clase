@@ -144,11 +144,11 @@ ALTER SESSION CLOSE DATABASE LINK linkname;
 |-------------------------------------------------------------------+-------------------------------------------------------------------|
 | Crea el usuario ~DBLINKA~                                         | Crea el usuario ~DBLINKB~                                         |
 | Crea la tabla ~TABLAA(clave integer, valor varchar(255))~         | Crea la tabla ~TABLAB(clave integer, valor varchar(255))~         |
-| Crea un /dblink/ al otro servidor                                | Crea un /dblink/ al otro servidor                                 |
+| Crea un /dblink/ al otro servidor                                 | Crea un /dblink/ al otro servidor                                 |
 | Crea un sinónimo para acceder a =TABLAB= sin el /@dblink/         | Crea un sinónimo para acceder a =TABLAA= sin el /@dblink/         |
 | Crea una vista =TABLATOTAL=, con las filas de =TABLAA= y =TABLAB= | Crea una vista =TABLATOTAL=, con las filas de =TABLAA= y =TABLAB= |
-
-- Las columnas de =TABLATOTAL= serán =(usuario,clave,valor)=, donde =usuario= indica si la fila viene de =DBLINKA= o =DBLINKB=dd
+#+html: <br>
+- Las columnas de =TABLATOTAL= serán =(usuario,clave,valor)=, donde =usuario= indica si la fila viene de =DBLINKA= o =DBLINKB=
 
 * Referencias
 #+include: "../../../common/footer.org"
