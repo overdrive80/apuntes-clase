@@ -54,18 +54,21 @@ Habrá varios usuarios manejando la base de datos:
 \item \texttt{RRHH}: Permisos completos sobre los datos de las tablas \texttt{Oficinas} y \texttt{Empleados}. Puede ver los datos de \texttt{Clientes} y cambiar el campo \texttt{Clientes.CodigoEmpleadoRepVentas}.  
 \item \texttt{COMERCIAL}: Permisos completos sobre los datos de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.  Podrá ver las tablas \texttt{Productos}, \texttt{Empleados} y \texttt{Oficinas}. Podrá modificar datos de la columna \texttt{Productos.CantidadEnStock}.
 \item \texttt{CONTABILIDAD}: Permisos completos sobre los datos de la tabla \texttt{Pagos}. Pueden leer de las tablas \texttt{Clientes}, \texttt{Pedidos} y \texttt{DetallePedidos}.
-\item \texttt{JARDINERIA}: Permisos completos sobre los datos de las tablas \texttt{Productos} y \texttt{GamasProductos}
+\item \texttt{ALMACEN}: Permisos completos sobre los datos de las tablas \texttt{Productos} y \texttt{GamasProductos}
 \end{itemize}
 
-\begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios (2 puntos)}]
+\begin{homeworkProblem}[: \imenu{Carga del modelo y creación de usuarios}]
   En tu usuario, crea la base de datos de jardinería.
 
-  Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{JARDINERIA} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
+  Posteriormente, asigna los permisos necesarios a los usuarios \texttt{RRHH}, \texttt{COMERCIAL}, \texttt{CONTABILIDAD} y \texttt{ALMACEN} con la orden \texttt{GRANT}.   Se recomienda otorgar el privilegio \texttt{CREATE VIEW} a todos los usuarios, para facilitar el resto de ejercicios.
   
   \begin{Aviso}[¿Qué se entrega?]
+    Esto ya se hizo en la práctica anterior, así que ya no se corrige.
+      \begin{comment}
     La base de datos se creará en el usuario de cada alumno en la base de datos del profesor. También alli se asignarán los permisos a los usuarios indicados
 
-    Además, se entregará un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios. No hay que incluir la carga de la base de datos.
+      Además, se entregará un fichero de nombre \textbf{\texttt{1.permisos.sql}} con las órdenes necesarias para asignar los privilegios. No hay que incluir la carga de la base de datos.
+      \end{comment}
   \end{Aviso}
 
 
@@ -119,6 +122,7 @@ end;
 
 
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{COMERCIAL} y \texttt{RRHH} (2 puntos)}]
 
@@ -158,6 +162,7 @@ end;
 
 \end{homeworkProblem}
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{COMERCIAL} y \texttt{COMERCIAL} (2 puntos)}]
 
@@ -188,22 +193,31 @@ end;
     \item Un fichero \textbf{\texttt{3.comercial140.sql}} con las sentencias del usuario \texttt{COMERCIAL} que vende a \textit{Agrojardín}. Incluye un comentario con el error de \textbf{Oracle} al intentar vender más ajedreas de las disponibles.
     \item Un fichero \textbf{\texttt{3.informatica.sql}} con la modificación de la tabla \texttt{Productos}.
     \end{itemize}
+
+    Para indicar que la transacción se interrumpe por el valor que devuelva una consulta, incluye un comentario como el siguiente:
+    \\
+    \\
+\begin{listadosql}{Cómo indicar fin de la transacción por una condición}{lst:rollback}
+-- Si el campo XXXX de la consulta anterior es
+-- mayor/menor/igual/distinto que XXXX, hago un ROLLBACK.
+-- En otro caso, continúa la transacción.
+\end{listadosql}
     
 
   \end{Aviso}
 
 \end{homeworkProblem}
 
+\newpage
 
 \begin{homeworkProblem}[: \imenu{\texttt{CONTABILIDAD} y \texttt{CONTABILIDAD} (2 puntos)}]
-  PepeGardens realiza finalmente el pedido de 50 ajedreas, y otro de 10 palas, a través
-  de \textit{Manolo Bombo}. Además, realiza el pago para el pedido de las ajedreas. Posteriormente:
+  PepeGardens realiza finalmente el pedido de 50 ajedreas, y otro de 10 palas. Además, realiza el pago para el pedido de las ajedreas. Posteriormente:
 
   \Simultaneo{
 
     
     \begin{enumerate}
-    \item Un empleado de \textit{PepeGardens} se conecta por Internet para pagarlo con PayPal. 
+    \item Un empleado de \textit{PepeGardens} se conecta por Internet para pagar el resto de la deuda con PayPal. 
     \item Para recibir un pago, la web consulta primero el saldo del cliente (suma de    todos sus pedidos menos suma de todos sus pagos).
     \item Solo acepta pagos inferiores al  saldo deudor del cliente.
     \end{enumerate}
@@ -211,7 +225,7 @@ end;
   {
 
     \begin{enumerate}
-    \item Otro empleado se acerca para pagarlo en efectivo.
+    \item Otro empleado se acerca para pagar el resto de la deuda en efectivo.
     \item Un empleado de \texttt{CONTABILIDAD} realiza las mismas operaciones que la página web.
     \end{enumerate}
   }
@@ -237,7 +251,7 @@ end;
 
 \end{homeworkProblem}
 
-
+\newpage
 \section{Instrucciones de entrega}
 \begin{itemize}
 \item El ejercicio se realizará y entregará de manera individual.

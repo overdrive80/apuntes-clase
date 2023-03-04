@@ -445,7 +445,7 @@ div.figure, caption.t-bottom{
 <div class="reveal">
 <div class="slides">
 <section id="sec-title-slide">
-<h1 class="title">Capa de enlace</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-11-11 vie 08:31</p>
+<h1 class="title">Capa de enlace</h1><h2 class="author">Álvaro González Sotillo</h2><p class="date">Created: 2022-11-15 mar 09:36</p>
 </section>
 <section id="table-of-contents-section">
 <div id="table-of-contents" role="doc-toc">
@@ -1952,8 +1952,8 @@ Se transmite <code>10001100101</code>
 <ul>
 <li>Calcula el porcentaje de redundancia de:
 <ul>
-<li>Tramas de 1000 bytes con crc32</li>
-<li>Tramas de 100 bytes con crc16</li>
+<li>Tramas de 1000 bytes, con crc32 incluido en los 1000 bytes</li>
+<li>Tramas de 100 bytes, con crc16 añadido a los 100 bytes</li>
 <li>Hamming (7,4)</li>
 <li>Hamming (11,7)</li>
 <li>Hamming (11,7) extendido</li>
@@ -1964,6 +1964,24 @@ Se transmite <code>10001100101</code>
 
 </ul>
 <div class="slide-footer"></div>
+
+</section>
+<section id="slide-6-4">
+<h3 id="6-4"><span class="section-number-3">6.4.</span> Códigos Reed Solomon</h3>
+<ul>
+<li>En la actualidad, Hamming tiene una utilidad <i>didáctica</i> más que práctica</li>
+<li>En la actualidad se utiliza <a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">Reed-Solomon</a>
+<ul>
+<li>CD, DVD, BlueRay</li>
+<li>QR</li>
+<li>Raid 6</li>
+<li>DVB, WiMax, transmisiones aeroespaciales</li>
+
+</ul></li>
+
+</ul>
+<div class="slide-footer"></div>
+
 
 
 </section>

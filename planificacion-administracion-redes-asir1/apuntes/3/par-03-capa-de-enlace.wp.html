@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-11-11 vie 08:31 -->
+<!-- 2022-11-15 mar 09:36 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Capa de enlace</title>
@@ -233,8 +233,8 @@
 <li><a href="#org000000f">3. Control de flujo</a></li>
 <li><a href="#org0000026">4. Acceso al medio</a></li>
 <li><a href="#org000003e">5. Control de errores</a></li>
-<li><a href="#org000005a">6. Corrección de errores</a></li>
-<li><a href="#org000005d">7. Referencias</a></li>
+<li><a href="#org000005d">6. Corrección de errores</a></li>
+<li><a href="#org0000060">7. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -873,8 +873,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org000005a" class="outline-2">
-<h2 id="org000005a"><span class="section-number-2">6.</span> Corrección de errores</h2>
+<div id="outline-container-org000005d" class="outline-2">
+<h2 id="org000005d"><span class="section-number-2">6.</span> Corrección de errores</h2>
 <div class="outline-text-2" id="text-6">
 <ul class="org-ul">
 <li>La detección de errores es el primer paso</li>
@@ -1655,8 +1655,8 @@ Se transmite <code>10001100101</code>
 <ul class="org-ul">
 <li>Calcula el porcentaje de redundancia de:
 <ul class="org-ul">
-<li>Tramas de 1000 bytes con crc32</li>
-<li>Tramas de 100 bytes con crc16</li>
+<li>Tramas de 1000 bytes, con crc32 incluido en los 1000 bytes</li>
+<li>Tramas de 100 bytes, con crc16 añadido a los 100 bytes</li>
 <li>Hamming (7,4)</li>
 <li>Hamming (11,7)</li>
 <li>Hamming (11,7) extendido</li>
@@ -1666,11 +1666,28 @@ Se transmite <code>10001100101</code>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org000005a" class="outline-3">
+<h3 id="org000005a"><span class="section-number-3">6.4.</span> Códigos Reed Solomon</h3>
+<div class="outline-text-3" id="text-6-4">
+<ul class="org-ul">
+<li>En la actualidad, Hamming tiene una utilidad <i>didáctica</i> más que práctica</li>
+<li>En la actualidad se utiliza <a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">Reed-Solomon</a>
+<ul class="org-ul">
+<li>CD, DVD, BlueRay</li>
+<li>QR</li>
+<li>Raid 6</li>
+<li>DVB, WiMax, transmisiones aeroespaciales</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 
 
-<div id="outline-container-org000005d" class="outline-2">
-<h2 id="org000005d"><span class="section-number-2">7.</span> Referencias</h2>
+
+<div id="outline-container-org0000060" class="outline-2">
+<h2 id="org0000060"><span class="section-number-2">7.</span> Referencias</h2>
 <div class="outline-text-2" id="text-7">
 <ul class="org-ul">
 <li>Formatos:
@@ -1692,7 +1709,7 @@ Se transmite <code>10001100101</code>
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-11-11 vie 08:31</p>
+<p class="date">Created: 2022-11-15 mar 09:36</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

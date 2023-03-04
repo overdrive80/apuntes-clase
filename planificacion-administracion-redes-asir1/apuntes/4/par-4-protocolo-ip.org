@@ -34,7 +34,7 @@
 - Por eso se necesita saber dónde empiezan los datos en cada paquete
 
 ** Código de redundancia
-- El /checksum/ se calcula como la suma (sin acarreo) de todas las palabras de 32 bits de la cabecera
+- El /checksum/ se calcula como la suma (sin acarreo) de todas las palabras de 16 bits de la cabecera
   - Excepto el propio /checksum/
 - Sirve para detectar errores de transmisión
 - Es adicional al que pueda tener la capa de transporte

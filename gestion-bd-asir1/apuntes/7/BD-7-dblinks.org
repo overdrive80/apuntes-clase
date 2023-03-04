@@ -30,12 +30,45 @@
 - Mixta
   - Horizontal y vertical combinadas
 
-#+reveal: split
-[[file:BD-7-ParticionHorizontal.jpg]]
+** Partición horizontal
 
-#+reveal: split
-[[file:BD-7-ParticionVertical.jpg]]
+| FECHA | NOMBRE  | PADRE  | MADRE | SITIO            |
+|-------+---------+--------+-------+------------------|
+| xxxxx | yyyyyy  | zzzz   | wwwww | Santiago Apóstol |
+| xxxxx | yyyyyyy | zzzz   | wwwww | Santiago Apóstol |
 
+#+html: <br>
+
+| FECHA | NOMBRE | PADRE | MADRE | SITIO            |
+|-------+--------+-------+-------+------------------|
+| xxxxx | yyyyyy  | zzzz   | wwwww | Almudena         |
+| xxxxx | yyyyyyy | zzzz   | wwwww | Almudena         |
+
+#+html: <br>
+
+
+| FECHA | NOMBRE  | PADRE | MADRE | SITIO           |
+|-------+---------+-------+-------+-----------------|
+| xxxxx | yyyyyy  | zzzz  | wwwww | Sagrada Familia |
+| xxxxx | yyyyyyy | zzzz  | wwwww | Sagrada Familia |
+
+#+html: <br>
+
+- El registro eclesiástico se divide por parroquias
+- La tabla completa se recupera con =UNION=
+
+
+** Partición vertical
+
+| DNI (pk) | FACTURA | CUENTAS DE BANCO | HERENCIAS | LOTERÍA | ALQUILER |
+|----------+---------+------------------+-----------+---------+----------|
+|          |         |                  |           |         |          |
+|          |         |                  |           |         |          |
+
+- Las facturas son personales.
+- Las cuentas las conoce el banco
+- El gestor maneja las herencias, alquileres y premios de lotería
+- La información completa de las finanzas se recupera con un JOIN  
 
 * /DBLink/
 - Un servidor de Oracle hace de cliente de otro servidor
@@ -104,6 +137,18 @@ Create database link LNK_DE_A_a_B
 #+begin_src sql
 ALTER SESSION CLOSE DATABASE LINK linkname;
 #+end_src
+
+** Ejercicio
+#+ATTR_LATEX: :align |p{7cm}|p{7cm}|
+| SERVIDOR A                                                        | SERVIDOR B                                                        |
+|-------------------------------------------------------------------+-------------------------------------------------------------------|
+| Crea el usuario ~DBLINKA~                                         | Crea el usuario ~DBLINKB~                                         |
+| Crea la tabla ~TABLAA(clave integer, valor varchar(255))~         | Crea la tabla ~TABLAB(clave integer, valor varchar(255))~         |
+| Crea un /dblink/ al otro servidor                                 | Crea un /dblink/ al otro servidor                                 |
+| Crea un sinónimo para acceder a =TABLAB= sin el /@dblink/         | Crea un sinónimo para acceder a =TABLAA= sin el /@dblink/         |
+| Crea una vista =TABLATOTAL=, con las filas de =TABLAA= y =TABLAB= | Crea una vista =TABLATOTAL=, con las filas de =TABLAA= y =TABLAB= |
+#+html: <br>
+- Las columnas de =TABLATOTAL= serán =(usuario,clave,valor)=, donde =usuario= indica si la fila viene de =DBLINKA= o =DBLINKB=
 
 * Referencias
 #+include: "../../../common/footer.org"

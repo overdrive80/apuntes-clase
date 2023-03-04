@@ -1,7 +1,9 @@
 #+INCLUDE: "./header.org"
-#+TITLE: Estudiar FP 
-#+OPTIONS:   toc:nil  timestamp:nil author:nil num:nil
+#+TITLE: Estudiar FP
+#+OPTIONS: org-re-reveal-title-slide:nil re-reveal-title-slide:nil reveal-title-slide:nil toc:nil  timestamp:nil author:nil num:nil
 
+
+#+REVEAL_TITLE_SLIDE:
 
 
 
@@ -12,15 +14,15 @@
       text-shadow:
         -2px -2px 4px #FFFFFF, 2px -2px 4px #FFFFFF,  -2px 2px 4px #FFFFFF,  2px 2px 4px #FFFFFF,
         -2px -2px 4px #FFFFFF, 2px -2px 4px #FFFFFF,  -2px 2px 4px #FFFFFF,  2px 2px 4px #FFFFFF,
-        -2px -2px 4px #FFFFFF, 2px -2px 4px #FFFFFF,  -2px 2px 4px #FFFFFF,  2px 2px 4px #FFFFFF
-      ;
+        -2px -2px 4px #FFFFFF, 2px -2px 4px #FFFFFF,  -2px 2px 4px #FFFFFF,  2px 2px 4px #FFFFFF;
   }
 </style>
 
 #+end_export
 
 
-* Cómo moverse por esta presentación
+* Estudiar informática
+Desplaza con el dedo o usa estas teclas para moverte por la presentación: 
 |----------+----------------------------|
 | Tecla    | Acción                     |
 |----------+----------------------------|
@@ -57,7 +59,11 @@
 
 ** Inserción laboral Grado Superior (2018)
 [[file:insercion-laboral-2018-grado-superior.png]]
-
+** Datos actualizados de inserción laboral
+- Datos generales 
+  - https://www.educacionyfp.gob.es/servicios-al-ciudadano/estadisticas/laborales/insercion.html
+- Datos de Formación Profesional
+  - http://estadisticas.mecd.gob.es/EducaDynPx/educabase/index.htm?type=pcaxis&path=/laborales/insercion/famprof&file=pcaxis&l=s0
 
 ** FP presencial y dual
 | Presencial               | Dual                            |
@@ -112,10 +118,12 @@ digraph{
 
   "Grado Superior (DAM y DAW)" [shape="rarrow"]
   "Grado Superior (DAM y DAW)" -> "Universidad (desarrollo)"
+  "Grado Superior (DAM y DAW)" -> "Cursos de especialización\nVideojuegos\nBigdata\nSeguridad"
   "Grado Superior (DAM y DAW)" -> "Programación de nuevos sistemas"
 
   [shape="rarrow"] "Grado Superior (ASIR)"
   "Grado Superior (ASIR)" -> "Universidad (sistemas)"
+  "Grado Superior (ASIR)" -> "Cursos de especialización\nVideojuegos\nBigdata\nSeguridad"
 
   {rank = same; "F.P. Básica" ; "Mantenimiento básico en pequeña oficina" }
   {rank = same;"Grado Medio" ; "Mantenimiento de sistemas informáticos" }
@@ -124,6 +132,11 @@ digraph{
   
 }
 #+end_src
+
+#+RESULTS:
+[[file:./quien-hace-que.svg]]
+
+
 ** Mantenimiento informático
 :PROPERTIES:
 :-reveal_background: ./depositphotos_55855867-stock-illustration-computer-repair-service.jpg
