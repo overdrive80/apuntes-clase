@@ -129,5 +129,16 @@ En un enrutamiento normal IP los paquetes siempre conservan su IP origen y desti
 [[file:./media/dmz-doble-firewall.jpg]]
 
 
+* Curso Redes empresariales, Seguridad y Automatización v7.02
+- Test: https://contenthub.netacad.com/ensa-dl/6.1.5
+- Packet Tracer: https://contenthub.netacad.com/ensa-dl/6.2.7
+- Test: ventajas y desventajas de NAT https://contenthub.netacad.com/ensa-dl/6.3.3
+- Packet Tracer: configurar NAT estática https://contenthub.netacad.com/ensa-dl/6.4.5
+- Packet Tracer: configurar NAT dinámica https://contenthub.netacad.com/ensa-dl/6.5.6
+- Packet Tracer: configurar PAT https://contenthub.netacad.com/ensa-dl/6.6.7
+- Packet Tracer: configurar NAT para ipv4 https://contenthub.netacad.com/ensa-dl/6.8.1   
+- Test: https://contenthub.netacad.com/ensa-dl/6.8.4
+  
+
 * Referencias
 #+INCLUDE: "../../../common/footer.org"
