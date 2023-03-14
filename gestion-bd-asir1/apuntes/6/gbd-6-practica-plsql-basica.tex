@@ -53,7 +53,7 @@ Una compañía necesita automatizar su almacén
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{homeworkProblem}[: \imenu{Procedimiento para crear un producto} (2 puntos)]
-  Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
+  Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  El identificador de los productos podrá basarse en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, o usar otro método.
 
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
 create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
@@ -154,7 +154,7 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
   \end{itemize}
 
   \begin{listadosql}{Precio medio de venta}{lst:precio-medio-de-venta}
-create or replace function PRECIO_MEDIO_VENTA(idproducto) return number
+create or replace function PRECIO_MEDIO_VENTA(idproducto number) return number
 as
 ...
   \end{listadosql}  
