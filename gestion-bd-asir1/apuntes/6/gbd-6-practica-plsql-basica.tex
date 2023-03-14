@@ -35,7 +35,7 @@ Una compañía necesita automatizar su almacén
   \begin{itemize}
   \item El producto
   \item La cantidad de producto (como máximo, 9999 unidades)
-  \item El precio pagado al proveedor por unidad de producto (como máximo, 99999\euro)
+  \item El precio pagado al proveedor por unidad de producto (como máximo, 99999{\euro})
   \end{itemize}
 \item De cada salida de producto del almacén se apunta
   \begin{itemize}
@@ -140,6 +140,26 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
   
 \end{homeworkProblem}
 
+
+\begin{homeworkProblem}[: \imenu{Función de precio medio de venta} (3 puntos)]
+
+  Crea la función \texttt{PRECIO\_MEDIO\_VENTA}. Esta función devolverá:
+  \begin{itemize}
+  \item \texttt{null} si el producto no se ha vendido nunca
+  \item El precio medio de venta, que se calcula como la suma de los precios de cada una de las unidades vendidas, dividido por el número total de las unidades vendidas. El precio medio tendrá dos decimales.
+    \begin{itemize}
+    \item Ejemplo: si se han vendido 3 unidades a 10{\euro} y 2 unidades a 5{\euro} el precio medio es de 8{\euro}
+    \end{itemize}
+  \item Lanzará el error \texttt{-20102} si el producto no existe
+  \end{itemize}
+
+  \begin{listadosql}{Precio medio de venta}{lst:precio-medio-de-venta}
+create or replace function PRECIO_MEDIO_VENTA(idproducto) return number
+as
+...
+  \end{listadosql}  
+  
+\end{homeworkProblem}
 
 
 \begin{homeworkProblem}[: \imenu{Salida del almacén respetando existencias} (2 puntos)]
