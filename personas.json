@@ -32,10 +32,10 @@
     }
     ,
     {
-        nombre: "Para corregir",
-        apellidos: "Uno nuevo",
-        edad: "2999",
-        ruta: "persona-para-corregir.jpg"
+        "nombre": "Para corregir",
+        "apellidos": "Uno nuevo",
+        "edad": "2999",
+        "ruta": "persona-para-corregir.jpg"
     }
 
 ]
