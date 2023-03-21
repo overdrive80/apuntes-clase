@@ -40,15 +40,13 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \begin{itemize}
 \item En una empresa hay dos departamentos: \textbf{comerciales} y \textbf{soporte} al cliente.
 \item Todos los empleados acceden a internet a través del mismo router (puedes representar internet por un servidor con la ip \texttt{8.8.8.8}). No es necesario que se haga NAT.
-\item Hay un switch en el sistema troncal. Hay un switch por cada sistema horizontal (de planta).  
+\item Hay un switch en el sistema troncal. Hay un switch por cada sistema horizontal (de planta).
 \item Los comerciales están en la planta 3, y los de soporte en la planta 2.
 \item A pesar de la división general por plantas, hay un comercial en la planta 2, y un técnico de soporte en la 3.
 \item Hay dos servidores conectados al sistema troncal directamente. Uno pertenece al departamento comercial, y otro al de soporte.
 \end{itemize}
 Se desea reducir los \enlace{https://es.wikipedia.org/wiki/Dominio_de_difusi\%C3\%B3n}{dominios de difusión} de la red. Para ello, se utilizará una VLAN para comerciales y otra para soporte, con diferentes subredes IP.
-
 A pesar de ello, se desea que todos los equipos de la red puedan comunicarse entre sí a nivel IP.
-
 \section{Diseño de la red}
 \begin{itemize}
 \item Incluye al menos:
