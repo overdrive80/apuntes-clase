@@ -43,7 +43,7 @@
 #+LATEX_CLASS: article
 #+LATEX_CLASS_OPTIONS: [a4paper]
 
-#+LATEX_HEADER: \usepackage[margin=2.5cm,includeheadfoot,includehead,includefoot]{geometry} 
+#+LATEX_HEADER: \usepackage[margin=1.5cm,includeheadfoot,includehead,includefoot]{geometry} 
 #+LATEX_HEADER: \hypersetup{colorlinks,linkcolor=black}
 
 # CABECERA Y PIE LATEX
