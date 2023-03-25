@@ -104,6 +104,7 @@ end;
 * Habilitar el /debug/
 - Privilegios
 - Habilitar puestos de depuración
+- Modo =DBMS_DEBUG= en vez de =DBMS_DEBUG_JDWP= (evita conexión inversa desde el servidor)
 
 ** Privilegios
 #+begin_example

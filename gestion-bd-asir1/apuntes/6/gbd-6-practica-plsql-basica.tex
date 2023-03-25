@@ -30,12 +30,12 @@ La última versión de esta práctica está disponible en \enlace{https://alvaro
 \section{Descripción del problema}
 Una compañía necesita automatizar su almacén
 \begin{itemize}
-\item De cada producto se almacena su identificador, su nombre (como máximo, 30 caracteres) y su \textit{stock}.
+\item De cada producto se almacena su identificador (máximo 10 dígitos), su nombre (como máximo, 30 caracteres) y su \textit{stock}.
 \item En cada entrada de producto al almacén, se apunta
   \begin{itemize}
   \item El producto
   \item La cantidad de producto (como máximo, 9999 unidades)
-  \item El precio pagado al proveedor por unidad de producto (como máximo, 99999\euro)
+  \item El precio pagado al proveedor por unidad de producto (como máximo, 99999{\euro})
   \end{itemize}
 \item De cada salida de producto del almacén se apunta
   \begin{itemize}
@@ -53,7 +53,7 @@ Una compañía necesita automatizar su almacén
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{homeworkProblem}[: \imenu{Procedimiento para crear un producto} (2 puntos)]
-  Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  Los productos tendrán un identificador basado en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, que aumentará de uno en uno. 
+  Crea un procedimiento de nombre \texttt{CREAR\_PRODUCTO} (listado \ref{lst:crear-producto}), que inserte un nuevo producto en la base de datos.  El identificador de los productos podrá basarse en la secuencia \texttt{SECUENCIA\_PRODUCTO\_ID}, o usar otro método.
 
   \begin{listadosql}{Creación del procedimiento \texttt{CREAR\_PRODUCTO}}{lst:crear-producto}
 create or replace procedure CREAR_PRODUCTO(nombreproducto IN varchar, idproducto OUT number)
@@ -87,7 +87,9 @@ end;
   \item Crea un procedimiento \texttt{ENTRADA\_PRODUCTO} que actualice la base de datos cuando llegue un producto.
   \item Crea un procedimiento \texttt{SALIDA\_PRODUCTO} que actualice la base de datos cuando se envie un producto.
   \item Si el producto no existe, se lanzará el error -20102.
+  \item Los precios pagados y cobrados son por unidad de producto.
   \end{itemize}
+
 
 
   
@@ -95,7 +97,7 @@ end;
 create or replace procedure ENTRADA_PRODUCTO(
   idproducto IN number,
   cantidad IN number,
-  preciopagado IN number)
+  preciopagadoporunidad IN number)
 as
   -- VARIABLES QUE HAGAN FALTA
 begin
@@ -105,7 +107,7 @@ end;
 create or replace procedure SALIDA_PRODUCTO(
   idproducto IN number,
   cantidad IN number,
-  preciocobrado IN number)
+  preciocobradoporunidad IN number)
 as
   -- VARIABLES QUE HAGAN FALTA
 begin
@@ -131,7 +133,7 @@ end;
 
 \begin{homeworkProblem}[: \imenu{Vista de existencias} (3 puntos)]
 
-  Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}.
+  Crea la vista \texttt{V\_EXISTENCIAS}. En esta vista se listan todos los productos existentes y su stock. Un producto que nunca ha tenido entradas o salidas debe tener un \textit{stock} de cero. Un producto que no se ha comprado nunca a un proveedor tiene un \texttt{ultimopreciocompra} a \texttt{NULL}. Un producto que nunca se ha vendido a un cliente tiene \texttt{ultimoprecioventa} a \texttt{NULL}. Los precios son por unidad de producto.
 
   \begin{listadosql}{Vista de existencias}{lst:vista-existencias}
 create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,ultimoprecioventa) as
@@ -140,6 +142,26 @@ create or replace view V_EXISTENCIAS(idproducto,existencias,ultimopreciocompra,u
   
 \end{homeworkProblem}
 
+
+\begin{homeworkProblem}[: \imenu{Función de precio medio de venta} (3 puntos)]
+
+  Crea la función \texttt{PRECIO\_MEDIO\_VENTA}. Esta función devolverá:
+  \begin{itemize}
+  \item \texttt{null} si el producto no se ha vendido nunca
+  \item El precio medio de venta, que se calcula como la suma de los precios de cada una de las unidades vendidas, dividido por el número total de las unidades vendidas. El precio medio tendrá dos decimales.
+    \begin{itemize}
+    \item Ejemplo: si se han vendido 3 unidades a 10{\euro} y 2 unidades a 5{\euro} el precio medio es de 8{\euro}
+    \end{itemize}
+  \item Lanzará el error \texttt{-20102} si el producto no existe
+  \end{itemize}
+
+  \begin{listadosql}{Precio medio de venta}{lst:precio-medio-de-venta}
+create or replace function PRECIO_MEDIO_VENTA(idproducto number) return number
+as
+...
+  \end{listadosql}  
+  
+\end{homeworkProblem}
 
 
 \begin{homeworkProblem}[: \imenu{Salida del almacén respetando existencias} (2 puntos)]

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
 <head>
-<!-- 2022-10-10 lun 13:48 -->
+<!-- 2023-03-21 mar 11:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Depuración de PLSQL con SQLDeveloper</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <style>h2::before,h1::before,h3::before,h4::before{ clear: both; }</style>
 <script src="../../../common/reveal.js-menu/menu.js"></script>
@@ -204,10 +204,10 @@
 <h2>&Iacute;ndice</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org000001f">1. Ejemplo</a></li>
-<li><a href="#org0000029">2. Habilitar el <i>debug</i></a></li>
-<li><a href="#org0000033">3. Alternativas a depurar</a></li>
-<li><a href="#org0000036">4. Referencias</a></li>
+<li><a href="#org0000020">1. Ejemplo</a></li>
+<li><a href="#org000002a">2. Habilitar el <i>debug</i></a></li>
+<li><a href="#org0000034">3. Alternativas a depurar</a></li>
+<li><a href="#org0000037">4. Referencias</a></li>
 </ul>
 </div>
 </div>
@@ -245,16 +245,16 @@ window.addEventListener("load",()=>{
 </script>
 
 
-<div id="outline-container-org000001f" class="outline-2">
-<h2 id="org000001f"><span class="section-number-2">1.</span> Ejemplo</h2>
+<div id="outline-container-org0000020" class="outline-2">
+<h2 id="org0000020"><span class="section-number-2">1.</span> Ejemplo</h2>
 <div class="outline-text-2" id="text-1">
 <ul class="org-ul">
 <li><a href="https://es.wikipedia.org/wiki/Algoritmo_de_Euclides">Algoritmo de Euclides</a> para el máximo común divisor de dos números</li>
 </ul>
 </div>
 
-<div id="outline-container-org0000001" class="outline-3">
-<h3 id="org0000001"><span class="section-number-3">1.1.</span> Diagrama de flujo</h3>
+<div id="outline-container-org0000002" class="outline-3">
+<h3 id="org0000002"><span class="section-number-3">1.1.</span> Diagrama de flujo</h3>
 <div class="outline-text-3" id="text-1-1">
 
 <div id="org0000000" class="figure">
@@ -264,8 +264,8 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org0000004" class="outline-3">
-<h3 id="org0000004"><span class="section-number-3">1.2.</span> Código PLSQL</h3>
+<div id="outline-container-org0000005" class="outline-3">
+<h3 id="org0000005"><span class="section-number-3">1.2.</span> Código PLSQL</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">function</span> <span style="color: #edd400; font-weight: bold;">MCD</span>(n1 <span style="color: #729fcf; font-weight: bold;">number</span>,n2 <span style="color: #729fcf; font-weight: bold;">number</span>) <span style="color: #729fcf; font-weight: bold;">return</span> <span style="color: #729fcf; font-weight: bold;">number</span>
@@ -298,11 +298,11 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org0000008" class="outline-3">
-<h3 id="org0000008"><span class="section-number-3">1.3.</span> Lista de procedimientos y funciones</h3>
+<div id="outline-container-org0000009" class="outline-3">
+<h3 id="org0000009"><span class="section-number-3">1.3.</span> Lista de procedimientos y funciones</h3>
 <div class="outline-text-3" id="text-1-3">
 
-<div id="org0000007" class="figure">
+<div id="org0000008" class="figure">
 <p><img src="media/sqldeveloper-funciones-definidas.png" alt="sqldeveloper-funciones-definidas.png" />
 </p>
 </div>
@@ -310,8 +310,8 @@ window.addEventListener("load",()=>{
 </div>
 
 
-<div id="outline-container-org000000c" class="outline-3">
-<h3 id="org000000c"><span class="section-number-3">1.4.</span> Compilar para depurar</h3>
+<div id="outline-container-org000000d" class="outline-3">
+<h3 id="org000000d"><span class="section-number-3">1.4.</span> Compilar para depurar</h3>
 <div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>Para poder depurar, debe compilare para depurar</li>
@@ -319,30 +319,30 @@ window.addEventListener("load",()=>{
 </ul>
 
 
-<div id="org000000b" class="figure">
+<div id="org000000c" class="figure">
 <p><img src="media/sqldeveloper-compilar-para-debug.png" alt="sqldeveloper-compilar-para-debug.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0000010" class="outline-3">
-<h3 id="org0000010"><span class="section-number-3">1.5.</span> Poner un <i>breakpoint</i></h3>
+<div id="outline-container-org0000011" class="outline-3">
+<h3 id="org0000011"><span class="section-number-3">1.5.</span> Poner un <i>breakpoint</i></h3>
 <div class="outline-text-3" id="text-1-5">
 <ul class="org-ul">
 <li>Un <i>breakpoint</i> es una línea donde la ejecución parará temporalmente para poder inspeccionar el estado de las variables</li>
 <li><code>f5</code> o botón derecho sobre los números de línea</li>
 </ul>
 
-<div id="org000000f" class="figure">
+<div id="org0000010" class="figure">
 <p><img src="media/sqldeveloper-poner-breakpoint.png" alt="sqldeveloper-poner-breakpoint.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0000014" class="outline-3">
-<h3 id="org0000014"><span class="section-number-3">1.6.</span> Bloque de invocación</h3>
+<div id="outline-container-org0000015" class="outline-3">
+<h3 id="org0000015"><span class="section-number-3">1.6.</span> Bloque de invocación</h3>
 <div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>Es un bloque anónimo que invocará a la función/procedimiento</li>
@@ -350,18 +350,18 @@ window.addEventListener("load",()=>{
 </ul>
 
 
-<div id="org0000013" class="figure">
+<div id="org0000014" class="figure">
 <p><img src="media/sqldeveloper-bloque-para-debuguear.png" alt="sqldeveloper-bloque-para-debuguear.png" />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0000018" class="outline-3">
-<h3 id="org0000018"><span class="section-number-3">1.7.</span> Avance del programa</h3>
+<div id="outline-container-org0000019" class="outline-3">
+<h3 id="org0000019"><span class="section-number-3">1.7.</span> Avance del programa</h3>
 <div class="outline-text-3" id="text-1-7">
 
-<div id="org0000017" class="figure">
+<div id="org0000018" class="figure">
 <p><img src="media/sqldeveloper-avance-programa.png" alt="sqldeveloper-avance-programa.png" />
 </p>
 </div>
@@ -378,15 +378,15 @@ window.addEventListener("load",()=>{
 </div>
 </div>
 
-<div id="outline-container-org000001c" class="outline-3">
-<h3 id="org000001c"><span class="section-number-3">1.8.</span> Ventana <code>Data</code></h3>
+<div id="outline-container-org000001d" class="outline-3">
+<h3 id="org000001d"><span class="section-number-3">1.8.</span> Ventana <code>Data</code></h3>
 <div class="outline-text-3" id="text-1-8">
 <ul class="org-ul">
 <li>Contiene el valor de las variables de la función/procedimiento</li>
 <li>Su valor se irá actualizando cuando avance el programa</li>
 </ul>
 
-<div id="org000001b" class="figure">
+<div id="org000001c" class="figure">
 <p><img src="media/sqldeveloper-ventana-data.png" alt="sqldeveloper-ventana-data.png" />
 </p>
 </div>
@@ -396,19 +396,20 @@ window.addEventListener("load",()=>{
 
 
 
-<div id="outline-container-org0000029" class="outline-2">
-<h2 id="org0000029"><span class="section-number-2">2.</span> Habilitar el <i>debug</i></h2>
+<div id="outline-container-org000002a" class="outline-2">
+<h2 id="org000002a"><span class="section-number-2">2.</span> Habilitar el <i>debug</i></h2>
 <div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Privilegios</li>
 <li>Habilitar puestos de depuración</li>
+<li>Modo <code>DBMS_DEBUG</code> en vez de <code>DBMS_DEBUG_JDWP</code> (evita conexión inversa desde el servidor)</li>
 </ul>
 </div>
 
-<div id="outline-container-org0000023" class="outline-3">
-<h3 id="org0000023"><span class="section-number-3">2.1.</span> Privilegios</h3>
+<div id="outline-container-org0000024" class="outline-3">
+<h3 id="org0000024"><span class="section-number-3">2.1.</span> Privilegios</h3>
 <div class="outline-text-3" id="text-2-1">
-<pre class="example" id="org0000022">
+<pre class="example" id="org0000023">
 Executing PL/SQL: ALTER SESSION SET PLSQL_DEBUG=TRUE
 Executing PL/SQL: CALL DBMS_DEBUG_JDWP.CONNECT_TCP( '192.168.1.119', '34685' )
 ORA-01031: insufficient privileges
@@ -425,8 +426,8 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </div>
 </div>
 
-<div id="outline-container-org0000026" class="outline-3">
-<h3 id="org0000026"><span class="section-number-3">2.2.</span> Habilitar puestos de depuración</h3>
+<div id="outline-container-org0000027" class="outline-3">
+<h3 id="org0000027"><span class="section-number-3">2.2.</span> Habilitar puestos de depuración</h3>
 <div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>La instancia de Oracle puede limitar los ordenadores que pueden debuguear</li>
@@ -449,8 +450,8 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </div>
 
 
-<div id="outline-container-org0000033" class="outline-2">
-<h2 id="org0000033"><span class="section-number-2">3.</span> Alternativas a depurar</h2>
+<div id="outline-container-org0000034" class="outline-2">
+<h2 id="org0000034"><span class="section-number-2">3.</span> Alternativas a depurar</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>No siempre es fácil depurar</li>
@@ -459,8 +460,8 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </ul>
 </div>
 
-<div id="outline-container-org000002c" class="outline-3">
-<h3 id="org000002c"><span class="section-number-3">3.1.</span> Ejemplo con trazas</h3>
+<div id="outline-container-org000002d" class="outline-3">
+<h3 id="org000002d"><span class="section-number-3">3.1.</span> Ejemplo con trazas</h3>
 <div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #729fcf; font-weight: bold;">create</span> <span style="color: #729fcf; font-weight: bold;">or</span> replace <span style="color: #729fcf; font-weight: bold;">function</span> <span style="color: #edd400; font-weight: bold;">MCD</span>(n1 <span style="color: #729fcf; font-weight: bold;">number</span>,n2 <span style="color: #729fcf; font-weight: bold;">number</span>) <span style="color: #729fcf; font-weight: bold;">return</span> <span style="color: #729fcf; font-weight: bold;">number</span>
@@ -496,11 +497,11 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </div>
 </div>
 
-<div id="outline-container-org0000030" class="outline-3">
-<h3 id="org0000030"><span class="section-number-3">3.2.</span> Ejemplo con trazas</h3>
+<div id="outline-container-org0000031" class="outline-3">
+<h3 id="org0000031"><span class="section-number-3">3.2.</span> Ejemplo con trazas</h3>
 <div class="outline-text-3" id="text-3-2">
 
-<div id="org000002f" class="figure">
+<div id="org0000030" class="figure">
 <p><img src="media/sqldeveloper-trazas.png" alt="sqldeveloper-trazas.png" />
 </p>
 </div>
@@ -509,8 +510,8 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </div>
 
 
-<div id="outline-container-org0000036" class="outline-2">
-<h2 id="org0000036"><span class="section-number-2">4.</span> Referencias</h2>
+<div id="outline-container-org0000037" class="outline-2">
+<h2 id="org0000037"><span class="section-number-2">4.</span> Referencias</h2>
 <div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li>Formatos:
@@ -532,7 +533,7 @@ This session requires DEBUG CONNECT SESSION and DEBUG ANY PROCEDURE user privile
 </div>
 <div id="postamble" class="status">
 <p class="author">Autor: Álvaro González Sotillo</p>
-<p class="date">Created: 2022-10-10 lun 13:48</p>
+<p class="date">Created: 2023-03-21 mar 11:07</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

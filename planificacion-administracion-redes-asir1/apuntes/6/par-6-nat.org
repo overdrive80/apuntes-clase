@@ -130,6 +130,7 @@ En un enrutamiento normal IP los paquetes siempre conservan su IP origen y desti
 
 
 * Curso Redes empresariales, Seguridad y Automatización v7.02
+https://lms.netacad.com/course/view.php?id=1866459
 - Test: https://contenthub.netacad.com/ensa-dl/6.1.5
 - Packet Tracer: https://contenthub.netacad.com/ensa-dl/6.2.7
 - Test: ventajas y desventajas de NAT https://contenthub.netacad.com/ensa-dl/6.3.3
