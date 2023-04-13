@@ -99,7 +99,7 @@ end;
   Crea una tabla \texttt{T\_SALDO} que contenga la ganancia (o pérdida) de la empresa, a partir de las entradas y salidas de producto. Tendrá solo una fila, con una única columna de nombre \texttt{SALDO} con el dinero que se haya conseguido con las salidas, menos el dinero que se haya gastado con las entradas.
   
   \begin{itemize}
-  \item Añade los \textit{triggers} necesarios a tus tablas para que cada vez que se produzca una entrada o salida se actualice el saldo de la empresa.
+  \item Añade los \textit{triggers} necesarios a tus tablas para que cada vez que se produzca una entrada o salida se actualice el saldo de la empresa. Los triggers se llamarán \texttt{TRIGGERENTRADA} y/o \texttt{TRIGGERSALIDA}.
   \item Si la tabla \texttt{T\_SALDO} tiene ya una fila, esa fila se actualizará cuando haya una entrada o una salida
   \item Si la tabla \texttt{T\_SALDO} no tiene ninguna fila, se creará la fila cuando haya una entrada o una salida
   \end{itemize}
