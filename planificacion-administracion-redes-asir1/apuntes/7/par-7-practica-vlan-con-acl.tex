@@ -42,6 +42,7 @@ Se parte del supuesto de la \enlace{https://alvarogonzalezsotillo.github.io/apun
 \begin{itemize}
 \item En una empresa hay dos departamentos: \textbf{comerciales} y \textbf{soporte} al cliente.
 \item Todos los empleados acceden a Internet a través del mismo router. Representamos Internet por un servidor con la ip \texttt{8.8.8.8}).
+\item El router hace NAT para salir a Internet.
 \item Hay un switch en el sistema troncal. Hay un switch por cada sistema horizontal (de planta).  
 \item Los comerciales están en la planta 3, y los de soporte en la planta 2.
 \item A pesar de la división general por plantas, hay un comercial en la planta 2, y un técnico de soporte en la 3.
@@ -50,7 +51,7 @@ Se parte del supuesto de la \enlace{https://alvarogonzalezsotillo.github.io/apun
 \item A pesar de ello, se desea que todos los equipos de la red puedan comunicarse entre sí a nivel IP.
 \end{itemize}
 
-Se quiere añadir además:
+Ahora, se quieren limitar algunos accesos. Se tiene que conseguir que:
 \begin{itemize}
 \item Los servidores no pueden enviar/recibir paquetes a/desde Internet, de ningún tipo.
 \item Los demás ordenadores pueden acceder a Internet, pero solo se permiten conexiones TCP salientes. No se permite intercambio UDP con Internet (se probará intentando usar un servidor de DNS en Internet).
